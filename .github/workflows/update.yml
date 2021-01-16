@@ -12,7 +12,7 @@ jobs:
       matrix:
         model: [models, model3, modelx, modely]
         country: [nl_nl, en_us, de_de]
-      max-parallel: 10
+      max-parallel: 1
     steps: 
     - name: Checkout repo
       uses: actions/checkout@v2
@@ -27,4 +27,4 @@ jobs:
         author_email: mail@niekvandermaas.nl
         message: "Updated Tesla data for: ${{ matrix.country }} ${{ matrix.model }}"
         add: "${{ matrix.country }}/${{ matrix.model }}.json"
-        push: "--set-upstream origin main --force"
+        #push: "--set-upstream origin main --force"
