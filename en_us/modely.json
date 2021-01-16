@@ -1,5 +1,5 @@
 {
-  "date": 1610827535926,
+  "date": 1610827581676,
   "KeyManager": {
     "keys": {
       "Lexicon": [
@@ -7,8 +7,8 @@
           "key": "Lexicon.my",
           "query": {
             "available_configurations": "my:my",
-            "language": "nl",
-            "market": "NL",
+            "language": "en",
+            "market": "US",
             "app": "find-my-tesla",
             "date": "",
             "seekret": "",
@@ -24,8 +24,8 @@
           "key": "Incentives.my.my",
           "query": {
             "available_configurations": "my:my",
-            "language": "nl",
-            "market": "NL",
+            "language": "en",
+            "market": "US",
             "app": "find-my-tesla",
             "date": "",
             "seekret": "",
@@ -41,8 +41,8 @@
           "key": "Fees.my.my",
           "query": {
             "available_configurations": "my:my",
-            "language": "nl",
-            "market": "NL",
+            "language": "en",
+            "market": "US",
             "app": "find-my-tesla",
             "date": "",
             "seekret": "",
@@ -58,8 +58,8 @@
           "key": "Lease.my.my",
           "query": {
             "available_configurations": "my:my",
-            "language": "nl",
-            "market": "NL",
+            "language": "en",
+            "market": "US",
             "app": "find-my-tesla",
             "date": "",
             "seekret": "",
@@ -75,8 +75,8 @@
           "key": "Loan.my.my",
           "query": {
             "available_configurations": "my:my",
-            "language": "nl",
-            "market": "NL",
+            "language": "en",
+            "market": "US",
             "app": "find-my-tesla",
             "date": "",
             "seekret": "",
@@ -92,8 +92,8 @@
           "key": "TCC.my.my",
           "query": {
             "available_configurations": "my:my",
-            "language": "nl",
-            "market": "NL",
+            "language": "en",
+            "market": "US",
             "app": "find-my-tesla",
             "date": "",
             "seekret": "",
@@ -107,8 +107,8 @@
     },
     "query": {
       "available_configurations": "my:my",
-      "language": "nl",
-      "market": "NL",
+      "language": "en",
+      "market": "US",
       "app": "find-my-tesla",
       "date": "",
       "seekret": "",
@@ -120,20 +120,522 @@
     "incentives": [
       {
         "incentiveType": "fuel",
-        "description": "Fuel economy inputs for NL my",
-        "amount": 10900,
+        "description": "Fuel economy inputs for US my",
+        "amount": 4300,
         "period": "fuel",
         "variables": {
-          "months": 60,
-          "distance": 100000,
-          "fuel_efficiency_metric": 8.4,
-          "kwh_consumption": 0.159,
-          "supercharger_kwh_price": 0.25,
-          "fuel_price": 1.68,
-          "kwh_price": 0.2
+          "months": 72,
+          "toll_savings": null,
+          "distance_per_month": 833.33,
+          "distance": 59999.76,
+          "fuel_efficiency_imperial": 28,
+          "fuel_efficiency_metric": null,
+          "kwh_consumption": 0.237,
+          "supercharger_kwh_price": 0.26,
+          "fuel_price": 2.85,
+          "kwh_price": 0.13
         },
         "variant": "my",
-        "market": "NL"
+        "market": "US"
+      },
+      {
+        "description": [
+          "State Incentive for US m3"
+        ],
+        "regionCode": "LA",
+        "incentiveType": "regional",
+        "financeType": [
+          "cash",
+          "loan"
+        ],
+        "period": "once",
+        "amount": 2500,
+        "toggle_amount": null,
+        "long_name": "Louisiana",
+        "variant": [
+          "m3",
+          "my"
+        ],
+        "inventory": [
+          "new"
+        ],
+        "market": "US"
+      },
+      {
+        "description": "California Clean Vehicle Rebate Project US my",
+        "regionCode": "CA",
+        "incentiveType": "afterDelivery",
+        "key": "clean_vehicle_rebate",
+        "financeType": [
+          "cash",
+          "loan"
+        ],
+        "period": "once",
+        "amount": 0,
+        "uiSettings": {
+          "price": 2000,
+          "showOnUI": false
+        },
+        "toggle_amount": {
+          "if": {
+            "trim_price": {
+              "conditions": {
+                "<": 60000
+              },
+              "amount": 2000,
+              "trims": [
+                "$MTY02",
+                "$MTY03",
+                "$MTY04",
+                "$MTY05"
+              ],
+              "modelOption": "$MDLY",
+              "if": {
+                "selected": {
+                  "amount": 2000
+                }
+              }
+            }
+          }
+        },
+        "long_name": "California",
+        "variant": [
+          "my"
+        ],
+        "inventory": [
+          "new"
+        ],
+        "market": "US"
+      },
+      {
+        "description": "California Clean Vehicle Assist Program - EV Incentive",
+        "regionCode": "CA",
+        "incentiveType": "beforeDelivery",
+        "key": "clean_vehicle_assistance_rebate",
+        "financeType": [
+          "cash",
+          "loan"
+        ],
+        "period": "once",
+        "amount": 0,
+        "uiSettings": {
+          "price": 5000,
+          "showOnUI": true,
+          "order": 2
+        },
+        "toggle_amount": {
+          "if": {
+            "selected": {
+              "amount": 5000
+            }
+          }
+        },
+        "unset": [
+          "clean_cars_rebate"
+        ],
+        "long_name": "California",
+        "variant": [
+          "m3",
+          "ms",
+          "mx",
+          "my"
+        ],
+        "inventory": [
+          "new"
+        ],
+        "market": "US"
+      },
+      {
+        "description": [
+          "State Incentive for US mxf",
+          "State Incentive for US mxs",
+          "State Incentive for US mx",
+          "State Incentive for US ms"
+        ],
+        "regionCode": "CO",
+        "incentiveType": "regional",
+        "financeType": [
+          "cash",
+          "loan"
+        ],
+        "period": "once",
+        "amount": 2500,
+        "toggle_amount": null,
+        "long_name": "Colorado",
+        "variant": [
+          "mxf",
+          "mxs",
+          "mx",
+          "ms",
+          "m3",
+          "my"
+        ],
+        "inventory": [
+          "new"
+        ],
+        "market": "US"
+      },
+      {
+        "description": [
+          "State Incentive for US mxf",
+          "State Incentive for US mxs",
+          "State Incentive for US mx",
+          "State Incentive for US ms"
+        ],
+        "regionCode": "CO",
+        "incentiveType": "regional",
+        "financeType": [
+          "lease"
+        ],
+        "period": "once",
+        "amount": 1500,
+        "toggle_amount": null,
+        "long_name": "Colorado",
+        "variant": [
+          "mxf",
+          "mxs",
+          "mx",
+          "ms",
+          "m3",
+          "my"
+        ],
+        "inventory": [
+          "new"
+        ],
+        "market": "US"
+      },
+      {
+        "description": [
+          "State Incentive for US my"
+        ],
+        "regionCode": "DE",
+        "incentiveType": "regional",
+        "financeType": [
+          "cash",
+          "loan",
+          "lease"
+        ],
+        "period": "once",
+        "amount": 0,
+        "toggle_amount": {
+          "if": {
+            "trim_price": {
+              "conditions": {
+                "<": 60000
+              },
+              "amount": 2500,
+              "trims": [
+                "$MTY03",
+                "$MTY04",
+                "$MTY05"
+              ],
+              "modelOption": "$MDLY"
+            }
+          }
+        },
+        "long_name": "Delaware",
+        "variant": [
+          "my"
+        ],
+        "inventory": [
+          "new"
+        ],
+        "market": "US"
+      },
+      {
+        "description": [
+          "State Incentive for US m3"
+        ],
+        "regionCode": "MA",
+        "incentiveType": "regional",
+        "financeType": [
+          "cash",
+          "loan",
+          "lease"
+        ],
+        "period": "once",
+        "amount": 2500,
+        "toggle_amount": {
+          "if": {
+            "car_price": {
+              "conditions": {
+                "vehiclePrice": {
+                  ">": 48800
+                }
+              },
+              "amount": 0
+            }
+          }
+        },
+        "long_name": "Massachusetts",
+        "variant": [
+          "m3",
+          "my"
+        ],
+        "inventory": [
+          "new"
+        ],
+        "market": "US"
+      },
+      {
+        "description": [
+          "State Incentive for US my"
+        ],
+        "regionCode": "ME",
+        "incentiveType": "regional",
+        "financeType": [
+          "cash",
+          "loan",
+          "lease"
+        ],
+        "period": "once",
+        "amount": 0,
+        "toggle_amount": {
+          "if": {
+            "trim_price": {
+              "conditions": {
+                "<": 50000
+              },
+              "amount": 2000,
+              "trims": [
+                "$MTY02",
+                "$MTY03",
+                "$MTY04",
+                "$MTY05"
+              ],
+              "modelOption": "$MDLY"
+            }
+          }
+        },
+        "long_name": "Maine",
+        "variant": [
+          "my"
+        ],
+        "inventory": [
+          "new"
+        ],
+        "market": "US"
+      },
+      {
+        "description": [
+          "State Incentive for US my"
+        ],
+        "regionCode": "NY",
+        "incentiveType": "regional",
+        "financeType": [
+          "cash",
+          "loan",
+          "lease"
+        ],
+        "period": "once",
+        "amount": 500,
+        "toggle_amount": {
+          "if": {
+            "trim_price": {
+              "conditions": {
+                "<": 60000
+              },
+              "amount": 2000,
+              "trims": [
+                "$MTY03",
+                "$MTY04",
+                "$MTY05"
+              ],
+              "modelOption": "$MDLY"
+            }
+          }
+        },
+        "long_name": "New York",
+        "variant": [
+          "my"
+        ],
+        "inventory": [
+          "new"
+        ],
+        "market": "US"
+      },
+      {
+        "description": [
+          "State Incentive for US my",
+          "State Incentive for US m3"
+        ],
+        "regionCode": "OR",
+        "incentiveType": "regional",
+        "financeType": [
+          "lease",
+          "cash"
+        ],
+        "period": "once",
+        "amount": 2500,
+        "toggle_amount": null,
+        "long_name": "Oregon",
+        "variant": [
+          "m3",
+          "my"
+        ],
+        "inventory": [
+          "new",
+          "used"
+        ],
+        "market": "US"
+      },
+      {
+        "description": [
+          "State Incentive for US m3"
+        ],
+        "regionCode": "PA",
+        "incentiveType": "regional",
+        "financeType": [
+          "cash",
+          "loan",
+          "lease"
+        ],
+        "period": "once",
+        "amount": 0,
+        "toggle_amount": {
+          "if": {
+            "car_price": {
+              "conditions": {
+                "vehiclePrice": {
+                  ">": 50000
+                }
+              },
+              "amount": 0
+            }
+          }
+        },
+        "long_name": "Pennsylvania",
+        "variant": [
+          "m3",
+          "my"
+        ],
+        "inventory": [
+          "new"
+        ],
+        "market": "US"
+      },
+      {
+        "description": [
+          "State Incentive for US mxf",
+          "State Incentive for US mxs",
+          "State Incentive for US mx",
+          "State Incentive for US ms"
+        ],
+        "regionCode": "other",
+        "incentiveType": "regional",
+        "financeType": [
+          "cash",
+          "loan",
+          "lease"
+        ],
+        "period": "once",
+        "amount": 0,
+        "toggle_amount": null,
+        "long_name": "Other State",
+        "variant": [
+          "mxf",
+          "mxs",
+          "mx",
+          "ms",
+          "m3",
+          "my"
+        ],
+        "inventory": [
+          "new"
+        ],
+        "market": "US"
+      },
+      {
+        "incentiveType": "roadTax",
+        "financeType": "lease",
+        "period": "monthly",
+        "leaseDistance": [
+          "25000",
+          "20000",
+          "15000",
+          "12500",
+          "12000",
+          "10000"
+        ],
+        "amount": 0,
+        "variant": [
+          "mxf",
+          "mxs",
+          "mx",
+          "ms",
+          "m3",
+          "my"
+        ],
+        "market": "US"
+      },
+      {
+        "incentiveType": "busCarTax",
+        "financeType": "lease",
+        "period": "monthly",
+        "leaseDistance": [
+          "25000",
+          "20000",
+          "15000",
+          "12500",
+          "12000",
+          "10000"
+        ],
+        "amount": 0,
+        "variant": [
+          "mxf",
+          "mxs",
+          "mx",
+          "ms",
+          "m3",
+          "my"
+        ],
+        "market": "US"
+      },
+      {
+        "incentiveType": "sustainableTax",
+        "financeType": "lease",
+        "period": "monthly",
+        "leaseDistance": [
+          "25000",
+          "20000",
+          "15000",
+          "12500",
+          "12000",
+          "10000"
+        ],
+        "amount": 0,
+        "variant": [
+          "mxf",
+          "mxs",
+          "mx",
+          "ms",
+          "m3",
+          "my"
+        ],
+        "market": "US"
+      },
+      {
+        "incentiveType": "electricCost",
+        "financeType": "lease",
+        "period": "monthly",
+        "leaseDistance": [
+          "25000",
+          "20000",
+          "15000",
+          "12500",
+          "12000",
+          "10000"
+        ],
+        "amount": 45,
+        "variant": [
+          "mxf",
+          "mxs",
+          "mx",
+          "ms",
+          "m3",
+          "my"
+        ],
+        "market": "US"
       },
       {
         "incentiveType": "beforeDelivery",
@@ -230,41 +732,32 @@
         "description": "Registration and doc fee",
         "period": "once",
         "variant": [
-          "m3",
-          "my",
           "ms",
-          "mx"
+          "m3",
+          "mx",
+          "my"
         ],
+        "amount": 1200,
+        "market": "US",
         "inventory": [
           "new"
-        ],
-        "amount": 980,
-        "market": "NL"
+        ]
       },
       {
-        "feeType": "recycling_fee",
-        "financeType": "any",
-        "description": "Recycling Fee",
-        "period": "once",
-        "inventory": [
-          "new"
+        "feeType": "acquisition_fee",
+        "description": "Acquisition fee for lease",
+        "financeType": [
+          "lease"
         ],
-        "amount": 35,
-        "market": "NL"
-      },
-      {
-        "feeType": "vat_percent",
-        "financeType": "any",
-        "description": "Vat Calculation",
-        "period": "included",
         "variant": [
-          "m3",
-          "my",
           "ms",
-          "mx"
+          "mx",
+          "m3",
+          "my"
         ],
-        "percent": 21,
-        "market": "NL"
+        "period": "once",
+        "market": "US",
+        "amount": 695
       },
       {
         "feeType": "inspect_prep",
@@ -349,22 +842,194 @@
     ]
   },
   "Lease.my.my": {
-    "lease": []
+    "lease": [
+      {
+        "market": "US",
+        "variant": [
+          "m3",
+          "my"
+        ],
+        "inventory": [
+          "new"
+        ],
+        "incentives": {
+          "federalIncentiveAmount": 3750
+        },
+        "variables": {
+          "maximumDownPayment": 0.25,
+          "downPayment": 4500,
+          "interestRate": 5.68,
+          "leaseTerm": 36,
+          "leaseDistance": 10000
+        },
+        "residualRateMatrix": [
+          {
+            "value": 0.59,
+            "options": [
+              "$MT301",
+              "$MT308",
+              "$MT314",
+              "$MT336",
+              "$MT337"
+            ]
+          },
+          {
+            "value": 0.6,
+            "options": [
+              "$MT303",
+              "$MT310",
+              "$MT315",
+              "$MT316",
+              "$MT321",
+              "$MTY03"
+            ]
+          },
+          {
+            "value": 0.575,
+            "options": [
+              "$MT304",
+              "$MT311",
+              "$MT317",
+              "$MTY04",
+              "$MTY05"
+            ]
+          },
+          {
+            "value": 0.61,
+            "options": [
+              "$MTY01"
+            ]
+          },
+          {
+            "leaseDistance": 10000,
+            "value": 0.04
+          },
+          {
+            "leaseDistance": 12000,
+            "value": 0.02
+          }
+        ],
+        "interestRateMatrix": [
+          {
+            "value": 5.68,
+            "options": [
+              "$MT301",
+              "$MT308",
+              "$MT314",
+              "$MT336",
+              "$MT337"
+            ]
+          },
+          {
+            "value": 5.25,
+            "options": [
+              "$MT303",
+              "$MT310",
+              "$MT315",
+              "$MT316",
+              "$MT321"
+            ]
+          },
+          {
+            "value": 4.46,
+            "options": [
+              "$MTY01"
+            ]
+          },
+          {
+            "value": 4.85,
+            "options": [
+              "$MTY03"
+            ]
+          },
+          {
+            "value": 5.35,
+            "options": [
+              "$MT304",
+              "$MT311",
+              "$MT317"
+            ]
+          },
+          {
+            "value": 5.03,
+            "options": [
+              "$MTY04",
+              "$MTY05"
+            ]
+          }
+        ],
+        "leaseTermsOffered": {
+          "leaseTerm": [
+            36
+          ],
+          "leaseDistance": [
+            10000,
+            12000,
+            15000
+          ]
+        }
+      }
+    ]
   },
   "Loan.my.my": {
-    "loan": []
+    "loan": [
+      {
+        "market": "US",
+        "variant": [
+          "my"
+        ],
+        "inventory": [
+          "new"
+        ],
+        "variables": {
+          "downPayment": 4500,
+          "minimumDownPayment": 0,
+          "interestRate": 2.49,
+          "loanTerm": 72,
+          "loanDistance": null,
+          "minimumFinancedAmount": 10000,
+          "maximumDownPayment": 1
+        },
+        "loanTermsOffered": {
+          "loanTerm": [
+            48,
+            60,
+            72
+          ]
+        },
+        "interestRateMatrix": [],
+        "residualRateMatrix": []
+      }
+    ]
   },
   "TCC.my.my": {
     "tcc": []
   },
   "Lexicon.my": {
-    "id": 442,
-    "effective_date": "2020-12-05T00:10:00.000Z",
-    "market": "NL",
+    "id": 716,
+    "effective_date": "2021-01-08T07:24:10.375Z",
+    "market": "US",
     "product": "my",
     "factory": "GF00",
-    "fees": {},
-    "name": "Marketing NL 2020.Dec.05 442.549.590",
+    "fees": {
+      "fuel_reward": {
+        "amount": 1500,
+        "period": "includedInPurchasePrice",
+        "uiSettings": {
+          "order": 1,
+          "price": 1500,
+          "showOnUI": true
+        },
+        "toggle_amount": {
+          "if": {
+            "selected": {
+              "amount": 1500
+            }
+          }
+        }
+      }
+    },
+    "name": "Marketing US 2021.Jan.08 716.1024.790",
     "groups": [
       {
         "code": "MODEL",
@@ -385,6 +1050,8 @@
         "groups": [],
         "context": "default",
         "options": [
+          "$MTY01",
+          "$MTY02",
           "$MTY03",
           "$MTY04",
           "$MTY05"
@@ -392,27 +1059,40 @@
         "required": true,
         "exclusive": true,
         "default_options": [
-          "$MTY03"
+          "$MTY01"
         ],
         "name": "TRIM"
+      },
+      {
+        "code": "TOWING",
+        "groups": [],
+        "context": "default",
+        "options": [
+          "$TW01"
+        ],
+        "required": false,
+        "exclusive": false,
+        "default_options": [],
+        "name": "Tow Hitch"
       },
       {
         "code": "DRIVE_MODE",
         "groups": [],
         "context": "default",
         "options": [
+          "$DV2W",
           "$DV4W"
         ],
         "required": true,
         "exclusive": true,
         "default_options": [
-          "$DV4W"
+          "$DV2W"
         ],
-        "name": "Aandrijflijn",
+        "name": "Drivetrain",
         "extra_copy": [
           {
             "type": "name",
-            "content": "Selecteer uw auto"
+            "content": "Select Your Car"
           }
         ]
       },
@@ -429,7 +1109,7 @@
         "default_options": [
           "$INYPB"
         ],
-        "name": "Interieur",
+        "name": "Interior",
         "extra_copy": []
       },
       {
@@ -456,23 +1136,23 @@
           "$PBSB",
           "$PMNG",
           "$PPSB",
-          "$PPSW",
-          "$PPMR"
+          "$PPMR",
+          "$PPSW"
         ],
         "required": true,
         "exclusive": true,
         "default_options": [
           "$PPSW"
         ],
-        "name": "Kleur",
+        "name": "Color",
         "extra_copy": [
           {
             "type": "name",
-            "content": "Selecteer uw kleur"
+            "content": "Select Color"
           },
           {
             "type": "section_title",
-            "content": "Exterieur"
+            "content": "Exterior"
           }
         ],
         "extra_content": [
@@ -511,11 +1191,11 @@
         "default_options": [
           "$WY19B"
         ],
-        "name": "Wielen",
+        "name": "Wheels",
         "extra_copy": [
           {
             "type": "name",
-            "content": "Selecteer uw velgen"
+            "content": "Select Wheels"
           }
         ],
         "extra_content": [
@@ -566,7 +1246,20 @@
         "default_options": [
           "$PRMY1"
         ],
-        "name": "Interieur"
+        "name": "Interior"
+      },
+      {
+        "code": "SUPER_CHARGER",
+        "groups": [],
+        "context": "default",
+        "options": [
+          "$SC04",
+          "$SC05",
+          "$SC06"
+        ],
+        "required": false,
+        "exclusive": true,
+        "name": "SUPER_CHARGER"
       },
       {
         "code": "SPOILER",
@@ -588,7 +1281,7 @@
         ],
         "required": false,
         "exclusive": false,
-        "name": "PEDALEN"
+        "name": "PEDALS"
       },
       {
         "code": "SPORT_PACKAGE",
@@ -613,20 +1306,7 @@
         ],
         "required": false,
         "exclusive": false,
-        "name": "REMMEN"
-      },
-      {
-        "code": "SUPER_CHARGER",
-        "groups": [],
-        "context": "default",
-        "options": [
-          "$SC04",
-          "$SC05",
-          "$SC06"
-        ],
-        "required": false,
-        "exclusive": true,
-        "name": "SUPER_CHARGER"
+        "name": "BRAKES"
       },
       {
         "code": "CONNECTIVITY",
@@ -639,21 +1319,20 @@
         "required": true,
         "exclusive": true,
         "default_options": [
-          "$CPF1"
+          "$CPF0"
         ],
         "name": "CONNECTIVITY"
       },
       {
-        "code": "TOWING",
+        "code": "PERF_FIRMWARE",
         "groups": [],
         "context": "default",
         "options": [
-          "$TW01"
+          "$FM3U"
         ],
         "required": false,
         "exclusive": false,
-        "default_options": [],
-        "name": "Trekhaak"
+        "default_options": []
       },
       {
         "code": "CORE",
@@ -661,13 +1340,15 @@
         "context": "order_summary",
         "options": [
           "$MDLY",
+          "$MTY01",
+          "$MTY02",
           "$MTY03",
           "$MTY04",
           "$MTY05"
         ],
         "required": false,
         "exclusive": false,
-        "name": "Betaling"
+        "name": "Payment"
       },
       {
         "code": "OPTIONS",
@@ -678,21 +1359,20 @@
           "$INYPW",
           "$PBSB",
           "$PMNG",
-          "$PMBL",
-          "$PMSS",
+          "$PPMR",
           "$PPSB",
-          "$STY5S",
           "$PPSW",
+          "$STY5S",
           "$STY7S",
           "$WY19B",
-          "$WY21P",
           "$WY20P",
+          "$WY21P",
           "$APBS",
           "$APF2"
         ],
         "required": false,
         "exclusive": false,
-        "name": "Specificaties"
+        "name": "Options"
       },
       {
         "code": "REVIEW_ORDER",
@@ -721,23 +1401,24 @@
         "groups": [],
         "context": "configurator",
         "options": [
+          "$MTY01",
           "$MTY03",
           "$MTY05"
         ],
         "required": true,
         "exclusive": true,
         "default_options": [
-          "$MTY03"
+          "$MTY01"
         ],
         "name": "TRIM",
         "extra_copy": [
           {
             "type": "name",
-            "content": "Selecteer uw auto"
+            "content": "Select Your Car"
           },
           {
             "type": "compare_title",
-            "content": "Vergelijken"
+            "content": "Compare"
           }
         ]
       },
@@ -758,7 +1439,7 @@
         "extra_copy": [
           {
             "type": "name",
-            "content": "Selecteer interieurindeling"
+            "content": "Select Interior Layout"
           }
         ]
       },
@@ -778,15 +1459,15 @@
         "default_options": [
           "$PPSW"
         ],
-        "name": "Kleur",
+        "name": "Color",
         "extra_copy": [
           {
             "type": "name",
-            "content": "Selecteer uw kleur"
+            "content": "Select Color"
           },
           {
             "type": "section_title",
-            "content": "Exterieur"
+            "content": "Exterior"
           }
         ],
         "extra_content": [
@@ -825,11 +1506,11 @@
         "default_options": [
           "$WY19B"
         ],
-        "name": "Wielen",
+        "name": "Wheels",
         "extra_copy": [
           {
             "type": "name",
-            "content": "Selecteer uw velgen"
+            "content": "Select Wheels"
           }
         ],
         "extra_content": [
@@ -877,8 +1558,8 @@
         "required": false,
         "exclusive": false,
         "default_options": [],
-        "name": "Autopilot-pakket",
-        "description": "Details Autopilot-pakket",
+        "name": "Autopilot Package",
+        "description": "Autopilot Package Description",
         "extra_copy": [
           {
             "type": "feature_list.default[0].title",
@@ -886,7 +1567,7 @@
           },
           {
             "type": "feature_list.default[0].description",
-            "content": "De geavanceerde Autopilotfuncties voor veiligheid en comfort zijn ontworpen om u te ontlasten bij het autorijden. Alle nieuwe Tesla’s worden standaard geleverd met functies ter ondersteuning van de bestuurder, waaronder een automatische noodstop, botswaarschuwing en dodehoekcontrole."
+            "content": "Autopilot advanced safety and convenience features are designed to assist you with the most burdensome parts of driving. All new Tesla cars come standard with driver assistance features such as emergency braking, collision warning and blind-spot monitoring."
           }
         ],
         "extra_content": [
@@ -966,13 +1647,13 @@
         "options": [],
         "required": false,
         "exclusive": false,
-        "name": "Kleur en velgen",
-        "description": "Kleur en velgen",
-        "long_name": "Kleur en velgen",
+        "name": "Color & Wheels",
+        "description": "Color & Wheels",
+        "long_name": "Color & Wheels",
         "extra_copy": [
           {
             "type": "name",
-            "content": "Exterieur"
+            "content": "Exterior"
           }
         ],
         "extra_content": [
@@ -998,13 +1679,13 @@
         "options": [],
         "required": false,
         "exclusive": false,
-        "name": "Kleur en velgen",
-        "description": "Kleur en velgen",
-        "long_name": "Kleur en velgen",
+        "name": "Color & Wheels",
+        "description": "Color & Wheels",
+        "long_name": "Color & Wheels",
         "extra_copy": [
           {
             "type": "name",
-            "content": "Exterieur"
+            "content": "Exterior"
           }
         ],
         "extra_content": [
@@ -1023,7 +1704,8 @@
       {
         "code": "PACKAGES",
         "groups": [
-          "PREMIUM_PACKAGE",
+          "INTERIOR_STD",
+          "INTERIOR_PRE",
           "REAR_SEATS"
         ],
         "context": "configurator",
@@ -1031,16 +1713,12 @@
         "required": false,
         "exclusive": false,
         "default_options": [],
-        "name": "Pakketten",
-        "description": "Pakketten",
+        "name": "Packages",
+        "description": "Packages",
         "extra_copy": [
           {
             "type": "name",
-            "content": "Selecteer interieur"
-          },
-          {
-            "type": "group_disclaimer[0]",
-            "content": "Interieur met zeven zitplaatsen beschikbaar in 2021"
+            "content": "Select Interior"
           }
         ],
         "extra_content": [
@@ -1085,12 +1763,12 @@
         ],
         "required": false,
         "exclusive": false,
-        "name": "Interieur",
-        "long_name": "Premium upgrades",
+        "name": "Interior",
+        "long_name": "Premium Upgrades",
         "extra_copy": [
           {
             "type": "name",
-            "content": "Selecteer interieur"
+            "content": "Select Interior"
           }
         ],
         "extra_content": []
@@ -1108,7 +1786,7 @@
         "extra_copy": [
           {
             "type": "name",
-            "content": "Selecteer spoiler"
+            "content": "Select Spoiler"
           }
         ]
       },
@@ -1121,26 +1799,22 @@
         ],
         "required": false,
         "exclusive": false,
-        "name": "PEDALEN"
+        "name": "PEDALS"
       },
       {
         "code": "SPORT_PACKAGE",
         "groups": [],
         "context": "configurator",
         "options": [
-          "$SPTY1",
-          "$WY21P",
-          "$BCYR",
-          "$SLR1",
-          "$PL31"
+          "$SPTY1"
         ],
         "required": false,
         "exclusive": false,
-        "name": "Performance upgrade",
+        "name": "Performance Upgrade",
         "extra_copy": [
           {
-            "type": "name",
-            "content": "Performance upgrade"
+            "type": "sub_title",
+            "content": " "
           }
         ]
       },
@@ -1154,8 +1828,8 @@
         "required": false,
         "exclusive": false,
         "default_options": [],
-        "name": "Levertijden",
-        "description": "Levertijden",
+        "name": "Delivery timings",
+        "description": "Delivery timings",
         "extra_copy": [],
         "extra_content": [
           {
@@ -1167,7 +1841,7 @@
                     "$MTY03"
                   ]
                 },
-                "delivery_date": "De productie begint naar verwachting begin 2021"
+                "delivery_date": "Estimated Delivery: 4-8 weeks"
               },
               {
                 "selected_by": {
@@ -1175,15 +1849,7 @@
                     "$MTY04"
                   ]
                 },
-                "delivery_date": "De productie begint naar verwachting begin 2021"
-              },
-              {
-                "selected_by": {
-                  "and": [
-                    "$MTY02"
-                  ]
-                },
-                "delivery_date": "De productie begint naar verwachting begin 2021"
+                "delivery_date": "Estimated Delivery: 4-8 weeks"
               }
             ]
           }
@@ -1211,33 +1877,75 @@
           {
             "type": "sub_title",
             "content": "Dual Motor All-Wheel Drive"
+          },
+          {
+            "type": "disclaimer_savingsPrice",
+            "content": "* Costs above include potential incentives and gas savings of {SAVING_PRICE}."
+          },
+          {
+            "type": "disclaimer_purchasePrice",
+            "content": "All prices are shown without potential incentives or gas savings of {SAVING_PRICE}."
+          },
+          {
+            "type": "disclaimer_savingsPrice_CA",
+            "content": "* Prices shown include the {INCENTIVE_AMOUNT} {NAME_OF_INCENTIVE} and potential incentives and gas savings of {SAVING_PRICE}."
+          },
+          {
+            "type": "disclaimer_purchasePrice_CA",
+            "content": "Prices shown without the {INCENTIVE_AMOUNT} {NAME_OF_INCENTIVE} and potential incentives and gas savings of {SAVING_PRICE}."
+          },
+          {
+            "type": "disclaimer_customIncentives",
+            "content": "<a>Customize</a>",
+            "behavior": [
+              {
+                "type": "ACTION",
+                "content": {
+                  "type": "SHOW_INCENTIVES_MODAL"
+                }
+              }
+            ]
+          },
+          {
+            "type": "disclaimer_learnMore",
+            "content": "Learn More",
+            "behavior": [
+              {
+                "type": "ACTION",
+                "content": {
+                  "type": "SHOW_SAVINGS_MODAL"
+                }
+              }
+            ]
           }
         ]
       },
       {
         "code": "BATTERY_AND_DRIVE",
         "groups": [
-          "DUAL_MOTOR_PREMIUM"
+          "REAR_WHEEL_DRIVE_STANDARD",
+          "DUAL_MOTOR_PREMIUM",
+          "SPORT_PACKAGE"
         ],
         "context": "configurator",
         "options": [],
         "required": false,
         "exclusive": false,
         "default_options": [],
-        "name": "Batterij en aandrijflijn",
-        "description": "Batterij en aandrijflijn",
+        "name": "Battery & Drivetrain",
+        "description": "Battery and Drivetrain",
         "extra_copy": [
           {
             "type": "group_disclaimer",
-            "content": "Alle auto’s zijn voorzien van een premium interieur en een premium audiosysteem."
+            "content": "All cars have premium interior and sound"
           },
           {
             "type": "zero_to_road_limit_units",
-            "content": "0 tot 100 km/u"
+            "content": "0-60 mph"
           },
           {
             "type": "range_units",
-            "content": "Bereik"
+            "content": "Range (Est.)"
           },
           {
             "type": "epa",
@@ -1249,64 +1957,27 @@
           },
           {
             "type": "range_units_short",
-            "content": "km"
+            "content": "mi"
           },
           {
             "type": "top_speed_units_short",
-            "content": "km/u"
+            "content": "mph"
           },
           {
             "type": "range_units_epa",
-            "content": "Bereik"
+            "content": "Range (EPA est.)"
           },
           {
             "type": "top_speed_units",
-            "content": "Topsnelheid"
+            "content": "Top Speed"
           },
           {
             "type": "name",
-            "content": "Selecteer uw auto"
+            "content": "Select Your Car"
           },
           {
             "type": "section_title",
-            "content": "Auto"
-          },
-          {
-            "type": "disclaimer_copy[0]",
-            "content": " ",
-            "behavior": [
-              {
-                "type": "CONTAINER",
-                "content": {
-                  "tag": "p",
-                  "props": {
-                    "style": {
-                      "display": "block"
-                    }
-                  }
-                }
-              }
-            ]
-          },
-          {
-            "type": "range_units_est_link",
-            "content": "(WLTP-schatting)",
-            "behavior": [
-              {
-                "type": "ACTION",
-                "content": {
-                  "type": "SHOW_RANGE_MODAL"
-                }
-              }
-            ]
-          },
-          {
-            "type": "range_info_title",
-            "content": "Bereik"
-          },
-          {
-            "type": "range_info_disclaimer",
-            "content": "Cijfers met betrekking tot de actieradius zijn gebaseerd op de WLTP-standaard. Het werkelijke bereik van het voertuig is afhankelijk van de voertuigconfiguratie, batterijleeftijd en -conditie, rijstijl en de gebruiks-, omgevings-, en klimaatomstandigheden. De WLTP-standaard kan nuttig zijn voor het vergelijken van de actieradius van verschillende elektrische voertuigen."
+            "content": "Car"
           }
         ],
         "extra_content": [
@@ -1324,48 +1995,78 @@
             "type": "performance_specs",
             "content": [
               {
-                "range": 540,
+                "range": 244,
                 "units": "imperial",
-                "top_speed": 209,
+                "top_speed": 135,
                 "selected_by": {
                   "and": [
-                    "$MTY02"
+                    "$MTY01"
                   ]
                 },
-                "zero_to_road_limit": 5.8
+                "zero_to_road_limit": 5.3,
+                "range_units_override": "range_units_epa"
               },
               {
-                "range": 505,
+                "range": 326,
                 "units": "imperial",
-                "top_speed": 217,
+                "top_speed": 135,
                 "selected_by": {
                   "and": [
                     "$MTY03"
                   ]
                 },
-                "zero_to_road_limit": 5.1
+                "zero_to_road_limit": 4.8,
+                "range_units_override": "range_units_epa"
               },
               {
-                "range": 480,
+                "range": 291,
                 "units": "imperial",
-                "top_speed": 241,
+                "top_speed": 155,
+                "selected_by": {
+                  "and": [
+                    "$MTY04",
+                    "$SPTY1"
+                  ]
+                },
+                "zero_to_road_limit": 3.5,
+                "range_units_override": "range_units_epa"
+              },
+              {
+                "range": 315,
+                "units": "imperial",
+                "top_speed": 145,
                 "selected_by": {
                   "and": [
                     "$MTY04"
                   ]
                 },
-                "zero_to_road_limit": 3.7
+                "zero_to_road_limit": 3.5,
+                "range_units_override": "range_units_epa"
               },
               {
-                "range": 480,
+                "range": 303,
                 "units": "imperial",
-                "top_speed": 241,
+                "top_speed": 155,
+                "selected_by": {
+                  "and": [
+                    "$MTY05",
+                    "$SPTY1"
+                  ]
+                },
+                "zero_to_road_limit": 3.5,
+                "range_units_override": "range_units_epa"
+              },
+              {
+                "range": 315,
+                "units": "imperial",
+                "top_speed": 145,
                 "selected_by": {
                   "and": [
                     "$MTY05"
                   ]
                 },
-                "zero_to_road_limit": 3.7
+                "zero_to_road_limit": 3.5,
+                "range_units_override": "range_units_epa"
               }
             ]
           }
@@ -1376,13 +2077,330 @@
         "groups": [],
         "context": "configurator",
         "options": [
+          "$MTY01",
+          "$MTY02",
           "$MTY03",
           "$MTY04",
           "$MTY05"
         ],
         "required": false,
         "exclusive": false,
-        "name": "Betaling"
+        "name": "Payment"
+      },
+      {
+        "code": "REAR_WHEEL_PREMIUM",
+        "groups": [],
+        "context": "configurator",
+        "options": [
+          "$MTY02"
+        ],
+        "required": false,
+        "exclusive": false,
+        "default_options": [
+          "$MTY02"
+        ],
+        "name": "REAR_WHEEL_PREMIUM",
+        "extra_copy": [
+          {
+            "type": "name",
+            "content": " "
+          },
+          {
+            "type": "sub_title",
+            "content": "Rear-Wheel Drive"
+          }
+        ]
+      },
+      {
+        "code": "FEDERAL_TAX_CREDIT",
+        "groups": [],
+        "context": "configurator",
+        "options": [],
+        "required": false,
+        "exclusive": false,
+        "name": "federalTax",
+        "extra_copy": [
+          {
+            "type": "fuelReward",
+            "content": "$1,500 Clean Fuel Reward is now available for California residents."
+          }
+        ]
+      },
+      {
+        "code": "REAR_WHEEL_DRIVE_STANDARD",
+        "groups": [],
+        "context": "configurator",
+        "options": [
+          "$MTY01"
+        ],
+        "required": false,
+        "exclusive": false,
+        "default_options": [
+          "$MTY01"
+        ],
+        "name": "REAR_WHEEL_DRIVE_STANDARD",
+        "extra_copy": [
+          {
+            "type": "name",
+            "content": " "
+          },
+          {
+            "type": "sub_title",
+            "content": "Rear-Wheel Drive"
+          }
+        ]
+      },
+      {
+        "code": "INTERIOR_STD",
+        "groups": [],
+        "context": "configurator",
+        "options": [
+          "$INYPB",
+          "$INYPW"
+        ],
+        "required": false,
+        "exclusive": false,
+        "name": "Interior",
+        "long_name": "Premium Upgrades",
+        "extra_copy": [
+          {
+            "type": "feature_list.detail[0].main_title",
+            "content": "Includes:"
+          },
+          {
+            "type": "feature_list.detail[0].items[0]",
+            "content": "12-way power adjustable front and rear heated seats"
+          },
+          {
+            "type": "feature_list.detail[0].items[1]",
+            "content": "Independently folding 2nd row seats"
+          },
+          {
+            "type": "feature_list.detail[0].items[2]",
+            "content": "Premium audio – 14 speakers, 1 subwoofer, 2 amps, and immersive sound"
+          },
+          {
+            "type": "feature_list.detail[1].items[0].main_title",
+            "content": "Premium Connectivity (30 days included):"
+          },
+          {
+            "type": "feature_list.detail[1].items[0].sub_items[0]",
+            "content": "Satellite maps with live traffic visualization"
+          },
+          {
+            "type": "feature_list.detail[1].items[0].sub_items[1]",
+            "content": "In-car internet streaming music and media"
+          },
+          {
+            "type": "feature_list.detail[1].items[0].sub_items[2]",
+            "content": "Video streaming"
+          },
+          {
+            "type": "feature_list.detail[1].items[0].sub_items[3]",
+            "content": "Caraoke"
+          },
+          {
+            "type": "feature_list.detail[1].items[0].sub_items[4]",
+            "content": "Internet browser"
+          },
+          {
+            "type": "feature_list.detail[2].items[0]",
+            "content": "Music and media over Bluetooth®"
+          },
+          {
+            "type": "feature_list.detail[2].items[1]",
+            "content": "LED fog lamps"
+          },
+          {
+            "type": "feature_list.detail[2].items[2]",
+            "content": "Tinted glass roof with ultraviolet and infrared protection"
+          },
+          {
+            "type": "feature_list.detail[2].items[3]",
+            "content": "Power folding, auto-dimming, heated side mirrors"
+          },
+          {
+            "type": "feature_list.detail[2].items[4]",
+            "content": "Custom driver profiles"
+          },
+          {
+            "type": "feature_list.detail[2].items[5]",
+            "content": "Center console with storage, 4 USB ports and docking for 2 smartphones"
+          },
+          {
+            "type": "view_details_collapsed",
+            "content": "Show Details",
+            "behavior": [
+              {
+                "type": "ACTION",
+                "content": {
+                  "type": "FEATURES_LIST_EXPAND",
+                  "props": {
+                    "groups": [
+                      "INTERIOR_STD"
+                    ]
+                  },
+                  "classNames": [
+                    "tsla-view-more",
+                    "tsla-view-more--collapsed"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "view_details_expanded",
+            "content": "Hide Details",
+            "behavior": [
+              {
+                "type": "ACTION",
+                "content": {
+                  "type": "FEATURES_LIST_COLLAPSE",
+                  "props": {
+                    "groups": [
+                      "INTERIOR_STD"
+                    ]
+                  },
+                  "classNames": [
+                    "tsla-view-more",
+                    "tsla-view-more--expanded"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "name",
+            "content": "Select Interior"
+          }
+        ],
+        "extra_content": []
+      },
+      {
+        "code": "INTERIOR_PRE",
+        "groups": [],
+        "context": "configurator",
+        "options": [
+          "$INYPB",
+          "$INYPW"
+        ],
+        "required": false,
+        "exclusive": false,
+        "name": "Interior",
+        "long_name": "Premium Upgrades",
+        "extra_copy": [
+          {
+            "type": "feature_list.detail[0].main_title",
+            "content": "Includes:"
+          },
+          {
+            "type": "feature_list.detail[0].items[0]",
+            "content": "12-way power adjustable front and rear heated seats"
+          },
+          {
+            "type": "feature_list.detail[0].items[1]",
+            "content": "Independently folding 2nd row seats"
+          },
+          {
+            "type": "feature_list.detail[0].items[2]",
+            "content": "Premium audio – 14 speakers, 1 subwoofer, 2 amps, and immersive sound"
+          },
+          {
+            "type": "feature_list.detail[1].items[0].main_title",
+            "content": "Premium Connectivity (1 year included):"
+          },
+          {
+            "type": "feature_list.detail[1].items[0].sub_items[0]",
+            "content": "Satellite maps with live traffic visualization"
+          },
+          {
+            "type": "feature_list.detail[1].items[0].sub_items[1]",
+            "content": "In-car internet streaming music and media"
+          },
+          {
+            "type": "feature_list.detail[1].items[0].sub_items[2]",
+            "content": "Video streaming"
+          },
+          {
+            "type": "feature_list.detail[1].items[0].sub_items[3]",
+            "content": "Caraoke"
+          },
+          {
+            "type": "feature_list.detail[1].items[0].sub_items[4]",
+            "content": "Internet browser"
+          },
+          {
+            "type": "feature_list.detail[2].items[0]",
+            "content": "Music and media over Bluetooth®"
+          },
+          {
+            "type": "feature_list.detail[2].items[1]",
+            "content": "LED fog lamps"
+          },
+          {
+            "type": "feature_list.detail[2].items[2]",
+            "content": "Tinted glass roof with ultraviolet and infrared protection"
+          },
+          {
+            "type": "feature_list.detail[2].items[3]",
+            "content": "Power folding, auto-dimming, heated side mirrors"
+          },
+          {
+            "type": "feature_list.detail[2].items[4]",
+            "content": "Custom driver profiles"
+          },
+          {
+            "type": "feature_list.detail[2].items[5]",
+            "content": "Center console with storage, 4 USB ports and docking for 2 smartphones"
+          },
+          {
+            "type": "view_details_collapsed",
+            "content": "Show Details",
+            "behavior": [
+              {
+                "type": "ACTION",
+                "content": {
+                  "type": "FEATURES_LIST_EXPAND",
+                  "props": {
+                    "groups": [
+                      "INTERIOR_PRE"
+                    ]
+                  },
+                  "classNames": [
+                    "tsla-view-more",
+                    "tsla-view-more--collapsed"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "view_details_expanded",
+            "content": "Hide Details",
+            "behavior": [
+              {
+                "type": "ACTION",
+                "content": {
+                  "type": "FEATURES_LIST_COLLAPSE",
+                  "props": {
+                    "groups": [
+                      "INTERIOR_PRE"
+                    ]
+                  },
+                  "classNames": [
+                    "tsla-view-more",
+                    "tsla-view-more--expanded"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "name",
+            "content": "Select Interior"
+          }
+        ],
+        "extra_content": []
       }
     ],
     "options": {
@@ -1419,23 +2437,23 @@
         "extra_copy": [
           {
             "type": "price_indicator",
-            "content": "Inbegrepen"
-          },
-          {
-            "type": "feature_list.default.items[0]",
-            "content": "Hiermee kan uw auto automatisch sturen en accelereren en remmen voor andere voertuigen en voetgangers in dezelfde rijstrook."
+            "content": "Included"
           },
           {
             "type": "description",
             "content": " "
           },
           {
+            "type": "feature_list.default.items[0]",
+            "content": "Enables your car to steer, accelerate and brake automatically for other vehicles and pedestrians within its lane."
+          },
+          {
             "type": "selectLabel",
-            "content": "Optie selecteren"
+            "content": "Select Option"
           },
           {
             "type": "deselectLabel",
-            "content": "Optie geselecteerd"
+            "content": "Option Selected"
           }
         ],
         "extra_content": [
@@ -1457,12 +2475,12 @@
           },
           {
             "type": "trial",
-            "value": 3200,
+            "value": 3000,
             "context": "default"
           },
           {
             "type": "upgrade",
-            "value": 3200,
+            "value": 3000,
             "context": "default"
           }
         ]
@@ -1502,53 +2520,53 @@
             "target": "$APF2"
           }
         ],
-        "name": "Volledig zelfrijdende besturing",
-        "description": "Volledig zelfrijdende besturing",
-        "long_name": "Volledig zelfrijdende besturing",
+        "name": "Full Self-Driving Capability",
+        "description": "Full Self-Driving Capability",
+        "long_name": "Full Self-Driving Capability",
         "extra_copy": [
           {
             "type": "price_indicator",
-            "content": "optioneel"
+            "content": "optional"
           },
           {
             "type": "disclaimer_details",
-            "content": "De functies die momenteel beschikbaar zijn, vereisen actief toezicht van de bestuurder en maken de auto niet zelfrijdend. Sommige functies vereisen het gebruik van richtingaanwijzers en andere functies zijn afhankelijk van de afstand naar uw auto. De activering en het gebruik van deze functies zijn afhankelijk van het bereiken van een betrouwbaarheid die menselijke bestuurders ruimschoots overtreft. Dit zal blijken uit miljarden gereden kilometers en wettelijke goedkeuring, wat in sommige landen langer kan duren. Naarmate deze functies voor een zelfrijdende auto zich ontwikkelen, wordt uw auto voortdurend verbeterd en vernieuwd door middel van draadloze software-updates."
+            "content": "The currently enabled features require active driver supervision and do not make the vehicle autonomous. The activation and use of these features are dependent on achieving reliability far in excess of human drivers as demonstrated by billions of miles of experience, as well as regulatory approval, which may take longer in some jurisdictions. As these self-driving features evolve, your car will be continuously upgraded through over-the-air software updates."
           },
           {
             "type": "feature_list.default[0].items[0]",
-            "content": "Navigeren met Autopilot: automatisch rijden van oprit tot afrit op de snelweg, inclusief knooppunten en het inhalen van andere voertuigen."
+            "content": "Navigate on Autopilot: automatic driving from highway on-ramp to off-ramp including interchanges and overtaking slower cars."
           },
           {
             "type": "feature_list.default[0].items[1]",
-            "content": "Auto Lane Change: automatisch van rijbaan wisselen tijdens het rijden op de snelweg."
+            "content": "Auto Lane Change: automatic lane changes while driving on the highway."
           },
           {
             "type": "feature_list.default[0].items[2]",
-            "content": "Autopark: zowel fileparkeren als haaks parkeren."
+            "content": "Autopark: both parallel and perpendicular spaces."
           },
           {
             "type": "feature_list.default[0].items[3]",
-            "content": "Summon: uw auto automatisch parkeren en laten voorrijden."
+            "content": "Summon: your parked car will come find you anywhere in a parking lot. Really."
+          },
+          {
+            "type": "feature_list.default[0].items[4]",
+            "content": "Traffic Light and Stop Sign Control: assisted stops at traffic controlled intersections."
           },
           {
             "type": "feature_list.default[1].main_title",
-            "content": "Later dit jaar verwacht:"
+            "content": "Upcoming:"
           },
           {
             "type": "feature_list.default[1].items[0]",
-            "content": "Herkennen van, en reageren op verkeerslichten en stopborden."
+            "content": "Autosteer on city streets."
           },
           {
-            "type": "feature_list.default[1].items[1]",
-            "content": "Automatisch rijden binnen de bebouwde kom."
-          },
-          {
-            "type": "feature_list.default[1].items[2]",
-            "content": "Geavanceerde Summon — uw auto komt op de parkeerplaats automatisch naar u toe."
+            "type": "disclaimer_bold",
+            "content": "Includes the Full Self Driving Computer"
           },
           {
             "type": "disclaimer[0]",
-            "content": "Volledig zelfrijdende besturing kan na levering worden aangeschaft. De prijzen hiervan worden naar verwachting in de loop van de tijd hoger naarmate nieuwe functies worden uitgebracht."
+            "content": "Full Self-Driving Capability is available for purchase post-delivery, prices are likely to increase over time with new feature releases"
           },
           {
             "type": "description",
@@ -1556,11 +2574,53 @@
           },
           {
             "type": "selectLabel",
-            "content": "Optie selecteren"
+            "content": "Select Option"
           },
           {
             "type": "deselectLabel",
-            "content": "Optie geselecteerd"
+            "content": "Option Selected"
+          },
+          {
+            "type": "view_details_collapsed",
+            "content": "Show Details",
+            "behavior": [
+              {
+                "type": "ACTION",
+                "content": {
+                  "type": "FEATURES_LIST_EXPAND",
+                  "props": {
+                    "options": [
+                      "$APF2"
+                    ]
+                  },
+                  "classNames": [
+                    "tsla-view-more",
+                    "tsla-view-more--collapsed"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "type": "view_details_expanded",
+            "content": "Hide Details",
+            "behavior": [
+              {
+                "type": "ACTION",
+                "content": {
+                  "type": "FEATURES_LIST_COLLAPSE",
+                  "props": {
+                    "options": [
+                      "$APF2"
+                    ]
+                  },
+                  "classNames": [
+                    "tsla-view-more",
+                    "tsla-view-more--expanded"
+                  ]
+                }
+              }
+            ]
           }
         ],
         "extra_content": [
@@ -1573,27 +2633,27 @@
             ]
           }
         ],
-        "price": 7500,
+        "price": 10000,
         "pricing": [
           {
             "type": "base",
-            "value": 7500,
+            "value": 10000,
             "context": "default"
           },
           {
             "type": "trial",
-            "value": 7500,
+            "value": 10000,
             "context": "default"
           },
           {
             "type": "upgrade",
-            "value": 7500,
+            "value": 10000,
             "context": "default",
             "set_rules": [
               {
                 "action": "set",
                 "target": "$APF2",
-                "target_value": 3800,
+                "target_value": 5000,
                 "condition_code": "$APPB",
                 "condition_state": "set",
                 "target_property": "price"
@@ -1636,6 +2696,10 @@
             "target": "$APPB"
           }
         ],
+        "name": "Enhanced Autopilot",
+        "description": "Enhanced Autopilot",
+        "long_name": "Enhanced Autopilot",
+        "extra_copy": [],
         "price": 4000,
         "pricing": [
           {
@@ -1699,17 +2763,17 @@
             "condition_state": "set"
           }
         ],
-        "name": "Performance remmen",
-        "description": "Performance remmen",
-        "long_name": "Performance remmen",
+        "name": "Performance Brakes",
+        "description": "Performance Brakes",
+        "long_name": "Performance Brakes",
         "extra_copy": [
           {
             "type": "description",
-            "content": "Grotere, stijvere remklauwen en lichtgewicht tweedelige remschijven voor verbeterde prestaties en thermische capaciteit"
+            "content": "Larger, stiffer calipers and lightweight two-piece discs for enhanced performance and thermal capacity"
           },
           {
             "type": "price_indicator",
-            "content": "Inbegrepen"
+            "content": "Included"
           }
         ],
         "extra_content": [
@@ -1762,9 +2826,9 @@
             "target": "$CPF1"
           }
         ],
-        "name": "$CPF0",
-        "description": "$CPF0",
-        "long_name": "$CPF0",
+        "name": "Standard Connectivity",
+        "description": "Standard Connectivity",
+        "long_name": "Standard Connectivity",
         "extra_copy": [],
         "price": 0,
         "pricing": [
@@ -1810,7 +2874,7 @@
         "pricing": [
           {
             "type": "1_month",
-            "value": 0,
+            "value": 9.99,
             "context": "default"
           },
           {
@@ -1820,15 +2884,122 @@
           }
         ]
       },
+      "$DV2W": {
+        "code": "$DV2W",
+        "user_defined_rules": {
+          "set_rules": [
+            {
+              "action": "unset",
+              "target": "$MTY04"
+            },
+            {
+              "action": "set",
+              "target": "$DV4W",
+              "condition_code": "$MTY03",
+              "condition_state": "set"
+            }
+          ]
+        },
+        "set_rules": [
+          {
+            "action": "set",
+            "target": "$DV2W"
+          },
+          {
+            "action": "unset",
+            "target": "$DV4W"
+          },
+          {
+            "action": "unset",
+            "target": "$MTY04"
+          },
+          {
+            "action": "set",
+            "target": "$DV4W",
+            "condition_code": "$MTY03",
+            "condition_state": "set"
+          }
+        ],
+        "unset_rules": [
+          {
+            "action": "unset",
+            "target": "$DV2W"
+          },
+          {
+            "action": "set",
+            "target": "$DV4W"
+          }
+        ],
+        "name": "Rear-Wheel Drive",
+        "description": "Rear-Wheel Drive",
+        "long_name": "Rear-Wheel Drive",
+        "extra_copy": [
+          {
+            "type": "price_indicator",
+            "content": "Standard"
+          }
+        ],
+        "extra_content": [
+          {
+            "type": "shape",
+            "content": [
+              {
+                "type": "block"
+              }
+            ]
+          },
+          {
+            "type": "price_indicator_override",
+            "content": [
+              {
+                "content": " ",
+                "configuration": [
+                  "$MTY02"
+                ],
+                "condition_state": "and"
+              }
+            ]
+          },
+          {
+            "type": "disable_override",
+            "content": [
+              {
+                "content": true,
+                "configuration": [
+                  "$MTY02"
+                ],
+                "condition_state": "and"
+              }
+            ]
+          }
+        ]
+      },
       "$DV4W": {
         "code": "$DV4W",
         "user_defined_rules": {
-          "set_rules": []
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$DV2W",
+              "condition_code": "$MTY01",
+              "condition_state": "set"
+            }
+          ]
         },
         "set_rules": [
           {
             "action": "set",
             "target": "$DV4W"
+          },
+          {
+            "action": "unset",
+            "target": "$DV2W"
+          },
+          {
+            "action": "set",
+            "target": "$DV2W",
+            "condition_code": "$MTY01",
+            "condition_state": "set"
           }
         ],
         "unset_rules": [
@@ -1838,7 +3009,7 @@
           },
           {
             "action": "set",
-            "target": "$DV4W"
+            "target": "$DV2W"
           }
         ],
         "name": "Dual Motor All-Wheel Drive",
@@ -1847,7 +3018,7 @@
         "extra_copy": [
           {
             "type": "disclaimer[0]",
-            "content": "Hou me op de hoogte",
+            "content": "Notify me",
             "behavior": [
               {
                 "type": "CONTAINER",
@@ -1865,7 +3036,7 @@
           },
           {
             "type": "disclaimer[1]",
-            "content": " wanneer vierwielaandrijving en standaard batterijopties beschikbaar zijn.",
+            "content": " when all-wheel drive and standard battery options becomes available.",
             "behavior": [
               {
                 "type": "CONTAINER",
@@ -1877,11 +3048,11 @@
           },
           {
             "type": "price_indicator",
-            "content": "Inbegrepen"
+            "content": "Included"
           },
           {
             "type": "disclaimer_details",
-            "content": "Twee redundante elektrisch aangedreven motoren verdelen onafhankelijk het koppel over beide voor- en achterwielen voor meer vermogen en zekerheid. In het onwaarschijnlijke geval dat een van de motoren niet meer werkt, kunt u vertrouwen op de tweede motor. Het resultaat is onmiddellijke respons en precieze tractiecontrole onder alle weersomstandigheden."
+            "content": "Our motors are efficient and frictionless with only one moving part for minimal maintenance and maximum durability. Model Y has two of these independent motors for improved redundancy and, unlike traditional all-wheel drive systems, they digitally control torque to the front and rear wheels for far better handling and traction control."
           }
         ],
         "extra_content": [
@@ -1923,6 +3094,49 @@
           }
         ]
       },
+      "$FM3U": {
+        "code": "$FM3U",
+        "user_defined_rules": {
+          "set_rules": [
+            {
+              "action": "unset",
+              "target": "$FM3U"
+            }
+          ]
+        },
+        "set_rules": [
+          {
+            "action": "set",
+            "target": "$FM3U"
+          },
+          {
+            "action": "unset",
+            "target": "$FM3U"
+          }
+        ],
+        "unset_rules": [
+          {
+            "action": "unset",
+            "target": "$FM3U"
+          }
+        ],
+        "name": "Acceleration Boost",
+        "description": "Acceleration Boost",
+        "long_name": "Acceleration Boost",
+        "price": 2000,
+        "pricing": [
+          {
+            "type": "base",
+            "value": 2000,
+            "context": "default"
+          },
+          {
+            "type": "upgrade",
+            "value": 2000,
+            "context": "default"
+          }
+        ]
+      },
       "$MDLY": {
         "code": "$MDLY",
         "set_rules": [
@@ -1942,16 +3156,16 @@
           }
         ],
         "name": "Model Y",
-        "description": "De leveringen beginnen in de Verenigde Staten, op basis van de besteldatum en de gekozen opties.",
+        "description": "Deliveries are beginning in the US based on date of order and options selected.",
         "long_name": "Model Y",
         "extra_copy": [
           {
             "type": "learn_more",
-            "content": "Meer informatie over Model Y leveringen"
+            "content": "Learn More about Model Y deliveries"
           },
           {
             "type": "faq",
-            "content": "Veelgestelde vragen over Model Y",
+            "content": "Model Y FAQs",
             "behavior": [
               {
                 "type": "CONTAINER",
@@ -1977,11 +3191,11 @@
             ]
           }
         ],
-        "price": 47100,
+        "price": 41000,
         "pricing": [
           {
             "type": "base",
-            "value": 47100,
+            "value": 41000,
             "context": "default"
           },
           {
@@ -1991,16 +3205,21 @@
           },
           {
             "type": "order_payment",
-            "value": 2000,
-            "context": "default"
-          },
-          {
-            "type": "order_fee",
             "value": 0,
             "context": "default"
           },
           {
+            "type": "order_fee",
+            "value": 100,
+            "context": "default"
+          },
+          {
             "type": "non_refundable_order_payment_used",
+            "value": 500,
+            "context": "default"
+          },
+          {
+            "type": "order_payment_$MTY05",
             "value": 0,
             "context": "default"
           },
@@ -2023,8 +3242,8 @@
             "targets": [
               "$PMNG",
               "$PPSB",
-              "$PPSW",
-              "$PPMR"
+              "$PPMR",
+              "$PPSW"
             ]
           }
         ],
@@ -2046,11 +3265,11 @@
         ],
         "name": "Solid Black",
         "description": "Solid Black",
-        "long_name": "Lakkleur Solid Black",
+        "long_name": "Solid Black Paint",
         "extra_copy": [
           {
             "type": "price_indicator",
-            "content": "Inbegrepen"
+            "content": "Included"
           }
         ],
         "extra_content": [
@@ -2072,11 +3291,11 @@
             ]
           }
         ],
-        "price": 1100,
+        "price": 1000,
         "pricing": [
           {
             "type": "base",
-            "value": 1100,
+            "value": 1000,
             "context": "default"
           }
         ]
@@ -2125,18 +3344,18 @@
             "condition_state": "set"
           }
         ],
-        "name": "Performance-pedalen",
-        "description": "Performance-pedalen",
-        "long_name": "Performance-pedalen",
+        "name": "Performance Pedals",
+        "description": "Performance Pedals",
+        "long_name": "Performance Pedals",
         "long_description": "Performance Pedals",
         "extra_copy": [
           {
             "type": "description",
-            "content": "Voorzien van aluminiumlegering voor verbeterde interieurstyling"
+            "content": "Designed with aluminum alloy for enhanced interior styling"
           },
           {
             "type": "price_indicator",
-            "content": "Inbegrepen"
+            "content": "Included"
           }
         ],
         "extra_content": [
@@ -2179,8 +3398,8 @@
             "targets": [
               "$PBSB",
               "$PPSB",
-              "$PPSW",
-              "$PPMR"
+              "$PPMR",
+              "$PPSW"
             ]
           }
         ],
@@ -2202,11 +3421,11 @@
         ],
         "name": "Midnight Silver Metallic",
         "description": "Midnight Silver Metallic",
-        "long_name": "Lakkleur Midnight Silver Metallic",
+        "long_name": "Midnight Silver Metallic Paint",
         "extra_copy": [
           {
             "type": "price_indicator",
-            "content": "Inbegrepen"
+            "content": "Included"
           }
         ],
         "extra_content": [
@@ -2228,11 +3447,11 @@
             ]
           }
         ],
-        "price": 1100,
+        "price": 1000,
         "pricing": [
           {
             "type": "base",
-            "value": 1100,
+            "value": 1000,
             "context": "default"
           }
         ]
@@ -2270,13 +3489,13 @@
             ]
           }
         ],
-        "name": "Multi-Coat Red",
-        "description": "Multi-Coat Red",
-        "long_name": "Lakkleur Red Multi-Coat",
+        "name": "Red Multi-Coat",
+        "description": "Red Multi-Coat",
+        "long_name": "Red Multi-Coat Paint",
         "extra_copy": [
           {
             "type": "price_indicator",
-            "content": "Inbegrepen"
+            "content": "Included"
           }
         ],
         "extra_content": [
@@ -2298,11 +3517,11 @@
             ]
           }
         ],
-        "price": 2200,
+        "price": 2000,
         "pricing": [
           {
             "type": "base",
-            "value": 2200,
+            "value": 2000,
             "context": "default"
           }
         ]
@@ -2319,8 +3538,8 @@
             "targets": [
               "$PBSB",
               "$PMNG",
-              "$PPSW",
-              "$PPMR"
+              "$PPMR",
+              "$PPSW"
             ]
           }
         ],
@@ -2342,11 +3561,11 @@
         ],
         "name": "Deep Blue Metallic",
         "description": "Deep Blue Metallic",
-        "long_name": "Lakkleur Deep Blue Metallic",
+        "long_name": "Deep Blue Metallic Paint",
         "extra_copy": [
           {
             "type": "price_indicator",
-            "content": "Inbegrepen"
+            "content": "Included"
           }
         ],
         "extra_content": [
@@ -2368,11 +3587,11 @@
             ]
           }
         ],
-        "price": 1100,
+        "price": 1000,
         "pricing": [
           {
             "type": "base",
-            "value": 1100,
+            "value": 1000,
             "context": "default"
           }
         ]
@@ -2413,11 +3632,11 @@
         ],
         "name": "Pearl White Multi-Coat",
         "description": "Pearl White",
-        "long_name": "Lakkleur Pearl White",
+        "long_name": "Pearl White Paint",
         "extra_copy": [
           {
             "type": "price_indicator",
-            "content": "Inbegrepen"
+            "content": "Included"
           }
         ],
         "extra_content": [
@@ -2469,13 +3688,13 @@
             "target": "$SC04"
           }
         ],
-        "name": "Toegang tot Supercharger-netwerk en betalen naar gebruik",
-        "description": "Toegang tot Supercharger-netwerk en betalen naar gebruik",
-        "long_name": "Toegang tot Supercharger-netwerk en betalen naar gebruik",
+        "name": "Supercharger Network Access + Pay-as-you-go",
+        "description": "Supercharger Network Access + Pay-as-you-go",
+        "long_name": "Supercharger Network Access + Pay-as-you-go",
         "extra_copy": [
           {
             "type": "price_indicator",
-            "content": "optioneel"
+            "content": "optional"
           }
         ],
         "price": 0,
@@ -2621,30 +3840,30 @@
             ]
           }
         ],
-        "name": "Carbon Fiber spoiler",
-        "description": "Carbon Fiber spoiler",
-        "long_name": "Carbon Fiber spoiler",
+        "name": "Carbon Fiber Spoiler",
+        "description": "Carbon Fiber Spoiler",
+        "long_name": "Carbon Fiber Spoiler",
         "long_description": "Carbon Fiber Spoiler",
         "extra_copy": [
           {
             "type": "price_indicator",
-            "content": "Inbegrepen"
+            "content": "Included"
           },
           {
             "type": "disclaimer",
-            "content": "Carbon achterspoiler en Dual Motor badge badge verkrijgbaar na de levering"
+            "content": "Carbon fiber spoiler and Dual Motor badge available for installation after your delivery"
           },
           {
             "type": "selectLabel",
-            "content": "Optie selecteren"
+            "content": "Select Option"
           },
           {
             "type": "deselectLabel",
-            "content": "Optie geselecteerd"
+            "content": "Option Selected"
           },
           {
             "type": "description",
-            "content": "Voor verbeterde aerodynamica en verbeterde stabiliteit bij hoge snelheden"
+            "content": "For enhanced aerodynamics and improved stability at high speeds"
           }
         ],
         "extra_content": [
@@ -2692,22 +3911,22 @@
             "target": "$TW01"
           }
         ],
-        "name": "Trekhaak",
-        "description": "Trekhaak",
-        "long_name": "Trekhaak",
-        "long_description": "Trekhaak",
+        "name": "Tow Hitch",
+        "description": "Tow Hitch",
+        "long_name": "Tow Hitch",
+        "long_description": "Tow Hitch",
         "extra_copy": [
           {
             "type": "description_above",
-            "content": "Krachtige trekhaak, geschikt voor een trekgewicht tot 1600 kg"
+            "content": "High strength, Class II steel tow bar. Capable of towing up to 3,500 lbs"
           },
           {
             "type": "selectLabel",
-            "content": "Optie selecteren"
+            "content": "Select Option"
           },
           {
             "type": "deselectLabel",
-            "content": "Optie geselecteerd"
+            "content": "Option Selected"
           }
         ],
         "extra_content": [
@@ -2720,11 +3939,11 @@
             ]
           }
         ],
-        "price": 1100,
+        "price": 1000,
         "pricing": [
           {
             "type": "base",
-            "value": 1100,
+            "value": 1000,
             "context": "default"
           }
         ]
@@ -2732,12 +3951,7 @@
       "$INYPB": {
         "code": "$INYPB",
         "user_defined_rules": {
-          "set_rules": [
-            {
-              "action": "set",
-              "target": "$PRMY1"
-            }
-          ]
+          "set_rules": []
         },
         "set_rules": [
           {
@@ -2747,10 +3961,6 @@
           {
             "action": "unset",
             "target": "$INYPW"
-          },
-          {
-            "action": "set",
-            "target": "$PRMY1"
           }
         ],
         "unset_rules": [
@@ -2763,131 +3973,21 @@
             "target": "$INYPW"
           }
         ],
-        "name": "Volledig zwart premium interieur",
-        "description": "Volledig zwart premium interieur",
-        "long_name": "Volledig zwart premium interieur",
+        "name": "All Black Premium Interior",
+        "description": "All Black Premium Interior",
+        "long_name": "All Black Premium Interior",
         "extra_copy": [
           {
             "type": "name",
-            "content": "Volledig zwart"
+            "content": "All Black"
           },
           {
             "type": "price_indicator",
-            "content": "Inbegrepen"
+            "content": "Included"
           },
           {
             "type": "spec_description",
-            "content": "Zwart lederen interieur"
-          },
-          {
-            "type": "feature_list.default[0].main_title",
-            "content": "Inclusief:"
-          },
-          {
-            "type": "feature_list.default[0].items[0]",
-            "content": "12-voudig elektrisch verstelbare en verwarmde voorstoelen en achterstoelen."
-          },
-          {
-            "type": "feature_list.default[0].items[1]",
-            "content": "Drie onafhankelijk inklapbare stoelen op de tweede zitrij"
-          },
-          {
-            "type": "feature_list.default[0].items[2]",
-            "content": "Premium audiosysteem – 14 speakers, 1 subwoofer, 2 versterkers, en Immersive Sound"
-          },
-          {
-            "type": "feature_list.default[1].items[0].main_title",
-            "content": "Premium Connectivity (1 jaar):"
-          },
-          {
-            "type": "feature_list.default[1].items[0].sub_items[0]",
-            "content": "Satellietkaarten met live verkeersweergave"
-          },
-          {
-            "type": "feature_list.default[1].items[0].sub_items[1]",
-            "content": "Streaming muziek en media via internet in de auto"
-          },
-          {
-            "type": "feature_list.default[1].items[0].sub_items[2]",
-            "content": "Video streamen"
-          },
-          {
-            "type": "feature_list.default[1].items[0].sub_items[3]",
-            "content": "Caraoke"
-          },
-          {
-            "type": "feature_list.default[1].items[0].sub_items[4]",
-            "content": "Internetbrowser"
-          },
-          {
-            "type": "feature_list.default[2].items[0]",
-            "content": "Muziek en media via Bluetooth®"
-          },
-          {
-            "type": "feature_list.default[2].items[1]",
-            "content": "Locatiebewuste automatische garagedeuropener"
-          },
-          {
-            "type": "feature_list.default[2].items[2]",
-            "content": "LED-mistlampen"
-          },
-          {
-            "type": "feature_list.default[2].items[3]",
-            "content": "Getint glazen dak met zon- en UV bescherming"
-          },
-          {
-            "type": "feature_list.default[2].items[4]",
-            "content": "Elektrisch inklapbare, verwarmde buitenspiegels"
-          },
-          {
-            "type": "feature_list.default[2].items[5]",
-            "content": "Persoonlijke bestuurdersprofielen"
-          },
-          {
-            "type": "feature_list.default[2].items[6]",
-            "content": "Middenconsole met opbergruimte, 4 USB-aansluitingen en dockingstations voor 2 smartphones"
-          },
-          {
-            "type": "view_details_collapsed",
-            "content": "Details weergeven",
-            "behavior": [
-              {
-                "type": "ACTION",
-                "content": {
-                  "type": "FEATURES_LIST_EXPAND",
-                  "props": {
-                    "options": [
-                      "$INYPB"
-                    ]
-                  },
-                  "classNames": [
-                    "tsla-view-more",
-                    "tsla-view-more--collapsed"
-                  ]
-                }
-              }
-            ]
-          },
-          {
-            "type": "view_details_expanded",
-            "content": "Details verbergen",
-            "behavior": [
-              {
-                "type": "ACTION",
-                "content": {
-                  "type": "FEATURES_LIST_COLLAPSE",
-                  "props": {
-                    "options": [
-                      "$INYPB"
-                    ]
-                  },
-                  "classNames": [
-                    "tsla-view-more",
-                    "tsla-view-more--expanded"
-                  ]
-                }
-              }
-            ]
+            "content": "Black leather interior"
           }
         ],
         "extra_content": [
@@ -2932,12 +4032,7 @@
       "$INYPW": {
         "code": "$INYPW",
         "user_defined_rules": {
-          "set_rules": [
-            {
-              "action": "set",
-              "target": "$PRMY1"
-            }
-          ]
+          "set_rules": []
         },
         "set_rules": [
           {
@@ -2947,10 +4042,6 @@
           {
             "action": "unset",
             "target": "$INYPB"
-          },
-          {
-            "action": "set",
-            "target": "$PRMY1"
           }
         ],
         "unset_rules": [
@@ -2963,21 +4054,21 @@
             "target": "$INYPB"
           }
         ],
-        "name": "Zwart en wit premium interieur",
-        "description": "Zwart en wit premium interieur",
-        "long_name": "Zwart en wit premium interieur",
+        "name": "Black and White Premium Interior",
+        "description": "Black and White Premium Interior",
+        "long_name": "Black and White Premium Interior",
         "extra_copy": [
           {
             "type": "name",
-            "content": "Zwart en wit"
+            "content": "Black and White"
           },
           {
             "type": "price_indicator",
-            "content": "Inbegrepen"
+            "content": "Included"
           },
           {
-            "type": "recommended_NA",
-            "content": "Aanbevolen",
+            "type": "recommended_NA_NA",
+            "content": "Recommended",
             "behavior": [
               {
                 "type": "ACTION",
@@ -2995,121 +4086,11 @@
           },
           {
             "type": "recommended_NA_content",
-            "content": "Zwart en wit interieur bevat onze meest premium materialen voor maximaal comfort en optimale vormgeving, die tevens voldoen aan onze strenge normen voor duurzaamheid en vlekbestendigheid."
+            "content": "Black and White interior includes our most premium materials, maximizing comfort and aesthetics while maintaining our rigorous standards for durability and stain resistance."
           },
           {
             "type": "spec_description",
-            "content": "Wit lederen interieur"
-          },
-          {
-            "type": "feature_list.default[0].main_title",
-            "content": "Inclusief:"
-          },
-          {
-            "type": "feature_list.default[0].items[0]",
-            "content": "12-voudig elektrisch verstelbare en verwarmde voorstoelen en achterstoelen."
-          },
-          {
-            "type": "feature_list.default[0].items[1]",
-            "content": "Drie onafhankelijk inklapbare stoelen op de tweede zitrij"
-          },
-          {
-            "type": "feature_list.default[0].items[2]",
-            "content": "Premium audiosysteem – 14 speakers, 1 subwoofer, 2 versterkers, en Immersive Sound"
-          },
-          {
-            "type": "feature_list.default[1].items[0].main_title",
-            "content": "Premium Connectivity (1 jaar):"
-          },
-          {
-            "type": "feature_list.default[1].items[0].sub_items[0]",
-            "content": "Satellietkaarten met live verkeersweergave"
-          },
-          {
-            "type": "feature_list.default[1].items[0].sub_items[1]",
-            "content": "Streaming muziek en media via internet in de auto"
-          },
-          {
-            "type": "feature_list.default[1].items[0].sub_items[2]",
-            "content": "Video streamen"
-          },
-          {
-            "type": "feature_list.default[1].items[0].sub_items[3]",
-            "content": "Caraoke"
-          },
-          {
-            "type": "feature_list.default[1].items[0].sub_items[4]",
-            "content": "Internetbrowser"
-          },
-          {
-            "type": "feature_list.default[2].items[0]",
-            "content": "Muziek en media via Bluetooth®"
-          },
-          {
-            "type": "feature_list.default[2].items[1]",
-            "content": "Locatiebewuste automatische garagedeuropener"
-          },
-          {
-            "type": "feature_list.default[2].items[2]",
-            "content": "LED-mistlampen"
-          },
-          {
-            "type": "feature_list.default[2].items[3]",
-            "content": "Getint glazen dak met zon- en UV bescherming"
-          },
-          {
-            "type": "feature_list.default[2].items[4]",
-            "content": "Elektrisch inklapbare, verwarmde buitenspiegels"
-          },
-          {
-            "type": "feature_list.default[2].items[5]",
-            "content": "Persoonlijke bestuurdersprofielen"
-          },
-          {
-            "type": "feature_list.default[2].items[6]",
-            "content": "Middenconsole met opbergruimte, 4 USB-aansluitingen en dockingstations voor 2 smartphones"
-          },
-          {
-            "type": "view_details_collapsed",
-            "content": "Details weergeven",
-            "behavior": [
-              {
-                "type": "ACTION",
-                "content": {
-                  "type": "FEATURES_LIST_EXPAND",
-                  "props": {
-                    "options": [
-                      "$INYPW"
-                    ]
-                  },
-                  "classNames": [
-                    "tsla-view-more",
-                    "tsla-view-more--collapsed"
-                  ]
-                }
-              }
-            ]
-          },
-          {
-            "type": "view_details_expanded",
-            "content": "Details verbergen",
-            "behavior": [
-              {
-                "type": "ACTION",
-                "content": {
-                  "type": "FEATURES_LIST_COLLAPSE",
-                  "props": {
-                    "options": [
-                      "$INYPW"
-                    ]
-                  },
-                  "classNames": [
-                    "tsla-view-more",
-                    "tsla-view-more--expanded"
-                  ]
-                }
-              }
-            ]
+            "content": "White leather interior"
           }
         ],
         "extra_content": [
@@ -3150,12 +4131,246 @@
             ]
           }
         ],
-        "price": 1100,
+        "price": 1000,
         "pricing": [
           {
             "type": "base",
-            "value": 1100,
+            "value": 1000,
             "context": "default"
+          }
+        ]
+      },
+      "$MTY01": {
+        "code": "$MTY01",
+        "user_defined_rules": {
+          "set_rules": []
+        },
+        "set_rules": [
+          {
+            "action": "set",
+            "target": "$MTY01"
+          },
+          {
+            "action": "unset",
+            "targets": [
+              "$MTY02",
+              "$MTY03",
+              "$MTY04",
+              "$MTY05"
+            ]
+          }
+        ],
+        "unset_rules": [
+          {
+            "action": "unset",
+            "target": "$MTY01"
+          },
+          {
+            "action": "set",
+            "target": "$MTY01",
+            "condition_state": "unset",
+            "condition_all_codes": [
+              "$MTY02",
+              "$MTY03",
+              "$MTY04",
+              "$MTY05"
+            ]
+          }
+        ],
+        "name": "Standard Range Rear-Wheel Drive",
+        "description": "Model Y Standard Range Rear-Wheel Drive",
+        "long_name": "Standard Range Rear-Wheel Drive",
+        "long_description": "Model Y Standard Range RWD",
+        "extra_copy": [
+          {
+            "type": "name",
+            "content": "Standard Range"
+          },
+          {
+            "type": "compare_matrix.block[0].label",
+            "content": "Acceleration"
+          },
+          {
+            "type": "compare_matrix.block[0].content",
+            "content": "3.5s 0-60mph"
+          },
+          {
+            "type": "compare_matrix.block[1].label",
+            "content": "Drive"
+          },
+          {
+            "type": "compare_matrix.block[1].content",
+            "content": "Dual Motor All-wheel Drive"
+          },
+          {
+            "type": "long_name",
+            "content": "Model Y Standard Range Rear-Wheel Drive"
+          }
+        ],
+        "extra_content": [
+          {
+            "type": "shape",
+            "content": [
+              {
+                "type": "block"
+              }
+            ]
+          },
+          {
+            "type": "base_plus_trim_pricing",
+            "content": [
+              {
+                "configuration": [
+                  "$MDLY"
+                ],
+                "optionPriceKey": "base_plus_trim",
+                "condition_state": "and"
+              }
+            ]
+          },
+          {
+            "type": "base_plus_trim_pricing_aftersavings",
+            "content": [
+              {
+                "incentive": [
+                  "total.once",
+                  "total.fuel",
+                  "total.includedInPurchasePrice"
+                ],
+                "configuration": [
+                  "$MDLY"
+                ],
+                "optionPriceKey": "base_plus_trim",
+                "condition_state": "and"
+              }
+            ]
+          }
+        ],
+        "price": 990,
+        "pricing": [
+          {
+            "type": "base",
+            "value": 990,
+            "context": "default"
+          },
+          {
+            "type": "base_plus_trim",
+            "value": 41990,
+            "context": "base_plus_trim"
+          }
+        ]
+      },
+      "$MTY02": {
+        "code": "$MTY02",
+        "user_defined_rules": {
+          "set_rules": []
+        },
+        "set_rules": [
+          {
+            "action": "set",
+            "target": "$MTY02"
+          },
+          {
+            "action": "unset",
+            "targets": [
+              "$MTY01",
+              "$MTY03",
+              "$MTY04",
+              "$MTY05"
+            ]
+          }
+        ],
+        "unset_rules": [
+          {
+            "action": "unset",
+            "target": "$MTY02"
+          },
+          {
+            "action": "set",
+            "target": "$MTY01",
+            "condition_state": "unset",
+            "condition_all_codes": [
+              "$MTY03",
+              "$MTY04",
+              "$MTY05"
+            ]
+          }
+        ],
+        "name": "Long Range Rear-Wheel Drive",
+        "description": "Model Y Long Range RWD",
+        "long_name": "Long Range Rear-Wheel Drive",
+        "long_description": "Model Y Long Range RWD",
+        "extra_copy": [
+          {
+            "type": "name",
+            "content": "Long Range"
+          },
+          {
+            "type": "compare_matrix.block[0].label",
+            "content": "Acceleration"
+          },
+          {
+            "type": "compare_matrix.block[0].content",
+            "content": "3.5s 0-60mph"
+          },
+          {
+            "type": "compare_matrix.block[1].label",
+            "content": "Drive"
+          },
+          {
+            "type": "compare_matrix.block[1].content",
+            "content": "Dual Motor All-wheel Drive"
+          },
+          {
+            "type": "long_name",
+            "content": "Model Y Long Range Rear-Wheel Drive"
+          }
+        ],
+        "extra_content": [
+          {
+            "type": "shape",
+            "content": [
+              {
+                "type": "block"
+              }
+            ]
+          },
+          {
+            "type": "price_indicator_override",
+            "content": [
+              {
+                "content": 48000,
+                "configuration": [
+                  "$MDLY"
+                ],
+                "condition_state": "and"
+              }
+            ]
+          },
+          {
+            "type": "option_price_override",
+            "content": [
+              {
+                "content": 48000,
+                "configuration": [
+                  "$MDLY"
+                ],
+                "condition_state": "and"
+              }
+            ]
+          }
+        ],
+        "price": 7000,
+        "pricing": [
+          {
+            "type": "base",
+            "value": 7000,
+            "context": "default"
+          },
+          {
+            "type": "base_plus_trim",
+            "value": 48000,
+            "context": "base_plus_trim"
           }
         ]
       },
@@ -3165,10 +4380,15 @@
           "set_rules": [
             {
               "action": "set",
-              "targets": [
-                "$DV4W",
-                "$PRMY1"
-              ]
+              "target": "$DV4W"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "set",
+              "target": "$DV2W",
+              "condition_code": "$MTY01",
+              "condition_state": "set"
             }
           ]
         },
@@ -3180,16 +4400,15 @@
           {
             "action": "unset",
             "targets": [
+              "$MTY01",
+              "$MTY02",
               "$MTY04",
               "$MTY05"
             ]
           },
           {
             "action": "set",
-            "targets": [
-              "$DV4W",
-              "$PRMY1"
-            ]
+            "target": "$DV4W"
           }
         ],
         "unset_rules": [
@@ -3199,12 +4418,19 @@
           },
           {
             "action": "set",
-            "target": "$MTY03",
+            "target": "$MTY01",
             "condition_state": "unset",
             "condition_all_codes": [
+              "$MTY02",
               "$MTY04",
               "$MTY05"
             ]
+          },
+          {
+            "action": "set",
+            "target": "$DV2W",
+            "condition_code": "$MTY01",
+            "condition_state": "set"
           }
         ],
         "name": "Long Range All-Wheel Drive",
@@ -3218,7 +4444,7 @@
           },
           {
             "type": "disclaimer_details",
-            "content": "Tesla All-Wheel Drive is voorzien van twee onafhankelijke motoren die digitaal het koppel naar de voor- en achterwielen regelen, voor een veel betere handling en tractie. Uw auto kan ook met één motor rijden, dus hoeft u niet bang te zijn dat u stil komt te staan. "
+            "content": "Tesla All-Wheel Drive has two independent motors for improved redundancy, each with only one moving part for minimal maintenance and maximum durability. Unlike traditional all-wheel drive systems, they digitally control torque to the front and rear wheels for far better handling and traction control."
           },
           {
             "type": "long_name",
@@ -3235,28 +4461,45 @@
             ]
           },
           {
-            "type": "price_indicator_override",
+            "type": "base_plus_trim_pricing_aftersavings",
             "content": [
               {
-                "content": 64000,
+                "incentive": [
+                  "total.once",
+                  "total.fuel",
+                  "total.includedInPurchasePrice"
+                ],
                 "configuration": [
                   "$MDLY"
                 ],
+                "optionPriceKey": "base_plus_trim",
+                "condition_state": "and"
+              }
+            ]
+          },
+          {
+            "type": "base_plus_trim_pricing",
+            "content": [
+              {
+                "configuration": [
+                  "$MDLY"
+                ],
+                "optionPriceKey": "base_plus_trim",
                 "condition_state": "and"
               }
             ]
           }
         ],
-        "price": 16900,
+        "price": 8990,
         "pricing": [
           {
             "type": "base",
-            "value": 16900,
+            "value": 8990,
             "context": "default"
           },
           {
             "type": "base_plus_trim",
-            "value": 64000,
+            "value": 49990,
             "context": "base_plus_trim"
           }
         ]
@@ -3267,10 +4510,7 @@
           "set_rules": [
             {
               "action": "set",
-              "targets": [
-                "$DV4W",
-                "$PRMY1"
-              ]
+              "target": "$DV4W"
             },
             {
               "action": "set",
@@ -3281,6 +4521,12 @@
                 "$SLR1",
                 "$WY21P"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$STY5S",
+              "condition_code": "$STY7S",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -3301,16 +4547,15 @@
           {
             "action": "unset",
             "targets": [
+              "$MTY01",
+              "$MTY02",
               "$MTY03",
               "$MTY05"
             ]
           },
           {
             "action": "set",
-            "targets": [
-              "$DV4W",
-              "$PRMY1"
-            ]
+            "target": "$DV4W"
           },
           {
             "action": "set",
@@ -3321,6 +4566,12 @@
               "$SLR1",
               "$WY21P"
             ]
+          },
+          {
+            "action": "set",
+            "target": "$STY5S",
+            "condition_code": "$STY7S",
+            "condition_state": "set"
           }
         ],
         "unset_rules": [
@@ -3330,204 +4581,13 @@
           },
           {
             "action": "set",
-            "target": "$MTY03",
-            "condition_code": "$MTY05",
-            "condition_state": "unset"
-          },
-          {
-            "action": "unset",
-            "targets": [
-              "$SLR1",
-              "$SPTY1"
-            ]
-          }
-        ],
-        "name": "Long Range All-Wheel Drive Performance",
-        "description": "Model Y Performance AWD",
-        "long_name": "Long Range All-Wheel Drive Performance",
-        "long_description": "Model Y Performance AWD",
-        "extra_copy": [
-          {
-            "type": "name",
-            "content": "Performance"
-          },
-          {
-            "type": "price_indicator",
-            "content": "Optioneel"
-          },
-          {
-            "type": "description.main_title[0]",
-            "content": "Model Y Performance is inclusief:"
-          },
-          {
-            "type": "description.items[0]",
-            "content": "Snellere acceleratie: 0-100 km/u in 3,7 sec"
-          },
-          {
-            "type": "description.items[1]",
-            "content": "Topsnelheid tot 241 km/u"
-          },
-          {
-            "type": "description.items[2]",
-            "content": "21’’ Überturbine Wheels"
-          },
-          {
-            "type": "description.items[3]",
-            "content": "Performance remmen"
-          },
-          {
-            "type": "description.items[4]",
-            "content": "Carbon achterspoiler"
-          },
-          {
-            "type": "description.items[5]",
-            "content": "Verlaagde rijhoogte"
-          },
-          {
-            "type": "description.items[6]",
-            "content": "Aluminium lichtmetalen pedaal"
-          },
-          {
-            "type": "compare_matrix.block[0].label",
-            "content": "Acceleratie"
-          },
-          {
-            "type": "compare_matrix.block[0].content",
-            "content": "3.5s 0-60mph"
-          },
-          {
-            "type": "compare_matrix.block[1].label",
-            "content": "Aandrijving"
-          },
-          {
-            "type": "compare_matrix.block[1].content",
-            "content": "Dual Motor All-Wheel Drive"
-          },
-          {
-            "type": "disclaimer_details",
-            "content": "Tesla All-Wheel Drive is voorzien van twee onafhankelijke motoren die digitaal het koppel naar de voor- en achterwielen regelen, voor een veel betere handling en tractie. Uw auto kan ook met één motor rijden, dus hoeft u niet bang te zijn dat u stil komt te staan. "
-          },
-          {
-            "type": "long_name",
-            "content": "Model Y Performance Dual Motor All-Wheel Drive"
-          }
-        ],
-        "extra_content": [
-          {
-            "type": "shape",
-            "content": [
-              {
-                "type": "block"
-              }
-            ]
-          },
-          {
-            "type": "delivery",
-            "content": [
-              {
-                "extra": true
-              }
-            ]
-          },
-          {
-            "type": "price_indicator_override",
-            "content": [
-              {
-                "content": 70000,
-                "configuration": [
-                  "$MDLY"
-                ],
-                "condition_state": "and"
-              }
-            ]
-          }
-        ],
-        "price": 22900,
-        "pricing": [
-          {
-            "type": "base",
-            "value": 22900,
-            "context": "default"
-          },
-          {
-            "type": "base_plus_trim",
-            "value": 70000,
-            "context": "base_plus_trim"
-          }
-        ]
-      },
-      "$MTY05": {
-        "code": "$MTY05",
-        "user_defined_rules": {
-          "set_rules": [
-            {
-              "action": "set",
-              "targets": [
-                "$DV4W",
-                "$PRMY1"
-              ]
-            },
-            {
-              "action": "set",
-              "targets": [
-                "$SPTY1",
-                "$BCYR",
-                "$PL31",
-                "$SLR1",
-                "$WY21P"
-              ]
-            }
-          ],
-          "unset_rules": [
-            {
-              "action": "unset",
-              "targets": [
-                "$SLR1",
-                "$SPTY1"
-              ]
-            }
-          ]
-        },
-        "set_rules": [
-          {
-            "action": "set",
-            "target": "$MTY05"
-          },
-          {
-            "action": "unset",
-            "targets": [
+            "target": "$MTY01",
+            "condition_state": "unset",
+            "condition_all_codes": [
+              "$MTY02",
               "$MTY03",
-              "$MTY04"
+              "$MTY05"
             ]
-          },
-          {
-            "action": "set",
-            "targets": [
-              "$DV4W",
-              "$PRMY1"
-            ]
-          },
-          {
-            "action": "set",
-            "targets": [
-              "$SPTY1",
-              "$BCYR",
-              "$PL31",
-              "$SLR1",
-              "$WY21P"
-            ]
-          }
-        ],
-        "unset_rules": [
-          {
-            "action": "unset",
-            "target": "$MTY05"
-          },
-          {
-            "action": "set",
-            "target": "$MTY03",
-            "condition_code": "$MTY04",
-            "condition_state": "unset"
           },
           {
             "action": "unset",
@@ -3548,59 +4608,27 @@
           },
           {
             "type": "price_indicator",
-            "content": "Optioneel"
+            "content": "Optional"
           },
           {
-            "type": "description.main_title[0]",
-            "content": "Model Y Performance is inclusief:"
-          },
-          {
-            "type": "description.items[0]",
-            "content": "Snellere acceleratie: 0-100 km/u in 3,7 sec"
+            "type": "compare_matrix.block[0].label",
+            "content": "Acceleration"
           },
           {
             "type": "compare_matrix.block[0].content",
             "content": "3.5s 0-60mph"
           },
           {
-            "type": "description.items[1]",
-            "content": "Topsnelheid tot 241 km/u"
-          },
-          {
-            "type": "description.items[2]",
-            "content": "21’’ Überturbine Wheels"
-          },
-          {
-            "type": "description.items[4]",
-            "content": "Carbon achterspoiler"
-          },
-          {
-            "type": "description.items[5]",
-            "content": "Verlaagde rijhoogte"
-          },
-          {
-            "type": "description.items[6]",
-            "content": "Aluminium lichtmetalen pedaal"
-          },
-          {
-            "type": "compare_matrix.block[0].label",
-            "content": "Acceleratie"
-          },
-          {
-            "type": "description.items[3]",
-            "content": "Performance remmen"
-          },
-          {
             "type": "compare_matrix.block[1].label",
-            "content": "Aandrijving"
+            "content": "Drive"
           },
           {
             "type": "compare_matrix.block[1].content",
-            "content": "Dual Motor All-Wheel Drive"
+            "content": "Dual Motor All-wheel Drive"
           },
           {
             "type": "disclaimer_details",
-            "content": "Tesla All-Wheel Drive is voorzien van twee onafhankelijke motoren die digitaal het koppel naar de voor- en achterwielen regelen, voor een veel betere handling en tractie. Uw auto kan ook met één motor rijden, dus hoeft u niet bang te zijn dat u stil komt te staan. "
+            "content": "Tesla All-Wheel Drive has two independent motors for improved redundancy, each with only one moving part for minimal maintenance and maximum durability. Unlike traditional all-wheel drive systems, they digitally control torque to the front and rear wheels for far better handling and traction control."
           },
           {
             "type": "long_name",
@@ -3628,7 +4656,7 @@
             "type": "price_indicator_override",
             "content": [
               {
-                "content": 70000,
+                "content": 59990,
                 "configuration": [
                   "$MDLY"
                 ],
@@ -3640,7 +4668,7 @@
             "type": "option_price_override",
             "content": [
               {
-                "content": 70000,
+                "content": 59990,
                 "configuration": [
                   "$MDLY"
                 ],
@@ -3649,16 +4677,214 @@
             ]
           }
         ],
-        "price": 22900,
+        "price": 18990,
         "pricing": [
           {
             "type": "base",
-            "value": 22900,
+            "value": 18990,
             "context": "default"
           },
           {
             "type": "base_plus_trim",
-            "value": 70000,
+            "value": 59990,
+            "context": "base_plus_trim"
+          }
+        ]
+      },
+      "$MTY05": {
+        "code": "$MTY05",
+        "user_defined_rules": {
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$DV4W"
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$SPTY1",
+                "$BCYR",
+                "$PL31",
+                "$SLR1",
+                "$WY21P"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$STY5S",
+              "condition_code": "$STY7S",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "targets": [
+                "$SLR1",
+                "$SPTY1"
+              ]
+            }
+          ]
+        },
+        "set_rules": [
+          {
+            "action": "set",
+            "target": "$MTY05"
+          },
+          {
+            "action": "unset",
+            "targets": [
+              "$MTY01",
+              "$MTY02",
+              "$MTY03",
+              "$MTY04"
+            ]
+          },
+          {
+            "action": "set",
+            "target": "$DV4W"
+          },
+          {
+            "action": "set",
+            "targets": [
+              "$SPTY1",
+              "$BCYR",
+              "$PL31",
+              "$SLR1",
+              "$WY21P"
+            ]
+          },
+          {
+            "action": "set",
+            "target": "$STY5S",
+            "condition_code": "$STY7S",
+            "condition_state": "set"
+          }
+        ],
+        "unset_rules": [
+          {
+            "action": "unset",
+            "target": "$MTY05"
+          },
+          {
+            "action": "set",
+            "target": "$MTY01",
+            "condition_state": "unset",
+            "condition_all_codes": [
+              "$MTY02",
+              "$MTY03",
+              "$MTY04"
+            ]
+          },
+          {
+            "action": "unset",
+            "targets": [
+              "$SLR1",
+              "$SPTY1"
+            ]
+          }
+        ],
+        "name": "Long Range All-Wheel Drive Performance",
+        "description": "Model Y Performance AWD",
+        "long_name": "Long Range All-Wheel Drive Performance",
+        "long_description": "Model Y Performance AWD",
+        "extra_copy": [
+          {
+            "type": "name",
+            "content": "Performance"
+          },
+          {
+            "type": "price_indicator",
+            "content": "Optional"
+          },
+          {
+            "type": "compare_matrix.block[0].label",
+            "content": "Acceleration"
+          },
+          {
+            "type": "compare_matrix.block[0].content",
+            "content": "3.5s 0-60mph"
+          },
+          {
+            "type": "compare_matrix.block[1].label",
+            "content": "Drive"
+          },
+          {
+            "type": "compare_matrix.block[1].content",
+            "content": "Dual Motor All-wheel Drive"
+          },
+          {
+            "type": "disclaimer_details",
+            "content": "Tesla All-Wheel Drive has two independent motors for improved redundancy, each with only one moving part for minimal maintenance and maximum durability. Unlike traditional all-wheel drive systems, they digitally control torque to the front and rear wheels for far better handling and traction control."
+          },
+          {
+            "type": "long_name",
+            "content": "Model Y Performance Dual Motor All-Wheel Drive"
+          }
+        ],
+        "extra_content": [
+          {
+            "type": "shape",
+            "content": [
+              {
+                "type": "block"
+              }
+            ]
+          },
+          {
+            "type": "delivery",
+            "content": [
+              {
+                "extra": true
+              }
+            ]
+          },
+          {
+            "type": "base_plus_trim_pricing",
+            "content": [
+              {
+                "options": [
+                  "$SPTY1"
+                ],
+                "configuration": [
+                  "$MDLY"
+                ],
+                "optionPriceKey": "base_plus_trim",
+                "condition_state": "and"
+              }
+            ]
+          },
+          {
+            "type": "base_plus_trim_pricing_aftersavings",
+            "content": [
+              {
+                "options": [
+                  "$SPTY1"
+                ],
+                "incentive": [
+                  "total.once",
+                  "total.fuel",
+                  "total.includedInPurchasePrice"
+                ],
+                "configuration": [
+                  "$MDLY"
+                ],
+                "optionPriceKey": "base_plus_trim",
+                "condition_state": "and"
+              }
+            ]
+          }
+        ],
+        "price": 18990,
+        "pricing": [
+          {
+            "type": "base",
+            "value": 18990,
+            "context": "default"
+          },
+          {
+            "type": "base_plus_trim",
+            "value": 59990,
             "context": "base_plus_trim"
           }
         ]
@@ -3685,9 +4911,9 @@
             "target": "$PRMY1"
           }
         ],
-        "name": "Premium interieur",
-        "description": "<p>Upgrade uw interieur met extra voorzieningen en premium materialen.</p><ul><li><span>Premium stoelverwarming en materialen in de gehele auto, waaronder een decor van openporig hout, een glazen dak en vier USB-aansluitingen</span></li><li><span>12-voudig elektrisch verstelbare stoelen voorin, stuurkolom en buitenspiegels, met aangepaste bestuurdersprofielen</span></li><li><span>Premium audiosysteem met meer kracht, tweeters, surroundspeakers en subwoofer</span></li></ul>",
-        "long_name": "Premium interieur",
+        "name": "Premium Interior",
+        "description": "<p>Upgrade your interior with additional features and premium materials.</p><ul><li><span>Premium heated seating and cabin materials throughout, including open pore wood décor, glass roof and four USB ports</span></li><li><span>12-way power adjustable front seats, steering column and side mirrors, with custom driver profiles</span></li><li><span>Premium audio system with more power, tweeters, surround speakers and subwoofer</span></li></ul>",
+        "long_name": "Premium Interior",
         "extra_copy": [
           {
             "type": "name",
@@ -3695,11 +4921,11 @@
           },
           {
             "type": "price_indicator",
-            "content": "Inbegrepen"
+            "content": "Included"
           },
           {
             "type": "short_description",
-            "content": "Met ons Premium pakket wordt Model Y voorzien van allerlei upgrades"
+            "content": "Our premium package adds upgraded features throughout Model Y"
           }
         ],
         "extra_content": [
@@ -3758,7 +4984,9 @@
             },
             {
               "action": "set",
-              "target": "$MTY03"
+              "target": "$DV2W",
+              "condition_code": "$MTY01",
+              "condition_state": "set"
             }
           ]
         },
@@ -3804,53 +5032,51 @@
           },
           {
             "action": "set",
-            "target": "$MTY03"
+            "target": "$DV2W",
+            "condition_code": "$MTY01",
+            "condition_state": "set"
           }
         ],
-        "name": "Performance upgrade",
-        "description": "Performance upgrade",
-        "long_name": "Performance upgrade",
+        "name": "Performance Upgrade",
+        "description": "Performance Upgrade",
+        "long_name": "Performance Upgrade",
         "long_description": "Performance Upgrade",
         "extra_copy": [
           {
-            "type": "selectLabel",
-            "content": "Optie selecteren"
+            "type": "price_indicator",
+            "content": "Included"
           },
           {
-            "type": "price_indicator",
-            "content": "Inbegrepen"
+            "type": "selectLabel",
+            "content": "Add Performance Upgrade"
           },
           {
             "type": "deselectLabel",
-            "content": "Optie geselecteerd"
+            "content": "Performance Upgrade Added"
           },
           {
             "type": "feature_list.default[0].items[0]",
-            "content": "20” Performance velgen"
+            "content": "Increased top speed from 135mph to 155mph"
           },
           {
             "type": "feature_list.default[0].items[1]",
-            "content": "Performance remmen"
+            "content": "21’’ Überturbine Wheels"
           },
           {
             "type": "feature_list.default[0].items[2]",
-            "content": "Carbon achterspoiler"
+            "content": "Performance Brakes"
           },
           {
             "type": "feature_list.default[0].items[3]",
-            "content": "Verlaagde rijhoogte"
+            "content": "Lowered suspension"
+          },
+          {
+            "type": "feature_list.default[0].main_title",
+            "content": "Includes:"
           },
           {
             "type": "feature_list.default[0].items[4]",
-            "content": "Aluminium lichtmetalen velgen"
-          },
-          {
-            "type": "feature_list.default[0].items[5]",
-            "content": "Verhoogde topsnelheid van 145mph naar 155mph"
-          },
-          {
-            "type": "feature_list.default[0].items[6]",
-            "content": "Track mode"
+            "content": "Aluminum alloy pedals"
           }
         ],
         "extra_content": [
@@ -3858,7 +5084,10 @@
             "type": "shape",
             "content": [
               {
-                "type": "checkbox"
+                "type": "checkbox",
+                "props": {
+                  "invisible": true
+                }
               }
             ]
           },
@@ -3903,13 +5132,29 @@
             "target": "$STY7S"
           }
         ],
-        "name": "5-zits configuratie",
-        "description": "5-zits configuratie",
-        "long_name": "5-zits configuratie",
+        "name": "Five Seat Interior",
+        "description": "Five Seat Interior",
+        "long_name": "Five Seat Interior",
         "extra_copy": [
           {
             "type": "price_indicator",
-            "content": "Inbegrepen"
+            "content": "Included"
+          },
+          {
+            "type": "feature_list.secondary[0].description",
+            "content": "Five Seat Interior Includes:"
+          },
+          {
+            "type": "feature_list.secondary[0].items[0]",
+            "content": "Second row with adjustable seatbacks"
+          },
+          {
+            "type": "feature_list.secondary[0].items[1]",
+            "content": "Fold-flat second row for maximum cargo storage"
+          },
+          {
+            "type": "feature_list.secondary[0].items[2]",
+            "content": "Electronic fold-flat releases in trunk"
           }
         ],
         "extra_content": [
@@ -3933,6 +5178,20 @@
       },
       "$STY7S": {
         "code": "$STY7S",
+        "user_defined_rules": {
+          "set_rules": [
+            {
+              "action": "unset",
+              "target": "$STY7S",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTY04",
+                "$MTY05"
+              ]
+            }
+          ],
+          "unset_rules": []
+        },
         "set_rules": [
           {
             "action": "set",
@@ -3941,6 +5200,15 @@
           {
             "action": "unset",
             "target": "$STY5S"
+          },
+          {
+            "action": "unset",
+            "target": "$STY7S",
+            "condition_state": "set",
+            "condition_any_code": [
+              "$MTY04",
+              "$MTY05"
+            ]
           }
         ],
         "unset_rules": [
@@ -3953,10 +5221,39 @@
             "target": "$STY5S"
           }
         ],
-        "name": "7-zits configuratie",
-        "description": "7-zits configuratie",
-        "long_name": "7-zits configuratie",
-        "extra_copy": [],
+        "name": "Seven Seat Interior",
+        "description": "Seven Seat Interior",
+        "long_name": "Seven Seat Interior",
+        "extra_copy": [
+          {
+            "type": "feature_list.secondary[0].description",
+            "content": "Seven Seat Interior Includes:"
+          },
+          {
+            "type": "feature_list.secondary[0].items[0]",
+            "content": "Third row seating for two"
+          },
+          {
+            "type": "feature_list.secondary[0].items[1]",
+            "content": "Easy Entry into third row"
+          },
+          {
+            "type": "feature_list.secondary[0].items[2]",
+            "content": "Third row USB-C charging"
+          },
+          {
+            "type": "feature_list.secondary[0].items[3]",
+            "content": "Sliding second row with adjustable seatbacks"
+          },
+          {
+            "type": "feature_list.secondary[0].items[4]",
+            "content": "Fold-flat second and third rows for maximum cargo storage"
+          },
+          {
+            "type": "feature_list.secondary[0].items[5]",
+            "content": "Electronic fold-flat releases in trunk"
+          }
+        ],
         "extra_content": [
           {
             "type": "shape",
@@ -3967,33 +5264,22 @@
             ]
           },
           {
-            "type": "disable_override",
+            "type": "hidden",
             "content": [
               {
                 "configuration": [
-                  "$MDLY"
-                ],
-                "condition_state": "and"
-              }
-            ]
-          },
-          {
-            "type": "disable_override",
-            "content": [
-              {
-                "configuration": [
-                  "$MDLY"
+                  "$MTY05"
                 ],
                 "condition_state": "and"
               }
             ]
           }
         ],
-        "price": 3200,
+        "price": 3000,
         "pricing": [
           {
             "type": "base",
-            "value": 3200,
+            "value": 3000,
             "context": "default"
           }
         ]
@@ -4051,7 +5337,7 @@
         "extra_copy": [
           {
             "type": "price_indicator",
-            "content": "Inbegrepen"
+            "content": "Included"
           }
         ],
         "extra_content": [
@@ -4144,7 +5430,7 @@
         "extra_copy": [
           {
             "type": "price_indicator",
-            "content": "Inbegrepen"
+            "content": "Included"
           }
         ],
         "extra_content": [
@@ -4177,11 +5463,11 @@
             ]
           }
         ],
-        "price": 2200,
+        "price": 2000,
         "pricing": [
           {
             "type": "base",
-            "value": 2200,
+            "value": 2000,
             "context": "default",
             "set_rules": [
               {
@@ -4246,7 +5532,7 @@
         "extra_copy": [
           {
             "type": "price_indicator",
-            "content": "Inbegrepen"
+            "content": "Included"
           }
         ],
         "extra_content": [
@@ -4301,7 +5587,7 @@
       }
     },
     "metadata": {
-      "vat": true,
+      "vat": false,
       "migrations": [
         {
           "options": {
@@ -4345,7 +5631,7 @@
             }
           },
           "comments": "RWD needs to be changed to AWD",
-          "effective_date": "2020-01-25"
+          "effective_date": "2020-01-30"
         },
         {
           "options": {
@@ -4366,11 +5652,55 @@
               "set_rules": [
                 {
                   "action": "set",
+                  "target": "$CPF0"
+                }
+              ]
+            }
+          }
+        },
+        {
+          "options": {
+            "$MDLY": {
+              "set_rules": [
+                {
+                  "action": "set",
                   "target": "$SC04"
                 }
               ]
             }
           }
+        },
+        {
+          "options": {
+            "$MTY04": {
+              "set_rules": [
+                {
+                  "action": "set",
+                  "target": "$STY5S",
+                  "condition_code": "$STY7S",
+                  "condition_state": "set"
+                }
+              ]
+            }
+          },
+          "comments": "Performance Trim can NOT have 7 seater",
+          "effective_date": "2021-01-07"
+        },
+        {
+          "options": {
+            "$MTY05": {
+              "set_rules": [
+                {
+                  "action": "set",
+                  "target": "$STY5S",
+                  "condition_code": "$STY7S",
+                  "condition_state": "set"
+                }
+              ]
+            }
+          },
+          "comments": "Performance Trim can NOT have 7 seater",
+          "effective_date": "2021-01-07"
         }
       ],
       "warranty_rules": [
@@ -4419,9 +5749,7 @@
         },
         "$APPB": {
           "type": "remote",
-          "mutation": [
-            "$APPB"
-          ],
+          "mutation": [],
           "requirement_relationship": "and"
         }
       },
@@ -4434,24 +5762,126 @@
         }
       ],
       "specs": {
-        "data": [],
+        "data": [
+          {
+            "meta": {
+              "specs": {
+                "range": {
+                  "units": "miles",
+                  "source": "EPA est."
+                },
+                "topspeed": {
+                  "units": "miles-per-hour"
+                },
+                "ludicrous": {
+                  "units": "seconds",
+                  "measurement": {
+                    "units": "miles-per-hour",
+                    "value": "0-60"
+                  }
+                },
+                "acceleration": {
+                  "units": "seconds",
+                  "measurement": {
+                    "units": "miles-per-hour",
+                    "value": "0-60"
+                  }
+                }
+              },
+              "unit_definitions": {
+                "miles": {
+                  "label": "miles",
+                  "short_label": "mi"
+                },
+                "seconds": {
+                  "label": "seconds",
+                  "short_label": "sec"
+                },
+                "miles-per-hour": {
+                  "label": "miles per hour",
+                  "short_label": "mph"
+                }
+              }
+            },
+            "options": {
+              "$MTY01": {
+                "name": "Standard Range Rear-Wheel Drive",
+                "range": 244,
+                "topspeed": 135,
+                "acceleration": 5.3
+              },
+              "$MTY03": {
+                "name": "Long Range All-Wheel Drive",
+                "range": 326,
+                "topspeed": 135,
+                "acceleration": 4.8
+              },
+              "$MTY04": {
+                "name": "Long Range All-Wheel Drive Performance",
+                "range": 315,
+                "topspeed": 145,
+                "overrides": [
+                  {
+                    "content": {
+                      "range": 291,
+                      "topspeed": 155,
+                      "acceleration": 3.5
+                    },
+                    "selected_by": {
+                      "and": [
+                        "$SPTY1"
+                      ]
+                    }
+                  }
+                ],
+                "acceleration": 3.5
+              },
+              "$MTY05": {
+                "name": "Long Range All-Wheel Drive Performance",
+                "range": 315,
+                "topspeed": 145,
+                "overrides": [
+                  {
+                    "content": {
+                      "range": 303,
+                      "topspeed": 155,
+                      "acceleration": 3.5
+                    },
+                    "selected_by": {
+                      "and": [
+                        "$SPTY1"
+                      ]
+                    }
+                  }
+                ],
+                "acceleration": 3.5
+              }
+            },
+            "curb_weight": {
+              "$MTY01": 3920,
+              "$MTY03": 4416,
+              "$MTY04": 4416,
+              "$MTY05": 4416
+            }
+          }
+        ],
         "refs": {
           "time": {
             "label": "seconds",
             "short_label": "sec"
           },
           "distance": {
-            "label": "kilometer",
-            "short_label": "km"
+            "label": "miles",
+            "short_label": "mi"
           },
           "velocity": {
-            "label": "kilometer per hour",
-            "short_label": "km/h"
+            "label": "miles per hour",
+            "short_label": "mph"
           }
         }
       },
-      "currency_code": "EUR",
-      "currency_symbol": "€"
+      "currency_code": "USD",
+      "currency_symbol": "$"
     },
     "agent_version": 101,
     "warranty_groups": [
@@ -4506,7 +5936,7 @@
           },
           {
             "type": "odometer_unit",
-            "content": "kilometers"
+            "content": "miles"
           },
           {
             "type": "general_coverage",
@@ -4581,7 +6011,7 @@
           },
           {
             "type": "odometer_unit",
-            "content": "kilometers"
+            "content": "miles"
           },
           {
             "type": "general_coverage",
@@ -4751,7 +6181,7 @@
                 "marketing",
                 "customer"
               ],
-              "odometer_unit": "kilometers",
+              "odometer_unit": "miles",
               "vehicle_damage_history": [
                 "clean",
                 "previous accident(s)"
@@ -4796,16 +6226,16 @@
       "$INYPB",
       "$PPSW",
       "$WY19B",
-      "$DV4W",
+      "$DV2W",
       "$MDLY",
       "$STY5S",
       "$PRMY1",
-      "$MTY03",
+      "$MTY01",
       "$APBS",
       "$CPF0",
       "$SC04"
     ],
-    "options_id": 442,
+    "options_id": 716,
     "extra_content": [
       {
         "type": "#$GN00",
@@ -5128,8 +6558,8 @@
         "content_localized": {}
       }
     ],
-    "copy_id": 549,
-    "language": "nl",
-    "pricing_id": 590
+    "copy_id": 1024,
+    "language": "en",
+    "pricing_id": 790
   }
 }
