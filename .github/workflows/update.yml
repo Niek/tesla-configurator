@@ -1,0 +1,28 @@
+name: Update data
+on:
+    push:
+    schedule:
+      - cron:  '5 * * * *' # Run every hour
+
+jobs: 
+  run:
+    name: Update
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        model: [models, model3, modelx, modely]
+        country: [nl_nl]
+    steps: 
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Fetch JSON
+      run:
+        mkdir -p ${{ matrix.country }}
+        curl -s "https://www.tesla.com/${{ matrix.country }}/${{ matrix.model }}/design" | grep 'window.tesla =' | sed 's/.$//;s/window\.tesla \= //' | jq '.DSServices | fromjson' >| ${{ matrix.country }}/${{ matrix.model }}.json
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v5
+      with:
+        author_name: Niek
+        author_email: mail@niekvandermaas.nl
+        message: "Updated Tesla data"
+        add: "${{ matrix.country }}/*.json"
