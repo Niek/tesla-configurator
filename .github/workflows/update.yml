@@ -19,7 +19,7 @@ jobs:
     - name: Fetch JSON
       run: |
         mkdir -p ${{ matrix.country }}
-        curl -s "https://www.tesla.com/${{ matrix.country }}/${{ matrix.model }}/design" | grep 'window.tesla =' | sed 's/.$//;s/window\.tesla \= //' | jq '.DSServices | fromjson' >| ${{ matrix.country }}/${{ matrix.model }}.json
+        curl -s "https://www.tesla.com/${{ matrix.country }}/${{ matrix.model }}/design" | grep 'window.tesla =' | sed 's/.$//;s/window\.tesla \= //' | jq '.DSServices | fromjson | del(.date)' >| ${{ matrix.country }}/${{ matrix.model }}.json
     - name: Commit changes
       uses: EndBug/add-and-commit@v7
       with:
