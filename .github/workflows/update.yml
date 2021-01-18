@@ -2,7 +2,7 @@ name: Update data
 on:
   push:
   schedule:
-    - cron:  '5 * * * *' # Run every hour
+    - cron:  '0 0 * * *' # Run every day
 
 jobs: 
   update:
@@ -12,32 +12,14 @@ jobs:
       matrix:
         model: [models, model3, modelx, modely]
         country: [en_us, en_ca, es_mx, nl_be, cs_cz, da_dk, de_de, el_gr, es_es, fr_fr, hr_hr, en_ie, is_is, it_it, fr_lu, nl_nl, no_no, de_at, pl_pl, pt_pt, sl_si, fr_ch, sv_se, fi_fi, en_gb, en_ae, en_jo, zh_cn, zh_hk, en_mo, zh_tw, ja_jp, ko_kr, en_au, en_nz]
-    steps: 
-    - name: Fetch JSON
-      run: |
-        mkdir -p ${{ matrix.country }}
-        curl -s "https://www.tesla.com/${{ matrix.country }}/${{ matrix.model }}/design" | grep 'window.tesla =' | sed 's/.$//;s/window\.tesla \= //' | jq '.DSServices | fromjson | del(.date)' >| ${{ matrix.country }}/${{ matrix.model }}.json
-    - name: Upload artifact
-      uses: actions/upload-artifact@v2
-      with:
-        name: ${{ matrix.country }}-${{ matrix.model }}
-        path: ${{ matrix.country }}/${{ matrix.model }}.json
-        retention-days: 1
-  commit:
-    name: Commit
-    needs: update
-    runs-on: ubuntu-latest
     steps:
     - name: Checkout repo
       uses: actions/checkout@v2
-    - name: Download artifacts
-      uses: actions/download-artifact@v2
-      with:
-        path: artifacts
-    - name: Copy back
+    - name: Fetch JSON files
       run: |
-        find artifacts -name '*.json' -exec sh -c 'CNT=$(echo {} | cut -d- -f1 | cut -d\/ -f2); echo mv {} ../$CNT/' \;
-        rm -rf artifacts
+        models=(models model3 modelx modely)
+        countries=(en_us en_ca es_mx nl_be cs_cz da_dk de_de el_gr es_es fr_fr hr_hr en_ie is_is it_it fr_lu nl_nl no_no de_at pl_pl pt_pt sl_si fr_ch sv_se fi_fi en_gb en_ae en_jo zh_cn zh_hk en_mo zh_tw ja_jp ko_kr en_au en_nz)
+        for cnt in ${countries[@]}; do for m in ${models[@]}; do mkdir -p ${cnt}; curl -s "https://www.tesla.com/${cnt}/${m}/design" | grep 'window.tesla =' | sed 's/.$//;s/window\.tesla \= //' | jq '.DSServices | fromjson | del(.date)' >| ${cnt}/${m}.json; done; done
     - name: Commit changes
       uses: EndBug/add-and-commit@v7
       with:
