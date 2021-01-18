@@ -13,21 +13,35 @@ jobs:
         model: [models, model3, modelx, modely]
         country: [nl_nl, en_us, de_de]
     steps: 
-    - name: Checkout repo
-      uses: actions/checkout@v2
     - name: Fetch JSON
       run: |
         mkdir -p ${{ matrix.country }}
         curl -s "https://www.tesla.com/${{ matrix.country }}/${{ matrix.model }}/design" | grep 'window.tesla =' | sed 's/.$//;s/window\.tesla \= //' | jq '.DSServices | fromjson | del(.date)' >| ${{ matrix.country }}/${{ matrix.model }}.json
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ matrix.country }}-${{ matrix.model }}
+        path: ${{ matrix.country }}/${{ matrix.model }}.json
+        retention-days: 1
   commit:
     name: Commit
     needs: update
     runs-on: ubuntu-latest
     steps:
-    - name: Commit changes
-      uses: EndBug/add-and-commit@v7
+    - name: Checkout repo
+      uses: actions/checkout@v2
+    - name: Download artifacts
+      uses: actions/download-artifact@v2
       with:
-        author_name: Niek
-        author_email: mail@niekvandermaas.nl
-        message: "Updated Tesla data"
-        add: "**/*.json"
+        path: artifacts
+    - name: Copy back
+      run: |
+        cd artifacts
+        ls -R
+    #- name: Commit changes
+    #  uses: EndBug/add-and-commit@v7
+    #  with:
+    #    author_name: Niek
+    #    author_email: mail@niekvandermaas.nl
+    #    message: "Updated Tesla data"
+    #    add: "**/*.json"
