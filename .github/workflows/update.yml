@@ -36,12 +36,12 @@ jobs:
         path: artifacts
     - name: Copy back
       run: |
-        cd artifacts
-        ls -R
-    #- name: Commit changes
-    #  uses: EndBug/add-and-commit@v7
-    #  with:
-    #    author_name: Niek
-    #    author_email: mail@niekvandermaas.nl
-    #    message: "Updated Tesla data"
-    #    add: "**/*.json"
+        find artifacts -name '*.json' -exec sh -c 'CNT=$(echo {} | cut -d- -f1 | cut -d\/ -f2); echo mv {} ../$CNT/' \;
+        rm -rf artifacts
+    - name: Commit changes
+      uses: EndBug/add-and-commit@v7
+      with:
+        author_name: Niek
+        author_email: mail@niekvandermaas.nl
+        message: "Updated Tesla data"
+        add: "*"
