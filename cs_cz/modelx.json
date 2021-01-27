@@ -398,12 +398,12 @@
       "tcc": []
     },
     "Lexicon.mx": {
-      "effective_date": "2020-12-05T00:10:00.000Z",
+      "effective_date": "2021-01-27T21:10:00.000Z",
       "market": "CZ",
       "product": "mx",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CZ 2020.Dec.05 631.943.689 [cs]",
+      "name": "Marketing CZ 2021.Jan.27 762.1096.894 [cs]",
       "groups": [
         {
           "code": "MODEL",
@@ -430,12 +430,14 @@
             "$MTX05",
             "$MTX06",
             "$MTX07",
-            "$MTX08"
+            "$MTX08",
+            "$MTX10",
+            "$MTX11"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTX07"
+            "$MTX10"
           ],
           "name": "TRIM"
         },
@@ -474,8 +476,8 @@
               "content": [
                 {
                   "type": "hero-update",
-                  "view": "STUD_3QTR_V2",
-                  "zoom": 1.4
+                  "view": "FRONT34",
+                  "zoom": 1.3
                 }
               ]
             },
@@ -484,9 +486,31 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    600,
+                    300,
+                    230
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR_V2",
-                  "zoom": 1.4
+                  "view": "FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "FRONT34",
+                  "zoom": 1.3
                 }
               ]
             }
@@ -497,6 +521,8 @@
           "groups": [],
           "context": "default",
           "options": [
+            "$WX00",
+            "$WX20",
             "$WT20",
             "$WTSC",
             "$WTUT",
@@ -505,7 +531,7 @@
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$WT20"
+            "$WX00"
           ],
           "name": "WHEELS",
           "extra_copy": [
@@ -520,7 +546,7 @@
               "content": [
                 {
                   "type": "hero-update",
-                  "view": "STUD_SEAT_V2"
+                  "view": "INTERIOR"
                 }
               ]
             },
@@ -530,7 +556,7 @@
                 {
                   "bkba": 1,
                   "type": "image-compositor",
-                  "view": "STUD_WHEEL_V2"
+                  "view": "RIMCLOSEUP"
                 }
               ]
             }
@@ -566,7 +592,7 @@
             "$INLFP",
             "$INWCB"
           ],
-          "required": true,
+          "required": false,
           "exclusive": true,
           "default_options": [
             "$INB3P"
@@ -616,7 +642,7 @@
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$SC05"
+            "$SC04"
           ],
           "name": "SUPER_CHARGER"
         },
@@ -698,6 +724,47 @@
           "name": "CONNECTIVITY"
         },
         {
+          "code": "STEERING_WHEEL",
+          "groups": [],
+          "context": "default",
+          "options": [
+            "$ST0Y",
+            "$ST03"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$ST0Y"
+          ],
+          "historical_required": false,
+          "name": "Steering Wheel",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Zvolte volant"
+            }
+          ]
+        },
+        {
+          "code": "INTERIOR_COLORWAY",
+          "groups": [],
+          "context": "default",
+          "options": [
+            "$IBE00",
+            "$IWW00",
+            "$ICW00",
+            "$IBC00",
+            "$IWC00",
+            "$ICC00"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$IBE00"
+          ],
+          "historical_required": false
+        },
+        {
           "code": "CORE",
           "groups": [],
           "context": "order_summary",
@@ -709,7 +776,9 @@
             "$MTX05",
             "$MTX06",
             "$MTX07",
-            "$MTX08"
+            "$MTX08",
+            "$MTX10",
+            "$MTX11"
           ],
           "required": false,
           "exclusive": false,
@@ -769,10 +838,9 @@
             "WINTER_TIRES",
             "INTERIOR_PACKAGE",
             "REAR_SEATS",
+            "STEERING_WHEEL",
             "AUTOPILOT",
-            "AUTOPILOT_PACKAGE",
-            "AUTOPILOT_FIRMWARE",
-            "SUPER_CHARGER"
+            "AUTOPILOT_PACKAGE"
           ],
           "context": "order_summary",
           "options": [],
@@ -794,6 +862,8 @@
             "$MTX06",
             "$MTX07",
             "$MTX08",
+            "$MTX10",
+            "$MTX11",
             "$ACL1"
           ],
           "required": false,
@@ -932,7 +1002,8 @@
         {
           "code": "BATTERY_AND_DRIVE",
           "groups": [
-            "TRIM"
+            "ALL_WHEEL_DRIVE_ONE",
+            "ALL_WHEEL_DRIVE_TWO"
           ],
           "context": "configurator",
           "options": [],
@@ -972,7 +1043,7 @@
             },
             {
               "type": "range_units_est",
-              "content": "Dojezd (WLTP, odhad)"
+              "content": "Dojezd (odhad)"
             },
             {
               "type": "top_speed_units",
@@ -989,10 +1060,6 @@
             {
               "type": "compare_title",
               "content": "Porovnat"
-            },
-            {
-              "type": "group_disclaimer",
-              "content": "Všechny vozy mají pohon všech kol Dual Motor, adaptivní vzduchové odpružení, prémiový interiér a prémiový audiosystém."
             },
             {
               "type": "range_units_est_link",
@@ -1021,9 +1088,31 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    600,
+                    300,
+                    230
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR_V2",
-                  "zoom": 1.4
+                  "view": "FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "FRONT34",
+                  "zoom": 1.3
                 }
               ]
             },
@@ -1084,6 +1173,61 @@
                     ]
                   },
                   "zero_to_road_limit": 2.8
+                },
+                {
+                  "range": 580,
+                  "units": "metric",
+                  "top_speed": 250,
+                  "selected_by": {
+                    "and": [
+                      "$MTX10"
+                    ]
+                  },
+                  "zero_to_road_limit": 3.9,
+                  "range_units_override": "range_units_est"
+                },
+                {
+                  "range": 547,
+                  "units": "metric",
+                  "top_speed": 262,
+                  "selected_by": {
+                    "and": [
+                      "$MTX11"
+                    ]
+                  },
+                  "zero_to_road_limit": 2.6,
+                  "range_units_override": "range_units_est"
+                }
+              ]
+            },
+            {
+              "type": "option_feature_list_on_group",
+              "content": [
+                {
+                  "props": {
+                    "content_path": "ALL_WHEEL_DRIVE_TWO.currentSelected[0].feature_list"
+                  },
+                  "selected_by": {
+                    "and": [
+                      "$MTX11"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "dynamic_disclaimer_loader",
+              "content": [
+                {
+                  "props": {
+                    "content_path": "OMS.lexicon.groups_dictionary.configurator.ALL_WHEEL_DRIVE_TWO"
+                  },
+                  "selected_by": {
+                    "or": [
+                      "$MTX10",
+                      "$MTX11"
+                    ]
+                  }
                 }
               ]
             }
@@ -1122,8 +1266,8 @@
               "content": [
                 {
                   "type": "hero-update",
-                  "view": "STUD_3QTR_V2",
-                  "zoom": 1.4
+                  "view": "FRONT34",
+                  "zoom": 1.3
                 }
               ]
             },
@@ -1132,9 +1276,31 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    600,
+                    300,
+                    230
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR_V2",
-                  "zoom": 1.4
+                  "view": "FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "FRONT34",
+                  "zoom": 1.3
                 }
               ]
             }
@@ -1165,9 +1331,31 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    600,
+                    300,
+                    230
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR_V2",
-                  "zoom": 1.4
+                  "view": "FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "FRONT34",
+                  "zoom": 1.3
                 }
               ]
             }
@@ -1177,7 +1365,8 @@
           "code": "EXTERIOR_GROUP",
           "groups": [
             "PAINT",
-            "WHEELS"
+            "WHEELS",
+            "TOW_PACKAGE"
           ],
           "context": "configurator",
           "options": [],
@@ -1198,9 +1387,31 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    600,
+                    300,
+                    230
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR_V2",
-                  "zoom": 1.4
+                  "view": "FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "FRONT34",
+                  "zoom": 1.3
                 }
               ]
             }
@@ -1211,13 +1422,14 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$INB3P",
-            "$INB3W",
-            "$INBC3P",
-            "$INBC3W",
-            "$INB3C"
+            "$IBE00",
+            "$IWW00",
+            "$ICW00",
+            "$IBC00",
+            "$IWC00",
+            "$ICC00"
           ],
-          "required": true,
+          "required": false,
           "exclusive": true,
           "default_options": [
             "$INB3P"
@@ -1230,59 +1442,95 @@
             },
             {
               "type": "feature_list.detail[0].items[0]",
-              "content": "Automatické otvírání a zavírání předních dveří"
+              "content": "Automatické otvírání a zavírání předních dveří"
             },
             {
               "type": "feature_list.detail[0].items[1]",
-              "content": "Prémiový audiosystém vyladěný speciálně pro mimořádně tichou kabinu vozu Tesla"
+              "content": "Prémiový audiosystém s 22 reproduktory a aktivním potlačením hluku specificky laděný pro ultra-tichou kabinu Tesla"
             },
             {
               "type": "feature_list.detail[0].items[2]",
-              "content": "Prvky do chladného počasí zahrnují vyhřívaná sedadla pro všechny cestující, vyhřívaný volant, odmrazovače lišt stěračů a vyhřívání trysek ostřikovačů"
+              "content": "Hudba a média přes multi-device Bluetooth®"
             },
             {
               "type": "feature_list.detail[0].items[3]",
-              "content": "Systém filtrace vzduchu HEPA zabraňuje pronikání virů, bakterií a nepříjemných pachů do kabiny"
+              "content": "Tři displeje, včetně 17\" středového displeje, HD displeje před řidičem a zadním displejem, který dovolí sledovat média, hrát hry nebo ovládat klimatizaci zadním pasažérům"
             },
             {
-              "type": "feature_list.detail[0].items[4].description",
-              "content": "Prémiová konektivita (zahrnutý 1 rok):"
-            },
-            {
-              "type": "feature_list.detail[0].items[4].sub_items[0]",
-              "content": "Satelitní mapy s živou vizualizací dopravy"
-            },
-            {
-              "type": "feature_list.detail[0].items[4].sub_items[1]",
-              "content": "Streamování hudby a médií prostřednictvím internetu ve vozidle"
-            },
-            {
-              "type": "feature_list.detail[0].items[4].sub_items[2]",
-              "content": "Nejčastější aktualizace vzduchem přes mobilní telefon"
-            },
-            {
-              "type": "feature_list.detail[0].items[4].sub_items[3]",
-              "content": "Internetový prohlížeč"
+              "type": "feature_list.detail[0].items[4]",
+              "content": "Herní počítač s výpočetním výkonem 10 teraflops a kompatibilitou s bezdrátovými ovladači dovoluje hraní z kteréhokoliv sedadla"
             },
             {
               "type": "feature_list.detail[0].items[5]",
-              "content": "Hudba a média přes Bluetooth®"
+              "content": "Prvky do chladného počasí zahrnují vyhřívaná sedadla pro všechny cestující, vyhřívaný volant, odmrazovače lišt stěračů a vyhřívání trysek ostřikovačů"
             },
             {
               "type": "feature_list.detail[0].items[6]",
-              "content": "Mlhová světla LED"
+              "content": "Odvětrávaná přední sedadla"
             },
             {
               "type": "feature_list.detail[0].items[7]",
-              "content": "Panoramatické čelní sklo s ochranou proti ultrafialovému a infračervenému záření"
+              "content": "Neviditelná klimatizace airwave se třemi zónami"
             },
             {
               "type": "feature_list.detail[0].items[8]",
-              "content": "Elektricky sklápěná vyhřívaná vnější zrcátka s automatickým stmíváním"
+              "content": "Systém filtrace vzduchu HEPA zabraňuje pronikání virů, bakterií a nepříjemných pachů do interiéru vozu"
             },
             {
               "type": "feature_list.detail[0].items[9]",
-              "content": "Vlastní profily řidičů"
+              "content": "Uživatelské profily řidiče s automatickými pozicemi pro vstup a výstup z vozu."
+            },
+            {
+              "type": "feature_list.detail[0].items[10]",
+              "content": "Ambientní osvětlení po celé kabině"
+            },
+            {
+              "type": "feature_list.detail[0].items[11]",
+              "content": "Tónovaná prosklená střecha s ochranou proti ultrafialovému a infračervenému záření"
+            },
+            {
+              "type": "feature_list.detail[0].items[12]",
+              "content": "Přední středová konzole s vysouvacími držáky nápojů a úložištěm"
+            },
+            {
+              "type": "feature_list.detail[0].items[13]",
+              "content": "Automatické otevírání a zavírání zadního kufru"
+            },
+            {
+              "type": "feature_list.detail[0].items[14]",
+              "content": "Elektricky sklopná, vyhřívaná vnější zpětná zrcátka se samostmívací funkcí"
+            },
+            {
+              "type": "feature_list.detail[0].items[15]",
+              "content": "2577 litrů nákladového prostoru včetně bezpečného předního kufru"
+            },
+            {
+              "type": "feature_list.detail[0].items[16]",
+              "content": "Bezdrátové a USB-C rychlonabíjení pro každého pasažéra a multi-device Bluetooth poskytují ještě více konektivity a pohodlí"
+            },
+            {
+              "type": "feature_list.detail[0].items[17]",
+              "content": "Automatické otevírání garážových vrat podle místa"
+            },
+            {
+              "type": "feature_list.detail[0].items[18].description",
+              "content": "Prémiová konektivita, 3 roky zdarma"
+            },
+            {
+              "type": "feature_list.detail[0].items[18].sub_items[0]",
+              "content": "Satelitní mapy s živou vizualizací dopravy"
+            },
+            {
+              "type": "feature_list.detail[0].items[18].sub_items[1]",
+              "content": "Streamování hudby a médií prostřednictvím internetu ve vozidle"
+            },
+            {
+              "type": "feature_list.detail[0].items[18].sub_items[2]",
+              "content": "Nejčastější aktualizace vzduchem přes mobilní telefon"
+            },
+            {
+              "type": "feature_list.detail[0].items[18].sub_items[3]",
+              "content": "Internetový prohlížeč"
             },
             {
               "type": "name",
@@ -1358,7 +1606,7 @@
                 {
                   "bkba": 0,
                   "type": "image-compositor",
-                  "view": "STUD_SEAT_V2",
+                  "view": "INTERIOR",
                   "ratio": "meet",
                   "selected_by": {
                     "or": [
@@ -1374,7 +1622,7 @@
                 {
                   "bkba": 0,
                   "type": "image-compositor",
-                  "view": "STUD_SEAT_V2",
+                  "view": "INTERIOR",
                   "ratio": "slice"
                 }
               ]
@@ -1494,13 +1742,13 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$MTX07",
-            "$MTX08"
+            "$MTX10",
+            "$MTX11"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTX07"
+            "$MTX10"
           ],
           "name": "TRIM",
           "extra_copy": [
@@ -1579,13 +1827,13 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$WT20",
-            "$WTUT"
+            "$WX00",
+            "$WX20"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$WT20"
+            "$WX00"
           ],
           "name": "WHEELS",
           "extra_copy": [
@@ -1600,7 +1848,7 @@
               "content": [
                 {
                   "type": "hero-update",
-                  "view": "STUD_SEAT_V2"
+                  "view": "INTERIOR"
                 }
               ]
             },
@@ -1610,7 +1858,7 @@
                 {
                   "bkba": 1,
                   "type": "image-compositor",
-                  "view": "STUD_WHEEL_V2"
+                  "view": "RIMCLOSEUP"
                 }
               ]
             }
@@ -1624,9 +1872,9 @@
             "WINTER_TIRES",
             "INTERIOR_PACKAGE",
             "REAR_SEATS",
+            "STEERING_WHEEL",
             "AUTOPILOT",
-            "AUTOPILOT_PACKAGE",
-            "SUPER_CHARGER"
+            "AUTOPILOT_PACKAGE"
           ],
           "context": "configurator",
           "options": [],
@@ -1641,14 +1889,122 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$SC05"
+            "$SC04"
           ],
           "required": false,
           "exclusive": true,
           "default_options": [
-            "$SC05"
+            "$SC04"
           ],
           "name": "Supercharger"
+        },
+        {
+          "code": "INTERIOR_COLORWAY",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$IBE00",
+            "$IWW00",
+            "$ICW00",
+            "$IBC00",
+            "$IWC00",
+            "$ICC00"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$IBE00"
+          ]
+        },
+        {
+          "code": "STEERING_WHEEL",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$ST0Y",
+            "$ST03"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$ST0Y"
+          ],
+          "name": "Steering Wheel",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Select Steering Wheel"
+            }
+          ]
+        },
+        {
+          "code": "TOW_PACKAGE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$TW01"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": []
+        },
+        {
+          "code": "ALL_WHEEL_DRIVE_ONE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$MTX10"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            },
+            {
+              "type": "sub_title",
+              "content": "Pohon všech kol Dual Motor"
+            },
+            {
+              "type": "dynamic_disclaimer",
+              "content": "Tesla All-Wheel Drive has two independent motors for improved redundancy, each with only one moving part for minimal maintenance and maximum durability. Unlike traditional all-wheel drive systems, they digitally control torque to the front and rear wheels for far better handling and traction control."
+            }
+          ]
+        },
+        {
+          "code": "ALL_WHEEL_DRIVE_TWO",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$MTX11"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            },
+            {
+              "type": "sub_title",
+              "content": "Pohon všech kol Tri Motor"
+            },
+            {
+              "type": "dynamic_disclaimer",
+              "content": "Specifikace jsou udávány v jednotkách americké měrné soustavy"
+            },
+            {
+              "type": "disclaimer_savingsPrice",
+              "content": "* Costs above include potential incentives and gas savings of {SAVING_PRICE}."
+            },
+            {
+              "type": "disclaimer_purchasePrice",
+              "content": "All prices are shown without potential incentives or gas savings of {SAVING_PRICE}."
+            }
+          ]
         }
       ],
       "options": {
@@ -1665,6 +2021,15 @@
                   "$MTX03",
                   "$MTX05",
                   "$MTX07"
+                ]
+              },
+              {
+                "action": "unset",
+                "target": "$ACL1",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTX10",
+                  "$MTX11"
                 ]
               }
             ],
@@ -1684,6 +2049,15 @@
                 "$MTX03",
                 "$MTX05",
                 "$MTX07"
+              ]
+            },
+            {
+              "action": "unset",
+              "target": "$ACL1",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTX10",
+                "$MTX11"
               ]
             }
           ],
@@ -3034,9 +3408,12 @@
             },
             {
               "action": "set",
-              "target": "$SC05",
-              "condition_code": "$SC06",
-              "condition_state": "unset"
+              "target": "$SC04",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$SC06",
+                "$SC05"
+              ]
             }
           ],
           "name": "Průběžné platby za nabíjení Supercharging",
@@ -3073,12 +3450,9 @@
             },
             {
               "action": "set",
-              "target": "$SC05",
-              "condition_state": "unset",
-              "condition_all_codes": [
-                "$SC04",
-                "$SC06"
-              ]
+              "target": "$SC04",
+              "condition_code": "$SC06",
+              "condition_state": "unset"
             }
           ],
           "name": "Bezplatné nabíjení Supercharging",
@@ -3121,8 +3495,8 @@
             },
             {
               "action": "set",
-              "target": "$SC05",
-              "condition_code": "$SC04",
+              "target": "$SC04",
+              "condition_code": "$SC05",
               "condition_state": "unset"
             }
           ],
@@ -3138,8 +3512,135 @@
             }
           ]
         },
+        "$ST03": {
+          "code": "$ST03",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$ST03"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$ST03"
+            },
+            {
+              "action": "unset",
+              "target": "$ST0Y"
+            },
+            {
+              "action": "unset",
+              "target": "$ST03"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$ST03"
+            },
+            {
+              "action": "set",
+              "target": "$ST0Y"
+            }
+          ],
+          "name": "Volant",
+          "description": "Volant",
+          "long_name": "Volant",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Zahrnuto"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELS/UI/ui_swat_s-wheel-b.svg",
+                  "type": "image"
+                }
+              ]
+            }
+          ]
+        },
+        "$ST0Y": {
+          "code": "$ST0Y",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$ST0Y"
+            },
+            {
+              "action": "unset",
+              "target": "$ST03"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$ST0Y"
+            },
+            {
+              "action": "set",
+              "target": "$ST03"
+            }
+          ],
+          "name": "Yoke řízení",
+          "description": "Yoke řízení",
+          "long_name": "Yoke řízení",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Zahrnuto"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELS/UI/ui_swat_s-wheel-y.svg",
+                  "type": "image"
+                }
+              ]
+            }
+          ]
+        },
         "$WT20": {
           "code": "$WT20",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$WX00",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTX10",
+                  "$MTX11"
+                ]
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -3148,9 +3649,20 @@
             {
               "action": "unset",
               "targets": [
+                "$WX00",
+                "$WX20",
                 "$WTSC",
                 "$WTUT",
                 "$WTSD"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WX00",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTX10",
+                "$MTX11"
               ]
             }
           ],
@@ -3161,9 +3673,10 @@
             },
             {
               "action": "set",
-              "target": "$WT20",
+              "target": "$WX00",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$WX20",
                 "$WTSC",
                 "$WTUT",
                 "$WTSD"
@@ -3209,6 +3722,19 @@
         },
         "$WTSC": {
           "code": "$WTSC",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$WX00",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTX10",
+                  "$MTX11"
+                ]
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -3217,9 +3743,20 @@
             {
               "action": "unset",
               "targets": [
+                "$WX00",
+                "$WX20",
                 "$WT20",
                 "$WTUT",
                 "$WTSD"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WX00",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTX10",
+                "$MTX11"
               ]
             }
           ],
@@ -3230,9 +3767,11 @@
             },
             {
               "action": "set",
-              "target": "$WT20",
+              "target": "$WX00",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$WX20",
+                "$WT20",
                 "$WTUT",
                 "$WTSD"
               ]
@@ -3277,6 +3816,19 @@
         },
         "$WTSD": {
           "code": "$WTSD",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$WX00",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTX10",
+                  "$MTX11"
+                ]
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -3285,9 +3837,20 @@
             {
               "action": "unset",
               "targets": [
+                "$WX00",
+                "$WX20",
                 "$WT20",
                 "$WTSC",
                 "$WTUT"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WX00",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTX10",
+                "$MTX11"
               ]
             }
           ],
@@ -3298,9 +3861,11 @@
             },
             {
               "action": "set",
-              "target": "$WT20",
+              "target": "$WX00",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$WX20",
+                "$WT20",
                 "$WTSC",
                 "$WTUT"
               ]
@@ -3339,6 +3904,19 @@
         },
         "$WTUT": {
           "code": "$WTUT",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$WX20",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTX10",
+                  "$MTX11"
+                ]
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -3347,9 +3925,20 @@
             {
               "action": "unset",
               "targets": [
+                "$WX00",
+                "$WX20",
                 "$WT20",
                 "$WTSC",
                 "$WTSD"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WX20",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTX10",
+                "$MTX11"
               ]
             }
           ],
@@ -3360,9 +3949,11 @@
             },
             {
               "action": "set",
-              "target": "$WT20",
+              "target": "$WX00",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$WX20",
+                "$WT20",
                 "$WTSC",
                 "$WTSD"
               ]
@@ -3725,6 +4316,628 @@
             {
               "type": "base",
               "value": 142200,
+              "context": "default"
+            }
+          ]
+        },
+        "$WX00": {
+          "code": "$WX00",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$WT20",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTX07",
+                  "$MTX08"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WX00"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$WX20",
+                "$WT20",
+                "$WTSC",
+                "$WTUT",
+                "$WTSD"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WT20",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTX07",
+                "$MTX08"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WX00"
+            },
+            {
+              "action": "set",
+              "target": "$WX00",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$WX20",
+                "$WT20",
+                "$WTSC",
+                "$WTUT",
+                "$WTSD"
+              ]
+            }
+          ],
+          "name": "20\" Cyberstream kola",
+          "description": "20\" Cyberstream kola",
+          "long_name": "20\" Cyberstream kola",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Zahrnuto"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELX/UI/20Cyberstream.png",
+                  "type": "image"
+                }
+              ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "default"
+            }
+          ]
+        },
+        "$WX20": {
+          "code": "$WX20",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$WTUT",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTX07",
+                  "$MTX08"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WX20"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$WX00",
+                "$WT20",
+                "$WTSC",
+                "$WTUT",
+                "$WTSD"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WTUT",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTX07",
+                "$MTX08"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WX20"
+            },
+            {
+              "action": "set",
+              "target": "$WX00",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$WT20",
+                "$WTSC",
+                "$WTUT",
+                "$WTSD"
+              ]
+            }
+          ],
+          "name": "22\" Turbina kola",
+          "description": "22\" Turbina kola",
+          "long_name": "22\" Turbina kola",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Zahrnuto"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELX/UI/22Turbine.png",
+                  "type": "image"
+                }
+              ]
+            }
+          ],
+          "price": 156000,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 156000,
+              "context": "default"
+            }
+          ]
+        },
+        "$IBC00": {
+          "code": "$IBC00",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$IBE00",
+                "condition_code": "$MTX10",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$IBC00"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBE00",
+                "$IWW00",
+                "$ICW00",
+                "$IWC00",
+                "$ICC00"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IBE00",
+              "condition_code": "$MTX10",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$IBC00"
+            },
+            {
+              "action": "set",
+              "target": "$IBE00",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IWW00",
+                "$ICW00",
+                "$IWC00",
+                "$ICC00"
+              ]
+            }
+          ],
+          "name": "Interiér All Black prémiový s dekorem Carbon Fiber",
+          "description": "Interiér All Black prémiový s dekorem Carbon Fiber",
+          "long_name": "Interiér All Black prémiový s dekorem Carbon Fiber",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Zahrnuto"
+            },
+            {
+              "type": "name",
+              "content": "All Black"
+            },
+            {
+              "type": "recommended",
+              "content": "Dekor Carbon Fiber"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Interior_Black.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MTX10"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "default"
+            }
+          ]
+        },
+        "$IBE00": {
+          "code": "$IBE00",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$IBC00",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$IBE00"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IWW00",
+                "$ICW00",
+                "$IBC00",
+                "$IWC00",
+                "$ICC00"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IBC00",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$IBE00"
+            },
+            {
+              "action": "set",
+              "target": "$IBE00",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IWW00",
+                "$ICW00",
+                "$IBC00",
+                "$IWC00",
+                "$ICC00"
+              ]
+            }
+          ],
+          "name": "All Black Prémiový interiér s Ebony dekorem",
+          "description": "All Black Prémiový interiér s Ebony dekorem",
+          "long_name": "All Black Prémiový interiér s Ebony dekorem",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Zahrnuto"
+            },
+            {
+              "type": "name",
+              "content": "All Black"
+            },
+            {
+              "type": "recommended",
+              "content": "Dekor Ebony"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Interior_Black.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MTX11"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "default"
+            }
+          ]
+        },
+        "$ICC00": {
+          "code": "$ICC00",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$ICW00",
+                "condition_code": "$MTX10",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$ICC00"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBE00",
+                "$IWW00",
+                "$ICW00",
+                "$IBC00",
+                "$IWC00"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$ICW00",
+              "condition_code": "$MTX10",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$ICC00"
+            },
+            {
+              "action": "set",
+              "target": "$IBE00",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IWW00",
+                "$ICW00",
+                "$IBC00",
+                "$IWC00"
+              ]
+            }
+          ],
+          "name": "Cream Prémiový interiér s Carbon Fiber dekorem",
+          "description": "Cream Prémiový interiér s Carbon Fiber dekorem",
+          "long_name": "Cream Prémiový interiér s Carbon Fiber dekorem",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Zahrnuto"
+            },
+            {
+              "type": "name",
+              "content": "Cream"
+            },
+            {
+              "type": "recommended",
+              "content": "Dekor Carbon Fiber"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Interior_Cream.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MTX10"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "price": 57000,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 57000,
+              "context": "default"
+            }
+          ]
+        },
+        "$ICW00": {
+          "code": "$ICW00",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$ICC00",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$ICW00"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBE00",
+                "$IWW00",
+                "$IBC00",
+                "$IWC00",
+                "$ICC00"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$ICC00",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$ICW00"
+            },
+            {
+              "action": "set",
+              "target": "$IBE00",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IWW00",
+                "$IBC00",
+                "$IWC00",
+                "$ICC00"
+              ]
+            }
+          ],
+          "name": "Cream Prémiový interiér s Walnut dekorem",
+          "description": "Cream Prémiový interiér s Walnut dekorem",
+          "long_name": "Cream Prémiový interiér s Walnut dekorem",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Zahrnuto"
+            },
+            {
+              "type": "name",
+              "content": "Cream"
+            },
+            {
+              "type": "recommended",
+              "content": "Dekor Walnut"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Interior_Cream.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MTX11"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "price": 57000,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 57000,
               "context": "default"
             }
           ]
@@ -6416,6 +7629,222 @@
           "description": "Interiér Black and White Performance – ventilovaný",
           "long_name": "Interiér Black and White Performance – ventilovaný"
         },
+        "$IWC00": {
+          "code": "$IWC00",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$IWW00",
+                "condition_code": "$MTX10",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$IWC00"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBE00",
+                "$IWW00",
+                "$ICW00",
+                "$IBC00",
+                "$ICC00"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IWW00",
+              "condition_code": "$MTX10",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$IWC00"
+            },
+            {
+              "action": "set",
+              "target": "$IBE00",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IWW00",
+                "$ICW00",
+                "$IBC00",
+                "$ICC00"
+              ]
+            }
+          ],
+          "name": "Interiér Black and White prémiový s dekorem Carbon Fiber",
+          "description": "Interiér Black and White prémiový s dekorem Carbon Fiber",
+          "long_name": "Interiér Black and White prémiový s dekorem Carbon Fiber",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Zahrnuto"
+            },
+            {
+              "type": "name",
+              "content": "Black and White"
+            },
+            {
+              "type": "recommended",
+              "content": "Dekor Carbon Fiber"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Interior_White.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MTX10"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "price": 57000,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 57000,
+              "context": "default"
+            }
+          ]
+        },
+        "$IWW00": {
+          "code": "$IWW00",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$IWC00",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$IWW00"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBE00",
+                "$ICW00",
+                "$IBC00",
+                "$IWC00",
+                "$ICC00"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IWC00",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$IWW00"
+            },
+            {
+              "action": "set",
+              "target": "$IBE00",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$ICW00",
+                "$IBC00",
+                "$IWC00",
+                "$ICC00"
+              ]
+            }
+          ],
+          "name": "Black and White Prémiový interiér s Walnut dekorem",
+          "description": "Black and White Prémiový interiér s Walnut dekorem",
+          "long_name": "Black and White Prémiový interiér s Walnut dekorem",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Zahrnuto"
+            },
+            {
+              "type": "name",
+              "content": "Black and White"
+            },
+            {
+              "type": "recommended",
+              "content": "Dekor Walnut"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Interior_White.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MTX11"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "price": 57000,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 57000,
+              "context": "default"
+            }
+          ]
+        },
         "$MTX01": {
           "code": "$MTX01",
           "user_defined_rules": {
@@ -6477,6 +7906,10 @@
               {
                 "condition_code": "$INBCP",
                 "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$MTX01"
               }
             ]
           },
@@ -6493,7 +7926,9 @@
                 "$MTX05",
                 "$MTX06",
                 "$MTX07",
-                "$MTX08"
+                "$MTX08",
+                "$MTX10",
+                "$MTX11"
               ]
             },
             {
@@ -6553,6 +7988,10 @@
             {
               "condition_code": "$INBCP",
               "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$MTX01"
             }
           ],
           "unset_rules": [
@@ -6562,14 +8001,16 @@
             },
             {
               "action": "set",
-              "target": "$MTX07",
+              "target": "$MTX10",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTX03",
                 "$MTX04",
                 "$MTX05",
                 "$MTX06",
-                "$MTX08"
+                "$MTX07",
+                "$MTX08",
+                "$MTX11"
               ]
             }
           ],
@@ -6683,6 +8124,10 @@
               {
                 "condition_code": "$INBCP",
                 "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$MTX03"
               }
             ]
           },
@@ -6699,7 +8144,9 @@
                 "$MTX05",
                 "$MTX06",
                 "$MTX07",
-                "$MTX08"
+                "$MTX08",
+                "$MTX10",
+                "$MTX11"
               ]
             },
             {
@@ -6763,6 +8210,10 @@
             {
               "condition_code": "$INBCP",
               "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$MTX03"
             }
           ],
           "unset_rules": [
@@ -6772,14 +8223,16 @@
             },
             {
               "action": "set",
-              "target": "$MTX07",
+              "target": "$MTX10",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTX01",
                 "$MTX04",
                 "$MTX05",
                 "$MTX06",
-                "$MTX08"
+                "$MTX07",
+                "$MTX08",
+                "$MTX11"
               ]
             }
           ],
@@ -6867,6 +8320,13 @@
               {
                 "condition_code": "$INBWW",
                 "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "targets": [
+                  "$MTX04",
+                  "$ACL1"
+                ]
               }
             ]
           },
@@ -6883,7 +8343,9 @@
                 "$MTX05",
                 "$MTX06",
                 "$MTX07",
-                "$MTX08"
+                "$MTX08",
+                "$MTX10",
+                "$MTX11"
               ]
             },
             {
@@ -6921,6 +8383,13 @@
             {
               "condition_code": "$INBWW",
               "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTX04",
+                "$ACL1"
+              ]
             }
           ],
           "unset_rules": [
@@ -6930,14 +8399,16 @@
             },
             {
               "action": "set",
-              "target": "$MTX07",
+              "target": "$MTX10",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTX01",
                 "$MTX03",
                 "$MTX05",
                 "$MTX06",
-                "$MTX08"
+                "$MTX07",
+                "$MTX08",
+                "$MTX11"
               ]
             }
           ],
@@ -7037,6 +8508,10 @@
                   "$INBC3P",
                   "$INBCP"
                 ]
+              },
+              {
+                "action": "unset",
+                "target": "$MTX05"
               }
             ]
           },
@@ -7053,7 +8528,9 @@
                 "$MTX04",
                 "$MTX06",
                 "$MTX07",
-                "$MTX08"
+                "$MTX08",
+                "$MTX10",
+                "$MTX11"
               ]
             },
             {
@@ -7087,6 +8564,10 @@
                 "$INBC3P",
                 "$INBCP"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$MTX05"
             }
           ],
           "unset_rules": [
@@ -7096,14 +8577,16 @@
             },
             {
               "action": "set",
-              "target": "$MTX07",
+              "target": "$MTX10",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTX01",
                 "$MTX03",
                 "$MTX04",
                 "$MTX06",
-                "$MTX08"
+                "$MTX07",
+                "$MTX08",
+                "$MTX11"
               ]
             }
           ],
@@ -7193,6 +8676,13 @@
                   "$INBWW",
                   "$INBP3W"
                 ]
+              },
+              {
+                "action": "unset",
+                "targets": [
+                  "$MTX06",
+                  "$ACL1"
+                ]
               }
             ]
           },
@@ -7209,7 +8699,9 @@
                 "$MTX04",
                 "$MTX05",
                 "$MTX07",
-                "$MTX08"
+                "$MTX08",
+                "$MTX10",
+                "$MTX11"
               ]
             },
             {
@@ -7237,6 +8729,13 @@
                 "$INBWW",
                 "$INBP3W"
               ]
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTX06",
+                "$ACL1"
+              ]
             }
           ],
           "unset_rules": [
@@ -7246,14 +8745,16 @@
             },
             {
               "action": "set",
-              "target": "$MTX07",
+              "target": "$MTX10",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTX01",
                 "$MTX03",
                 "$MTX04",
                 "$MTX05",
-                "$MTX08"
+                "$MTX07",
+                "$MTX08",
+                "$MTX11"
               ]
             }
           ],
@@ -7365,6 +8866,22 @@
                   "$INBC3P",
                   "$INBCP"
                 ]
+              },
+              {
+                "action": "set",
+                "target": "$WT20",
+                "condition_code": "$WX00",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$WTUT",
+                "condition_code": "$WX20",
+                "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$MTX07"
               }
             ]
           },
@@ -7381,7 +8898,9 @@
                 "$MTX04",
                 "$MTX05",
                 "$MTX06",
-                "$MTX08"
+                "$MTX08",
+                "$MTX10",
+                "$MTX11"
               ]
             },
             {
@@ -7415,6 +8934,22 @@
                 "$INBC3P",
                 "$INBCP"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$WT20",
+              "condition_code": "$WX00",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$WTUT",
+              "condition_code": "$WX20",
+              "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$MTX07"
             }
           ],
           "unset_rules": [
@@ -7424,7 +8959,7 @@
             },
             {
               "action": "set",
-              "target": "$MTX07",
+              "target": "$MTX10",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTX01",
@@ -7432,7 +8967,8 @@
                 "$MTX04",
                 "$MTX05",
                 "$MTX06",
-                "$MTX08"
+                "$MTX08",
+                "$MTX11"
               ]
             }
           ],
@@ -7522,6 +9058,25 @@
                   "$INBWW",
                   "$INBP3W"
                 ]
+              },
+              {
+                "action": "set",
+                "target": "$WT20",
+                "condition_code": "$WX00",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$WTUT",
+                "condition_code": "$WX20",
+                "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "targets": [
+                  "$MTX08",
+                  "$ACL1"
+                ]
               }
             ]
           },
@@ -7538,7 +9093,9 @@
                 "$MTX04",
                 "$MTX05",
                 "$MTX06",
-                "$MTX07"
+                "$MTX07",
+                "$MTX10",
+                "$MTX11"
               ]
             },
             {
@@ -7566,6 +9123,25 @@
                 "$INBWW",
                 "$INBP3W"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$WT20",
+              "condition_code": "$WX00",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$WTUT",
+              "condition_code": "$WX20",
+              "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTX08",
+                "$ACL1"
+              ]
             }
           ],
           "unset_rules": [
@@ -7575,14 +9151,16 @@
             },
             {
               "action": "set",
-              "target": "$MTX07",
+              "target": "$MTX10",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTX01",
                 "$MTX03",
                 "$MTX04",
                 "$MTX05",
-                "$MTX06"
+                "$MTX06",
+                "$MTX07",
+                "$MTX11"
               ]
             }
           ],
@@ -7596,19 +9174,31 @@
             },
             {
               "type": "description.main_title[0]",
-              "content": "Model X Performance zahrnuje:"
+              "content": "Model X Performance includes:"
             },
             {
               "type": "description.items[0]",
-              "content": "Rychlá akcelerace: 0–100 km/h za 2,8 s"
+              "content": "Acceleration from 0-60 mph: <X.Xs"
             },
             {
               "type": "description.items[1]",
-              "content": "Ludicrous Mode"
+              "content": "Quarter mile: <X.Xs"
             },
             {
               "type": "description.items[2]",
-              "content": "Vylepšený design interiéru"
+              "content": "X,XXX+ horsepower"
+            },
+            {
+              "type": "description.items[3]",
+              "content": "Three high-performance drive units"
+            },
+            {
+              "type": "description.items[4]",
+              "content": "carbon-sleeved rotors "
+            },
+            {
+              "type": "description.items[5]",
+              "content": "torque vectoring "
             }
           ],
           "extra_content": [
@@ -7655,6 +9245,403 @@
             {
               "type": "base_plus_trim",
               "value": 3042990,
+              "context": "base_plus_trim"
+            }
+          ]
+        },
+        "$MTX10": {
+          "code": "$MTX10",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$IBE00",
+                "condition_code": "$IBC00",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IWW00",
+                "condition_code": "$IWC00",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$ICW00",
+                "condition_code": "$ICC00",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$WX00",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WT20",
+                  "$WTSC",
+                  "$WTSD"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$WX20",
+                "condition_code": "$WTUT",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTX10"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTX01",
+                "$MTX03",
+                "$MTX04",
+                "$MTX05",
+                "$MTX06",
+                "$MTX07",
+                "$MTX08",
+                "$MTX11"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IBE00",
+              "condition_code": "$IBC00",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IWW00",
+              "condition_code": "$IWC00",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$ICW00",
+              "condition_code": "$ICC00",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$WX00",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WT20",
+                "$WTSC",
+                "$WTSD"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WX20",
+              "condition_code": "$WTUT",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTX10"
+            },
+            {
+              "action": "set",
+              "target": "$MTX10",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTX01",
+                "$MTX03",
+                "$MTX04",
+                "$MTX05",
+                "$MTX06",
+                "$MTX07",
+                "$MTX08",
+                "$MTX11"
+              ]
+            }
+          ],
+          "name": "Model X Long Range",
+          "description": "Model X Long Range",
+          "long_name": "Model X Long Range",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Long Range"
+            },
+            {
+              "type": "long_name",
+              "content": "Model X Long Range"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 69420,
+                  "configuration": [
+                    "$MDLX"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 69420,
+                  "configuration": [
+                    "$MDLX"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDLX"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
+          "price": 297300,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 297300,
+              "context": "default"
+            },
+            {
+              "type": "base_plus_trim",
+              "value": 2729900,
+              "context": "base_plus_trim"
+            }
+          ]
+        },
+        "$MTX11": {
+          "code": "$MTX11",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$IBC00",
+                "condition_code": "$IBE00",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IWC00",
+                "condition_code": "$IWW00",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$ICC00",
+                "condition_code": "$ICW00",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$WX00",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WT20",
+                  "$WTSC",
+                  "$WTSD"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$WX20",
+                "condition_code": "$WTUT",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTX11"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTX01",
+                "$MTX03",
+                "$MTX04",
+                "$MTX05",
+                "$MTX06",
+                "$MTX07",
+                "$MTX08",
+                "$MTX10"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IBC00",
+              "condition_code": "$IBE00",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IWC00",
+              "condition_code": "$IWW00",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$ICC00",
+              "condition_code": "$ICW00",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$WX00",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WT20",
+                "$WTSC",
+                "$WTSD"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WX20",
+              "condition_code": "$WTUT",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTX11"
+            },
+            {
+              "action": "set",
+              "target": "$MTX10",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTX01",
+                "$MTX03",
+                "$MTX04",
+                "$MTX05",
+                "$MTX06",
+                "$MTX07",
+                "$MTX08"
+              ]
+            }
+          ],
+          "name": "Model X Plaid",
+          "description": "Model X Plaid",
+          "long_name": "Model X Plaid",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Plaid"
+            },
+            {
+              "type": "long_name",
+              "content": "Model X Plaid"
+            },
+            {
+              "type": "feature_list.default[0].main_title",
+              "content": "Model X Plaid zahrnuje:"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Zrychlení z 0 na 100 km/h: 2,6s"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "1020 koňských sil"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Tři vysoce výkonné pohonné jednotky"
+            },
+            {
+              "type": "feature_list.default[0].items[3]",
+              "content": "Karbonem potažené rotory"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "Vektorování točivého momentu"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 91990,
+                  "configuration": [
+                    "$MDLX"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 91990,
+                  "configuration": [
+                    "$MDLX"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDLX"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
+          "price": 872300,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 872300,
+              "context": "default"
+            },
+            {
+              "type": "base_plus_trim",
+              "value": 3304900,
               "context": "base_plus_trim"
             }
           ]
@@ -8274,7 +10261,62 @@
       },
       "metadata": {
         "vat": true,
-        "migrations": [],
+        "migrations": [
+          {
+            "options": {
+              "$MDLX": {
+                "set_rules": [
+                  {
+                    "action": "set",
+                    "targets": [
+                      "$MTX10",
+                      "$WX00",
+                      "$IBE00",
+                      "$ST0Y"
+                    ]
+                  },
+                  {
+                    "action": "unset",
+                    "targets": [
+                      "$INB3C",
+                      "$INB3P",
+                      "$INB3W",
+                      "$INB3PF",
+                      "$INB3WF",
+                      "$INBC3P",
+                      "$INBC3W",
+                      "$INBP3P",
+                      "$INBP3W",
+                      "$INBC3PF",
+                      "$INBC3WF",
+                      "$INBBP",
+                      "$INBCB",
+                      "$INBCP",
+                      "$INBCW",
+                      "$INBDW",
+                      "$INBFW",
+                      "$INBPC",
+                      "$INBTW",
+                      "$INBWW",
+                      "$INFBP",
+                      "$INFCP",
+                      "$INFTP",
+                      "$INLCC",
+                      "$INLCP",
+                      "$INLFC",
+                      "$INLFP",
+                      "$INWCB",
+                      "$INFBB",
+                      "$INFB2"
+                    ]
+                  }
+                ]
+              }
+            },
+            "comments": "P2 Launch - Converts all existing configs to P2 Base Config",
+            "effective_date": "2020-12-20T20:20:00.000Z"
+          }
+        ],
         "warranty_rules": [
           {
             "action": "set",
@@ -8442,6 +10484,20 @@
                   "range": 548,
                   "topspeed": 261,
                   "acceleration": 2.8
+                },
+                "$MTX10": {
+                  "name": "Model X Long Range",
+                  "group": "TRIM",
+                  "range": 580,
+                  "topspeed": 250,
+                  "acceleration": 3.9
+                },
+                "$MTX11": {
+                  "name": "Model X Plaid",
+                  "group": "TRIM",
+                  "range": 547,
+                  "topspeed": 262,
+                  "acceleration": 2.6
                 }
               }
             }
@@ -11952,16 +14008,16 @@
       },
       "base_configuration": [
         "$MDLX",
-        "$MTX07",
+        "$MTX10",
         "$PPSW",
-        "$WT20",
-        "$INB3P",
-        "$PI01",
         "$CC01",
+        "$WX00",
+        "$IBE00",
         "$SC04",
+        "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 631,
+      "options_id": 762,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -12944,13 +15000,27 @@
           }
         }
       ],
-      "copy_id": 943,
+      "copy_id": 1096,
       "language": "cs",
-      "pricing_id": 689,
-      "reference_id": 631
+      "pricing_id": 894,
+      "reference_id": 762
     }
   },
   "edd": [
+    {
+      "countryCode": "CZ",
+      "region": null,
+      "model": "mx",
+      "options": [
+        "$MTX10",
+        "$MTX11"
+      ],
+      "atDate": "2021-09-01T00:00:32",
+      "inStart": null,
+      "inEnd": null,
+      "inType": null,
+      "effectiveStartDate": "2021-01-27T00:00:00"
+    },
     {
       "countryCode": "CZ",
       "region": null,

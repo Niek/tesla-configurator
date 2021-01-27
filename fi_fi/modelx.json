@@ -498,9 +498,12 @@
                 "$MTS03",
                 "$MTS05",
                 "$MTS07",
+                "$MTS10",
                 "$MTX03",
                 "$MTX05",
-                "$MTX07"
+                "$MTX07",
+                "$MTX10",
+                "$MTX11"
               ]
             }
           ],
@@ -525,13 +528,13 @@
       "tcc": []
     },
     "Lexicon.mx": {
-      "id": 635,
-      "effective_date": "2020-12-05T00:10:00.000Z",
+      "id": 778,
+      "effective_date": "2021-01-27T21:10:00.000Z",
       "market": "FI",
       "product": "mx",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing FI 2020.Dec.05 635.963.708",
+      "name": "Marketing FI 2021.Jan.27 778.1071.874",
       "groups": [
         {
           "code": "MODEL",
@@ -558,12 +561,14 @@
             "$MTX05",
             "$MTX06",
             "$MTX07",
-            "$MTX08"
+            "$MTX08",
+            "$MTX10",
+            "$MTX11"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTX07"
+            "$MTX10"
           ],
           "name": "VERHOILU"
         },
@@ -602,8 +607,8 @@
               "content": [
                 {
                   "type": "hero-update",
-                  "view": "STUD_3QTR_V2",
-                  "zoom": 1.4
+                  "view": "FRONT34",
+                  "zoom": 1.3
                 }
               ]
             },
@@ -612,9 +617,31 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    600,
+                    300,
+                    230
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR_V2",
-                  "zoom": 1.4
+                  "view": "FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "FRONT34",
+                  "zoom": 1.3
                 }
               ]
             }
@@ -625,6 +652,8 @@
           "groups": [],
           "context": "default",
           "options": [
+            "$WX00",
+            "$WX20",
             "$WT20",
             "$WTSC",
             "$WTUT",
@@ -633,7 +662,7 @@
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$WT20"
+            "$WX00"
           ],
           "name": "VANNE",
           "extra_copy": [
@@ -648,7 +677,7 @@
               "content": [
                 {
                   "type": "hero-update",
-                  "view": "STUD_SEAT_V2"
+                  "view": "INTERIOR"
                 }
               ]
             },
@@ -658,7 +687,7 @@
                 {
                   "bkba": 1,
                   "type": "image-compositor",
-                  "view": "STUD_WHEEL_V2"
+                  "view": "RIMCLOSEUP"
                 }
               ]
             }
@@ -694,7 +723,7 @@
             "$INLFP",
             "$INWCB"
           ],
-          "required": true,
+          "required": false,
           "exclusive": true,
           "default_options": [
             "$INB3P"
@@ -744,7 +773,7 @@
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$SC05"
+            "$SC04"
           ],
           "name": "SUPER_CHARGER"
         },
@@ -825,6 +854,47 @@
           "name": "CONNECTIVITY"
         },
         {
+          "code": "STEERING_WHEEL",
+          "groups": [],
+          "context": "default",
+          "options": [
+            "$ST0Y",
+            "$ST03"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$ST0Y"
+          ],
+          "historical_required": false,
+          "name": "Steering Wheel",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Select Steering Control"
+            }
+          ]
+        },
+        {
+          "code": "INTERIOR_COLORWAY",
+          "groups": [],
+          "context": "default",
+          "options": [
+            "$IBE00",
+            "$IWW00",
+            "$ICW00",
+            "$IBC00",
+            "$IWC00",
+            "$ICC00"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$IBE00"
+          ],
+          "historical_required": false
+        },
+        {
           "code": "CORE",
           "groups": [],
           "context": "order_summary",
@@ -836,7 +906,9 @@
             "$MTX05",
             "$MTX06",
             "$MTX07",
-            "$MTX08"
+            "$MTX08",
+            "$MTX10",
+            "$MTX11"
           ],
           "required": false,
           "exclusive": false,
@@ -896,10 +968,9 @@
             "WINTER_TIRES",
             "INTERIOR_PACKAGE",
             "REAR_SEATS",
+            "STEERING_WHEEL",
             "AUTOPILOT",
             "AUTOPILOT_PACKAGE",
-            "AUTOPILOT_FIRMWARE",
-            "SUPER_CHARGER",
             "WINTER_WHEELS"
           ],
           "context": "order_summary",
@@ -922,6 +993,8 @@
             "$MTX06",
             "$MTX07",
             "$MTX08",
+            "$MTX10",
+            "$MTX11",
             "$ACL1"
           ],
           "required": false,
@@ -1060,7 +1133,8 @@
         {
           "code": "BATTERY_AND_DRIVE",
           "groups": [
-            "TRIM"
+            "ALL_WHEEL_DRIVE_ONE",
+            "ALL_WHEEL_DRIVE_TWO"
           ],
           "context": "configurator",
           "options": [],
@@ -1100,7 +1174,7 @@
             },
             {
               "type": "range_units_est",
-              "content": "Toimintasäde (WLTP-arvio)"
+              "content": "Toimintasäde (arvio)"
             },
             {
               "type": "top_speed_units",
@@ -1117,10 +1191,6 @@
             {
               "type": "compare_title",
               "content": "Vertaa"
-            },
-            {
-              "type": "group_disclaimer",
-              "content": "Kaikissa autoissa on Dual Motor -neliveto, mukautuva ilmajousitus, korkealuokkainen sisustus ja ääni."
             },
             {
               "type": "range_units_est_link",
@@ -1149,9 +1219,31 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    600,
+                    300,
+                    230
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR_V2",
-                  "zoom": 1.4
+                  "view": "FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "FRONT34",
+                  "zoom": 1.3
                 }
               ]
             },
@@ -1212,6 +1304,61 @@
                     ]
                   },
                   "zero_to_road_limit": 2.8
+                },
+                {
+                  "range": 580,
+                  "units": "metric",
+                  "top_speed": 250,
+                  "selected_by": {
+                    "and": [
+                      "$MTX10"
+                    ]
+                  },
+                  "zero_to_road_limit": 3.9,
+                  "range_units_override": "range_units_est"
+                },
+                {
+                  "range": 547,
+                  "units": "metric",
+                  "top_speed": 262,
+                  "selected_by": {
+                    "and": [
+                      "$MTX11"
+                    ]
+                  },
+                  "zero_to_road_limit": 2.6,
+                  "range_units_override": "range_units_est"
+                }
+              ]
+            },
+            {
+              "type": "option_feature_list_on_group",
+              "content": [
+                {
+                  "props": {
+                    "content_path": "ALL_WHEEL_DRIVE_TWO.currentSelected[0].feature_list"
+                  },
+                  "selected_by": {
+                    "and": [
+                      "$MTX11"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "dynamic_disclaimer_loader",
+              "content": [
+                {
+                  "props": {
+                    "content_path": "OMS.lexicon.groups_dictionary.configurator.ALL_WHEEL_DRIVE_TWO"
+                  },
+                  "selected_by": {
+                    "or": [
+                      "$MTX10",
+                      "$MTX11"
+                    ]
+                  }
                 }
               ]
             }
@@ -1250,8 +1397,8 @@
               "content": [
                 {
                   "type": "hero-update",
-                  "view": "STUD_3QTR_V2",
-                  "zoom": 1.4
+                  "view": "FRONT34",
+                  "zoom": 1.3
                 }
               ]
             },
@@ -1260,9 +1407,31 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    600,
+                    300,
+                    230
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR_V2",
-                  "zoom": 1.4
+                  "view": "FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "FRONT34",
+                  "zoom": 1.3
                 }
               ]
             }
@@ -1293,9 +1462,31 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    600,
+                    300,
+                    230
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR_V2",
-                  "zoom": 1.4
+                  "view": "FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "FRONT34",
+                  "zoom": 1.3
                 }
               ]
             }
@@ -1306,7 +1497,7 @@
           "groups": [
             "PAINT",
             "WHEELS",
-            "WINTER_WHEELS"
+            "TOW_PACKAGE"
           ],
           "context": "configurator",
           "options": [],
@@ -1327,9 +1518,31 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    600,
+                    300,
+                    230
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR_V2",
-                  "zoom": 1.4
+                  "view": "FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "FRONT34",
+                  "zoom": 1.3
                 }
               ]
             }
@@ -1340,13 +1553,14 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$INB3P",
-            "$INB3W",
-            "$INBC3P",
-            "$INBC3W",
-            "$INB3C"
+            "$IBE00",
+            "$IWW00",
+            "$ICW00",
+            "$IBC00",
+            "$IWC00",
+            "$ICC00"
           ],
-          "required": true,
+          "required": false,
           "exclusive": true,
           "default_options": [
             "$INB3P"
@@ -1363,55 +1577,91 @@
             },
             {
               "type": "feature_list.detail[0].items[1]",
-              "content": "Ensiluokkainen äänentoistojärjestelmä viritetty erityisesti Teslan ultrahiljaiseen matkustamoon"
+              "content": "Premium 22-kaiuttimen äänijärjestelmä aktiivisella melunvaimennuksella, joka on viritetty erityisesti Teslan erittäin hiljaiseen matkustamoon"
             },
             {
               "type": "feature_list.detail[0].items[2]",
-              "content": "Kylmän sään toimintoihin kuuluvat kaikkien istuinten lämmitys, lämmitetty ohjauspyörä, pyyhinsulkien sulatus ja tuulilasinpesimen suuttimien lämmitys"
+              "content": "Usean laitteen musiikin ja median toisto Bluetooth®-yhteydellä"
             },
             {
               "type": "feature_list.detail[0].items[3]",
-              "content": "HEPA-suodatusjärjestelmä estää virusten, bakteerien ja epämiellyttävien hajujen pääsyn matkustamoon."
+              "content": "Kolme näyttöä, mukaan lukien kallistuva 17\" keskinäyttö, HD-näyttö kuljettajan edessä ja takanäyttö, joka mahdollistaa median, pelien ja ilmastoinnin ohjauksen takapenkin matkustajille"
             },
             {
-              "type": "feature_list.detail[0].items[4].description",
-              "content": "Premium Connectivity (1 vuosi sisältyy):"
-            },
-            {
-              "type": "feature_list.detail[0].items[4].sub_items[0]",
-              "content": "Satelliittikartat ja reaaliaikainen liikennenäkymä"
-            },
-            {
-              "type": "feature_list.detail[0].items[4].sub_items[1]",
-              "content": "Musiikin ja median internet-suoratoistotoiminto autossa"
-            },
-            {
-              "type": "feature_list.detail[0].items[4].sub_items[2]",
-              "content": "Langattomia päivityksiä useammin matkapuhelinyhteyden kautta"
-            },
-            {
-              "type": "feature_list.detail[0].items[4].sub_items[3]",
-              "content": "Internet-selain"
+              "type": "feature_list.detail[0].items[4]",
+              "content": "Pelitietokone, jossa on 10 terafloppia prosessoritehoa ja langattoman ohjaimen yhteensopivuus, mahdollistaa pelaamisen miltä istuimelta tahansa"
             },
             {
               "type": "feature_list.detail[0].items[5]",
-              "content": "Musiikin ja median toisto Bluetooth®-yhteydellä"
+              "content": "Kylmän sään toimintoihin kuuluvat kaikkien istuinten lämmitys, lämmitettävä ohjauspyörä, pyyhinsulkien sulatus ja tuulilasinpesimen suuttimien lämmitys"
             },
             {
               "type": "feature_list.detail[0].items[6]",
-              "content": "LED-sumuvalot"
+              "content": "Ilmastoidut etuistuimet"
             },
             {
               "type": "feature_list.detail[0].items[7]",
-              "content": "Ultravioletti- ja infrapunasäteiltä suojaava panoraamatulilasi"
+              "content": "Airwave-näkymätön matkustamon ilmastointi ja kolmialueinen lämpötilan säätö"
             },
             {
               "type": "feature_list.detail[0].items[8]",
-              "content": "Automaattisesti himmentyvät , sähköisesti taittuvat ja lämmitetyt sivupeilit"
+              "content": "HEPA-suodatusjärjestelmä estää virusten, bakteerien ja epämiellyttävien hajujen pääsyn matkustamoon."
             },
             {
               "type": "feature_list.detail[0].items[9]",
-              "content": "Mukautetut kuljettajaprofiilit"
+              "content": "Mukautetut kuljettajaprofiilit, joissa on automaattinen Easy Entry, helppo sisään- ja poistumisasento"
+            },
+            {
+              "type": "feature_list.detail[0].items[10]",
+              "content": "Ambient-valaistus koko matkustamossa"
+            },
+            {
+              "type": "feature_list.detail[0].items[11]",
+              "content": "Ultravioletti- ja infrapunasäteiltä suojaava sävytetty lasikatto"
+            },
+            {
+              "type": "feature_list.detail[0].items[12]",
+              "content": "Etu keskikonsoli liukuvilla mukitelineillä ja säilytystilalla"
+            },
+            {
+              "type": "feature_list.detail[0].items[13]",
+              "content": "Tavaratilan automaattinen avaaminen ja sulkeminen"
+            },
+            {
+              "type": "feature_list.detail[0].items[14]",
+              "content": "Automaattisesti himmentyvät , sähköisesti taittuvat ja lämmitetyt sivupeilit"
+            },
+            {
+              "type": "feature_list.detail[0].items[15]",
+              "content": "2577 litraa tavaratilaa, mukaan lukien lukittava etutavaratila"
+            },
+            {
+              "type": "feature_list.detail[0].items[16]",
+              "content": "Langaton ja USB-C-pikalataus jokaiselle matkustajalle ja usean laitteen Bluetooth tarjoaa entistä enemmän liitettävyyttä ja mukavuutta"
+            },
+            {
+              "type": "feature_list.detail[0].items[17]",
+              "content": "Sijainnin havainnoiva automaattinen autotallin oven avaaja"
+            },
+            {
+              "type": "feature_list.detail[0].items[18].description",
+              "content": "Kolmen vuoden ilmainen Premium Connectivity"
+            },
+            {
+              "type": "feature_list.detail[0].items[18].sub_items[0]",
+              "content": "Satelliittikartat ja reaaliaikainen liikennenäkymä"
+            },
+            {
+              "type": "feature_list.detail[0].items[18].sub_items[1]",
+              "content": "Musiikin ja median internet-suoratoistotoiminto autossa"
+            },
+            {
+              "type": "feature_list.detail[0].items[18].sub_items[2]",
+              "content": "Langattomia päivityksiä useammin matkapuhelinyhteyden kautta"
+            },
+            {
+              "type": "feature_list.detail[0].items[18].sub_items[3]",
+              "content": "Internet-selain"
             },
             {
               "type": "name",
@@ -1487,7 +1737,7 @@
                 {
                   "bkba": 0,
                   "type": "image-compositor",
-                  "view": "STUD_SEAT_V2",
+                  "view": "INTERIOR",
                   "ratio": "meet",
                   "selected_by": {
                     "or": [
@@ -1503,7 +1753,7 @@
                 {
                   "bkba": 0,
                   "type": "image-compositor",
-                  "view": "STUD_SEAT_V2",
+                  "view": "INTERIOR",
                   "ratio": "slice"
                 }
               ]
@@ -1623,13 +1873,13 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$MTX07",
-            "$MTX08"
+            "$MTX10",
+            "$MTX11"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTX07"
+            "$MTX10"
           ],
           "name": "VERHOILU",
           "extra_copy": [
@@ -1708,13 +1958,13 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$WT20",
-            "$WTUT"
+            "$WX00",
+            "$WX20"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$WT20"
+            "$WX00"
           ],
           "name": "WHEELS",
           "extra_copy": [
@@ -1729,7 +1979,7 @@
               "content": [
                 {
                   "type": "hero-update",
-                  "view": "STUD_SEAT_V2"
+                  "view": "INTERIOR"
                 }
               ]
             },
@@ -1739,7 +1989,7 @@
                 {
                   "bkba": 1,
                   "type": "image-compositor",
-                  "view": "STUD_WHEEL_V2"
+                  "view": "RIMCLOSEUP"
                 }
               ]
             }
@@ -1753,9 +2003,9 @@
             "WINTER_TIRES",
             "INTERIOR_PACKAGE",
             "REAR_SEATS",
+            "STEERING_WHEEL",
             "AUTOPILOT",
             "AUTOPILOT_PACKAGE",
-            "SUPER_CHARGER",
             "WINTER_WHEELS_OPTIONS"
           ],
           "context": "configurator",
@@ -1771,12 +2021,12 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$SC05"
+            "$SC04"
           ],
           "required": false,
           "exclusive": true,
           "default_options": [
-            "$SC05"
+            "$SC04"
           ],
           "name": "Supercharger"
         },
@@ -1825,6 +2075,113 @@
               "content": "Sisältää ilmaisen rajoittamattoman Supercharging-latauksen"
             }
           ]
+        },
+        {
+          "code": "INTERIOR_COLORWAY",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$IBE00",
+            "$IWW00",
+            "$ICW00",
+            "$IBC00",
+            "$IWC00",
+            "$ICC00"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$IBE00"
+          ]
+        },
+        {
+          "code": "STEERING_WHEEL",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$ST0Y",
+            "$ST03"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$ST0Y"
+          ],
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Valitse ohjauspyörä"
+            }
+          ]
+        },
+        {
+          "code": "TOW_PACKAGE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$TW01"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": []
+        },
+        {
+          "code": "ALL_WHEEL_DRIVE_ONE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$MTX10"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "ALL_WHEEL_DRIVE_ONE",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            },
+            {
+              "type": "sub_title",
+              "content": "Dual Motor -neliveto"
+            },
+            {
+              "type": "dynamic_disclaimer",
+              "content": "Tesla All-Wheel Drive has two independent motors for improved redundancy, each with only one moving part for minimal maintenance and maximum durability. Unlike traditional all-wheel drive systems, they digitally control torque to the front and rear wheels for far better handling and traction control."
+            }
+          ]
+        },
+        {
+          "code": "ALL_WHEEL_DRIVE_TWO",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$MTX11"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "ALL_WHEEL_DRIVE_TWO",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            },
+            {
+              "type": "sub_title",
+              "content": "Tri-Motor-neliveto"
+            },
+            {
+              "type": "dynamic_disclaimer",
+              "content": "Tiedot on ilmoitettu Yhdysvaltojen arvoissa"
+            },
+            {
+              "type": "disclaimer_savingsPrice",
+              "content": "* Costs above include potential incentives and gas savings of {SAVING_PRICE}."
+            },
+            {
+              "type": "disclaimer_purchasePrice",
+              "content": "All prices are shown without potential incentives or gas savings of {SAVING_PRICE}."
+            }
+          ]
         }
       ],
       "options": {
@@ -1841,6 +2198,15 @@
                   "$MTX03",
                   "$MTX05",
                   "$MTX07"
+                ]
+              },
+              {
+                "action": "unset",
+                "target": "$ACL1",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTX10",
+                  "$MTX11"
                 ]
               }
             ],
@@ -1860,6 +2226,15 @@
                 "$MTX03",
                 "$MTX05",
                 "$MTX07"
+              ]
+            },
+            {
+              "action": "unset",
+              "target": "$ACL1",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTX10",
+                "$MTX11"
               ]
             }
           ],
@@ -3187,9 +3562,12 @@
             },
             {
               "action": "set",
-              "target": "$SC05",
-              "condition_code": "$SC06",
-              "condition_state": "unset"
+              "target": "$SC04",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$SC06",
+                "$SC05"
+              ]
             }
           ],
           "name": "Maksullinen Supercharger-lataus",
@@ -3226,12 +3604,9 @@
             },
             {
               "action": "set",
-              "target": "$SC05",
-              "condition_state": "unset",
-              "condition_all_codes": [
-                "$SC04",
-                "$SC06"
-              ]
+              "target": "$SC04",
+              "condition_code": "$SC06",
+              "condition_state": "unset"
             }
           ],
           "name": "Rajoittamaton ilmainen Supercharger-lataus",
@@ -3274,8 +3649,8 @@
             },
             {
               "action": "set",
-              "target": "$SC05",
-              "condition_code": "$SC04",
+              "target": "$SC04",
+              "condition_code": "$SC05",
               "condition_state": "unset"
             }
           ],
@@ -3291,8 +3666,135 @@
             }
           ]
         },
+        "$ST03": {
+          "code": "$ST03",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$ST03"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$ST03"
+            },
+            {
+              "action": "unset",
+              "target": "$ST0Y"
+            },
+            {
+              "action": "unset",
+              "target": "$ST03"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$ST03"
+            },
+            {
+              "action": "set",
+              "target": "$ST0Y"
+            }
+          ],
+          "name": "Ohjauspyörä",
+          "description": "Ohjauspyörä",
+          "long_name": "Ohjauspyörä",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Sisältyy"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELS/UI/ui_swat_s-wheel-b.svg",
+                  "type": "image"
+                }
+              ]
+            }
+          ]
+        },
+        "$ST0Y": {
+          "code": "$ST0Y",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$ST0Y"
+            },
+            {
+              "action": "unset",
+              "target": "$ST03"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$ST0Y"
+            },
+            {
+              "action": "set",
+              "target": "$ST03"
+            }
+          ],
+          "name": "Yoke ohjauspyörä",
+          "description": "Yoke ohjauspyörä",
+          "long_name": "Yoke ohjauspyörä",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Sisältyy"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELS/UI/ui_swat_s-wheel-y.svg",
+                  "type": "image"
+                }
+              ]
+            }
+          ]
+        },
         "$WT20": {
           "code": "$WT20",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$WX00",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTX10",
+                  "$MTX11"
+                ]
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -3301,9 +3803,20 @@
             {
               "action": "unset",
               "targets": [
+                "$WX00",
+                "$WX20",
                 "$WTSC",
                 "$WTUT",
                 "$WTSD"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WX00",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTX10",
+                "$MTX11"
               ]
             }
           ],
@@ -3314,9 +3827,10 @@
             },
             {
               "action": "set",
-              "target": "$WT20",
+              "target": "$WX00",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$WX20",
                 "$WTSC",
                 "$WTUT",
                 "$WTSD"
@@ -3362,6 +3876,19 @@
         },
         "$WTSC": {
           "code": "$WTSC",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$WX00",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTX10",
+                  "$MTX11"
+                ]
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -3370,9 +3897,20 @@
             {
               "action": "unset",
               "targets": [
+                "$WX00",
+                "$WX20",
                 "$WT20",
                 "$WTUT",
                 "$WTSD"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WX00",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTX10",
+                "$MTX11"
               ]
             }
           ],
@@ -3383,9 +3921,11 @@
             },
             {
               "action": "set",
-              "target": "$WT20",
+              "target": "$WX00",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$WX20",
+                "$WT20",
                 "$WTUT",
                 "$WTSD"
               ]
@@ -3430,6 +3970,19 @@
         },
         "$WTSD": {
           "code": "$WTSD",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$WX00",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTX10",
+                  "$MTX11"
+                ]
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -3438,9 +3991,20 @@
             {
               "action": "unset",
               "targets": [
+                "$WX00",
+                "$WX20",
                 "$WT20",
                 "$WTSC",
                 "$WTUT"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WX00",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTX10",
+                "$MTX11"
               ]
             }
           ],
@@ -3451,9 +4015,11 @@
             },
             {
               "action": "set",
-              "target": "$WT20",
+              "target": "$WX00",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$WX20",
+                "$WT20",
                 "$WTSC",
                 "$WTUT"
               ]
@@ -3492,6 +4058,19 @@
         },
         "$WTUT": {
           "code": "$WTUT",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$WX20",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTX10",
+                  "$MTX11"
+                ]
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -3500,9 +4079,20 @@
             {
               "action": "unset",
               "targets": [
+                "$WX00",
+                "$WX20",
                 "$WT20",
                 "$WTSC",
                 "$WTSD"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WX20",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTX10",
+                "$MTX11"
               ]
             }
           ],
@@ -3513,9 +4103,11 @@
             },
             {
               "action": "set",
-              "target": "$WT20",
+              "target": "$WX00",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$WX20",
+                "$WT20",
                 "$WTSC",
                 "$WTSD"
               ]
@@ -4183,6 +4775,628 @@
             {
               "type": "base",
               "value": 5500,
+              "context": "default"
+            }
+          ]
+        },
+        "$WX00": {
+          "code": "$WX00",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$WT20",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTX07",
+                  "$MTX08"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WX00"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$WX20",
+                "$WT20",
+                "$WTSC",
+                "$WTUT",
+                "$WTSD"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WT20",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTX07",
+                "$MTX08"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WX00"
+            },
+            {
+              "action": "set",
+              "target": "$WX00",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$WX20",
+                "$WT20",
+                "$WTSC",
+                "$WTUT",
+                "$WTSD"
+              ]
+            }
+          ],
+          "name": "20\" Cyberstream-vanteet",
+          "description": "20\" Cyberstream-vanteet",
+          "long_name": "20\" Cyberstream-vanteet",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Sisältyy"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELX/UI/20Cyberstream.png",
+                  "type": "image"
+                }
+              ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "default"
+            }
+          ]
+        },
+        "$WX20": {
+          "code": "$WX20",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$WTUT",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTX07",
+                  "$MTX08"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WX20"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$WX00",
+                "$WT20",
+                "$WTSC",
+                "$WTUT",
+                "$WTSD"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WTUT",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTX07",
+                "$MTX08"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WX20"
+            },
+            {
+              "action": "set",
+              "target": "$WX00",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$WT20",
+                "$WTSC",
+                "$WTUT",
+                "$WTSD"
+              ]
+            }
+          ],
+          "name": "22\" Turbine-vanteet",
+          "description": "22\" Turbine-vanteet",
+          "long_name": "22\" Turbine-vanteet",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Sisältyy"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELX/UI/22Turbine.png",
+                  "type": "image"
+                }
+              ]
+            }
+          ],
+          "price": 6000,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 6000,
+              "context": "default"
+            }
+          ]
+        },
+        "$IBC00": {
+          "code": "$IBC00",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$IBE00",
+                "condition_code": "$MTX10",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$IBC00"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBE00",
+                "$IWW00",
+                "$ICW00",
+                "$IWC00",
+                "$ICC00"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IBE00",
+              "condition_code": "$MTX10",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$IBC00"
+            },
+            {
+              "action": "set",
+              "target": "$IBE00",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IWW00",
+                "$ICW00",
+                "$IWC00",
+                "$ICC00"
+              ]
+            }
+          ],
+          "name": "Täysin musta Premium-sisustus, hiilikuitukoristelu",
+          "description": "Täysin musta Premium-sisustus, hiilikuitukoristelu",
+          "long_name": "Täysin musta Premium-sisustus, hiilikuitukoristelu",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Sisältyy"
+            },
+            {
+              "type": "name",
+              "content": "Täysin musta"
+            },
+            {
+              "type": "recommended",
+              "content": "Hiilikuitusisustus"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Interior_Black.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MTX10"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "default"
+            }
+          ]
+        },
+        "$IBE00": {
+          "code": "$IBE00",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$IBC00",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$IBE00"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IWW00",
+                "$ICW00",
+                "$IBC00",
+                "$IWC00",
+                "$ICC00"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IBC00",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$IBE00"
+            },
+            {
+              "action": "set",
+              "target": "$IBE00",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IWW00",
+                "$ICW00",
+                "$IBC00",
+                "$IWC00",
+                "$ICC00"
+              ]
+            }
+          ],
+          "name": "Täysin musta sisustus, Eebenpuukoristelu",
+          "description": "Täysin musta sisustus, Eebenpuukoristelu",
+          "long_name": "Täysin musta sisustus, Eebenpuukoristelu",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Sisältyy"
+            },
+            {
+              "type": "name",
+              "content": "Täysin musta"
+            },
+            {
+              "type": "recommended",
+              "content": "Ebony Décor"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Interior_Black.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MTX11"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "default"
+            }
+          ]
+        },
+        "$ICC00": {
+          "code": "$ICC00",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$ICW00",
+                "condition_code": "$MTX10",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$ICC00"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBE00",
+                "$IWW00",
+                "$ICW00",
+                "$IBC00",
+                "$IWC00"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$ICW00",
+              "condition_code": "$MTX10",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$ICC00"
+            },
+            {
+              "action": "set",
+              "target": "$IBE00",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IWW00",
+                "$ICW00",
+                "$IBC00",
+                "$IWC00"
+              ]
+            }
+          ],
+          "name": "Kermanvärinen Premium-sisustus, hiilikuitukoristelu",
+          "description": "Kermanvärinen Premium-sisustus, hiilikuitukoristelu",
+          "long_name": "Kermanvärinen Premium-sisustus, hiilikuitukoristelu",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Sisältyy"
+            },
+            {
+              "type": "name",
+              "content": "Kermanvärinen"
+            },
+            {
+              "type": "recommended",
+              "content": "Hiilikuitusisustus"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Interior_Cream.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MTX10"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "price": 2200,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 2200,
+              "context": "default"
+            }
+          ]
+        },
+        "$ICW00": {
+          "code": "$ICW00",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$ICC00",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$ICW00"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBE00",
+                "$IWW00",
+                "$IBC00",
+                "$IWC00",
+                "$ICC00"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$ICC00",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$ICW00"
+            },
+            {
+              "action": "set",
+              "target": "$IBE00",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IWW00",
+                "$IBC00",
+                "$IWC00",
+                "$ICC00"
+              ]
+            }
+          ],
+          "name": "Kermanvärinen Premium-sisustus, saksanpähkinäkoristelu",
+          "description": "Kermanvärinen Premium-sisustus, saksanpähkinäkoristelu",
+          "long_name": "Kermanvärinen Premium-sisustus, saksanpähkinäkoristelu",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Sisältyy"
+            },
+            {
+              "type": "name",
+              "content": "Kermanvärinen"
+            },
+            {
+              "type": "recommended",
+              "content": "Walnut Décor"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Interior_Cream.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MTX11"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "price": 2200,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 2200,
               "context": "default"
             }
           ]
@@ -6874,6 +8088,222 @@
           "description": "Black and White Performance Interior - Ventilated",
           "long_name": "Black and White Performance Interior - Ventilated"
         },
+        "$IWC00": {
+          "code": "$IWC00",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$IWW00",
+                "condition_code": "$MTX10",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$IWC00"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBE00",
+                "$IWW00",
+                "$ICW00",
+                "$IBC00",
+                "$ICC00"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IWW00",
+              "condition_code": "$MTX10",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$IWC00"
+            },
+            {
+              "action": "set",
+              "target": "$IBE00",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IWW00",
+                "$ICW00",
+                "$IBC00",
+                "$ICC00"
+              ]
+            }
+          ],
+          "name": "Mustavalkoinen Premium-sisustus, hiilikuitukoristelu",
+          "description": "Mustavalkoinen Premium-sisustus, hiilikuitukoristelu",
+          "long_name": "Mustavalkoinen Premium-sisustus, hiilikuitukoristelu",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Sisältyy"
+            },
+            {
+              "type": "name",
+              "content": "Mustavalkoinen"
+            },
+            {
+              "type": "recommended",
+              "content": "Hiilikuitusisustus"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Interior_White.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MTX10"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "price": 2200,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 2200,
+              "context": "default"
+            }
+          ]
+        },
+        "$IWW00": {
+          "code": "$IWW00",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$IWC00",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$IWW00"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBE00",
+                "$ICW00",
+                "$IBC00",
+                "$IWC00",
+                "$ICC00"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IWC00",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$IWW00"
+            },
+            {
+              "action": "set",
+              "target": "$IBE00",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$ICW00",
+                "$IBC00",
+                "$IWC00",
+                "$ICC00"
+              ]
+            }
+          ],
+          "name": "Mustavalkoinen Premium-sisustus, saksanpähkinäkoristelu",
+          "description": "Mustavalkoinen Premium-sisustus, saksanpähkinäkoristelu",
+          "long_name": "Mustavalkoinen Premium-sisustus, saksanpähkinäkoristelu",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Sisältyy"
+            },
+            {
+              "type": "name",
+              "content": "Mustavalkoinen"
+            },
+            {
+              "type": "recommended",
+              "content": "Walnut Décor"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Interior_White.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MTX11"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "price": 2200,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 2200,
+              "context": "default"
+            }
+          ]
+        },
         "$MTX01": {
           "code": "$MTX01",
           "user_defined_rules": {
@@ -6935,6 +8365,10 @@
               {
                 "condition_code": "$INBCP",
                 "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$MTX01"
               }
             ]
           },
@@ -6951,7 +8385,9 @@
                 "$MTX05",
                 "$MTX06",
                 "$MTX07",
-                "$MTX08"
+                "$MTX08",
+                "$MTX10",
+                "$MTX11"
               ]
             },
             {
@@ -7011,6 +8447,10 @@
             {
               "condition_code": "$INBCP",
               "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$MTX01"
             }
           ],
           "unset_rules": [
@@ -7020,14 +8460,16 @@
             },
             {
               "action": "set",
-              "target": "$MTX07",
+              "target": "$MTX10",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTX03",
                 "$MTX04",
                 "$MTX05",
                 "$MTX06",
-                "$MTX08"
+                "$MTX07",
+                "$MTX08",
+                "$MTX11"
               ]
             }
           ],
@@ -7141,6 +8583,10 @@
               {
                 "condition_code": "$INBCP",
                 "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$MTX03"
               }
             ]
           },
@@ -7157,7 +8603,9 @@
                 "$MTX05",
                 "$MTX06",
                 "$MTX07",
-                "$MTX08"
+                "$MTX08",
+                "$MTX10",
+                "$MTX11"
               ]
             },
             {
@@ -7221,6 +8669,10 @@
             {
               "condition_code": "$INBCP",
               "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$MTX03"
             }
           ],
           "unset_rules": [
@@ -7230,14 +8682,16 @@
             },
             {
               "action": "set",
-              "target": "$MTX07",
+              "target": "$MTX10",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTX01",
                 "$MTX04",
                 "$MTX05",
                 "$MTX06",
-                "$MTX08"
+                "$MTX07",
+                "$MTX08",
+                "$MTX11"
               ]
             }
           ],
@@ -7325,6 +8779,13 @@
               {
                 "condition_code": "$INBWW",
                 "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "targets": [
+                  "$MTX04",
+                  "$ACL1"
+                ]
               }
             ]
           },
@@ -7341,7 +8802,9 @@
                 "$MTX05",
                 "$MTX06",
                 "$MTX07",
-                "$MTX08"
+                "$MTX08",
+                "$MTX10",
+                "$MTX11"
               ]
             },
             {
@@ -7379,6 +8842,13 @@
             {
               "condition_code": "$INBWW",
               "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTX04",
+                "$ACL1"
+              ]
             }
           ],
           "unset_rules": [
@@ -7388,14 +8858,16 @@
             },
             {
               "action": "set",
-              "target": "$MTX07",
+              "target": "$MTX10",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTX01",
                 "$MTX03",
                 "$MTX05",
                 "$MTX06",
-                "$MTX08"
+                "$MTX07",
+                "$MTX08",
+                "$MTX11"
               ]
             }
           ],
@@ -7495,6 +8967,10 @@
                   "$INBC3P",
                   "$INBCP"
                 ]
+              },
+              {
+                "action": "unset",
+                "target": "$MTX05"
               }
             ]
           },
@@ -7511,7 +8987,9 @@
                 "$MTX04",
                 "$MTX06",
                 "$MTX07",
-                "$MTX08"
+                "$MTX08",
+                "$MTX10",
+                "$MTX11"
               ]
             },
             {
@@ -7545,6 +9023,10 @@
                 "$INBC3P",
                 "$INBCP"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$MTX05"
             }
           ],
           "unset_rules": [
@@ -7554,14 +9036,16 @@
             },
             {
               "action": "set",
-              "target": "$MTX07",
+              "target": "$MTX10",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTX01",
                 "$MTX03",
                 "$MTX04",
                 "$MTX06",
-                "$MTX08"
+                "$MTX07",
+                "$MTX08",
+                "$MTX11"
               ]
             }
           ],
@@ -7651,6 +9135,13 @@
                   "$INBWW",
                   "$INBP3W"
                 ]
+              },
+              {
+                "action": "unset",
+                "targets": [
+                  "$MTX06",
+                  "$ACL1"
+                ]
               }
             ]
           },
@@ -7667,7 +9158,9 @@
                 "$MTX04",
                 "$MTX05",
                 "$MTX07",
-                "$MTX08"
+                "$MTX08",
+                "$MTX10",
+                "$MTX11"
               ]
             },
             {
@@ -7695,6 +9188,13 @@
                 "$INBWW",
                 "$INBP3W"
               ]
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTX06",
+                "$ACL1"
+              ]
             }
           ],
           "unset_rules": [
@@ -7704,14 +9204,16 @@
             },
             {
               "action": "set",
-              "target": "$MTX07",
+              "target": "$MTX10",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTX01",
                 "$MTX03",
                 "$MTX04",
                 "$MTX05",
-                "$MTX08"
+                "$MTX07",
+                "$MTX08",
+                "$MTX11"
               ]
             }
           ],
@@ -7823,6 +9325,22 @@
                   "$INBC3P",
                   "$INBCP"
                 ]
+              },
+              {
+                "action": "set",
+                "target": "$WT20",
+                "condition_code": "$WX00",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$WTUT",
+                "condition_code": "$WX20",
+                "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$MTX07"
               }
             ]
           },
@@ -7839,7 +9357,9 @@
                 "$MTX04",
                 "$MTX05",
                 "$MTX06",
-                "$MTX08"
+                "$MTX08",
+                "$MTX10",
+                "$MTX11"
               ]
             },
             {
@@ -7873,6 +9393,22 @@
                 "$INBC3P",
                 "$INBCP"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$WT20",
+              "condition_code": "$WX00",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$WTUT",
+              "condition_code": "$WX20",
+              "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$MTX07"
             }
           ],
           "unset_rules": [
@@ -7882,7 +9418,7 @@
             },
             {
               "action": "set",
-              "target": "$MTX07",
+              "target": "$MTX10",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTX01",
@@ -7890,7 +9426,8 @@
                 "$MTX04",
                 "$MTX05",
                 "$MTX06",
-                "$MTX08"
+                "$MTX08",
+                "$MTX11"
               ]
             }
           ],
@@ -7932,6 +9469,18 @@
                   "configuration": [
                     "$MDLX"
                   ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDLX"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
                   "condition_state": "and"
                 }
               ]
@@ -7980,6 +9529,25 @@
                   "$INBWW",
                   "$INBP3W"
                 ]
+              },
+              {
+                "action": "set",
+                "target": "$WT20",
+                "condition_code": "$WX00",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$WTUT",
+                "condition_code": "$WX20",
+                "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "targets": [
+                  "$MTX08",
+                  "$ACL1"
+                ]
               }
             ]
           },
@@ -7996,7 +9564,9 @@
                 "$MTX04",
                 "$MTX05",
                 "$MTX06",
-                "$MTX07"
+                "$MTX07",
+                "$MTX10",
+                "$MTX11"
               ]
             },
             {
@@ -8024,6 +9594,25 @@
                 "$INBWW",
                 "$INBP3W"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$WT20",
+              "condition_code": "$WX00",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$WTUT",
+              "condition_code": "$WX20",
+              "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTX08",
+                "$ACL1"
+              ]
             }
           ],
           "unset_rules": [
@@ -8033,14 +9622,16 @@
             },
             {
               "action": "set",
-              "target": "$MTX07",
+              "target": "$MTX10",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTX01",
                 "$MTX03",
                 "$MTX04",
                 "$MTX05",
-                "$MTX06"
+                "$MTX06",
+                "$MTX07",
+                "$MTX11"
               ]
             }
           ],
@@ -8054,19 +9645,31 @@
             },
             {
               "type": "description.main_title[0]",
-              "content": "Model X Performance -auton varustelu:"
+              "content": "Model X Performance includes:"
             },
             {
               "type": "description.items[0]",
-              "content": "Nopeampi kiihtyvyys: 0–100 km/h, 2,8 s"
+              "content": "Acceleration from 0-60 mph: <X.Xs"
             },
             {
               "type": "description.items[1]",
-              "content": "Ludicrous-tila"
+              "content": "Quarter mile: <X.Xs"
             },
             {
               "type": "description.items[2]",
-              "content": "Parannettu sisustus"
+              "content": "X,XXX+ horsepower"
+            },
+            {
+              "type": "description.items[3]",
+              "content": "Three high-performance drive units"
+            },
+            {
+              "type": "description.items[4]",
+              "content": "carbon-sleeved rotors "
+            },
+            {
+              "type": "description.items[5]",
+              "content": "torque vectoring "
             }
           ],
           "extra_content": [
@@ -8101,6 +9704,21 @@
                   "condition_state": "and"
                 }
               ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "options": [
+                    "$ACL1"
+                  ],
+                  "configuaration": [
+                    "$MDLX"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
           "price": 21000,
@@ -8113,6 +9731,403 @@
             {
               "type": "base_plus_trim",
               "value": 101990,
+              "context": "base_plus_trim"
+            }
+          ]
+        },
+        "$MTX10": {
+          "code": "$MTX10",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$IBE00",
+                "condition_code": "$IBC00",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IWW00",
+                "condition_code": "$IWC00",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$ICW00",
+                "condition_code": "$ICC00",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$WX00",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WT20",
+                  "$WTSC",
+                  "$WTSD"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$WX20",
+                "condition_code": "$WTUT",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTX10"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTX01",
+                "$MTX03",
+                "$MTX04",
+                "$MTX05",
+                "$MTX06",
+                "$MTX07",
+                "$MTX08",
+                "$MTX11"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IBE00",
+              "condition_code": "$IBC00",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IWW00",
+              "condition_code": "$IWC00",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$ICW00",
+              "condition_code": "$ICC00",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$WX00",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WT20",
+                "$WTSC",
+                "$WTSD"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WX20",
+              "condition_code": "$WTUT",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTX10"
+            },
+            {
+              "action": "set",
+              "target": "$MTX10",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTX01",
+                "$MTX03",
+                "$MTX04",
+                "$MTX05",
+                "$MTX06",
+                "$MTX07",
+                "$MTX08",
+                "$MTX11"
+              ]
+            }
+          ],
+          "name": "Model X Long Range",
+          "description": "Model X Long Range",
+          "long_name": "Model X Long Range",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Long Range"
+            },
+            {
+              "type": "long_name",
+              "content": "Model X Long Range"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 69420,
+                  "configuration": [
+                    "$MDLX"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 69420,
+                  "configuration": [
+                    "$MDLX"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDLX"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
+          "price": 20000,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 20000,
+              "context": "default"
+            },
+            {
+              "type": "base_plus_trim",
+              "value": 100990,
+              "context": "base_plus_trim"
+            }
+          ]
+        },
+        "$MTX11": {
+          "code": "$MTX11",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$IBC00",
+                "condition_code": "$IBE00",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IWC00",
+                "condition_code": "$IWW00",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$ICC00",
+                "condition_code": "$ICW00",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$WX00",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WT20",
+                  "$WTSC",
+                  "$WTSD"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$WX20",
+                "condition_code": "$WTUT",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTX11"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTX01",
+                "$MTX03",
+                "$MTX04",
+                "$MTX05",
+                "$MTX06",
+                "$MTX07",
+                "$MTX08",
+                "$MTX10"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IBC00",
+              "condition_code": "$IBE00",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IWC00",
+              "condition_code": "$IWW00",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$ICC00",
+              "condition_code": "$ICW00",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$WX00",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WT20",
+                "$WTSC",
+                "$WTSD"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WX20",
+              "condition_code": "$WTUT",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTX11"
+            },
+            {
+              "action": "set",
+              "target": "$MTX10",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTX01",
+                "$MTX03",
+                "$MTX04",
+                "$MTX05",
+                "$MTX06",
+                "$MTX07",
+                "$MTX08"
+              ]
+            }
+          ],
+          "name": "Model X Plaid",
+          "description": "Model X Plaid",
+          "long_name": "Model X Plaid",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Plaid"
+            },
+            {
+              "type": "long_name",
+              "content": "Model X Plaid"
+            },
+            {
+              "type": "feature_list.default[0].main_title",
+              "content": "Model X Plaid -auton varustelu:"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Kiihtyvyys 0–100 km/h: 2,6s"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "1 020 hevosvoimaa"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Kolme suuritehoista voimansiirtoyksikköä"
+            },
+            {
+              "type": "feature_list.default[0].items[3]",
+              "content": "Hiilivahvistetut roottorit"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "Vääntömomentin vektorointi"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 91990,
+                  "configuration": [
+                    "$MDLX"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 91990,
+                  "configuration": [
+                    "$MDLX"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDLX"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
+          "price": 40000,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 40000,
+              "context": "default"
+            },
+            {
+              "type": "base_plus_trim",
+              "value": 120990,
               "context": "base_plus_trim"
             }
           ]
@@ -8904,143 +10919,57 @@
           },
           {
             "options": {
-              "$INFBP": {
+              "$MDLX": {
                 "set_rules": [
                   {
                     "action": "set",
-                    "target": "$INBBP",
-                    "condition_state": "set",
-                    "condition_any_code": [
-                      "$MTX04",
-                      "$MTX06",
-                      "$MTX08"
+                    "targets": [
+                      "$MTX10",
+                      "$WX00",
+                      "$IBE00",
+                      "$ST0Y"
                     ]
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "options": {
-              "$INBFW": {
-                "set_rules": [
-                  {
-                    "action": "set",
-                    "target": "$INBWW",
-                    "condition_state": "set",
-                    "condition_any_code": [
-                      "$MTX04",
-                      "$MTX06",
-                      "$MTX08"
-                    ]
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "options": {
-              "$INFTP": {
-                "set_rules": [
-                  {
-                    "action": "set",
-                    "target": "$INBBP",
-                    "condition_state": "set",
-                    "condition_any_code": [
-                      "$MTX04",
-                      "$MTX06",
-                      "$MTX08"
-                    ]
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "options": {
-              "$INBTW": {
-                "set_rules": [
-                  {
-                    "action": "set",
-                    "target": "$INBWW",
-                    "condition_state": "set",
-                    "condition_any_code": [
-                      "$MTX04",
-                      "$MTX06",
-                      "$MTX08"
-                    ]
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "options": {
-              "$INBFW": {
-                "set_rules": [
-                  {
-                    "action": "set",
-                    "target": "$INBTW"
-                  }
-                ]
-              },
-              "$INFBP": {
-                "set_rules": [
-                  {
-                    "action": "set",
-                    "target": "$INFTP"
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "options": {
-              "$INLFC": {
-                "set_rules": [
-                  {
-                    "action": "set",
-                    "target": "$INBPC"
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "options": {
-              "$MTX05": {
-                "set_rules": [
-                  {
-                    "action": "unset",
-                    "target": "$MTX05"
                   },
                   {
-                    "action": "set",
-                    "target": "$MTX07"
+                    "action": "unset",
+                    "targets": [
+                      "$INB3C",
+                      "$INB3P",
+                      "$INB3W",
+                      "$INB3PF",
+                      "$INB3WF",
+                      "$INBC3P",
+                      "$INBC3W",
+                      "$INBP3P",
+                      "$INBP3W",
+                      "$INBC3PF",
+                      "$INBC3WF",
+                      "$INBBP",
+                      "$INBCB",
+                      "$INBCP",
+                      "$INBCW",
+                      "$INBDW",
+                      "$INBFW",
+                      "$INBPC",
+                      "$INBTW",
+                      "$INBWW",
+                      "$INFBP",
+                      "$INFCP",
+                      "$INFTP",
+                      "$INLCC",
+                      "$INLCP",
+                      "$INLFC",
+                      "$INLFP",
+                      "$INWCB",
+                      "$INFBB",
+                      "$INFB2"
+                    ]
                   }
                 ]
               }
             },
-            "comments": "New Trim Launch",
-            "effective_date": "2020-10-14"
-          },
-          {
-            "options": {
-              "$MTX06": {
-                "set_rules": [
-                  {
-                    "action": "unset",
-                    "target": "$MTX06"
-                  },
-                  {
-                    "action": "set",
-                    "target": "$MTX08"
-                  }
-                ]
-              }
-            },
-            "comments": "New Trim Launch",
-            "effective_date": "2020-10-14"
+            "comments": "P2 Launch - Converts all existing configs to P2 Base Config",
+            "effective_date": "2020-12-20T20:20:00.000Z"
           }
         ],
         "warranty_rules": [
@@ -9210,6 +11139,20 @@
                   "range": 548,
                   "topspeed": 261,
                   "acceleration": 2.8
+                },
+                "$MTX10": {
+                  "name": "Model X Long Range",
+                  "group": "TRIM",
+                  "range": 580,
+                  "topspeed": 250,
+                  "acceleration": 3.9
+                },
+                "$MTX11": {
+                  "name": "Model X Plaid",
+                  "group": "TRIM",
+                  "range": 547,
+                  "topspeed": 262,
+                  "acceleration": 2.6
                 }
               }
             }
@@ -12720,16 +14663,16 @@
       },
       "base_configuration": [
         "$MDLX",
-        "$MTX07",
+        "$MTX10",
         "$PPSW",
-        "$WT20",
-        "$INB3P",
-        "$PI01",
         "$CC01",
+        "$WX00",
+        "$IBE00",
         "$SC04",
+        "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 635,
+      "options_id": 778,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -13806,12 +15749,26 @@
           "content_localized": {}
         }
       ],
-      "copy_id": 963,
+      "copy_id": 1071,
       "language": "fi",
-      "pricing_id": 708
+      "pricing_id": 874
     }
   },
   "edd": [
+    {
+      "countryCode": "FI",
+      "region": null,
+      "model": "mx",
+      "options": [
+        "$MTX10",
+        "$MTX11"
+      ],
+      "atDate": "2021-09-01T00:00:37",
+      "inStart": null,
+      "inEnd": null,
+      "inType": null,
+      "effectiveStartDate": "2021-01-27T00:00:00"
+    },
     {
       "countryCode": "FI",
       "region": null,
