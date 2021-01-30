@@ -524,12 +524,12 @@
       "tcc": []
     },
     "Lexicon.m3": {
-      "effective_date": "2021-01-08T01:10:01.484Z",
+      "effective_date": "2021-01-29T06:50:26.370Z",
       "market": "HK",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing HK 2021.Jan.08 677.989.780 [zh]",
+      "name": "Marketing HK 2021.Jan.29 831.1201.897 [zh]",
       "groups": [
         {
           "code": "MODEL",
@@ -560,15 +560,15 @@
             "$MT311",
             "$MT312",
             "$MT315",
+            "$MT316",
             "$MT317",
             "$MT320",
-            "$MT337",
-            "$MT316"
+            "$MT337"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MT320"
+            "$MT337"
           ],
           "name": "TRIM"
         },
@@ -788,7 +788,7 @@
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$IBB0"
+            "$IBB1"
           ],
           "name": "裝飾風格",
           "extra_copy": [
@@ -1272,6 +1272,7 @@
             "$MT311",
             "$MT312",
             "$MT315",
+            "$MT316",
             "$MT317",
             "$MT320",
             "$MT337"
@@ -1325,7 +1326,6 @@
             "AUTOPILOT",
             "AUTOPILOT_OWNERSHIP",
             "AUTOPILOT_PACKAGE",
-            "AUTOPILOT_FIRMWARE",
             "PERF_FIRMWARE"
           ],
           "context": "order_summary",
@@ -1341,14 +1341,14 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$MT320",
-            "$MT315",
+            "$MT337",
+            "$MT316",
             "$MT317"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MT320"
+            "$MT337"
           ],
           "name": "TRIM",
           "extra_copy": [
@@ -1928,9 +1928,10 @@
             "$PRM30",
             "$PRM31",
             "$PRM3S",
-            "$IBB0",
-            "$IPB0",
-            "$IPW0"
+            "$IBB1",
+            "$IPB1",
+            "$IBW1",
+            "$IPW1"
           ],
           "required": false,
           "exclusive": false,
@@ -2042,7 +2043,7 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$MT320"
+            "$MT337"
           ],
           "required": false,
           "exclusive": false,
@@ -2304,7 +2305,7 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$MT320"
+            "$MT337"
           ],
           "required": false,
           "exclusive": false,
@@ -2368,7 +2369,7 @@
                   },
                   "selected_by": {
                     "not": [
-                      "$MT320"
+                      "$MT337"
                     ]
                   }
                 }
@@ -2381,13 +2382,13 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$MT315",
+            "$MT316",
             "$MT317"
           ],
           "required": false,
           "exclusive": false,
           "default_options": [
-            "$MT303"
+            "$MT316"
           ],
           "name": "DUAL_MOTOR_PREMIUM",
           "extra_copy": [
@@ -2627,6 +2628,28 @@
                     ]
                   },
                   "zero_to_road_limit": 5.6
+                },
+                {
+                  "range": 448,
+                  "units": "metric",
+                  "top_speed": 225,
+                  "selected_by": {
+                    "and": [
+                      "$MT337"
+                    ]
+                  },
+                  "zero_to_road_limit": 5.6
+                },
+                {
+                  "range": 580,
+                  "units": "metric",
+                  "top_speed": 233,
+                  "selected_by": {
+                    "and": [
+                      "$MT316"
+                    ]
+                  },
+                  "zero_to_road_limit": 4.4
                 }
               ]
             }
@@ -2646,6 +2669,7 @@
             "$MT310",
             "$MT311",
             "$MT315",
+            "$MT316",
             "$MT317",
             "$MT320",
             "$MT337",
@@ -2722,14 +2746,15 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$IBB0",
-            "$IPB0",
-            "$IPW0"
+            "$IBB1",
+            "$IBW1",
+            "$IPB1",
+            "$IPW1"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$IBB0"
+            "$IBB1"
           ],
           "name": "Interior"
         }
@@ -3621,12 +3646,36 @@
               },
               {
                 "action": "set",
+                "target": "$IN3BB",
+                "condition_state": "unset",
+                "condition_all_codes": [
+                  "$MT337",
+                  "$MT316",
+                  "$MT317",
+                  "$MT320",
+                  "$MT315"
+                ]
+              },
+              {
+                "action": "set",
                 "target": "$IPB0",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$MT315",
                   "$MT317"
                 ]
+              },
+              {
+                "action": "set",
+                "target": "$IBB1",
+                "condition_code": "$MT337",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IPB1",
+                "condition_code": "$MT316",
+                "condition_state": "set"
               }
             ]
           },
@@ -3658,12 +3707,36 @@
             },
             {
               "action": "set",
+              "target": "$IN3BB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT337",
+                "$MT316",
+                "$MT317",
+                "$MT320",
+                "$MT315"
+              ]
+            },
+            {
+              "action": "set",
               "target": "$IPB0",
               "condition_state": "set",
               "condition_any_code": [
                 "$MT315",
                 "$MT317"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$IBB1",
+              "condition_code": "$MT337",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IPB1",
+              "condition_code": "$MT316",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -3673,13 +3746,12 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IPW1",
@@ -3849,6 +3921,37 @@
                 "target": "$PRM30",
                 "condition_code": "$PRM3S",
                 "condition_state": "unset"
+              },
+              {
+                "action": "set",
+                "target": "$IBB0",
+                "condition_state": "unset",
+                "condition_all_codes": [
+                  "$MT316",
+                  "$MT317",
+                  "$MT337"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$IPB1",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MT316",
+                  "$MT317"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$IBB0",
+                "condition_code": "$MT320",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IPB0",
+                "condition_code": "$MT315",
+                "condition_state": "set"
               }
             ]
           },
@@ -3877,6 +3980,37 @@
               "target": "$PRM30",
               "condition_code": "$PRM3S",
               "condition_state": "unset"
+            },
+            {
+              "action": "set",
+              "target": "$IBB0",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT316",
+                "$MT317",
+                "$MT337"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IPB1",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MT316",
+                "$MT317"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IBB0",
+              "condition_code": "$MT320",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IPB0",
+              "condition_code": "$MT315",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -3886,9 +4020,10 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
@@ -3901,82 +4036,62 @@
               ]
             }
           ],
-          "name": "All Black Interior",
-          "description": "All Black Interior",
-          "long_name": "All Black Partial Premium Interior",
-          "long_description": "All Black Interior",
+          "name": "全黑內飾",
+          "description": "全黑內飾",
+          "long_name": "全黑色部分豪華內飾",
+          "long_description": "全黑內飾",
           "extra_copy": [
             {
               "type": "name",
-              "content": "All Black"
+              "content": "全黑色"
             },
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": " 已包括"
             },
             {
               "type": "spec_description",
-              "content": "Black leather interior"
+              "content": "黑色真皮內飾"
             },
             {
               "type": "feature_list.default[0].main_title",
-              "content": "Includes:"
+              "content": "包括："
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "12-way power adjustable heated front seats"
+              "content": "12 方向電動調節可供暖前排座椅"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Premium seat material and trim"
+              "content": "高級座椅材料和飾件"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Upgraded audio – immersive sound"
+              "content": "升級版音響–沈浸式音效"
             },
             {
-              "type": "feature_list.default[0].items[3].main_title",
-              "content": "Premium Connectivity (30 days included):"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[0]",
-              "content": "Satellite maps with live traffic visualization"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[1]",
-              "content": "In-car internet streaming music and media"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[2]",
-              "content": "Video streaming"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[3]",
-              "content": "Caraoke"
+              "type": "feature_list.default[0].items[3]",
+              "content": "藍芽®播放音樂和媒體"
             },
             {
               "type": "feature_list.default[0].items[4]",
-              "content": "Music and media over Bluetooth®"
+              "content": "防止紫外線與紅外線照射的有色玻璃車頂"
             },
             {
               "type": "feature_list.default[0].items[5]",
-              "content": "Tinted glass roof with ultraviolet and infrared protection"
+              "content": "電動折疊、加熱功能側後視鏡"
             },
             {
               "type": "feature_list.default[0].items[6]",
-              "content": "Power folding, auto-dimming, heated side mirrors"
+              "content": "自訂駕駛員檔案"
             },
             {
               "type": "feature_list.default[0].items[7]",
-              "content": "Custom driver profiles"
-            },
-            {
-              "type": "feature_list.default[0].items[8]",
-              "content": "Center console with storage, 4 USB-C ports and wireless charging for 2 smartphones"
+              "content": "中央控制台設有儲物空間、4 個 USB 插口和手機無線充電（可為 2 部智能電話充電）"
             },
             {
               "type": "view_details_collapsed",
-              "content": "Show Details",
+              "content": "顯示詳情",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -3984,7 +4099,7 @@
                     "type": "FEATURES_LIST_EXPAND",
                     "props": {
                       "options": [
-                        "$IBB0"
+                        "$IBB1"
                       ]
                     },
                     "classNames": [
@@ -3997,7 +4112,7 @@
             },
             {
               "type": "view_details_expanded",
-              "content": "Hide Details",
+              "content": "隱藏詳情",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4005,7 +4120,7 @@
                     "type": "FEATURES_LIST_COLLAPSE",
                     "props": {
                       "options": [
-                        "$IBB0"
+                        "$IBB1"
                       ]
                     },
                     "classNames": [
@@ -4017,8 +4132,20 @@
               ]
             },
             {
-              "type": "feature_list.default[0].items[3].sub_items[4]",
-              "content": "Internet browser"
+              "type": "feature_list.default[0].items[2].items[0].main_title",
+              "content": "尊享網絡（包括 30 天）："
+            },
+            {
+              "type": "feature_list.default[0].items[2].items[0].sub_items[0]",
+              "content": "可看到即時交通實況和提供導航的衛星地圖"
+            },
+            {
+              "type": "feature_list.default[0].items[2].items[0].sub_items[1]",
+              "content": "車載互聯網串流音樂和媒體"
+            },
+            {
+              "type": "feature_list.default[0].items[2].items[0].sub_items[2]",
+              "content": "串流影片"
             }
           ],
           "extra_content": [
@@ -4072,6 +4199,18 @@
               },
               {
                 "action": "set",
+                "target": "$IN3PW",
+                "condition_state": "unset",
+                "condition_all_codes": [
+                  "$MT337",
+                  "$MT316",
+                  "$MT317",
+                  "$MT320",
+                  "$MT315"
+                ]
+              },
+              {
+                "action": "set",
                 "target": "$IPB0",
                 "condition_code": "$MT315",
                 "condition_state": "set"
@@ -4086,6 +4225,18 @@
                 "action": "set",
                 "target": "$IBB0",
                 "condition_code": "$MT320",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IPW1",
+                "condition_code": "$MT316",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBB1",
+                "condition_code": "$MT337",
                 "condition_state": "set"
               }
             ],
@@ -4119,6 +4270,18 @@
             },
             {
               "action": "set",
+              "target": "$IN3PW",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT337",
+                "$MT316",
+                "$MT317",
+                "$MT320",
+                "$MT315"
+              ]
+            },
+            {
+              "action": "set",
               "target": "$IPB0",
               "condition_code": "$MT315",
               "condition_state": "set"
@@ -4134,6 +4297,18 @@
               "target": "$IBB0",
               "condition_code": "$MT320",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IPW1",
+              "condition_code": "$MT316",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBB1",
+              "condition_code": "$MT337",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -4143,12 +4318,12 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IPW1",
@@ -4326,6 +4501,37 @@
                 "target": "$PRM30",
                 "condition_code": "$PRM3S",
                 "condition_state": "unset"
+              },
+              {
+                "action": "set",
+                "target": "$IPW0",
+                "condition_state": "unset",
+                "condition_all_codes": [
+                  "$MT316",
+                  "$MT317",
+                  "$MT337"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$IPW1",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MT316",
+                  "$MT317"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$IBB0",
+                "condition_code": "$MT320",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IPB0",
+                "condition_code": "$MT315",
+                "condition_state": "set"
               }
             ],
             "unset_rules": []
@@ -4355,6 +4561,37 @@
               "target": "$PRM30",
               "condition_code": "$PRM3S",
               "condition_state": "unset"
+            },
+            {
+              "action": "set",
+              "target": "$IPW0",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT316",
+                "$MT317",
+                "$MT337"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IPW1",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MT316",
+                "$MT317"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IBB0",
+              "condition_code": "$MT320",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IPB0",
+              "condition_code": "$MT315",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -4364,13 +4601,13 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IPB1",
                 "$IPW1",
                 "$IN3PB",
@@ -4379,82 +4616,62 @@
               ]
             }
           ],
-          "name": "Black and White Interior",
-          "description": "Black and White Interior",
-          "long_name": "Black and White Partial Premium Interior",
-          "long_description": "Black and White Interior",
+          "name": "黑色與白色部分豪華內飾",
+          "description": "黑色與白色部分豪華內飾",
+          "long_name": "黑色與白色部分豪華內飾",
+          "long_description": "黑色與白色部分豪華內飾",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Black and White"
+              "content": "黑色與白色"
             },
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": " 已包括"
             },
             {
               "type": "spec_description",
-              "content": "Black leather interior"
+              "content": "黑色與白色部分豪華內飾"
             },
             {
               "type": "feature_list.default[0].main_title",
-              "content": "Includes:"
+              "content": "包括："
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "12-way power adjustable heated front seats"
+              "content": "12 方向電動調節可供暖前排座椅"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Premium seat material and trim"
+              "content": "高級座椅材料和飾件"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Upgraded audio – immersive sound"
+              "content": "升級版音響–沈浸式音效"
             },
             {
-              "type": "feature_list.default[0].items[3].main_title",
-              "content": "Premium Connectivity (30 days included):"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[0]",
-              "content": "Satellite maps with live traffic visualization"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[1]",
-              "content": "In-car internet streaming music and media"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[2]",
-              "content": "Video streaming"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[3]",
-              "content": "Caraoke"
+              "type": "feature_list.default[0].items[3]",
+              "content": "藍芽®播放音樂和媒體"
             },
             {
               "type": "feature_list.default[0].items[4]",
-              "content": "Music and media over Bluetooth®"
+              "content": "防止紫外線與紅外線照射的有色玻璃車頂"
             },
             {
               "type": "feature_list.default[0].items[5]",
-              "content": "Tinted glass roof with ultraviolet and infrared protection"
+              "content": "電動折疊、加熱功能側後視鏡"
             },
             {
               "type": "feature_list.default[0].items[6]",
-              "content": "Power folding, auto-dimming, heated side mirrors"
+              "content": "自訂駕駛員檔案"
             },
             {
               "type": "feature_list.default[0].items[7]",
-              "content": "Custom driver profiles"
-            },
-            {
-              "type": "feature_list.default[0].items[8]",
-              "content": "Center console with storage, 4 USB-C ports and wireless charging for 2 smartphones"
+              "content": "中央控制台設有儲物空間、4 個 USB 插口和手機無線充電（可為 2 部智能電話充電）"
             },
             {
               "type": "view_details_collapsed",
-              "content": "Show Details",
+              "content": "顯示詳情",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4462,7 +4679,7 @@
                     "type": "FEATURES_LIST_EXPAND",
                     "props": {
                       "options": [
-                        "$IBW0"
+                        "$IBW1"
                       ]
                     },
                     "classNames": [
@@ -4475,7 +4692,7 @@
             },
             {
               "type": "view_details_expanded",
-              "content": "Hide Details",
+              "content": "隱藏詳情",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4483,7 +4700,7 @@
                     "type": "FEATURES_LIST_COLLAPSE",
                     "props": {
                       "options": [
-                        "$IBW0"
+                        "$IBW1"
                       ]
                     },
                     "classNames": [
@@ -4495,8 +4712,20 @@
               ]
             },
             {
-              "type": "feature_list.default[0].items[3].sub_items[4]",
-              "content": "Internet browser"
+              "type": "feature_list.default[0].items[2].items[0].main_title",
+              "content": "尊享網絡（包括 30 天）："
+            },
+            {
+              "type": "feature_list.default[0].items[2].items[0].sub_items[0]",
+              "content": "可看到即時交通實況和提供導航的衛星地圖"
+            },
+            {
+              "type": "feature_list.default[0].items[2].items[0].sub_items[1]",
+              "content": "車載互聯網串流音樂和媒體"
+            },
+            {
+              "type": "feature_list.default[0].items[2].items[0].sub_items[2]",
+              "content": "串流影片"
             }
           ],
           "extra_content": [
@@ -4545,6 +4774,30 @@
               {
                 "action": "set",
                 "target": "$PRM31"
+              },
+              {
+                "action": "set",
+                "target": "$IN3PB",
+                "condition_state": "unset",
+                "condition_all_codes": [
+                  "$MT337",
+                  "$MT316",
+                  "$MT317",
+                  "$MT320",
+                  "$MT315"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$IBB0",
+                "condition_code": "$MT320",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IPB1",
+                "condition_code": "$MT316",
+                "condition_state": "set"
               }
             ]
           },
@@ -4571,6 +4824,30 @@
             {
               "action": "set",
               "target": "$PRM31"
+            },
+            {
+              "action": "set",
+              "target": "$IN3PB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT337",
+                "$MT316",
+                "$MT317",
+                "$MT320",
+                "$MT315"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IBB0",
+              "condition_code": "$MT320",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IPB1",
+              "condition_code": "$MT316",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -4580,12 +4857,12 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IPW1",
@@ -4756,6 +5033,28 @@
               {
                 "action": "set",
                 "target": "$PRM31"
+              },
+              {
+                "action": "set",
+                "target": "$IPB0",
+                "condition_state": "unset",
+                "condition_all_codes": [
+                  "$MT337",
+                  "$MT316",
+                  "$MT317"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$IBB1",
+                "condition_code": "$MT337",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IPB0",
+                "condition_code": "$MT315",
+                "condition_state": "set"
               }
             ]
           },
@@ -4782,6 +5081,28 @@
             {
               "action": "set",
               "target": "$PRM31"
+            },
+            {
+              "action": "set",
+              "target": "$IPB0",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT337",
+                "$MT316",
+                "$MT317"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IBB1",
+              "condition_code": "$MT337",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IPB0",
+              "condition_code": "$MT315",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -4791,13 +5112,13 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPW1",
                 "$IN3PB",
@@ -4806,85 +5127,81 @@
               ]
             }
           ],
-          "name": "All Black Premium Interior",
-          "description": "All Black Premium Interior",
-          "long_name": "All Black Premium Interior",
+          "name": "全黑色豪華內飾",
+          "description": "全黑色豪華內飾",
+          "long_name": "全黑色豪華內飾",
           "extra_copy": [
             {
               "type": "name",
-              "content": "All Black"
+              "content": "全黑色"
             },
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": " 已包括"
             },
             {
               "type": "spec_description",
-              "content": "Black leather interior"
+              "content": "黑色真皮內飾"
             },
             {
               "type": "feature_list.default[0].main_title",
-              "content": "Includes:"
+              "content": "包括："
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "12-way power adjustable front and rear heated seats"
+              "content": "12 方向電動調節可供暖前後排座椅"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Premium audio – 14 speakers, 1 subwoofer, 2 amps, and immersive sound"
+              "content": "高級音響–14 個喇叭、1 個重低音喇叭、2 個擴音器和沈浸式音效"
             },
             {
-              "type": "feature_list.default[1].items[0].main_title",
-              "content": "Premium Connectivity (1 year included):"
+              "type": "feature_list.default[0].items[2].main_title",
+              "content": "專享網絡功能（包括 1 年）："
             },
             {
-              "type": "feature_list.default[1].items[0].sub_items[0]",
-              "content": "Satellite maps with live traffic visualization"
+              "type": "feature_list.default[0].items[2].sub_items[0]",
+              "content": "可看到即時交通實況和提供導航的衛星地圖"
             },
             {
-              "type": "feature_list.default[1].items[0].sub_items[1]",
-              "content": "In-car internet streaming music and media"
+              "type": "feature_list.default[0].items[2].sub_items[1]",
+              "content": "車載互聯網串流音樂和媒體"
             },
             {
-              "type": "feature_list.default[1].items[0].sub_items[2]",
-              "content": "Video streaming"
+              "type": "feature_list.default[0].items[2].sub_items[2]",
+              "content": "串流影片"
             },
             {
-              "type": "feature_list.default[1].items[0].sub_items[3]",
-              "content": "Caraoke"
+              "type": "feature_list.default[0].items[3]",
+              "content": "藍芽®播放音樂和媒體"
             },
             {
-              "type": "feature_list.default[2].items[0]",
-              "content": "Music and media over Bluetooth®"
+              "type": "feature_list.default[0].items[4]",
+              "content": "LED霧燈"
             },
             {
-              "type": "feature_list.default[2].items[1]",
-              "content": "LED fog lamps"
+              "type": "feature_list.default[0].items[5]",
+              "content": "防止紫外線與紅外線照射的有色玻璃車頂"
             },
             {
-              "type": "feature_list.default[2].items[2]",
-              "content": "Tinted glass roof with ultraviolet and infrared protection"
+              "type": "feature_list.default[0].items[6]",
+              "content": "電動折疊、加熱功能側後視鏡"
             },
             {
-              "type": "feature_list.default[2].items[3]",
-              "content": "Power folding, auto-dimming, heated side mirrors"
+              "type": "feature_list.default[0].items[7]",
+              "content": "自訂駕駛員檔案"
             },
             {
-              "type": "feature_list.default[2].items[4]",
-              "content": "Custom driver profiles"
+              "type": "feature_list.default[0].items[8]",
+              "content": "中央控制台設有儲物空間、4 個 USB 插口和手機無線充電（可為 2 部智能電話充電）"
             },
             {
-              "type": "feature_list.default[2].items[5]",
-              "content": "Center console with storage, 4 USB-C ports and wireless charging for 2 smartphones"
-            },
-            {
-              "type": "feature_list.default[2].items[6]",
-              "content": "Interior floor mats"
+              "type": "feature_list.default[0].items[9]",
+              "content": "內飾地墊"
             },
             {
               "type": "view_details_collapsed",
-              "content": "Show Details",
+              "content": "顯示詳情",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4892,7 +5209,7 @@
                     "type": "FEATURES_LIST_EXPAND",
                     "props": {
                       "options": [
-                        "$IPB0"
+                        "$IPB1"
                       ]
                     },
                     "classNames": [
@@ -4905,7 +5222,7 @@
             },
             {
               "type": "view_details_expanded",
-              "content": "Hide Details",
+              "content": "隱藏詳情",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4913,7 +5230,7 @@
                     "type": "FEATURES_LIST_COLLAPSE",
                     "props": {
                       "options": [
-                        "$IPB0"
+                        "$IPB1"
                       ]
                     },
                     "classNames": [
@@ -4923,10 +5240,6 @@
                   }
                 }
               ]
-            },
-            {
-              "type": "feature_list.default[1].items[0].sub_items[4]",
-              "content": "Internet browser"
             }
           ],
           "extra_content": [
@@ -4975,6 +5288,30 @@
               {
                 "action": "set",
                 "target": "$PRM31"
+              },
+              {
+                "action": "set",
+                "target": "$IN3PW",
+                "condition_state": "unset",
+                "condition_all_codes": [
+                  "$MT337",
+                  "$MT316",
+                  "$MT317",
+                  "$MT320",
+                  "$MT315"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$IBW0",
+                "condition_code": "$MT320",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IPB0",
+                "condition_code": "$MT315",
+                "condition_state": "set"
               }
             ]
           },
@@ -5001,6 +5338,30 @@
             {
               "action": "set",
               "target": "$PRM31"
+            },
+            {
+              "action": "set",
+              "target": "$IN3PW",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT337",
+                "$MT316",
+                "$MT317",
+                "$MT320",
+                "$MT315"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IBW0",
+              "condition_code": "$MT320",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IPB0",
+              "condition_code": "$MT315",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -5010,12 +5371,12 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IPW1",
@@ -5216,6 +5577,28 @@
               {
                 "action": "set",
                 "target": "$PRM31"
+              },
+              {
+                "action": "set",
+                "target": "$IPW0",
+                "condition_state": "unset",
+                "condition_all_codes": [
+                  "$MT337",
+                  "$MT316",
+                  "$MT317"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$IBW1",
+                "condition_code": "$MT337",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IPB0",
+                "condition_code": "$MT315",
+                "condition_state": "set"
               }
             ]
           },
@@ -5242,6 +5625,28 @@
             {
               "action": "set",
               "target": "$PRM31"
+            },
+            {
+              "action": "set",
+              "target": "$IPW0",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT337",
+                "$MT316",
+                "$MT317"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IBW1",
+              "condition_code": "$MT337",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IPB0",
+              "condition_code": "$MT315",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -5251,13 +5656,13 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IN3PB",
@@ -5266,21 +5671,21 @@
               ]
             }
           ],
-          "name": "Black and White Premium Interior",
-          "description": "Black and White Premium Interior",
-          "long_name": "Black and White Premium Interior",
+          "name": "黑色與白色豪華內飾",
+          "description": "黑色與白色豪華內飾",
+          "long_name": "黑色與白色豪華內飾",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Black and White"
+              "content": "黑色與白色"
             },
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": " 已包括"
             },
             {
               "type": "recommended",
-              "content": "Recommended",
+              "content": "建議使用",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -5298,75 +5703,71 @@
             },
             {
               "type": "recommended_content",
-              "content": "Black and White interior includes our most premium materials, maximizing comfort and aesthetics while maintaining our rigorous standards for durability and stain resistance."
+              "content": "黑色與白色內飾包括最高級的物料，提供最佳的舒適度和美感，並同時保持耐用和防污等嚴格質量標準。"
             },
             {
               "type": "spec_description",
-              "content": "White leather interior"
+              "content": "白色真皮內飾"
             },
             {
               "type": "feature_list.default[0].main_title",
-              "content": "Includes:"
+              "content": "包括："
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "12-way power adjustable front and rear heated seats"
+              "content": "12 方向電動調節可供暖前後排座椅"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Premium audio – 14 speakers, 1 subwoofer, 2 amps, and immersive sound"
+              "content": "高級音響–14 個喇叭、1 個重低音喇叭、2 個擴音器和沈浸式音效"
             },
             {
-              "type": "feature_list.default[1].items[0].main_title",
-              "content": "Premium Connectivity (1 year included):"
+              "type": "feature_list.default[0].items[2].main_title",
+              "content": "專享網絡功能（包括 1 年）："
             },
             {
-              "type": "feature_list.default[1].items[0].sub_items[0]",
-              "content": "Satellite maps with live traffic visualization"
+              "type": "feature_list.default[0].items[2].sub_items[0]",
+              "content": "可看到即時交通實況和提供導航的衛星地圖"
             },
             {
-              "type": "feature_list.default[1].items[0].sub_items[1]",
-              "content": "In-car internet streaming music and media"
+              "type": "feature_list.default[0].items[2].sub_items[1]",
+              "content": "車載互聯網串流音樂和媒體"
             },
             {
-              "type": "feature_list.default[1].items[0].sub_items[2]",
-              "content": "Video streaming"
+              "type": "feature_list.default[0].items[2].sub_items[2]",
+              "content": "串流影片"
             },
             {
-              "type": "feature_list.default[1].items[0].sub_items[3]",
-              "content": "Caraoke"
+              "type": "feature_list.default[0].items[3]",
+              "content": "藍芽®播放音樂和媒體"
             },
             {
-              "type": "feature_list.default[2].items[0]",
-              "content": "Music and media over Bluetooth®"
+              "type": "feature_list.default[0].items[4]",
+              "content": "LED霧燈"
             },
             {
-              "type": "feature_list.default[2].items[1]",
-              "content": "LED fog lamps"
+              "type": "feature_list.default[0].items[5]",
+              "content": "防止紫外線與紅外線照射的有色玻璃車頂"
             },
             {
-              "type": "feature_list.default[2].items[2]",
-              "content": "Tinted glass roof with ultraviolet and infrared protection"
+              "type": "feature_list.default[0].items[6]",
+              "content": "電動折疊、加熱功能側後視鏡"
             },
             {
-              "type": "feature_list.default[2].items[3]",
-              "content": "Power folding, auto-dimming, heated side mirrors"
+              "type": "feature_list.default[0].items[7]",
+              "content": "自訂駕駛員檔案"
             },
             {
-              "type": "feature_list.default[2].items[4]",
-              "content": "Custom driver profiles"
+              "type": "feature_list.default[0].items[8]",
+              "content": "中央控制台設有儲物空間、4 個 USB 插口和手機無線充電（可為 2 部智能電話充電）"
             },
             {
-              "type": "feature_list.default[2].items[5]",
-              "content": "Center console with storage, 4 USB-C ports and wireless charging for 2 smartphones"
-            },
-            {
-              "type": "feature_list.default[2].items[6]",
-              "content": "Interior floor mats"
+              "type": "feature_list.default[0].items[9]",
+              "content": "內飾地墊"
             },
             {
               "type": "view_details_collapsed",
-              "content": "Show Details",
+              "content": "顯示詳情",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -5374,7 +5775,7 @@
                     "type": "FEATURES_LIST_EXPAND",
                     "props": {
                       "options": [
-                        "$IPW0"
+                        "$IPW1"
                       ]
                     },
                     "classNames": [
@@ -5387,7 +5788,7 @@
             },
             {
               "type": "view_details_expanded",
-              "content": "Hide Details",
+              "content": "隱藏詳情",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -5395,7 +5796,7 @@
                     "type": "FEATURES_LIST_COLLAPSE",
                     "props": {
                       "options": [
-                        "$IPW0"
+                        "$IPW1"
                       ]
                     },
                     "classNames": [
@@ -5405,10 +5806,6 @@
                   }
                 }
               ]
-            },
-            {
-              "type": "feature_list.default[1].items[0].sub_items[4]",
-              "content": "Internet browser"
             }
           ],
           "extra_content": [
@@ -6755,6 +7152,17 @@
           "user_defined_rules": {
             "set_rules": [
               {
+                "action": "set",
+                "target": "$W32D",
+                "condition_state": "unset",
+                "condition_all_codes": [
+                  "$MT320",
+                  "$MT315",
+                  "$MT316",
+                  "$MT317"
+                ]
+              },
+              {
                 "action": "unset",
                 "target": "$W33D",
                 "condition_code": "$SPT31",
@@ -6784,6 +7192,17 @@
                 "$W32D",
                 "$W40B",
                 "$W41B"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$W32D",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT320",
+                "$MT315",
+                "$MT316",
+                "$MT317"
               ]
             },
             {
@@ -6899,9 +7318,12 @@
               },
               {
                 "action": "set",
-                "target": "$W39B",
-                "condition_code": "$MT310",
-                "condition_state": "set"
+                "target": "$W41B",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MT315",
+                  "$MT316"
+                ]
               }
             ]
           },
@@ -6929,9 +7351,12 @@
             },
             {
               "action": "set",
-              "target": "$W39B",
-              "condition_code": "$MT310",
-              "condition_state": "set"
+              "target": "$W41B",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MT315",
+                "$MT316"
+              ]
             }
           ],
           "unset_rules": [
@@ -7030,10 +7455,13 @@
           "user_defined_rules": {
             "set_rules": [
               {
-                "action": "unset",
-                "target": "$W39B",
-                "condition_code": "$MT304",
-                "condition_state": "set"
+                "action": "set",
+                "target": "$W41B",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MT315",
+                  "$MT316"
+                ]
               }
             ],
             "unset_rules": [
@@ -7062,10 +7490,13 @@
               ]
             },
             {
-              "action": "unset",
-              "target": "$W39B",
-              "condition_code": "$MT304",
-              "condition_state": "set"
+              "action": "set",
+              "target": "$W41B",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MT315",
+                "$MT316"
+              ]
             }
           ],
           "unset_rules": [
@@ -7147,6 +7578,27 @@
             "set_rules": [
               {
                 "action": "set",
+                "target": "$W38B",
+                "condition_state": "unset",
+                "condition_all_codes": [
+                  "$MT320",
+                  "$MT315",
+                  "$MT316",
+                  "$MT317",
+                  "$MT337"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$W41B",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MT315",
+                  "$MT316"
+                ]
+              },
+              {
+                "action": "set",
                 "target": "$W33D",
                 "condition_code": "$SPT31",
                 "condition_state": "set"
@@ -7155,12 +7607,6 @@
                 "action": "set",
                 "target": "$W33D",
                 "condition_code": "$MT317",
-                "condition_state": "set"
-              },
-              {
-                "action": "set",
-                "target": "$W41B",
-                "condition_code": "$MT315",
                 "condition_state": "set"
               }
             ]
@@ -7183,6 +7629,27 @@
             },
             {
               "action": "set",
+              "target": "$W38B",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT320",
+                "$MT315",
+                "$MT316",
+                "$MT317",
+                "$MT337"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$W41B",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MT315",
+                "$MT316"
+              ]
+            },
+            {
+              "action": "set",
               "target": "$W33D",
               "condition_code": "$SPT31",
               "condition_state": "set"
@@ -7191,12 +7658,6 @@
               "action": "set",
               "target": "$W33D",
               "condition_code": "$MT317",
-              "condition_state": "set"
-            },
-            {
-              "action": "set",
-              "target": "$W41B",
-              "condition_code": "$MT315",
               "condition_state": "set"
             }
           ],
@@ -7275,7 +7736,7 @@
                 {
                   "configuration": [
                     "$MT317",
-                    "$MT315"
+                    "$MT316"
                   ],
                   "condition_state": "and"
                 }
@@ -7295,6 +7756,18 @@
           "code": "$W41B",
           "user_defined_rules": {
             "set_rules": [
+              {
+                "action": "set",
+                "target": "$W39B",
+                "condition_state": "unset",
+                "condition_all_codes": [
+                  "$MT320",
+                  "$MT315",
+                  "$MT316",
+                  "$MT317",
+                  "$MT337"
+                ]
+              },
               {
                 "action": "set",
                 "target": "$W33D",
@@ -7334,6 +7807,18 @@
                 "$W32D",
                 "$W40B",
                 "$W33D"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$W39B",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT320",
+                "$MT315",
+                "$MT316",
+                "$MT317",
+                "$MT337"
               ]
             },
             {
@@ -7416,12 +7901,25 @@
               ]
             }
           ],
-          "price": 0,
+          "price": 11600,
           "pricing": [
             {
               "type": "base",
-              "value": 0,
-              "context": "default"
+              "value": 11600,
+              "context": "default",
+              "set_rules": [
+                {
+                  "action": "set",
+                  "target": "$W41B",
+                  "target_value": 0,
+                  "condition_state": "set",
+                  "target_property": "price",
+                  "condition_any_code": [
+                    "$MT315",
+                    "$MT316"
+                  ]
+                }
+              ]
             }
           ]
         },
@@ -7471,13 +7969,13 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IPW1",
@@ -7679,13 +8177,13 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IPW1",
@@ -7902,13 +8400,13 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IPW1",
@@ -8234,10 +8732,10 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT337",
-                "$MT316"
+                "$MT337"
               ]
             },
             {
@@ -8256,7 +8754,7 @@
             },
             {
               "action": "set",
-              "target": "$MT320",
+              "target": "$MT337",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT303",
@@ -8268,9 +8766,9 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
-                "$MT337",
-                "$MT316"
+                "$MT320"
               ]
             }
           ],
@@ -8326,16 +8824,16 @@
               ]
             }
           ],
-          "price": 37000,
+          "price": 6800,
           "pricing": [
             {
               "type": "base",
-              "value": 37000,
+              "value": 6800,
               "context": "default"
             },
             {
               "type": "base_plus_trim",
-              "value": 330000,
+              "value": 299800,
               "context": "base_plus_trim"
             }
           ]
@@ -8483,10 +8981,10 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT337",
-                "$MT316"
+                "$MT337"
               ]
             },
             {
@@ -8511,7 +9009,7 @@
             },
             {
               "action": "set",
-              "target": "$MT320",
+              "target": "$MT337",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -8523,9 +9021,9 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
-                "$MT337",
-                "$MT316"
+                "$MT320"
               ]
             },
             {
@@ -8569,16 +9067,16 @@
               ]
             }
           ],
-          "price": 96500,
+          "price": 62000,
           "pricing": [
             {
               "type": "base",
-              "value": 96500,
+              "value": 62000,
               "context": "default"
             },
             {
               "type": "base_plus_trim",
-              "value": 389500,
+              "value": 355000,
               "context": "base_plus_trim"
             }
           ]
@@ -8620,10 +9118,10 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT337",
-                "$MT316"
+                "$MT337"
               ]
             },
             {
@@ -8642,7 +9140,7 @@
             },
             {
               "action": "set",
-              "target": "$MT320",
+              "target": "$MT337",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -8654,9 +9152,9 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
-                "$MT337",
-                "$MT316"
+                "$MT320"
               ]
             },
             {
@@ -8728,16 +9226,16 @@
               ]
             }
           ],
-          "price": 119000,
+          "price": 75800,
           "pricing": [
             {
               "type": "base",
-              "value": 119000,
+              "value": 75800,
               "context": "default"
             },
             {
               "type": "base_plus_trim",
-              "value": 412000,
+              "value": 368800,
               "context": "base_plus_trim"
             }
           ]
@@ -8774,10 +9272,10 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT337",
-                "$MT316"
+                "$MT337"
               ]
             },
             {
@@ -8796,7 +9294,7 @@
             },
             {
               "action": "set",
-              "target": "$MT320",
+              "target": "$MT337",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -8808,9 +9306,9 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
-                "$MT337",
-                "$MT316"
+                "$MT320"
               ]
             }
           ],
@@ -8907,6 +9405,22 @@
               {
                 "action": "set",
                 "target": "$W38B"
+              },
+              {
+                "action": "set",
+                "target": "$IN3BB",
+                "condition_state": "unset",
+                "condition_all_codes": [
+                  "$IN3PB",
+                  "$IN3PW",
+                  "$IN3BW"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$W38B",
+                "condition_code": "$W39B",
+                "condition_state": "unset"
               }
             ],
             "unset_rules": []
@@ -8928,10 +9442,10 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT337",
-                "$MT316"
+                "$MT337"
               ]
             },
             {
@@ -8945,6 +9459,22 @@
             {
               "action": "set",
               "target": "$W38B"
+            },
+            {
+              "action": "set",
+              "target": "$IN3BB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IN3PB",
+                "$IN3PW",
+                "$IN3BW"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$W38B",
+              "condition_code": "$W39B",
+              "condition_state": "unset"
             }
           ],
           "unset_rules": [
@@ -8954,7 +9484,7 @@
             },
             {
               "action": "set",
-              "target": "$MT320",
+              "target": "$MT337",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -8966,9 +9496,9 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
-                "$MT337",
-                "$MT316"
+                "$MT320"
               ]
             }
           ],
@@ -9036,16 +9566,16 @@
               ]
             }
           ],
-          "price": 37000,
+          "price": 6800,
           "pricing": [
             {
               "type": "base",
-              "value": 37000,
+              "value": 6800,
               "context": "default"
             },
             {
               "type": "base_plus_trim",
-              "value": 330000,
+              "value": 299800,
               "context": "base_plus_trim"
             }
           ]
@@ -9081,10 +9611,10 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT337",
-                "$MT316"
+                "$MT337"
               ]
             },
             {
@@ -9103,7 +9633,7 @@
             },
             {
               "action": "set",
-              "target": "$MT320",
+              "target": "$MT337",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -9115,9 +9645,9 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
-                "$MT337",
-                "$MT316"
+                "$MT320"
               ]
             }
           ],
@@ -9213,7 +9743,19 @@
               },
               {
                 "action": "set",
-                "target": "$W39B"
+                "target": "$IN3PB",
+                "condition_state": "unset",
+                "condition_all_codes": [
+                  "$IN3BB",
+                  "$IN3PW",
+                  "$IN3BW"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$W38B",
+                "condition_code": "$W39B",
+                "condition_state": "unset"
               }
             ],
             "unset_rules": [
@@ -9240,10 +9782,10 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT337",
-                "$MT316"
+                "$MT337"
               ]
             },
             {
@@ -9256,7 +9798,19 @@
             },
             {
               "action": "set",
-              "target": "$W39B"
+              "target": "$IN3PB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IN3BB",
+                "$IN3PW",
+                "$IN3BW"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$W38B",
+              "condition_code": "$W39B",
+              "condition_state": "unset"
             }
           ],
           "unset_rules": [
@@ -9266,7 +9820,7 @@
             },
             {
               "action": "set",
-              "target": "$MT320",
+              "target": "$MT337",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -9278,9 +9832,9 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
-                "$MT337",
-                "$MT316"
+                "$MT320"
               ]
             },
             {
@@ -9336,16 +9890,16 @@
               ]
             }
           ],
-          "price": 96500,
+          "price": 62000,
           "pricing": [
             {
               "type": "base",
-              "value": 96500,
+              "value": 62000,
               "context": "default"
             },
             {
               "type": "base_plus_trim",
-              "value": 389500,
+              "value": 355000,
               "context": "base_plus_trim"
             }
           ]
@@ -9371,6 +9925,25 @@
               {
                 "action": "set",
                 "target": "$APBS"
+              },
+              {
+                "action": "set",
+                "target": "$IN3PB",
+                "condition_state": "unset",
+                "condition_all_codes": [
+                  "$IN3BB",
+                  "$IN3PW",
+                  "$IN3BW"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$W32D",
+                "condition_state": "unset",
+                "condition_all_codes": [
+                  "$W38B",
+                  "$W39B"
+                ]
               }
             ],
             "unset_rules": [
@@ -9401,10 +9974,10 @@
                 "$MT310",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT337",
-                "$MT316"
+                "$MT337"
               ]
             },
             {
@@ -9424,6 +9997,25 @@
             {
               "action": "set",
               "target": "$APBS"
+            },
+            {
+              "action": "set",
+              "target": "$IN3PB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IN3BB",
+                "$IN3PW",
+                "$IN3BW"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$W32D",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$W38B",
+                "$W39B"
+              ]
             }
           ],
           "unset_rules": [
@@ -9433,7 +10025,7 @@
             },
             {
               "action": "set",
-              "target": "$MT320",
+              "target": "$MT337",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -9445,9 +10037,9 @@
                 "$MT310",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
-                "$MT337",
-                "$MT316"
+                "$MT320"
               ]
             },
             {
@@ -9535,16 +10127,16 @@
               ]
             }
           ],
-          "price": 119000,
+          "price": 75800,
           "pricing": [
             {
               "type": "base",
-              "value": 119000,
+              "value": 75800,
               "context": "default"
             },
             {
               "type": "base_plus_trim",
-              "value": 412000,
+              "value": 368800,
               "context": "base_plus_trim"
             }
           ]
@@ -9580,10 +10172,10 @@
                 "$MT310",
                 "$MT311",
                 "$MT315",
+                "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT337",
-                "$MT316"
+                "$MT337"
               ]
             },
             {
@@ -9602,7 +10194,7 @@
             },
             {
               "action": "set",
-              "target": "$MT320",
+              "target": "$MT337",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -9614,9 +10206,9 @@
                 "$MT310",
                 "$MT311",
                 "$MT315",
+                "$MT316",
                 "$MT317",
-                "$MT337",
-                "$MT316"
+                "$MT320"
               ]
             }
           ],
@@ -9720,9 +10312,22 @@
                 "condition_state": "set",
                 "condition_any_code": [
                   "$IBB0",
+                  "$IBB1",
+                  "$IPB1",
                   "$IBW0",
-                  "$IPW0"
+                  "$IPW0",
+                  "$IPW1",
+                  "$IBW1",
+                  "$IN3PB",
+                  "$IN3B2",
+                  "$IN3BB"
                 ]
+              },
+              {
+                "action": "set",
+                "target": "$MT311",
+                "condition_code": "$W33D",
+                "condition_state": "set"
               }
             ],
             "unset_rules": [
@@ -9749,10 +10354,10 @@
                 "$MT310",
                 "$MT311",
                 "$MT312",
+                "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT337",
-                "$MT316"
+                "$MT337"
               ]
             },
             {
@@ -9773,9 +10378,22 @@
               "condition_state": "set",
               "condition_any_code": [
                 "$IBB0",
+                "$IBB1",
+                "$IPB1",
                 "$IBW0",
-                "$IPW0"
+                "$IPW0",
+                "$IPW1",
+                "$IBW1",
+                "$IN3PB",
+                "$IN3B2",
+                "$IN3BB"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$MT311",
+              "condition_code": "$W33D",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -9785,7 +10403,7 @@
             },
             {
               "action": "set",
-              "target": "$MT320",
+              "target": "$MT337",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -9797,9 +10415,9 @@
                 "$MT310",
                 "$MT311",
                 "$MT312",
+                "$MT316",
                 "$MT317",
-                "$MT337",
-                "$MT316"
+                "$MT320"
               ]
             },
             {
@@ -9855,18 +10473,30 @@
                   "condition_state": "and"
                 }
               ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
-          "price": 96500,
+          "price": 62000,
           "pricing": [
             {
               "type": "base",
-              "value": 96500,
+              "value": 62000,
               "context": "default"
             },
             {
               "type": "base_plus_trim",
-              "value": 389500,
+              "value": 355000,
               "context": "base_plus_trim"
             }
           ]
@@ -9889,14 +10519,38 @@
               },
               {
                 "action": "set",
-                "target": "$IPB0",
-                "condition_code": "$IBB0",
+                "target": "$IPW1",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$IBW1",
+                  "$IPW0",
+                  "$IBW0",
+                  "$IN3PW",
+                  "$IN3BW"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$IPB1",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$IBB1",
+                  "$IPB0",
+                  "$IBB0",
+                  "$IN3PB",
+                  "$IN3BB"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$W41B",
+                "condition_code": "$W39B",
                 "condition_state": "set"
               },
               {
                 "action": "set",
-                "target": "$IPW0",
-                "condition_code": "$IBW0",
+                "target": "$MT317",
+                "condition_code": "$W33D",
                 "condition_state": "set"
               }
             ],
@@ -9944,14 +10598,38 @@
             },
             {
               "action": "set",
-              "target": "$IPB0",
-              "condition_code": "$IBB0",
+              "target": "$IPW1",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$IBW1",
+                "$IPW0",
+                "$IBW0",
+                "$IN3PW",
+                "$IN3BW"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IPB1",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$IBB1",
+                "$IPB0",
+                "$IBB0",
+                "$IN3PB",
+                "$IN3BB"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$W41B",
+              "condition_code": "$W39B",
               "condition_state": "set"
             },
             {
               "action": "set",
-              "target": "$IPW0",
-              "condition_code": "$IBW0",
+              "target": "$MT317",
+              "condition_code": "$W33D",
               "condition_state": "set"
             }
           ],
@@ -9962,7 +10640,7 @@
             },
             {
               "action": "set",
-              "target": "$MT320",
+              "target": "$MT337",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -9976,7 +10654,7 @@
                 "$MT312",
                 "$MT315",
                 "$MT317",
-                "$MT337"
+                "$MT320"
               ]
             },
             {
@@ -9984,18 +10662,18 @@
               "target": "$FM3U"
             }
           ],
-          "name": "",
-          "description": "",
-          "long_name": "",
-          "long_description": "",
+          "name": "長續航全輪驅動",
+          "description": "Model 3 長續航全輪驅動",
+          "long_name": "Model 3長續航全輪驅動",
+          "long_description": "Model 3 Long Range AWD",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Long Range"
+              "content": "長續航"
             },
             {
               "type": "long_name",
-              "content": "Model 3 Long Range Dual Motor All-Wheel Drive"
+              "content": "Model 3 長續航雙摩打全輪驅動"
             }
           ],
           "extra_content": [
@@ -10032,18 +10710,30 @@
                   "condition_state": "and"
                 }
               ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
-          "price": 96500,
+          "price": 62000,
           "pricing": [
             {
               "type": "base",
-              "value": 96500,
+              "value": 62000,
               "context": "default"
             },
             {
               "type": "base_plus_trim",
-              "value": 389500,
+              "value": 355000,
               "context": "base_plus_trim"
             }
           ]
@@ -10070,27 +10760,39 @@
               },
               {
                 "action": "set",
-                "target": "$IPB0",
-                "condition_code": "$IBB0",
-                "condition_state": "set"
+                "target": "$IPW1",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$IBW1",
+                  "$IPW0",
+                  "$IBW0",
+                  "$IN3PW",
+                  "$IN3BW"
+                ]
               },
               {
                 "action": "set",
-                "target": "$IPW0",
-                "condition_code": "$IBW0",
-                "condition_state": "set"
+                "target": "$IPB1",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$IBB1",
+                  "$IPB0",
+                  "$IBB0",
+                  "$IN3PB",
+                  "$IN3BB"
+                ]
               },
               {
                 "action": "set",
                 "target": "$W33D",
-                "condition_code": "$W40B",
-                "condition_state": "set"
-              },
-              {
-                "action": "set",
-                "target": "$W33D",
-                "condition_code": "$W41B",
-                "condition_state": "set"
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$W40B",
+                  "$W41B",
+                  "$W32D",
+                  "$W38B",
+                  "$W39B"
+                ]
               }
             ],
             "unset_rules": [
@@ -10118,9 +10820,9 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT320",
-                "$MT337",
-                "$MT316"
+                "$MT337"
               ]
             },
             {
@@ -10141,27 +10843,39 @@
             },
             {
               "action": "set",
-              "target": "$IPB0",
-              "condition_code": "$IBB0",
-              "condition_state": "set"
+              "target": "$IPW1",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$IBW1",
+                "$IPW0",
+                "$IBW0",
+                "$IN3PW",
+                "$IN3BW"
+              ]
             },
             {
               "action": "set",
-              "target": "$IPW0",
-              "condition_code": "$IBW0",
-              "condition_state": "set"
+              "target": "$IPB1",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$IBB1",
+                "$IPB0",
+                "$IBB0",
+                "$IN3PB",
+                "$IN3BB"
+              ]
             },
             {
               "action": "set",
               "target": "$W33D",
-              "condition_code": "$W40B",
-              "condition_state": "set"
-            },
-            {
-              "action": "set",
-              "target": "$W33D",
-              "condition_code": "$W41B",
-              "condition_state": "set"
+              "condition_state": "set",
+              "condition_any_code": [
+                "$W40B",
+                "$W41B",
+                "$W32D",
+                "$W38B",
+                "$W39B"
+              ]
             }
           ],
           "unset_rules": [
@@ -10171,7 +10885,7 @@
             },
             {
               "action": "set",
-              "target": "$MT320",
+              "target": "$MT337",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -10184,8 +10898,8 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
-                "$MT337",
-                "$MT316"
+                "$MT316",
+                "$MT320"
               ]
             },
             {
@@ -10279,18 +10993,33 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "options": [
+                    "$SPT31"
+                  ],
+                  "configuaration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
-          "price": 119000,
+          "price": 75800,
           "pricing": [
             {
               "type": "base",
-              "value": 119000,
+              "value": 75800,
               "context": "default"
             },
             {
               "type": "base_plus_trim",
-              "value": 412000,
+              "value": 368800,
               "context": "base_plus_trim"
             }
           ]
@@ -10304,12 +11033,19 @@
                 "targets": [
                   "$DV2W",
                   "$PRM30",
-                  "$W40B"
+                  "$W40B",
+                  "$IBB0"
                 ]
               },
               {
                 "action": "set",
                 "target": "$APBS"
+              },
+              {
+                "action": "set",
+                "target": "$MT311",
+                "condition_code": "$W33D",
+                "condition_state": "set"
               }
             ],
             "unset_rules": []
@@ -10332,9 +11068,9 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
-                "$MT337",
-                "$MT316"
+                "$MT337"
               ]
             },
             {
@@ -10342,12 +11078,19 @@
               "targets": [
                 "$DV2W",
                 "$PRM30",
-                "$W40B"
+                "$W40B",
+                "$IBB0"
               ]
             },
             {
               "action": "set",
               "target": "$APBS"
+            },
+            {
+              "action": "set",
+              "target": "$MT311",
+              "condition_code": "$W33D",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -10357,7 +11100,7 @@
             },
             {
               "action": "set",
-              "target": "$MT320",
+              "target": "$MT337",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -10370,9 +11113,8 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
-                "$MT317",
-                "$MT337",
-                "$MT316"
+                "$MT316",
+                "$MT317"
               ]
             }
           ],
@@ -10440,18 +11182,30 @@
                   "condition_state": "and"
                 }
               ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
-          "price": 37000,
+          "price": 6800,
           "pricing": [
             {
               "type": "base",
-              "value": 37000,
+              "value": 6800,
               "context": "default"
             },
             {
               "type": "base_plus_trim",
-              "value": 330000,
+              "value": 299800,
               "context": "base_plus_trim"
             }
           ]
@@ -10462,15 +11216,57 @@
             "set_rules": [
               {
                 "action": "set",
-                "target": "$DV2W"
-              },
-              {
-                "action": "set",
-                "target": "$PRM30"
+                "targets": [
+                  "$DV2W",
+                  "$PRM30"
+                ]
               },
               {
                 "action": "set",
                 "target": "$APBS"
+              },
+              {
+                "action": "set",
+                "target": "$IBW1",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$IPW1",
+                  "$IPW0",
+                  "$IBW0",
+                  "$IN3PW",
+                  "$IN3BW"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$IBB1",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$IPB1",
+                  "$IPB0",
+                  "$IBB0",
+                  "$IN3PB",
+                  "$IN3B2",
+                  "$IN3BB"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$W40B",
+                "condition_code": "$W38B",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$W41B",
+                "condition_code": "$W39B",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$MT317",
+                "condition_code": "$W33D",
+                "condition_state": "set"
               }
             ],
             "unset_rules": []
@@ -10493,22 +11289,64 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
-                "$MT320",
-                "$MT316"
+                "$MT320"
               ]
             },
             {
               "action": "set",
-              "target": "$DV2W"
-            },
-            {
-              "action": "set",
-              "target": "$PRM30"
+              "targets": [
+                "$DV2W",
+                "$PRM30"
+              ]
             },
             {
               "action": "set",
               "target": "$APBS"
+            },
+            {
+              "action": "set",
+              "target": "$IBW1",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$IPW1",
+                "$IPW0",
+                "$IBW0",
+                "$IN3PW",
+                "$IN3BW"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IBB1",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$IPB1",
+                "$IPB0",
+                "$IBB0",
+                "$IN3PB",
+                "$IN3B2",
+                "$IN3BB"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$W40B",
+              "condition_code": "$W38B",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$W41B",
+              "condition_code": "$W39B",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$MT317",
+              "condition_code": "$W33D",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -10518,7 +11356,7 @@
             },
             {
               "action": "set",
-              "target": "$MT320",
+              "target": "$MT337",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -10531,39 +11369,24 @@
                 "$MT311",
                 "$MT312",
                 "$MT315",
+                "$MT316",
                 "$MT317",
-                "$MT316"
+                "$MT320"
               ]
             }
           ],
-          "name": "Standard Range Plus Rear-Wheel Drive",
-          "description": "Standard Range Plus Rear-Wheel Drive",
-          "long_name": "Model 3 Standard Range Plus Rear-Wheel Drive",
+          "name": "標準續航 Plus 後輪驅動",
+          "description": "標準續航 Plus 後輪驅動",
+          "long_name": "Model 3 標準續航 Plus 後輪驅動",
           "long_description": "Standard Plus Rear-Wheel Drive",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Standard Range Plus"
-            },
-            {
-              "type": "compare_matrix.block[0].label",
-              "content": "Acceleration"
-            },
-            {
-              "type": "compare_matrix.block[0].content",
-              "content": "3.5s 0-60mph"
-            },
-            {
-              "type": "compare_matrix.block[1].label",
-              "content": "Drive"
-            },
-            {
-              "type": "compare_matrix.block[1].content",
-              "content": "Dual Motor All-wheel Drive"
+              "content": "標準續航 Plus"
             },
             {
               "type": "long_name",
-              "content": "Model 3 Standard Plus Rear-Wheel Drive"
+              "content": "Model 3 標準續航 Plus 後輪驅動"
             }
           ],
           "extra_content": [
@@ -10579,7 +11402,7 @@
               "type": "price_indicator_override",
               "content": [
                 {
-                  "content": 42500,
+                  "content": 299000,
                   "configuration": [
                     "$MDL3"
                   ],
@@ -10592,7 +11415,19 @@
               "type": "option_price_override",
               "content": [
                 {
-                  "content": 39500,
+                  "content": 299000,
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
                   "configuration": [
                     "$MDL3"
                   ],
@@ -10602,16 +11437,16 @@
               ]
             }
           ],
-          "price": 37000,
+          "price": 6800,
           "pricing": [
             {
               "type": "base",
-              "value": 37000,
+              "value": 6800,
               "context": "default"
             },
             {
               "type": "base_plus_trim",
-              "value": 330000,
+              "value": 299800,
               "context": "base_plus_trim"
             }
           ]
@@ -10627,7 +11462,8 @@
                 "condition_any_code": [
                   "$MT308",
                   "$MT320",
-                  "$MT336"
+                  "$MT336",
+                  "$MT337"
                 ]
               },
               {
@@ -10653,6 +11489,18 @@
                 "target": "$IBB0",
                 "condition_code": "$IPW0",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBB1",
+                "condition_code": "$IPB1",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBW1",
+                "condition_code": "$IPW1",
+                "condition_state": "set"
               }
             ]
           },
@@ -10675,7 +11523,8 @@
               "condition_any_code": [
                 "$MT308",
                 "$MT320",
-                "$MT336"
+                "$MT336",
+                "$MT337"
               ]
             },
             {
@@ -10700,6 +11549,18 @@
               "action": "set",
               "target": "$IBB0",
               "condition_code": "$IPW0",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBB1",
+              "condition_code": "$IPB1",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBW1",
+              "condition_code": "$IPW1",
               "condition_state": "set"
             }
           ],
@@ -10772,7 +11633,7 @@
             "set_rules": [
               {
                 "action": "set",
-                "target": "$MT315",
+                "target": "$MT316",
                 "condition_state": "unset",
                 "condition_all_codes": [
                   "$MT302",
@@ -10781,7 +11642,7 @@
                   "$MT309",
                   "$MT311",
                   "$MT312",
-                  "$MT316",
+                  "$MT315",
                   "$MT317",
                   "$MT334",
                   "$MT335"
@@ -10801,6 +11662,24 @@
                 "target": "$IN3PW",
                 "condition_code": "$IN3BW",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IPB0",
+                "condition_code": "$IBB0",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IPB1",
+                "condition_code": "$IBB1",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IPW1",
+                "condition_code": "$IBW1",
+                "condition_state": "set"
               }
             ],
             "unset_rules": []
@@ -10819,7 +11698,7 @@
             },
             {
               "action": "set",
-              "target": "$MT315",
+              "target": "$MT316",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT302",
@@ -10828,7 +11707,7 @@
                 "$MT309",
                 "$MT311",
                 "$MT312",
-                "$MT316",
+                "$MT315",
                 "$MT317",
                 "$MT334",
                 "$MT335"
@@ -10847,6 +11726,24 @@
               "action": "set",
               "target": "$IN3PW",
               "condition_code": "$IN3BW",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IPB0",
+              "condition_code": "$IBB0",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IPB1",
+              "condition_code": "$IBB1",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IPW1",
+              "condition_code": "$IBW1",
               "condition_state": "set"
             }
           ],
@@ -11068,23 +11965,12 @@
             "unset_rules": [
               {
                 "action": "unset",
-                "target": "$W33D"
-              },
-              {
-                "action": "unset",
-                "target": "$SLR1"
-              },
-              {
-                "action": "unset",
-                "target": "$PL31"
-              },
-              {
-                "action": "unset",
-                "target": "$BC3R"
-              },
-              {
-                "action": "set",
-                "target": "$W41B"
+                "targets": [
+                  "$BC3R",
+                  "$PL31",
+                  "$SLR1",
+                  "$W33D"
+                ]
               }
             ]
           },
@@ -11124,23 +12010,12 @@
             },
             {
               "action": "unset",
-              "target": "$W33D"
-            },
-            {
-              "action": "unset",
-              "target": "$SLR1"
-            },
-            {
-              "action": "unset",
-              "target": "$PL31"
-            },
-            {
-              "action": "unset",
-              "target": "$BC3R"
-            },
-            {
-              "action": "set",
-              "target": "$W41B"
+              "targets": [
+                "$BC3R",
+                "$PL31",
+                "$SLR1",
+                "$W33D"
+              ]
             }
           ],
           "name": "性能升級",
@@ -11154,7 +12029,7 @@
             },
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "已包括"
             },
             {
               "type": "deselectLabel",
@@ -11805,6 +12680,26 @@
                   ],
                   "acceleration": 4.4
                 },
+                "$MT316": {
+                  "name": "Long Range All-Wheel Drive",
+                  "range": 580,
+                  "topspeed": 233,
+                  "overrides": [
+                    {
+                      "content": {
+                        "range": 580,
+                        "topspeed": 233,
+                        "acceleration": 3.9
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$FM3U"
+                        ]
+                      }
+                    }
+                  ],
+                  "acceleration": 4.4
+                },
                 "$MT317": {
                   "name": "Long Range All-Wheel Drive Performance",
                   "range": 567,
@@ -11814,6 +12709,12 @@
                 "$MT320": {
                   "name": "Standard Range Plus Rear-Wheel Drive",
                   "range": 430,
+                  "topspeed": 225,
+                  "acceleration": 5.6
+                },
+                "$MT337": {
+                  "name": "Standard Range Plus Rear-Wheel Drive",
+                  "range": 448,
                   "topspeed": 225,
                   "acceleration": 5.6
                 }
@@ -16031,19 +16932,19 @@
         }
       },
       "base_configuration": [
-        "$IBB0",
+        "$IBB1",
         "$PPSW",
         "$W40B",
         "$DV2W",
         "$MDL3",
         "$PRM30",
-        "$MT320",
+        "$MT337",
         "$DRRH",
         "$CPF0",
         "$APBS",
         "$SC04"
       ],
-      "options_id": 677,
+      "options_id": 831,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -16899,10 +17800,10 @@
           }
         }
       ],
-      "copy_id": 989,
+      "copy_id": 1201,
       "language": "zh",
-      "pricing_id": 780,
-      "reference_id": 677
+      "pricing_id": 897,
+      "reference_id": 831
     }
   },
   "edd": []
