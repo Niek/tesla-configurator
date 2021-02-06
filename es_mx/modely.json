@@ -333,13 +333,13 @@
       "tcc": []
     },
     "Lexicon.my": {
-      "id": 717,
-      "effective_date": "2021-01-08T07:24:10.375Z",
+      "id": 918,
+      "effective_date": "2021-02-05T22:10:00.000Z",
       "market": "MX",
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing MX 2021.Jan.08 717.1025.789",
+      "name": "Marketing MX 2021.Feb.05 918.1303.970",
       "groups": [
         {
           "code": "MODEL",
@@ -400,7 +400,9 @@
           "context": "default",
           "options": [
             "$INYPB",
-            "$INYPW"
+            "$INYPW",
+            "$INPB1",
+            "$INPW1"
           ],
           "required": true,
           "exclusive": true,
@@ -1435,6 +1437,10 @@
           "long_name": "Premium Upgrades",
           "extra_copy": [
             {
+              "type": "name",
+              "content": "Seleccionar interior"
+            },
+            {
               "type": "feature_list.detail[0].main_title",
               "content": "Incluye:"
             },
@@ -1539,10 +1545,6 @@
                   }
                 }
               ]
-            },
-            {
-              "type": "name",
-              "content": "Seleccionar interior"
             }
           ],
           "extra_content": []
@@ -1560,6 +1562,10 @@
           "name": "Interior",
           "long_name": "Premium Upgrades",
           "extra_copy": [
+            {
+              "type": "name",
+              "content": "Seleccionar interior"
+            },
             {
               "type": "feature_list.detail[0].main_title",
               "content": "Incluye:"
@@ -1665,13 +1671,23 @@
                   }
                 }
               ]
-            },
-            {
-              "type": "name",
-              "content": "Seleccionar interior"
             }
           ],
           "extra_content": []
+        },
+        {
+          "code": "INTERIOR",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$INYPB",
+            "$INYPW"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$INYPB"
+          ]
         }
       ],
       "options": {
@@ -3126,6 +3142,216 @@
             }
           ]
         },
+        "$INPB1": {
+          "code": "$INPB1",
+          "user_defined_rules": {
+            "set_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$INPB1"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$INYPB",
+                "$INYPW",
+                "$INPW1"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$INPB1"
+            },
+            {
+              "action": "set",
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INYPW",
+                "$INPW1"
+              ]
+            }
+          ],
+          "name": "All Black Premium Interior",
+          "description": "All Black Premium Interior",
+          "long_name": "All Black Premium Interior",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "All Black"
+            },
+            {
+              "type": "price_indicator",
+              "content": "Included"
+            },
+            {
+              "type": "spec_description",
+              "content": "Black leather interior"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_in3pb.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRMY1"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "default"
+            }
+          ]
+        },
+        "$INPW1": {
+          "code": "$INPW1",
+          "user_defined_rules": {
+            "set_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$INPW1"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$INYPB",
+                "$INYPW",
+                "$INPB1"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$INPW1"
+            },
+            {
+              "action": "set",
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INYPW",
+                "$INPB1"
+              ]
+            }
+          ],
+          "name": "Black and White Premium Interior",
+          "description": "Black and White Premium Interior",
+          "long_name": "Black and White Premium Interior",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Black and White"
+            },
+            {
+              "type": "price_indicator",
+              "content": "Included"
+            },
+            {
+              "type": "recommended_NA_NA",
+              "content": "Recommended",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "SHOW_INTERIOR_MODAL",
+                    "props": {
+                      "content_path": "OMS.lexicon.options.$INYPW.recommended_NA_content"
+                    },
+                    "classNames": [
+                      "tsla-recommended_NA"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "recommended_NA_content",
+              "content": "Black and White interior includes our most premium materials, maximizing comfort and aesthetics while maintaining our rigorous standards for durability and stain resistance."
+            },
+            {
+              "type": "spec_description",
+              "content": "White leather interior"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_white.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "delivery",
+              "content": [
+                {
+                  "extra": true
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRMY1"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ],
+          "price": 21600,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 21600,
+              "context": "default"
+            }
+          ]
+        },
         "$INYPB": {
           "code": "$INYPB",
           "user_defined_rules": {
@@ -3138,7 +3364,11 @@
             },
             {
               "action": "unset",
-              "target": "$INYPW"
+              "targets": [
+                "$INYPW",
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
           "unset_rules": [
@@ -3148,7 +3378,13 @@
             },
             {
               "action": "set",
-              "target": "$INYPW"
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INYPW",
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
           "name": "Interior premium completamente negro",
@@ -3219,7 +3455,11 @@
             },
             {
               "action": "unset",
-              "target": "$INYPB"
+              "targets": [
+                "$INYPB",
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
           "unset_rules": [
@@ -3229,7 +3469,12 @@
             },
             {
               "action": "set",
-              "target": "$INYPB"
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
           "name": "Interior premium blanco y negro",
@@ -4429,6 +4674,30 @@
                   "condition_state": "and"
                 }
               ]
+            },
+            {
+              "type": "image",
+              "content": [
+                {
+                  "url": "MODELY/UI/01M_Utility_B.jpeg",
+                  "type": "image",
+                  "selected_by": {
+                    "and": [
+                      "$INYPW"
+                    ]
+                  }
+                },
+                {
+                  "url": "https://tesla-cdn.thron.com/delivery/public/image/tesla/3c2b3229-fe5e-44e4-a62c-fdfa41d9e425/bvlatuR/std/960x540/model-y-utility-hero-mobile-na",
+                  "type": "image",
+                  "relative": true,
+                  "selected_by": {
+                    "and": [
+                      "$INYPB"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "price": 65000,
@@ -5365,7 +5634,7 @@
         "$CPF1",
         "$SC04"
       ],
-      "options_id": 717,
+      "options_id": 918,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -5688,9 +5957,9 @@
           "content_localized": {}
         }
       ],
-      "copy_id": 1025,
+      "copy_id": 1303,
       "language": "es",
-      "pricing_id": 789
+      "pricing_id": 970
     }
   },
   "edd": [

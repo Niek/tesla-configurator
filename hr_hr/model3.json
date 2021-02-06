@@ -532,12 +532,12 @@
       "tcc": []
     },
     "Lexicon.m3": {
-      "effective_date": "2021-01-16T01:20:00.000Z",
+      "effective_date": "2021-02-05T23:46:41.654Z",
       "market": "HR",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing HR 2021.Jan.16 706.1060.762 [hr]",
+      "name": "Marketing HR 2021.Feb.05 860.1308.967 [hr]",
       "groups": [
         {
           "code": "MODEL",
@@ -1650,6 +1650,7 @@
           "context": "configurator",
           "options": [
             "$APBS",
+            "$APPB",
             "$APF2"
           ],
           "required": false,
@@ -2846,7 +2847,7 @@
             },
             {
               "type": "feature_list.default.items[0]",
-              "content": "Omogućava automatsko upravljanje, ubrzavanje i kočenje vozila u odnosu na vozila i pješake unutar svog traka."
+              "content": "Omogučava automatsko upravljanje, ubrzavanje i kočenje vozila u odnosu na vozila i pješake unutar svoje trake."
             },
             {
               "type": "description",
@@ -2929,52 +2930,24 @@
           "long_name": "Potpuno samostalna vožnja",
           "extra_copy": [
             {
-              "type": "price_indicator",
-              "content": "neobavezno"
-            },
-            {
-              "type": "disclaimer_details",
-              "content": "Trenutačno omogućene značajke zahtijevaju aktivni nadzor vozača i ne čine automobil autonomnim. Za aktivaciju i upotrebu tih značajki potrebne su razine pouzdanosti daleki iznad dosega ljudskih vozača, dokazano kroz milijarde prijeđenih kilometara, kao i odobrenja nadležnih ustanova, što u određenim jurisdikcijama može potrajati duže. Kako se razvijaju ove značajke samostalne vožnje, vaše će se vozilo kontinuirano nadograđivati bežičnim softverskim ažuriranjima."
-            },
-            {
               "type": "feature_list.default[0].items[0]",
-              "content": "Navigacija na autopilotu: automatska vožnja od ulaza na autocestu do izlaza s autoceste uključujući odvajanja na spojne ceste i pretjecanje sporijih automobila."
+              "content": "Sve funkcije osnovnog i poboljšanog autopilota"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Automatska promjena voznog traka: automatska promjena voznog traka pri vožnji autocestom."
-            },
-            {
-              "type": "feature_list.default[0].items[2]",
-              "content": "Automatsko parkiranje: paralelno i okomito."
-            },
-            {
-              "type": "feature_list.default[0].items[3]",
-              "content": "Summon: Samostalno parkiranje bez vozača i povratak vozila s parkirnog mjesta."
-            },
-            {
-              "type": "feature_list.default[0].items[4]",
-              "content": "Prepoznajte i reagirajte na semafore i znakove za zaustavljanje."
+              "content": "Prepoznavanje i reagiranje na semafore i znakove za zaustavljanje."
             },
             {
               "type": "feature_list.default[1].main_title",
-              "content": "Predstojeće:"
+              "content": "Uskoro:"
             },
             {
               "type": "feature_list.default[1].items[0]",
               "content": "Automatska vožnja gradskim ulicama."
             },
             {
-              "type": "feature_list.default[1].items[1]",
-              "content": "Napredno samostalno kretanje i parkiranje – vaš parkirani automobil sam će vas pronaći na parkiralištu."
-            },
-            {
-              "type": "disclaimer[0]",
-              "content": "Mogućnost potpuno samostalne vožnje dostupna je za kupnju nakon isporuke vozila. Cijene se mogu povećavati tijekom vremena s novim izdanjima značajki"
-            },
-            {
-              "type": "description",
-              "content": " "
+              "type": "disclaimer_details",
+              "content": "Trenutačne značajke zahtijevaju aktivni nadzor vozača i ne čine automobil autonomnim. Za upotrebu tih značajki bez nadzora u budućnosti potrebne su razine pouzdanosti daleki iznad dosega ljudskih vozača, dokazano kroz milijarde prijeđenih kilometara, kao i odobrenja nadležnih ustanova, što u određenim jurisdikcijama može potrajati duže. Kako se razvijaju ove značajke samostalne vožnje, vaše će se vozilo kontinuirano nadograđivati bežičnim softverskim ažuriranjima."
             },
             {
               "type": "selectLabel",
@@ -2983,6 +2956,10 @@
             {
               "type": "deselectLabel",
               "content": "Opcija je odabrana"
+            },
+            {
+              "type": "description",
+              "content": " "
             }
           ],
           "extra_content": [
@@ -3010,7 +2987,17 @@
             {
               "type": "upgrade",
               "value": 56500,
-              "context": "default"
+              "context": "default",
+              "set_rules": [
+                {
+                  "action": "set",
+                  "target": "$APF2",
+                  "target_value": 28000,
+                  "condition_code": "$APPB",
+                  "condition_state": "set",
+                  "target_property": "price"
+                }
+              ]
             }
           ]
         },
@@ -3022,12 +3009,6 @@
                 "action": "set",
                 "target": "$APBS"
               },
-              {
-                "action": "unset",
-                "target": "$APF2"
-              }
-            ],
-            "unset_rules": [
               {
                 "action": "unset",
                 "target": "$APF2"
@@ -3052,16 +3033,41 @@
             {
               "action": "unset",
               "target": "$APPB"
-            },
-            {
-              "action": "unset",
-              "target": "$APF2"
             }
           ],
           "name": "Poboljšani autopilot",
           "description": "Poboljšani autopilot",
           "long_name": "Poboljšani autopilot",
-          "extra_copy": [],
+          "extra_copy": [
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Navigacija na autopilotu: automatska vožnja od ulaza na autocestu do izlaza s autoceste uključujući odvajanja na sporedne ceste i pretjecanje sporijih automobila."
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Automatska promjena voznog traka: automatska promjena vozne trake pri vožnji autocestom."
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Automatsko parkiranje: paralelno i okomito."
+            },
+            {
+              "type": "feature_list.default[0].items[3]",
+              "content": "Summon: Samostalno parkiranje bez vozača i povratak vozila s parkirnog mjesta."
+            },
+            {
+              "type": "selectLabel",
+              "content": "Odaberite opciju"
+            },
+            {
+              "type": "deselectLabel",
+              "content": "Opcija je odabrana"
+            },
+            {
+              "type": "description",
+              "content": " "
+            }
+          ],
           "extra_content": [
             {
               "type": "shape",
@@ -3072,21 +3078,21 @@
               ]
             }
           ],
-          "price": 0,
+          "price": 28500,
           "pricing": [
             {
               "type": "base",
-              "value": 0,
+              "value": 28500,
               "context": "default"
             },
             {
               "type": "trial",
-              "value": 0,
+              "value": 28500,
               "context": "default"
             },
             {
               "type": "upgrade",
-              "value": 0,
+              "value": 28500,
               "context": "default"
             }
           ]
@@ -16972,7 +16978,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 706,
+      "options_id": 860,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -17828,10 +17834,10 @@
           }
         }
       ],
-      "copy_id": 1060,
+      "copy_id": 1308,
       "language": "hr",
-      "pricing_id": 762,
-      "reference_id": 706
+      "pricing_id": 967,
+      "reference_id": 860
     }
   },
   "edd": [

@@ -607,6 +607,10 @@
             }
           },
           {
+            "code": "TOWING",
+            "context": "configurator"
+          },
+          {
             "code": "CORE_CONFIGURATOR",
             "context": "configurator"
           },
@@ -2079,8 +2083,8 @@
       "tcc": []
     },
     "Lexicon.my": {
-      "id": 829,
-      "effective_date": "2021-01-28T00:29:30.215Z",
+      "id": 919,
+      "effective_date": "2021-02-05T22:10:00.000Z",
       "market": "US",
       "product": "my",
       "factory": "GF00",
@@ -2102,7 +2106,7 @@
           }
         }
       },
-      "name": "Marketing US 2021.Jan.28 829.1156.790",
+      "name": "Marketing US 2021.Feb.05 919.1305.969",
       "groups": [
         {
           "code": "MODEL",
@@ -2168,22 +2172,6 @@
               "content": "Select Your Car"
             }
           ]
-        },
-        {
-          "code": "INTERIOR",
-          "groups": [],
-          "context": "default",
-          "options": [
-            "$INYPB",
-            "$INYPW"
-          ],
-          "required": true,
-          "exclusive": true,
-          "default_options": [
-            "$INYPB"
-          ],
-          "name": "Interior",
-          "extra_copy": []
         },
         {
           "code": "REAR_SEATS",
@@ -2328,6 +2316,24 @@
           "name": "Autopilot",
           "extra_copy": [],
           "extra_content": []
+        },
+        {
+          "code": "INTERIOR",
+          "groups": [],
+          "context": "default",
+          "options": [
+            "$INYPB",
+            "$INYPW",
+            "$INPB1",
+            "$INPW1"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$INYPB"
+          ],
+          "name": "Interior",
+          "extra_copy": []
         },
         {
           "code": "PREMIUM_PACKAGE",
@@ -2939,6 +2945,20 @@
           "name": "Autopilot",
           "extra_copy": [],
           "extra_content": []
+        },
+        {
+          "code": "INTERIOR",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$INYPB",
+            "$INYPW"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$INYPB"
+          ]
         },
         {
           "code": "PACKAGES",
@@ -7926,15 +7946,220 @@
             }
           ]
         },
+        "$INPB1": {
+          "code": "$INPB1",
+          "user_defined_rules": {
+            "set_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$INPB1"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$INYPB",
+                "$INYPW",
+                "$INPW1"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$INPB1"
+            },
+            {
+              "action": "set",
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INYPW",
+                "$INPW1"
+              ]
+            }
+          ],
+          "name": "All Black Premium Interior",
+          "description": "All Black Premium Interior",
+          "long_name": "All Black Premium Interior",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "All Black"
+            },
+            {
+              "type": "price_indicator",
+              "content": "Included"
+            },
+            {
+              "type": "spec_description",
+              "content": "Black leather interior"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_in3pb.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRMY1"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "default"
+            }
+          ]
+        },
+        "$INPW1": {
+          "code": "$INPW1",
+          "user_defined_rules": {
+            "set_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$INPW1"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$INYPB",
+                "$INYPW",
+                "$INPB1"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$INPW1"
+            },
+            {
+              "action": "set",
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INYPW",
+                "$INPB1"
+              ]
+            }
+          ],
+          "name": "Black and White Premium Interior",
+          "description": "Black and White Premium Interior",
+          "long_name": "Black and White Premium Interior",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Black and White"
+            },
+            {
+              "type": "price_indicator",
+              "content": "Included"
+            },
+            {
+              "type": "recommended_NA_NA",
+              "content": "Recommended",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "SHOW_INTERIOR_MODAL",
+                    "props": {
+                      "content_path": "OMS.lexicon.options.$INYPW.recommended_NA_content"
+                    },
+                    "classNames": [
+                      "tsla-recommended_NA"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "recommended_NA_content",
+              "content": "Black and White interior includes our most premium materials, maximizing comfort and aesthetics while maintaining our rigorous standards for durability and stain resistance."
+            },
+            {
+              "type": "spec_description",
+              "content": "White leather interior"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_white.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "delivery",
+              "content": [
+                {
+                  "extra": true
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRMY1"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ],
+          "price": 1000,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 1000,
+              "context": "default"
+            }
+          ]
+        },
         "$INYPB": {
           "code": "$INYPB",
           "user_defined_rules": {
-            "set_rules": [
-              {
-                "action": "set",
-                "target": "$PRMY1"
-              }
-            ]
+            "set_rules": []
           },
           "set_rules": [
             {
@@ -7943,11 +8168,11 @@
             },
             {
               "action": "unset",
-              "target": "$INYPW"
-            },
-            {
-              "action": "set",
-              "target": "$PRMY1"
+              "targets": [
+                "$INYPW",
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
           "unset_rules": [
@@ -7957,7 +8182,13 @@
             },
             {
               "action": "set",
-              "target": "$INYPW"
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INYPW",
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
           "name": "All Black Premium Interior",
@@ -8125,12 +8356,7 @@
         "$INYPW": {
           "code": "$INYPW",
           "user_defined_rules": {
-            "set_rules": [
-              {
-                "action": "set",
-                "target": "$PRMY1"
-              }
-            ]
+            "set_rules": []
           },
           "set_rules": [
             {
@@ -8139,11 +8365,11 @@
             },
             {
               "action": "unset",
-              "target": "$INYPB"
-            },
-            {
-              "action": "set",
-              "target": "$PRMY1"
+              "targets": [
+                "$INYPB",
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
           "unset_rules": [
@@ -8153,7 +8379,12 @@
             },
             {
               "action": "set",
-              "target": "$INYPB"
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
           "name": "Black and White Premium Interior",
@@ -10566,7 +10797,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 829,
+      "options_id": 919,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -10889,9 +11120,9 @@
           "content_localized": {}
         }
       ],
-      "copy_id": 1156,
+      "copy_id": 1305,
       "language": "en",
-      "pricing_id": 790
+      "pricing_id": 969
     }
   },
   "edd": [
