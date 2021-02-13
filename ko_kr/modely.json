@@ -7,8 +7,8 @@
             "key": "Lexicon.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "fr",
-              "market": "CH",
+              "language": "ko",
+              "market": "KR",
               "app": "find-my-tesla",
               "date": "",
               "seekret": "",
@@ -24,8 +24,8 @@
             "key": "Incentives.my.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "fr",
-              "market": "CH",
+              "language": "ko",
+              "market": "KR",
               "app": "find-my-tesla",
               "date": "",
               "seekret": "",
@@ -41,8 +41,8 @@
             "key": "Fees.my.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "fr",
-              "market": "CH",
+              "language": "ko",
+              "market": "KR",
               "app": "find-my-tesla",
               "date": "",
               "seekret": "",
@@ -58,8 +58,8 @@
             "key": "Lease.my.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "fr",
-              "market": "CH",
+              "language": "ko",
+              "market": "KR",
               "app": "find-my-tesla",
               "date": "",
               "seekret": "",
@@ -75,8 +75,8 @@
             "key": "Loan.my.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "fr",
-              "market": "CH",
+              "language": "ko",
+              "market": "KR",
               "app": "find-my-tesla",
               "date": "",
               "seekret": "",
@@ -92,8 +92,8 @@
             "key": "TCC.my.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "fr",
-              "market": "CH",
+              "language": "ko",
+              "market": "KR",
               "app": "find-my-tesla",
               "date": "",
               "seekret": "",
@@ -109,8 +109,8 @@
             "key": "InitialConfig.my.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "fr",
-              "market": "CH",
+              "language": "ko",
+              "market": "KR",
               "app": "find-my-tesla",
               "date": "",
               "seekret": "",
@@ -124,8 +124,8 @@
       },
       "query": {
         "available_configurations": "my:my",
-        "language": "fr",
-        "market": "CH",
+        "language": "ko",
+        "market": "KR",
         "app": "find-my-tesla",
         "date": "",
         "seekret": "",
@@ -144,7 +144,7 @@
         "availableCountrySelection": [],
         "displayCountrySelection": true,
         "displayCountryFlag": false,
-        "isAnimationFloatEnabled": false,
+        "isAnimationFloatEnabled": true,
         "useIntentPage": false,
         "useConfirmationPage": true,
         "showRefundPolicy": true,
@@ -694,7 +694,7 @@
             "i18nLabel": "TeslaInsurance.title"
           }
         ],
-        "hideDynamicIncentive": true,
+        "hideDynamicIncentive": false,
         "showMonthlyPaymentExVAT": false,
         "hideAfterSavingsPrice": false,
         "hideAfterSavingsModal": false,
@@ -703,7 +703,7 @@
         "showCostOfCreditInModal": false,
         "showAPRInModal": false,
         "showSavingAmtWithoutMinus": false,
-        "showAmountIncludingFees": true,
+        "showAmountIncludingFees": false,
         "showAmountIncludingFeesSummary": false,
         "loanAfterSavingsLabel": "netPrice__after_savings",
         "showSecondDepositDisclaimer": false,
@@ -751,9 +751,7 @@
         "showFinanceProductsByDriverType": [],
         "driverType": null,
         "leaseDescriptionwithModelCode": false,
-        "taxesAndFeesExcludedIfApplicable": false,
-        "reversePricingOrder": true,
-        "hideTaxesAndFeesExcluded": true
+        "taxesAndFeesExcludedIfApplicable": false
       },
       "FindMyTesla": {
         "selected_view": "exterior",
@@ -783,28 +781,22 @@
       "Forms": {
         "selectedForm": "FinancingOptions",
         "showOtherLeaseTerms": false,
-        "showLoanFields": [],
+        "showLoanFields": [
+          [
+            "downPayment",
+            "term"
+          ]
+        ],
         "showLeaseFields": [
           [
             "downPayment",
-            "distance"
-          ],
-          [
             "term"
           ]
         ],
         "leaseReadOnlyFields": [],
         "loanReadOnlyFields": [],
         "loanFieldsFormat": null,
-        "gasSavingsExampleParams": {
-          "yearlyDistance": 20000,
-          "petrolSavingsPerYear": 2800,
-          "petrolSavings": 10800,
-          "timesLower": 5,
-          "fuelEconomy": 11.9,
-          "electricityPrice": 0.19,
-          "petrolPrice": 1.65
-        },
+        "gasSavingsExampleParams": {},
         "extraDisclaimers": [],
         "disclaimerDateFormat": "",
         "showIncentivesDisclaimers": false,
@@ -864,9 +856,9 @@
         "registration": {
           "showBusinessFields": true,
           "showPrivateFields": false,
-          "vatIdRequired": true,
+          "vatIdRequired": false,
           "companyNumberRequired": false,
-          "showVatID": true,
+          "showVatID": false,
           "privateVatIdRequired": false,
           "deliveryPostalCodeRequired": false
         },
@@ -882,7 +874,7 @@
         "isPaymentFormOpen": false,
         "showTextForPaymentTypes": false,
         "noWireTransferOnBusinessAccount": false,
-        "showOptinDisclaimer": "always"
+        "showOptinDisclaimer": "opt_in"
       },
       "ReviewDetails": {
         "group": "order_summary.REVIEW_ORDER",
@@ -909,10 +901,14 @@
           "CompanyNumber": ""
         },
         "isSaveDesignEnabled": false,
-        "showLocalName": false,
-        "showLegalConsent": [],
+        "showLocalName": true,
+        "showLegalConsent": [
+          "PRIVACY_CONSENT",
+          "MVOA_CONSENT",
+          "TERM_OF_USE_CONSENT"
+        ],
         "showPrpLink": false,
-        "showVAT": true,
+        "showVAT": false,
         "asset": {
           "type": "image-compositor",
           "view": "STUD_3QTR",
@@ -922,8 +918,7 @@
         "showLeaseSummaryFields": [
           "downPayment",
           "leaseTerm",
-          "leaseDistance",
-          "residualAmount"
+          "leaseDistance"
         ],
         "showLeaseSummaryDisclaimer": false,
         "showSecondDepositDisclaimer": {
@@ -1062,12 +1057,7 @@
         },
         "displayOrderRefundLongCopy": {
           "source": false,
-          "selected_by": {
-            "and": [
-              "$MTS09"
-            ]
-          },
-          "target": true
+          "target": false
         },
         "nonRefundPolicyDisclaimer": false,
         "showOrderRefundDisclaimer": true,
@@ -1113,18 +1103,15 @@
           "PRICE_ADD_DISCOUNT"
         ],
         "actionsToUpdatePrices": [
-          "SUMMARY_PANEL_DISTANCE_CHANGE",
+          "SUMMARY_PANEL_FINANCE_APR_CHANGE",
           "ACCOUNT_DETAILS_CHANGED"
         ],
         "showVehicleSubtotal": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
-          "CompanyName",
-          "Vat"
+          "CompanyName"
         ],
-        "extraIncentives": [
-          "generic"
-        ]
+        "extraIncentives": []
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -1190,20 +1177,19 @@
       "incentives": [
         {
           "incentiveType": "fuel",
-          "description": "Fuel economy inputs for CH my",
-          "amount": 10800,
+          "description": "Fuel economy inputs for KR my",
+          "amount": 5000000,
           "period": "fuel",
           "variables": {
             "months": 60,
-            "distance": 100000,
-            "fuel_efficiency_metric": 8.4,
+            "distance": 60000,
+            "fuel_efficiency_metric": 6.2,
             "kwh_consumption": 0.159,
-            "supercharger_kwh_price": 0.3,
-            "fuel_price": 1.65,
-            "kwh_price": 0.19
+            "fuel_price": 1689.87,
+            "kwh_price": 135.53
           },
           "variant": "my",
-          "market": "CH"
+          "market": "KR"
         },
         {
           "incentiveType": "beforeDelivery",
@@ -1295,37 +1281,6 @@
     "Fees.my.my": {
       "fees": [
         {
-          "feeType": "reg_and_doc_fee",
-          "financeType": "any",
-          "description": "Registration and doc fee",
-          "period": "once",
-          "variant": [
-            "m3",
-            "my",
-            "ms",
-            "mx"
-          ],
-          "inventory": [
-            "new"
-          ],
-          "amount": 990,
-          "market": "CH"
-        },
-        {
-          "feeType": "vat_percent",
-          "financeType": "any",
-          "description": "Vat Calculation",
-          "period": "included",
-          "variant": [
-            "m3",
-            "my",
-            "ms",
-            "mx"
-          ],
-          "percent": 7.7,
-          "market": "CH"
-        },
-        {
           "feeType": "inspect_prep",
           "financeType": "any",
           "description": "Inspect Prep Fee",
@@ -1408,22 +1363,134 @@
       ]
     },
     "Lease.my.my": {
-      "lease": []
+      "lease": [
+        {
+          "market": "KR",
+          "variant": [
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.35,
+            "downPayment": 0.2,
+            "interestRate": 3.8,
+            "tax": 0.07,
+            "dcRate": 9,
+            "leaseTerm": 48,
+            "leaseDistance": 30000
+          },
+          "leaseTermsOffered": {
+            "leaseTerm": [
+              24,
+              36,
+              48,
+              60
+            ],
+            "leaseDistance": [
+              30000
+            ]
+          },
+          "residualRateMatrix": [
+            {
+              "leaseTerm": 24,
+              "leaseDistance": 30000,
+              "value": 0.3
+            },
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 30000,
+              "value": 0.3
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 30000,
+              "value": 0.3
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 30000,
+              "value": 0.3
+            }
+          ],
+          "other": {
+            "other_costs": 75000,
+            "public_bond": 0,
+            "property_tax": 130000,
+            "registration_tax": 1400000,
+            "gov_subsidy": 0
+          }
+        }
+      ]
     },
     "Loan.my.my": {
-      "loan": []
+      "loan": [
+        {
+          "market": "KR",
+          "variant": [
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "downPayment": 0.3,
+            "interestRate": 3.5,
+            "loanTerm": 48
+          },
+          "interestRateBasedOnDownPayment": [
+            {
+              "operator": ">=",
+              "value": 0.3,
+              "interestRate": 3.5
+            },
+            {
+              "operator": "<",
+              "value": 0.3,
+              "interestRate": 3.8
+            }
+          ],
+          "loanTermsOffered": {
+            "loanTerm": [
+              24,
+              36,
+              48,
+              60,
+              72
+            ]
+          }
+        }
+      ]
     },
     "TCC.my.my": {
       "tcc": []
     },
     "Lexicon.my": {
-      "id": 438,
-      "effective_date": "2020-12-05T00:10:00.000Z",
-      "market": "CH",
+      "effective_date": "2021-02-12T01:25:00.000Z",
+      "market": "KR",
       "product": "my",
       "factory": "GF00",
-      "fees": {},
-      "name": "Marketing CH 2020.Dec.05 438.635.595",
+      "fees": {
+        "fuel_reward": {
+          "amount": 1500,
+          "period": "includedInPurchasePrice",
+          "uiSettings": {
+            "order": 1,
+            "price": 1500,
+            "showOnUI": true
+          },
+          "toggle_amount": {
+            "if": {
+              "selected": {
+                "amount": 1500
+              }
+            }
+          }
+        }
+      },
+      "name": "Marketing KR 2021.Feb.12 926.1350.1003 [ko]",
       "groups": [
         {
           "code": "MODEL",
@@ -1444,6 +1511,8 @@
           "groups": [],
           "context": "default",
           "options": [
+            "$MTY01",
+            "$MTY02",
             "$MTY03",
             "$MTY04",
             "$MTY05"
@@ -1451,45 +1520,42 @@
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTY03"
+            "$MTY01"
           ],
           "name": "TRIM"
+        },
+        {
+          "code": "TOWING",
+          "groups": [],
+          "context": "default",
+          "options": [
+            "$TW01"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "견인 히치"
         },
         {
           "code": "DRIVE_MODE",
           "groups": [],
           "context": "default",
           "options": [
+            "$DV2W",
             "$DV4W"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$DV4W"
+            "$DV2W"
           ],
-          "name": "Groupe motopropulseur",
+          "name": "구동 장치",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionnez votre véhicule"
+              "content": "차량 선택하기"
             }
           ]
-        },
-        {
-          "code": "INTERIOR",
-          "groups": [],
-          "context": "default",
-          "options": [
-            "$INYPB",
-            "$INYPW"
-          ],
-          "required": true,
-          "exclusive": true,
-          "default_options": [
-            "$INYPB"
-          ],
-          "name": "Intérieur",
-          "extra_copy": []
         },
         {
           "code": "REAR_SEATS",
@@ -1515,23 +1581,23 @@
             "$PBSB",
             "$PMNG",
             "$PPSB",
-            "$PPSW",
-            "$PPMR"
+            "$PPMR",
+            "$PPSW"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
             "$PPSW"
           ],
-          "name": "Couleur",
+          "name": "색상",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionnez la couleur"
+              "content": "색상 선택하기"
             },
             {
               "type": "section_title",
-              "content": "Extérieur"
+              "content": "외부"
             }
           ],
           "extra_content": [
@@ -1570,11 +1636,11 @@
           "default_options": [
             "$WY19B"
           ],
-          "name": "Jantes",
+          "name": "휠",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionnez les jantes"
+              "content": "휠 선택하기"
             }
           ],
           "extra_content": [
@@ -1609,7 +1675,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Pilotage automatique",
+          "name": "오토파일럿",
           "extra_copy": [],
           "extra_content": []
         },
@@ -1625,7 +1691,20 @@
           "default_options": [
             "$PRMY1"
           ],
-          "name": "Intérieur"
+          "name": "인테리어"
+        },
+        {
+          "code": "SUPER_CHARGER",
+          "groups": [],
+          "context": "default",
+          "options": [
+            "$SC04",
+            "$SC05",
+            "$SC06"
+          ],
+          "required": false,
+          "exclusive": true,
+          "name": "SUPER_CHARGER"
         },
         {
           "code": "SPOILER",
@@ -1636,7 +1715,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Aileron"
+          "name": "스포일러"
         },
         {
           "code": "PEDALS",
@@ -1647,7 +1726,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "PÉDALIER"
+          "name": "PEDALS"
         },
         {
           "code": "SPORT_PACKAGE",
@@ -1672,20 +1751,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "FREINS"
-        },
-        {
-          "code": "SUPER_CHARGER",
-          "groups": [],
-          "context": "default",
-          "options": [
-            "$SC04",
-            "$SC05",
-            "$SC06"
-          ],
-          "required": false,
-          "exclusive": true,
-          "name": "SUPER_CHARGER"
+          "name": "BRAKES"
         },
         {
           "code": "CONNECTIVITY",
@@ -1698,21 +1764,38 @@
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$CPF1"
+            "$CPF0"
           ],
           "name": "CONNECTIVITY"
         },
         {
-          "code": "TOWING",
+          "code": "PERF_FIRMWARE",
           "groups": [],
           "context": "default",
           "options": [
-            "$TW01"
+            "$FM3U"
           ],
           "required": false,
           "exclusive": false,
-          "default_options": [],
-          "name": "Crochet d'attelage"
+          "default_options": []
+        },
+        {
+          "code": "INTERIOR",
+          "groups": [],
+          "context": "default",
+          "options": [
+            "$INYPB",
+            "$INYPW",
+            "$INPB1",
+            "$INPW1"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$INYPB"
+          ],
+          "name": "인테리어",
+          "extra_copy": []
         },
         {
           "code": "CORE",
@@ -1720,13 +1803,15 @@
           "context": "order_summary",
           "options": [
             "$MDLY",
+            "$MTY01",
+            "$MTY02",
             "$MTY03",
             "$MTY04",
             "$MTY05"
           ],
           "required": false,
           "exclusive": false,
-          "name": "Règlement"
+          "name": "결제"
         },
         {
           "code": "OPTIONS",
@@ -1737,21 +1822,20 @@
             "$INYPW",
             "$PBSB",
             "$PMNG",
-            "$PMBL",
-            "$PMSS",
+            "$PPMR",
             "$PPSB",
-            "$STY5S",
             "$PPSW",
+            "$STY5S",
             "$STY7S",
             "$WY19B",
-            "$WY21P",
             "$WY20P",
+            "$WY21P",
             "$APBS",
             "$APF2"
           ],
           "required": false,
           "exclusive": false,
-          "name": "Options"
+          "name": "옵션"
         },
         {
           "code": "REVIEW_ORDER",
@@ -1780,24 +1864,39 @@
           "groups": [],
           "context": "configurator",
           "options": [
+            "$MTY01",
             "$MTY03",
             "$MTY05"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTY03"
+            "$MTY01"
           ],
           "name": "TRIM",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionnez votre véhicule"
+              "content": "차량 선택하기"
             },
             {
               "type": "compare_title",
-              "content": "Comparer"
+              "content": "비교"
             }
+          ]
+        },
+        {
+          "code": "DRIVE_MODE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$DV2W",
+            "$DV4W"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$DV2W"
           ]
         },
         {
@@ -1805,8 +1904,7 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$STY5S",
-            "$STY7S"
+            "$STY5S"
           ],
           "required": true,
           "exclusive": true,
@@ -1817,7 +1915,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionnez une configuration intérieure"
+              "content": "시트 구성 선택하기"
             }
           ]
         },
@@ -1837,15 +1935,15 @@
           "default_options": [
             "$PPSW"
           ],
-          "name": "Couleur",
+          "name": "색상",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionnez la couleur"
+              "content": "색상 선택하기"
             },
             {
               "type": "section_title",
-              "content": "Extérieur"
+              "content": "외부"
             }
           ],
           "extra_content": [
@@ -1884,11 +1982,11 @@
           "default_options": [
             "$WY19B"
           ],
-          "name": "Jantes",
+          "name": "휠",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionnez les jantes"
+              "content": "휠 선택하기"
             }
           ],
           "extra_content": [
@@ -1922,7 +2020,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Autopilot",
+          "name": "오토파일럿",
           "extra_copy": [],
           "extra_content": []
         },
@@ -1936,16 +2034,16 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Pack Autopilot",
-          "description": "Description du Pack Autopilot",
+          "name": "오토파일럿 패키지",
+          "description": "오토파일럿 패키지 설명",
           "extra_copy": [
             {
               "type": "feature_list.default[0].title",
-              "content": "Autopilot"
+              "content": "오토파일럿"
             },
             {
               "type": "feature_list.default[0].description",
-              "content": "Les fonctions avancées de sécurité et de confort du Pilotage automatique sont conçues pour vous assister dans les moments les plus pénibles de la conduite. Tous les nouveaux véhicules Tesla sont livrés de série avec des fonctionnalités d'assistance à la conduite telles que le freinage d'urgence, l'alerte de collision et la surveillance d'angle mort."
+              "content": "오토파일럿 첨단 안전 및 편의 기술은 주행 시에 가장 부담스러울 수 있는 부분을 돕도록 설계되었습니다. 새로운 Tesla 차량에는 긴급 제동, 충돌 경고 및 사각지대 모니터링 등과 같은 운전자 보조 기능이 기본으로 탑재됩니다."
             }
           ],
           "extra_content": [
@@ -2010,7 +2108,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Pilotage automatique",
+          "name": "오토파일럿",
           "extra_copy": [],
           "extra_content": []
         },
@@ -2018,20 +2116,19 @@
           "code": "EXTERIOR_GROUP",
           "groups": [
             "PAINT",
-            "WHEELS",
-            "TOWING"
+            "WHEELS"
           ],
           "context": "configurator",
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Couleurs et jantes",
-          "description": "Couleurs et jantes",
-          "long_name": "Couleurs et jantes",
+          "name": "색상 및 휠",
+          "description": "색상 및 휠",
+          "long_name": "색상 및 휠",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Extérieur"
+              "content": "외부"
             }
           ],
           "extra_content": [
@@ -2057,13 +2154,13 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Couleurs et jantes",
-          "description": "Couleurs et jantes",
-          "long_name": "Couleurs et jantes",
+          "name": "색상 및 휠",
+          "description": "색상 및 휠",
+          "long_name": "색상 및 휠",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Extérieur"
+              "content": "외부"
             }
           ],
           "extra_content": [
@@ -2082,7 +2179,8 @@
         {
           "code": "PACKAGES",
           "groups": [
-            "PREMIUM_PACKAGE",
+            "INTERIOR_STD",
+            "INTERIOR_PRE",
             "REAR_SEATS"
           ],
           "context": "configurator",
@@ -2090,16 +2188,16 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Packs",
-          "description": "Packs",
+          "name": "패키지",
+          "description": "패키지",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionnez un intérieur"
+              "content": "인테리어 선택하기"
             },
             {
-              "type": "group_disclaimer[0]",
-              "content": "Habitacle 7 sièges disponible en 2021"
+              "type": "dynamic_disclaimer",
+              "content": "7개 시트 구성은 추후 출시"
             }
           ],
           "extra_content": [
@@ -2129,6 +2227,21 @@
                   "ratio": "slice"
                 }
               ]
+            },
+            {
+              "type": "dynamic_disclaimer_loader",
+              "content": [
+                {
+                  "props": {
+                    "content_path": "OMS.lexicon.groups_dictionary.configurator.PACKAGES"
+                  },
+                  "selected_by": {
+                    "not": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
@@ -2144,12 +2257,12 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Intérieur",
-          "long_name": "Extensions Premium",
+          "name": "인테리어",
+          "long_name": "프리미엄 업그레이드",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionnez un intérieur"
+              "content": "인테리어 선택하기"
             }
           ],
           "extra_content": []
@@ -2163,11 +2276,11 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Aileron",
+          "name": "스포일러",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionner l'aileron"
+              "content": "스포일러 선택하기"
             }
           ]
         },
@@ -2180,26 +2293,22 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "PÉDALIER"
+          "name": "PEDALS"
         },
         {
           "code": "SPORT_PACKAGE",
           "groups": [],
           "context": "configurator",
           "options": [
-            "$SPTY1",
-            "$WY21P",
-            "$BCYR",
-            "$SLR1",
-            "$PL31"
+            "$SPTY1"
           ],
           "required": false,
           "exclusive": false,
-          "name": "Pack Performance",
+          "name": "퍼포먼스 업그레이드",
           "extra_copy": [
             {
-              "type": "name",
-              "content": "Pack Performance"
+              "type": "sub_title",
+              "content": " "
             }
           ]
         },
@@ -2213,8 +2322,8 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Délais de livraison",
-          "description": "Délais de livraison",
+          "name": "인도 시기",
+          "description": "인도 시기",
           "extra_copy": [],
           "extra_content": [
             {
@@ -2226,7 +2335,15 @@
                       "$MTY03"
                     ]
                   },
-                  "delivery_date": "La production devrait commencer mi-2021"
+                  "delivery_date": ""
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY01"
+                    ]
+                  },
+                  "delivery_date": "2021년 하반기 인도예정"
                 },
                 {
                   "selected_by": {
@@ -2234,7 +2351,7 @@
                       "$MTY04"
                     ]
                   },
-                  "delivery_date": "La production devrait commencer mi-2021"
+                  "delivery_date": ""
                 },
                 {
                   "selected_by": {
@@ -2242,7 +2359,7 @@
                       "$MTY02"
                     ]
                   },
-                  "delivery_date": "La production devrait commencer mi-2021"
+                  "delivery_date": "First deliveries to begin mid-2020"
                 }
               ]
             }
@@ -2269,34 +2386,56 @@
             },
             {
               "type": "sub_title",
-              "content": "Transmission intégrale Dual Motor"
+              "content": "듀얼 모터 상시 사륜구동 (AWD)"
+            },
+            {
+              "type": "disclaimer_savingsPrice",
+              "content": "* 상기 비용에는 잠재적인 인센티브 및 {SAVING_PRICE}의 연료비 절감액이 포함됩니다."
+            },
+            {
+              "type": "disclaimer_purchasePrice",
+              "content": "모든 가격은 잠재적인 인센티브 및 {SAVING_PRICE}의 연료비 절감액을 제외하고 표시됩니다."
+            },
+            {
+              "type": "disclaimer_learnMore",
+              "content": "자세히 알아보기",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "SHOW_SAVINGS_MODAL"
+                  }
+                }
+              ]
             }
           ]
         },
         {
           "code": "BATTERY_AND_DRIVE",
           "groups": [
-            "DUAL_MOTOR_PREMIUM"
+            "REAR_WHEEL_DRIVE_STANDARD",
+            "DUAL_MOTOR_PREMIUM",
+            "SPORT_PACKAGE"
           ],
           "context": "configurator",
           "options": [],
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Batterie et groupe motopropulseur",
-          "description": "Batterie et groupe motopropulseur",
+          "name": "배터리 및 구동 장치",
+          "description": "배터리 및 구동 장치",
           "extra_copy": [
             {
               "type": "group_disclaimer",
-              "content": "Toutes les versions sont dotées de l’intérieur premium et du système audio haute-fidélité."
+              "content": "모든 차량은 프리미엄 인테리어와 사운드를 갖추고 있습니다."
             },
             {
               "type": "zero_to_road_limit_units",
-              "content": "0 à 100 km/h"
+              "content": "0-100 km/h 도달시간"
             },
             {
               "type": "range_units",
-              "content": "Autonomie"
+              "content": "주행 가능 거리"
             },
             {
               "type": "epa",
@@ -2304,7 +2443,7 @@
             },
             {
               "type": "speed_units_short",
-              "content": "s"
+              "content": "초"
             },
             {
               "type": "range_units_short",
@@ -2316,56 +2455,19 @@
             },
             {
               "type": "range_units_epa",
-              "content": "Autonomie"
+              "content": "주행 가능 거리 (예측)"
             },
             {
               "type": "top_speed_units",
-              "content": "Vitesse maximale"
+              "content": "최고속도"
             },
             {
               "type": "name",
-              "content": "Sélectionnez votre véhicule"
+              "content": "차량 선택하기"
             },
             {
               "type": "section_title",
-              "content": "Version"
-            },
-            {
-              "type": "disclaimer_copy[0]",
-              "content": " ",
-              "behavior": [
-                {
-                  "type": "CONTAINER",
-                  "content": {
-                    "tag": "p",
-                    "props": {
-                      "style": {
-                        "display": "block"
-                      }
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "type": "range_units_est_link",
-              "content": "(WLTP est.)",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "SHOW_RANGE_MODAL"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "range_info_title",
-              "content": "Autonomie"
-            },
-            {
-              "type": "range_info_disclaimer",
-              "content": "Les chiffres relatifs à l'autonomie sont basés sur la norme WLTP. L'autonomie réelle de votre véhicule dépendra de sa configuration, de l'ancienneté et de l'état de sa batterie, de votre style de conduite et des conditions climatiques. La norme WLTP peut être utile pour comparer l'autonomie de différents véhicules électriques."
+              "content": "자동차"
             }
           ],
           "extra_content": [
@@ -2383,18 +2485,7 @@
               "type": "performance_specs",
               "content": [
                 {
-                  "range": 540,
-                  "units": "imperial",
-                  "top_speed": 209,
-                  "selected_by": {
-                    "and": [
-                      "$MTY02"
-                    ]
-                  },
-                  "zero_to_road_limit": 5.8
-                },
-                {
-                  "range": 505,
+                  "range": 511,
                   "units": "imperial",
                   "top_speed": 217,
                   "selected_by": {
@@ -2402,29 +2493,55 @@
                       "$MTY03"
                     ]
                   },
-                  "zero_to_road_limit": 5.1
+                  "zero_to_road_limit": 5
                 },
                 {
-                  "range": 480,
+                  "range": 468,
                   "units": "imperial",
-                  "top_speed": 241,
+                  "top_speed": 250,
+                  "selected_by": {
+                    "and": [
+                      "$MTY04",
+                      "$SPTY1"
+                    ]
+                  },
+                  "zero_to_road_limit": 3.7,
+                  "range_units_override": "range_units_epa"
+                },
+                {
+                  "range": 507,
+                  "units": "imperial",
+                  "top_speed": 233,
                   "selected_by": {
                     "and": [
                       "$MTY04"
                     ]
                   },
-                  "zero_to_road_limit": 3.7
+                  "zero_to_road_limit": 3.7,
+                  "range_units_override": "range_units_epa"
                 },
                 {
-                  "range": 480,
+                  "range": 448,
                   "units": "imperial",
-                  "top_speed": 241,
+                  "top_speed": 250,
                   "selected_by": {
                     "and": [
                       "$MTY05"
                     ]
                   },
                   "zero_to_road_limit": 3.7
+                },
+                {
+                  "range": 340,
+                  "units": "imperial",
+                  "top_speed": 217,
+                  "selected_by": {
+                    "and": [
+                      "$MTY01"
+                    ]
+                  },
+                  "zero_to_road_limit": 5.6,
+                  "range_units_override": "range_units_epa"
                 }
               ]
             }
@@ -2435,13 +2552,107 @@
           "groups": [],
           "context": "configurator",
           "options": [
+            "$MTY01",
+            "$MTY02",
             "$MTY03",
             "$MTY04",
             "$MTY05"
           ],
           "required": false,
           "exclusive": false,
-          "name": "Règlement"
+          "name": "결제"
+        },
+        {
+          "code": "REAR_WHEEL_PREMIUM",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$MTY02"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [
+            "$MTY02"
+          ],
+          "name": "REAR_WHEEL_PREMIUM",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            },
+            {
+              "type": "sub_title",
+              "content": "후륜구동 (RWD)"
+            }
+          ]
+        },
+        {
+          "code": "FEDERAL_TAX_CREDIT",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false
+        },
+        {
+          "code": "REAR_WHEEL_DRIVE_STANDARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$MTY01"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [
+            "$MTY01"
+          ],
+          "name": "REAR_WHEEL_DRIVE_STANDARD",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            },
+            {
+              "type": "sub_title",
+              "content": "후륜구동 (RWD)"
+            }
+          ]
+        },
+        {
+          "code": "INTERIOR_STD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$INYPB",
+            "$INYPW"
+          ],
+          "required": false,
+          "exclusive": false
+        },
+        {
+          "code": "INTERIOR_PRE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$INYPB",
+            "$INYPW"
+          ],
+          "required": false,
+          "exclusive": false
+        },
+        {
+          "code": "INTERIOR",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$INYPB",
+            "$INYPW"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$INYPB"
+          ]
         }
       ],
       "options": {
@@ -2472,13 +2683,13 @@
               "target": "$APBS"
             }
           ],
-          "name": "Autopilot",
-          "description": "Autopilot",
-          "long_name": "Autopilot",
+          "name": "오토파일럿",
+          "description": "오토파일럿",
+          "long_name": "오토파일럿",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "포함"
             },
             {
               "type": "description",
@@ -2486,15 +2697,15 @@
             },
             {
               "type": "feature_list.default.items[0]",
-              "content": "Permet à votre véhicule de tenir une trajectoire, d'accélérer et de freiner pour vous si d'autres véhicules ou piétons se trouvent dans sa voie."
+              "content": "주행 중인 차선의 차량 및 보행자에 맞춰 차량의 조향, 속도 조절 및 제동을 할 수 있습니다."
             },
             {
               "type": "selectLabel",
-              "content": "Ajouter cette option"
+              "content": "옵션 선택하기"
             },
             {
               "type": "deselectLabel",
-              "content": "Option ajoutée"
+              "content": "옵션 선택됨"
             }
           ],
           "extra_content": [
@@ -2516,12 +2727,12 @@
             },
             {
               "type": "trial",
-              "value": 3200,
+              "value": 3857000,
               "context": "default"
             },
             {
               "type": "upgrade",
-              "value": 3200,
+              "value": 3857000,
               "context": "default"
             }
           ]
@@ -2561,53 +2772,49 @@
               "target": "$APF2"
             }
           ],
-          "name": "Capacité de conduite entièrement autonome",
-          "description": "Capacité de conduite entièrement autonome",
-          "long_name": "Capacité de conduite entièrement autonome",
+          "name": "풀 셀프 드라이빙 구현 기능",
+          "description": "풀 셀프 드라이빙 구현 기능",
+          "long_name": "풀 셀프 드라이빙 구현 기능",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "en option"
+              "content": "옵션"
             },
             {
               "type": "disclaimer_details",
-              "content": "Les fonctionnalités actuelles exigent une surveillance active de la part du conducteur et ne rendent pas le véhicule autonome. Certaines fonctionnalités requièrent l'activation des clignotants et ont une portée limitée.  L'activation et l'utilisation future de ces fonctionnalités sans surveillance dépendent d'une fiabilité prouvée par des milliards de kilomètres de test pour être significativement supérieure à celle des conducteurs humains, ainsi que de l'approbation réglementaire, dont l'obtention peut être plus longue dans certains pays. Au fur et à mesure de l'évolution de ces fonctionnalités de conduite autonome, votre véhicule sera en permanence mis à niveau par le biais de mises à jour logicielles à distance."
+              "content": "현재 사용 가능한 기능들은 운전자의 적극적인 주의가 필요하며 차량이 자율적으로 주행하는 것은 아닙니다. 미래에 운전자의 제어가 필요없는 이러한 기능들이 상용화되기 위해서는 수십억 마일의 주행 테스트를 통해 차량의 자율 주행 능력이 운전자의 주행 능력보다 크게 앞선다는 사실이 검증이 되어야 하며, 일부 지역에서는 규제 승인이 더 오래 걸릴 수 있습니다. 셀프-드라이빙 기능이 진화됨에 따라 차량은 OTA 소프트웨어 업데이트를 통해 지속적으로 업그레이드됩니다."
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Navigation en Autopilot : conduite automatisée de la voie d'insertion jusqu'à la sortie d'autoroute, y compris sur les échangeurs et pour dépasser des véhicules plus lents."
+              "content": "내비게이트 온 오토파일럿: 교차로와 저속 주행 중인 차량 추월 등을 포함한 고속도로 진입로 및 진출 차선에서 자동 주행합니다."
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Changement de voie auto : les changements de voie sont automatisés sur l'autoroute."
+              "content": "자동 차선 변경: 고속도로 주행 시 자동으로 차선을 변경합니다."
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Parking Auto : stationnement en créneau et en bataille."
+              "content": "자동 주차(Autopark): 평행 및 직각 주차 공간을 감지합니다."
             },
             {
               "type": "feature_list.default[0].items[3]",
-              "content": "Sortie auto : stationnez votre véhicule et sortez-le automatiquement de son emplacement."
+              "content": "차량 호출(Summon): 차고에서 주차된 차량을 호출할 수 있습니다. "
             },
             {
               "type": "feature_list.default[1].main_title",
-              "content": "À venir cette année :"
+              "content": "올해 출시 예정:"
             },
             {
               "type": "feature_list.default[1].items[0]",
-              "content": "Reconnaissance et réaction aux feux de signalisation et aux panneaux stop."
+              "content": "교통 신호등 및 정지 표지판을 인지하여 작동합니다."
             },
             {
               "type": "feature_list.default[1].items[1]",
-              "content": "Conduite automatisée en ville."
-            },
-            {
-              "type": "feature_list.default[1].items[2]",
-              "content": "Sortie Auto améliorée - depuis son stationnement, votre véhicule viendra à votre rencontre sur le parking."
+              "content": "시내에서 자동 주행합니다."
             },
             {
               "type": "disclaimer[0]",
-              "content": "La Capacité de Conduite Entièrement Autonome est disponible à l'achat après la livraison, les prix sont susceptibles d'augmenter progressivement avec l'introduction de nouvelles fonctionnalités."
+              "content": "풀 셀프-드라이빙 구현 기능은 차량 인도 후에도 구입할 수 있으며, 새로운 기능이 출시됨에 따라 추후에 가격이 인상될 수 있습니다."
             },
             {
               "type": "description",
@@ -2615,11 +2822,11 @@
             },
             {
               "type": "selectLabel",
-              "content": "Ajouter cette option"
+              "content": "옵션 선택하기"
             },
             {
               "type": "deselectLabel",
-              "content": "Option ajoutée"
+              "content": "옵션 선택됨"
             }
           ],
           "extra_content": [
@@ -2632,32 +2839,22 @@
               ]
             }
           ],
-          "price": 7300,
+          "price": 9043000,
           "pricing": [
             {
               "type": "base",
-              "value": 7300,
+              "value": 9043000,
               "context": "default"
             },
             {
               "type": "trial",
-              "value": 7300,
+              "value": 9043000,
               "context": "default"
             },
             {
               "type": "upgrade",
-              "value": 7300,
-              "context": "default",
-              "set_rules": [
-                {
-                  "action": "set",
-                  "target": "$APF2",
-                  "target_value": 3700,
-                  "condition_code": "$APPB",
-                  "condition_state": "set",
-                  "target_property": "price"
-                }
-              ]
+              "value": 9043000,
+              "context": "default"
             }
           ]
         },
@@ -2695,22 +2892,18 @@
               "target": "$APPB"
             }
           ],
-          "price": 4000,
-          "pricing": [
+          "name": "향상된 오토파일럿",
+          "description": "향상된 오토파일럿",
+          "long_name": "향상된 오토파일럿",
+          "extra_copy": [],
+          "extra_content": [
             {
-              "type": "base",
-              "value": 4000,
-              "context": "default"
-            },
-            {
-              "type": "trial",
-              "value": 4000,
-              "context": "default"
-            },
-            {
-              "type": "upgrade",
-              "value": 4000,
-              "context": "default"
+              "type": "shape",
+              "content": [
+                {
+                  "type": "card"
+                }
+              ]
             }
           ]
         },
@@ -2758,17 +2951,17 @@
               "condition_state": "set"
             }
           ],
-          "name": "Freins Performance",
-          "description": "Freins Performance",
-          "long_name": "Freins Performance",
+          "name": "퍼포먼스 브레이크",
+          "description": "퍼포먼스 브레이크",
+          "long_name": "퍼포먼스 브레이크",
           "extra_copy": [
             {
               "type": "description",
-              "content": "Des étriers plus grands et plus résistants, des disques légers en deux parties, pour des performances optimisées et une meilleure résistance thermique"
+              "content": "향상된 성능과 열 용량을 제공하는 더 크고 높은 강성의 캘리퍼와 경량의 2-피스 디스크"
             },
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "포함"
             }
           ],
           "extra_content": [
@@ -2822,9 +3015,14 @@
             }
           ],
           "name": "$CPF0",
-          "description": "$CPF0",
+          "description": "$ CPF0",
           "long_name": "$CPF0",
-          "extra_copy": [],
+          "extra_copy": [
+            {
+              "type": "premium_connectivity_trail_sr",
+              "content": "프리미엄 커넥티비티 (30일 제공)"
+            }
+          ],
           "price": 0,
           "pricing": [
             {
@@ -2861,15 +3059,15 @@
               "target": "$CPF0"
             }
           ],
-          "name": "Connexion Premium",
-          "description": "Connexion Premium",
-          "long_name": "Connexion Premium",
+          "name": "프리미엄 커넥티비티",
+          "description": "프리미엄 커넥티비티",
+          "long_name": "프리미엄 커넥티비티",
           "extra_copy": [],
           "price": 0,
           "pricing": [
             {
               "type": "1_month",
-              "value": 0,
+              "value": 7900,
               "context": "default"
             },
             {
@@ -2879,15 +3077,122 @@
             }
           ]
         },
+        "$DV2W": {
+          "code": "$DV2W",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$MTY04"
+              },
+              {
+                "action": "set",
+                "target": "$DV4W",
+                "condition_code": "$MTY03",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$DV2W"
+            },
+            {
+              "action": "unset",
+              "target": "$DV4W"
+            },
+            {
+              "action": "unset",
+              "target": "$MTY04"
+            },
+            {
+              "action": "set",
+              "target": "$DV4W",
+              "condition_code": "$MTY03",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$DV2W"
+            },
+            {
+              "action": "set",
+              "target": "$DV4W"
+            }
+          ],
+          "name": "후륜구동 (RWD)",
+          "description": "후륜구동 (RWD)",
+          "long_name": "후륜구동 (RWD)",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "스탠다드"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": " ",
+                  "configuration": [
+                    "$MTY02"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "disable_override",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$MTY02"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ]
+        },
         "$DV4W": {
           "code": "$DV4W",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$DV2W",
+                "condition_code": "$MTY01",
+                "condition_state": "set"
+              }
+            ]
           },
           "set_rules": [
             {
               "action": "set",
               "target": "$DV4W"
+            },
+            {
+              "action": "unset",
+              "target": "$DV2W"
+            },
+            {
+              "action": "set",
+              "target": "$DV2W",
+              "condition_code": "$MTY01",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -2897,16 +3202,16 @@
             },
             {
               "action": "set",
-              "target": "$DV4W"
+              "target": "$DV2W"
             }
           ],
-          "name": "Transmission intégrale Dual Motor",
-          "description": "Transmission intégrale Dual Motor",
-          "long_name": "Transmission intégrale Dual Motor",
+          "name": "듀얼 모터 상시 사륜구동 (AWD)",
+          "description": "듀얼 모터 상시 사륜구동 (AWD)",
+          "long_name": "듀얼 모터 상시 사륜구동 (AWD)",
           "extra_copy": [
             {
               "type": "disclaimer[0]",
-              "content": "Informez-moi",
+              "content": "최신 정보 받기",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -2924,7 +3229,7 @@
             },
             {
               "type": "disclaimer[1]",
-              "content": " lorsque les options de transmission intégrale et de batteries standard seront disponibles.",
+              "content": " 사륜구동 및 기본 배터리 옵션도 선택할 수 있습니다.",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -2936,11 +3241,11 @@
             },
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "포함"
             },
             {
               "type": "disclaimer_details",
-              "content": "Le système électrique à double motorisation (redondance moteur) contrôle le couple de manière indépendante pour les roues avant et arrière, pour plus de puissance et de sécurité. Dans l'hypothèse peu probable d'une défaillance de l'un des deux moteurs, vous pouvez compter sur le second. En résulte un système antipatinage ultra-réactif et précis dans toutes les conditions météorologiques."
+              "content": "전동 듀얼 리던던트 모터는 전륜과 후륜의 토크를 독립적으로 제어하여 성능과 안정성을 향상시킵니다. 하나의 모터가 작동하지 않는 경우 다른 모터가 작동하여 주행 안정성을 유지시킵니다. 그 결과, 모든 기상 조건에서 즉각적인 응답성과 정밀한 트랙션 컨트롤을 가능하게 합니다."
             }
           ],
           "extra_content": [
@@ -2982,6 +3287,36 @@
             }
           ]
         },
+        "$FM3U": {
+          "code": "$FM3U",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$FM3U"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$FM3U"
+            },
+            {
+              "action": "unset",
+              "target": "$FM3U"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$FM3U"
+            }
+          ],
+          "name": "가속력 부스트",
+          "description": "가속력 부스트",
+          "long_name": "가속력 부스트"
+        },
         "$MDLY": {
           "code": "$MDLY",
           "set_rules": [
@@ -3001,16 +3336,16 @@
             }
           ],
           "name": "Model Y",
-          "description": "Les livraisons commencent aux États-Unis en fonction de la date de commande et des options choisies.",
+          "description": "주문 일자와 선택한 옵션에 따라 미국에서부터 인도가 시작됩니다.",
           "long_name": "Model Y",
           "extra_copy": [
             {
               "type": "learn_more",
-              "content": "En savoir plus sur les livraisons du Model Y"
+              "content": "Model Y 인도에 대해 자세히 알아보기"
             },
             {
               "type": "faq",
-              "content": "FAQ sur le Model Y",
+              "content": "Model Y FAQ",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -3036,11 +3371,11 @@
               ]
             }
           ],
-          "price": 48100,
+          "price": 59990000,
           "pricing": [
             {
               "type": "base",
-              "value": 48100,
+              "value": 59990000,
               "context": "default"
             },
             {
@@ -3050,22 +3385,7 @@
             },
             {
               "type": "order_payment",
-              "value": 2000,
-              "context": "default"
-            },
-            {
-              "type": "order_fee",
-              "value": 0,
-              "context": "default"
-            },
-            {
-              "type": "non_refundable_order_payment_used",
-              "value": 0,
-              "context": "default"
-            },
-            {
-              "type": "non_refundable_order_payment",
-              "value": 0,
+              "value": 1000000,
               "context": "default"
             }
           ]
@@ -3082,8 +3402,8 @@
               "targets": [
                 "$PMNG",
                 "$PPSB",
-                "$PPSW",
-                "$PPMR"
+                "$PPMR",
+                "$PPSW"
               ]
             }
           ],
@@ -3103,13 +3423,13 @@
               ]
             }
           ],
-          "name": "Noir Uni",
-          "description": "Noir Uni",
-          "long_name": "Coloris Noir Uni",
+          "name": "Solid Black",
+          "description": "Solid Black",
+          "long_name": "Solid Black Paint",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "포함"
             }
           ],
           "extra_content": [
@@ -3131,11 +3451,11 @@
               ]
             }
           ],
-          "price": 1050,
+          "price": 1286000,
           "pricing": [
             {
               "type": "base",
-              "value": 1050,
+              "value": 1286000,
               "context": "default"
             }
           ]
@@ -3184,18 +3504,18 @@
               "condition_state": "set"
             }
           ],
-          "name": "Pédalier Performance",
-          "description": "Pédalier Performance",
-          "long_name": "Pédalier Performance",
-          "long_description": "Performance Pedals",
+          "name": "퍼포먼스 페달",
+          "description": "퍼포먼스 페달",
+          "long_name": "퍼포먼스 페달",
+          "long_description": "퍼포먼스 페달",
           "extra_copy": [
             {
               "type": "description",
-              "content": "En alliage d'aluminium pour un intérieur à l'esthétique soignée"
+              "content": "알루미늄 알로이로 향상된 인테리어 스타일"
             },
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "포함"
             }
           ],
           "extra_content": [
@@ -3238,8 +3558,8 @@
               "targets": [
                 "$PBSB",
                 "$PPSB",
-                "$PPSW",
-                "$PPMR"
+                "$PPMR",
+                "$PPSW"
               ]
             }
           ],
@@ -3259,13 +3579,13 @@
               ]
             }
           ],
-          "name": "Gris Nuit Métallisé",
-          "description": "Gris Nuit Métallisé",
-          "long_name": "Coloris Gris Nuit Métallisé",
+          "name": "Midnight Silver Metallic",
+          "description": "Midnight Silver Metallic",
+          "long_name": "Midnight Silver Metallic Paint",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "포함"
             }
           ],
           "extra_content": [
@@ -3287,11 +3607,11 @@
               ]
             }
           ],
-          "price": 1050,
+          "price": 1286000,
           "pricing": [
             {
               "type": "base",
-              "value": 1050,
+              "value": 1286000,
               "context": "default"
             }
           ]
@@ -3329,13 +3649,13 @@
               ]
             }
           ],
-          "name": "Rouge Multicouches",
-          "description": "Rouge Multicouches",
-          "long_name": "Coloris multicouches rouge",
+          "name": "Red Multi-Coat",
+          "description": "Red Multi-Coat",
+          "long_name": "Red Multi-Coat Paint",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "포함"
             }
           ],
           "extra_content": [
@@ -3357,11 +3677,11 @@
               ]
             }
           ],
-          "price": 2100,
+          "price": 2571000,
           "pricing": [
             {
               "type": "base",
-              "value": 2100,
+              "value": 2571000,
               "context": "default"
             }
           ]
@@ -3378,8 +3698,8 @@
               "targets": [
                 "$PBSB",
                 "$PMNG",
-                "$PPSW",
-                "$PPMR"
+                "$PPMR",
+                "$PPSW"
               ]
             }
           ],
@@ -3399,13 +3719,13 @@
               ]
             }
           ],
-          "name": "Bleu Outremer Métallisé",
-          "description": "Bleu Outremer Métallisé",
-          "long_name": "Coloris Bleu Outremer Métallisé",
+          "name": "Deep Blue Metallic",
+          "description": "Deep Blue Metallic",
+          "long_name": "Deep Blue Metallic Paint",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "포함"
             }
           ],
           "extra_content": [
@@ -3427,11 +3747,11 @@
               ]
             }
           ],
-          "price": 1050,
+          "price": 1286000,
           "pricing": [
             {
               "type": "base",
-              "value": 1050,
+              "value": 1286000,
               "context": "default"
             }
           ]
@@ -3470,13 +3790,13 @@
               ]
             }
           ],
-          "name": "Blanc Nacré Multicouches",
-          "description": "Blanc perle",
-          "long_name": "Coloris blanc perle",
+          "name": "Pearl White Multi-Coat",
+          "description": "Pearl White",
+          "long_name": "Pearl White Multi-Coat Paint",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "포함"
             }
           ],
           "extra_content": [
@@ -3528,13 +3848,13 @@
               "target": "$SC04"
             }
           ],
-          "name": "Accès au réseau Superchargeur - Paiement à la demande",
-          "description": "Accès au réseau Superchargeur - Paiement à la demande",
-          "long_name": "Accès au réseau Superchargeur - Paiement à la demande",
+          "name": "수퍼차저 네트워크 이용 + 사용량에 따른 요금",
+          "description": "수퍼차저 네트워크 이용 + 사용량에 따른 요금",
+          "long_name": "수퍼차저 네트워크 이용 + 사용량에 따른 요금",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "en option"
+              "content": "옵션"
             }
           ],
           "price": 0,
@@ -3567,13 +3887,13 @@
               "target": "$SC05"
             }
           ],
-          "name": "Free Supercharging",
-          "description": "Free Supercharging",
-          "long_name": "Free Supercharging",
+          "name": "무료 슈퍼차징",
+          "description": "무료 슈퍼차징",
+          "long_name": "무료 슈퍼차징",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "optional"
+              "content": "옵션"
             }
           ],
           "price": 0,
@@ -3606,13 +3926,13 @@
               "target": "$SC06"
             }
           ],
-          "name": "Time-bound Supercharging",
-          "description": "Time-bound Supercharging",
-          "long_name": "Time-bound Supercharging",
+          "name": "시간제 수퍼차징",
+          "description": "시간제 수퍼차징",
+          "long_name": "시간제 수퍼차징",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "optional"
+              "content": "옵션"
             }
           ],
           "price": 0,
@@ -3680,30 +4000,30 @@
               ]
             }
           ],
-          "name": "Diffuseur arrière en fibre de carbone",
-          "description": "Diffuseur arrière en fibre de carbone",
-          "long_name": "Diffuseur arrière en fibre de carbone",
-          "long_description": "Carbon Fiber Spoiler",
+          "name": "카본 파이버 스포일러",
+          "description": "카본 파이버 스포일러",
+          "long_name": "카본 파이버 스포일러",
+          "long_description": "카본 파이버 스포일러",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "포함"
             },
             {
               "type": "disclaimer",
-              "content": "Aileron en fibre de carbone et badge Dual Motor disponibles pour installation après livraison"
+              "content": "인도 완료 후 카본 파이버 스포일러 및 듀얼 모터 배지 설치 가능"
             },
             {
               "type": "selectLabel",
-              "content": "Ajouter cette option"
+              "content": "옵션 선택하기"
             },
             {
               "type": "deselectLabel",
-              "content": "Option ajoutée"
+              "content": "옵션 선택됨"
             },
             {
               "type": "description",
-              "content": "Pour un aérodynamisme renforcé et une meilleure stabilité à grande vitesse"
+              "content": "향상된 공기 역학 및 고속 주행 시의 향상된 안정성 제공"
             }
           ],
           "extra_content": [
@@ -3751,22 +4071,22 @@
               "target": "$TW01"
             }
           ],
-          "name": "Crochet d'attelage",
-          "description": "Crochet d'attelage",
-          "long_name": "Crochet d'attelage",
-          "long_description": "Crochet d'attelage",
+          "name": "견인 히치",
+          "description": "견인 히치",
+          "long_name": "견인 히치",
+          "long_description": "견인 히치",
           "extra_copy": [
             {
               "type": "description_above",
-              "content": "Barre d'attelage haute résistance capable de remorquer jusqu'à 1 600 kg"
+              "content": "탈부착형 어댑터를 포함한 고강도 강철 토우바. 최대 1,600kg까지 견인 가능."
             },
             {
               "type": "selectLabel",
-              "content": "Ajouter cette option"
+              "content": "옵션 선택하기"
             },
             {
               "type": "deselectLabel",
-              "content": "Option ajoutée"
+              "content": "옵션 선택됨"
             }
           ],
           "extra_content": [
@@ -3778,25 +4098,206 @@
                 }
               ]
             }
-          ],
-          "price": 1050,
-          "pricing": [
+          ]
+        },
+        "$INPB1": {
+          "code": "$INPB1",
+          "user_defined_rules": {
+            "set_rules": []
+          },
+          "set_rules": [
             {
-              "type": "base",
-              "value": 1050,
-              "context": "default"
+              "action": "set",
+              "target": "$INPB1"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$INYPB",
+                "$INYPW",
+                "$INPW1"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$INPB1"
+            },
+            {
+              "action": "set",
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INYPW",
+                "$INPW1"
+              ]
+            }
+          ],
+          "name": "All Black 프리미엄 인테리어",
+          "description": "All Black 프리미엄 인테리어",
+          "long_name": "All Black 프리미엄 인테리어",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "All Black"
+            },
+            {
+              "type": "price_indicator",
+              "content": "포함"
+            },
+            {
+              "type": "spec_description",
+              "content": "Black 레더 인테리어"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_in3pb.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRMY1"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ]
+        },
+        "$INPW1": {
+          "code": "$INPW1",
+          "user_defined_rules": {
+            "set_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$INPW1"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$INYPB",
+                "$INYPW",
+                "$INPB1"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$INPW1"
+            },
+            {
+              "action": "set",
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INYPW",
+                "$INPB1"
+              ]
+            }
+          ],
+          "name": "Black &amp; White 프리미엄 인테리어",
+          "description": "Black &amp; White 프리미엄 인테리어",
+          "long_name": "Black &amp; White 프리미엄 인테리어",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Black &amp; White"
+            },
+            {
+              "type": "price_indicator",
+              "content": "포함"
+            },
+            {
+              "type": "recommended_NA_NA",
+              "content": "권장 사항",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "SHOW_INTERIOR_MODAL",
+                    "props": {
+                      "content_path": "OMS.lexicon.options.$INYPW.recommended_NA_content"
+                    },
+                    "classNames": [
+                      "tsla-recommended_NA"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "recommended_NA_content",
+              "content": "Black &amp; White 인테리어는 내구성과 오염 방지를 위한 엄격한 기준을 유지하면서 최고의 프리미엄 소재를 사용하여 쾌적함과 심미성을 극대화합니다."
+            },
+            {
+              "type": "spec_description",
+              "content": "White 레더 인테리어"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_white.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "delivery",
+              "content": [
+                {
+                  "extra": true
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRMY1"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
             }
           ]
         },
         "$INYPB": {
           "code": "$INYPB",
           "user_defined_rules": {
-            "set_rules": [
-              {
-                "action": "set",
-                "target": "$PRMY1"
-              }
-            ]
+            "set_rules": []
           },
           "set_rules": [
             {
@@ -3805,11 +4306,11 @@
             },
             {
               "action": "unset",
-              "target": "$INYPW"
-            },
-            {
-              "action": "set",
-              "target": "$PRMY1"
+              "targets": [
+                "$INYPW",
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
           "unset_rules": [
@@ -3819,96 +4320,107 @@
             },
             {
               "action": "set",
-              "target": "$INYPW"
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INYPW",
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
-          "name": "Intérieur entièrement en noir Premium",
-          "description": "Intérieur entièrement en noir Premium",
-          "long_name": "Intérieur entièrement en noir Premium",
+          "name": "All Black 프리미엄 인테리어",
+          "description": "All Black 프리미엄 인테리어",
+          "long_name": "All Black 프리미엄 인테리어",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Noir"
+              "content": "All Black"
             },
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "포함"
             },
             {
               "type": "spec_description",
-              "content": "Intérieur cuir noir"
+              "content": "Black 레더 인테리어"
             },
             {
               "type": "feature_list.default[0].main_title",
-              "content": "De série :"
+              "content": "기본사항:"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Sièges chauffants et sièges avant électriques ajustables en 12 positions"
+              "content": "12-방향 전동 조절형 앞 좌석 및 뒷좌석 열선 시트"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Trois sièges de 2e rangée rabattables individuellement"
+              "content": "독립 접이식 2열 좌석"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Système audio haut de gamme – 14 haut-parleurs, 1 caisson de basse, 2 amplificateurs et son immersif"
+              "content": "프리미엄 오디오 – 스피커 14개, 서브우퍼 1개, 앰프 2개 및 높은 몰입도의 사운드"
             },
             {
               "type": "feature_list.default[1].items[0].main_title",
-              "content": "Connectivité Premium (1 an inclus) :"
+              "content": "프리미엄 커넥티비티 (1년 제공)",
+              "behavior": [
+                {
+                  "type": "REPLACE_CONTENT",
+                  "content": {
+                    "source": "options.$CPF0.premium_connectivity_trail_sr",
+                    "selected_by": {
+                      "or": [
+                        "$MTY01"
+                      ]
+                    }
+                  }
+                }
+              ]
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[0]",
-              "content": "Cartes satellite avec visualisation de la circulation en temps réel"
+              "content": "실시간 교통 상황을 나타내는 위성 지도"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[1]",
-              "content": "Musique et multimédia en streaming dans le véhicule"
+              "content": "차량 내 인터넷 스트리밍 음악 및 미디어  "
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[2]",
-              "content": "Vidéo en streaming"
+              "content": "비디오 스트리밍"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[3]",
-              "content": "Caraoke"
-            },
-            {
-              "type": "feature_list.default[1].items[0].sub_items[4]",
-              "content": "Navigateur Internet"
+              "content": "인터넷 브라우저"
             },
             {
               "type": "feature_list.default[2].items[0]",
-              "content": "Musique et médias accessibles via Bluetooth®"
+              "content": "Bluetooth®를 연결하여 음악 및 미디어 재생"
             },
             {
               "type": "feature_list.default[2].items[1]",
-              "content": "Ouverture automatique de porte de garage via géolocalisation"
+              "content": "LED 안개등"
             },
             {
               "type": "feature_list.default[2].items[2]",
-              "content": "Antibrouillards LED"
+              "content": "자외선 및 적외선 보호장치를 갖춘 틴티드 글래스 루프"
             },
             {
               "type": "feature_list.default[2].items[3]",
-              "content": "Toit vitré teinté avec protection infrarouge et ultraviolet"
+              "content": "자동 조도 조절 및 전동 조절형 열선 사이드 미러"
             },
             {
               "type": "feature_list.default[2].items[4]",
-              "content": "Rétroviseurs latéraux chauffants et rabattables automatiquement"
+              "content": "사용자 지정 운전자 프로필"
             },
             {
               "type": "feature_list.default[2].items[5]",
-              "content": "Profils conducteurs personnalisés"
-            },
-            {
-              "type": "feature_list.default[2].items[6]",
-              "content": "Console centrale avec espace de rangement, 4 ports USB et stations d'accueil pour 2 smartphones"
+              "content": "수납 공간, USB 포트 4개 및 스마트폰 도킹 2개를 갖춘 센터 콘솔"
             },
             {
               "type": "view_details_collapsed",
-              "content": "Afficher les détails.",
+              "content": "세부사항 표시하기",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -3929,7 +4441,7 @@
             },
             {
               "type": "view_details_expanded",
-              "content": "Moins de détails",
+              "content": "세부사항 숨기기",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -3991,12 +4503,7 @@
         "$INYPW": {
           "code": "$INYPW",
           "user_defined_rules": {
-            "set_rules": [
-              {
-                "action": "set",
-                "target": "$PRMY1"
-              }
-            ]
+            "set_rules": []
           },
           "set_rules": [
             {
@@ -4005,11 +4512,11 @@
             },
             {
               "action": "unset",
-              "target": "$INYPB"
-            },
-            {
-              "action": "set",
-              "target": "$PRMY1"
+              "targets": [
+                "$INYPB",
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
           "unset_rules": [
@@ -4019,118 +4526,128 @@
             },
             {
               "action": "set",
-              "target": "$INYPB"
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
-          "name": "Intérieur noir et blanc Premium",
-          "description": "Intérieur noir et blanc Premium",
-          "long_name": "Intérieur noir et blanc Premium",
+          "name": "Black &amp; White 프리미엄 인테리어",
+          "description": "Black &amp; White 프리미엄 인테리어",
+          "long_name": "Black &amp; White 프리미엄 인테리어",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Noir et blanc"
+              "content": "Black &amp; White"
             },
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "포함"
             },
             {
-              "type": "recommended_NA_NA",
-              "content": "Conseillé",
+              "type": "recommended_NA",
+              "content": "권장 사항",
               "behavior": [
                 {
                   "type": "ACTION",
                   "content": {
                     "type": "SHOW_INTERIOR_MODAL",
                     "props": {
-                      "content_path": "OMS.lexicon.options.$INYPW.recommended_NA_NA_content"
+                      "content_path": "OMS.lexicon.options.$INYPW.recommended_NA_content"
                     },
                     "classNames": [
-                      "tsla-recommended_NA_NA"
+                      "tsla-recommended_NA"
                     ]
                   }
                 }
               ]
             },
             {
-              "type": "recommended_NA_NA_content",
-              "content": "L'intérieur noir et blanc comprend nos matériaux les plus premium, maximisant confort et esthétique tout en respectant nos exigences rigoureuses en terme de durabilité et de résistance aux taches."
+              "type": "recommended_NA_content",
+              "content": "Black &amp; White 인테리어는 내구성과 오염 방지를 위한 엄격한 기준을 유지하면서 최고의 프리미엄 소재를 사용하여 쾌적함과 심미성을 극대화합니다."
             },
             {
               "type": "spec_description",
-              "content": "Intérieur cuir blanc"
+              "content": "White 레더 인테리어"
             },
             {
               "type": "feature_list.default[0].main_title",
-              "content": "De série :"
+              "content": "기본사항:"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Sièges chauffants et sièges avant électriques ajustables en 12 positions"
+              "content": "12-방향 전동 조절형 앞 좌석 및 뒷좌석 열선 시트"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Trois sièges de 2e rangée rabattables individuellement"
+              "content": "독립 접이식 2열 좌석"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Système audio haut de gamme – 14 haut-parleurs, 1 caisson de basse, 2 amplificateurs et son immersif"
+              "content": "프리미엄 오디오 – 스피커 14개, 서브우퍼 1개, 앰프 2개 및 높은 몰입도의 사운드"
             },
             {
               "type": "feature_list.default[1].items[0].main_title",
-              "content": "Connectivité Premium (1 an inclus) :"
+              "content": "프리미엄 커넥티비티 (1년 제공)",
+              "behavior": [
+                {
+                  "type": "REPLACE_CONTENT",
+                  "content": {
+                    "source": "options.$CPF0.premium_connectivity_trail_sr",
+                    "selected_by": {
+                      "or": [
+                        "$MTY01"
+                      ]
+                    }
+                  }
+                }
+              ]
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[0]",
-              "content": "Cartes satellite avec visualisation de la circulation en temps réel"
+              "content": "실시간 교통 상황을 나타내는 위성 지도"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[1]",
-              "content": "Musique et multimédia en streaming dans le véhicule"
+              "content": "차량 내 인터넷 스트리밍 음악 및 미디어  "
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[2]",
-              "content": "Vidéo en streaming"
+              "content": "비디오 스트리밍"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[3]",
-              "content": "Caraoke"
-            },
-            {
-              "type": "feature_list.default[1].items[0].sub_items[4]",
-              "content": "Navigateur Internet"
+              "content": "인터넷 브라우저"
             },
             {
               "type": "feature_list.default[2].items[0]",
-              "content": "Musique et médias accessibles via Bluetooth®"
+              "content": "Bluetooth®를 연결하여 음악 및 미디어 재생"
             },
             {
               "type": "feature_list.default[2].items[1]",
-              "content": "Ouverture automatique de porte de garage via géolocalisation"
+              "content": "LED 안개등"
             },
             {
               "type": "feature_list.default[2].items[2]",
-              "content": "Antibrouillards LED"
+              "content": "자외선 및 적외선 보호장치를 갖춘 틴티드 글래스 루프"
             },
             {
               "type": "feature_list.default[2].items[3]",
-              "content": "Toit vitré teinté avec protection infrarouge et ultraviolet"
+              "content": "자동 조도 조절 및 전동 조절형 열선 사이드 미러"
             },
             {
               "type": "feature_list.default[2].items[4]",
-              "content": "Rétroviseurs latéraux chauffants et rabattables automatiquement"
+              "content": "사용자 지정 운전자 프로필"
             },
             {
               "type": "feature_list.default[2].items[5]",
-              "content": "Profils conducteurs personnalisés"
-            },
-            {
-              "type": "feature_list.default[2].items[6]",
-              "content": "Console centrale avec espace de rangement, 4 ports USB et stations d'accueil pour 2 smartphones"
+              "content": "수납 공간, USB 포트 4개 및 스마트폰 도킹 2개를 갖춘 센터 콘솔"
             },
             {
               "type": "view_details_collapsed",
-              "content": "Afficher les détails.",
+              "content": "세부사항 표시하기",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4151,7 +4668,7 @@
             },
             {
               "type": "view_details_expanded",
-              "content": "Moins de détails",
+              "content": "세부사항 숨기기",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4209,79 +4726,64 @@
               ]
             }
           ],
-          "price": 1050,
+          "price": 1286000,
           "pricing": [
             {
               "type": "base",
-              "value": 1050,
+              "value": 1286000,
               "context": "default"
             }
           ]
         },
-        "$MTY03": {
-          "code": "$MTY03",
+        "$MTY01": {
+          "code": "$MTY01",
           "user_defined_rules": {
-            "set_rules": [
-              {
-                "action": "set",
-                "targets": [
-                  "$DV4W",
-                  "$PRMY1"
-                ]
-              }
-            ]
+            "set_rules": []
           },
           "set_rules": [
             {
               "action": "set",
-              "target": "$MTY03"
+              "target": "$MTY01"
             },
             {
               "action": "unset",
               "targets": [
+                "$MTY02",
+                "$MTY03",
                 "$MTY04",
                 "$MTY05"
-              ]
-            },
-            {
-              "action": "set",
-              "targets": [
-                "$DV4W",
-                "$PRMY1"
               ]
             }
           ],
           "unset_rules": [
             {
               "action": "unset",
-              "target": "$MTY03"
+              "target": "$MTY01"
             },
             {
               "action": "set",
-              "target": "$MTY03",
+              "target": "$MTY01",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$MTY02",
+                "$MTY03",
                 "$MTY04",
                 "$MTY05"
               ]
             }
           ],
-          "name": "Grande Autonomie, transmission intégrale",
-          "description": "Model Y Grande Autonomie, Transmission intégrale",
-          "long_name": "Grande Autonomie, transmission intégrale",
-          "long_description": "Model Y Long Range AWD",
+          "name": "Standard Range RWD",
+          "description": "Model Y Standar Range Rear-Wheel Drive",
+          "long_name": "Standard Range RWD",
+          "long_description": "Model Y Standar Range Rear-Wheel Drive",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Grande Autonomie"
-            },
-            {
-              "type": "disclaimer_details",
-              "content": "La transmission intégrale Tesla dispose de deux moteurs indépendants qui contrôlent numériquement le couple transmis aux roues avant et arrière, pour une meilleure tenue de route et une meilleure motricité. Votre véhicule peut rouler grâce à l'un ou l'autre des moteurs : vous pourrez toujours poursuivre votre route jusqu'à destination en toute quiétude."
+              "content": "Standard Range"
             },
             {
               "type": "long_name",
-              "content": "Model Y Grande Autonomie, Transmission intégrale Dual Motor"
+              "content": "Model Y Standar Range Rear-Wheel Drive"
             }
           ],
           "extra_content": [
@@ -4297,397 +4799,7 @@
               "type": "price_indicator_override",
               "content": [
                 {
-                  "content": 62000,
-                  "configuration": [
-                    "$MDLY"
-                  ],
-                  "condition_state": "and"
-                }
-              ]
-            }
-          ],
-          "price": 13900,
-          "pricing": [
-            {
-              "type": "base",
-              "value": 13900,
-              "context": "default"
-            },
-            {
-              "type": "base_plus_trim",
-              "value": 62000,
-              "context": "base_plus_trim"
-            }
-          ]
-        },
-        "$MTY04": {
-          "code": "$MTY04",
-          "user_defined_rules": {
-            "set_rules": [
-              {
-                "action": "set",
-                "targets": [
-                  "$DV4W",
-                  "$PRMY1"
-                ]
-              },
-              {
-                "action": "set",
-                "targets": [
-                  "$SPTY1",
-                  "$BCYR",
-                  "$PL31",
-                  "$SLR1",
-                  "$WY21P"
-                ]
-              }
-            ],
-            "unset_rules": [
-              {
-                "action": "unset",
-                "targets": [
-                  "$SLR1",
-                  "$SPTY1"
-                ]
-              }
-            ]
-          },
-          "set_rules": [
-            {
-              "action": "set",
-              "target": "$MTY04"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$MTY03",
-                "$MTY05"
-              ]
-            },
-            {
-              "action": "set",
-              "targets": [
-                "$DV4W",
-                "$PRMY1"
-              ]
-            },
-            {
-              "action": "set",
-              "targets": [
-                "$SPTY1",
-                "$BCYR",
-                "$PL31",
-                "$SLR1",
-                "$WY21P"
-              ]
-            }
-          ],
-          "unset_rules": [
-            {
-              "action": "unset",
-              "target": "$MTY04"
-            },
-            {
-              "action": "set",
-              "target": "$MTY03",
-              "condition_code": "$MTY05",
-              "condition_state": "unset"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$SLR1",
-                "$SPTY1"
-              ]
-            }
-          ],
-          "name": "Grande Autonomie, transmission intégrale Performance",
-          "description": "Model Y Performance, Transmission intégrale",
-          "long_name": "Grande Autonomie, transmission intégrale Performance",
-          "long_description": "Model Y Performance AWD",
-          "extra_copy": [
-            {
-              "type": "name",
-              "content": "Performance"
-            },
-            {
-              "type": "price_indicator",
-              "content": "En option"
-            },
-            {
-              "type": "description.main_title[0]",
-              "content": "Le Model Y Performance comprend :"
-            },
-            {
-              "type": "description.items[0]",
-              "content": "Accélération plus rapide : 0-100 km/h en 3,7 s"
-            },
-            {
-              "type": "description.items[1]",
-              "content": "Vitesse de pointe : jusqu'à 241 km/h"
-            },
-            {
-              "type": "description.items[2]",
-              "content": "21’’ Überturbine Wheels"
-            },
-            {
-              "type": "description.items[3]",
-              "content": "Freins Performance"
-            },
-            {
-              "type": "description.items[4]",
-              "content": "Aileron en fibre de carbone"
-            },
-            {
-              "type": "description.items[5]",
-              "content": "Suspensions abaissées"
-            },
-            {
-              "type": "description.items[6]",
-              "content": "Pédalier en aluminium"
-            },
-            {
-              "type": "compare_matrix.block[0].label",
-              "content": "Accélération"
-            },
-            {
-              "type": "compare_matrix.block[0].content",
-              "content": "3.5s 0-60mph"
-            },
-            {
-              "type": "compare_matrix.block[1].label",
-              "content": "Transmission"
-            },
-            {
-              "type": "compare_matrix.block[1].content",
-              "content": "Transmission intégrale Dual Motor"
-            },
-            {
-              "type": "disclaimer_details",
-              "content": "La transmission intégrale Tesla dispose de deux moteurs indépendants qui contrôlent numériquement le couple transmis aux roues avant et arrière, pour une meilleure tenue de route et une meilleure motricité. Votre véhicule peut rouler grâce à l'un ou l'autre des moteurs : vous pourrez toujours poursuivre votre route jusqu'à destination en toute quiétude."
-            },
-            {
-              "type": "long_name",
-              "content": "Model Y Performance, Transmission intégrale Dual Motor"
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "shape",
-              "content": [
-                {
-                  "type": "block"
-                }
-              ]
-            },
-            {
-              "type": "delivery",
-              "content": [
-                {
-                  "extra": true
-                }
-              ]
-            },
-            {
-              "type": "price_indicator_override",
-              "content": [
-                {
-                  "content": 71000,
-                  "configuration": [
-                    "$MDLY"
-                  ],
-                  "condition_state": "and"
-                }
-              ]
-            }
-          ],
-          "price": 22900,
-          "pricing": [
-            {
-              "type": "base",
-              "value": 22900,
-              "context": "default"
-            },
-            {
-              "type": "base_plus_trim",
-              "value": 71000,
-              "context": "base_plus_trim"
-            }
-          ]
-        },
-        "$MTY05": {
-          "code": "$MTY05",
-          "user_defined_rules": {
-            "set_rules": [
-              {
-                "action": "set",
-                "targets": [
-                  "$DV4W",
-                  "$PRMY1"
-                ]
-              },
-              {
-                "action": "set",
-                "targets": [
-                  "$SPTY1",
-                  "$BCYR",
-                  "$PL31",
-                  "$SLR1",
-                  "$WY21P"
-                ]
-              }
-            ],
-            "unset_rules": [
-              {
-                "action": "unset",
-                "targets": [
-                  "$SLR1",
-                  "$SPTY1"
-                ]
-              }
-            ]
-          },
-          "set_rules": [
-            {
-              "action": "set",
-              "target": "$MTY05"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$MTY03",
-                "$MTY04"
-              ]
-            },
-            {
-              "action": "set",
-              "targets": [
-                "$DV4W",
-                "$PRMY1"
-              ]
-            },
-            {
-              "action": "set",
-              "targets": [
-                "$SPTY1",
-                "$BCYR",
-                "$PL31",
-                "$SLR1",
-                "$WY21P"
-              ]
-            }
-          ],
-          "unset_rules": [
-            {
-              "action": "unset",
-              "target": "$MTY05"
-            },
-            {
-              "action": "set",
-              "target": "$MTY03",
-              "condition_code": "$MTY04",
-              "condition_state": "unset"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$SLR1",
-                "$SPTY1"
-              ]
-            }
-          ],
-          "name": "Grande Autonomie, transmission intégrale Performance",
-          "description": "Model Y Performance, Transmission intégrale",
-          "long_name": "Grande Autonomie, transmission intégrale Performance",
-          "long_description": "Model Y Performance AWD",
-          "extra_copy": [
-            {
-              "type": "name",
-              "content": "Performance"
-            },
-            {
-              "type": "price_indicator",
-              "content": "En option"
-            },
-            {
-              "type": "description.main_title[0]",
-              "content": "Le Model Y Performance comprend :"
-            },
-            {
-              "type": "description.items[0]",
-              "content": "Accélération plus rapide : 0-100 km/h en 3,7 s"
-            },
-            {
-              "type": "compare_matrix.block[0].content",
-              "content": "3.5s 0-60mph"
-            },
-            {
-              "type": "compare_matrix.block[1].label",
-              "content": "DriveTransmission"
-            },
-            {
-              "type": "compare_matrix.block[1].content",
-              "content": "Dual Motor All-wheel DriveTransmission intégrale Dual Motor"
-            },
-            {
-              "type": "disclaimer_details",
-              "content": "La transmission intégrale Tesla dispose de deux moteurs indépendants qui contrôlent numériquement le couple transmis aux roues avant et arrière, pour une meilleure tenue de route et une meilleure motricité. Votre véhicule peut rouler grâce à l'un ou l'autre des moteurs : vous pourrez toujours poursuivre votre route jusqu'à destination en toute quiétude."
-            },
-            {
-              "type": "description.items[1]",
-              "content": "Vitesse de pointe : jusqu'à 241 km/h"
-            },
-            {
-              "type": "description.items[2]",
-              "content": "21’’ Überturbine Wheels"
-            },
-            {
-              "type": "description.items[3]",
-              "content": "Freins Performance"
-            },
-            {
-              "type": "description.items[4]",
-              "content": "Aileron en fibre de carbone"
-            },
-            {
-              "type": "description.items[5]",
-              "content": "Suspensions abaissées"
-            },
-            {
-              "type": "description.items[6]",
-              "content": "Pédalier en aluminium"
-            },
-            {
-              "type": "compare_matrix.block[0].label",
-              "content": "Accélération"
-            },
-            {
-              "type": "long_name",
-              "content": "Model Y Performance Dual Motor All-Wheel DriveModel Y Performance, Transmission intégrale Dual Motor"
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "shape",
-              "content": [
-                {
-                  "type": "block"
-                }
-              ]
-            },
-            {
-              "type": "delivery",
-              "content": [
-                {
-                  "extra": true
-                }
-              ]
-            },
-            {
-              "type": "price_indicator_override",
-              "content": [
-                {
-                  "content": 71000,
+                  "content": 68600,
                   "configuration": [
                     "$MDLY"
                   ],
@@ -4699,7 +4811,133 @@
               "type": "option_price_override",
               "content": [
                 {
-                  "content": 71000,
+                  "content": 68600,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "default"
+            },
+            {
+              "type": "base_plus_trim",
+              "value": 59990000,
+              "context": "base_plus_trim"
+            }
+          ]
+        },
+        "$MTY02": {
+          "code": "$MTY02",
+          "user_defined_rules": {
+            "set_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTY02"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTY01",
+                "$MTY03",
+                "$MTY04",
+                "$MTY05"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTY02"
+            },
+            {
+              "action": "set",
+              "target": "$MTY01",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTY03",
+                "$MTY04",
+                "$MTY05"
+              ]
+            }
+          ],
+          "name": "Long Range RWD",
+          "description": "Model Y Long Range RWD",
+          "long_name": "Long Range RWD",
+          "long_description": "Model Y Long Range RWD",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Long Range"
+            },
+            {
+              "type": "compare_matrix.block[0].label",
+              "content": "가속"
+            },
+            {
+              "type": "compare_matrix.block[0].content",
+              "content": "0~60mph 3.5초"
+            },
+            {
+              "type": "compare_matrix.block[1].label",
+              "content": "드라이브"
+            },
+            {
+              "type": "compare_matrix.block[1].content",
+              "content": "Dual Motor AWD"
+            },
+            {
+              "type": "long_name",
+              "content": "Model Y Long Range RWD"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 65000,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 65000,
                   "configuration": [
                     "$MDLY"
                   ],
@@ -4707,17 +4945,514 @@
                 }
               ]
             }
+          ]
+        },
+        "$MTY03": {
+          "code": "$MTY03",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$DV4W"
+              }
+            ],
+            "unset_rules": [
+              {
+                "action": "set",
+                "target": "$DV2W",
+                "condition_code": "$MTY01",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTY03"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTY01",
+                "$MTY02",
+                "$MTY04",
+                "$MTY05"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$DV4W"
+            }
           ],
-          "price": 22900,
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTY03"
+            },
+            {
+              "action": "set",
+              "target": "$MTY01",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTY02",
+                "$MTY04",
+                "$MTY05"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$DV2W",
+              "condition_code": "$MTY01",
+              "condition_state": "set"
+            }
+          ],
+          "name": "Long Range AWD",
+          "description": "Model Y Long Range AWD",
+          "long_name": "Long Range AWD",
+          "long_description": "Model Y Long Range AWD",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Long Range"
+            },
+            {
+              "type": "disclaimer_details",
+              "content": "Tesla 상시 사륜구동(AWD)에 탑재된 두 개의 독립 모터는 향상된 효율성과 우수한 내구성을 제공하며 차량의 유지보수를 최소화하는데 도움이 됩니다. 또한, Tesla 상시 사륜구동(AWD)은 전통적인 시스템과 달리 전륜 및 후륜에 전달하는 토크를 디지털 방식으로 제어하여 한층 더 뛰어난 핸들링과 트랙션 컨트롤을 제공합니다."
+            },
+            {
+              "type": "long_name",
+              "content": "Model Y Long Range Dual Motor AWD"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 68600,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 68600,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
+          "price": 10000000,
           "pricing": [
             {
               "type": "base",
-              "value": 22900,
+              "value": 10000000,
               "context": "default"
             },
             {
               "type": "base_plus_trim",
-              "value": 71000,
+              "value": 69990000,
+              "context": "base_plus_trim"
+            }
+          ]
+        },
+        "$MTY04": {
+          "code": "$MTY04",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$DV4W"
+              },
+              {
+                "action": "set",
+                "targets": [
+                  "$SPTY1",
+                  "$BCYR",
+                  "$PL31",
+                  "$SLR1",
+                  "$WY21P"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$STY5S",
+                "condition_code": "$STY7S",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": [
+              {
+                "action": "unset",
+                "targets": [
+                  "$SLR1",
+                  "$SPTY1"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTY04"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTY01",
+                "$MTY02",
+                "$MTY03",
+                "$MTY05"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$DV4W"
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$SPTY1",
+                "$BCYR",
+                "$PL31",
+                "$SLR1",
+                "$WY21P"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$STY5S",
+              "condition_code": "$STY7S",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTY04"
+            },
+            {
+              "action": "set",
+              "target": "$MTY01",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTY02",
+                "$MTY03",
+                "$MTY05"
+              ]
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$SLR1",
+                "$SPTY1"
+              ]
+            }
+          ],
+          "name": "Long Range AWD Performance",
+          "description": "Model Y Performance AWD",
+          "long_name": "Long Range AWD Performance",
+          "long_description": "Model Y Performance AWD",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Performance"
+            },
+            {
+              "type": "price_indicator",
+              "content": "포함"
+            },
+            {
+              "type": "compare_matrix.block[0].label",
+              "content": "가속"
+            },
+            {
+              "type": "compare_matrix.block[0].content",
+              "content": "0~60mph 3.5초"
+            },
+            {
+              "type": "compare_matrix.block[1].label",
+              "content": "드라이브"
+            },
+            {
+              "type": "compare_matrix.block[1].content",
+              "content": "Dual Motor AWD"
+            },
+            {
+              "type": "disclaimer_details",
+              "content": "Tesla 상시 사륜구동(AWD)에 탑재된 두 개의 독립 모터는 향상된 효율성과 우수한 내구성을 제공하며 차량의 유지보수를 최소화하는데 도움이 됩니다. 또한, Tesla 상시 사륜구동(AWD)은 전통적인 시스템과 달리 전륜 및 후륜에 전달하는 토크를 디지털 방식으로 제어하여 한층 더 뛰어난 핸들링과 트랙션 컨트롤을 제공합니다."
+            },
+            {
+              "type": "long_name",
+              "content": "Model Y Performance Dual Motor AWD"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "delivery",
+              "content": [
+                {
+                  "extra": true
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 82600,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 82600,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ]
+        },
+        "$MTY05": {
+          "code": "$MTY05",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$DV4W"
+              },
+              {
+                "action": "set",
+                "targets": [
+                  "$SPTY1",
+                  "$BCYR",
+                  "$PL31",
+                  "$SLR1",
+                  "$WY21P"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$STY5S",
+                "condition_code": "$STY7S",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": [
+              {
+                "action": "unset",
+                "targets": [
+                  "$SLR1",
+                  "$SPTY1"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTY05"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTY01",
+                "$MTY02",
+                "$MTY03",
+                "$MTY04"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$DV4W"
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$SPTY1",
+                "$BCYR",
+                "$PL31",
+                "$SLR1",
+                "$WY21P"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$STY5S",
+              "condition_code": "$STY7S",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTY05"
+            },
+            {
+              "action": "set",
+              "target": "$MTY01",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTY02",
+                "$MTY03",
+                "$MTY04"
+              ]
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$SLR1",
+                "$SPTY1"
+              ]
+            }
+          ],
+          "name": "Long Range AWD Performance",
+          "description": "Model Y Performance AWD",
+          "long_name": "Long Range AWD Performance",
+          "long_description": "Model Y Performance AWD",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Performance"
+            },
+            {
+              "type": "price_indicator",
+              "content": "포함"
+            },
+            {
+              "type": "compare_matrix.block[0].label",
+              "content": "가속"
+            },
+            {
+              "type": "compare_matrix.block[0].content",
+              "content": "0~60mph 3.5초"
+            },
+            {
+              "type": "compare_matrix.block[1].label",
+              "content": "드라이브"
+            },
+            {
+              "type": "compare_matrix.block[1].content",
+              "content": "Dual Motor AWD"
+            },
+            {
+              "type": "disclaimer_details",
+              "content": "Tesla 상시 사륜구동(AWD)에 탑재된 두 개의 독립 모터는 향상된 효율성과 우수한 내구성을 제공하며 차량의 유지보수를 최소화하는데 도움이 됩니다. 또한, Tesla 상시 사륜구동(AWD)은 전통적인 시스템과 달리 전륜 및 후륜에 전달하는 토크를 디지털 방식으로 제어하여 한층 더 뛰어난 핸들링과 트랙션 컨트롤을 제공합니다."
+            },
+            {
+              "type": "long_name",
+              "content": "Model Y Performance Dual Motor AWD"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "delivery",
+              "content": [
+                {
+                  "extra": true
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 82600,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 82600,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
+          "price": 20000000,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 20000000,
+              "context": "default"
+            },
+            {
+              "type": "base_plus_trim",
+              "value": 79990000,
               "context": "base_plus_trim"
             }
           ]
@@ -4744,21 +5479,21 @@
               "target": "$PRMY1"
             }
           ],
-          "name": "Intérieur Premium",
-          "description": "<p>Agrémentez l'intérieur de votre véhicule avec des fonctionnalités supplémentaires et des matériaux haut de gamme.</p><ul><li><span>Sièges chauffants et matériaux premium dans tout l'habitacle comprenant des inserts en bois, un toit panoramique et quatre ports USB.</span></li><li><span>Sièges avant ajustables en 12 positions, colonne de direction et rétroviseurs extérieurs électriques, avec profils conducteur personnalisables.</span></li><li><span>Système audio haut-de-gamme permettant de délivrer un son de très haute qualité.</span></li></ul>",
-          "long_name": "Intérieur Premium",
+          "name": "프리미엄 인테리어",
+          "description": "<p>추가 기능과 프리미엄 소재로 차량 내부를 업그레이드하세요.</p><ul><li><span>오픈 포어 우드 데코, 글래스 루프 및 USB 포트 4개를 포함한 프리미엄 열선 시트 및 실내 소재</span></li><li><span>12-방향, 전동 조절식 앞좌석, 스티어링 컬럼 및 사이드 미러, 사용자 지정 운전자 프로필 포함</span></li><li><span>더 강력한 파워, 트위터, 서라운드 스피커 및 서버 우퍼가 포함된 프리미엄 오디오 시스템</span></li></ul>",
+          "long_name": "프리미엄 인테리어",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Premium"
+              "content": "프리미엄"
             },
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "포함"
             },
             {
               "type": "short_description",
-              "content": "Notre pack Premium comprend des fonctionnalités améliorées sur l'ensemble du Model Y"
+              "content": "프리미엄 패키지를 선택하면 Model Y 업그레이드 기능을 추가할 수 있습니다"
             }
           ],
           "extra_content": [
@@ -4817,7 +5552,9 @@
               },
               {
                 "action": "set",
-                "target": "$MTY03"
+                "target": "$DV2W",
+                "condition_code": "$MTY01",
+                "condition_state": "set"
               }
             ]
           },
@@ -4863,57 +5600,51 @@
             },
             {
               "action": "set",
-              "target": "$MTY03"
+              "target": "$DV2W",
+              "condition_code": "$MTY01",
+              "condition_state": "set"
             }
           ],
-          "name": "Pack Performance",
-          "description": "Pack Performance",
-          "long_name": "Pack Performance",
-          "long_description": "Performance Upgrade",
+          "name": "퍼포먼스 업그레이드",
+          "description": "퍼포먼스 업그레이드",
+          "long_name": "퍼포먼스 업그레이드",
+          "long_description": "퍼포먼스 업그레이드",
           "extra_copy": [
             {
-              "type": "selectLabel",
-              "content": "Ajouter cette option"
+              "type": "price_indicator",
+              "content": "포함"
             },
             {
-              "type": "price_indicator",
-              "content": "De série"
+              "type": "selectLabel",
+              "content": "퍼포먼스 업그레이드 추가하기"
             },
             {
               "type": "deselectLabel",
-              "content": "Option ajoutée"
+              "content": "퍼포먼스 업그레이드 추가됨"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Jantes Performance 20\""
+              "content": "최고 속도를 217km/h에서 250km/h로 증가"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Freins Performance"
+              "content": "21인치 Überturbine 휠"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Aileron en fibre de carbone"
+              "content": "퍼포먼스 브레이크"
             },
             {
               "type": "feature_list.default[0].items[3]",
-              "content": "Suspensions abaissées"
+              "content": "낮아진 서스펜션"
+            },
+            {
+              "type": "feature_list.default[0].main_title",
+              "content": "포함사항:"
             },
             {
               "type": "feature_list.default[0].items[4]",
-              "content": "Pédalier en aluminium"
-            },
-            {
-              "type": "feature_list.default[0].items[5]",
-              "content": "Vitesse maximale augmentée : de 145 mph à 155 mph"
-            },
-            {
-              "type": "feature_list.default[0].items[6]",
-              "content": "Mode Circuit"
-            },
-            {
-              "type": "feature_list.default[0].items[6]",
-              "content": "Mode Circuit"
+              "content": "알루미늄 알로이 페달"
             }
           ],
           "extra_content": [
@@ -4921,7 +5652,10 @@
               "type": "shape",
               "content": [
                 {
-                  "type": "checkbox"
+                  "type": "checkbox",
+                  "props": {
+                    "invisible": true
+                  }
                 }
               ]
             },
@@ -4966,13 +5700,13 @@
               "target": "$STY7S"
             }
           ],
-          "name": "Habitacle 5 sièges",
-          "description": "Habitacle 5 sièges",
-          "long_name": "Habitacle 5 sièges",
+          "name": "5개 시트 구성",
+          "description": "5개 시트 구성",
+          "long_name": "5개 시트 구성",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "포함"
             }
           ],
           "extra_content": [
@@ -4996,6 +5730,20 @@
         },
         "$STY7S": {
           "code": "$STY7S",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$STY7S",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTY04",
+                  "$MTY05"
+                ]
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -5004,6 +5752,15 @@
             {
               "action": "unset",
               "target": "$STY5S"
+            },
+            {
+              "action": "unset",
+              "target": "$STY7S",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTY04",
+                "$MTY05"
+              ]
             }
           ],
           "unset_rules": [
@@ -5016,9 +5773,9 @@
               "target": "$STY5S"
             }
           ],
-          "name": "Habitacle 7 sièges",
-          "description": "Habitacle 7 sièges",
-          "long_name": "Habitacle 7 sièges",
+          "name": "7개 시트 구성",
+          "description": "7개 시트 구성",
+          "long_name": "7개 시트 구성",
           "extra_copy": [],
           "extra_content": [
             {
@@ -5039,14 +5796,6 @@
                   "condition_state": "and"
                 }
               ]
-            }
-          ],
-          "price": 3200,
-          "pricing": [
-            {
-              "type": "base",
-              "value": 3200,
-              "context": "default"
             }
           ]
         },
@@ -5097,13 +5846,13 @@
               ]
             }
           ],
-          "name": "19’’ Gemini Wheels",
-          "description": "19’’ Gemini Wheels",
-          "long_name": "19’’ Gemini Wheels",
+          "name": "19인치 제미니 휠",
+          "description": "19인치 제미니 휠",
+          "long_name": "19인치 제미니 휠",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "포함"
             }
           ],
           "extra_content": [
@@ -5189,14 +5938,14 @@
               "condition_state": "unset"
             }
           ],
-          "name": "20’’ Induction Wheels",
-          "description": "20’’ Induction Wheels",
-          "long_name": "20’’ Induction Wheels",
-          "long_description": "20’’ Induction Wheels",
+          "name": "20인치 인덕션 휠",
+          "description": "20인치 인덕션 휠",
+          "long_name": "20인치 인덕션 휠",
+          "long_description": "20인치 인덕션 휠",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "포함"
             }
           ],
           "extra_content": [
@@ -5229,22 +5978,12 @@
               ]
             }
           ],
-          "price": 2100,
+          "price": 2571000,
           "pricing": [
             {
               "type": "base",
-              "value": 2100,
-              "context": "default",
-              "set_rules": [
-                {
-                  "action": "set",
-                  "target": "$WY20P",
-                  "target_value": 0,
-                  "condition_code": "$MTY04",
-                  "condition_state": "set",
-                  "target_property": "price"
-                }
-              ]
+              "value": 2571000,
+              "context": "default"
             }
           ]
         },
@@ -5291,14 +6030,14 @@
               "condition_state": "unset"
             }
           ],
-          "name": "21’’ Überturbine Wheels",
-          "description": "21’’ Überturbine Wheels",
-          "long_name": "21’’ Überturbine Wheels",
-          "long_description": "21’’ Überturbine Wheels",
+          "name": "21인치 Überturbine 휠",
+          "description": "21인치 Überturbine 휠",
+          "long_name": "21인치 Überturbine 휠",
+          "long_description": "21인치 Überturbine 휠",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "포함"
             }
           ],
           "extra_content": [
@@ -5353,7 +6092,7 @@
         }
       },
       "metadata": {
-        "vat": true,
+        "vat": false,
         "migrations": [
           {
             "options": {
@@ -5397,7 +6136,7 @@
               }
             },
             "comments": "RWD needs to be changed to AWD",
-            "effective_date": "2020-01-25"
+            "effective_date": "2020-01-30"
           },
           {
             "options": {
@@ -5418,11 +6157,55 @@
                 "set_rules": [
                   {
                     "action": "set",
+                    "target": "$CPF0"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "options": {
+              "$MDLY": {
+                "set_rules": [
+                  {
+                    "action": "set",
                     "target": "$SC04"
                   }
                 ]
               }
             }
+          },
+          {
+            "options": {
+              "$MTY04": {
+                "set_rules": [
+                  {
+                    "action": "set",
+                    "target": "$STY5S",
+                    "condition_code": "$STY7S",
+                    "condition_state": "set"
+                  }
+                ]
+              }
+            },
+            "comments": "Performance Trim can NOT have 7 seater",
+            "effective_date": "2021-01-07"
+          },
+          {
+            "options": {
+              "$MTY05": {
+                "set_rules": [
+                  {
+                    "action": "set",
+                    "target": "$STY5S",
+                    "condition_code": "$STY7S",
+                    "condition_state": "set"
+                  }
+                ]
+              }
+            },
+            "comments": "Performance Trim can NOT have 7 seater",
+            "effective_date": "2021-01-07"
           }
         ],
         "warranty_rules": [
@@ -5451,8 +6234,7 @@
               "$MTY02",
               "$MTY03",
               "$MTY04",
-              "$MTY05",
-              "$MTY01"
+              "$MTY05"
             ]
           }
         ],
@@ -5471,25 +6253,110 @@
           },
           "$APPB": {
             "type": "remote",
-            "mutation": [
-              "$APPB"
-            ],
+            "mutation": [],
             "requirement_relationship": "and"
           }
         },
         "client_context_settings": [
           {
             "client_id": "default",
-            "transform_ignored_groups": [
-              "CONNECTIVITY"
-            ],
             "transform_ignored_options": [
               "$SC04"
             ]
           }
         ],
         "specs": {
-          "data": [],
+          "data": [
+            {
+              "meta": {
+                "specs": {
+                  "range": {
+                    "units": "kilometers",
+                    "source": "EPA est."
+                  },
+                  "topspeed": {
+                    "units": "kilometers-per-hour"
+                  },
+                  "ludicrous": {
+                    "units": "seconds",
+                    "measurement": {
+                      "units": "kilometers-per-hour",
+                      "value": "0-100"
+                    }
+                  },
+                  "acceleration": {
+                    "units": "seconds",
+                    "measurement": {
+                      "units": "kilometers-per-hour",
+                      "value": "0-100"
+                    }
+                  }
+                },
+                "unit_definitions": {
+                  "seconds": {
+                    "label": "seconds",
+                    "short_label": "sec"
+                  },
+                  "kilometers": {
+                    "label": "kilometers",
+                    "short_label": "km"
+                  },
+                  "kilometers-per-hour": {
+                    "label": "kilometers per hour",
+                    "short_label": "km/h"
+                  }
+                }
+              },
+              "options": {
+                "$MTY03": {
+                  "name": "Long Range All-Wheel Drive",
+                  "range": 511,
+                  "topspeed": 217,
+                  "acceleration": 5.1
+                },
+                "$MTY04": {
+                  "name": "Long Range All-Wheel Drive Performance",
+                  "range": 507,
+                  "topspeed": 233,
+                  "overrides": [
+                    {
+                      "content": {
+                        "range": 468,
+                        "topspeed": 250,
+                        "acceleration": 3.7
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$SPTY1"
+                        ]
+                      }
+                    }
+                  ],
+                  "acceleration": 3.7
+                },
+                "$MTY05": {
+                  "name": "Long Range All-Wheel Drive Performance",
+                  "range": 507,
+                  "topspeed": 233,
+                  "overrides": [
+                    {
+                      "content": {
+                        "range": 448,
+                        "topspeed": 250,
+                        "acceleration": 3.7
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$SPTY1"
+                        ]
+                      }
+                    }
+                  ],
+                  "acceleration": 3.7
+                }
+              }
+            }
+          ],
           "refs": {
             "time": {
               "label": "seconds",
@@ -5505,8 +6372,8 @@
             }
           }
         },
-        "currency_code": "CHF",
-        "currency_symbol": "CHF"
+        "currency_code": "KRW",
+        "currency_symbol": "₩"
       },
       "agent_version": 101,
       "warranty_groups": [
@@ -5544,8 +6411,8 @@
       "warranty_options": {
         "$NW00": {
           "code": "$NW00",
-          "name": "New MFG Warranty",
-          "description": "New MFG Warranty",
+          "name": "신차 MFG 보증",
+          "description": "신차 MFG 보증",
           "extra_copy": [
             {
               "type": "description",
@@ -5619,8 +6486,8 @@
         },
         "$NW01": {
           "code": "$NW01",
-          "name": "New MFG Warranty",
-          "description": "New MFG Warranty",
+          "name": "신차 MFG 보증",
+          "description": "신차 MFG 보증",
           "extra_copy": [
             {
               "type": "description",
@@ -5694,8 +6561,8 @@
         },
         "$UW00": {
           "code": "$UW00",
-          "name": "Used MFG Warranty",
-          "description": "Used MFG Warranty",
+          "name": "중고차 MFG 보증",
+          "description": "중고차 MFG 보증",
           "extra_copy": [
             {
               "type": "description",
@@ -5739,8 +6606,8 @@
         },
         "$UW01": {
           "code": "$UW01",
-          "name": "Used MFG Warranty",
-          "description": "Used MFG Warranty",
+          "name": "중고차 MFG 보증",
+          "description": "중고차 MFG 보증",
           "extra_copy": [
             {
               "type": "decription",
@@ -5783,8 +6650,8 @@
         },
         "$UW02": {
           "code": "$UW02",
-          "name": "Used MFG Warranty",
-          "description": "Used MFG Warranty",
+          "name": "중고차 MFG 보증",
+          "description": "중고차 MFG 보증",
           "extra_copy": [
             {
               "type": "decription",
@@ -5848,19 +6715,19 @@
         }
       },
       "base_configuration": [
-        "$INYPB",
-        "$PPSW",
-        "$WY19B",
-        "$DV4W",
-        "$MDLY",
-        "$STY5S",
-        "$PRMY1",
-        "$MTY03",
         "$APBS",
         "$CPF0",
-        "$SC04"
+        "$DV2W",
+        "$INYPB",
+        "$MDLY",
+        "$MTY01",
+        "$PPSW",
+        "$PRMY1",
+        "$SC04",
+        "$STY5S",
+        "$WY19B"
       ],
-      "options_id": 438,
+      "options_id": 926,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -5873,8 +6740,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 50000,
             "coverage_odometer_kilometers": 80000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$GN01",
@@ -5887,8 +6753,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 60000,
             "coverage_odometer_kilometers": 100000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$GU00",
@@ -5901,8 +6766,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 50000,
             "coverage_odometer_kilometers": 80000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$GU01",
@@ -5915,8 +6779,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 100000,
             "coverage_odometer_kilometers": 160000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$GU02",
@@ -5929,8 +6792,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 10000,
             "coverage_odometer_kilometers": 20000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$GU03",
@@ -5943,8 +6805,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 10000,
             "coverage_odometer_kilometers": 20000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$BAT06",
@@ -5957,8 +6818,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 150000,
             "coverage_odometer_kilometers": 240000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$BAT07",
@@ -5971,8 +6831,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 120000,
             "coverage_odometer_kilometers": 192000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$BAT08",
@@ -5985,8 +6844,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 100000,
             "coverage_odometer_kilometers": 160000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$BAT09",
@@ -5999,8 +6857,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 100000,
             "coverage_odometer_kilometers": 160000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$BAT13",
@@ -6013,8 +6870,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 120000,
             "coverage_odometer_kilometers": 192000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU00",
@@ -6027,8 +6883,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 150000,
             "coverage_odometer_kilometers": 240000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU01",
@@ -6041,8 +6896,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 150000,
             "coverage_odometer_kilometers": 240000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU02",
@@ -6055,8 +6909,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 150000,
             "coverage_odometer_kilometers": 240000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU03",
@@ -6069,8 +6922,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 150000,
             "coverage_odometer_kilometers": 240000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU05",
@@ -6083,8 +6935,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 100000,
             "coverage_odometer_kilometers": 160000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU06",
@@ -6097,8 +6948,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 120000,
             "coverage_odometer_kilometers": 192000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD00",
@@ -6111,8 +6961,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 50000,
             "coverage_odometer_kilometers": 80000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD01",
@@ -6125,8 +6974,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 60000,
             "coverage_odometer_kilometers": 100000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD03",
@@ -6139,8 +6987,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 50000,
             "coverage_odometer_kilometers": 80000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD04",
@@ -6152,8 +6999,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 100000,
             "coverage_odometer_kilometers": 160000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD05",
@@ -6166,8 +7012,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 10000,
             "coverage_odometer_kilometers": 20000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD06",
@@ -6179,13 +7024,13 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 10000,
             "coverage_odometer_kilometers": 20000
-          },
-          "content_localized": {}
+          }
         }
       ],
-      "copy_id": 635,
-      "language": "fr",
-      "pricing_id": 595
+      "copy_id": 1350,
+      "language": "ko",
+      "pricing_id": 1003,
+      "reference_id": 926
     }
   },
   "edd": []
