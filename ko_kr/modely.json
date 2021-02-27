@@ -785,18 +785,32 @@
           [
             "downPayment",
             "term"
+          ],
+          [
+            "apr"
           ]
         ],
         "showLeaseFields": [
           [
             "downPayment",
             "term"
+          ],
+          [
+            "interestRate"
           ]
         ],
         "leaseReadOnlyFields": [],
         "loanReadOnlyFields": [],
         "loanFieldsFormat": null,
-        "gasSavingsExampleParams": {},
+        "gasSavingsExampleParams": {
+          "yearlyDistance": 12000,
+          "petrolSavingsPerYear": 1300000,
+          "petrolSavings": 5000000,
+          "timesLower": 5,
+          "fuelEconomy": 6.23,
+          "electricityPrice": 135.53,
+          "petrolPrice": 1689.87
+        },
         "extraDisclaimers": [],
         "disclaimerDateFormat": "",
         "showIncentivesDisclaimers": false,
@@ -874,7 +888,8 @@
         "isPaymentFormOpen": false,
         "showTextForPaymentTypes": false,
         "noWireTransferOnBusinessAccount": false,
-        "showOptinDisclaimer": "opt_in"
+        "showOptinDisclaimer": "opt_in",
+        "billingAddressDetailsPayX": "full"
       },
       "ReviewDetails": {
         "group": "order_summary.REVIEW_ORDER",
@@ -1369,7 +1384,10 @@
         {
           "market": "KR",
           "variant": [
-            "my"
+            "my",
+            "m3",
+            "ms",
+            "mx"
           ],
           "inventory": [
             "new"
@@ -1432,6 +1450,9 @@
         {
           "market": "KR",
           "variant": [
+            "ms",
+            "mx",
+            "m3",
             "my"
           ],
           "inventory": [
@@ -1440,20 +1461,8 @@
           "variables": {
             "downPayment": 0.3,
             "interestRate": 3.5,
-            "loanTerm": 48
+            "loanTerm": 24
           },
-          "interestRateBasedOnDownPayment": [
-            {
-              "operator": ">=",
-              "value": 0.3,
-              "interestRate": 3.5
-            },
-            {
-              "operator": "<",
-              "value": 0.3,
-              "interestRate": 3.8
-            }
-          ],
           "loanTermsOffered": {
             "loanTerm": [
               24,
@@ -1462,7 +1471,19 @@
               60,
               72
             ]
-          }
+          },
+          "interestRateBasedOnDownPayment": [
+            {
+              "operator": "<",
+              "value": 0.3,
+              "interestRate": 3.8
+            },
+            {
+              "operator": ">=",
+              "value": 0.3,
+              "interestRate": 3.5
+            }
+          ]
         }
       ]
     },
@@ -1470,7 +1491,7 @@
       "tcc": []
     },
     "Lexicon.my": {
-      "effective_date": "2021-02-21T06:15:00.000Z",
+      "effective_date": "2021-02-26T02:00:00.000Z",
       "market": "KR",
       "product": "my",
       "factory": "GF00",
@@ -1492,7 +1513,7 @@
           }
         }
       },
-      "name": "Marketing KR 2021.Feb.21 931.1350.1003 [ko]",
+      "name": "Marketing KR 2021.Feb.26 937.1365.1020 [ko]",
       "groups": [
         {
           "code": "MODEL",
@@ -1517,7 +1538,8 @@
             "$MTY02",
             "$MTY03",
             "$MTY04",
-            "$MTY05"
+            "$MTY05",
+            "$MTY06"
           ],
           "required": true,
           "exclusive": true,
@@ -1809,7 +1831,8 @@
             "$MTY02",
             "$MTY03",
             "$MTY04",
-            "$MTY05"
+            "$MTY05",
+            "$MTY06"
           ],
           "required": false,
           "exclusive": false,
@@ -2542,6 +2565,17 @@
                   },
                   "zero_to_road_limit": 5.6,
                   "range_units_override": "range_units_epa"
+                },
+                {
+                  "range": 511,
+                  "units": "imperial",
+                  "top_speed": 217,
+                  "selected_by": {
+                    "and": [
+                      "$MTY06"
+                    ]
+                  },
+                  "zero_to_road_limit": 5
                 }
               ]
             }
@@ -4751,7 +4785,8 @@
                 "$MTY02",
                 "$MTY03",
                 "$MTY04",
-                "$MTY05"
+                "$MTY05",
+                "$MTY06"
               ]
             }
           ],
@@ -4767,7 +4802,8 @@
               "condition_all_codes": [
                 "$MTY02",
                 "$MTY04",
-                "$MTY05"
+                "$MTY05",
+                "$MTY06"
               ]
             }
           ],
@@ -4861,7 +4897,8 @@
                 "$MTY01",
                 "$MTY03",
                 "$MTY04",
-                "$MTY05"
+                "$MTY05",
+                "$MTY06"
               ]
             }
           ],
@@ -4877,7 +4914,8 @@
               "condition_all_codes": [
                 "$MTY01",
                 "$MTY04",
-                "$MTY05"
+                "$MTY05",
+                "$MTY06"
               ]
             }
           ],
@@ -4975,7 +5013,8 @@
                 "$MTY01",
                 "$MTY02",
                 "$MTY04",
-                "$MTY05"
+                "$MTY05",
+                "$MTY06"
               ]
             },
             {
@@ -4996,7 +5035,8 @@
                 "$MTY01",
                 "$MTY02",
                 "$MTY04",
-                "$MTY05"
+                "$MTY05",
+                "$MTY06"
               ]
             },
             {
@@ -5130,7 +5170,8 @@
                 "$MTY01",
                 "$MTY02",
                 "$MTY03",
-                "$MTY05"
+                "$MTY05",
+                "$MTY06"
               ]
             },
             {
@@ -5166,7 +5207,8 @@
               "condition_all_codes": [
                 "$MTY01",
                 "$MTY02",
-                "$MTY05"
+                "$MTY05",
+                "$MTY06"
               ]
             },
             {
@@ -5304,7 +5346,8 @@
                 "$MTY01",
                 "$MTY02",
                 "$MTY03",
-                "$MTY04"
+                "$MTY04",
+                "$MTY06"
               ]
             },
             {
@@ -5340,7 +5383,8 @@
               "condition_all_codes": [
                 "$MTY01",
                 "$MTY02",
-                "$MTY04"
+                "$MTY04",
+                "$MTY06"
               ]
             },
             {
@@ -5453,6 +5497,162 @@
             {
               "type": "base_plus_trim",
               "value": 79990000,
+              "context": "base_plus_trim"
+            }
+          ]
+        },
+        "$MTY06": {
+          "code": "$MTY06",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$DV4W"
+              }
+            ],
+            "unset_rules": [
+              {
+                "action": "set",
+                "target": "$DV2W",
+                "condition_code": "$MTY01",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTY06"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTY01",
+                "$MTY02",
+                "$MTY03",
+                "$MTY04",
+                "$MTY05"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$DV4W"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTY06"
+            },
+            {
+              "action": "set",
+              "target": "$MTY03",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTY01",
+                "$MTY02",
+                "$MTY04",
+                "$MTY05"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$DV2W",
+              "condition_code": "$MTY01",
+              "condition_state": "set"
+            }
+          ],
+          "name": "Long Range All-Wheel Drive",
+          "description": "Model Y Long Range AWD",
+          "long_name": "Long Range All-Wheel Drive",
+          "long_description": "Model Y Long Range AWD",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Long Range"
+            },
+            {
+              "type": "disclaimer_details",
+              "content": "Tesla All-Wheel Drive has two independent motors for improved redundancy, each with only one moving part for minimal maintenance and maximum durability. Unlike traditional all-wheel drive systems, they digitally control torque to the front and rear wheels for far better handling and traction control."
+            },
+            {
+              "type": "long_name",
+              "content": "Model Y Long Range Dual Motor All-Wheel Drive"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 48990,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 48990,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing_aftersavings",
+              "content": [
+                {
+                  "incentive": [
+                    "total.once",
+                    "total.fuel",
+                    "total.includedInPurchasePrice"
+                  ],
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
+          "price": 10000000,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 10000000,
+              "context": "default"
+            },
+            {
+              "type": "base_plus_trim",
+              "value": 69990000,
               "context": "base_plus_trim"
             }
           ]
@@ -6223,7 +6423,8 @@
               "$MTY02",
               "$MTY03",
               "$MTY04",
-              "$MTY05"
+              "$MTY05",
+              "$MTY06"
             ]
           },
           {
@@ -6353,6 +6554,12 @@
                     }
                   ],
                   "acceleration": 3.7
+                },
+                "$MTY06": {
+                  "name": "Long Range All-Wheel Drive",
+                  "range": 511,
+                  "topspeed": 217,
+                  "acceleration": 5.1
                 }
               }
             }
@@ -6727,7 +6934,7 @@
         "$STY5S",
         "$WY19B"
       ],
-      "options_id": 931,
+      "options_id": 937,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -7027,10 +7234,10 @@
           }
         }
       ],
-      "copy_id": 1350,
+      "copy_id": 1365,
       "language": "ko",
-      "pricing_id": 1003,
-      "reference_id": 931
+      "pricing_id": 1020,
+      "reference_id": 937
     }
   },
   "edd": []

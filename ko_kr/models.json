@@ -238,7 +238,10 @@
             "relevant_groups": [
               "INTERIOR_PACKAGE",
               "PAINT",
-              "DRIVE"
+              "DRIVE",
+              "TRIM",
+              "STEERING_WHEEL",
+              "INTERIOR_COLORWAY"
             ]
           },
           "STUD_WHEEL_V2": {
@@ -834,7 +837,8 @@
         "isPaymentFormOpen": false,
         "showTextForPaymentTypes": false,
         "noWireTransferOnBusinessAccount": false,
-        "showOptinDisclaimer": "opt_in"
+        "showOptinDisclaimer": "opt_in",
+        "billingAddressDetailsPayX": "full"
       },
       "ReviewDetails": {
         "group": "configurator.REVIEW_ORDER",
@@ -1395,15 +1399,18 @@
         {
           "market": "KR",
           "variant": [
-            "ms"
+            "my",
+            "m3",
+            "ms",
+            "mx"
           ],
           "inventory": [
             "new"
           ],
           "variables": {
-            "minimumDownPayment": 0.1,
-            "maximumDownPayment": 0.4,
-            "downPayment": 0.3,
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.35,
+            "downPayment": 0.2,
             "interestRate": 3.8,
             "tax": 0.07,
             "dcRate": 9,
@@ -1412,6 +1419,7 @@
           },
           "leaseTermsOffered": {
             "leaseTerm": [
+              24,
               36,
               48,
               60
@@ -1422,6 +1430,11 @@
           },
           "residualRateMatrix": [
             {
+              "leaseTerm": 24,
+              "leaseDistance": 30000,
+              "value": 0.3
+            },
+            {
               "leaseTerm": 36,
               "leaseDistance": 30000,
               "value": 0.3
@@ -1429,20 +1442,20 @@
             {
               "leaseTerm": 48,
               "leaseDistance": 30000,
-              "value": 0.25
+              "value": 0.3
             },
             {
               "leaseTerm": 60,
               "leaseDistance": 30000,
-              "value": 0.2
+              "value": 0.3
             }
           ],
           "other": {
-            "other_costs": 72000,
-            "public_bond": 10,
+            "other_costs": 75000,
+            "public_bond": 0,
             "property_tax": 130000,
             "registration_tax": 1400000,
-            "gov_subsidy": 13500000
+            "gov_subsidy": 0
           }
         }
       ]
@@ -1454,61 +1467,36 @@
           "variant": [
             "ms",
             "mx",
-            "m3"
+            "m3",
+            "my"
           ],
           "inventory": [
             "new"
           ],
           "variables": {
-            "downPayment": 0.2,
-            "minimumDownPayment": 0.1,
-            "maximumDownPayment": 0.4,
-            "downPaymentPercentMatrix": [
-              0.1,
-              0.2,
-              0.3,
-              0.4
-            ],
-            "interestRate": 4.3,
-            "loanTerm": 48
+            "downPayment": 0.3,
+            "interestRate": 3.5,
+            "loanTerm": 24
           },
           "loanTermsOffered": {
             "loanTerm": [
+              24,
               36,
               48,
-              60
-            ],
-            "interestRateMatrix": [
-              {
-                "loanTerm": 36,
-                "value": 3.8
-              },
-              {
-                "loanTerm": 48,
-                "value": 4
-              },
-              {
-                "loanTerm": 60,
-                "value": 4
-              },
-              {
-                "loanTerm": 60,
-                "value": 4
-              }
+              60,
+              72
             ]
           },
-          "residualRateMatrix": [
+          "interestRateBasedOnDownPayment": [
             {
-              "loanTerm": 36,
-              "value": 0.49
+              "operator": "<",
+              "value": 0.3,
+              "interestRate": 3.8
             },
             {
-              "loanTerm": 48,
-              "value": 0.41
-            },
-            {
-              "loanTerm": 60,
-              "value": 0.34
+              "operator": ">=",
+              "value": 0.3,
+              "interestRate": 3.5
             }
           ]
         }
