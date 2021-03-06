@@ -14,6 +14,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "version": "redesign",
               "model": "my",
               "variant": "my"
             }
@@ -31,6 +32,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "version": "redesign",
               "model": "my",
               "variant": "my"
             }
@@ -48,6 +50,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "version": "redesign",
               "model": "my",
               "variant": "my"
             }
@@ -65,6 +68,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "version": "redesign",
               "model": "my",
               "variant": "my"
             }
@@ -82,6 +86,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "version": "redesign",
               "model": "my",
               "variant": "my"
             }
@@ -99,6 +104,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "version": "redesign",
               "model": "my",
               "variant": "my"
             }
@@ -116,6 +122,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "version": "redesign",
               "model": "my",
               "variant": "my"
             }
@@ -130,7 +137,8 @@
         "date": "",
         "seekret": "",
         "tags": "",
-        "context": ""
+        "context": "",
+        "version": "redesign"
       }
     },
     "InitialConfig.my.my": {
@@ -644,6 +652,10 @@
             "context": "configurator"
           },
           {
+            "code": "EAP_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "EXTERIOR_GALLERY",
             "context": "configurator"
           },
@@ -653,6 +665,14 @@
           },
           {
             "code": "CONNECTIVITY",
+            "context": "default"
+          },
+          {
+            "code": "BRAKES",
+            "context": "default"
+          },
+          {
+            "code": "PEDALS",
             "context": "default"
           }
         ]
@@ -925,6 +945,35 @@
         "showLegalConsent": [],
         "showPrpLink": false,
         "showVAT": true,
+        "assetView": "STUD_3QTR",
+        "assetViewSource": [
+          {
+            "view": "FRONT34",
+            "zoom": 1,
+            "selected_by": {
+              "and": [
+                {
+                  "or": [
+                    "$ST03",
+                    "$ST0Y"
+                  ]
+                },
+                {
+                  "or": [
+                    "$MTX10",
+                    "$MTX11",
+                    "$MTS09",
+                    "$MTS10",
+                    "$MTS11"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "view": "STUD_3QTR"
+          }
+        ],
         "asset": {
           "type": "image-compositor",
           "view": "STUD_3QTR",
@@ -1133,6 +1182,7 @@
           "ACCOUNT_DETAILS_CHANGED"
         ],
         "showVehicleSubtotal": false,
+        "hidePostfixOnUI": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1486,8 +1536,7 @@
       "tcc": []
     },
     "Lexicon.my": {
-      "id": 433,
-      "effective_date": "2021-02-26T01:45:00.000Z",
+      "effective_date": "2021-03-05T07:00:00.000Z",
       "market": "DE",
       "product": "my",
       "factory": "GF00",
@@ -1496,7 +1545,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2021.Feb.26 433.545.1026",
+      "name": "Marketing DE 2021.Mar.05 962.1389.1026 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -1554,7 +1603,9 @@
           "context": "default",
           "options": [
             "$INYPB",
-            "$INYPW"
+            "$INYPW",
+            "$INPB1",
+            "$INPW1"
           ],
           "required": true,
           "exclusive": true,
@@ -1600,7 +1651,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Farbe wählen"
+              "content": "Lackiererei"
             },
             {
               "type": "section_title",
@@ -1613,7 +1664,7 @@
               "content": [
                 {
                   "type": "hero-update",
-                  "view": "STUD_3QTR"
+                  "view": "FRONT34"
                 }
               ]
             },
@@ -1622,8 +1673,30 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR"
+                  "view": "FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "FRONT34"
                 }
               ]
             }
@@ -1643,7 +1716,7 @@
           "default_options": [
             "$WY19B"
           ],
-          "name": "Reifen",
+          "name": "Räder",
           "extra_copy": [
             {
               "type": "name",
@@ -1665,7 +1738,7 @@
               "content": [
                 {
                   "type": "image-compositor",
-                  "view": "STUD_WHEEL"
+                  "view": "RIMCLOSEUP"
                 }
               ]
             }
@@ -1824,7 +1897,18 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Optionen"
+          "name": "Optionen",
+          "extra_content": [
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY",
+                  "section": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "REVIEW_ORDER",
@@ -1832,6 +1916,9 @@
             "PAINT",
             "SPORT_PACKAGE",
             "WHEELS",
+            "BRAKES",
+            "SPOILER",
+            "PEDALS",
             "INTERIOR",
             "REAR_SEATS",
             "AUTOPILOT",
@@ -1890,7 +1977,29 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Innenraum-Sitzplatzanzahl wählen"
+              "content": "Sitzanordnung"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h4"
+                  }
+                },
+                {
+                  "type": "Options",
+                  "props": {
+                    "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center"
+                  }
+                },
+                {
+                  "type": "SelectedPrice"
+                }
+              ]
             }
           ]
         },
@@ -1914,11 +2023,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Farbe wählen"
-            },
-            {
-              "type": "section_title",
-              "content": "Außenansicht"
+              "content": "Lackiererei"
             }
           ],
           "extra_content": [
@@ -1927,7 +2032,7 @@
               "content": [
                 {
                   "type": "hero-update",
-                  "view": "STUD_3QTR"
+                  "view": "FRONT34"
                 }
               ]
             },
@@ -1936,8 +2041,59 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR"
+                  "view": "SIDE",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "SIDE",
+                  "zoom": 1.3
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "Options",
+                  "props": {
+                    "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center"
+                  }
+                },
+                {
+                  "type": "SelectedPrice"
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY"
                 }
               ]
             }
@@ -1957,11 +2113,11 @@
           "default_options": [
             "$WY19B"
           ],
-          "name": "Reifen",
+          "name": "Räder",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Felgen wählen"
+              "content": "Räder"
             }
           ],
           "extra_content": [
@@ -1978,8 +2134,97 @@
               "type": "asset",
               "content": [
                 {
+                  "bkba": 1,
+                  "crop": [
+                    0,
+                    0,
+                    80,
+                    0
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_WHEEL"
+                  "view": "RIMCLOSEUP",
+                  "ratio": "meet",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "crop": [
+                    0,
+                    0,
+                    80,
+                    0
+                  ],
+                  "type": "image-compositor",
+                  "view": "RIMCLOSEUP",
+                  "ratio": "slice"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 280,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WY21P",
+                      "$MTY04"
+                    ]
+                  }
+                },
+                {
+                  "value": " ",
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$RANDOM"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "Options",
+                  "props": {
+                    "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center"
+                  }
+                },
+                {
+                  "type": "SelectedPrice"
+                },
+                {
+                  "type": "DisclaimerSpecial",
+                  "props": {
+                    "field": "certified_disclaimer",
+                    "classes": "tds-text--center"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY"
                 }
               ]
             }
@@ -1990,35 +2235,27 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$APBS",
             "$APF2"
           ],
           "required": false,
           "exclusive": false,
           "name": "Autopilot",
-          "extra_copy": [],
-          "extra_content": []
-        },
-        {
-          "code": "AUTOPILOT",
-          "groups": [
-            "AUTOPILOT_PACKAGE"
-          ],
-          "context": "configurator",
-          "options": [],
-          "required": false,
-          "exclusive": false,
-          "default_options": [],
-          "name": "Autopilot-Funktionspaket",
-          "description": "Autopilot-Funktionspaket - Beschreibung",
           "extra_copy": [
             {
-              "type": "feature_list.default[0].title",
-              "content": "Autopilot"
+              "type": "video_list.default[0].title",
+              "content": "Mit Autopilot navigieren"
             },
             {
-              "type": "feature_list.default[0].description",
-              "content": "Die wegweisenden Autopilot-Sicherheits- und Komfortfunktionen entlasten Sie beim Fahren. Alle neuen Teslas verfügen standardmäßig über Assistenzfunktionen wie Notbremsautomatik, Auffahrwarnung und Lenkassistent."
+              "type": "video_list.default[1].title",
+              "content": "Spurwechselassistent"
+            },
+            {
+              "type": "video_list.default[2].title",
+              "content": " Autoparken"
+            },
+            {
+              "type": "video_list.default[3].title",
+              "content": "Erweitertes \"Herbeirufen\""
             }
           ],
           "extra_content": [
@@ -2026,52 +2263,100 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/autopilot3.jpg",
-                  "type": "image",
-                  "selected_by": {
-                    "or": [
-                      {
-                        "on": [
-                          "mobile"
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "url": "https://www.tesla.com/ns_videos/models/autonomy/hero-mobile.mp4",
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/route.mp4",
                   "type": "video-inline",
                   "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/models/autonomy/hero.mp4",
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/route.mp4",
                   "selected_by": {
                     "or": [
                       {
                         "on": [
                           "desktop",
-                          "tablet"
+                          "tablet",
+                          "mobile"
                         ]
                       }
                     ]
                   },
                   "video_props": {
-                    "loop": 2,
+                    "loop": 0,
                     "muted": true,
                     "autoPlay": true,
-                    "stopTime": 2,
-                    "fullWidth": true
-                  }
+                    "fullWidth": true,
+                    "playsInline": true
+                  },
+                  "video_content": [
+                    {
+                      "url": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                      "relative": true,
+                      "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                      "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[0]"
+                    },
+                    {
+                      "url": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                      "relative": true,
+                      "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                      "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[1]"
+                    },
+                    {
+                      "url": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                      "relative": true,
+                      "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                      "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[2]"
+                    },
+                    {
+                      "url": "MODEL3/UI/summon_v2.mp4",
+                      "relative": false,
+                      "urlDesktop": "MODEL3/UI/summon_v2.mp4",
+                      "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[3]"
+                    }
+                  ]
                 }
               ]
             },
             {
               "type": "detail_size",
-              "content": "big"
+              "content": "regular"
             },
             {
               "type": "direction_type",
               "content": "column"
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "RootGroup"
+                },
+                {
+                  "type": "Options"
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "FSD_GALLERY"
+                }
+              ]
             }
           ]
+        },
+        {
+          "code": "AUTOPILOT",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APBS"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Autopilot-Funktionspaket",
+          "description": "Autopilot-Funktionspaket - Beschreibung",
+          "extra_copy": [],
+          "extra_content": []
         },
         {
           "code": "AUTOPILOT_OWNERSHIP",
@@ -2086,71 +2371,6 @@
           "name": "Autopilot",
           "extra_copy": [],
           "extra_content": []
-        },
-        {
-          "code": "EXTERIOR_GROUP",
-          "groups": [
-            "PAINT",
-            "WHEELS",
-            "TOWING"
-          ],
-          "context": "configurator",
-          "options": [],
-          "required": false,
-          "exclusive": false,
-          "name": "Lackfarbe und Räder",
-          "description": "Lackfarbe und Räder",
-          "long_name": "Lackfarbe und Räder",
-          "extra_copy": [
-            {
-              "type": "name",
-              "content": "Außenansicht"
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "asset",
-              "content": [
-                {
-                  "bkba": 1,
-                  "type": "image-compositor",
-                  "view": "STUD_3QTR"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "code": "COLOR_AND_WHEELS",
-          "groups": [
-            "PAINT",
-            "WHEELS"
-          ],
-          "context": "configurator",
-          "options": [],
-          "required": false,
-          "exclusive": false,
-          "name": "Lackfarbe und Räder",
-          "description": "Lackfarbe und Räder",
-          "long_name": "Lackfarbe und Räder",
-          "extra_copy": [
-            {
-              "type": "name",
-              "content": "Außenansicht"
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "asset",
-              "content": [
-                {
-                  "bkba": 1,
-                  "type": "image-compositor",
-                  "view": "STUD_3QTR"
-                }
-              ]
-            }
-          ]
         },
         {
           "code": "PACKAGES",
@@ -2168,10 +2388,46 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Innenraum wählen"
+              "content": "Innenansicht"
             },
             {
-              "type": "group_disclaimer[0]",
+              "type": "view_features",
+              "content": "Produktdetails",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "INTERIOR_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_link",
+              "content": "3. Sitzreihe zeigen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURE_LIST_MODAL_OPEN",
+                    "payload": {
+                      "groupName": "INTERIOR_FEATURES",
+                      "selectedView": "SEVEN_SEATS_CARD",
+                      "analyticsTriggerText": "features-modal-clicked"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "group_disclaimer",
               "content": "Siebensitzer-Innenraum ab 2021 erhältlich"
             }
           ],
@@ -2202,14 +2458,96 @@
                   "ratio": "slice"
                 }
               ]
+            },
+            {
+              "type": "dynamic_copy_loader",
+              "content": [
+                {
+                  "props": {
+                    "field": "feature_list.default",
+                    "content_path": "CustomGroups.REAR_SEATS.currentSelected[0]"
+                  },
+                  "selected_by": {
+                    "or": [
+                      "$STY5S",
+                      "$STY7S"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "RootGroup"
+                },
+                {
+                  "type": "DynamicCopy",
+                  "props": {
+                    "field": "dynamic_copy_loader",
+                    "group": "PACKAGES"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "group_disclaimer",
+                    "classes": "tds-text--center tds--padding_top-16"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "view_link"
+                      }
+                    ],
+                    "classes": "tds-link tds-link--primary",
+                    "component": "a"
+                  },
+                  "selected_by": {
+                    "and": [
+                      "$STY7S"
+                    ]
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "view_features",
+                        "props": {
+                          "modal": "INTERIOR_FEATURES"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY",
+                  "section": 4
+                }
+              ]
             }
           ]
         },
         {
           "code": "PREMIUM_PACKAGE",
-          "groups": [
-            "INTERIOR"
-          ],
+          "groups": [],
           "context": "configurator",
           "options": [
             "$INYPB",
@@ -2219,13 +2557,23 @@
           "exclusive": false,
           "name": "Innenansicht",
           "long_name": "Premium-Upgrades",
-          "extra_copy": [
+          "extra_copy": [],
+          "extra_content": [
             {
-              "type": "name",
-              "content": "Innenraum wählen"
+              "type": "components",
+              "content": [
+                {
+                  "type": "Options",
+                  "props": {
+                    "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center"
+                  }
+                },
+                {
+                  "type": "SelectedPrice"
+                }
+              ]
             }
-          ],
-          "extra_content": []
+          ]
         },
         {
           "code": "SPOILER",
@@ -2260,19 +2608,23 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$SPTY1",
-            "$WY21P",
-            "$BCYR",
-            "$SLR1",
-            "$PL31"
+            "$SPTY1"
           ],
           "required": false,
           "exclusive": false,
           "name": "Zusatzausstattung „Performance“",
-          "extra_copy": [
+          "extra_copy": [],
+          "extra_content": [
             {
-              "type": "name",
-              "content": "Zusatzausstattung „Performance“"
+              "type": "components",
+              "content": [
+                {
+                  "type": "Options"
+                },
+                {
+                  "type": "RootGroup"
+                }
+              ]
             }
           ]
         },
@@ -2343,13 +2695,114 @@
             {
               "type": "sub_title",
               "content": "Allradantrieb mit Dualmotor"
+            },
+            {
+              "type": "disclaimer_savingsPrice",
+              "content": "* Die obigen Kosten berücksichtigen mögliche Fördermaßnahmen (Boni/Vergünstigungen) und Kraftstoffeinsparungen von {SAVING_PRICE}."
+            },
+            {
+              "type": "disclaimer_purchasePrice",
+              "content": "Alle gezeigten Preise sind ohne mögliche Fördermaßnahmen (Boni/Vergünstigungen) und Kraftstoffeinsparungen von {SAVING_PRICE}."
+            },
+            {
+              "type": "disclaimer_savingsPrice_CA",
+              "content": "* Die angezeigten Preise berücksichtigen {INCENTIVE_AMOUNT} {NAME_OF_INCENTIVE} sowie mögliche Fördermaßnahmen (Boni/Vergünstigungen) und Kraftstoffeinsparungen von {SAVING_PRICE}."
+            },
+            {
+              "type": "disclaimer_purchasePrice_CA",
+              "content": "Die gezeigten Preise sind ohne {INCENTIVE_AMOUNT} {NAME_OF_INCENTIVE} sowie mögliche Fördermaßnahmen (Boni/Vergünstigungen) und Kraftstoffeinsparungen von {SAVING_PRICE}."
+            },
+            {
+              "type": "disclaimer_learnMore",
+              "content": "Weitere",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "SHOW_FINANCE_MODAL"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "disclaimer_customIncentives",
+              "content": "Individualisieren",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "tag": "a",
+                    "type": "SHOW_INCENTIVES_MODAL",
+                    "classNames": [
+                      "tds-link"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "compare_features",
+              "content": "Produktdetails",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "STD_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "sub_title",
+                    "classes": "tds-text--start text-loader--subtitle tds-text--500 tds--vertical_padding-10",
+                    "component": "div"
+                  }
+                },
+                {
+                  "type": "Options"
+                },
+                {
+                  "type": "GroupDescription",
+                  "props": {
+                    "group": "DUAL_MOTOR_PREMIUM"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "compare_features",
+                        "props": {
+                          "modal": "STD_FEATURES"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
         {
           "code": "BATTERY_AND_DRIVE",
           "groups": [
-            "DUAL_MOTOR_PREMIUM"
+            "DUAL_MOTOR_PREMIUM",
+            "SPORT_PACKAGE"
           ],
           "context": "configurator",
           "options": [],
@@ -2361,7 +2814,7 @@
           "extra_copy": [
             {
               "type": "group_disclaimer",
-              "content": "Alle Fahrzeuge sind mit Premium-Innenraum und -Audiosystem ausgerüstet."
+              "content": "Alle Fahrzeuge sind mit Premium-Innenraum und -Audiosystem ausgestattet."
             },
             {
               "type": "zero_to_road_limit_units",
@@ -2369,7 +2822,7 @@
             },
             {
               "type": "range_units",
-              "content": "Reichweite"
+              "content": "Reichweite (geschätzt)"
             },
             {
               "type": "epa",
@@ -2389,23 +2842,19 @@
             },
             {
               "type": "range_units_epa",
-              "content": "Reichweite"
+              "content": "Reichweite (EPA geschätzt)"
             },
             {
               "type": "top_speed_units",
-              "content": "Höchstgeschwindigkeit"
+              "content": "Maximale Geschwindigkeit"
             },
             {
               "type": "name",
-              "content": "Ihr Fahrzeug wählen"
+              "content": "Model Y"
             },
             {
-              "type": "section_title",
-              "content": "Fahrzeug"
-            },
-            {
-              "type": "disclaimer_copy[0]",
-              "content": " ",
+              "type": "disclaimer_production",
+              "content": "Der Produktionsstart der Modelle mit Standard-Reichweite ist für Anfang 2021 vorgesehen.",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -2413,32 +2862,13 @@
                     "tag": "p",
                     "props": {
                       "style": {
-                        "display": "block"
+                        "display": "block",
+                        "marginBottom": "10px"
                       }
                     }
                   }
                 }
               ]
-            },
-            {
-              "type": "range_units_est_link",
-              "content": "(WLTP geschätzt)",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "SHOW_RANGE_MODAL"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "range_info_title",
-              "content": "Reichweite"
-            },
-            {
-              "type": "range_info_disclaimer",
-              "content": "Die angegebenen Reichweiten basieren auf der WLTP-Norm. Die tatsächliche Reichweite kann je nach Fahrzeugkonfiguration, Alter und Zustand der Batterie, Fahrstil, Umwelteinflüssen und Witterung davon abweichen. Die WLTP-Norm wird häufig zum Vergleich der Reichweiten von Elektrofahrzeugen herangezogen."
             }
           ],
           "extra_content": [
@@ -2447,8 +2877,31 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR"
+                  "view": "FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "FRONT34",
+                  "zoom": 1.3
                 }
               ]
             },
@@ -2456,48 +2909,81 @@
               "type": "performance_specs",
               "content": [
                 {
-                  "range": 540,
+                  "range": 316,
                   "units": "imperial",
-                  "top_speed": 209,
-                  "selected_by": {
-                    "and": [
-                      "$MTY02"
-                    ]
-                  },
-                  "zero_to_road_limit": 5.8
-                },
-                {
-                  "range": 505,
-                  "units": "imperial",
-                  "top_speed": 217,
+                  "top_speed": 135,
                   "selected_by": {
                     "and": [
                       "$MTY03"
                     ]
                   },
-                  "zero_to_road_limit": 5.1
+                  "zero_to_road_limit": 4.8,
+                  "range_units_override": "range_units_epa"
                 },
                 {
-                  "range": 480,
+                  "range": 280,
                   "units": "imperial",
-                  "top_speed": 241,
+                  "top_speed": 155,
+                  "selected_by": {
+                    "and": [
+                      "$MTY04",
+                      "$SPTY1"
+                    ]
+                  },
+                  "zero_to_road_limit": 3.5
+                },
+                {
+                  "range": 315,
+                  "units": "imperial",
+                  "top_speed": 145,
                   "selected_by": {
                     "and": [
                       "$MTY04"
                     ]
                   },
-                  "zero_to_road_limit": 3.7
+                  "zero_to_road_limit": 3.5,
+                  "range_units_override": "range_units_epa"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title"
                 },
                 {
-                  "range": 480,
-                  "units": "imperial",
-                  "top_speed": 241,
-                  "selected_by": {
-                    "and": [
-                      "$MTY05"
-                    ]
-                  },
-                  "zero_to_road_limit": 3.7
+                  "type": "Disclaimer"
+                },
+                {
+                  "type": "DeliveryDate",
+                  "props": {
+                    "classes": "tds--vertical_padding-bottom"
+                  }
+                },
+                {
+                  "type": "Specs",
+                  "props": {
+                    "group": "BATTERY_AND_DRIVE"
+                  }
+                },
+                {
+                  "type": "RootGroup"
+                },
+                {
+                  "type": "DynamicDisclaimer",
+                  "props": {
+                    "field": "dynamic_disclaimer_loader",
+                    "group": "DUAL_MOTOR_PREMIUM"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY"
                 }
               ]
             }
@@ -2515,6 +3001,2495 @@
           "required": false,
           "exclusive": false,
           "name": "Bezahlung"
+        },
+        {
+          "code": "INTERIOR",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$INYPB",
+            "$INYPW"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$INYPB"
+          ]
+        },
+        {
+          "code": "TOWING",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$TW01"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Anhängerkupplung",
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
+                  "type": "image-compositor",
+                  "view": "REAR34",
+                  "zoom": 1.1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "REAR34",
+                  "zoom": 1.3
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Options"
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "EXTERIOR_GALLERY",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Konfiguration — Galerie",
+          "description": "Konfiguration — Galerie",
+          "extra_content": [
+            {
+              "type": "asset[0]",
+              "content": [
+                {
+                  "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
+                  "type": "image-compositor",
+                  "view": "FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "FRONT34",
+                  "zoom": 1.4
+                }
+              ]
+            },
+            {
+              "type": "asset[1]",
+              "content": [
+                {
+                  "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
+                  "type": "image-compositor",
+                  "view": "SIDE",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "SIDE",
+                  "zoom": 1.3
+                }
+              ]
+            },
+            {
+              "type": "asset[2]",
+              "content": [
+                {
+                  "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
+                  "type": "image-compositor",
+                  "view": "REAR34",
+                  "zoom": 1.1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "REAR34",
+                  "zoom": 1.3
+                }
+              ]
+            },
+            {
+              "type": "asset[3]",
+              "content": [
+                {
+                  "bkba": 1,
+                  "crop": [
+                    0,
+                    0,
+                    80,
+                    0
+                  ],
+                  "type": "image-compositor",
+                  "view": "RIMCLOSEUP",
+                  "ratio": "slice"
+                }
+              ]
+            },
+            {
+              "type": "asset[4]",
+              "content": [
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "STUD_SEAT",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FSD_GALLERY",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Autonomes Fahren — Galerie",
+          "description": "Autonomes Fahren — Galerie",
+          "extra_content": [
+            {
+              "type": "asset[0]",
+              "content": [
+                {
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": 0,
+                    "muted": true,
+                    "autoPlay": false,
+                    "fullWidth": true
+                  },
+                  "content_path": "CustomGroups.FSD_NAVIGATE_CARD.name"
+                }
+              ]
+            },
+            {
+              "type": "asset[1]",
+              "content": [
+                {
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": 0,
+                    "muted": true,
+                    "autoPlay": false,
+                    "fullWidth": true
+                  },
+                  "content_path": "CustomGroups.FSD_LANE_CHANGE_CARD.name"
+                }
+              ]
+            },
+            {
+              "type": "asset[2]",
+              "content": [
+                {
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": 0,
+                    "muted": true,
+                    "autoPlay": false,
+                    "fullWidth": true
+                  },
+                  "content_path": "CustomGroups.FSD_AUTOPARK_CARD.name"
+                }
+              ]
+            },
+            {
+              "type": "asset[3]",
+              "content": [
+                {
+                  "url": "MODEL3/UI/summon_v2.mp4",
+                  "type": "video-inline",
+                  "relative": false,
+                  "urlDesktop": "MODEL3/UI/summon_v2.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": 0,
+                    "muted": true,
+                    "autoPlay": false,
+                    "fullWidth": true
+                  },
+                  "content_path": "CustomGroups.FSD_SUMMON_CARD.name"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "MAIN_CONTENT",
+          "groups": [
+            "BATTERY_AND_DRIVE",
+            "PAINT",
+            "WHEELS",
+            "TOWING",
+            "PACKAGES",
+            "AUTOPILOT",
+            "PAYMENT"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": []
+        },
+        {
+          "code": "STD_FEATURES",
+          "groups": [
+            "COMPARE_MODEL_AND_FEATURE",
+            "AUTOPILOT_CARD",
+            "SUPER_CHARGER_CARD",
+            "OVER_THE_AIR_UPDATES_CARD",
+            "SENTRY_MODE_STD_FEATURE",
+            "EXPANSIVE_STORAGE_CARD",
+            "MOBILE_APP_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Standardmerkmale",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Modelle vergleichen"
+            }
+          ]
+        },
+        {
+          "code": "SENTRY_MODE_STD_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Wächter-Modus",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Wächter-Modus"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Eine exklusive Schutzfunktion namens Wächter-Modus überwacht kontinuierlich die Umgebung des Fahrzeugs, wenn Sie Ihren Tesla unbeaufsichtigt zurücklassen. Bei Aktivierung stellt sich der Wächter-Modus scharf und nutzt ähnlich wie bei Hausalarmanlagen die externen Kameras des Fahrzeugs zur Erkennung und zum Schutz vor potenziellen Bedrohungen."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELS/UI/S3XY_StdFeat_SentryMode.jpeg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "INTERIOR_FEATURES",
+          "groups": [
+            "GLASS_ROOF_CARD",
+            "CENTER_DISPLAY_CARD",
+            "WIRELESS_CHARGER_CARD",
+            "VEGAN_INTERIOR_CARD",
+            "SEVEN_SEATS_CARD",
+            "ADVANCED_CLIMATE_CONTROL_CARD",
+            "INTERIOR_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Innenansicht",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Innenraum — Merkmale"
+            }
+          ]
+        },
+        {
+          "code": "PERFORMANCE_UPGRADE_FEATURES",
+          "groups": [
+            "20_IN_PERFORMANCE_WHEELS_FEATURE",
+            "PERFORMANCE_BRAKES_FEATURE",
+            "PERFORMANCE_PEDALS_FEATURE",
+            "CARBON_FIBER_SPOILER_FEATURE",
+            "TRACK_MODE_FEATURE"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Zusatzausstattung „Performance“",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Performance-Upgrade — Merkmale"
+            }
+          ]
+        },
+        {
+          "code": "20_IN_PERFORMANCE_WHEELS_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$SPTY1"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "20-Zoll Performance-Felgen",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Zusatzausstattung „Performance“"
+            },
+            {
+              "type": "panelName",
+              "content": "20-Zoll Performance-Felgen"
+            },
+            {
+              "type": "description",
+              "content": "Exklusive Felgen aus leichtem, aber strapazierfähigem Aluminiumlegierung in elegantem Grau für ultimative Traktion auf der Straße wie auf der Rennstrecke."
+            },
+            {
+              "type": "add_options",
+              "content": "Paket hinzufügen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Entfernen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "type": "image-compositor",
+                  "view": "RIMCLOSEUP",
+                  "ratio": "slice"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "ActionTarget",
+                  "field": "toggle_options"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "PERFORMANCE_BRAKES_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$SPTY1"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Performance-Bremsen",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Zusatzausstattung „Performance“"
+            },
+            {
+              "type": "panelName",
+              "content": "Performance-Bremsen"
+            },
+            {
+              "type": "description",
+              "content": "Größere, hochsteife Bremssättel und leichte Zweiteil-Bremsscheiben mit verringerter Masse für ultimative Bremsleistung und Wärmeabfuhr."
+            },
+            {
+              "type": "add_options",
+              "content": "Paket hinzufügen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Entfernen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/m3_performance_brake_gray.png",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "PERFORMANCE_PEDALS_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$SPTY1"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Performance-Pedale",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Zusatzausstattung „Performance“"
+            },
+            {
+              "type": "panelName",
+              "content": "Performance-Pedale"
+            },
+            {
+              "type": "description",
+              "content": "Dekorelemente aus Leichtmetalllegierung für exklusives Innenraum-Styling."
+            },
+            {
+              "type": "add_options",
+              "content": "Paket hinzufügen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Entfernen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "type": "image-compositor",
+                  "view": "STUD_DRIVER",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "CARBON_FIBER_SPOILER_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$SPTY1"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Karbonfaser-Spoiler",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Zusatzausstattung „Performance“"
+            },
+            {
+              "type": "panelName",
+              "content": "Spoiler aus Karbon"
+            },
+            {
+              "type": "description",
+              "content": "Verbesserte Aerodynamik und bessere Spurstabilität bei hohen Geschwindigkeiten."
+            },
+            {
+              "type": "add_options",
+              "content": "Paket hinzufügen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Entfernen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
+                  "type": "image-compositor",
+                  "view": "REAR34",
+                  "zoom": 1.1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "image-compositor",
+                  "view": "REAR34",
+                  "zoom": 1.3,
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "TRACK_MODE_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$SPTY1"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Track-Modus",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Zusatzausstattung „Performance“"
+            },
+            {
+              "type": "panelName",
+              "content": "Track-Modus"
+            },
+            {
+              "type": "description",
+              "content": "Die hochadaptive Elektromotor-Drehmomentsteuerung, die gesteigerte Bremsenergie-Rekuperation, die effizientere Antriebsstrangkühlung und das verbesserte Kurvenverhalten garantieren fulminante Leistungen auf der Rennstrecke."
+            },
+            {
+              "type": "add_options",
+              "content": "Paket hinzufügen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Entfernen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/feature-modals/M3Perf_TrackMode.png",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FSD_FEATURES",
+          "groups": [
+            "FSD_NAVIGATE_CARD",
+            "FSD_LANE_CHANGE_CARD",
+            "FSD_AUTOPARK_CARD",
+            "FSD_SUMMON_CARD",
+            "FSD_COMPUTER_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Autonomes Fahren",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Performance-Upgrade — Merkmale"
+            }
+          ]
+        },
+        {
+          "code": "PAYMENT",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Bezahlung",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Model Y bestellen"
+            },
+            {
+              "type": "goto_payment",
+              "content": "Weiter zur Kasse",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "key": "payment",
+                    "type": "NAVIGATION_SELECT_KEY",
+                    "classNames": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
+                  "type": "image-compositor",
+                  "view": "REAR34",
+                  "zoom": 1.1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "REAR34",
+                  "zoom": 1.3
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h3"
+                  }
+                },
+                {
+                  "type": "DeliveryDate",
+                  "props": {
+                    "classes": "tds-text--500 tds-text_color--00"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "goto_payment"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FSD_NAVIGATE_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APF2"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Mit Autopilot navigieren",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Mit Autopilot navigieren"
+            },
+            {
+              "type": "panelName",
+              "content": "Volles Potenzial für autonomes Fahren"
+            },
+            {
+              "type": "description",
+              "content": "Das automatische Fahren von der Autobahnauffahrt bis zur Autobahnabfahrt umfasst automatische Spurwechsel, Abstandsgeschwindigkeitsregler einschließlich Komplettstopp- und Anfahrfunktion, Lenkassistenten und Überholen langsamerer Fahrzeuge auf Ihrer Spur."
+            },
+            {
+              "type": "add_options",
+              "content": "Paket hinzufügen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_NAVIGATE_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-navigate-on-autopilot"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Entfernen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_NAVIGATE_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-navigate-on-autopilot"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FSD_LANE_CHANGE_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APF2"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Spurwechselassistent",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Spurwechselassistent"
+            },
+            {
+              "type": "panelName",
+              "content": "Volles Potenzial für autonomes Fahren"
+            },
+            {
+              "type": "description",
+              "content": "Während der Fahrt auf der Autobahn steuert der Spurwechselassistent Ihr Fahrzeug auf die optimale Fahrspur, um es auf Einmündungen und Ausfahrten vorzubereiten und langsamere Fahrzeuge zu überholen. Dabei werden anstehende Fahrspurwechsel klar und rechtzeitig angekündigt, damit Sie stets im Bilde sind. Der Spurwechselassistent kann natürlich personalisiert und an Ihre Anforderungen angepasst werden."
+            },
+            {
+              "type": "add_options",
+              "content": "Paket hinzufügen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_LANE_CHANGE_FEATURE",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-auto-lane-change"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Entfernen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_LANE_CHANGE_FEATURE",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-auto-lane-change"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FSD_AUTOPARK_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APF2"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": " Autoparken",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": " Autoparken"
+            },
+            {
+              "type": "panelName",
+              "content": "Volles Potenzial für autonomes Fahren"
+            },
+            {
+              "type": "description",
+              "content": "Mühelos parallel oder quer einparken — auf Tastendruck am Touchscreen. Model Y weist Sie auf verfügbare Parklücken hin, da es das Fahrzeugumfeld kontinuierlich scannt."
+            },
+            {
+              "type": "add_options",
+              "content": "Paket hinzufügen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_AUTOPARK_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-autopark"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Entfernen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_AUTOPARK_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-autopark"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FSD_SUMMON_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APF2"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Erweitertes \"Herbeirufen\"",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Erweitertes \"Herbeirufen\""
+            },
+            {
+              "type": "panelName",
+              "content": "Volles Potenzial für autonomes Fahren"
+            },
+            {
+              "type": "description",
+              "content": "Bei Ansteuerung mit der Tesla app findet Ihr geparktes Auto Sie auf Parkplätzen und kommt zu Ihnen. Besonders praktisch auf engen Stellplätzen: Ihr Auto kann sogar ganz von allein ein- und ausparken. Die erweiterte Funktion \"Herbeirufen\" meistert auch komplexe Parkbedingungen. Sie hält sich an Spurmarkierungen oder Stoppschilder und vermeidet Fußgänger oder Hindernisse wie Verkehrskegel, Abfallkörbe oder abgestellte Einkaufswagen."
+            },
+            {
+              "type": "add_options",
+              "content": "Paket hinzufügen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_SUMMON_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-summon"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Entfernen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_SUMMON_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-summon"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/summon_v2.mp4",
+                  "type": "video-inline",
+                  "relative": false,
+                  "urlDesktop": "MODEL3/UI/summon_v2.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FSD_COMPUTER_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APF2"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Computer für autonomes Fahren",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Computer für autonomes Fahren"
+            },
+            {
+              "type": "panelName",
+              "content": "Volles Potenzial für autonomes Fahren"
+            },
+            {
+              "type": "description",
+              "content": "Der von Tesla entwickelte und für Computersicht optimierte Siliziumchip erlaubt eine detaillierte Visualisierung der Umgebung auf dem Bildschirm und soll in Zukunft durch Software-Updates über Funk ein vollkommen autonomes Fahren ermöglichen."
+            },
+            {
+              "type": "add_options",
+              "content": "Paket hinzufügen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_COMPUTER_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-computer"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Entfernen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_COMPUTER_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-computer"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/FSDComputer.png",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "AUTOPILOT_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Basis-Autopilot",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Basis-Autopilot"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Durch die Autopilot-Funktionalität in jedem Tesla kann Ihr Fahrzeug automatisch lenken, beschleunigen und für andere Fahrzeuge oder Fußgänger auf Ihrer Spur bremsen. Die wegweisenden Sicherheits- und Komfortfunktionen entlasten Sie beim Fahren mit Assistenzfunktionen wie Notbremsautomatik, Auffahrwarnung und Totwinkel-Überwachung."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/S3XY_StdFeat_Autopilot.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "CENTER_DISPLAY_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Touchscreen",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Touchscreen"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Über den großen 15-Zoll-Touchscreen können Sie auf alles zugreifen: wie HD-Bilder von den Seiten- und Heckkameras, Navigation, Filme, Musik, Spiele und mehr. Ihre Umgebung wird während der Fahrt in Echtzeit visualisiert, um Geschwindigkeitsbegrenzungszeichen, bevorstehende Ampeln, Fußgänger, Radfahrer und Gefahren in einer 360°-Surround-Ansicht anzuzeigen."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_StdFeat_CenterDisplay.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "OVER_THE_AIR_UPDATES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Software-Updates über Over-The-Air",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Software-Updates über Over-The-Air"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Im Laufe der Zeit wird Ihr Model Y sogar noch besser durch häufige drahtlose Software-Updates, um Ihnen neue Sicherheits-, Komfort- und Entertainment-Funktionen und noch mehr Leistung, Reichweite und Komfort zu bieten. "
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_StdFeat_OTAU.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "SUPER_CHARGER_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Supercharger-Zugriff",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Einfaches Aufladen"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Laden überall dort, wo Strom vorhanden ist. Die Reichweite, die für tägliche Fahrten benötigt wird, lässt sich gewöhnlich mit dem mitgelieferten Mobile Connector-Ladekabel und einer 220V Haushaltssteckdose problemlos laden. Alternativ können Sie eine Tesla-Wandladestation installieren, die eine erhöhte Laderate bietet. Auf Langstreckenfahrten ist Ihr Model Y an Tesla Supercharger-Ladestationen in nur 15 Minuten für bis zu weitere 270 km aufgeladen, damit Sie schnell wieder unterwegs sind."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Chargeport_3Y.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "MOBILE_APP_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Tesla app",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Tesla app"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Mit dem Handyschlüssel können Sie Ihren Tesla starten, ohne einen Schlüssel in die Hand nehmen zu müssen. Weitere Highlights sind: Reichweite- und Ladestatus-Fernüberwachung, GPS-Standort in Echtzeit, Klimaanlageneinstellungen und vieles mehr. Zudem können Sie über die App auch einen Service Termin buchen. Überwachen Sie Ihr gesamtes Tesla-Ökosystem, einschließlich des Stromflusses von der Powerwall oder vom Solar Roof und Solarkollektoren direkt über die Tesla App."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_StdFeat_MobileApp.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "GLASS_ROOF_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Glasdach",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Glasdach"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Das riesige Glasdach sorgt für ein helleres und geräumigeres Ambiente im Innenraum und einen ungehinderten Blick auf den Himmel. Infrarot- und UV-Lichtstrahlen werden effektiv herausgefiltert, um Hitze und Blendung selbst bei direkter Sonneneinstrahlung wirkungsvoll zu reduzieren."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_Int_GlassRoof.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FLEXIBLE_REAR_SEATING_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Flexible Sitzanordnung im Fond",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Flexible Sitzanordnung"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Die Rücksitze lassen sich einzeln umklappen, um maximale Flexibilität zu gewähren. Sehr praktisch: Die 2. Sitzreihe kann über die Bedienelemente der Heckklappe automatisch umgeklappt werden, während ihre verstellbaren Sitzlehnen den Komfort der Fondpassagiere erhöhen."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_Int_RearSeat.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WIRELESS_CHARGER_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Drahtlos-Ladedock",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Drahtlos-Ladedock"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Auf dem Drahtlos-Ladedock mit rutschfester Silikonoberfläche können Sie ganz bequem zwei Telefone gleichzeitig aufladen. Die integrierte Mittelkonsole bietet tiefen Stauraum mit jeweils zwei USB-Ladeanschlüssen vorn und hinten, unterteiltem Staufach unter der Armlehne und einer flexiblen Abdeckblende zum Sichtschutz von Telefonen."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_Int_WirelessCharging.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "VEGAN_INTERIOR_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Veganer Innenraum",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Komplett veganer Innenraum"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Weicher als Leder, aber viel robuster und schmutzabweisender — unsere speziell entwickelten Sitzbezüge sind vollständig vegan und deutlich nachhaltiger als herkömmliche Sitzmaterialien. Sie erfüllen unsere strengen Standards für Langlebigkeit und Fleckenbeständigkeit, während sie gleichzeitig durch hohen Komfort und Ästhetik beeindrucken."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_Int_VeganInt.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADVANCED_CLIMATE_CONTROL_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Fortschrittliche Klimasteuerung",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Fortschrittliche Klimaanlagenbedienung"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Luftstrom und Temperatur werden vollständig über das Display gesteuert, was eine präzise Ausrichtung ermöglicht, ohne dass Sie jemals einen Luftauslass kontrollieren oder anfassen müssen. An heißen Tagen hält der Kabinen-Überhitzungsschutz den Innenraum stets angenehm kühl. Bei kaltem Wetter ermöglicht die Vorklimatisierung das automatische Vorwärmen von Innenraum und Fahrzeugbatterie, was sich in maximaler Reichweite und Effizienz auszahlt."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_Int_Climate.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "COMPARE_MODEL_AND_FEATURE",
+          "groups": [
+            "RANGE_AND_PERFORMANCE",
+            "INTERIOR_SECTION",
+            "SAFETY_FEATURE",
+            "PREMIUM_CONNECTIVITY"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Modelle und Merkmale vergleichen",
+          "extra_copy": [],
+          "extra_content": []
+        },
+        {
+          "code": "RANGE_AND_PERFORMANCE",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Reichweite und Leistung",
+          "extra_copy": [
+            {
+              "type": "Title",
+              "content": "Reichweite und Leistung"
+            },
+            {
+              "type": "dynamic_grid_title[0]",
+              "content": "Beschleunigung von 0 auf 100 km/h"
+            },
+            {
+              "type": "dynamic_grid_title[1]",
+              "content": "Reichweite"
+            },
+            {
+              "type": "dynamic_grid_title[2]",
+              "content": "Maximale Geschwindigkeit"
+            },
+            {
+              "type": "dynamic_grid_title[3]",
+              "content": "Antrieb"
+            },
+            {
+              "type": "feature_title",
+              "content": "Hoher Wirkungsgrad, extrem hohe Leistung"
+            },
+            {
+              "type": "feature_list.default[0]",
+              "content": "Tesla hat das Model Y von Grund auf als Elektrofahrzeug konzipiert und dabei durchgängig eine Integration auf Systemebene verwendet. Jede Komponente wie Batterien, Elektromotoren und Aerodynamik-Bauteile sind so optimiert, dass sie voneinander profitieren und eines der effizientesten und dabei unglaublich leistungsfähigsten Fahrzeuge schaffen, das jemals gebaut wurde."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "DynamicGrid",
+                  "props": {
+                    "content": [
+                      {
+                        "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
+                        "content_path": [
+                          {
+                            "label": "CustomGroups.battery_group_specs.options.$MTY03.name",
+                            "value": "CustomGroups.battery_group_specs.options.$MTY03.acceleration"
+                          },
+                          {
+                            "label": "CustomGroups.battery_group_specs.options.$MTY05.name",
+                            "value": "CustomGroups.battery_group_specs.options.$MTY05.acceleration"
+                          }
+                        ]
+                      },
+                      {
+                        "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[1]",
+                        "content_path": [
+                          {
+                            "label": "CustomGroups.battery_group_specs.options.$MTY03.name",
+                            "value": "CustomGroups.battery_group_specs.options.$MTY03.range"
+                          },
+                          {
+                            "label": "CustomGroups.battery_group_specs.options.$MTY05.name",
+                            "value": "CustomGroups.battery_group_specs.options.$MTY05.range"
+                          }
+                        ]
+                      },
+                      {
+                        "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[2]",
+                        "content_path": [
+                          {
+                            "label": "CustomGroups.battery_group_specs.options.$MTY03.name",
+                            "value": "CustomGroups.battery_group_specs.options.$MTY03.topspeed"
+                          },
+                          {
+                            "label": "CustomGroups.battery_group_specs.options.$MTY05.name",
+                            "value": "CustomGroups.battery_group_specs.options.$MTY05.topspeed"
+                          }
+                        ]
+                      },
+                      {
+                        "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[3]",
+                        "content_path": [
+                          {
+                            "label": "CustomGroups.battery_group_specs.options.$MTY03.name",
+                            "value": "CustomGroups.battery_group_specs.options.$DV4W.name"
+                          },
+                          {
+                            "label": "CustomGroups.battery_group_specs.options.$MTY05.name",
+                            "value": "CustomGroups.battery_group_specs.options.$DV4W.name"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "feature_title",
+                    "classes": "features-list--title tds-text--500 tds--padding_top-16 tds-list tds-text_color--black",
+                    "component": "div"
+                  }
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default",
+                    "classes": "tds-text--caption"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "INTERIOR_SECTION",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Abschnitt Innenraum",
+          "extra_copy": [
+            {
+              "type": "Title",
+              "content": "Innenraum & Komfort"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Musik & Medien über Bluetooth®"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Premium-Audiosystem mit 14 Lautsprechern, 1 Subwoofer, 2 Verstärkern und Klangfeldprozessor"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Separat umklappbare Sitze in der 2. Sitzreihe"
+            },
+            {
+              "type": "feature_list.default[0].items[3]",
+              "content": "Individuell steuerbare Sitzheizung an allen 5 Sitzen"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "LED-Nebelscheinwerfer"
+            },
+            {
+              "type": "feature_list.default[0].items[6]",
+              "content": "Elektrisch einklappbare, beheizte Seitenspiegel mit Abblendautomatik"
+            },
+            {
+              "type": "feature_list.default[0].items[5]",
+              "content": "Getöntes Glasdach mit UV- und Infrarot-Schutzschicht"
+            },
+            {
+              "type": "feature_list.default[0].items[7]",
+              "content": "Individuelle Fahrerprofile"
+            },
+            {
+              "type": "feature_list.default[0].items[8]",
+              "content": "Drahtloses Aufladen des Telefons in der Mittelkonsole"
+            },
+            {
+              "type": "feature_list.default[0].items[9]",
+              "content": "1,9 m³ Stauraum inklusive abschließbarem Frontkofferraum"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default",
+                    "classes": "tds-flex tds-text--caption"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "SAFETY_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Sicherheit",
+          "extra_copy": [
+            {
+              "type": "Title",
+              "content": "Sicherheit"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Totwinkel-Überwachung"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Notbremsautomatik"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Frontaufprallwarnung"
+            },
+            {
+              "type": "feature_list.default[0].items[3]",
+              "content": "Seitenkollisionswarnung"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "Notfall-Spurhaltekorrektur"
+            },
+            {
+              "type": "feature_list.default[0].items[5]",
+              "content": "Rangierassistent"
+            },
+            {
+              "type": "feature_list.default[0].items[6]",
+              "content": "LED-Tagfahrlicht"
+            },
+            {
+              "type": "feature_list.default[0].items[7]",
+              "content": "Wächter-Modus"
+            },
+            {
+              "type": "feature_list.default[0].items[8]",
+              "content": "Innenraum Überhitzungsschutz"
+            },
+            {
+              "type": "feature_list.default[0].items[9]",
+              "content": "Fahrzeugortung per App"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default",
+                    "classes": "tds-flex tds-text--caption"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "PREMIUM_CONNECTIVITY",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Sicherheit",
+          "extra_copy": [
+            {
+              "type": "Title",
+              "content": "Premium-Konnektivität"
+            },
+            {
+              "type": "feature_list.default[0].title",
+              "content": "Das Model Y beinhaltet serienmäßig eine Navigationsfunktion und eine 1-Jahres-Testversion der Premium-Konnektivität, die Folgendes ermöglicht:"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Live-Verkehrsvisualisierung"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Satellitenbildkarten"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Video-Streaming, Zugriff auf Inhalte von Netflix, Youtube, Twitch und anderen Anbietern"
+            },
+            {
+              "type": "feature_list.default[0].items[3]",
+              "content": "Caraoke"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "Musik-Streaming"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "Webbrowser"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default",
+                    "classes": "tds-flex tds-text--caption"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "INTERIOR_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Innenraum — Merkmale",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Innenraum — Merkmale"
+            },
+            {
+              "type": "feature_list.default[0].main_title",
+              "content": "Audio und Medien"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Premium-Audiosystem – 14 Lautsprecher, 1 Subwoofer, 2 Verstärker und Klangfeldprozessor"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Musik & Medien über Bluetooth®"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "USB-A Anschluss im Handschuhfach mit abnehmbaren 128 GB Speichermedium"
+            },
+            {
+              "type": "feature_list.default[1].main_title",
+              "content": "Komfort"
+            },
+            {
+              "type": "feature_list.default[1].items[0]",
+              "content": "Vorder- und Rücksitze mit 12 elektrischen Verstellfunktionen und Sitzheizung"
+            },
+            {
+              "type": "feature_list.default[1].items[1]",
+              "content": "Getöntes Glasdach mit UV- und Infrarot-Schutzschicht"
+            },
+            {
+              "type": "feature_list.default[1].items[2]",
+              "content": "Separat umklappbare Sitze"
+            },
+            {
+              "type": "feature_list.default[1].items[3]",
+              "content": "Innenraum-Bodenmatten"
+            },
+            {
+              "type": "feature_list.default[2].main_title",
+              "content": "Extras"
+            },
+            {
+              "type": "feature_list.default[2].items[0]",
+              "content": "LED-Nebelscheinwerfer"
+            },
+            {
+              "type": "feature_list.default[2].items[1]",
+              "content": "Elektrisch einklappbare, beheizte Außenspiegel mit Abblendautomatik"
+            },
+            {
+              "type": "feature_list.default[2].items[2]",
+              "content": "Individuelle Fahrerprofile"
+            },
+            {
+              "type": "feature_list.default[2].items[3]",
+              "content": "Mittelkonsole mit Staufächern, 4 USB-Anschlüssen und Drahtlos-Ladedock für 2 Mobiltelefone"
+            },
+            {
+              "type": "feature_list.default[3].main_title",
+              "content": "Premium-Konnektivität, 1 Jahr kostenlos",
+              "behavior": [
+                {
+                  "type": "REPLACE_CONTENT",
+                  "content": {
+                    "source": "options.$CPF0.premium_connectivity_copy_sr",
+                    "selected_by": {
+                      "or": [
+                        "$MTY01"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "feature_list.default[3].items[0]",
+              "content": "Echtzeit-Verkehrsflussanzeige"
+            },
+            {
+              "type": "feature_list.default[3].items[1]",
+              "content": "Satellitenbildkarten"
+            },
+            {
+              "type": "feature_list.default[3].items[2]",
+              "content": "Video-Streaming, Zugriff auf Inhalte von Netflix, Youtube, Twitch und anderen Anbietern"
+            },
+            {
+              "type": "feature_list.default[3].items[3]",
+              "content": "Caraoke"
+            },
+            {
+              "type": "feature_list.default[3].items[4]",
+              "content": "Musik-Streaming"
+            },
+            {
+              "type": "feature_list.default[3].items[5]",
+              "content": "Internet-Browser <br/> <i>*Neue Funktionen, die nach der Lieferung verfügbar werden, können zusätzlichen Gebühren unterliegen.</i>"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--start",
+                    "component": "h3"
+                  }
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default",
+                    "classes": "tds--vertical_padding tds-text--caption"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "SEVEN_SEATS_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Bis zu sieben Sitzplätze",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Bis zu sieben Sitzplätze"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Das Model Y bietet maximale Vielseitigkeit – und Platz für bis zu 7 Insassen samt Gepäck. Jeder Rücksitz lässt sich separat flachlegen, um flexiblen Stauraum für Ski, Möbelstücke, Gepäck und vieles mehr zu bieten. Da die Heckklappe bequemen Zugang zu einer tiefen Ladekante gewährt, ist Be- und Entladen einfach und schnell."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset[0]",
+              "content": [
+                {
+                  "url": "MODELY/UI/Config_7Seat_Black.jpeg",
+                  "type": "image",
+                  "ratio": "slice",
+                  "selected_by": {
+                    "and": [
+                      "$INYPB"
+                    ]
+                  }
+                },
+                {
+                  "url": "MODELY/UI/Config_7Seat_White.jpeg",
+                  "type": "image",
+                  "ratio": "slice",
+                  "selected_by": {
+                    "and": [
+                      "$INYPW"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "REAR_WHEEL_STANDARD_PREMIUM",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            },
+            {
+              "type": "sub_title",
+              "content": "Hinterradantrieb"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "sub_title",
+                    "classes": "tds-text--start text-loader--subtitle tds-text--500 tds--vertical_padding-10",
+                    "component": "div"
+                  }
+                },
+                {
+                  "type": "Options"
+                },
+                {
+                  "type": "GroupDescription",
+                  "props": {
+                    "group": "REAR_WHEEL_STANDARD_PREMIUM"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "REVIEW_ORDER_PLUS",
+          "groups": [
+            "CONNECTIVITY"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": []
+        },
+        {
+          "code": "EXPANSIVE_STORAGE_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Viel Stauraum",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Viel Stauraum"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Das Model Y bietet 1925 Liter Laderaum, der sich in den Frontkofferraum und den automatisch öffnenden und schließenden Heckgepäckraum unterteilt. Das Design des Model Y nutzt den Platz, der traditionell von sperrigen Motoren, Benzintanks und Getrieben eingenommen wird, und ermöglicht so relativ viel Stauraum für ein Fahrzeug dieser Größe. Gleichzeitig erhöht sich die Sicherheit der Insassen durch die geräumigere, verstärkte Karosserie und das verstärkte Fahrwerk."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_StdFeat_Storage.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -2643,48 +5618,81 @@
               "content": "optional"
             },
             {
-              "type": "disclaimer_details",
-              "content": "Die gegenwärtig aktivierten Funktionen verlangen eine aktive Überwachung durch den Fahrer - ein autonomer Betrieb des Fahrzeugs ist damit nicht möglich.Einige Merkmale erfordern eine manuelle Blinkerbetätigung und weisen nur einen beschränkten Funktionsbereich auf. Die Aktivierung und Verwendung von Autonomiefunktionen verlangen dagegen den Nachweis über Milliarden von gefahrenen Kilometern, dass ihre Zuverlässigkeit das Vermögen von menschlichen Fahrern weit überschreitet. Zudem sind für den autonomen Betrieb gesetzliche Genehmigungen erforderlich, die je nach Rechtsprechung noch länger dauern dürften. Im Zuge der Weiterentwicklung dieser Selbstfahrfähigkeiten wird Ihr Fahrzeug kontinuierlich über Mobilfunk aktualisiert und aufgewertet."
-            },
-            {
               "type": "feature_list.default[0].items[0]",
-              "content": "Navigieren mit Autopilot-Funktionalität: automatische Fahrt auf Autobahnen von der Ein- bis zur Ausfahrt einschließlich Autobahnkreuzen und Überholen von langsameren Fahrzeugen."
+              "content": "Mit Autopilot navigieren"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Spurwechselassistent: automatisch unterstützter Spurwechsel auf der Autobahn."
+              "content": "Spurwechselassistent"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Einparkautomatik: paralleles und rechtwinkliges Einparken."
+              "content": " Autoparken"
             },
             {
               "type": "feature_list.default[0].items[3]",
-              "content": "\"Herbeirufen\": Automatisches Parken und Herbeirufen des Fahrzeugs"
+              "content": "Herbeirufen"
             },
             {
-              "type": "feature_list.default[1].main_title",
-              "content": "Bis Ende des Jahres:"
+              "type": "feature_list.default[0].items[4]",
+              "content": "Ampel- und Stoppschilderkennung"
+            },
+            {
+              "type": "feature_list.default[1].title",
+              "content": "In naher Zukunft:"
             },
             {
               "type": "feature_list.default[1].items[0]",
-              "content": "Erkennen und reagieren auf Ampeln und Stoppschilder."
+              "content": "City-Lenkassistent"
             },
             {
               "type": "feature_list.default[1].items[1]",
-              "content": "Automatisches Fahren innerorts."
+              "content": "Erweitertes \"Herbeirufen\""
             },
             {
-              "type": "feature_list.default[1].items[2]",
-              "content": "Erweiterte Funktion \"Herbeirufen\" — Ihr geparktes Fahrzeug findet Sie auf Parkplätzen und kommt zu Ihnen."
+              "type": "disclaimer",
+              "content": "Die gegenwärtig aktivierten Funktionen verlangen eine aktive Überwachung durch den Fahrer - ein autonomer Betrieb des Fahrzeugs ist damit nicht möglich. Die Aktivierung und Verwendung von Autonomiefunktionen verlangen dagegen den Nachweis über Milliarden von gefahrenen Kilometern, dass ihre Zuverlässigkeit das Vermögen von menschlichen Fahrern weit überschreitet. Zudem sind für den autonomen Betrieb gesetzliche Genehmigungen erforderlich, die je nach Rechtsprechung noch länger dauern dürften. Im Zuge der Weiterentwicklung dieser Selbstfahrfähigkeiten wird Ihr Fahrzeug kontinuierlich über Over-The-Air aktualisiert und aufgewertet."
             },
             {
-              "type": "disclaimer[0]",
-              "content": "Sie können das Funktionspaket für autonomes Fahren auch nach der Auslieferung erwerben. Allerdings wird sich der Preis aufgrund der kontinuierlichen Erweiterung mit neuen Merkmalen im Laufe der Zeit wahrscheinlich erhöhen."
+              "type": "fsd_features",
+              "content": "Produktdetails",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "FSD_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             },
             {
-              "type": "description",
-              "content": " "
+              "type": "add_fsd_package",
+              "content": "Hinzufügen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             },
             {
               "type": "selectLabel",
@@ -2693,14 +5701,84 @@
             {
               "type": "deselectLabel",
               "content": "Gewählte Option"
+            },
+            {
+              "type": "remove_fsd_package",
+              "content": "Entfernen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
             {
-              "type": "shape",
+              "type": "components",
               "content": [
                 {
-                  "type": "card"
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "add_fsd_package",
+                        "selected_by": {
+                          "not": [
+                            "$APF2"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "remove_fsd_package",
+                        "selected_by": {
+                          "and": [
+                            "$APF2"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "fsd_features",
+                        "props": {
+                          "modal": "FSD_FEATURES"
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -2768,6 +5846,10 @@
               "target": "$APPB"
             }
           ],
+          "name": "Enhanced Autopilot",
+          "description": "Enhanced Autopilot",
+          "long_name": "Enhanced Autopilot",
+          "extra_copy": [],
           "price": 4000,
           "pricing": [
             {
@@ -2841,7 +5923,7 @@
             },
             {
               "type": "price_indicator",
-              "content": "inklusive"
+              "content": "Inklusive"
             }
           ],
           "extra_content": [
@@ -2894,10 +5976,19 @@
               "target": "$CPF1"
             }
           ],
-          "name": "$CPF0",
-          "description": "$CPF0",
-          "long_name": "$CPF0",
-          "extra_copy": [],
+          "name": "1 Jahr Premium-Konnektivität-Testphase",
+          "description": "1-Jahr-Testabonnement \"Premium-Konnektivität\"",
+          "long_name": "1 Jahr Premium-Konnektivität-Testphase",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Inklusive"
+            },
+            {
+              "type": "long_name",
+              "content": "1-Jahr-Testabonnement \"Premium-Konnektivität\""
+            }
+          ],
           "price": 0,
           "pricing": [
             {
@@ -2937,7 +6028,38 @@
           "name": "Premium-Konnektivität",
           "description": "Premium-Konnektivität",
           "long_name": "Premium-Konnektivität",
-          "extra_copy": [],
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Inklusive"
+            },
+            {
+              "type": "long_name",
+              "content": "1-Jahr-Testabonnement \"Premium-Konnektivität\"",
+              "behavior": [
+                {
+                  "type": "REPLACE_CONTENT",
+                  "content": {
+                    "source": "options.$CPF1.premium_connectivity_trail_sr",
+                    "selected_by": {
+                      "or": [
+                        "$MTY01"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "premium_connectivity_trail_sr",
+              "content": "30-Tage-Testabonnement \"Premium-Konnektivität\""
+            },
+            {
+              "type": "premium_connectivity_copy_sr",
+              "content": "Premium-Konnektivität, 30-Tage-Testabonnement kostenlos"
+            }
+          ],
+          "extra_content": [],
           "price": 0,
           "pricing": [
             {
@@ -3009,11 +6131,11 @@
             },
             {
               "type": "price_indicator",
-              "content": "inklusive"
+              "content": "Inklusive"
             },
             {
               "type": "disclaimer_details",
-              "content": "Zwei redundante Elektromotoren steuern und verteilen das Drehmoment separat auf die Vorder- und Hinterräder, um mehr Leistung und eine bessere Traktion zu realisieren. Im unwahrscheinlichen Fall, dass einer der Elektromotoren ausfällt, können Sie sich auf den anderen verlassen. Diese Technologie erlaubt eine augenblickliche Anpassung des Drehmoments an wechselnde Straßenverhältnisse und eine äußerst präzise Traktionssteuerung unter allen Witterungsbedingungen."
+              "content": "Da unsere Elektromotoren nur ein rotierendes Teil aufweisen, zeichnen sie sich durch höchste Effizienz und Reibungsfreiheit aus. Der Wartungsaufwand ist dadurch minimiert, ihre Lebensdauer maximiert. Das Model Y verfügt über zwei dieser voneinander unabhängigen Motoren für verbesserte Redundanz. Im Gegensatz zu herkömmlichen Allradantrieben steuern sie das Drehmoment digital an den Vorder- und Hinterrädern, um ein wesentlich besseres Fahrverhalten und bessere Traktion zu gewährleisten."
             }
           ],
           "extra_content": [
@@ -3187,7 +6309,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "inklusive"
+              "content": "Inklusive"
             }
           ],
           "extra_content": [
@@ -3203,7 +6325,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_col_pbsb.png",
+                  "url": "MODEL3/UI/Paint_Black.png",
                   "type": "image"
                 }
               ]
@@ -3265,7 +6387,7 @@
           "name": "Performance-Pedale",
           "description": "Performance-Pedale",
           "long_name": "Performance-Pedale",
-          "long_description": "Performance Pedals",
+          "long_description": "Performance-Pedale",
           "extra_copy": [
             {
               "type": "description",
@@ -3273,7 +6395,7 @@
             },
             {
               "type": "price_indicator",
-              "content": "inklusive"
+              "content": "Inklusive"
             }
           ],
           "extra_content": [
@@ -3343,7 +6465,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "inklusive"
+              "content": "Inklusive"
             }
           ],
           "extra_content": [
@@ -3359,7 +6481,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_col_pmng.png",
+                  "url": "MODEL3/UI/Paint_MidnightSilver.png",
                   "type": "image"
                 }
               ]
@@ -3413,7 +6535,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "inklusive"
+              "content": "Inklusive"
             }
           ],
           "extra_content": [
@@ -3429,7 +6551,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_col_ppmr.png",
+                  "url": "MODEL3/UI/Paint_Red.png",
                   "type": "image"
                 }
               ]
@@ -3483,7 +6605,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "inklusive"
+              "content": "Inklusive"
             }
           ],
           "extra_content": [
@@ -3499,7 +6621,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_col_ppsb.png",
+                  "url": "MODEL3/UI/Paint_Blue.png",
                   "type": "image"
                 }
               ]
@@ -3550,11 +6672,11 @@
           ],
           "name": "Pearl White Multi-Coat",
           "description": "Pearl White",
-          "long_name": "Pearl White Lackierung",
+          "long_name": "Pearl White-Lackierung",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "inklusive"
+              "content": "Inklusive"
             }
           ],
           "extra_content": [
@@ -3570,7 +6692,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_col_ppsw.png",
+                  "url": "MODEL3/UI/Paint_White.png",
                   "type": "image"
                 }
               ]
@@ -3645,9 +6767,9 @@
               "target": "$SC05"
             }
           ],
-          "name": "Free Supercharging",
-          "description": "Free Supercharging",
-          "long_name": "Free Supercharging",
+          "name": "Gratis Supercharger-Nutzung",
+          "description": "Gratis Supercharger-Nutzung",
+          "long_name": "Gratis Supercharger-Nutzung",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -3684,9 +6806,9 @@
               "target": "$SC06"
             }
           ],
-          "name": "Time-bound Supercharging",
-          "description": "Time-bound Supercharging",
-          "long_name": "Time-bound Supercharging",
+          "name": "Zeitlich begrenzte Supercharger-Nutzung",
+          "description": "Zeitlich begrenzte Supercharger-Nutzung",
+          "long_name": "Zeitlich begrenzte Supercharger-Nutzung",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -3761,11 +6883,11 @@
           "name": "Spoiler aus Karbon",
           "description": "Spoiler aus Karbon",
           "long_name": "Spoiler aus Karbon",
-          "long_description": "Carbon Fiber Spoiler",
+          "long_description": "Spoiler aus Karbon",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "inklusive"
+              "content": "Inklusive"
             },
             {
               "type": "disclaimer",
@@ -3797,8 +6919,30 @@
               "type": "asset",
               "content": [
                 {
+                  "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_REAR"
+                  "view": "REAR34",
+                  "zoom": 1.1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "image-compositor",
+                  "view": "REAR34"
                 }
               ]
             }
@@ -3835,24 +6979,104 @@
           "long_description": "Anhängerkupplung",
           "extra_copy": [
             {
-              "type": "description_above",
-              "content": "Hochfeste Anhängerkupplung für Anhängelasten bis zu 1.600 kg"
-            },
-            {
               "type": "selectLabel",
               "content": "Option wählen"
             },
             {
               "type": "deselectLabel",
               "content": "Gewählte Option"
+            },
+            {
+              "type": "description",
+              "content": "Hochfeste Anhängerkupplung aus Stahl, Klasse II für Anhängelasten bis zu 1.600 kg"
+            },
+            {
+              "type": "add_tow_hitch",
+              "content": "Hinzufügen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$TW01"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_tow_hitch",
+              "content": "Entfernen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$TW01"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--medium"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
             {
-              "type": "shape",
+              "type": "components",
               "content": [
                 {
-                  "type": "checkbox"
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "description",
+                    "classes": "tds--vertical_padding tds-text--center"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "add_tow_hitch",
+                        "selected_by": {
+                          "not": [
+                            "$TW01"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "remove_tow_hitch",
+                        "selected_by": {
+                          "and": [
+                            "$TW01"
+                          ]
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -3866,38 +7090,38 @@
             }
           ]
         },
-        "$INYPB": {
-          "code": "$INYPB",
+        "$INPB1": {
+          "code": "$INPB1",
           "user_defined_rules": {
-            "set_rules": [
-              {
-                "action": "set",
-                "target": "$PRMY1"
-              }
-            ]
+            "set_rules": []
           },
           "set_rules": [
             {
               "action": "set",
-              "target": "$INYPB"
+              "target": "$INPB1"
             },
             {
               "action": "unset",
-              "target": "$INYPW"
-            },
-            {
-              "action": "set",
-              "target": "$PRMY1"
+              "targets": [
+                "$INYPB",
+                "$INYPW",
+                "$INPW1"
+              ]
             }
           ],
           "unset_rules": [
             {
               "action": "unset",
-              "target": "$INYPB"
+              "target": "$INPB1"
             },
             {
               "action": "set",
-              "target": "$INYPW"
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INYPW",
+                "$INPW1"
+              ]
             }
           ],
           "name": "Premium-Innenraum komplett schwarz",
@@ -3910,7 +7134,202 @@
             },
             {
               "type": "price_indicator",
-              "content": "inklusive"
+              "content": "Inklusive"
+            },
+            {
+              "type": "spec_description",
+              "content": "Innenausstattung Leder schwarz"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_in3pb.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRMY1"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ]
+        },
+        "$INPW1": {
+          "code": "$INPW1",
+          "user_defined_rules": {
+            "set_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$INPW1"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$INYPB",
+                "$INYPW",
+                "$INPB1"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$INPW1"
+            },
+            {
+              "action": "set",
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INYPW",
+                "$INPB1"
+              ]
+            }
+          ],
+          "name": "Premium-Innenraum schwarz und weiß",
+          "description": "Premium-Innenraum schwarz und weiß",
+          "long_name": "Premium-Innenraum schwarz und weiß",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Schwarz und weiß"
+            },
+            {
+              "type": "price_indicator",
+              "content": "Inklusive"
+            },
+            {
+              "type": "recommended_NA_NA",
+              "content": "Empfohlen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "SHOW_INTERIOR_MODAL",
+                    "props": {
+                      "content_path": "OMS.lexicon.options.$INYPW.recommended_NA_content"
+                    },
+                    "classNames": [
+                      "tsla-recommended_NA"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "recommended_NA_content",
+              "content": "Der Innenraum in Schwarz und Weiß verwöhnt Sie mit unseren besten Premium-Materialien, maximalem Komfort und einer exklusiven Ästhetik. Die Materialien sind fleckenabweisend, nach höchsten Qualitätsstandards verarbeitet und zeichnen sich durch Langlebigkeit aus."
+            },
+            {
+              "type": "spec_description",
+              "content": "Innenraum mit Lederausstattung weiss"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_white.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "delivery",
+              "content": [
+                {
+                  "extra": true
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRMY1"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ]
+        },
+        "$INYPB": {
+          "code": "$INYPB",
+          "user_defined_rules": {
+            "set_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$INYPB"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$INYPW",
+                "$INPB1",
+                "$INPW1"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$INYPB"
+            },
+            {
+              "action": "set",
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INYPW",
+                "$INPB1",
+                "$INPW1"
+              ]
+            }
+          ],
+          "name": "Premium-Innenraum komplett schwarz",
+          "description": "Premium-Innenraum komplett schwarz",
+          "long_name": "Premium-Innenraum komplett schwarz",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Komplett schwarz"
+            },
+            {
+              "type": "price_indicator",
+              "content": "Inklusive"
             },
             {
               "type": "spec_description",
@@ -3926,7 +7345,7 @@
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Drei separat umklappbare Sitze in der 2. Sitzreihe"
+              "content": "Separat umklappbare Sitze in der 2. Sitzreihe"
             },
             {
               "type": "feature_list.default[0].items[2]",
@@ -3962,26 +7381,22 @@
             },
             {
               "type": "feature_list.default[2].items[1]",
-              "content": "Automatischer HomeLink-Garagentoröffner"
-            },
-            {
-              "type": "feature_list.default[2].items[2]",
               "content": "LED-Nebelscheinwerfer"
             },
             {
-              "type": "feature_list.default[2].items[3]",
+              "type": "feature_list.default[2].items[2]",
               "content": "Getöntes Glasdach mit UV- und Infrarot-Schutzschicht"
             },
             {
-              "type": "feature_list.default[2].items[4]",
-              "content": "Elektrisch einklappbare, beheizte Aussenspiegel"
+              "type": "feature_list.default[2].items[3]",
+              "content": "Elektrisch einklappbare, beheizte Außenspiegel mit Abblendautomatik"
             },
             {
-              "type": "feature_list.default[2].items[5]",
+              "type": "feature_list.default[2].items[4]",
               "content": "Individuelle Fahrerprofile"
             },
             {
-              "type": "feature_list.default[2].items[6]",
+              "type": "feature_list.default[2].items[5]",
               "content": "Mittelkonsole mit Staufächern, 4 USB-Anschlüssen und Dockingstation für 2 Mobiltelefone"
             },
             {
@@ -4032,7 +7447,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_int_in3pb.png",
+                  "url": "MODEL3/UI/Interior_Black.png",
                   "type": "image"
                 }
               ]
@@ -4069,12 +7484,7 @@
         "$INYPW": {
           "code": "$INYPW",
           "user_defined_rules": {
-            "set_rules": [
-              {
-                "action": "set",
-                "target": "$PRMY1"
-              }
-            ]
+            "set_rules": []
           },
           "set_rules": [
             {
@@ -4083,11 +7493,11 @@
             },
             {
               "action": "unset",
-              "target": "$INYPB"
-            },
-            {
-              "action": "set",
-              "target": "$PRMY1"
+              "targets": [
+                "$INYPB",
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
           "unset_rules": [
@@ -4097,7 +7507,12 @@
             },
             {
               "action": "set",
-              "target": "$INYPB"
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
           "name": "Premium-Innenraum schwarz und weiß",
@@ -4110,10 +7525,10 @@
             },
             {
               "type": "price_indicator",
-              "content": "inklusive"
+              "content": "Inklusive"
             },
             {
-              "type": "recommended_NA",
+              "type": "recommended_NA_NA",
               "content": "Empfohlen",
               "behavior": [
                 {
@@ -4148,7 +7563,7 @@
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Drei separat umklappbare Sitze in der 2. Sitzreihe"
+              "content": "Separat umklappbare Sitze in der 2. Sitzreihe"
             },
             {
               "type": "feature_list.default[0].items[2]",
@@ -4184,26 +7599,22 @@
             },
             {
               "type": "feature_list.default[2].items[1]",
-              "content": "Automatischer HomeLink-Garagentoröffner"
-            },
-            {
-              "type": "feature_list.default[2].items[2]",
               "content": "LED-Nebelscheinwerfer"
             },
             {
-              "type": "feature_list.default[2].items[3]",
+              "type": "feature_list.default[2].items[2]",
               "content": "Getöntes Glasdach mit UV- und Infrarot-Schutzschicht"
             },
             {
-              "type": "feature_list.default[2].items[4]",
-              "content": "Elektrisch einklappbare, beheizte Aussenspiegel"
+              "type": "feature_list.default[2].items[3]",
+              "content": "Elektrisch einklappbare, beheizte Außenspiegel mit Abblendautomatik"
             },
             {
-              "type": "feature_list.default[2].items[5]",
+              "type": "feature_list.default[2].items[4]",
               "content": "Individuelle Fahrerprofile"
             },
             {
-              "type": "feature_list.default[2].items[6]",
+              "type": "feature_list.default[2].items[5]",
               "content": "Mittelkonsole mit Staufächern, 4 USB-Anschlüssen und Dockingstation für 2 Mobiltelefone"
             },
             {
@@ -4254,7 +7665,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_int_white.png",
+                  "url": "MODEL3/UI/Interior_White.png",
                   "type": "image"
                 }
               ]
@@ -4347,7 +7758,7 @@
           "name": "Maximale Reichweite mit Allradantrieb",
           "description": "Model Y Maximale Reichweite mit AWD",
           "long_name": "Maximale Reichweite mit Allradantrieb",
-          "long_description": "Model Y Long Range AWD",
+          "long_description": "Model Y Maximale Reichweite mit AWD",
           "extra_copy": [
             {
               "type": "name",
@@ -4355,7 +7766,7 @@
             },
             {
               "type": "disclaimer_details",
-              "content": "Der Tesla-Allradantrieb verwendet zwei separate Elektromotoren, die das Drehmoment per Digitalsteuerung auf die Vorder- und Hinterrädern verteilen, um besseres Handling und überlegene Traktion zu garantieren. Ihr Fahrzeug kann auch problemlos von nur einem Motor angetrieben werden, wodurch Sie sich niemals Sorgen über ein Liegenbleiben machen müssen."
+              "content": "Der Tesla-Allradantrieb verfügt über zwei voneinander unabhängige Elektromotoren für mehr Redundanz - jeder mit nur einem beweglichen Teil für minimalen Wartungsaufwand und maximale Lebensdauer. Im Gegensatz zu herkömmlichen Allradantrieben steuern sie das Drehmoment digital an den Vorder- und Hinterrädern, um ein wesentlich besseres Fahrverhalten und bessere Traktion zu gewährleisten."
             },
             {
               "type": "long_name",
@@ -4375,10 +7786,34 @@
               "type": "price_indicator_override",
               "content": [
                 {
-                  "content": 58620,
+                  "content": 49990,
                   "configuration": [
                     "$MDLY"
                   ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 49990,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
                   "condition_state": "and"
                 }
               ]
@@ -4482,7 +7917,7 @@
           "name": "Performance Maximale Reichweite mit Dualmotor-Allradantrieb",
           "description": "Model Y Performance mit AWD",
           "long_name": "Performance Maximale Reichweite mit Dualmotor-Allradantrieb",
-          "long_description": "Model Y Performance AWD",
+          "long_description": "Model Y Performance mit AWD",
           "extra_copy": [
             {
               "type": "name",
@@ -4493,44 +7928,12 @@
               "content": "Optional"
             },
             {
-              "type": "description.main_title[0]",
-              "content": "Model Y Performance umfasst:"
-            },
-            {
-              "type": "description.items[0]",
-              "content": "Höhere Beschleunigung: 0 auf 100 km/h in 3,7 Sek."
-            },
-            {
-              "type": "description.items[1]",
-              "content": "Höchstgeschwindigkeit: bis 241 km/h"
-            },
-            {
-              "type": "description.items[2]",
-              "content": "21’’ Überturbine Wheels"
-            },
-            {
-              "type": "description.items[3]",
-              "content": "Performance-Bremsen"
-            },
-            {
-              "type": "description.items[4]",
-              "content": "Karbon-Heckspoiler"
-            },
-            {
-              "type": "description.items[5]",
-              "content": "Tiefergelegtes Fahrwerk"
-            },
-            {
-              "type": "description.items[6]",
-              "content": "Leichtmetallpedale"
-            },
-            {
               "type": "compare_matrix.block[0].label",
               "content": "Beschleunigung"
             },
             {
               "type": "compare_matrix.block[0].content",
-              "content": "3.5s 0-60mph"
+              "content": "3,5 Sek 0-100 km/h"
             },
             {
               "type": "compare_matrix.block[1].label",
@@ -4542,7 +7945,7 @@
             },
             {
               "type": "disclaimer_details",
-              "content": "Der Tesla-Allradantrieb verwendet zwei separate Elektromotoren, die das Drehmoment per Digitalsteuerung auf die Vorder- und Hinterrädern verteilen, um besseres Handling und überlegene Traktion zu garantieren. Ihr Fahrzeug kann auch problemlos von nur einem Motor angetrieben werden, wodurch Sie sich niemals Sorgen über ein Liegenbleiben machen müssen."
+              "content": "Der Tesla-Allradantrieb verfügt über zwei voneinander unabhängige Elektromotoren für mehr Redundanz - jeder mit nur einem beweglichen Teil für minimalen Wartungsaufwand und maximale Lebensdauer. Im Gegensatz zu herkömmlichen Allradantrieben steuern sie das Drehmoment digital an den Vorder- und Hinterrädern, um ein wesentlich besseres Fahrverhalten und bessere Traktion zu gewährleisten."
             },
             {
               "type": "long_name",
@@ -4570,7 +7973,19 @@
               "type": "price_indicator_override",
               "content": [
                 {
-                  "content": 65620,
+                  "content": 59990,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 59990,
                   "configuration": [
                     "$MDLY"
                   ],
@@ -4677,7 +8092,7 @@
           "name": "Performance Maximale Reichweite mit Dualmotor-Allradantrieb",
           "description": "Model Y Performance mit AWD",
           "long_name": "Performance Maximale Reichweite mit Dualmotor-Allradantrieb",
-          "long_description": "Model Y Performance AWD",
+          "long_description": "Model Y Performance mit AWD",
           "extra_copy": [
             {
               "type": "name",
@@ -4688,60 +8103,28 @@
               "content": "Optional"
             },
             {
-              "type": "description.main_title[0]",
-              "content": "Model Y Performance umfasst:"
-            },
-            {
-              "type": "description.items[0]",
-              "content": "Höhere Beschleunigung: 0 auf 100 km/h in 3,7 Sek."
-            },
-            {
-              "type": "compare_matrix.block[0].content",
-              "content": "3.5s 0-60mph"
-            },
-            {
-              "type": "compare_matrix.block[1].label",
-              "content": "DriveFahren"
-            },
-            {
-              "type": "compare_matrix.block[1].content",
-              "content": "Dual Motor All-wheel DriveDual-Motor mit Allradantrieb"
-            },
-            {
-              "type": "disclaimer_details",
-              "content": "Der Tesla-Allradantrieb verwendet zwei separate Elektromotoren, die das Drehmoment per Digitalsteuerung auf die Vorder- und Hinterrädern verteilen, um besseres Handling und überlegene Traktion zu garantieren. Ihr Fahrzeug kann auch problemlos von nur einem Motor angetrieben werden, wodurch Sie sich niemals Sorgen über ein Liegenbleiben machen müssen."
-            },
-            {
-              "type": "description.items[1]",
-              "content": "Höchstgeschwindigkeit: bis 241 km/h"
-            },
-            {
-              "type": "description.items[2]",
-              "content": "21’’ Überturbine Wheels"
-            },
-            {
-              "type": "description.items[3]",
-              "content": "Performance-Bremsen"
-            },
-            {
-              "type": "description.items[4]",
-              "content": "Karbon-Heckspoiler"
-            },
-            {
-              "type": "description.items[5]",
-              "content": "Tiefergelegtes Fahrwerk"
-            },
-            {
-              "type": "description.items[6]",
-              "content": "Leichtmetallpedale"
-            },
-            {
               "type": "compare_matrix.block[0].label",
               "content": "Beschleunigung"
             },
             {
+              "type": "compare_matrix.block[0].content",
+              "content": "3,5 Sek 0-100 km/h"
+            },
+            {
+              "type": "compare_matrix.block[1].label",
+              "content": "Fahren"
+            },
+            {
+              "type": "compare_matrix.block[1].content",
+              "content": "Dual-Motor mit Allradantrieb"
+            },
+            {
+              "type": "disclaimer_details",
+              "content": "Der Tesla-Allradantrieb verfügt über zwei voneinander unabhängige Elektromotoren für mehr Redundanz - jeder mit nur einem beweglichen Teil für minimalen Wartungsaufwand und maximale Lebensdauer. Im Gegensatz zu herkömmlichen Allradantrieben steuern sie das Drehmoment digital an den Vorder- und Hinterrädern, um ein wesentlich besseres Fahrverhalten und bessere Traktion zu gewährleisten."
+            },
+            {
               "type": "long_name",
-              "content": "Model Y Performance Dual Motor All-Wheel DriveModel Y Performance mit Dualmotor-Allradantrieb"
+              "content": "Model Y Performance mit Dualmotor-Allradantrieb"
             }
           ],
           "extra_content": [
@@ -4765,7 +8148,7 @@
               "type": "price_indicator_override",
               "content": [
                 {
-                  "content": 65620,
+                  "content": 59990,
                   "configuration": [
                     "$MDLY"
                   ],
@@ -4777,10 +8160,25 @@
               "type": "option_price_override",
               "content": [
                 {
-                  "content": 65620,
+                  "content": 59990,
                   "configuration": [
                     "$MDLY"
                   ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "options": [
+                    "$SPTY1"
+                  ],
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
                   "condition_state": "and"
                 }
               ]
@@ -4832,7 +8230,7 @@
             },
             {
               "type": "price_indicator",
-              "content": "inklusive"
+              "content": "Inklusive"
             },
             {
               "type": "short_description",
@@ -4947,31 +8345,31 @@
           "name": "Zusatzausstattung „Performance“",
           "description": "Zusatzausstattung „Performance“",
           "long_name": "Zusatzausstattung „Performance“",
-          "long_description": "Performance Upgrade",
+          "long_description": "Zusatzausstattung „Performance“",
           "extra_copy": [
             {
-              "type": "selectLabel",
-              "content": "Option wählen"
+              "type": "price_indicator",
+              "content": "Inklusive"
             },
             {
-              "type": "price_indicator",
-              "content": "inklusive"
+              "type": "selectLabel",
+              "content": "Performance-Upgrade hinzufügen"
             },
             {
               "type": "deselectLabel",
-              "content": "Gewählte Option"
+              "content": "Performance-Upgrade hinzugefügt"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "20-Zoll Performance-Felgen"
+              "content": "Höchstgeschwindigkeit: bis zu 241 km/h"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Performance-Bremsen"
+              "content": "21-Zoll Überturbine-Felgen"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Karbon-Heckspoiler"
+              "content": "Performance-Bremsen"
             },
             {
               "type": "feature_list.default[0].items[3]",
@@ -4982,29 +8380,53 @@
               "content": "Leichtmetallpedale"
             },
             {
-              "type": "feature_list.default[0].items[5]",
-              "content": "Erhöhte Höchstgeschwindigkeit von 155 mph statt 145 mph"
-            },
-            {
-              "type": "feature_list.default[0].items[6]",
-              "content": "Track-Modus"
+              "type": "performance_upgrade_features",
+              "content": "Weitere",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "PERFORMANCE_UPGRADE_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
-            {
-              "type": "shape",
-              "content": [
-                {
-                  "type": "checkbox"
-                }
-              ]
-            },
             {
               "type": "action",
               "content": [
                 {
                   "type": "hero-update",
-                  "view": "STUD_3QTR"
+                  "view": "FRONT34",
+                  "zoom": 1.3
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
                 }
               ]
             }
@@ -5046,7 +8468,23 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "inklusive"
+              "content": "Inklusive"
+            },
+            {
+              "type": "short_name",
+              "content": "5"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "2. Reihe mit verstellbaren Sitzlehnen"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "2. Sitzreihe umklappbar für maximalen Stauraum"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Bedienelemente im Gepäckraum für elektrische Sitzumklappfunktion"
             }
           ],
           "extra_content": [
@@ -5054,7 +8492,7 @@
               "type": "shape",
               "content": [
                 {
-                  "type": "block"
+                  "type": "circle"
                 }
               ]
             }
@@ -5093,24 +8531,42 @@
           "name": "Siebensitzer-Innenraum",
           "description": "Siebensitzer-Innenraum",
           "long_name": "Siebensitzer-Innenraum",
-          "extra_copy": [],
+          "extra_copy": [
+            {
+              "type": "short_name",
+              "content": "7"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "3. Sitzreihe für zwei Personen"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Komfort-Einstiegsfunktion für 3. Sitzreihe"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "USB-C-Anschluss mit Ladefunktion, 3. Sitzreihe"
+            },
+            {
+              "type": "feature_list.default[0].items[3]",
+              "content": "Verschiebbare 2. Sitzreihe mit verstellbaren Lehnen"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "2. und 3. Sitzreihe umklappbar für maximalen Stauraum"
+            },
+            {
+              "type": "feature_list.default[0].items[5]",
+              "content": "Bedienelemente im Gepäckraum für elektrische Sitzumklappfunktion"
+            }
+          ],
           "extra_content": [
             {
               "type": "shape",
               "content": [
                 {
-                  "type": "block"
-                }
-              ]
-            },
-            {
-              "type": "disable_override",
-              "content": [
-                {
-                  "configuration": [
-                    "$MDLY"
-                  ],
-                  "condition_state": "and"
+                  "type": "circle"
                 }
               ]
             },
@@ -5182,13 +8638,13 @@
               ]
             }
           ],
-          "name": "19’’ Gemini Wheels",
-          "description": "19’’ Gemini Wheels",
-          "long_name": "19’’ Gemini Wheels",
+          "name": "19-Zoll-Felgen Gemini",
+          "description": "19-Zoll-Felgen Gemini",
+          "long_name": "19-Zoll-Felgen Gemini",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "inklusive"
+              "content": "Inklusive"
             }
           ],
           "extra_content": [
@@ -5274,14 +8730,14 @@
               "condition_state": "unset"
             }
           ],
-          "name": "20’’ Induction Wheels",
-          "description": "20’’ Induction Wheels",
-          "long_name": "20’’ Induction Wheels",
-          "long_description": "20’’ Induction Wheels",
+          "name": "20-Zoll-Felgen Induction",
+          "description": "20-Zoll-Felgen Induction",
+          "long_name": "20-Zoll-Felgen Induction",
+          "long_description": "20-Zoll-Felgen Induction",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "inklusive"
+              "content": "Inklusive"
             }
           ],
           "extra_content": [
@@ -5376,14 +8832,14 @@
               "condition_state": "unset"
             }
           ],
-          "name": "21’’ Überturbine Wheels",
-          "description": "21’’ Überturbine Wheels",
-          "long_name": "21’’ Überturbine Wheels",
-          "long_description": "21’’ Überturbine Wheels",
+          "name": "21-Zoll Überturbine-Felgen",
+          "description": "21-Zoll Überturbine-Felgen",
+          "long_name": "21-Zoll Überturbine-Felgen",
+          "long_description": "21-Zoll Überturbine-Felgen",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "inklusive"
+              "content": "Inklusive"
             }
           ],
           "extra_content": [
@@ -5525,7 +8981,8 @@
               "$MTY02",
               "$MTY03",
               "$MTY04",
-              "$MTY05"
+              "$MTY05",
+              "$MTY06"
             ]
           },
           {
@@ -5571,19 +9028,141 @@
           }
         ],
         "specs": {
-          "data": [],
+          "data": [
+            {
+              "meta": {
+                "specs": {
+                  "range": {
+                    "units": "kilometers",
+                    "source": "EPA est."
+                  },
+                  "topspeed": {
+                    "units": "kilometers-per-hour"
+                  },
+                  "ludicrous": {
+                    "units": "seconds",
+                    "measurement": {
+                      "units": "kilometers-per-hour",
+                      "value": "0-100"
+                    }
+                  },
+                  "acceleration": {
+                    "units": "seconds",
+                    "measurement": {
+                      "units": "kilometers-per-hour",
+                      "value": "0-100"
+                    }
+                  }
+                },
+                "unit_definitions": {
+                  "seconds": {
+                    "label": "s",
+                    "short_label": "s"
+                  },
+                  "kilometers": {
+                    "label": "kilometer",
+                    "short_label": "km"
+                  },
+                  "range_units": {
+                    "label": "Reichweite"
+                  },
+                  "range_units_epa": {
+                    "label": "Reichweite (WLTP geschätzt)"
+                  },
+                  "range_units_est": {
+                    "label": "Reichweite (geschätzt)"
+                  },
+                  "top_speed_units": {
+                    "label": "Maximale Geschwindigkeit",
+                    "short_label": "km/h"
+                  },
+                  "zero_to_road_limit": {
+                    "label": "0-100 km/h",
+                    "short_label": "0-100 km/h"
+                  },
+                  "kilometers-per-hour": {
+                    "label": "km/h",
+                    "short_label": "km/h"
+                  }
+                }
+              },
+              "options": {
+                "$MTY01": {
+                  "name": "Standard Range Rear-Wheel Drive",
+                  "range": 393,
+                  "topspeed": 217,
+                  "acceleration": 5.3,
+                  "range_units_override": "range_units_epa"
+                },
+                "$MTY03": {
+                  "name": "Long Range All-Wheel Drive",
+                  "range": 505,
+                  "topspeed": 217,
+                  "acceleration": 5.1,
+                  "range_units_override": "range_units_epa"
+                },
+                "$MTY04": {
+                  "name": "Long Range All-Wheel Drive Performance",
+                  "range": 480,
+                  "topspeed": 241,
+                  "overrides": [
+                    {
+                      "content": {
+                        "range": 468,
+                        "topspeed": 250,
+                        "acceleration": 3.7
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$SPTY1"
+                        ]
+                      }
+                    }
+                  ],
+                  "acceleration": 3.7,
+                  "range_units_override": "range_units_epa"
+                },
+                "$MTY05": {
+                  "name": "Long Range All-Wheel Drive Performance",
+                  "range": 480,
+                  "topspeed": 241,
+                  "overrides": [
+                    {
+                      "content": {
+                        "range": 480,
+                        "topspeed": 241,
+                        "acceleration": 3.7
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$SPTY1"
+                        ]
+                      }
+                    }
+                  ],
+                  "acceleration": 3.7,
+                  "range_units_override": "range_units_epa"
+                }
+              },
+              "curb_weight": {
+                "$MTY03": 4416,
+                "$MTY04": 4416,
+                "$MTY05": 4416
+              }
+            }
+          ],
           "refs": {
             "time": {
               "label": "seconds",
               "short_label": "sec"
             },
             "distance": {
-              "label": "kilometer",
-              "short_label": "km"
+              "label": "miles",
+              "short_label": "mi"
             },
             "velocity": {
-              "label": "kilometer per hour",
-              "short_label": "km/h"
+              "label": "miles per hour",
+              "short_label": "mph"
             }
           }
         },
@@ -5626,8 +9205,8 @@
       "warranty_options": {
         "$NW00": {
           "code": "$NW00",
-          "name": "New MFG Warranty",
-          "description": "New MFG Warranty",
+          "name": "Neuwagengarantie",
+          "description": "Neuwagengarantie",
           "extra_copy": [
             {
               "type": "description",
@@ -5643,7 +9222,7 @@
             },
             {
               "type": "odometer_unit",
-              "content": "kilometers"
+              "content": "miles"
             },
             {
               "type": "general_coverage",
@@ -5701,8 +9280,8 @@
         },
         "$NW01": {
           "code": "$NW01",
-          "name": "New MFG Warranty",
-          "description": "New MFG Warranty",
+          "name": "Neuwagengarantie",
+          "description": "Neuwagengarantie",
           "extra_copy": [
             {
               "type": "description",
@@ -5718,7 +9297,7 @@
             },
             {
               "type": "odometer_unit",
-              "content": "kilometers"
+              "content": "miles"
             },
             {
               "type": "general_coverage",
@@ -5776,8 +9355,8 @@
         },
         "$UW00": {
           "code": "$UW00",
-          "name": "Used MFG Warranty",
-          "description": "Used MFG Warranty",
+          "name": "Neuwagengarantie",
+          "description": "Neuwagengarantie",
           "extra_copy": [
             {
               "type": "description",
@@ -5821,8 +9400,8 @@
         },
         "$UW01": {
           "code": "$UW01",
-          "name": "Used MFG Warranty",
-          "description": "Used MFG Warranty",
+          "name": "Neuwagengarantie",
+          "description": "Neuwagengarantie",
           "extra_copy": [
             {
               "type": "decription",
@@ -5865,8 +9444,8 @@
         },
         "$UW02": {
           "code": "$UW02",
-          "name": "Used MFG Warranty",
-          "description": "Used MFG Warranty",
+          "name": "Neuwagengarantie",
+          "description": "Neuwagengarantie",
           "extra_copy": [
             {
               "type": "decription",
@@ -5888,7 +9467,7 @@
                   "marketing",
                   "customer"
                 ],
-                "odometer_unit": "kilometers",
+                "odometer_unit": "miles",
                 "vehicle_damage_history": [
                   "clean",
                   "previous accident(s)"
@@ -5942,7 +9521,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 433,
+      "options_id": 962,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -5955,8 +9534,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 50000,
             "coverage_odometer_kilometers": 80000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$GN01",
@@ -5969,8 +9547,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 60000,
             "coverage_odometer_kilometers": 100000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$GU00",
@@ -5983,8 +9560,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 50000,
             "coverage_odometer_kilometers": 80000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$GU01",
@@ -5997,8 +9573,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 100000,
             "coverage_odometer_kilometers": 160000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$GU02",
@@ -6011,8 +9586,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 10000,
             "coverage_odometer_kilometers": 20000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$GU03",
@@ -6025,8 +9599,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 10000,
             "coverage_odometer_kilometers": 20000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$BAT06",
@@ -6039,8 +9612,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 150000,
             "coverage_odometer_kilometers": 240000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$BAT07",
@@ -6053,8 +9625,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 120000,
             "coverage_odometer_kilometers": 192000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$BAT08",
@@ -6067,8 +9638,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 100000,
             "coverage_odometer_kilometers": 160000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$BAT09",
@@ -6081,8 +9651,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 100000,
             "coverage_odometer_kilometers": 160000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$BAT13",
@@ -6095,8 +9664,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 120000,
             "coverage_odometer_kilometers": 192000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU00",
@@ -6109,8 +9677,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 150000,
             "coverage_odometer_kilometers": 240000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU01",
@@ -6123,8 +9690,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 150000,
             "coverage_odometer_kilometers": 240000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU02",
@@ -6137,8 +9703,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 150000,
             "coverage_odometer_kilometers": 240000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU03",
@@ -6151,8 +9716,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 150000,
             "coverage_odometer_kilometers": 240000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU05",
@@ -6165,8 +9729,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 100000,
             "coverage_odometer_kilometers": 160000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU06",
@@ -6179,8 +9742,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 120000,
             "coverage_odometer_kilometers": 192000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD00",
@@ -6193,8 +9755,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 50000,
             "coverage_odometer_kilometers": 80000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD01",
@@ -6207,8 +9768,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 60000,
             "coverage_odometer_kilometers": 100000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD03",
@@ -6221,8 +9781,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 50000,
             "coverage_odometer_kilometers": 80000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD04",
@@ -6234,8 +9793,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 100000,
             "coverage_odometer_kilometers": 160000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD05",
@@ -6248,8 +9806,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 10000,
             "coverage_odometer_kilometers": 20000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD06",
@@ -6261,13 +9818,13 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 10000,
             "coverage_odometer_kilometers": 20000
-          },
-          "content_localized": {}
+          }
         }
       ],
-      "copy_id": 545,
+      "copy_id": 1389,
       "language": "de",
-      "pricing_id": 1026
+      "pricing_id": 1026,
+      "reference_id": 962
     }
   },
   "edd": []

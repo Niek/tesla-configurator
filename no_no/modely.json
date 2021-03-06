@@ -14,6 +14,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "version": "redesign",
               "model": "my",
               "variant": "my"
             }
@@ -31,6 +32,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "version": "redesign",
               "model": "my",
               "variant": "my"
             }
@@ -48,6 +50,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "version": "redesign",
               "model": "my",
               "variant": "my"
             }
@@ -65,6 +68,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "version": "redesign",
               "model": "my",
               "variant": "my"
             }
@@ -82,6 +86,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "version": "redesign",
               "model": "my",
               "variant": "my"
             }
@@ -99,6 +104,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "version": "redesign",
               "model": "my",
               "variant": "my"
             }
@@ -116,6 +122,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "version": "redesign",
               "model": "my",
               "variant": "my"
             }
@@ -130,7 +137,8 @@
         "date": "",
         "seekret": "",
         "tags": "",
-        "context": ""
+        "context": "",
+        "version": "redesign"
       }
     },
     "InitialConfig.my.my": {
@@ -644,6 +652,10 @@
             "context": "configurator"
           },
           {
+            "code": "EAP_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "EXTERIOR_GALLERY",
             "context": "configurator"
           },
@@ -653,6 +665,14 @@
           },
           {
             "code": "CONNECTIVITY",
+            "context": "default"
+          },
+          {
+            "code": "BRAKES",
+            "context": "default"
+          },
+          {
+            "code": "PEDALS",
             "context": "default"
           }
         ]
@@ -919,6 +939,35 @@
         "showLegalConsent": [],
         "showPrpLink": false,
         "showVAT": true,
+        "assetView": "STUD_3QTR",
+        "assetViewSource": [
+          {
+            "view": "FRONT34",
+            "zoom": 1,
+            "selected_by": {
+              "and": [
+                {
+                  "or": [
+                    "$ST03",
+                    "$ST0Y"
+                  ]
+                },
+                {
+                  "or": [
+                    "$MTX10",
+                    "$MTX11",
+                    "$MTS09",
+                    "$MTS10",
+                    "$MTS11"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "view": "STUD_3QTR"
+          }
+        ],
         "asset": {
           "type": "image-compositor",
           "view": "STUD_3QTR",
@@ -1121,9 +1170,11 @@
         ],
         "actionsToUpdatePrices": [
           "SUMMARY_PANEL_INCLUDE_SERVICE_FEE_CHANGE",
+          "SUMMARY_PANEL_DISTANCE_CHANGE",
           "ACCOUNT_DETAILS_CHANGED"
         ],
         "showVehicleSubtotal": false,
+        "hidePostfixOnUI": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1441,13 +1492,12 @@
       "tcc": []
     },
     "Lexicon.my": {
-      "id": 441,
-      "effective_date": "2021-02-26T01:45:00.000Z",
+      "effective_date": "2021-03-05T17:34:47.135Z",
       "market": "NO",
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing NO 2021.Feb.26 441.554.1030",
+      "name": "Marketing NO 2021.Mar.05 963.1400.1030 [no]",
       "groups": [
         {
           "code": "MODEL",
@@ -1505,7 +1555,9 @@
           "context": "default",
           "options": [
             "$INYPB",
-            "$INYPW"
+            "$INYPW",
+            "$INPB1",
+            "$INPW1"
           ],
           "required": true,
           "exclusive": true,
@@ -1551,7 +1603,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Velg farge"
+              "content": "Lakk"
             },
             {
               "type": "section_title",
@@ -1564,7 +1616,7 @@
               "content": [
                 {
                   "type": "hero-update",
-                  "view": "STUD_3QTR"
+                  "view": "FRONT34"
                 }
               ]
             },
@@ -1573,8 +1625,30 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR"
+                  "view": "FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "FRONT34"
                 }
               ]
             }
@@ -1616,7 +1690,7 @@
               "content": [
                 {
                   "type": "image-compositor",
-                  "view": "STUD_WHEEL"
+                  "view": "RIMCLOSEUP"
                 }
               ]
             }
@@ -1775,7 +1849,18 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Alternativer"
+          "name": "Alternativer",
+          "extra_content": [
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY",
+                  "section": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "REVIEW_ORDER",
@@ -1783,6 +1868,9 @@
             "PAINT",
             "SPORT_PACKAGE",
             "WHEELS",
+            "BRAKES",
+            "SPOILER",
+            "PEDALS",
             "INTERIOR",
             "REAR_SEATS",
             "AUTOPILOT",
@@ -1841,7 +1929,29 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Velg interiørutseende"
+              "content": "Seteplan"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h4"
+                  }
+                },
+                {
+                  "type": "Options",
+                  "props": {
+                    "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center"
+                  }
+                },
+                {
+                  "type": "SelectedPrice"
+                }
+              ]
             }
           ]
         },
@@ -1865,11 +1975,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Velg farge"
-            },
-            {
-              "type": "section_title",
-              "content": "Eksteriør"
+              "content": "Lakk"
             }
           ],
           "extra_content": [
@@ -1878,7 +1984,7 @@
               "content": [
                 {
                   "type": "hero-update",
-                  "view": "STUD_3QTR"
+                  "view": "FRONT34"
                 }
               ]
             },
@@ -1887,8 +1993,59 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR"
+                  "view": "SIDE",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "SIDE",
+                  "zoom": 1.3
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "Options",
+                  "props": {
+                    "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center"
+                  }
+                },
+                {
+                  "type": "SelectedPrice"
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY"
                 }
               ]
             }
@@ -1912,7 +2069,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Velg felger"
+              "content": "Hjul"
             }
           ],
           "extra_content": [
@@ -1929,8 +2086,97 @@
               "type": "asset",
               "content": [
                 {
+                  "bkba": 1,
+                  "crop": [
+                    0,
+                    0,
+                    80,
+                    0
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_WHEEL"
+                  "view": "RIMCLOSEUP",
+                  "ratio": "meet",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "crop": [
+                    0,
+                    0,
+                    80,
+                    0
+                  ],
+                  "type": "image-compositor",
+                  "view": "RIMCLOSEUP",
+                  "ratio": "slice"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 280,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WY21P",
+                      "$MTY04"
+                    ]
+                  }
+                },
+                {
+                  "value": " ",
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$RANDOM"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "Options",
+                  "props": {
+                    "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center"
+                  }
+                },
+                {
+                  "type": "SelectedPrice"
+                },
+                {
+                  "type": "DisclaimerSpecial",
+                  "props": {
+                    "field": "certified_disclaimer",
+                    "classes": "tds-text--center"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY"
                 }
               ]
             }
@@ -1941,35 +2187,28 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$APBS",
+            "$APPB",
             "$APF2"
           ],
           "required": false,
           "exclusive": false,
           "name": "Autopilot",
-          "extra_copy": [],
-          "extra_content": []
-        },
-        {
-          "code": "AUTOPILOT",
-          "groups": [
-            "AUTOPILOT_PACKAGE"
-          ],
-          "context": "configurator",
-          "options": [],
-          "required": false,
-          "exclusive": false,
-          "default_options": [],
-          "name": "Autopilot-pakke",
-          "description": "Beskrivelse av Autopilot-pakke",
           "extra_copy": [
             {
-              "type": "feature_list.default[0].title",
-              "content": "Autopilot"
+              "type": "video_list.default[0].title",
+              "content": "Navigere på Autopilot"
             },
             {
-              "type": "feature_list.default[0].description",
-              "content": "Autopilotens avanserte sikkerhets- og bekvemmelighetsfunksjoner er utformet for å assistere deg med de mest tyngste delene av kjøringen. Alle de nye Teslaene leveres med førerassistansefunksjoner som nødbremsing, kollisjonsvarsling og advarsel om blindsone."
+              "type": "video_list.default[1].title",
+              "content": " Automatisk filbytte "
+            },
+            {
+              "type": "video_list.default[2].title",
+              "content": "Autopark"
+            },
+            {
+              "type": "video_list.default[3].title",
+              "content": ""
             }
           ],
           "extra_content": [
@@ -1977,58 +2216,107 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/autopilot3.jpg",
-                  "type": "image",
-                  "selected_by": {
-                    "or": [
-                      {
-                        "on": [
-                          "mobile"
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "url": "https://www.tesla.com/ns_videos/models/autonomy/hero-mobile.mp4",
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/route.mp4",
                   "type": "video-inline",
                   "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/models/autonomy/hero.mp4",
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/route.mp4",
                   "selected_by": {
                     "or": [
                       {
                         "on": [
                           "desktop",
-                          "tablet"
+                          "tablet",
+                          "mobile"
                         ]
                       }
                     ]
                   },
                   "video_props": {
-                    "loop": 2,
+                    "loop": 0,
                     "muted": true,
                     "autoPlay": true,
-                    "stopTime": 2,
-                    "fullWidth": true
-                  }
+                    "fullWidth": true,
+                    "playsInline": true
+                  },
+                  "video_content": [
+                    {
+                      "url": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                      "relative": true,
+                      "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                      "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[0]"
+                    },
+                    {
+                      "url": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                      "relative": true,
+                      "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                      "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[1]"
+                    },
+                    {
+                      "url": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                      "relative": true,
+                      "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                      "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[2]"
+                    },
+                    {
+                      "url": "MODEL3/UI/summon_v2.mp4",
+                      "relative": false,
+                      "urlDesktop": "MODEL3/UI/summon_v2.mp4",
+                      "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[3]"
+                    }
+                  ]
                 }
               ]
             },
             {
               "type": "detail_size",
-              "content": "big"
+              "content": "regular"
             },
             {
               "type": "direction_type",
               "content": "column"
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "RootGroup"
+                },
+                {
+                  "type": "Options"
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "FSD_GALLERY"
+                }
+              ]
             }
           ]
+        },
+        {
+          "code": "AUTOPILOT",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APBS"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Autopilot-pakke",
+          "description": "Beskrivelse av Autopilot-pakke",
+          "extra_copy": [],
+          "extra_content": []
         },
         {
           "code": "AUTOPILOT_OWNERSHIP",
           "groups": [],
           "context": "configurator",
           "options": [
+            "$APPB",
             "$APBS",
             "$APF2"
           ],
@@ -2037,71 +2325,6 @@
           "name": "Autopilot",
           "extra_copy": [],
           "extra_content": []
-        },
-        {
-          "code": "EXTERIOR_GROUP",
-          "groups": [
-            "PAINT",
-            "WHEELS",
-            "TOWING"
-          ],
-          "context": "configurator",
-          "options": [],
-          "required": false,
-          "exclusive": false,
-          "name": "Farge og felger",
-          "description": "Farge og felger",
-          "long_name": "Farge og felger",
-          "extra_copy": [
-            {
-              "type": "name",
-              "content": "Eksteriør"
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "asset",
-              "content": [
-                {
-                  "bkba": 1,
-                  "type": "image-compositor",
-                  "view": "STUD_3QTR"
-                }
-              ]
-            }
-          ]
-        },
-        {
-          "code": "COLOR_AND_WHEELS",
-          "groups": [
-            "PAINT",
-            "WHEELS"
-          ],
-          "context": "configurator",
-          "options": [],
-          "required": false,
-          "exclusive": false,
-          "name": "Farge og felger",
-          "description": "Farge og felger",
-          "long_name": "Farge og felger",
-          "extra_copy": [
-            {
-              "type": "name",
-              "content": "Eksteriør"
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "asset",
-              "content": [
-                {
-                  "bkba": 1,
-                  "type": "image-compositor",
-                  "view": "STUD_3QTR"
-                }
-              ]
-            }
-          ]
         },
         {
           "code": "PACKAGES",
@@ -2119,10 +2342,46 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Velg interiør"
+              "content": "Interiør"
             },
             {
-              "type": "group_disclaimer[0]",
+              "type": "view_features",
+              "content": "Egenskaper",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "INTERIOR_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_link",
+              "content": "Se tredje rad",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURE_LIST_MODAL_OPEN",
+                    "payload": {
+                      "groupName": "INTERIOR_FEATURES",
+                      "selectedView": "SEVEN_SEATS_CARD",
+                      "analyticsTriggerText": "features-modal-clicked"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "group_disclaimer",
               "content": "Interiør med syv seter tilgjengelig i 2021"
             }
           ],
@@ -2153,14 +2412,96 @@
                   "ratio": "slice"
                 }
               ]
+            },
+            {
+              "type": "dynamic_copy_loader",
+              "content": [
+                {
+                  "props": {
+                    "field": "feature_list.default",
+                    "content_path": "CustomGroups.REAR_SEATS.currentSelected[0]"
+                  },
+                  "selected_by": {
+                    "or": [
+                      "$STY5S",
+                      "$STY7S"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "RootGroup"
+                },
+                {
+                  "type": "DynamicCopy",
+                  "props": {
+                    "field": "dynamic_copy_loader",
+                    "group": "PACKAGES"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "group_disclaimer",
+                    "classes": "tds-text--center tds--padding_top-16"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "view_link"
+                      }
+                    ],
+                    "classes": "tds-link tds-link--primary",
+                    "component": "a"
+                  },
+                  "selected_by": {
+                    "and": [
+                      "$STY7S"
+                    ]
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "view_features",
+                        "props": {
+                          "modal": "INTERIOR_FEATURES"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY",
+                  "section": 4
+                }
+              ]
             }
           ]
         },
         {
           "code": "PREMIUM_PACKAGE",
-          "groups": [
-            "INTERIOR"
-          ],
+          "groups": [],
           "context": "configurator",
           "options": [
             "$INYPB",
@@ -2170,13 +2511,23 @@
           "exclusive": false,
           "name": "Interiør",
           "long_name": "Premium oppgraderinger",
-          "extra_copy": [
+          "extra_copy": [],
+          "extra_content": [
             {
-              "type": "name",
-              "content": "Velg interiør"
+              "type": "components",
+              "content": [
+                {
+                  "type": "Options",
+                  "props": {
+                    "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center"
+                  }
+                },
+                {
+                  "type": "SelectedPrice"
+                }
+              ]
             }
-          ],
-          "extra_content": []
+          ]
         },
         {
           "code": "SPOILER",
@@ -2211,19 +2562,23 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$SPTY1",
-            "$WY21P",
-            "$BCYR",
-            "$SLR1",
-            "$PL31"
+            "$SPTY1"
           ],
           "required": false,
           "exclusive": false,
           "name": "Performance-oppgradering",
-          "extra_copy": [
+          "extra_copy": [],
+          "extra_content": [
             {
-              "type": "name",
-              "content": "Performance-oppgradering"
+              "type": "components",
+              "content": [
+                {
+                  "type": "Options"
+                },
+                {
+                  "type": "RootGroup"
+                }
+              ]
             }
           ]
         },
@@ -2294,13 +2649,114 @@
             {
               "type": "sub_title",
               "content": "Dual Motor firehjulsdrift"
+            },
+            {
+              "type": "disclaimer_savingsPrice",
+              "content": "* Kostnadene ovenfor inkluderer potensielle insentiver og bensinbesparelser på {SAVING_PRICE}."
+            },
+            {
+              "type": "disclaimer_purchasePrice",
+              "content": "Alle priser vises uten potensielle insentiver eller bensinbesparelser på {SAVING_PRICE}."
+            },
+            {
+              "type": "disclaimer_savingsPrice_CA",
+              "content": "* Viste priser inkluderer {INCENTIVE_AMOUNT} {NAME_OF_INCENTIVE} og potensielle insentiver og bensinbesparelser på {SAVING_PRICE}."
+            },
+            {
+              "type": "disclaimer_purchasePrice_CA",
+              "content": "Prisene vises uten {INCENTIVE_AMOUNT} {NAME_OF_INCENTIVE} og potensielle insentiver og bensinbesparelser på {SAVING_PRICE}."
+            },
+            {
+              "type": "disclaimer_learnMore",
+              "content": "Lær mer",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "SHOW_FINANCE_MODAL"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "disclaimer_customIncentives",
+              "content": "Tilpass",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "tag": "a",
+                    "type": "SHOW_INCENTIVES_MODAL",
+                    "classNames": [
+                      "tds-link"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "compare_features",
+              "content": "Egenskaper",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "STD_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "sub_title",
+                    "classes": "tds-text--start text-loader--subtitle tds-text--500 tds--vertical_padding-10",
+                    "component": "div"
+                  }
+                },
+                {
+                  "type": "Options"
+                },
+                {
+                  "type": "GroupDescription",
+                  "props": {
+                    "group": "DUAL_MOTOR_PREMIUM"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "compare_features",
+                        "props": {
+                          "modal": "STD_FEATURES"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
         {
           "code": "BATTERY_AND_DRIVE",
           "groups": [
-            "DUAL_MOTOR_PREMIUM"
+            "DUAL_MOTOR_PREMIUM",
+            "SPORT_PACKAGE"
           ],
           "context": "configurator",
           "options": [],
@@ -2312,7 +2768,7 @@
           "extra_copy": [
             {
               "type": "group_disclaimer",
-              "content": "Alle biler har Premium-interiør og -lyd."
+              "content": "Alle biler har Premium-interiør og -lyd"
             },
             {
               "type": "zero_to_road_limit_units",
@@ -2320,7 +2776,7 @@
             },
             {
               "type": "range_units",
-              "content": "Rekkevidde"
+              "content": "Rekkevidde (est.)"
             },
             {
               "type": "epa",
@@ -2340,7 +2796,7 @@
             },
             {
               "type": "range_units_epa",
-              "content": "Rekkevidde"
+              "content": "Rekkevidde (EPA est.)"
             },
             {
               "type": "top_speed_units",
@@ -2348,15 +2804,11 @@
             },
             {
               "type": "name",
-              "content": "Velg din bilmodell"
+              "content": "Model Y"
             },
             {
-              "type": "section_title",
-              "content": "Bil"
-            },
-            {
-              "type": "disclaimer_copy[0]",
-              "content": " ",
+              "type": "disclaimer_production",
+              "content": "Standard range-produksjonen forventes å begynne tidlig i 2021.",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -2364,32 +2816,13 @@
                     "tag": "p",
                     "props": {
                       "style": {
-                        "display": "block"
+                        "display": "block",
+                        "marginBottom": "10px"
                       }
                     }
                   }
                 }
               ]
-            },
-            {
-              "type": "range_units_est_link",
-              "content": "(WLTP-est.)",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "SHOW_RANGE_MODAL"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "range_info_title",
-              "content": "Rekkevidde"
-            },
-            {
-              "type": "range_info_disclaimer",
-              "content": "Tallene for estimert rekkevidde er basert på WLTP-standarden. Din faktiske rekkevidde vil variere avhengig av din konfigurasjon, batteriets alder og tilstand, kjørestil og drifts-, miljø- og klimaforhold. WLTP-standarden kan være nyttig ved sammenligning av rekkevidden til ulike elektriske biler."
             }
           ],
           "extra_content": [
@@ -2398,8 +2831,31 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR"
+                  "view": "FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "FRONT34",
+                  "zoom": 1.3
                 }
               ]
             },
@@ -2407,48 +2863,81 @@
               "type": "performance_specs",
               "content": [
                 {
-                  "range": 540,
+                  "range": 316,
                   "units": "imperial",
-                  "top_speed": 209,
-                  "selected_by": {
-                    "and": [
-                      "$MTY02"
-                    ]
-                  },
-                  "zero_to_road_limit": 5.8
-                },
-                {
-                  "range": 505,
-                  "units": "imperial",
-                  "top_speed": 217,
+                  "top_speed": 135,
                   "selected_by": {
                     "and": [
                       "$MTY03"
                     ]
                   },
-                  "zero_to_road_limit": 5.1
+                  "zero_to_road_limit": 4.8,
+                  "range_units_override": "range_units_epa"
                 },
                 {
-                  "range": 480,
+                  "range": 280,
                   "units": "imperial",
-                  "top_speed": 241,
+                  "top_speed": 155,
+                  "selected_by": {
+                    "and": [
+                      "$MTY04",
+                      "$SPTY1"
+                    ]
+                  },
+                  "zero_to_road_limit": 3.5
+                },
+                {
+                  "range": 315,
+                  "units": "imperial",
+                  "top_speed": 145,
                   "selected_by": {
                     "and": [
                       "$MTY04"
                     ]
                   },
-                  "zero_to_road_limit": 3.7
+                  "zero_to_road_limit": 3.5,
+                  "range_units_override": "range_units_epa"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title"
                 },
                 {
-                  "range": 480,
-                  "units": "imperial",
-                  "top_speed": 241,
-                  "selected_by": {
-                    "and": [
-                      "$MTY05"
-                    ]
-                  },
-                  "zero_to_road_limit": 3.7
+                  "type": "Disclaimer"
+                },
+                {
+                  "type": "DeliveryDate",
+                  "props": {
+                    "classes": "tds--vertical_padding-bottom"
+                  }
+                },
+                {
+                  "type": "Specs",
+                  "props": {
+                    "group": "BATTERY_AND_DRIVE"
+                  }
+                },
+                {
+                  "type": "RootGroup"
+                },
+                {
+                  "type": "DynamicDisclaimer",
+                  "props": {
+                    "field": "dynamic_disclaimer_loader",
+                    "group": "DUAL_MOTOR_PREMIUM"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY"
                 }
               ]
             }
@@ -2466,6 +2955,2495 @@
           "required": false,
           "exclusive": false,
           "name": "Betaling"
+        },
+        {
+          "code": "INTERIOR",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$INYPB",
+            "$INYPW"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$INYPB"
+          ]
+        },
+        {
+          "code": "TOWING",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$TW01"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Tilhengerfeste",
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
+                  "type": "image-compositor",
+                  "view": "REAR34",
+                  "zoom": 1.1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "REAR34",
+                  "zoom": 1.3
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Options"
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "EXTERIOR_GALLERY",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Konfigurasjonsgalleri",
+          "description": "Konfigurasjonsgalleri",
+          "extra_content": [
+            {
+              "type": "asset[0]",
+              "content": [
+                {
+                  "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
+                  "type": "image-compositor",
+                  "view": "FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "FRONT34",
+                  "zoom": 1.4
+                }
+              ]
+            },
+            {
+              "type": "asset[1]",
+              "content": [
+                {
+                  "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
+                  "type": "image-compositor",
+                  "view": "SIDE",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "SIDE",
+                  "zoom": 1.3
+                }
+              ]
+            },
+            {
+              "type": "asset[2]",
+              "content": [
+                {
+                  "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
+                  "type": "image-compositor",
+                  "view": "REAR34",
+                  "zoom": 1.1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "REAR34",
+                  "zoom": 1.3
+                }
+              ]
+            },
+            {
+              "type": "asset[3]",
+              "content": [
+                {
+                  "bkba": 1,
+                  "crop": [
+                    0,
+                    0,
+                    80,
+                    0
+                  ],
+                  "type": "image-compositor",
+                  "view": "RIMCLOSEUP",
+                  "ratio": "slice"
+                }
+              ]
+            },
+            {
+              "type": "asset[4]",
+              "content": [
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "STUD_SEAT",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FSD_GALLERY",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Galleri Fremtidig selvkjøring",
+          "description": "Galleri Fremtidig selvkjøring",
+          "extra_content": [
+            {
+              "type": "asset[0]",
+              "content": [
+                {
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": 0,
+                    "muted": true,
+                    "autoPlay": false,
+                    "fullWidth": true
+                  },
+                  "content_path": "CustomGroups.FSD_NAVIGATE_CARD.name"
+                }
+              ]
+            },
+            {
+              "type": "asset[1]",
+              "content": [
+                {
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": 0,
+                    "muted": true,
+                    "autoPlay": false,
+                    "fullWidth": true
+                  },
+                  "content_path": "CustomGroups.FSD_LANE_CHANGE_CARD.name"
+                }
+              ]
+            },
+            {
+              "type": "asset[2]",
+              "content": [
+                {
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": 0,
+                    "muted": true,
+                    "autoPlay": false,
+                    "fullWidth": true
+                  },
+                  "content_path": "CustomGroups.FSD_AUTOPARK_CARD.name"
+                }
+              ]
+            },
+            {
+              "type": "asset[3]",
+              "content": [
+                {
+                  "url": "MODEL3/UI/summon_v2.mp4",
+                  "type": "video-inline",
+                  "relative": false,
+                  "urlDesktop": "MODEL3/UI/summon_v2.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": 0,
+                    "muted": true,
+                    "autoPlay": false,
+                    "fullWidth": true
+                  },
+                  "content_path": "CustomGroups.FSD_SUMMON_CARD.name"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "MAIN_CONTENT",
+          "groups": [
+            "BATTERY_AND_DRIVE",
+            "PAINT",
+            "WHEELS",
+            "TOWING",
+            "PACKAGES",
+            "AUTOPILOT",
+            "PAYMENT"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": []
+        },
+        {
+          "code": "STD_FEATURES",
+          "groups": [
+            "COMPARE_MODEL_AND_FEATURE",
+            "AUTOPILOT_CARD",
+            "SUPER_CHARGER_CARD",
+            "OVER_THE_AIR_UPDATES_CARD",
+            "SENTRY_MODE_STD_FEATURE",
+            "EXPANSIVE_STORAGE_CARD",
+            "MOBILE_APP_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Standard egenskaper",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Sammenlign modeller"
+            }
+          ]
+        },
+        {
+          "code": "SENTRY_MODE_STD_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Sentry Mode",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Sentry Mode"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Et unikt lag av beskyttelse for Tesla-kjøretøy overvåker kontinuerlig miljøet rundt bilen når den ikke blir overvåket. Når det er aktivert, går Sentry Mode i \"Standby\", som mange hjemmealarmsystemer, som bruker bilens eksterne kameraer for å oppdage og beskytte mot potensielle trusler."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELS/UI/S3XY_StdFeat_SentryMode.jpeg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "INTERIOR_FEATURES",
+          "groups": [
+            "GLASS_ROOF_CARD",
+            "CENTER_DISPLAY_CARD",
+            "WIRELESS_CHARGER_CARD",
+            "VEGAN_INTERIOR_CARD",
+            "SEVEN_SEATS_CARD",
+            "ADVANCED_CLIMATE_CONTROL_CARD",
+            "INTERIOR_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Interiør",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Interiørspesifikasjoner"
+            }
+          ]
+        },
+        {
+          "code": "PERFORMANCE_UPGRADE_FEATURES",
+          "groups": [
+            "20_IN_PERFORMANCE_WHEELS_FEATURE",
+            "PERFORMANCE_BRAKES_FEATURE",
+            "PERFORMANCE_PEDALS_FEATURE",
+            "CARBON_FIBER_SPOILER_FEATURE",
+            "TRACK_MODE_FEATURE"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Performance-oppgradering",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Funksjoner for Performance-oppgradering"
+            }
+          ]
+        },
+        {
+          "code": "20_IN_PERFORMANCE_WHEELS_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$SPTY1"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "20-tommers Performance-felger",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Performance-oppgradering"
+            },
+            {
+              "type": "panelName",
+              "content": "20-tommers Performance-felger"
+            },
+            {
+              "type": "description",
+              "content": "Eksklusive grå hjul designet med lett, men allikevel tøff aluminiumslegering, for optimal kjørekontroll både på og utenfor banen."
+            },
+            {
+              "type": "add_options",
+              "content": "Legg til pakke",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "type": "image-compositor",
+                  "view": "RIMCLOSEUP",
+                  "ratio": "slice"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "ActionTarget",
+                  "field": "toggle_options"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "PERFORMANCE_BRAKES_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$SPTY1"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Performance-bremser",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Performance-oppgradering"
+            },
+            {
+              "type": "panelName",
+              "content": "Performance-bremser"
+            },
+            {
+              "type": "description",
+              "content": "Større og stivere kalipere, og lettvektige todels skiver for forbedret ytelse og termisk kapasitet."
+            },
+            {
+              "type": "add_options",
+              "content": "Legg til pakke",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/m3_performance_brake_gray.png",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "PERFORMANCE_PEDALS_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$SPTY1"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Performance-pedaler",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Performance-oppgradering"
+            },
+            {
+              "type": "panelName",
+              "content": "Performance-pedaler"
+            },
+            {
+              "type": "description",
+              "content": "Designet med lett aluminiumslegering for forbedret interiørstyling."
+            },
+            {
+              "type": "add_options",
+              "content": "Legg til pakke",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "type": "image-compositor",
+                  "view": "STUD_DRIVER",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "CARBON_FIBER_SPOILER_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$SPTY1"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Spoiler av karbonfiber",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Performance-oppgradering"
+            },
+            {
+              "type": "panelName",
+              "content": "Karbonfiberspoiler"
+            },
+            {
+              "type": "description",
+              "content": "For forbedret aerodynamikk og økt stabilitet ved høye hastigheter."
+            },
+            {
+              "type": "add_options",
+              "content": "Legg til pakke",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
+                  "type": "image-compositor",
+                  "view": "REAR34",
+                  "zoom": 1.1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "image-compositor",
+                  "view": "REAR34",
+                  "zoom": 1.3,
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "TRACK_MODE_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$SPTY1"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Performance-oppgradering"
+            },
+            {
+              "type": "panelName",
+              "content": "Track Mode"
+            },
+            {
+              "type": "description",
+              "content": "Optimaliser ytelse og håndtering på veien med svært adaptiv dreiemomentregulering, økt regenerativ bremsing, økt drivstoffkjøling og forbedret svingekraft."
+            },
+            {
+              "type": "add_options",
+              "content": "Legg til pakke",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$SPTY1"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/feature-modals/M3Perf_TrackMode.png",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FSD_FEATURES",
+          "groups": [
+            "FSD_NAVIGATE_CARD",
+            "FSD_LANE_CHANGE_CARD",
+            "FSD_AUTOPARK_CARD",
+            "FSD_SUMMON_CARD",
+            "FSD_COMPUTER_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Fremtidig selvkjørende",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Funksjoner for Performance-oppgradering"
+            }
+          ]
+        },
+        {
+          "code": "PAYMENT",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Betaling",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Din Model Y-bestilling"
+            },
+            {
+              "type": "goto_payment",
+              "content": "Fortsett til betaling",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "key": "payment",
+                    "type": "NAVIGATION_SELECT_KEY",
+                    "classNames": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
+                  "type": "image-compositor",
+                  "view": "REAR34",
+                  "zoom": 1.1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "REAR34",
+                  "zoom": 1.3
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h3"
+                  }
+                },
+                {
+                  "type": "DeliveryDate",
+                  "props": {
+                    "classes": "tds-text--500 tds-text_color--00"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "goto_payment"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FSD_NAVIGATE_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APF2"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Navigere på Autopilot",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Navigere på Autopilot"
+            },
+            {
+              "type": "panelName",
+              "content": "Fremtidig selvkjørende funksjoner"
+            },
+            {
+              "type": "description",
+              "content": "Automatisk kjøring fra motorvei på rampe til avkjøring inkluderer automatiske kjørefeltendringer, Traffic-Aware Cruise Control med full stopp og gjeninnkobling, Autosteer og forbikjøring av sakte biler i kjørefeltet ditt."
+            },
+            {
+              "type": "add_options",
+              "content": "Legg til pakke",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_NAVIGATE_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-navigate-on-autopilot"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_NAVIGATE_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-navigate-on-autopilot"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FSD_LANE_CHANGE_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APF2"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": " Automatisk filbytte ",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": " Automatisk filbytte "
+            },
+            {
+              "type": "panelName",
+              "content": "Fremtidig selvkjørende funksjoner"
+            },
+            {
+              "type": "description",
+              "content": "Mens du kjører på motorveien, vil automatisk filbytte plassere bilen din i den optimale banen for å forberede deg på sammenfletting og avkjørsler mens du kjører forbi biler som beveger seg langsomt. Førere får tydelig innblikk i kommende baneforandringer, samt tilpasning av funksjonen automatisk filbytte."
+            },
+            {
+              "type": "add_options",
+              "content": "Legg til pakke",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_LANE_CHANGE_FEATURE",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-auto-lane-change"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_LANE_CHANGE_FEATURE",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-auto-lane-change"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FSD_AUTOPARK_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APF2"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Autopark",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Autopark"
+            },
+            {
+              "type": "panelName",
+              "content": "Fremtidig selvkjørende funksjoner"
+            },
+            {
+              "type": "description",
+              "content": "Parker enkelt i både parallelle og vinkelrette parkeringsplasser med ett enkelt trykk på senterdisplayet. Model Y vil varsle deg om tilgjengelige parkeringsplasser ved kontinuerlig å overvåke plassen rundt deg."
+            },
+            {
+              "type": "add_options",
+              "content": "Legg til pakke",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_AUTOPARK_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-autopark"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_AUTOPARK_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-autopark"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FSD_SUMMON_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APF2"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Enhanced Summon",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Enhanced Summon"
+            },
+            {
+              "type": "panelName",
+              "content": "Fremtidig selvkjørende funksjoner"
+            },
+            {
+              "type": "description",
+              "content": "Aktivert av Tesla-appen, vil din parkerte bil finne deg hvor som helst på en parkeringsplass, og til og med parkere eller kjøre ut selv på trange steder. Enhanced Summon navigerer i komplekse parkeringssituasjoner mens du følger kjørefeltmarkeringer og stoppskilt, og unngår fotgjengere og hindringer som kjegler, søppelkasser og falske handlekurver."
+            },
+            {
+              "type": "add_options",
+              "content": "Legg til pakke",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_SUMMON_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-summon"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_SUMMON_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-summon"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/summon_v2.mp4",
+                  "type": "video-inline",
+                  "relative": false,
+                  "urlDesktop": "MODEL3/UI/summon_v2.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FSD_COMPUTER_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APF2"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Datamaskin med fullstendig selvkjørende egenskaper",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Datamaskin med fullstendig selvkjørende egenskaper"
+            },
+            {
+              "type": "panelName",
+              "content": "Fremtidig selvkjørende funksjoner"
+            },
+            {
+              "type": "description",
+              "content": "Tesla-designet silisium, optimalisert for datasyn, muliggjør detaljert visualisering av miljøet på skjermen og eventuell Fremtidig selvkjørende-funksjon gjennom programvareoppdateringer over luften."
+            },
+            {
+              "type": "add_options",
+              "content": "Legg til pakke",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_COMPUTER_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-computer"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_COMPUTER_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-computer"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/FSDComputer.png",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "AUTOPILOT_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Basic Autopilot",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Basic Autopilot"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Inkludert med hver Tesla, gjør Autopilot at bilen din kan styre, akselerere og bremse automatisk for andre biler og fotgjengere innenfor kjørefeltet. Avanserte sikkerhets- og bekvemmelighetsfunksjoner er utformet for å assistere deg med de tyngste delene av kjøringen og leveres med førerassistansefunksjoner som nødbremsing, kollisjonsvarsling og blindsoneovervåkning."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/S3XY_StdFeat_Autopilot.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "CENTER_DISPLAY_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Senterdisplay",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Senterdisplay"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Få tilgang til alt på den ekspansive 15-tommers berøringsskjermen, inkludert HD-visning fra siden og bakfra, navigering, filmer, musikk, spill og mer. Omgivelsene visualiseres i sanntid mens du kjører for å vise fartsgrenseskilt, kommende trafikksignaler, fotgjengere, syklister og farer i en 360-graders surroundvisning."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_StdFeat_CenterDisplay.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "OVER_THE_AIR_UPDATES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Over-the-air oppdateringer",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Over-the-air oppdateringer"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Model Y blir bedre over tid med hyppige, trådløse programvareoppdateringer og gir deg nye funksjoner, mer underholdning, høyere ytelse og rekkevidde, økt komfort og enda bedre sikkerhet. "
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_StdFeat_OTAU.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "SUPER_CHARGER_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Tilgang til Supercharger",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Enkel lading"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Lad hvor som helst der det er strøm. Den lengste rekkevidden som brukes til daglig kjøring, kan fylles på med den medfølgende Mobile Connector Bundle og et 220V husholdningsuttak, eller oppgradere til en Tesla Wall Connector for å få den beste hjemmeladingsopplevelsen. Til langturer lader Model Y opp til 270 kilometer rekkevidde på bare 15 minutter ved va Teslas Supercharger-nettverk, noe som gjør at du raskt kommer deg tilbake på veien."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Chargeport_3Y.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "MOBILE_APP_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Tesla mobilapp",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Tesla mobilapp"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Fjernstyr og overvåk Tesla med nøkkelfri kjøring, rekkevidde- og ladestatus, klimakontroll, live GPS-posisjon og mer. Du kan til og med planlegge service og overvåke hele Tesla-økosystemet, inkludert strøm fra Powerwall eller soltak og solenergipaneler."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_StdFeat_MobileApp.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "GLASS_ROOF_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Glasstak",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Glasstak"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Det utvidbare glasstaket gir passasjeren en lysere, romsligere opplevelse og en sømløss utsikt til himmelen. Infrarødt og ultrafiolett lys blokkeres effektivt før de går inn i kabinen, noe som reduserer varme og gjenskinn selv når solen står direkte over."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_Int_GlassRoof.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FLEXIBLE_REAR_SEATING_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Fleksibelt baksete",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Fleksible seter"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Alle bakseter kan legges ned individuelt for å sikre maksimal allsidithet. Den andre raden kan legges ned automatisk ved hjelp av baklukekontrollen, og passasjerene bak kan justere og lene seteryggen bakover for ekstra komfort."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_Int_RearSeat.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WIRELESS_CHARGER_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Trådløs lader",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Trådløs lader"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "To telefoner kan enkelt lades samtidig på en sklisikker silikonoverflate. Den integrerte midtkonsollen tilbyr romslig lagringsplass med to USB-C-ladeporter foran og to bak, oppbevaring under armlenet og et glidende deksel for å skjule telefonene."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_Int_WirelessCharging.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "VEGAN_INTERIOR_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Vegansk interiør",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Alt vegansk interiør"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Vårt egenutviklede setetrekk er mykere enn skinn og langt mer holdbart og flekkbestandig. Det er helt vegansk og betydelig mer bærekraftig enn tradisjonelle setetrekk. Det sikrer maksimal komfort og estetikk, samtidig som vi opprettholder våre strenge standarder for holdbarhet."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_Int_VeganInt.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "ADVANCED_CLIMATE_CONTROL_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Avansert klimakontroll",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Avanserte klimakontroller"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Luftstrøm og temperatur styres via skjermen, slik at retningen blir riktig uten at du må se eller berøre en fysisk ventil. På varme dager sørger opphetelsesbeskyttelse av kabinen for at interiøret alltid holder seg kjølig. I kaldt vær varmes kupeen automatisk opp og forbereder batteriet på maksimal rekkevidde effekt."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_Int_Climate.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "COMPARE_MODEL_AND_FEATURE",
+          "groups": [
+            "RANGE_AND_PERFORMANCE",
+            "INTERIOR_SECTION",
+            "SAFETY_FEATURE",
+            "PREMIUM_CONNECTIVITY"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Sammenlign modell og funksjon",
+          "extra_copy": [],
+          "extra_content": []
+        },
+        {
+          "code": "RANGE_AND_PERFORMANCE",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Rekkevidde og ytelse",
+          "extra_copy": [
+            {
+              "type": "Title",
+              "content": "Rekkevidde og ytelse"
+            },
+            {
+              "type": "dynamic_grid_title[0]",
+              "content": "Akselerasjon 0-100 km/t"
+            },
+            {
+              "type": "dynamic_grid_title[1]",
+              "content": "Rekkevidde"
+            },
+            {
+              "type": "dynamic_grid_title[2]",
+              "content": "Topphastighet"
+            },
+            {
+              "type": "dynamic_grid_title[3]",
+              "content": "Drivverk"
+            },
+            {
+              "type": "feature_title",
+              "content": "Kraftig effektivitet"
+            },
+            {
+              "type": "feature_list.default[0]",
+              "content": "Tesla designet modell Y med utgangspunkt i integrering på systemnivå. Hver enkelt komponent, inkludert batterier, motorer og til og med utvendig aerodynamikk, er optimalisert for å skape en kraftig og en av de mest effektive bilene som noen sinne er produsert."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "DynamicGrid",
+                  "props": {
+                    "content": [
+                      {
+                        "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
+                        "content_path": [
+                          {
+                            "label": "CustomGroups.battery_group_specs.options.$MTY03.name",
+                            "value": "CustomGroups.battery_group_specs.options.$MTY03.acceleration"
+                          },
+                          {
+                            "label": "CustomGroups.battery_group_specs.options.$MTY05.name",
+                            "value": "CustomGroups.battery_group_specs.options.$MTY05.acceleration"
+                          }
+                        ]
+                      },
+                      {
+                        "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[1]",
+                        "content_path": [
+                          {
+                            "label": "CustomGroups.battery_group_specs.options.$MTY03.name",
+                            "value": "CustomGroups.battery_group_specs.options.$MTY03.range"
+                          },
+                          {
+                            "label": "CustomGroups.battery_group_specs.options.$MTY05.name",
+                            "value": "CustomGroups.battery_group_specs.options.$MTY05.range"
+                          }
+                        ]
+                      },
+                      {
+                        "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[2]",
+                        "content_path": [
+                          {
+                            "label": "CustomGroups.battery_group_specs.options.$MTY03.name",
+                            "value": "CustomGroups.battery_group_specs.options.$MTY03.topspeed"
+                          },
+                          {
+                            "label": "CustomGroups.battery_group_specs.options.$MTY05.name",
+                            "value": "CustomGroups.battery_group_specs.options.$MTY05.topspeed"
+                          }
+                        ]
+                      },
+                      {
+                        "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[3]",
+                        "content_path": [
+                          {
+                            "label": "CustomGroups.battery_group_specs.options.$MTY03.name",
+                            "value": "CustomGroups.battery_group_specs.options.$DV4W.name"
+                          },
+                          {
+                            "label": "CustomGroups.battery_group_specs.options.$MTY05.name",
+                            "value": "CustomGroups.battery_group_specs.options.$DV4W.name"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "feature_title",
+                    "classes": "features-list--title tds-text--500 tds--padding_top-16 tds-list tds-text_color--black",
+                    "component": "div"
+                  }
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default",
+                    "classes": "tds-text--caption"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "INTERIOR_SECTION",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Interiørseksjon",
+          "extra_copy": [
+            {
+              "type": "Title",
+              "content": "Interiør og bekvemmelighet"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Musikk og media over Bluetooth®"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Premium-lyd med 14 høyttalere, 1 subwoofer, 2 forsterkere og oppslukende lyd"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Setene på andre rad kan legges ned individuelt"
+            },
+            {
+              "type": "feature_list.default[0].items[3]",
+              "content": "Alle de fem setene kan varmes opp individuelt"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "LED-tåkelys"
+            },
+            {
+              "type": "feature_list.default[0].items[6]",
+              "content": "Autodimmende, innfellbare, oppvarmede sidespeil"
+            },
+            {
+              "type": "feature_list.default[0].items[5]",
+              "content": "Farget glasstak med ultrafiolett og infrarød beskyttelse"
+            },
+            {
+              "type": "feature_list.default[0].items[7]",
+              "content": "Egendefinerte førerprofiler"
+            },
+            {
+              "type": "feature_list.default[0].items[8]",
+              "content": "Trådløs telefonlading i midtkonsollen"
+            },
+            {
+              "type": "feature_list.default[0].items[9]",
+              "content": "1,9m³ liter lasterom inkludert et sikkert bagasjerom under panseret"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default",
+                    "classes": "tds-flex tds-text--caption"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "SAFETY_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Sikkerhet",
+          "extra_copy": [
+            {
+              "type": "Title",
+              "content": "Sikkerhet"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Blindsoneovervåking"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Automatisk nødbremsing"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Frontkollisjonsvarsling"
+            },
+            {
+              "type": "feature_list.default[0].items[3]",
+              "content": "Sidekollisjonsvarsling"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "Nødunngåelse av filskifte og korrigering"
+            },
+            {
+              "type": "feature_list.default[0].items[5]",
+              "content": "Hindringsbevisst akselerasjon"
+            },
+            {
+              "type": "feature_list.default[0].items[6]",
+              "content": "LED kjørelys"
+            },
+            {
+              "type": "feature_list.default[0].items[7]",
+              "content": "Sentry Mode"
+            },
+            {
+              "type": "feature_list.default[0].items[8]",
+              "content": "Cabin Overheat Protection"
+            },
+            {
+              "type": "feature_list.default[0].items[9]",
+              "content": "Plasseringsovervåking i kjøretøy"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default",
+                    "classes": "tds-flex tds-text--caption"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "PREMIUM_CONNECTIVITY",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Sikkerhet",
+          "extra_copy": [
+            {
+              "type": "Title",
+              "content": "Premium Connectivity"
+            },
+            {
+              "type": "feature_list.default[0].title",
+              "content": "Model Y inkluderer navigasjonsstandard og en 1 års prøveversjon av Premium Connectivity som muliggjør:"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Direkte visualisering av trafikk"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Satellittvisningskart"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Videostreaming, som gir tilgang til innhold fra Netflix, Youtube, Twitch og mer"
+            },
+            {
+              "type": "feature_list.default[0].items[3]",
+              "content": "Karaoke"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "Musikk-streaming"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "Nettleser"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default",
+                    "classes": "tds-flex tds-text--caption"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "INTERIOR_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Interiørspesifikasjoner",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Interiørspesifikasjoner"
+            },
+            {
+              "type": "feature_list.default[0].main_title",
+              "content": "Lyd og media"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Premium-lyd – 14 høyttalere, 1 subwoofer, 2 forsterkere og altoppslukende lyd"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Musikk og media over Bluetooth®"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "USB-A-port i hanskerommet med en 128 GB bærbar lagringsenhet inkludert"
+            },
+            {
+              "type": "feature_list.default[1].main_title",
+              "content": "Komfort"
+            },
+            {
+              "type": "feature_list.default[1].items[0]",
+              "content": "12-veis elektrisk justerbare forseter og setevarmer i for- og bakseter"
+            },
+            {
+              "type": "feature_list.default[1].items[1]",
+              "content": "Farget glasstak med ultrafiolett og infrarød beskyttelse"
+            },
+            {
+              "type": "feature_list.default[1].items[2]",
+              "content": "Baksetene kan legges ned individuelt"
+            },
+            {
+              "type": "feature_list.default[1].items[3]",
+              "content": "Interiørgulvmatter"
+            },
+            {
+              "type": "feature_list.default[2].main_title",
+              "content": "Bekvemmelighet"
+            },
+            {
+              "type": "feature_list.default[2].items[0]",
+              "content": "LED-tåkelys"
+            },
+            {
+              "type": "feature_list.default[2].items[1]",
+              "content": "Selvdimmende, innfellbare, oppvarmede sidespeil"
+            },
+            {
+              "type": "feature_list.default[2].items[2]",
+              "content": "Egendefinerte førerprofiler"
+            },
+            {
+              "type": "feature_list.default[2].items[3]",
+              "content": "Midtkonsoll med lagringsplass, 4 USB-C-porter og trådløs lading for 2 smarttelefoner"
+            },
+            {
+              "type": "feature_list.default[3].main_title",
+              "content": "Premium-tilkobling, 1 år gratis",
+              "behavior": [
+                {
+                  "type": "REPLACE_CONTENT",
+                  "content": {
+                    "source": "options.$CPF0.premium_connectivity_copy_sr",
+                    "selected_by": {
+                      "or": [
+                        "$MTY01"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "feature_list.default[3].items[0]",
+              "content": "Direkte visualisering av trafikk"
+            },
+            {
+              "type": "feature_list.default[3].items[1]",
+              "content": "Satellittvisningskart"
+            },
+            {
+              "type": "feature_list.default[3].items[2]",
+              "content": "Videostreaming, som gir tilgang til innhold fra Netflix, Youtube, Twitch og mer"
+            },
+            {
+              "type": "feature_list.default[3].items[3]",
+              "content": "Karaoke"
+            },
+            {
+              "type": "feature_list.default[3].items[4]",
+              "content": "Musikk-streaming"
+            },
+            {
+              "type": "feature_list.default[3].items[5]",
+              "content": "Nettleser<br/><i>*Nye funksjoner som blir tilgjengelige etter levering kan medføre pristillegg.</i>"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--start",
+                    "component": "h3"
+                  }
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default",
+                    "classes": "tds--vertical_padding tds-text--caption"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "SEVEN_SEATS_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Opptil syv seter",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Opptil syv seter"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Model Y er utrolig allsidig — den kan transportere sju passasjerer pluss bagasje. Du kan legge ned hvert sete i den andre seteraden uavhengig, noe som gir fleksibel oppbevaring av ski, møbler, bagasje og mer. Lasting og lossing gjør du enkelt og raskt med bakluken som åpnes fra et lavt bagasjeromsgulv."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset[0]",
+              "content": [
+                {
+                  "url": "MODELY/UI/Config_7Seat_Black.jpeg",
+                  "type": "image",
+                  "ratio": "slice",
+                  "selected_by": {
+                    "and": [
+                      "$INYPB"
+                    ]
+                  }
+                },
+                {
+                  "url": "MODELY/UI/Config_7Seat_White.jpeg",
+                  "type": "image",
+                  "ratio": "slice",
+                  "selected_by": {
+                    "and": [
+                      "$INYPW"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "REAR_WHEEL_STANDARD_PREMIUM",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            },
+            {
+              "type": "sub_title",
+              "content": "Bakhjulsdrift"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "sub_title",
+                    "classes": "tds-text--start text-loader--subtitle tds-text--500 tds--vertical_padding-10",
+                    "component": "div"
+                  }
+                },
+                {
+                  "type": "Options"
+                },
+                {
+                  "type": "GroupDescription",
+                  "props": {
+                    "group": "REAR_WHEEL_STANDARD_PREMIUM"
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "REVIEW_ORDER_PLUS",
+          "groups": [
+            "CONNECTIVITY"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": []
+        },
+        {
+          "code": "EXPANSIVE_STORAGE_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Ekspansiv lagring",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Ekspansiv lagring"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Model Y har 1925 liter lasterom som er tilgjengelig gjennom både fremre bagasjerom og automatisk bagasjeromsåpning. Ved å utnytte plassen som tradisjonelt er fylt med store motorer, bensintanker og girkasser, sikrerdesignet av Model Y uforholdsmessig stor lagringsplass for en bil i denne størrelsen, samtidig som den øker passasjerens sikkerhet gjennom et romsligere, forsterket karosseri."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Y_StdFeat_Storage.jpg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -2585,25 +5563,21 @@
               "target": "$APF2"
             }
           ],
-          "name": "Fullverdige selvkjørende egenskaper",
-          "description": "Fullverdige selvkjørende egenskaper",
-          "long_name": "Fullverdige selvkjørende egenskaper",
+          "name": "Fremtidig selvkjørende funksjoner",
+          "description": "Fremtidig selvkjørende funksjoner",
+          "long_name": "Fremtidig selvkjørende funksjoner",
           "extra_copy": [
             {
               "type": "price_indicator",
               "content": "valgfritt"
             },
             {
-              "type": "disclaimer_details",
-              "content": "Funksjonene vi tilbyr i dag krever at sjåføren til enhver tid har kontroll over kjøretøyet, og gjør ikke bilen selvkjørende. På grunn av dagens regelverk vil du måtte bruke for eksempel blinklyshendelen for å aktivere visse funksjoner. Av samme grunn er rekkevidden og manøvrerbarheten ved bruk av Summon begrenset.<br/><br/>For å kunne aktivere nye funksjoner må de oppnå langt større pålitelighet enn menneskelige sjåfører, og dette må dokumenteres gjennom milliarder av kjørte kilometer. I tillegg må funksjonene bli lovlige å bruke, hvilket kan ta lengre tid i noen områder enn andre.<br/><br/>Mens vi utvikler nye funksjoner vil Teslaen din forbedres kontinuerlig gjennom trådløse programvareoppdateringer."
-            },
-            {
               "type": "feature_list.default[0].items[0]",
-              "content": "Navigere på Autopilot: automatisk kjøring fra av- og påkjøring til motorvei, inkludert kryss og forbikjøring av andre kjøretøy."
+              "content": "Navigere på Autopilot"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Automatisk filbytte: fil endres automatisk når du kjører på motorveien."
+              "content": " Automatisk filbytte "
             },
             {
               "type": "feature_list.default[0].items[2]",
@@ -2614,28 +5588,69 @@
               "content": "Summon: parker og hent kjøretøyet automatisk."
             },
             {
-              "type": "feature_list.default[1].main_title",
-              "content": "Kommer senere i år:"
+              "type": "feature_list.default[0].items[4]",
+              "content": "Datamaskin med fullstendig selvkjørende egenskaper"
             },
             {
-              "type": "feature_list.default[1].items[0]",
-              "content": "Gjenkjenn og responder på trafikklys og stoppskilt."
+              "type": "feature_list.default[0].items[5]",
+              "content": "Trafikklys og stoppskiltkontroll"
+            },
+            {
+              "type": "feature_list.default[1].title",
+              "content": "Kommer senere i år"
             },
             {
               "type": "feature_list.default[1].items[1]",
-              "content": "Automatisk kjøring i bygater."
+              "content": "Enhanced Summon"
             },
             {
-              "type": "feature_list.default[1].items[2]",
-              "content": "Forbedret Summon — den parkerte bilen vil finne deg på en parkeringsplass."
+              "type": "feature_list.default[1].items[0]",
+              "content": "Autostyring i bygater"
             },
             {
-              "type": "disclaimer[0]",
-              "content": "Fullverdige selvkjørende egenskaper er tilgjengelige for kjøp etter levering; prisene vil sannsynligvis øke over tid med nye utgivelser i fremtiden."
+              "type": "disclaimer",
+              "content": "<p>Funksjonene vi tilbyr i dag krever at sjåføren til enhver tid har kontroll over kjøretøyet, og gjør ikke bilen selvkjørende. På grunn av dagens regelverk vil du måtte bruke for eksempel blinklyshendelen for å aktivere visse funksjoner. Av samme grunn er rekkevidden og manøvrerbarheten ved bruk av Summon begrenset.</p><p>For å kunne aktivere nye funksjoner må de oppnå langt større pålitelighet enn menneskelige sjåfører, og dette må dokumenteres gjennom milliarder av kjørte kilometer. I tillegg må funksjonene bli lovlige å bruke, hvilket kan ta lengre tid i noen områder enn andre.</p><p>Mens vi utvikler nye funksjoner vil Teslaen din forbedres kontinuerlig gjennom trådløse programvareoppdateringer.</p>"
             },
             {
-              "type": "description",
-              "content": " "
+              "type": "fsd_features",
+              "content": "Egenskaper",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "FSD_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "add_fsd_package",
+              "content": "Legg til",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             },
             {
               "type": "selectLabel",
@@ -2644,14 +5659,84 @@
             {
               "type": "deselectLabel",
               "content": "Valgt alternativ"
+            },
+            {
+              "type": "remove_fsd_package",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
             {
-              "type": "shape",
+              "type": "components",
               "content": [
                 {
-                  "type": "card"
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "add_fsd_package",
+                        "selected_by": {
+                          "not": [
+                            "$APF2"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "remove_fsd_package",
+                        "selected_by": {
+                          "and": [
+                            "$APF2"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "fsd_features",
+                        "props": {
+                          "modal": "FSD_FEATURES"
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -2717,6 +5802,30 @@
             {
               "action": "unset",
               "target": "$APPB"
+            }
+          ],
+          "name": "Enhanced Autopilot",
+          "description": "Enhanced Autopilot",
+          "long_name": "Enhanced Autopilot",
+          "extra_copy": [
+            {
+              "type": "fsd_features",
+              "content": "Egenskaper",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "EAP_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "price": 4000,
@@ -2845,10 +5954,19 @@
               "target": "$CPF1"
             }
           ],
-          "name": "$CPF0",
-          "description": "$CPF0",
-          "long_name": "$CPF0",
-          "extra_copy": [],
+          "name": "1 år Prøveperiode for Premium Connectivity",
+          "description": "1 års prøveperiode på Premium Connectivity",
+          "long_name": "1 år Prøveperiode for Premium Connectivity",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Inkludert"
+            },
+            {
+              "type": "long_name",
+              "content": "1 års prøveperiode på Premium Connectivity"
+            }
+          ],
           "price": 0,
           "pricing": [
             {
@@ -2888,7 +6006,38 @@
           "name": "Premium Connectivity",
           "description": "Premium Connectivity",
           "long_name": "Premium Connectivity",
-          "extra_copy": [],
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Inkludert"
+            },
+            {
+              "type": "long_name",
+              "content": "1 års prøveperiode på Premium Connectivity",
+              "behavior": [
+                {
+                  "type": "REPLACE_CONTENT",
+                  "content": {
+                    "source": "options.$CPF1.premium_connectivity_trail_sr",
+                    "selected_by": {
+                      "or": [
+                        "$MTY01"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "premium_connectivity_trail_sr",
+              "content": "30 dagers prøveperiode på Premium Connectivity"
+            },
+            {
+              "type": "premium_connectivity_copy_sr",
+              "content": "Premium Connectivity, 30 dager gratis"
+            }
+          ],
+          "extra_content": [],
           "price": 0,
           "pricing": [
             {
@@ -2964,7 +6113,7 @@
             },
             {
               "type": "disclaimer_details",
-              "content": "Elektriske, redundante Dual Motors kontrollerer uavhengig dreiemomentet til både for- og bakhjulene for mer kraft og sikkerhet. I det usannsynlige tilfellet at en motor slutter å fungere, kan du stole på den andre. Resultatet er umiddelbar respons og presis antispinn, under alle værforhold."
+              "content": "Motorene våre er effektive og friksjonsfrie, og med bare en del i bevegelse, sikrer dette minimalt vedlikehold og maksimal holdbarhet. Modell Y har to av disse uavhengige motorene for forbedret redundans, og i motsetning til tradisjonell firehjulsdrift, styrer de dreiemomentet digitalt til forhjulene og bakhjulene for å sikre langt bedre håndtering og trekkraftkontroll."
             }
           ],
           "extra_content": [
@@ -3154,7 +6303,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_col_pbsb.png",
+                  "url": "MODEL3/UI/Paint_Black.png",
                   "type": "image"
                 }
               ]
@@ -3216,7 +6365,7 @@
           "name": "Performance-pedaler",
           "description": "Performance-pedaler",
           "long_name": "Performance-pedaler",
-          "long_description": "Performance Pedals",
+          "long_description": "Performance-pedaler",
           "extra_copy": [
             {
               "type": "description",
@@ -3310,7 +6459,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_col_pmng.png",
+                  "url": "MODEL3/UI/Paint_MidnightSilver.png",
                   "type": "image"
                 }
               ]
@@ -3360,7 +6509,7 @@
           ],
           "name": "Red Multi-Coat",
           "description": "Red Multi-Coat",
-          "long_name": "Red Multi-Coat lakk",
+          "long_name": "Rød multibelegg lakk",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -3380,7 +6529,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_col_ppmr.png",
+                  "url": "MODEL3/UI/Paint_Red.png",
                   "type": "image"
                 }
               ]
@@ -3450,7 +6599,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_col_ppsb.png",
+                  "url": "MODEL3/UI/Paint_Blue.png",
                   "type": "image"
                 }
               ]
@@ -3521,7 +6670,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_col_ppsw.png",
+                  "url": "MODEL3/UI/Paint_White.png",
                   "type": "image"
                 }
               ]
@@ -3596,13 +6745,13 @@
               "target": "$SC05"
             }
           ],
-          "name": "Free Supercharging",
-          "description": "Free Supercharging",
-          "long_name": "Free Supercharging",
+          "name": "Gratis Supercharging",
+          "description": "Gratis Supercharging",
+          "long_name": "Gratis Supercharging",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "optional"
+              "content": "valgfritt"
             }
           ],
           "price": 0,
@@ -3635,13 +6784,13 @@
               "target": "$SC06"
             }
           ],
-          "name": "Time-bound Supercharging",
-          "description": "Time-bound Supercharging",
-          "long_name": "Time-bound Supercharging",
+          "name": "Tidsavhengig Supercharging",
+          "description": "Tidsavhengig Supercharging",
+          "long_name": "Tidsavhengig Supercharging",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "optional"
+              "content": "valgfritt"
             }
           ],
           "price": 0,
@@ -3712,7 +6861,7 @@
           "name": "Karbonfiberspoiler",
           "description": "Karbonfiberspoiler",
           "long_name": "Karbonfiberspoiler",
-          "long_description": "Carbon Fiber Spoiler",
+          "long_description": "Karbonfiberspoiler",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -3748,8 +6897,30 @@
               "type": "asset",
               "content": [
                 {
+                  "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_REAR"
+                  "view": "REAR34",
+                  "zoom": 1.1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "type": "image-compositor",
+                  "view": "REAR34"
                 }
               ]
             }
@@ -3786,24 +6957,104 @@
           "long_description": "Tilhengerfeste",
           "extra_copy": [
             {
-              "type": "description_above",
-              "content": "Tilhengerfeste med kapasitet til å taue opp til 1600 kg"
-            },
-            {
               "type": "selectLabel",
               "content": "Velg alternativ"
             },
             {
               "type": "deselectLabel",
               "content": "Valgt alternativ"
+            },
+            {
+              "type": "description",
+              "content": "Høy styrke, klasse II tilhengerfeste i stål. Kan taue opp til 1600 kg"
+            },
+            {
+              "type": "add_tow_hitch",
+              "content": "Legg til",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$TW01"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_tow_hitch",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$TW01"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--medium"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
             {
-              "type": "shape",
+              "type": "components",
               "content": [
                 {
-                  "type": "checkbox"
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "description",
+                    "classes": "tds--vertical_padding tds-text--center"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "add_tow_hitch",
+                        "selected_by": {
+                          "not": [
+                            "$TW01"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "remove_tow_hitch",
+                        "selected_by": {
+                          "and": [
+                            "$TW01"
+                          ]
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -3817,15 +7068,204 @@
             }
           ]
         },
+        "$INPB1": {
+          "code": "$INPB1",
+          "user_defined_rules": {
+            "set_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$INPB1"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$INYPB",
+                "$INYPW",
+                "$INPW1"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$INPB1"
+            },
+            {
+              "action": "set",
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INYPW",
+                "$INPW1"
+              ]
+            }
+          ],
+          "name": "Alt svart Premium-interiør",
+          "description": "Alt svart Premium-interiør",
+          "long_name": "Alt svart Premium-interiør",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Helsvart"
+            },
+            {
+              "type": "price_indicator",
+              "content": "Inkludert"
+            },
+            {
+              "type": "spec_description",
+              "content": "Svart skinninteriør"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_in3pb.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRMY1"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ]
+        },
+        "$INPW1": {
+          "code": "$INPW1",
+          "user_defined_rules": {
+            "set_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$INPW1"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$INYPB",
+                "$INYPW",
+                "$INPB1"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$INPW1"
+            },
+            {
+              "action": "set",
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INYPW",
+                "$INPB1"
+              ]
+            }
+          ],
+          "name": "Svart og hvitt Premium-interiør",
+          "description": "Svart og hvitt Premium-interiør",
+          "long_name": "Svart og hvitt Premium-interiør",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Svart og hvitt"
+            },
+            {
+              "type": "price_indicator",
+              "content": "Inkludert"
+            },
+            {
+              "type": "recommended_NA_NA",
+              "content": "Anbefalt",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "SHOW_INTERIOR_MODAL",
+                    "props": {
+                      "content_path": "OMS.lexicon.options.$INYPW.recommended_NA_content"
+                    },
+                    "classNames": [
+                      "tsla-recommended_NA"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "recommended_NA_content",
+              "content": "Svart og hvitt interiør inkluderer Premium-materialene våre, noe som maksimerer komforten og estetikken, mens de til samme tid opprettholder de strenge standardene våre for slitestyrke og flekkdannelsesmotstand."
+            },
+            {
+              "type": "spec_description",
+              "content": "Hvitt skinninteriør"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_white.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "delivery",
+              "content": [
+                {
+                  "extra": true
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRMY1"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ]
+        },
         "$INYPB": {
           "code": "$INYPB",
           "user_defined_rules": {
-            "set_rules": [
-              {
-                "action": "set",
-                "target": "$PRMY1"
-              }
-            ]
+            "set_rules": []
           },
           "set_rules": [
             {
@@ -3834,11 +7274,11 @@
             },
             {
               "action": "unset",
-              "target": "$INYPW"
-            },
-            {
-              "action": "set",
-              "target": "$PRMY1"
+              "targets": [
+                "$INYPW",
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
           "unset_rules": [
@@ -3848,7 +7288,13 @@
             },
             {
               "action": "set",
-              "target": "$INYPW"
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INYPW",
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
           "name": "Alt svart Premium-interiør",
@@ -3873,11 +7319,11 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "12-veis elektrisk justerbare, oppvarmede for- og bakseter"
+              "content": "12-veis elektrisk justerbare forseter og setevarmer i for- og bakseter"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Tre seter i andre seterad som kan legges sammen uavhengig"
+              "content": "Setene på andre rad kan legges ned individuelt"
             },
             {
               "type": "feature_list.default[0].items[2]",
@@ -3913,26 +7359,22 @@
             },
             {
               "type": "feature_list.default[2].items[1]",
-              "content": "Stedsoppmerksom automatisk garasjedøråpner"
-            },
-            {
-              "type": "feature_list.default[2].items[2]",
               "content": "LED-tåkelys"
             },
             {
-              "type": "feature_list.default[2].items[3]",
+              "type": "feature_list.default[2].items[2]",
               "content": "Farget glasstak med ultrafiolett og infrarød beskyttelse"
             },
             {
-              "type": "feature_list.default[2].items[4]",
-              "content": "Elektriske, oppvarmede foldesidespeil"
+              "type": "feature_list.default[2].items[3]",
+              "content": "Selvdimmende, innfellbare, oppvarmede sidespeil"
             },
             {
-              "type": "feature_list.default[2].items[5]",
+              "type": "feature_list.default[2].items[4]",
               "content": "Egendefinerte førerprofiler"
             },
             {
-              "type": "feature_list.default[2].items[6]",
+              "type": "feature_list.default[2].items[5]",
               "content": "Midtkonsoll med lagringsplass, 4 USB-porter og dokking for 2 smarttelefoner"
             },
             {
@@ -3983,7 +7425,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_int_in3pb.png",
+                  "url": "MODEL3/UI/Interior_Black.png",
                   "type": "image"
                 }
               ]
@@ -4020,12 +7462,7 @@
         "$INYPW": {
           "code": "$INYPW",
           "user_defined_rules": {
-            "set_rules": [
-              {
-                "action": "set",
-                "target": "$PRMY1"
-              }
-            ]
+            "set_rules": []
           },
           "set_rules": [
             {
@@ -4034,11 +7471,11 @@
             },
             {
               "action": "unset",
-              "target": "$INYPB"
-            },
-            {
-              "action": "set",
-              "target": "$PRMY1"
+              "targets": [
+                "$INYPB",
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
           "unset_rules": [
@@ -4048,7 +7485,12 @@
             },
             {
               "action": "set",
-              "target": "$INYPB"
+              "target": "$INYPB",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$INPB1",
+                "$INPW1"
+              ]
             }
           ],
           "name": "Svart og hvitt Premium-interiør",
@@ -4064,7 +7506,7 @@
               "content": "Inkludert"
             },
             {
-              "type": "recommended_NA",
+              "type": "recommended_NA_NA",
               "content": "Anbefalt",
               "behavior": [
                 {
@@ -4083,7 +7525,7 @@
             },
             {
               "type": "recommended_NA_content",
-              "content": "Svart og hvitt interiør inkluderer Premium-materialene våre, noe som maksimerer komforten og estetikken, mens de til samme tid opprettholder de strenge standardene våre for slitestyrke og motstand for flekkdannelse."
+              "content": "Svart og hvitt interiør inkluderer Premium-materialene våre, noe som maksimerer komforten og estetikken, mens de til samme tid opprettholder de strenge standardene våre for slitestyrke og flekkdannelsesmotstand."
             },
             {
               "type": "spec_description",
@@ -4095,11 +7537,11 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "12-veis elektrisk justerbare, oppvarmede for- og bakseter"
+              "content": "12-veis elektrisk justerbare forseter og setevarmer i for- og bakseter"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Tre seter i andre seterad som kan legges sammen uavhengig"
+              "content": "Setene på andre rad kan legges ned individuelt"
             },
             {
               "type": "feature_list.default[0].items[2]",
@@ -4135,26 +7577,22 @@
             },
             {
               "type": "feature_list.default[2].items[1]",
-              "content": "Stedsoppmerksom automatisk garasjedøråpner"
-            },
-            {
-              "type": "feature_list.default[2].items[2]",
               "content": "LED-tåkelys"
             },
             {
-              "type": "feature_list.default[2].items[3]",
+              "type": "feature_list.default[2].items[2]",
               "content": "Farget glasstak med ultrafiolett og infrarød beskyttelse"
             },
             {
-              "type": "feature_list.default[2].items[4]",
-              "content": "Elektriske, oppvarmede foldesidespeil"
+              "type": "feature_list.default[2].items[3]",
+              "content": "Selvdimmende, innfellbare, oppvarmede sidespeil"
             },
             {
-              "type": "feature_list.default[2].items[5]",
+              "type": "feature_list.default[2].items[4]",
               "content": "Egendefinerte førerprofiler"
             },
             {
-              "type": "feature_list.default[2].items[6]",
+              "type": "feature_list.default[2].items[5]",
               "content": "Midtkonsoll med lagringsplass, 4 USB-porter og dokking for 2 smarttelefoner"
             },
             {
@@ -4205,7 +7643,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_int_white.png",
+                  "url": "MODEL3/UI/Interior_White.png",
                   "type": "image"
                 }
               ]
@@ -4298,7 +7736,7 @@
           "name": "Long Range firehjulsdrift",
           "description": "Model Y – Long Range-firehjulsdrift",
           "long_name": "Long Range firehjulsdrift",
-          "long_description": "Model Y Long Range AWD",
+          "long_description": "Model Y – Long Range-firehjulsdrift",
           "extra_copy": [
             {
               "type": "name",
@@ -4306,7 +7744,7 @@
             },
             {
               "type": "disclaimer_details",
-              "content": "Tesla firehjulsdrift har to uavhengige motorer som digitalt kontrollerer dreiemomentet til for- og bakhjulene for å sikre bedre veigrep, fremkommelighet og antispinn. Bilen kan kjøres med hvilken som helst av motorene, slik at du aldri trenger å bekymre deg for å bli sittende fast på veien."
+              "content": "Teslas firehjulsdrift har to uavhengige motorer for forbedret redundans, hver med kun én bevegelig del for minimalt vedlikehold og maksimal holdbarhet. Til forskjell fra tradisjonelle firehjulsdriftsystemer, kontrollerer de dreiemomentet digitalt til for- og bakhjulene for langt bedre veigrep og trekkraftkontroll."
             },
             {
               "type": "long_name",
@@ -4326,10 +7764,34 @@
               "type": "price_indicator_override",
               "content": [
                 {
-                  "content": 534900,
+                  "content": 49990,
                   "configuration": [
                     "$MDLY"
                   ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 49990,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
                   "condition_state": "and"
                 }
               ]
@@ -4433,7 +7895,7 @@
           "name": "Performance – Long Range firehjulsdrift",
           "description": "Model Y Performance firehjulsdrift",
           "long_name": "Performance – Long Range firehjulsdrift",
-          "long_description": "Model Y Performance AWD",
+          "long_description": "Model Y Performance firehjulsdrift",
           "extra_copy": [
             {
               "type": "name",
@@ -4444,48 +7906,16 @@
               "content": "Valgfritt"
             },
             {
-              "type": "description.main_title[0]",
-              "content": "Model Y Performance inkluderer:"
-            },
-            {
-              "type": "description.items[0]",
-              "content": "Raskere akselerasjon: 0–100 km/t på 3,7 s."
-            },
-            {
-              "type": "description.items[1]",
-              "content": "Topphastighet: opptil 241 km/t"
-            },
-            {
-              "type": "description.items[2]",
-              "content": "21’’ Überturbine Wheels"
-            },
-            {
-              "type": "description.items[3]",
-              "content": "Performance-bremser"
-            },
-            {
-              "type": "description.items[4]",
-              "content": "Spoiler i karbonfiber"
-            },
-            {
-              "type": "description.items[5]",
-              "content": "Senket fjæring"
-            },
-            {
-              "type": "description.items[6]",
-              "content": "Aluminiumslegert pedal"
-            },
-            {
               "type": "compare_matrix.block[0].label",
               "content": "Akselerasjon"
             },
             {
               "type": "compare_matrix.block[0].content",
-              "content": "3.5s 0-60mph"
+              "content": "0-100 km/t på 3,5 sek"
             },
             {
               "type": "compare_matrix.block[1].label",
-              "content": "Kjør"
+              "content": "Hjuldrift"
             },
             {
               "type": "compare_matrix.block[1].content",
@@ -4493,7 +7923,7 @@
             },
             {
               "type": "disclaimer_details",
-              "content": "Tesla firehjulsdrift har to uavhengige motorer som digitalt kontrollerer dreiemomentet til for- og bakhjulene for å sikre bedre veigrep, fremkommelighet og antispinn. Bilen kan kjøres med hvilken som helst av motorene, slik at du aldri trenger å bekymre deg for å bli sittende fast på veien."
+              "content": "Teslas firehjulsdrift har to uavhengige motorer for forbedret redundans, hver med kun én bevegelig del for minimalt vedlikehold og maksimal holdbarhet. Til forskjell fra tradisjonelle firehjulsdriftsystemer, kontrollerer de dreiemomentet digitalt til for- og bakhjulene for langt bedre veigrep og trekkraftkontroll."
             },
             {
               "type": "long_name",
@@ -4521,7 +7951,19 @@
               "type": "price_indicator_override",
               "content": [
                 {
-                  "content": 589900,
+                  "content": 59990,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 59990,
                   "configuration": [
                     "$MDLY"
                   ],
@@ -4628,7 +8070,7 @@
           "name": "Performance – Long Range firehjulsdrift",
           "description": "Model Y Performance firehjulsdrift",
           "long_name": "Performance – Long Range firehjulsdrift",
-          "long_description": "Model Y Performance AWD",
+          "long_description": "Model Y Performance firehjulsdrift",
           "extra_copy": [
             {
               "type": "name",
@@ -4639,60 +8081,28 @@
               "content": "Valgfritt"
             },
             {
-              "type": "description.main_title[0]",
-              "content": "Model Y Performance inkluderer:"
-            },
-            {
-              "type": "description.items[0]",
-              "content": "Raskere akselerasjon: 0–100 km/t på 3,7 s."
-            },
-            {
-              "type": "description.items[1]",
-              "content": "Topphastighet: opptil 241 km/t"
-            },
-            {
-              "type": "description.items[2]",
-              "content": "21’’ Überturbine Wheels"
-            },
-            {
-              "type": "description.items[3]",
-              "content": "Performance-bremser"
-            },
-            {
-              "type": "description.items[4]",
-              "content": "Spoiler i karbonfiber"
-            },
-            {
-              "type": "compare_matrix.block[0].content",
-              "content": "3.5s 0-60mph"
-            },
-            {
-              "type": "compare_matrix.block[1].label",
-              "content": "DriveKjør"
-            },
-            {
-              "type": "compare_matrix.block[1].content",
-              "content": "Dual Motor All-wheel DriveDual Motor-firehjulsdrift"
-            },
-            {
-              "type": "disclaimer_details",
-              "content": "Tesla firehjulsdrift har to uavhengige motorer som digitalt kontrollerer dreiemomentet til for- og bakhjulene for å sikre bedre veigrep, fremkommelighet og antispinn. Bilen kan kjøres med hvilken som helst av motorene, slik at du aldri trenger å bekymre deg for å bli sittende fast på veien."
-            },
-            {
-              "type": "description.items[5]",
-              "content": "Senket fjæring"
-            },
-            {
-              "type": "description.items[6]",
-              "content": "Aluminiumslegert pedal"
-            },
-            {
               "type": "compare_matrix.block[0].label",
               "content": "Akselerasjon"
             },
             {
+              "type": "compare_matrix.block[0].content",
+              "content": "0-100 km/t på 3,5 sek"
+            },
+            {
+              "type": "compare_matrix.block[1].label",
+              "content": "Hjuldrift"
+            },
+            {
+              "type": "compare_matrix.block[1].content",
+              "content": "Dual Motor-firehjulsdrift"
+            },
+            {
+              "type": "disclaimer_details",
+              "content": "Teslas firehjulsdrift har to uavhengige motorer for forbedret redundans, hver med kun én bevegelig del for minimalt vedlikehold og maksimal holdbarhet. Til forskjell fra tradisjonelle firehjulsdriftsystemer, kontrollerer de dreiemomentet digitalt til for- og bakhjulene for langt bedre veigrep og trekkraftkontroll."
+            },
+            {
               "type": "long_name",
-              "content": "Model Y Performance Dual Motor All-Wheel DriveModel Y Performance – Dual Motor med firehjulsdrift"
+              "content": "Model Y Performance – Dual Motor med firehjulsdrift"
             }
           ],
           "extra_content": [
@@ -4716,7 +8126,7 @@
               "type": "price_indicator_override",
               "content": [
                 {
-                  "content": 589900,
+                  "content": 59990,
                   "configuration": [
                     "$MDLY"
                   ],
@@ -4728,10 +8138,25 @@
               "type": "option_price_override",
               "content": [
                 {
-                  "content": 589900,
+                  "content": 59990,
                   "configuration": [
                     "$MDLY"
                   ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "options": [
+                    "$SPTY1"
+                  ],
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
                   "condition_state": "and"
                 }
               ]
@@ -4898,31 +8323,31 @@
           "name": "Performance-oppgradering",
           "description": "Performance-oppgradering",
           "long_name": "Performance-oppgradering",
-          "long_description": "Performance Upgrade",
+          "long_description": "Performance-oppgradering",
           "extra_copy": [
-            {
-              "type": "selectLabel",
-              "content": "Velg alternativ"
-            },
             {
               "type": "price_indicator",
               "content": "Inkludert"
             },
             {
+              "type": "selectLabel",
+              "content": "Legg til Performance-oppgradering"
+            },
+            {
               "type": "deselectLabel",
-              "content": "Valgt alternativ"
+              "content": "Performance-oppgradering"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "20-tommers Performance-felger"
+              "content": "Topphastighet: opptil 241 km/t"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Performance-bremser"
+              "content": "21’’ Überturbine-felger"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Spoiler i karbonfiber"
+              "content": "Performance-bremser"
             },
             {
               "type": "feature_list.default[0].items[3]",
@@ -4933,29 +8358,53 @@
               "content": "Aluminiumslegerte pedaler"
             },
             {
-              "type": "feature_list.default[0].items[5]",
-              "content": "Økt topphastighet fra 145 mph til 155 mph"
-            },
-            {
-              "type": "feature_list.default[0].items[6]",
-              "content": "Track Mode"
+              "type": "performance_upgrade_features",
+              "content": "Lær mer",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "PERFORMANCE_UPGRADE_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
-            {
-              "type": "shape",
-              "content": [
-                {
-                  "type": "checkbox"
-                }
-              ]
-            },
             {
               "type": "action",
               "content": [
                 {
                   "type": "hero-update",
-                  "view": "STUD_3QTR"
+                  "view": "FRONT34",
+                  "zoom": 1.3
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
                 }
               ]
             }
@@ -4998,6 +8447,22 @@
             {
               "type": "price_indicator",
               "content": "Inkludert"
+            },
+            {
+              "type": "short_name",
+              "content": "5"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Andre rad med justerbare seterygger"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Legg ned andre rad for maksimal lagringsplass"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Elektronisk utløser for nedlegging av seter i bagasjerommet"
             }
           ],
           "extra_content": [
@@ -5005,7 +8470,7 @@
               "type": "shape",
               "content": [
                 {
-                  "type": "block"
+                  "type": "circle"
                 }
               ]
             }
@@ -5044,24 +8509,42 @@
           "name": "Interiør med syv seter",
           "description": "Interiør med syv seter",
           "long_name": "Interiør med syv seter",
-          "extra_copy": [],
+          "extra_copy": [
+            {
+              "type": "short_name",
+              "content": "7"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "To seter på tredje rad"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Enkel tilgang til tredje rad"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Tredje rad har nå USB-C-lading"
+            },
+            {
+              "type": "feature_list.default[0].items[3]",
+              "content": "Andre rad med justerbare seterygger"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "Legg ned andre og tredje rad for maksimal lagringsplass"
+            },
+            {
+              "type": "feature_list.default[0].items[5]",
+              "content": "Elektronisk utløser for nedlegging av seter i bagasjerommet"
+            }
+          ],
           "extra_content": [
             {
               "type": "shape",
               "content": [
                 {
-                  "type": "block"
-                }
-              ]
-            },
-            {
-              "type": "disable_override",
-              "content": [
-                {
-                  "configuration": [
-                    "$MDLY"
-                  ],
-                  "condition_state": "and"
+                  "type": "circle"
                 }
               ]
             },
@@ -5133,9 +8616,9 @@
               ]
             }
           ],
-          "name": "19’’ Gemini Wheels",
-          "description": "19’’ Gemini Wheels",
-          "long_name": "19’’ Gemini Wheels",
+          "name": "19’’ Gemini-felger",
+          "description": "19’’ Gemini-felger",
+          "long_name": "19’’ Gemini-felger",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -5225,10 +8708,10 @@
               "condition_state": "unset"
             }
           ],
-          "name": "20’’ Induction Wheels",
-          "description": "20’’ Induction Wheels",
-          "long_name": "20’’ Induction Wheels",
-          "long_description": "20’’ Induction Wheels",
+          "name": "20’’ Induction-felger",
+          "description": "20’’ Induction-felger",
+          "long_name": "20’’ Induction-felger",
+          "long_description": "20’’ Induction-felger",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -5327,10 +8810,10 @@
               "condition_state": "unset"
             }
           ],
-          "name": "21’’ Überturbine Wheels",
-          "description": "21’’ Überturbine Wheels",
-          "long_name": "21’’ Überturbine Wheels",
-          "long_description": "21’’ Überturbine Wheels",
+          "name": "21’’ Überturbine-felger",
+          "description": "21’’ Überturbine-felger",
+          "long_name": "21’’ Überturbine-felger",
+          "long_description": "21’’ Überturbine-felger",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -5521,19 +9004,141 @@
           }
         ],
         "specs": {
-          "data": [],
+          "data": [
+            {
+              "meta": {
+                "specs": {
+                  "range": {
+                    "units": "kilometers",
+                    "source": "EPA est."
+                  },
+                  "topspeed": {
+                    "units": "kilometers-per-hour"
+                  },
+                  "ludicrous": {
+                    "units": "seconds",
+                    "measurement": {
+                      "units": "kilometers-per-hour",
+                      "value": "0-100"
+                    }
+                  },
+                  "acceleration": {
+                    "units": "seconds",
+                    "measurement": {
+                      "units": "kilometers-per-hour",
+                      "value": "0-100"
+                    }
+                  }
+                },
+                "unit_definitions": {
+                  "seconds": {
+                    "label": "s",
+                    "short_label": "s"
+                  },
+                  "kilometers": {
+                    "label": "kilometer",
+                    "short_label": "km"
+                  },
+                  "range_units": {
+                    "label": "Rekkevidde"
+                  },
+                  "range_units_epa": {
+                    "label": "Rekkevidde (WLTP-est.)"
+                  },
+                  "range_units_est": {
+                    "label": "Rekkevidde (est.)"
+                  },
+                  "top_speed_units": {
+                    "label": "Topphastighet",
+                    "short_label": "km/h"
+                  },
+                  "zero_to_road_limit": {
+                    "label": "0-100 km/t",
+                    "short_label": "0-100 km/h"
+                  },
+                  "kilometers-per-hour": {
+                    "label": "km/t",
+                    "short_label": "km/t"
+                  }
+                }
+              },
+              "options": {
+                "$MTY01": {
+                  "name": "Standard Range Rear-Wheel Drive",
+                  "range": 393,
+                  "topspeed": 217,
+                  "acceleration": 5.3,
+                  "range_units_override": "range_units_epa"
+                },
+                "$MTY03": {
+                  "name": "Long Range All-Wheel Drive",
+                  "range": 505,
+                  "topspeed": 217,
+                  "acceleration": 5.1,
+                  "range_units_override": "range_units_epa"
+                },
+                "$MTY04": {
+                  "name": "Long Range All-Wheel Drive Performance",
+                  "range": 480,
+                  "topspeed": 241,
+                  "overrides": [
+                    {
+                      "content": {
+                        "range": 468,
+                        "topspeed": 250,
+                        "acceleration": 3.7
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$SPTY1"
+                        ]
+                      }
+                    }
+                  ],
+                  "acceleration": 3.7,
+                  "range_units_override": "range_units_epa"
+                },
+                "$MTY05": {
+                  "name": "Long Range All-Wheel Drive Performance",
+                  "range": 480,
+                  "topspeed": 241,
+                  "overrides": [
+                    {
+                      "content": {
+                        "range": 480,
+                        "topspeed": 241,
+                        "acceleration": 3.7
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$SPTY1"
+                        ]
+                      }
+                    }
+                  ],
+                  "acceleration": 3.7,
+                  "range_units_override": "range_units_epa"
+                }
+              },
+              "curb_weight": {
+                "$MTY03": 4416,
+                "$MTY04": 4416,
+                "$MTY05": 4416
+              }
+            }
+          ],
           "refs": {
             "time": {
               "label": "seconds",
               "short_label": "sec"
             },
             "distance": {
-              "label": "kilometer",
-              "short_label": "km"
+              "label": "miles",
+              "short_label": "mi"
             },
             "velocity": {
-              "label": "kilometer per hour",
-              "short_label": "km/h"
+              "label": "miles per hour",
+              "short_label": "mph"
             }
           }
         },
@@ -5577,19 +9182,13 @@
       ],
       "warranty_options": {
         "$NW00": {
-          "code": "$NW00"
-        },
-        "$NW01": {
-          "code": "$NW01"
-        },
-        "$NW02": {
-          "code": "$NW02",
-          "name": "New MFG Warranty",
-          "description": "New MFG Warranty",
+          "code": "$NW00",
+          "name": "Ny MFG-garanti",
+          "description": "Ny MFG-garanti",
           "extra_copy": [
             {
               "type": "description",
-              "content": "Covers 5 years from when you take delivery or 100,000 Kilometers(60,000 total miles). Battery & drive unit limited warranty valid for 8 years or 192,000 total kilometers (120,000 total miles)"
+              "content": " "
             }
           ],
           "extra_content": [
@@ -5601,94 +9200,19 @@
             },
             {
               "type": "odometer_unit",
-              "content": "kilometers"
+              "content": "miles"
             },
             {
               "type": "general_coverage",
               "content": {
-                "code": "$GN01",
+                "code": "$GN00",
                 "content": "",
                 "plan_name": "New Vehicle Limited Warranty",
-                "coverage_age": 60,
+                "coverage_age": 48,
                 "coverage_start_date": "",
                 "new_warranty_remainder": false,
-                "coverage_odometer_miles": 60000,
-                "coverage_odometer_kilometers": 100000
-              }
-            },
-            {
-              "type": "battery_coverage",
-              "content": {
-                "code": "$BAT13",
-                "content": "",
-                "plan_name": "Long Range Battery Warranty",
-                "coverage_age": 96,
-                "coverage_start_date": "",
-                "new_warranty_remainder": true,
-                "coverage_odometer_miles": 120000,
-                "coverage_odometer_kilometers": 192000
-              }
-            },
-            {
-              "type": "driveunit_coverage",
-              "content": {
-                "code": "$DU06",
-                "content": "",
-                "plan_name": "Long Range Drive Unit Warranty",
-                "coverage_age": 96,
-                "coverage_start_date": "",
-                "new_warranty_remainder": true,
-                "coverage_odometer_miles": 120000,
-                "coverage_odometer_kilometers": 192000
-              }
-            },
-            {
-              "type": "roadside_coverage",
-              "content": {
-                "code": "$RD01",
-                "content": "",
-                "plan_name": "New Vehicle limited warranty Roadside Assistance",
-                "coverage_age": 60,
-                "coverage_start_date": "",
-                "new_warranty_remainder": true,
-                "coverage_odometer_miles": 60000,
-                "coverage_odometer_kilometers": 100000
-              }
-            }
-          ]
-        },
-        "$NW03": {
-          "code": "$NW03",
-          "name": "New MFG Warranty",
-          "description": "New MFG Warranty",
-          "extra_copy": [
-            {
-              "type": "description",
-              "content": "Covers 5 years from when you take delivery or 100,000 Kilometers(60,000 total miles). Battery & drive unit limited warranty valid for 8 years or 192,000 total kilometers (120,000 total miles)"
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "title",
-              "content": [
-                "NEW"
-              ]
-            },
-            {
-              "type": "odometer_unit",
-              "content": "kilometers"
-            },
-            {
-              "type": "general_coverage",
-              "content": {
-                "code": "$GN01",
-                "content": "",
-                "plan_name": "New Vehicle Limited Warranty",
-                "coverage_age": 60,
-                "coverage_start_date": "",
-                "new_warranty_remainder": false,
-                "coverage_odometer_miles": 60000,
-                "coverage_odometer_kilometers": 100000
+                "coverage_odometer_miles": 50000,
+                "coverage_odometer_kilometers": 80000
               }
             },
             {
@@ -5720,22 +9244,103 @@
             {
               "type": "roadside_coverage",
               "content": {
-                "code": "$RD01",
+                "code": "$RD00",
                 "content": "",
                 "plan_name": "New Vehicle limited warranty Roadside Assistance",
-                "coverage_age": 60,
+                "coverage_age": 48,
                 "coverage_start_date": "",
                 "new_warranty_remainder": true,
-                "coverage_odometer_miles": 60000,
-                "coverage_odometer_kilometers": 100000
+                "coverage_odometer_miles": 50000,
+                "coverage_odometer_kilometers": 80000
               }
             }
           ]
         },
+        "$NW01": {
+          "code": "$NW01",
+          "name": "Ny MFG-garanti",
+          "description": "Ny MFG-garanti",
+          "extra_copy": [
+            {
+              "type": "description",
+              "content": " "
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "title",
+              "content": [
+                "NEW"
+              ]
+            },
+            {
+              "type": "odometer_unit",
+              "content": "miles"
+            },
+            {
+              "type": "general_coverage",
+              "content": {
+                "code": "$GN00",
+                "content": "",
+                "plan_name": "New Vehicle Limited Warranty",
+                "coverage_age": 48,
+                "coverage_start_date": "",
+                "new_warranty_remainder": false,
+                "coverage_odometer_miles": 50000,
+                "coverage_odometer_kilometers": 80000
+              }
+            },
+            {
+              "type": "battery_coverage",
+              "content": {
+                "code": "$BAT13",
+                "content": "",
+                "plan_name": "Long Range Battery Warranty",
+                "coverage_age": 96,
+                "coverage_start_date": "",
+                "new_warranty_remainder": true,
+                "coverage_odometer_miles": 120000,
+                "coverage_odometer_kilometers": 192000
+              }
+            },
+            {
+              "type": "driveunit_coverage",
+              "content": {
+                "code": "$DU06",
+                "content": "",
+                "plan_name": "Long Range Drive Unit Warranty",
+                "coverage_age": 96,
+                "coverage_start_date": "",
+                "new_warranty_remainder": true,
+                "coverage_odometer_miles": 120000,
+                "coverage_odometer_kilometers": 192000
+              }
+            },
+            {
+              "type": "roadside_coverage",
+              "content": {
+                "code": "$RD00",
+                "content": "",
+                "plan_name": "New Vehicle limited warranty Roadside Assistance",
+                "coverage_age": 48,
+                "coverage_start_date": "",
+                "new_warranty_remainder": true,
+                "coverage_odometer_miles": 50000,
+                "coverage_odometer_kilometers": 80000
+              }
+            }
+          ]
+        },
+        "$NW02": {
+          "code": "$NW02"
+        },
+        "$NW03": {
+          "code": "$NW03"
+        },
         "$UW00": {
           "code": "$UW00",
-          "name": "Used MFG Warranty",
-          "description": "Used MFG Warranty",
+          "name": "Brukt MFG-garanti",
+          "description": "Brukt MFG-garanti",
           "extra_copy": [
             {
               "type": "description",
@@ -5779,8 +9384,8 @@
         },
         "$UW01": {
           "code": "$UW01",
-          "name": "Used MFG Warranty",
-          "description": "Used MFG Warranty",
+          "name": "Brukt MFG-garanti",
+          "description": "Brukt MFG-garanti",
           "extra_copy": [
             {
               "type": "decription",
@@ -5823,8 +9428,8 @@
         },
         "$UW02": {
           "code": "$UW02",
-          "name": "Used MFG Warranty",
-          "description": "Used MFG Warranty",
+          "name": "Brukt MFG-garanti",
+          "description": "Brukt MFG-garanti",
           "extra_copy": [
             {
               "type": "decription",
@@ -5846,7 +9451,7 @@
                   "marketing",
                   "customer"
                 ],
-                "odometer_unit": "kilometers",
+                "odometer_unit": "miles",
                 "vehicle_damage_history": [
                   "clean",
                   "previous accident(s)"
@@ -5900,7 +9505,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 441,
+      "options_id": 963,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -5913,8 +9518,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 50000,
             "coverage_odometer_kilometers": 80000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$GN01",
@@ -5927,8 +9531,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 60000,
             "coverage_odometer_kilometers": 100000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$GU00",
@@ -5941,8 +9544,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 50000,
             "coverage_odometer_kilometers": 80000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$GU01",
@@ -5955,8 +9557,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 100000,
             "coverage_odometer_kilometers": 160000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$GU02",
@@ -5969,8 +9570,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 10000,
             "coverage_odometer_kilometers": 20000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$GU03",
@@ -5983,8 +9583,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 10000,
             "coverage_odometer_kilometers": 20000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$BAT06",
@@ -5997,8 +9596,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 150000,
             "coverage_odometer_kilometers": 240000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$BAT07",
@@ -6011,8 +9609,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 120000,
             "coverage_odometer_kilometers": 192000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$BAT08",
@@ -6025,8 +9622,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 100000,
             "coverage_odometer_kilometers": 160000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$BAT09",
@@ -6039,8 +9635,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 100000,
             "coverage_odometer_kilometers": 160000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$BAT13",
@@ -6053,8 +9648,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 120000,
             "coverage_odometer_kilometers": 192000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU00",
@@ -6067,8 +9661,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 150000,
             "coverage_odometer_kilometers": 240000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU01",
@@ -6081,8 +9674,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 150000,
             "coverage_odometer_kilometers": 240000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU02",
@@ -6095,8 +9687,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 150000,
             "coverage_odometer_kilometers": 240000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU03",
@@ -6109,8 +9700,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 150000,
             "coverage_odometer_kilometers": 240000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU05",
@@ -6123,8 +9713,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 100000,
             "coverage_odometer_kilometers": 160000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$DU06",
@@ -6137,8 +9726,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 120000,
             "coverage_odometer_kilometers": 192000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD00",
@@ -6151,8 +9739,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 50000,
             "coverage_odometer_kilometers": 80000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD01",
@@ -6165,8 +9752,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 60000,
             "coverage_odometer_kilometers": 100000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD03",
@@ -6179,8 +9765,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 50000,
             "coverage_odometer_kilometers": 80000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD04",
@@ -6192,8 +9777,7 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 100000,
             "coverage_odometer_kilometers": 160000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD05",
@@ -6206,8 +9790,7 @@
             "new_warranty_remainder": false,
             "coverage_odometer_miles": 10000,
             "coverage_odometer_kilometers": 20000
-          },
-          "content_localized": {}
+          }
         },
         {
           "type": "#$RD06",
@@ -6219,13 +9802,13 @@
             "new_warranty_remainder": true,
             "coverage_odometer_miles": 10000,
             "coverage_odometer_kilometers": 20000
-          },
-          "content_localized": {}
+          }
         }
       ],
-      "copy_id": 554,
+      "copy_id": 1400,
       "language": "no",
-      "pricing_id": 1030
+      "pricing_id": 1030,
+      "reference_id": 963
     }
   },
   "edd": []

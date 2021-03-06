@@ -189,8 +189,10 @@
             "available": [
               "STUD_SIDE",
               "STUD_3QTR",
+              "SIDE",
               "STUD_SIDEVIEW",
               "STUD_FRONT34",
+              "REAR34",
               "STUD_REAR34",
               "STUD_RIMCLOSEUP"
             ]
@@ -234,6 +236,19 @@
               "SPOILER"
             ]
           },
+          "SIDE": {
+            "view": "SIDE",
+            "size": 1920,
+            "url": "",
+            "relevant_groups": [
+              "TRIM",
+              "PAINT",
+              "WHEELS",
+              "INTERIOR",
+              "PERFORMANCE",
+              "SPOILER"
+            ]
+          },
           "STUD_FRONT34": {
             "view": "STUD_FRONT34",
             "size": 1920,
@@ -264,6 +279,19 @@
           },
           "STUD_REAR34": {
             "view": "STUD_REAR34",
+            "size": 1920,
+            "url": "",
+            "relevant_groups": [
+              "TRIM",
+              "PAINT",
+              "WHEELS",
+              "INTERIOR",
+              "PERFORMANCE",
+              "SPOILER"
+            ]
+          },
+          "REAR34": {
+            "view": "REAR34",
             "size": 1920,
             "url": "",
             "relevant_groups": [
@@ -681,11 +709,16 @@
             "context": "configurator"
           },
           {
+            "code": "EAP_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "SR_INTERIOR_FEATURES_CARD",
             "context": "configurator",
             "group_selected_by": {
-              "and": [
-                "$MT314"
+              "or": [
+                "$MT314",
+                "$MT337"
               ]
             }
           },
@@ -695,7 +728,8 @@
             "group_selected_by": {
               "or": [
                 "$MT315",
-                "$MT317"
+                "$MT317",
+                "$MT339"
               ]
             }
           },
@@ -721,6 +755,55 @@
           },
           {
             "code": "20_IN_WINTER_WHEEL_FEATURES_CARD",
+            "context": "configurator",
+            "group_selected_by": {
+              "and": [
+                "$MT317"
+              ]
+            }
+          },
+          {
+            "code": "18_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+            "context": "configurator",
+            "group_selected_by": {
+              "or": [
+                "$MT314",
+                "$MT315"
+              ]
+            }
+          },
+          {
+            "code": "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+            "context": "configurator",
+            "group_selected_by": {
+              "or": [
+                "$MT314",
+                "$MT315"
+              ]
+            }
+          },
+          {
+            "code": "18_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD",
+            "context": "configurator",
+            "group_selected_by": {
+              "or": [
+                "$MT314",
+                "$MT315"
+              ]
+            }
+          },
+          {
+            "code": "19_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD",
+            "context": "configurator",
+            "group_selected_by": {
+              "or": [
+                "$MT314",
+                "$MT315"
+              ]
+            }
+          },
+          {
+            "code": "20_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
             "context": "configurator",
             "group_selected_by": {
               "and": [
@@ -1004,6 +1087,35 @@
         "showLegalConsent": [],
         "showPrpLink": false,
         "showVAT": true,
+        "assetView": "STUD_3QTR",
+        "assetViewSource": [
+          {
+            "view": "FRONT34",
+            "zoom": 1,
+            "selected_by": {
+              "and": [
+                {
+                  "or": [
+                    "$ST03",
+                    "$ST0Y"
+                  ]
+                },
+                {
+                  "or": [
+                    "$MTX10",
+                    "$MTX11",
+                    "$MTS09",
+                    "$MTS10",
+                    "$MTS11"
+                  ]
+                }
+              ]
+            }
+          },
+          {
+            "view": "STUD_3QTR"
+          }
+        ],
         "asset": {
           "type": "image-compositor",
           "view": "STUD_3QTR",
@@ -1208,6 +1320,7 @@
           "ACCOUNT_DETAILS_CHANGED"
         ],
         "showVehicleSubtotal": false,
+        "hidePostfixOnUI": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -10826,6 +10939,21 @@
               "type": "base_plus_trim_pricing",
               "content": [
                 {
+                  "fees": [
+                    "current.reg_and_doc_fee.total"
+                  ],
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing_payment",
+              "content": [
+                {
                   "configuration": [
                     "$MDL3"
                   ],
@@ -11067,6 +11195,21 @@
             },
             {
               "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "fees": [
+                    "current.reg_and_doc_fee.total"
+                  ],
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing_payment",
               "content": [
                 {
                   "configuration": [
@@ -11557,7 +11700,7 @@
               "type": "price_indicator_override",
               "content": [
                 {
-                  "content": 494900,
+                  "content": 495268,
                   "configuration": [
                     "$MDL3"
                   ],
@@ -11570,7 +11713,7 @@
               "type": "option_price_override",
               "content": [
                 {
-                  "content": 494900,
+                  "content": 489900,
                   "configuration": [
                     "$MDL3"
                   ],
@@ -11590,7 +11733,7 @@
               ]
             },
             {
-              "type": "base_plus_trim_pricing",
+              "type": "base_plus_trim_pricing_payment",
               "content": [
                 {
                   "options": [
