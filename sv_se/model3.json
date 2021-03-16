@@ -2035,12 +2035,12 @@
       "tcc": []
     },
     "Lexicon.m3": {
-      "effective_date": "2021-03-12T06:00:00.000Z",
+      "effective_date": "2021-03-15T22:38:39.548Z",
       "market": "SE",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing SE 2021.Mar.12 1008.1406.996 [sv]",
+      "name": "Marketing SE 2021.Mar.15 1126.1428.996 [sv]",
       "groups": [
         {
           "code": "MODEL",
@@ -2063,17 +2063,21 @@
           "context": "default",
           "options": [
             "$MT301",
+            "$MT302",
             "$MT303",
             "$MT304",
+            "$MT307",
             "$MT308",
-            "$MT310",
-            "$MT311",
             "$MT314",
+            "$MT311",
             "$MT315",
+            "$MT312",
             "$MT316",
             "$MT317",
-            "$MT336",
-            "$MT320"
+            "$MT310",
+            "$MT320",
+            "$MT309",
+            "$MT336"
           ],
           "required": true,
           "exclusive": true,
@@ -4313,8 +4317,8 @@
             "$MT316",
             "$MT317",
             "$MT320",
-            "$MT336",
-            "$SPT31"
+            "$SPT31",
+            "$MT336"
           ],
           "required": false,
           "exclusive": false,
@@ -4325,9 +4329,9 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$W3WN8",
             "$W3WN9",
             "$W3WN2",
+            "$W3WN8",
             "$W3SN8",
             "$W3SN9"
           ],
@@ -4643,6 +4647,76 @@
           "extra_content": []
         },
         {
+          "code": "TOWING",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$TW01"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Dragkrok",
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
+                  "type": "image-compositor",
+                  "view": "STUD_REAR34",
+                  "zoom": 1.1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "STUD_REAR34",
+                  "ratio": "slice"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Options",
+                  "props": {
+                    "classes": "tds--vertical_padding tds-flex tds-flex--as_columns tds-flex--center tds-flex--justify-center"
+                  }
+                },
+                {
+                  "type": "RootGroup"
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY",
+                  "section": 2
+                }
+              ]
+            }
+          ]
+        },
+        {
           "code": "SPORT_PACKAGE_OPTIONS",
           "groups": [],
           "context": "configurator",
@@ -4694,8 +4768,9 @@
             "INTERIOR",
             "AUTOPILOT",
             "AUTOPILOT_OWNERSHIP",
+            "AUTOPILOT_PACKAGE",
             "WINTER_WHEELS_OPTIONS",
-            "AUTOPILOT_PACKAGE"
+            "TOWING"
           ],
           "context": "configurator",
           "options": [],
@@ -4704,6 +4779,21 @@
           "default_options": [],
           "name": "REVIEW_ORDER",
           "extra_copy": []
+        },
+        {
+          "code": "FEDERAL_TAX_CREDIT",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "federalTax",
+          "extra_copy": [
+            {
+              "type": "federalTax.description",
+              "content": "Ta leverans innan 1 april och få en ränta från 0,25%. <a href='/sv_SE/inventory/new/m3?redirect=no' target='_blank'>Tillgängliga lagerbilar</a>"
+            }
+          ]
         },
         {
           "code": "OFF_MENU_ITEMS",
@@ -5235,6 +5325,93 @@
             {
               "type": "aria_label",
               "content": "Detaljer för Performance-uppgradering"
+            }
+          ]
+        },
+        {
+          "code": "FSD_TRAFFIC_LIGHT_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APF2"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Identifiera och reagera på trafikljus och stoppskyltar",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Identifiera och reagera på trafikljus och stoppskyltar"
+            },
+            {
+              "type": "panelName",
+              "content": "Total självkörningsförmåga"
+            },
+            {
+              "type": "description",
+              "content": "Trafikljus- och stoppskyltsassistans är utformad sakta ned och stanna bilen för synliga trafikljus och stoppskyltar som upptäcks när Trafikmedveten farthållare eller Autostyrning är inkopplade."
+            },
+            {
+              "type": "add_options",
+              "content": "Lägg till paket",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_TRAFFIC_LIGHT_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-traffic-light"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Ta bort",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "panelName": "FSD_TRAFFIC_LIGHT_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-traffic-light"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Traffic_Light_and_Stop_Sign.png",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
             }
           ]
         },
@@ -7204,93 +7381,6 @@
           ]
         },
         {
-          "code": "FSD_TRAFFIC_LIGHT_CARD",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$APF2"
-          ],
-          "required": false,
-          "exclusive": false,
-          "name": "Identifiera och reagera på trafikljus och stoppskyltar",
-          "extra_copy": [
-            {
-              "type": "title",
-              "content": "Identifiera och reagera på trafikljus och stoppskyltar"
-            },
-            {
-              "type": "panelName",
-              "content": "Total självkörningsförmåga"
-            },
-            {
-              "type": "description",
-              "content": "Trafikljus- och stoppskyltsassistans är utformad sakta ned och stanna bilen för synliga trafikljus och stoppskyltar som upptäcks när Trafikmedveten farthållare eller Autostyrning är inkopplade."
-            },
-            {
-              "type": "add_options",
-              "content": "Lägg till paket",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "TRIGGER_CONFIGURATION_CHANGE",
-                    "option": {
-                      "set": [
-                        "$APF2"
-                      ]
-                    },
-                    "panelName": "FSD_TRAFFIC_LIGHT_CARD",
-                    "actionClass": [
-                      "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
-                      "tds-o-remove-margins"
-                    ],
-                    "interaction": "add-fsd-traffic-light"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "remove_options",
-              "content": "Ta bort",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "TRIGGER_CONFIGURATION_CHANGE",
-                    "option": {
-                      "set": [
-                        "$APF2"
-                      ]
-                    },
-                    "panelName": "FSD_TRAFFIC_LIGHT_CARD",
-                    "actionClass": [
-                      "tds-btn",
-                      "tds-btn--light",
-                      "tds-btn--full",
-                      "tds-o-remove-margins"
-                    ],
-                    "interaction": "remove-fsd-traffic-light"
-                  }
-                }
-              ]
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "asset",
-              "content": [
-                {
-                  "url": "MODEL3/UI/Traffic_Light_and_Stop_Sign.png",
-                  "type": "image",
-                  "ratio": "slice"
-                }
-              ]
-            }
-          ]
-        },
-        {
           "code": "EAP_FEATURES",
           "groups": [
             "EAP_LANE_CHANGE_CARD",
@@ -7307,76 +7397,6 @@
             {
               "type": "aria_label",
               "content": "Förbättrade funktioner för Autopilot"
-            }
-          ]
-        },
-        {
-          "code": "TOWING",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$TW01"
-          ],
-          "required": false,
-          "exclusive": false,
-          "default_options": [],
-          "name": "Dragkrok",
-          "extra_content": [
-            {
-              "type": "asset",
-              "content": [
-                {
-                  "bkba": 1,
-                  "crop": [
-                    1300,
-                    450,
-                    300,
-                    300
-                  ],
-                  "type": "image-compositor",
-                  "view": "STUD_REAR34",
-                  "zoom": 1.1,
-                  "selected_by": {
-                    "or": [
-                      {
-                        "on": [
-                          "tablet",
-                          "mobile"
-                        ]
-                      }
-                    ]
-                  }
-                },
-                {
-                  "bkba": 1,
-                  "type": "image-compositor",
-                  "view": "STUD_REAR34",
-                  "ratio": "slice"
-                }
-              ]
-            },
-            {
-              "type": "components",
-              "content": [
-                {
-                  "type": "Options",
-                  "props": {
-                    "classes": "tds--vertical_padding tds-flex tds-flex--as_columns tds-flex--center tds-flex--justify-center"
-                  }
-                },
-                {
-                  "type": "RootGroup"
-                }
-              ]
-            },
-            {
-              "type": "gallery",
-              "content": [
-                {
-                  "group": "EXTERIOR_GALLERY",
-                  "section": 2
-                }
-              ]
             }
           ]
         },
@@ -8262,8 +8282,12 @@
           "user_defined_rules": {
             "unset_rules": [
               {
-                "action": "set",
-                "target": "$APBS"
+                "action": "unset",
+                "target": "$APF2"
+              },
+              {
+                "action": "unset",
+                "target": "$APPB"
               }
             ]
           },
@@ -8279,8 +8303,12 @@
               "target": "$APBS"
             },
             {
-              "action": "set",
-              "target": "$APBS"
+              "action": "unset",
+              "target": "$APF2"
+            },
+            {
+              "action": "unset",
+              "target": "$APPB"
             }
           ],
           "name": "Autopilot",
@@ -8569,12 +8597,6 @@
                 "action": "unset",
                 "target": "$APF2"
               }
-            ],
-            "unset_rules": [
-              {
-                "action": "unset",
-                "target": "$APF2"
-              }
             ]
           },
           "set_rules": [
@@ -8595,10 +8617,6 @@
             {
               "action": "unset",
               "target": "$APPB"
-            },
-            {
-              "action": "unset",
-              "target": "$APF2"
             }
           ],
           "name": "Uppgraderad Autopilot",
@@ -13370,17 +13388,21 @@
             {
               "action": "unset",
               "targets": [
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
-                "$MT311",
                 "$MT314",
+                "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             },
             {
@@ -13421,16 +13443,20 @@
               "target": "$MT314",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
                 "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             }
           ],
@@ -13520,6 +13546,26 @@
               "target": "$MT302"
             },
             {
+              "action": "unset",
+              "targets": [
+                "$MT301",
+                "$MT303",
+                "$MT304",
+                "$MT307",
+                "$MT308",
+                "$MT314",
+                "$MT311",
+                "$MT315",
+                "$MT312",
+                "$MT316",
+                "$MT317",
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
+              ]
+            },
+            {
               "action": "set",
               "target": "$DV2W"
             },
@@ -13532,6 +13578,79 @@
             {
               "action": "unset",
               "target": "$MT302"
+            },
+            {
+              "action": "set",
+              "target": "$MT314",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT301",
+                "$MT303",
+                "$MT304",
+                "$MT307",
+                "$MT308",
+                "$MT311",
+                "$MT315",
+                "$MT312",
+                "$MT316",
+                "$MT317",
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
+              ]
+            }
+          ],
+          "name": "Long Range Rear-Wheel Drive",
+          "description": "Model 3 Long Range RWD",
+          "long_name": "Long Range Rear-Wheel Drive",
+          "long_description": "Model 3 Long Range RWD",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Long Range"
+            },
+            {
+              "type": "compare_matrix.block[0].label",
+              "content": "Acceleration"
+            },
+            {
+              "type": "compare_matrix.block[0].content",
+              "content": "3.5s 0-60mph"
+            },
+            {
+              "type": "compare_matrix.block[1].label",
+              "content": "Drive"
+            },
+            {
+              "type": "compare_matrix.block[1].content",
+              "content": "Dual Motor All-wheel Drive"
+            },
+            {
+              "type": "long_name",
+              "content": "Model 3 Long Range Rear-Wheel Drive"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 599500,
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
           "price": 118500,
@@ -13596,16 +13715,20 @@
               "action": "unset",
               "targets": [
                 "$MT301",
+                "$MT302",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
-                "$MT311",
                 "$MT314",
+                "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             },
             {
@@ -13647,15 +13770,19 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
+                "$MT302",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
                 "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             },
             {
@@ -13810,16 +13937,20 @@
               "action": "unset",
               "targets": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
+                "$MT307",
                 "$MT308",
-                "$MT310",
-                "$MT311",
                 "$MT314",
+                "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             },
             {
@@ -13910,15 +14041,19 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
+                "$MT307",
                 "$MT308",
-                "$MT310",
                 "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             },
             {
@@ -14017,6 +14152,26 @@
               "target": "$MT307"
             },
             {
+              "action": "unset",
+              "targets": [
+                "$MT301",
+                "$MT302",
+                "$MT303",
+                "$MT304",
+                "$MT308",
+                "$MT314",
+                "$MT311",
+                "$MT315",
+                "$MT312",
+                "$MT316",
+                "$MT317",
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
+              ]
+            },
+            {
               "action": "set",
               "target": "$DV2W"
             },
@@ -14029,6 +14184,79 @@
             {
               "action": "unset",
               "target": "$MT307"
+            },
+            {
+              "action": "set",
+              "target": "$MT314",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT301",
+                "$MT302",
+                "$MT303",
+                "$MT304",
+                "$MT308",
+                "$MT311",
+                "$MT315",
+                "$MT312",
+                "$MT316",
+                "$MT317",
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
+              ]
+            }
+          ],
+          "name": "Standard Range Rear-Wheel Drive",
+          "description": "Standard Range Rear-Wheel Drive",
+          "long_name": "Standard Range Rear-Wheel Drive",
+          "long_description": "Standard Rear-Wheel Drive",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Standard Range"
+            },
+            {
+              "type": "compare_matrix.block[0].label",
+              "content": "Acceleration"
+            },
+            {
+              "type": "compare_matrix.block[0].content",
+              "content": "3.5s 0-60mph"
+            },
+            {
+              "type": "compare_matrix.block[1].label",
+              "content": "Drive"
+            },
+            {
+              "type": "compare_matrix.block[1].content",
+              "content": "Dual Motor All-wheel Drive"
+            },
+            {
+              "type": "long_name",
+              "content": "Model 3 Standard Range Rear-Wheel Drive"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 481000,
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
           "price": 0,
@@ -14088,16 +14316,20 @@
               "action": "unset",
               "targets": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
-                "$MT310",
-                "$MT311",
+                "$MT307",
                 "$MT314",
+                "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             },
             {
@@ -14139,15 +14371,19 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
-                "$MT310",
+                "$MT307",
                 "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             }
           ],
@@ -14237,6 +14473,26 @@
               "target": "$MT309"
             },
             {
+              "action": "unset",
+              "targets": [
+                "$MT301",
+                "$MT302",
+                "$MT303",
+                "$MT304",
+                "$MT307",
+                "$MT308",
+                "$MT314",
+                "$MT311",
+                "$MT315",
+                "$MT312",
+                "$MT316",
+                "$MT317",
+                "$MT310",
+                "$MT320",
+                "$MT336"
+              ]
+            },
+            {
               "action": "set",
               "target": "$DV2W"
             },
@@ -14249,6 +14505,79 @@
             {
               "action": "unset",
               "target": "$MT309"
+            },
+            {
+              "action": "set",
+              "target": "$MT314",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT301",
+                "$MT302",
+                "$MT303",
+                "$MT304",
+                "$MT307",
+                "$MT308",
+                "$MT311",
+                "$MT315",
+                "$MT312",
+                "$MT316",
+                "$MT317",
+                "$MT310",
+                "$MT320",
+                "$MT336"
+              ]
+            }
+          ],
+          "name": "Long Range Rear-Wheel Drive",
+          "description": "Model 3 Long Range RWD",
+          "long_name": "Long Range Rear-Wheel Drive",
+          "long_description": "Model 3 Long Range RWD",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Long Range"
+            },
+            {
+              "type": "compare_matrix.block[0].label",
+              "content": "Acceleration"
+            },
+            {
+              "type": "compare_matrix.block[0].content",
+              "content": "3.5s 0-60mph"
+            },
+            {
+              "type": "compare_matrix.block[1].label",
+              "content": "Drive"
+            },
+            {
+              "type": "compare_matrix.block[1].content",
+              "content": "Dual Motor All-wheel Drive"
+            },
+            {
+              "type": "long_name",
+              "content": "Model 3 Long Range Rear-Wheel Drive"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 599500,
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
           "price": 118500,
@@ -14313,16 +14642,20 @@
               "action": "unset",
               "targets": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT311",
                 "$MT314",
+                "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             },
             {
@@ -14364,15 +14697,19 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
                 "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             },
             {
@@ -14469,16 +14806,20 @@
               "action": "unset",
               "targets": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
                 "$MT314",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             },
             {
@@ -14511,15 +14852,19 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             },
             {
@@ -14617,6 +14962,26 @@
               "target": "$MT312"
             },
             {
+              "action": "unset",
+              "targets": [
+                "$MT301",
+                "$MT302",
+                "$MT303",
+                "$MT304",
+                "$MT307",
+                "$MT308",
+                "$MT314",
+                "$MT311",
+                "$MT315",
+                "$MT316",
+                "$MT317",
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
+              ]
+            },
+            {
               "action": "set",
               "target": "$DV2W"
             },
@@ -14629,6 +14994,91 @@
             {
               "action": "unset",
               "target": "$MT312"
+            },
+            {
+              "action": "set",
+              "target": "$MT314",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT301",
+                "$MT302",
+                "$MT303",
+                "$MT304",
+                "$MT307",
+                "$MT308",
+                "$MT311",
+                "$MT315",
+                "$MT316",
+                "$MT317",
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
+              ]
+            }
+          ],
+          "name": "Mid Range Rear-Wheel Drive",
+          "description": "Model 3 Mid Range RWD",
+          "long_name": "Model 3 Mid Range Rear-Wheel Drive",
+          "long_description": "Model 3 Mid Range RWD",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Mid Range"
+            },
+            {
+              "type": "compare_matrix.block[0].label",
+              "content": "Acceleration"
+            },
+            {
+              "type": "compare_matrix.block[0].content",
+              "content": "3.3s 0-60mph"
+            },
+            {
+              "type": "compare_matrix.block[1].label",
+              "content": "Drive"
+            },
+            {
+              "type": "compare_matrix.block[1].content",
+              "content": "Dual Motor All-wheel Drive"
+            },
+            {
+              "type": "long_name",
+              "content": "Model 3 Mid Range Rear-Wheel Drive"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": "£40,000",
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 40000,
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
           "price": 0,
@@ -14714,16 +15164,20 @@
               "action": "unset",
               "targets": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
                 "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             },
             {
@@ -14791,16 +15245,20 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
                 "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             }
           ],
@@ -14953,16 +15411,20 @@
               "action": "unset",
               "targets": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
-                "$MT311",
                 "$MT314",
+                "$MT311",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             },
             {
@@ -15026,15 +15488,19 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
                 "$MT311",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             },
             {
@@ -15187,16 +15653,20 @@
               "action": "unset",
               "targets": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
-                "$MT311",
                 "$MT314",
+                "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             },
             {
@@ -15259,15 +15729,19 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
                 "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT317",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             },
             {
@@ -15419,16 +15893,20 @@
               "action": "unset",
               "targets": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
-                "$MT311",
                 "$MT314",
+                "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             },
             {
@@ -15504,15 +15982,19 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
                 "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
-                "$MT336",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336"
               ]
             },
             {
@@ -15702,15 +16184,19 @@
               "action": "unset",
               "targets": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
-                "$MT311",
                 "$MT314",
+                "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
+                "$MT310",
+                "$MT309",
                 "$MT336"
               ]
             },
@@ -15775,14 +16261,18 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
                 "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
+                "$MT310",
+                "$MT309",
                 "$MT336"
               ]
             }
@@ -15934,16 +16424,20 @@
               "action": "unset",
               "targets": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
-                "$MT311",
                 "$MT314",
+                "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309"
               ]
             },
             {
@@ -16009,15 +16503,19 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
+                "$MT302",
                 "$MT303",
                 "$MT304",
+                "$MT307",
                 "$MT308",
-                "$MT310",
                 "$MT311",
                 "$MT315",
+                "$MT312",
                 "$MT316",
                 "$MT317",
-                "$MT320"
+                "$MT310",
+                "$MT320",
+                "$MT309"
               ]
             }
           ],
@@ -17900,6 +18398,23 @@
           },
           {
             "options": {
+              "$MT308": {
+                "set_rules": [
+                  {
+                    "action": "unset",
+                    "target": "$MT308"
+                  },
+                  {
+                    "action": "set",
+                    "target": "$MT320"
+                  }
+                ]
+              }
+            },
+            "comments": "New SR+ Trim w/ MI02 & Battery"
+          },
+          {
+            "options": {
               "$MT300": {
                 "set_rules": [
                   {
@@ -17975,35 +18490,6 @@
             },
             "comments": "introduce new trims for shimmed drive units MI01",
             "effective_date": "2019-10-17T00:00:00.000Z"
-          },
-          {
-            "options": {
-              "$MDL3": {
-                "set_rules": [
-                  {
-                    "action": "set",
-                    "target": "$SC04"
-                  }
-                ]
-              }
-            }
-          },
-          {
-            "options": {
-              "$MT308": {
-                "set_rules": [
-                  {
-                    "action": "unset",
-                    "target": "$MT308"
-                  },
-                  {
-                    "action": "set",
-                    "target": "$MT320"
-                  }
-                ]
-              }
-            },
-            "comments": "New SR+ Trim w/ MI02 & Battery"
           },
           {
             "options": {
@@ -18151,6 +18637,24 @@
           },
           {
             "options": {
+              "$MT320": {
+                "set_rules": [
+                  {
+                    "action": "unset",
+                    "target": "$MT320"
+                  },
+                  {
+                    "action": "set",
+                    "target": "$MT314"
+                  }
+                ]
+              }
+            },
+            "comments": "New SR+ with BT41",
+            "effective_date": "2021-01-05"
+          },
+          {
+            "options": {
               "$MT310": {
                 "set_rules": [
                   {
@@ -18182,24 +18686,6 @@
               }
             },
             "comments": "New Perf Trim w/ MI02 & Battery"
-          },
-          {
-            "options": {
-              "$MT320": {
-                "set_rules": [
-                  {
-                    "action": "unset",
-                    "target": "$MT320"
-                  },
-                  {
-                    "action": "set",
-                    "target": "$MT314"
-                  }
-                ]
-              }
-            },
-            "comments": "New SR+ with BT41",
-            "effective_date": "2021-01-05"
           }
         ],
         "warranty_rules": [
@@ -22725,11 +23211,11 @@
         "$PRM30",
         "$MT314",
         "$PPSW",
-        "$CPF0",
         "$APBS",
+        "$CPF0",
         "$SC04"
       ],
-      "options_id": 1008,
+      "options_id": 1126,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -23585,10 +24071,10 @@
           }
         }
       ],
-      "copy_id": 1406,
+      "copy_id": 1428,
       "language": "sv",
       "pricing_id": 996,
-      "reference_id": 1008
+      "reference_id": 1126
     }
   },
   "edd": [
