@@ -540,6 +540,18 @@
             ]
           },
           {
+            "type": "lexicon_specs",
+            "dependencies": [
+              "Lexicon"
+            ],
+            "actions": [
+              "COMPLETE_CONFIGURATION_CHANGED"
+            ],
+            "updates": [
+              "formattedSpecs"
+            ]
+          },
+          {
             "type": "extra_content",
             "dependencies": [
               "Lexicon"
@@ -957,8 +969,11 @@
         "hideEstLink": {
           "selectedBy": {
             "or": [
-              "$MT320",
-              "$MT314"
+              "$MTS09",
+              "$MTS10",
+              "$MTS11",
+              "$MTX10",
+              "$MTX11"
             ]
           },
           "hide": false
@@ -1327,6 +1342,7 @@
           "PRICE_ADD_DISCOUNT"
         ],
         "actionsToUpdatePrices": [
+          "SUMMARY_PANEL_INCLUDE_SERVICE_FEE_CHANGE",
           "SUMMARY_PANEL_DISTANCE_CHANGE",
           "SUMMARY_PANEL_FINANCE_DISTANCE_CHANGE",
           "ACCOUNT_DETAILS_CHANGED"
@@ -2099,7 +2115,7 @@
       "tcc": []
     },
     "Lexicon.m3": {
-      "effective_date": "2021-03-12T01:19:38.063Z",
+      "effective_date": "2021-03-19T05:00:00.000Z",
       "market": "FR",
       "product": "m3",
       "factory": "GF00",
@@ -2121,7 +2137,7 @@
           }
         }
       },
-      "name": "Marketing FR 2021.Mar.12 968.1393.995 [fr]",
+      "name": "Marketing FR 2021.Mar.19 1134.1447.1100 [fr]",
       "groups": [
         {
           "code": "MODEL",
@@ -2158,7 +2174,9 @@
             "$MT310",
             "$MT320",
             "$MT309",
-            "$MT336"
+            "$MT336",
+            "$MT321",
+            "$MT337"
           ],
           "required": true,
           "exclusive": true,
@@ -2373,6 +2391,10 @@
             "$IBW0",
             "$IPB0",
             "$IPW0",
+            "$IBB1",
+            "$IBW1",
+            "$IPB1",
+            "$IPW1",
             "$IN3PB",
             "$IN3PW",
             "$IN3B2",
@@ -3116,7 +3138,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionner la couleur"
+              "content": "Couleur"
             },
             {
               "type": "section_title",
@@ -3214,7 +3236,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionnez les jantes"
+              "content": "Jantes"
             }
           ],
           "extra_content": [
@@ -3473,7 +3495,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionnez un intérieur"
+              "content": "Intérieur"
             },
             {
               "type": "view_features",
@@ -3633,7 +3655,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionnez un intérieur"
+              "content": "Intérieur"
             }
           ],
           "extra_content": [
@@ -3660,7 +3682,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionner l'aileron"
+              "content": "Aileron"
             }
           ]
         },
@@ -4785,74 +4807,35 @@
                 {
                   "type": "DynamicGrid",
                   "props": {
+                    "group": "TRIM",
                     "content": [
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT314.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT314.acceleration"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT315.acceleration"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT317.acceleration"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.accelerationFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[1]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT314.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT314.range"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT315.range"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT317.range"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.rangeFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[2]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT314.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT314.topspeed"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT315.topspeed"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT317.topspeed"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.topspeedFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[3]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT314.name",
-                            "value": "CustomGroups.battery_group_specs.options.$DV2W.name"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.battery_group_specs.options.$DV4W.name"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.battery_group_specs.options.$DV4W.name"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "drive_mode"
+                        }
                       }
                     ]
                   }
@@ -4944,6 +4927,10 @@
             {
               "type": "feature_list.default[0].items[6]",
               "content": "542 litres d'espace de chargement, incluant un coffre avant sécurisé"
+            },
+            {
+              "type": "dynamic_grid_indicator_included",
+              "content": "De série"
             }
           ],
           "extra_content": [
@@ -4953,58 +4940,29 @@
                 {
                   "type": "DynamicGrid",
                   "props": {
+                    "group": "TRIM",
                     "content": [
                       {
                         "classes": "dynamic-grid--space-evenly",
                         "title_path": "CustomGroups.INTERIOR_SECTION.dynamic_grid_title[0]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT314.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[0]"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[1]"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[1]"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "interior_sound_system"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.INTERIOR_SECTION.dynamic_grid_title[1]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT314.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[2]"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "OMS.lexicon.options.$IBB0.price_indicator"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "OMS.lexicon.options.$IBB0.price_indicator"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "interior_floor_mats"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.INTERIOR_SECTION.dynamic_grid_title[2]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT314.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[3]"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[4]"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[4]"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "interior_heated_seats"
+                        }
                       }
                     ]
                   }
@@ -5226,7 +5184,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Commander votre Model 3"
+              "content": "Commandez votre Model 3"
             },
             {
               "type": "goto_payment",
@@ -8676,6 +8634,27 @@
           "name": "Acceleration Boost",
           "description": "Acceleration Boost",
           "long_name": "Acceleration Boost",
+          "extra_copy": [
+            {
+              "type": "description",
+              "content": "Temps d'accélération de 0 à 100 km/h réduit de 4,4 à 3,9 secondes"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "app": "m3-boost-image/aasvcb/std/0x0/m3-boost",
+                  "mobile": "m3-boost-image/aasvcb/std/0x0/m3-boost",
+                  "appDark": "m3-boost-image/aasvcb/std/0x0/m3-boost",
+                  "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
+                  "desktop": "m3-boost-image/aasvcb/std/0x0/m3-boost",
+                  "desktop2x": "m3-boost-image/aasvcb/std/0x0/m3-boost"
+                }
+              ]
+            }
+          ],
           "price": 1800,
           "pricing": [
             {
@@ -8722,6 +8701,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -8758,6 +8741,234 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
+                "$IN3PB",
+                "$IN3PW",
+                "$IN3B2",
+                "$IN3BB",
+                "$IN3BW"
+              ]
+            }
+          ],
+          "name": "Intérieur noir",
+          "description": "Intérieur noir",
+          "long_name": "Intérieur Premium partiel noir",
+          "long_description": "Intérieur noir",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Noir"
+            },
+            {
+              "type": "price_indicator",
+              "content": "De série"
+            },
+            {
+              "type": "spec_description",
+              "content": "Intérieur cuir noir"
+            },
+            {
+              "type": "feature_list.default[0].main_title",
+              "content": "De série :"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Sièges avant chauffants et électriques, ajustables en 12 positions"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Sellerie et finition Premium"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Système audio avec son immersif"
+            },
+            {
+              "type": "feature_list.default[0].items[3].main_title",
+              "content": "Connexion Premium (30 jours inclus) :"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[0]",
+              "content": "Cartes satellite avec visualisation de la circulation en temps réel"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[1]",
+              "content": "Musique et multimédia en streaming dans le véhicule"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[2]",
+              "content": "Vidéo en streaming"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[3]",
+              "content": "Caraoke"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[4]",
+              "content": "Navigateur Internet"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "Musique et médias accessibles via Bluetooth®"
+            },
+            {
+              "type": "feature_list.default[0].items[5]",
+              "content": "Toit vitré teinté avec protection infrarouge et ultraviolet"
+            },
+            {
+              "type": "feature_list.default[0].items[6]",
+              "content": "Rétroviseurs chauffants, rabattables électriquement et atténuant la luminosité"
+            },
+            {
+              "type": "feature_list.default[0].items[7]",
+              "content": "Profils conducteurs personnalisés"
+            },
+            {
+              "type": "feature_list.default[0].items[8]",
+              "content": "Console centrale avec espace de rangement, 4 ports USB et recharge sans fil pour 2 smartphones"
+            },
+            {
+              "type": "view_details_collapsed",
+              "content": "Voir détails",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_EXPAND",
+                    "props": {
+                      "options": [
+                        "$IBB0"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--collapsed"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_details_expanded",
+              "content": "Moins de détails",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_COLLAPSE",
+                    "props": {
+                      "options": [
+                        "$IBB0"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--expanded"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_in3pb.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRM30"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "default"
+            }
+          ]
+        },
+        "$IBB1": {
+          "code": "$IBB1",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$PRM30",
+                "condition_code": "$PRM3S",
+                "condition_state": "unset"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$IBB1"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBB0",
+                "$IBW0",
+                "$IPB0",
+                "$IPW0",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
+                "$IN3PB",
+                "$IN3PW",
+                "$IN3B2",
+                "$IN3BB",
+                "$IN3BW"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$PRM30",
+              "condition_code": "$PRM3S",
+              "condition_state": "unset"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$IBB1"
+            },
+            {
+              "action": "set",
+              "target": "$IBB0",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IBW0",
+                "$IPB0",
+                "$IPW0",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -8958,6 +9169,10 @@
                 "$IBB0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -8993,6 +9208,235 @@
               "condition_all_codes": [
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
+                "$IN3PB",
+                "$IN3PW",
+                "$IN3B2",
+                "$IN3BB",
+                "$IN3BW"
+              ]
+            }
+          ],
+          "name": "Intérieur noir et blanc",
+          "description": "Intérieur noir et blanc",
+          "long_name": "Intérieur Premium partiel noir et blanc",
+          "long_description": "Intérieur noir et blanc",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Noir et blanc"
+            },
+            {
+              "type": "price_indicator",
+              "content": "De série"
+            },
+            {
+              "type": "spec_description",
+              "content": "Intérieur cuir noir"
+            },
+            {
+              "type": "feature_list.default[0].main_title",
+              "content": "De série :"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Sièges avant chauffants et électriques, ajustables en 12 positions"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Sellerie et finition Premium"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Système audio avec son immersif"
+            },
+            {
+              "type": "feature_list.default[0].items[3].main_title",
+              "content": "Connexion Premium (30 jours inclus) :"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[0]",
+              "content": "Cartes satellite avec visualisation de la circulation en temps réel"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[1]",
+              "content": "Musique et multimédia en streaming dans le véhicule"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[2]",
+              "content": "Vidéo en streaming"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[3]",
+              "content": "Caraoke"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[4]",
+              "content": "Navigateur Internet"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "Musique et médias accessibles via Bluetooth®"
+            },
+            {
+              "type": "feature_list.default[0].items[5]",
+              "content": "Toit vitré teinté avec protection infrarouge et ultraviolet"
+            },
+            {
+              "type": "feature_list.default[0].items[6]",
+              "content": "Rétroviseurs chauffants, rabattables électriquement et atténuant la luminosité"
+            },
+            {
+              "type": "feature_list.default[0].items[7]",
+              "content": "Profils conducteurs personnalisés"
+            },
+            {
+              "type": "feature_list.default[0].items[8]",
+              "content": "Console centrale avec espace de rangement, 4 ports USB et recharge sans fil pour 2 smartphones"
+            },
+            {
+              "type": "view_details_collapsed",
+              "content": "Voir détails",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_EXPAND",
+                    "props": {
+                      "options": [
+                        "$IBW0"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--collapsed"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_details_expanded",
+              "content": "Moins de détails",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_COLLAPSE",
+                    "props": {
+                      "options": [
+                        "$IBW0"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--expanded"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_white.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRM30"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ],
+          "price": 1050,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 1050,
+              "context": "default"
+            }
+          ]
+        },
+        "$IBW1": {
+          "code": "$IBW1",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$PRM30",
+                "condition_code": "$PRM3S",
+                "condition_state": "unset"
+              }
+            ],
+            "unset_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$IBW1"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBB0",
+                "$IBW0",
+                "$IPB0",
+                "$IPW0",
+                "$IBB1",
+                "$IPB1",
+                "$IPW1",
+                "$IN3PB",
+                "$IN3PW",
+                "$IN3B2",
+                "$IN3BB",
+                "$IN3BW"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$PRM30",
+              "condition_code": "$PRM3S",
+              "condition_state": "unset"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$IBW1"
+            },
+            {
+              "action": "set",
+              "target": "$IBB0",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IBW0",
+                "$IPB0",
+                "$IPW0",
+                "$IBB1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -9181,6 +9625,10 @@
                 "$IBB0",
                 "$IBW0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -9205,6 +9653,233 @@
               "condition_all_codes": [
                 "$IBW0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
+                "$IN3PB",
+                "$IN3PW",
+                "$IN3B2",
+                "$IN3BB",
+                "$IN3BW"
+              ]
+            }
+          ],
+          "name": "Intérieur entièrement en noir Premium",
+          "description": "Intérieur entièrement en noir Premium",
+          "long_name": "Intérieur entièrement en noir Premium",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Noir"
+            },
+            {
+              "type": "price_indicator",
+              "content": "De série"
+            },
+            {
+              "type": "spec_description",
+              "content": "Intérieur cuir noir"
+            },
+            {
+              "type": "feature_list.default[0].main_title",
+              "content": "De série :"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Sièges avant électriques réglables 12 positions"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Sièges avant et arrière chauffants"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Système audio haut de gamme – 14 haut-parleurs, 1 caisson de basse, 2 amplificateurs et son immersif"
+            },
+            {
+              "type": "feature_list.default[0].items[3].description",
+              "content": "Connectivité Premium (1 an inclus) :"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[0]",
+              "content": "Cartes satellite avec visualisation de la circulation en temps réel"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[1]",
+              "content": "Musique et multimédia en streaming dans le véhicule"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "Musique et médias accessibles via Bluetooth®"
+            },
+            {
+              "type": "feature_list.default[0].items[5]",
+              "content": "Antibrouillards LED"
+            },
+            {
+              "type": "feature_list.default[0].items[6]",
+              "content": "Toit vitré teinté avec protection infrarouge et ultraviolet"
+            },
+            {
+              "type": "feature_list.default[0].items[7]",
+              "content": "Rétroviseurs chauffants, rabattables électriquement et atténuant la luminosité"
+            },
+            {
+              "type": "feature_list.default[0].items[8]",
+              "content": "Profils conducteurs personnalisés"
+            },
+            {
+              "type": "feature_list.default[0].items[9]",
+              "content": "Console centrale avec espace de rangement, 4 ports USB et recharge sans fil pour 2 smartphones"
+            },
+            {
+              "type": "view_details_collapsed",
+              "content": "Voir détails",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_EXPAND",
+                    "props": {
+                      "options": [
+                        "$IPB0"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--collapsed"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_details_expanded",
+              "content": "Moins de détails",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_COLLAPSE",
+                    "props": {
+                      "options": [
+                        "$IPB0"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--expanded"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[2]",
+              "content": "Vidéo en streaming"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[3]",
+              "content": "Caraoke"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[4]",
+              "content": "Navigateur Internet"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_in3pb.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRM31"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "default"
+            }
+          ]
+        },
+        "$IPB1": {
+          "code": "$IPB1",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$PRM31"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$IPB1"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBB0",
+                "$IBW0",
+                "$IPB0",
+                "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPW1",
+                "$IN3PB",
+                "$IN3PW",
+                "$IN3B2",
+                "$IN3BB",
+                "$IN3BW"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$PRM31"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$IPB1"
+            },
+            {
+              "action": "set",
+              "target": "$IBB0",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IBW0",
+                "$IPB0",
+                "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -9396,6 +10071,10 @@
                 "$IBB0",
                 "$IBW0",
                 "$IPB0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -9420,6 +10099,245 @@
               "condition_all_codes": [
                 "$IBW0",
                 "$IPB0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
+                "$IN3PB",
+                "$IN3PW",
+                "$IN3B2",
+                "$IN3BB",
+                "$IN3BW"
+              ]
+            }
+          ],
+          "name": "Intérieur noir et blanc Premium",
+          "description": "Intérieur noir et blanc Premium",
+          "long_name": "Intérieur noir et blanc Premium",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Noir et blanc"
+            },
+            {
+              "type": "price_indicator",
+              "content": "De série"
+            },
+            {
+              "type": "recommended_content",
+              "content": "L'intérieur noir et blanc comprend nos matériaux les plus premium, maximisant confort et esthétique tout en respectant nos exigences rigoureuses en terme de durabilité et de résistance aux taches."
+            },
+            {
+              "type": "spec_description",
+              "content": "Intérieur cuir blanc"
+            },
+            {
+              "type": "feature_list.default[0].main_title",
+              "content": "De série :"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Sièges avant électriques réglables 12 positions"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Sièges avant et arrière chauffants"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Système audio haut de gamme – 14 haut-parleurs, 1 caisson de basse, 2 amplificateurs et son immersif"
+            },
+            {
+              "type": "feature_list.default[0].items[3].description",
+              "content": "Connectivité Premium (1 an inclus) :"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[0]",
+              "content": "Cartes satellite avec visualisation de la circulation en temps réel"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[1]",
+              "content": "Musique et multimédia en streaming dans le véhicule"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "Musique et médias accessibles via Bluetooth®"
+            },
+            {
+              "type": "feature_list.default[0].items[5]",
+              "content": "Antibrouillards LED"
+            },
+            {
+              "type": "feature_list.default[0].items[6]",
+              "content": "Toit vitré teinté avec protection infrarouge et ultraviolet"
+            },
+            {
+              "type": "feature_list.default[0].items[7]",
+              "content": "Rétroviseurs chauffants, rabattables électriquement et atténuant la luminosité"
+            },
+            {
+              "type": "feature_list.default[0].items[8]",
+              "content": "Profils conducteurs personnalisés"
+            },
+            {
+              "type": "feature_list.default[0].items[9]",
+              "content": "Console centrale avec espace de rangement, 4 ports USB et recharge sans fil pour 2 smartphones"
+            },
+            {
+              "type": "view_details_collapsed",
+              "content": "Voir détails",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_EXPAND",
+                    "props": {
+                      "options": [
+                        "$IPW0"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--collapsed"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_details_expanded",
+              "content": "Moins de détails",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_COLLAPSE",
+                    "props": {
+                      "options": [
+                        "$IPW0"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--expanded"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[2]",
+              "content": "Vidéo en streaming"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[3]",
+              "content": "Caraoke"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[4]",
+              "content": "Navigateur Internet"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_white.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "delivery",
+              "content": [
+                {
+                  "extra": true
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRM31"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ],
+          "price": 1050,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 1050,
+              "context": "default"
+            }
+          ]
+        },
+        "$IPW1": {
+          "code": "$IPW1",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$PRM31"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$IPW1"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBB0",
+                "$IBW0",
+                "$IPB0",
+                "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IN3PB",
+                "$IN3PW",
+                "$IN3B2",
+                "$IN3BB",
+                "$IN3BW"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$PRM31"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$IPW1"
+            },
+            {
+              "action": "set",
+              "target": "$IBB0",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IBW0",
+                "$IPB0",
+                "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -9673,22 +10591,11 @@
                   "condition_state": "set",
                   "target_property": "price",
                   "condition_any_code": [
-                    "$MT301",
-                    "$MT308"
-                  ]
-                },
-                {
-                  "action": "set",
-                  "target": "$MDL3",
-                  "target_value": 14520,
-                  "condition_state": "set",
-                  "target_property": "price",
-                  "condition_any_code": [
-                    "$MT301",
                     "$MT308",
-                    "$MT336",
                     "$MT314",
-                    "$MT320"
+                    "$MT336",
+                    "$MT320",
+                    "$MT301"
                   ]
                 }
               ]
@@ -11131,10 +12038,6 @@
             {
               "type": "price_indicator",
               "content": "De série"
-            },
-            {
-              "type": "disclaimer_oncondition",
-              "content": "Comprend des pneus Pirelli P Zero et une suspension abaissée pour une meilleure tenue de route"
             }
           ],
           "extra_content": [
@@ -11644,6 +12547,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3BB",
@@ -11670,6 +12577,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3BB",
@@ -11858,6 +12769,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -11882,6 +12797,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -12071,6 +12990,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -12095,6 +13018,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -12283,6 +13210,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PW",
                 "$IN3B2",
                 "$IN3BB",
@@ -12307,6 +13238,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PW",
                 "$IN3B2",
                 "$IN3BB",
@@ -12498,6 +13433,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3B2",
                 "$IN3BB",
@@ -12522,6 +13461,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3B2",
                 "$IN3BB",
@@ -12758,7 +13701,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -12793,7 +13738,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -12899,7 +13846,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -12934,7 +13883,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -12994,7 +13945,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -13029,7 +13982,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -13133,7 +14088,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -13172,7 +14129,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -13287,7 +14246,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -13322,7 +14283,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -13377,7 +14340,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -13412,7 +14377,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -13518,7 +14485,9 @@
                 "$MT317",
                 "$MT310",
                 "$MT320",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -13553,7 +14522,9 @@
                 "$MT317",
                 "$MT310",
                 "$MT320",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -13613,7 +14584,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -13648,7 +14621,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -13758,7 +14733,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -13803,7 +14780,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -13917,7 +14896,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -13952,7 +14933,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -14042,7 +15025,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -14113,7 +15098,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -14129,6 +15116,22 @@
             {
               "type": "long_name",
               "content": "Model 3 Standard Plus, Propulsion"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Propulsion"
+            },
+            {
+              "type": "interior_sound_system",
+              "content": "Système audio personnalisé avec son immersif"
+            },
+            {
+              "type": "interior_floor_mats",
+              "content": "Accessoire disponible"
+            },
+            {
+              "type": "interior_heated_seats",
+              "content": "Sièges avant"
             }
           ],
           "extra_content": [
@@ -14273,7 +15276,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -14343,7 +15348,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -14363,6 +15370,22 @@
             {
               "type": "long_name",
               "content": "Model 3 Grande Autonomie à transmission intégrale Dual Motor"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Transmission intégrale Dual Motor"
+            },
+            {
+              "type": "interior_sound_system",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[1]}"
+            },
+            {
+              "type": "interior_floor_mats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_indicator_included}"
+            },
+            {
+              "type": "interior_heated_seats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[4]}"
             }
           ],
           "extra_content": [
@@ -14500,7 +15523,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -14566,7 +15591,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -14717,7 +15744,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -14791,7 +15820,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -14831,6 +15862,22 @@
             {
               "type": "long_name",
               "content": "Model 3 transmission intégrale Dual Motor Performance"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Transmission intégrale Dual Motor"
+            },
+            {
+              "type": "interior_sound_system",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[1]}"
+            },
+            {
+              "type": "interior_floor_mats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_indicator_included}"
+            },
+            {
+              "type": "interior_heated_seats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[4]}"
             }
           ],
           "extra_content": [
@@ -14988,7 +16035,9 @@
                 "$MT317",
                 "$MT310",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -15058,7 +16107,9 @@
                 "$MT317",
                 "$MT310",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -15138,6 +16189,193 @@
             {
               "type": "base_plus_trim",
               "value": 43800,
+              "context": "base_plus_trim"
+            }
+          ]
+        },
+        "$MT321": {
+          "code": "$MT321",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "targets": [
+                  "$DV4W",
+                  "$PRM31"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$APBS"
+              }
+            ],
+            "unset_rules": [
+              {
+                "action": "unset",
+                "target": "$FM3U"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MT321"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MT301",
+                "$MT302",
+                "$MT303",
+                "$MT304",
+                "$MT307",
+                "$MT308",
+                "$MT314",
+                "$MT311",
+                "$MT315",
+                "$MT312",
+                "$MT316",
+                "$MT317",
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336",
+                "$MT337"
+              ]
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$DV4W",
+                "$PRM31"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$APBS"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MT321"
+            },
+            {
+              "action": "set",
+              "target": "$MT314",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT301",
+                "$MT302",
+                "$MT303",
+                "$MT304",
+                "$MT307",
+                "$MT308",
+                "$MT311",
+                "$MT315",
+                "$MT312",
+                "$MT316",
+                "$MT317",
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336",
+                "$MT337"
+              ]
+            },
+            {
+              "action": "unset",
+              "target": "$FM3U"
+            }
+          ],
+          "name": "Grande Autonomie, transmission intégrale",
+          "description": "Model 3 Grande Autonomie, transmission intégrale",
+          "long_name": "Grande Autonomie, transmission intégrale",
+          "long_description": "Model 3 Grande Autonomie, transmission intégrale",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Grande Autonomie"
+            },
+            {
+              "type": "long_name",
+              "content": "Model 3 Grande Autonomie à transmission intégrale Dual Motor"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Transmission intégrale Dual Motor"
+            },
+            {
+              "type": "interior_sound_system",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[1]}"
+            },
+            {
+              "type": "interior_floor_mats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_indicator_included}"
+            },
+            {
+              "type": "interior_heated_seats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[4]}"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 239990,
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 239990,
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
+          "price": 32070,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 32070,
+              "context": "default"
+            },
+            {
+              "type": "base_plus_trim",
+              "value": 51990,
               "context": "base_plus_trim"
             }
           ]
@@ -15231,7 +16469,9 @@
                 "$MT317",
                 "$MT310",
                 "$MT320",
-                "$MT309"
+                "$MT309",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -15318,7 +16558,9 @@
                 "$MT317",
                 "$MT310",
                 "$MT320",
-                "$MT309"
+                "$MT309",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -15384,6 +16626,273 @@
             {
               "type": "base_plus_trim",
               "value": 43800,
+              "context": "base_plus_trim"
+            }
+          ]
+        },
+        "$MT337": {
+          "code": "$MT337",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "targets": [
+                  "$DV2W",
+                  "$PRM30"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$APBS"
+              },
+              {
+                "action": "set",
+                "target": "$IBW1",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$IPW1",
+                  "$IPW0",
+                  "$IBW0",
+                  "$IN3PW",
+                  "$IN3BW"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$IBB1",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$IPB1",
+                  "$IPB0",
+                  "$IBB0",
+                  "$IN3PB",
+                  "$IN3B2",
+                  "$IN3BB"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$W40B",
+                "condition_code": "$W38B",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$W41B",
+                "condition_code": "$W39B",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$MT317",
+                "condition_code": "$W33D",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MT337"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MT301",
+                "$MT302",
+                "$MT303",
+                "$MT304",
+                "$MT307",
+                "$MT308",
+                "$MT314",
+                "$MT311",
+                "$MT315",
+                "$MT312",
+                "$MT316",
+                "$MT317",
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336",
+                "$MT321"
+              ]
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$DV2W",
+                "$PRM30"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$APBS"
+            },
+            {
+              "action": "set",
+              "target": "$IBW1",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$IPW1",
+                "$IPW0",
+                "$IBW0",
+                "$IN3PW",
+                "$IN3BW"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IBB1",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$IPB1",
+                "$IPB0",
+                "$IBB0",
+                "$IN3PB",
+                "$IN3B2",
+                "$IN3BB"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$W40B",
+              "condition_code": "$W38B",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$W41B",
+              "condition_code": "$W39B",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$MT317",
+              "condition_code": "$W33D",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MT337"
+            },
+            {
+              "action": "set",
+              "target": "$MT314",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT301",
+                "$MT302",
+                "$MT303",
+                "$MT304",
+                "$MT307",
+                "$MT308",
+                "$MT311",
+                "$MT315",
+                "$MT312",
+                "$MT316",
+                "$MT317",
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336",
+                "$MT321"
+              ]
+            }
+          ],
+          "name": "Autonomie Standard Plus, Propulsion",
+          "description": "Autonomie Standard Plus, Propulsion",
+          "long_name": "Model 3 Autonomie Standard Plus, Propulsion",
+          "long_description": "Autonomie Standard Plus, Propulsion",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Autonomie Standard Plus"
+            },
+            {
+              "type": "long_name",
+              "content": "Model 3 Standard Plus, Propulsion"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Propulsion"
+            },
+            {
+              "type": "interior_sound_system",
+              "content": "Système audio personnalisé avec son immersif"
+            },
+            {
+              "type": "interior_floor_mats",
+              "content": "Accessoire disponible"
+            },
+            {
+              "type": "interior_heated_seats",
+              "content": "Sièges avant"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 159900,
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 159900,
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "options": [
+                    "$APBS"
+                  ],
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
+          "price": 29280,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 29280,
+              "context": "default"
+            },
+            {
+              "type": "base_plus_trim",
+              "value": 49200,
               "context": "base_plus_trim"
             }
           ]
@@ -16438,6 +17947,18 @@
                   "kilometers-per-hour": {
                     "label": "kilomètres par heure",
                     "short_label": "km/h"
+                  },
+                  "range_units_epa_link": {
+                    "label": "d'autonomie",
+                    "content": "(WLTP)",
+                    "behavior": [
+                      {
+                        "type": "ACTION",
+                        "content": {
+                          "type": "SHOW_RANGE_MODAL"
+                        }
+                      }
+                    ]
                   }
                 }
               },
@@ -16523,7 +18044,7 @@
                   "range": 448,
                   "topspeed": 225,
                   "acceleration": 5.6,
-                  "range_units_override": "range_units_est"
+                  "range_units_override": "range_units_epa_link"
                 },
                 "$MT315": {
                   "name": "Long Range All-Wheel Drive",
@@ -16544,7 +18065,7 @@
                     }
                   ],
                   "acceleration": 4.4,
-                  "range_units_override": "range_units_epa"
+                  "range_units_override": "range_units_epa_link"
                 },
                 "$MT316": {
                   "name": "Long Range All-Wheel Drive",
@@ -16557,7 +18078,7 @@
                   "range": 567,
                   "topspeed": 261,
                   "acceleration": 3.3,
-                  "range_units_override": "range_units_epa"
+                  "range_units_override": "range_units_epa_link"
                 },
                 "$MT320": {
                   "name": "Standard Range Plus Rear-Wheel Drive",
@@ -20796,7 +22317,7 @@
         "$APBS",
         "$SC04"
       ],
-      "options_id": 968,
+      "options_id": 1134,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -21652,10 +23173,10 @@
           }
         }
       ],
-      "copy_id": 1393,
+      "copy_id": 1447,
       "language": "fr",
-      "pricing_id": 995,
-      "reference_id": 968
+      "pricing_id": 1100,
+      "reference_id": 1134
     }
   },
   "edd": [

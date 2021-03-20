@@ -540,6 +540,18 @@
             ]
           },
           {
+            "type": "lexicon_specs",
+            "dependencies": [
+              "Lexicon"
+            ],
+            "actions": [
+              "COMPLETE_CONFIGURATION_CHANGED"
+            ],
+            "updates": [
+              "formattedSpecs"
+            ]
+          },
+          {
             "type": "extra_content",
             "dependencies": [
               "Lexicon"
@@ -999,8 +1011,11 @@
         "hideEstLink": {
           "selectedBy": {
             "or": [
-              "$MT320",
-              "$MT314"
+              "$MTS09",
+              "$MTS10",
+              "$MTS11",
+              "$MTX10",
+              "$MTX11"
             ]
           },
           "hide": false
@@ -1186,7 +1201,9 @@
           "leaseDistance",
           "residualAmount"
         ],
-        "showLeaseSummaryDisclaimer": false,
+        "showLeaseSummaryDisclaimer": [
+          "lease.operational_lease"
+        ],
         "showSecondDepositDisclaimer": {
           "source": true,
           "target": true
@@ -1526,53 +1543,6 @@
             "kwh_price": 0.16
           },
           "variant": "m3",
-          "market": "GB"
-        },
-        {
-          "description": "Plug-in Vehicle Grant",
-          "incentiveType": "government",
-          "financeType": "any",
-          "period": "includedInPurchasePrice",
-          "amount": 0,
-          "toggle_amount": {
-            "if": {
-              "trim_price": {
-                "conditions": {
-                  "<": 50000
-                },
-                "amount": -3000,
-                "trims": [
-                  "$MT300",
-                  "$MT301",
-                  "$MT302",
-                  "$MT303",
-                  "$MT304",
-                  "$MT308",
-                  "$MT314",
-                  "$MT336",
-                  "$MT337",
-                  "$MT309",
-                  "$MT310",
-                  "$MT315",
-                  "$MT316",
-                  "$MT311",
-                  "$MT317",
-                  "$MT321",
-                  "$SPT31"
-                ],
-                "modelOption": "$MDL3"
-              }
-            }
-          },
-          "variant": [
-            "mx",
-            "ms",
-            "m3",
-            "my"
-          ],
-          "inventory": [
-            "new"
-          ],
           "market": "GB"
         },
         {
@@ -2927,7 +2897,7 @@
     },
     "Lexicon.m3": {
       "id": 1009,
-      "effective_date": "2021-03-12T06:00:00.000Z",
+      "effective_date": "2021-03-19T05:00:00.000Z",
       "market": "GB",
       "product": "m3",
       "factory": "GF00",
@@ -2947,7 +2917,7 @@
           }
         }
       },
-      "name": "Marketing GB 2021.Mar.12 1009.1405.984",
+      "name": "Marketing GB 2021.Mar.19 1009.1511.984",
       "groups": [
         {
           "code": "MODEL",
@@ -3945,7 +3915,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Colour"
+              "content": "Paint"
             },
             {
               "type": "section_title",
@@ -5655,7 +5625,7 @@
           "extra_copy": [
             {
               "type": "federalTax.description",
-              "content": "Business Contract Hire rates apply to deliveries by March 31st. <a href='https://www.tesla.com/en_GB/inventory/new/m3?redirect=no' target='_blank'>Explore Inventory</a>"
+              "content": "Take delivery of a new Model 3 in March with the £2,500 Plug-In Car Grant covered by Tesla. <a href='https://www.tesla.com/en_GB/inventory/new/m3?redirect=no' target='_blank'>Explore Inventory</a>"
             }
           ]
         },
@@ -5837,74 +5807,35 @@
                 {
                   "type": "DynamicGrid",
                   "props": {
+                    "group": "TRIM",
                     "content": [
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT337.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT337.acceleration"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT315.acceleration"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT317.acceleration"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.accelerationFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[1]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT337.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT337.range"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT315.range"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT317.range"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.rangeFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[2]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT337.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT337.topspeed"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT315.topspeed"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT317.topspeed"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.topspeedFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[3]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT337.name",
-                            "value": "CustomGroups.battery_group_specs.options.$DV2W.name"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.battery_group_specs.options.$DV4W.name"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.battery_group_specs.options.$DV4W.name"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "drive_mode"
+                        }
                       }
                     ]
                   }
@@ -5995,6 +5926,10 @@
             {
               "type": "feature_list.default[0].items[6]",
               "content": "15 cubic feet of cargo space including a secure front trunk"
+            },
+            {
+              "type": "dynamic_grid_indicator_included",
+              "content": "Included"
             }
           ],
           "extra_content": [
@@ -6004,58 +5939,29 @@
                 {
                   "type": "DynamicGrid",
                   "props": {
+                    "group": "TRIM",
                     "content": [
                       {
                         "classes": "dynamic-grid--space-evenly",
                         "title_path": "CustomGroups.INTERIOR_SECTION.dynamic_grid_title[0]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT337.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[0]"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[1]"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[1]"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "interior_sound_system"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.INTERIOR_SECTION.dynamic_grid_title[1]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT337.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[2]"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "OMS.lexicon.options.$IBB0.price_indicator"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "OMS.lexicon.options.$IBB0.price_indicator"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "interior_floor_mats"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.INTERIOR_SECTION.dynamic_grid_title[2]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT337.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[3]"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[4]"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[4]"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "interior_heated_seats"
+                        }
                       }
                     ]
                   }
@@ -9704,6 +9610,28 @@
           "name": "Acceleration Boost",
           "description": "Acceleration Boost",
           "long_name": "Acceleration Boost",
+          "extra_copy": [
+            {
+              "type": "description",
+              "content": "Improve your 0-60 mph acceleration from 4.2 seconds to 3.7 seconds."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "app": "m3-boost-image/aasvcb/std/0x0/m3-boost",
+                  "type": "ownership-image",
+                  "mobile": "m3-boost-image/aasvcb/std/0x0/m3-boost",
+                  "appDark": "m3-boost-image/aasvcb/std/0x0/m3-boost",
+                  "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
+                  "desktop": "m3-boost-image/aasvcb/std/0x0/m3-boost",
+                  "desktop2x": "m3-boost-image/aasvcb/std/0x0/m3-boost"
+                }
+              ]
+            }
+          ],
           "price": 1500,
           "pricing": [
             {
@@ -13530,10 +13458,6 @@
             {
               "type": "price_indicator",
               "content": "Included"
-            },
-            {
-              "type": "disclaimer_oncondition",
-              "content": "Includes Pirelli P Zero tires and lower suspension for improved handling"
             }
           ],
           "extra_content": [
@@ -17270,6 +17194,22 @@
             {
               "type": "long_name",
               "content": "Model 3 Long Range Dual Motor All-Wheel Drive"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Dual Motor All-Wheel Drive"
+            },
+            {
+              "type": "interior_sound_system",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[1]}"
+            },
+            {
+              "type": "interior_floor_mats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_indicator_included}"
+            },
+            {
+              "type": "interior_heated_seats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[4]}"
             }
           ],
           "extra_content": [
@@ -17527,6 +17467,22 @@
             {
               "type": "long_name",
               "content": "Model 3 Performance Dual Motor All-Wheel Drive"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Dual Motor All-Wheel Drive"
+            },
+            {
+              "type": "interior_sound_system",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[1]}"
+            },
+            {
+              "type": "interior_floor_mats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_indicator_included}"
+            },
+            {
+              "type": "interior_heated_seats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[4]}"
             }
           ],
           "extra_content": [
@@ -17997,6 +17953,22 @@
             {
               "type": "long_name",
               "content": "Model 3 Standard Plus Rear-Wheel Drive"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Rear-Wheel Drive"
+            },
+            {
+              "type": "interior_sound_system",
+              "content": "Custom audio with immersive sound"
+            },
+            {
+              "type": "interior_floor_mats",
+              "content": "Available accessory"
+            },
+            {
+              "type": "interior_heated_seats",
+              "content": "Front seats"
             }
           ],
           "extra_content": [
@@ -19226,6 +19198,18 @@
                   "zero_to_road_limit": {
                     "label": "0-60 mph",
                     "short_label": "0-60 mph"
+                  },
+                  "range_units_epa_link": {
+                    "label": "Range",
+                    "content": "(WLTP)",
+                    "behavior": [
+                      {
+                        "type": "ACTION",
+                        "content": {
+                          "type": "SHOW_RANGE_MODAL"
+                        }
+                      }
+                    ]
                   }
                 }
               },
@@ -19357,7 +19341,7 @@
                     }
                   ],
                   "acceleration": 4.2,
-                  "range_units_override": "range_units_epa"
+                  "range_units_override": "range_units_epa_link"
                 },
                 "$MT316": {
                   "name": "Long Range All-Wheel Drive",
@@ -19378,14 +19362,14 @@
                     }
                   ],
                   "acceleration": 4.2,
-                  "range_units_override": "range_units_epa"
+                  "range_units_override": "range_units_epa_link"
                 },
                 "$MT317": {
                   "name": "Long Range All-Wheel Drive Performance",
                   "range": 352,
                   "topspeed": 162,
                   "acceleration": 3.1,
-                  "range_units_override": "range_units_epa"
+                  "range_units_override": "range_units_epa_link"
                 },
                 "$MT320": {
                   "name": "Standard Range Plus Rear-Wheel Drive",
@@ -19398,7 +19382,7 @@
                   "range": 278,
                   "topspeed": 140,
                   "acceleration": 5.3,
-                  "range_units_override": "range_units_epa"
+                  "range_units_override": "range_units_epa_link"
                 }
               }
             }
@@ -24566,7 +24550,7 @@
           "content_localized": {}
         }
       ],
-      "copy_id": 1405,
+      "copy_id": 1511,
       "language": "en",
       "pricing_id": 984
     }

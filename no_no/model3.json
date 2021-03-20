@@ -540,6 +540,18 @@
             ]
           },
           {
+            "type": "lexicon_specs",
+            "dependencies": [
+              "Lexicon"
+            ],
+            "actions": [
+              "COMPLETE_CONFIGURATION_CHANGED"
+            ],
+            "updates": [
+              "formattedSpecs"
+            ]
+          },
+          {
             "type": "extra_content",
             "dependencies": [
               "Lexicon"
@@ -956,8 +968,11 @@
         "hideEstLink": {
           "selectedBy": {
             "or": [
-              "$MT320",
-              "$MT314"
+              "$MTS09",
+              "$MTS10",
+              "$MTS11",
+              "$MTX10",
+              "$MTX11"
             ]
           },
           "hide": false
@@ -2033,12 +2048,12 @@
       "tcc": []
     },
     "Lexicon.m3": {
-      "effective_date": "2021-03-12T01:19:38.105Z",
+      "effective_date": "2021-03-19T05:00:00.000Z",
       "market": "NO",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing NO 2021.Mar.12 969.1394.1034 [no]",
+      "name": "Marketing NO 2021.Mar.19 1147.1448.1098 [no]",
       "groups": [
         {
           "code": "MODEL",
@@ -2075,7 +2090,9 @@
             "$MT310",
             "$MT320",
             "$MT309",
-            "$MT336"
+            "$MT336",
+            "$MT321",
+            "$MT337"
           ],
           "required": true,
           "exclusive": true,
@@ -2290,6 +2307,10 @@
             "$IBW0",
             "$IPB0",
             "$IPW0",
+            "$IBB1",
+            "$IBW1",
+            "$IPB1",
+            "$IPW1",
             "$IN3PB",
             "$IN3PW",
             "$IN3B2",
@@ -2688,7 +2709,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "discountable": false,
+          "discountable": true,
           "default_options": [],
           "name": "WINTER_WHEELS"
         },
@@ -3064,7 +3085,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Velg farge"
+              "content": "Farge"
             },
             {
               "type": "section_title",
@@ -3164,7 +3185,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Velg felger"
+              "content": "Hjul"
             }
           ],
           "extra_content": [
@@ -3370,7 +3391,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Velg interiør"
+              "content": "Interiør"
             },
             {
               "type": "view_features",
@@ -3530,7 +3551,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Velg interiør"
+              "content": "Interiør"
             }
           ],
           "extra_content": [
@@ -4987,74 +5008,35 @@
                 {
                   "type": "DynamicGrid",
                   "props": {
+                    "group": "TRIM",
                     "content": [
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT314.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT314.acceleration"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT315.acceleration"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT317.acceleration"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.accelerationFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[1]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT314.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT314.range"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT315.range"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT317.range"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.rangeFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[2]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT314.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT314.topspeed"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT315.topspeed"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MT317.topspeed"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.topspeedFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[3]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT314.name",
-                            "value": "CustomGroups.battery_group_specs.options.$DV2W.name"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.battery_group_specs.options.$DV4W.name"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.battery_group_specs.options.$DV4W.name"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "drive_mode"
+                        }
                       }
                     ]
                   }
@@ -5146,6 +5128,10 @@
             {
               "type": "feature_list.default[0].items[6]",
               "content": "542 liter lasterom inkludert et sikkert bagasjerom under panseret"
+            },
+            {
+              "type": "dynamic_grid_indicator_included",
+              "content": "Inkludert"
             }
           ],
           "extra_content": [
@@ -5155,58 +5141,29 @@
                 {
                   "type": "DynamicGrid",
                   "props": {
+                    "group": "TRIM",
                     "content": [
                       {
                         "classes": "dynamic-grid--space-evenly",
                         "title_path": "CustomGroups.INTERIOR_SECTION.dynamic_grid_title[0]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT314.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[0]"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[1]"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[1]"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "interior_sound_system"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.INTERIOR_SECTION.dynamic_grid_title[1]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT314.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[2]"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "OMS.lexicon.options.$IBB0.price_indicator"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "OMS.lexicon.options.$IBB0.price_indicator"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "interior_floor_mats"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.INTERIOR_SECTION.dynamic_grid_title[2]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT314.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[3]"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT315.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[4]"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MT317.name",
-                            "value": "CustomGroups.INTERIOR_SECTION.dynamic_grid_feature[4]"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "interior_heated_seats"
+                        }
                       }
                     ]
                   }
@@ -7596,7 +7553,7 @@
             },
             {
               "type": "description",
-              "content": "Nokian Hakkapeliitta 9-dekk (pigg), spesialdesignet for nordiske vinterforhold, med innebygde støtdempere som minimerer motstanden til piggene på veioverflaten. Dette reduserer både kabinstøyen og slitasjen. Dette settet inkluderer Pinwheel-felger med påmonterte dekk. Aerodeksler kan kjøpes separat i nettbutikken vår."
+              "content": "Nokian Hakkapeliitta 9-dekk (pigg), spesialdesignet for nordiske vinterforhold, med innebygde støtdempere som minimerer motstanden til piggene på veioverflaten. Dette reduserer både kabinstøyen og slitasjen. Dette settet inkluderer Pinwheel-felger med påmonterte dekk. Aerodeksler og hjulkapselsett kan kjøpes separat i nettbutikken vår."
             },
             {
               "type": "add_options",
@@ -9348,6 +9305,28 @@
           "name": "Acceleration Boost",
           "description": "Acceleration Boost",
           "long_name": "Acceleration Boost",
+          "extra_copy": [
+            {
+              "type": "description",
+              "content": "Forbedre akselerasjonen fra 0-100 mph fra 4,4 til 3,9 sekunder."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "app": "m3-boost-image/aasvcb/std/0x0/m3-boost",
+                  "type": "ownership-image",
+                  "mobile": "m3-boost-image/aasvcb/std/0x0/m3-boost",
+                  "appDark": "m3-boost-image/aasvcb/std/0x0/m3-boost",
+                  "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
+                  "desktop": "m3-boost-image/aasvcb/std/0x0/m3-boost",
+                  "desktop2x": "m3-boost-image/aasvcb/std/0x0/m3-boost"
+                }
+              ]
+            }
+          ],
           "price": 18500,
           "pricing": [
             {
@@ -9394,6 +9373,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -9430,6 +9413,234 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
+                "$IN3PB",
+                "$IN3PW",
+                "$IN3B2",
+                "$IN3BB",
+                "$IN3BW"
+              ]
+            }
+          ],
+          "name": "Helsvart interiør",
+          "description": "Helsvart interiør",
+          "long_name": "Sort delvis premium interiør",
+          "long_description": "Helsvart interiør",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Helsvart"
+            },
+            {
+              "type": "price_indicator",
+              "content": "Inkludert"
+            },
+            {
+              "type": "spec_description",
+              "content": "Svart skinninteriør"
+            },
+            {
+              "type": "feature_list.default[0].main_title",
+              "content": "Inkluderer:"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "12-veis justerbare, elektriske forseter med varme"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Premium setemateriale og dekorlister"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Oppgradert lyd – altoppslukende lyd"
+            },
+            {
+              "type": "feature_list.default[0].items[3].main_title",
+              "content": "Premium Connectivity (30 dager inkludert):"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[0]",
+              "content": "Satellittkart med sanntids trafikkvisualisering"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[1]",
+              "content": "Direkteavspilt nettmusikk og -media i bilen"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[2]",
+              "content": "Video-strømming"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[3]",
+              "content": "Karaoke"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[4]",
+              "content": "Nettleser"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "Musikk og media over Bluetooth®"
+            },
+            {
+              "type": "feature_list.default[0].items[5]",
+              "content": "Farget glasstak med ultrafiolett og infrarød beskyttelse"
+            },
+            {
+              "type": "feature_list.default[0].items[6]",
+              "content": "Autodimmende, innfellbare, oppvarmede sidespeil"
+            },
+            {
+              "type": "feature_list.default[0].items[7]",
+              "content": "Egendefinerte førerprofiler"
+            },
+            {
+              "type": "feature_list.default[0].items[8]",
+              "content": "Midtkonsoll med lagringsplass, 4 USB-porter og trådløs lading for 2 smarttelefoner"
+            },
+            {
+              "type": "view_details_collapsed",
+              "content": "Vis detaljer",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_EXPAND",
+                    "props": {
+                      "options": [
+                        "$IBB0"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--collapsed"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_details_expanded",
+              "content": "Skjul detaljer",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_COLLAPSE",
+                    "props": {
+                      "options": [
+                        "$IBB0"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--expanded"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_in3pb.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRM30"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "default"
+            }
+          ]
+        },
+        "$IBB1": {
+          "code": "$IBB1",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$PRM30",
+                "condition_code": "$PRM3S",
+                "condition_state": "unset"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$IBB1"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBB0",
+                "$IBW0",
+                "$IPB0",
+                "$IPW0",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
+                "$IN3PB",
+                "$IN3PW",
+                "$IN3B2",
+                "$IN3BB",
+                "$IN3BW"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$PRM30",
+              "condition_code": "$PRM3S",
+              "condition_state": "unset"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$IBB1"
+            },
+            {
+              "action": "set",
+              "target": "$IBB0",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IBW0",
+                "$IPB0",
+                "$IPW0",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -9630,6 +9841,10 @@
                 "$IBB0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -9665,6 +9880,235 @@
               "condition_all_codes": [
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
+                "$IN3PB",
+                "$IN3PW",
+                "$IN3B2",
+                "$IN3BB",
+                "$IN3BW"
+              ]
+            }
+          ],
+          "name": "Svart og hvitt interiør",
+          "description": "Svart og hvitt interiør",
+          "long_name": "Sort og hvitt delvis premium interiør",
+          "long_description": "Svart og hvitt interiør",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Svart og hvitt"
+            },
+            {
+              "type": "price_indicator",
+              "content": "Inkludert"
+            },
+            {
+              "type": "spec_description",
+              "content": "Svart skinninteriør"
+            },
+            {
+              "type": "feature_list.default[0].main_title",
+              "content": "Inkluderer:"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "12-veis justerbare, elektriske forseter med varme"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Premium setemateriale og dekorlister"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Oppgradert lyd – altoppslukende lyd"
+            },
+            {
+              "type": "feature_list.default[0].items[3].main_title",
+              "content": "Premium Connectivity (30 dager inkludert):"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[0]",
+              "content": "Satellittkart med sanntids trafikkvisualisering"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[1]",
+              "content": "Direkteavspilt nettmusikk og -media i bilen"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[2]",
+              "content": "Video-strømming"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[3]",
+              "content": "Karaoke"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[4]",
+              "content": "Nettleser"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "Musikk og media over Bluetooth®"
+            },
+            {
+              "type": "feature_list.default[0].items[5]",
+              "content": "Farget glasstak med ultrafiolett og infrarød beskyttelse"
+            },
+            {
+              "type": "feature_list.default[0].items[6]",
+              "content": "Autodimmende, innfellbare, oppvarmede sidespeil"
+            },
+            {
+              "type": "feature_list.default[0].items[7]",
+              "content": "Egendefinerte førerprofiler"
+            },
+            {
+              "type": "feature_list.default[0].items[8]",
+              "content": "Midtkonsoll med lagringsplass, 4 USB-porter og trådløs lading for 2 smarttelefoner"
+            },
+            {
+              "type": "view_details_collapsed",
+              "content": "Vis detaljer",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_EXPAND",
+                    "props": {
+                      "options": [
+                        "$IBW0"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--collapsed"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_details_expanded",
+              "content": "Skjul detaljer",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_COLLAPSE",
+                    "props": {
+                      "options": [
+                        "$IBW0"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--expanded"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_white.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRM30"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ],
+          "price": 8800,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 8800,
+              "context": "default"
+            }
+          ]
+        },
+        "$IBW1": {
+          "code": "$IBW1",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$PRM30",
+                "condition_code": "$PRM3S",
+                "condition_state": "unset"
+              }
+            ],
+            "unset_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$IBW1"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBB0",
+                "$IBW0",
+                "$IPB0",
+                "$IPW0",
+                "$IBB1",
+                "$IPB1",
+                "$IPW1",
+                "$IN3PB",
+                "$IN3PW",
+                "$IN3B2",
+                "$IN3BB",
+                "$IN3BW"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$PRM30",
+              "condition_code": "$PRM3S",
+              "condition_state": "unset"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$IBW1"
+            },
+            {
+              "action": "set",
+              "target": "$IBB0",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IBW0",
+                "$IPB0",
+                "$IPW0",
+                "$IBB1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -9853,6 +10297,10 @@
                 "$IBB0",
                 "$IBW0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -9877,6 +10325,233 @@
               "condition_all_codes": [
                 "$IBW0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
+                "$IN3PB",
+                "$IN3PW",
+                "$IN3B2",
+                "$IN3BB",
+                "$IN3BW"
+              ]
+            }
+          ],
+          "name": "Alt svart Premium-interiør",
+          "description": "Alt svart Premium-interiør",
+          "long_name": "Alt svart Premium-interiør",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Helsvart"
+            },
+            {
+              "type": "price_indicator",
+              "content": "Inkludert"
+            },
+            {
+              "type": "spec_description",
+              "content": "Svart skinninteriør"
+            },
+            {
+              "type": "feature_list.default[0].main_title",
+              "content": "Inkluderer:"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "12-veis justerbare, elektriske forseter"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "For- og bakseter med setevarme"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Premium-lyd – 14 høyttalere, 1 subwoofer, 2 forsterkere og altoppslukende lyd"
+            },
+            {
+              "type": "feature_list.default[0].items[3].description",
+              "content": "Premium-tilkobling (1 år inkludert):"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[0]",
+              "content": "Satellittkart med trafikkvisualisering i sanntid"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[1]",
+              "content": "Direkteavspilt nettmusikk og -media i bilen"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "Musikk og media over Bluetooth®"
+            },
+            {
+              "type": "feature_list.default[0].items[5]",
+              "content": "LED-tåkelys"
+            },
+            {
+              "type": "feature_list.default[0].items[6]",
+              "content": "Farget glasstak med ultrafiolett og infrarød beskyttelse"
+            },
+            {
+              "type": "feature_list.default[0].items[7]",
+              "content": "Autodimmende, innfellbare, oppvarmede sidespeil"
+            },
+            {
+              "type": "feature_list.default[0].items[8]",
+              "content": "Egendefinerte førerprofiler"
+            },
+            {
+              "type": "feature_list.default[0].items[9]",
+              "content": "Midtkonsoll med lagringsplass, 4 USB-porter og trådløs lading for 2 smarttelefoner"
+            },
+            {
+              "type": "view_details_collapsed",
+              "content": "Vis detaljer",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_EXPAND",
+                    "props": {
+                      "options": [
+                        "$IPB0"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--collapsed"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_details_expanded",
+              "content": "Skjul detaljer",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_COLLAPSE",
+                    "props": {
+                      "options": [
+                        "$IPB0"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--expanded"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[2]",
+              "content": "Video-strømming"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[3]",
+              "content": "Karaoke"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[4]",
+              "content": "Nettleser"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_in3pb.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRM31"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "default"
+            }
+          ]
+        },
+        "$IPB1": {
+          "code": "$IPB1",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$PRM31"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$IPB1"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBB0",
+                "$IBW0",
+                "$IPB0",
+                "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPW1",
+                "$IN3PB",
+                "$IN3PW",
+                "$IN3B2",
+                "$IN3BB",
+                "$IN3BW"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$PRM31"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$IPB1"
+            },
+            {
+              "action": "set",
+              "target": "$IBB0",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IBW0",
+                "$IPB0",
+                "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -10068,6 +10743,10 @@
                 "$IBB0",
                 "$IBW0",
                 "$IPB0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -10092,6 +10771,245 @@
               "condition_all_codes": [
                 "$IBW0",
                 "$IPB0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
+                "$IN3PB",
+                "$IN3PW",
+                "$IN3B2",
+                "$IN3BB",
+                "$IN3BW"
+              ]
+            }
+          ],
+          "name": "Svart og hvitt Premium-interiør",
+          "description": "Svart og hvitt Premium-interiør",
+          "long_name": "Svart og hvitt Premium-interiør",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Svart og hvitt"
+            },
+            {
+              "type": "price_indicator",
+              "content": "Inkludert"
+            },
+            {
+              "type": "recommended_content",
+              "content": "Svart og hvitt interiør inkluderer Premium-materialene våre, noe som maksimerer komforten og estetikken, mens de til samme tid opprettholder de strenge standardene våre for slitestyrke og flekkdannelsesmotstand."
+            },
+            {
+              "type": "spec_description",
+              "content": "Hvitt skinninteriør"
+            },
+            {
+              "type": "feature_list.default[0].main_title",
+              "content": "Inkluderer:"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "12-veis justerbare, elektriske forseter"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "For- og bakseter med setevarme"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Premium-lyd – 14 høyttalere, 1 subwoofer, 2 forsterkere og altoppslukende lyd"
+            },
+            {
+              "type": "feature_list.default[0].items[3].description",
+              "content": "Premium-tilkobling (1 år inkludert):"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[0]",
+              "content": "Satellittkart med trafikkvisualisering i sanntid"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[1]",
+              "content": "Direkteavspilt nettmusikk og -media i bilen"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "Musikk og media over Bluetooth®"
+            },
+            {
+              "type": "feature_list.default[0].items[5]",
+              "content": "LED-tåkelys"
+            },
+            {
+              "type": "feature_list.default[0].items[6]",
+              "content": "Farget glasstak med ultrafiolett og infrarød beskyttelse"
+            },
+            {
+              "type": "feature_list.default[0].items[7]",
+              "content": "Autodimmende, innfellbare, oppvarmede sidespeil"
+            },
+            {
+              "type": "feature_list.default[0].items[8]",
+              "content": "Egendefinerte førerprofiler"
+            },
+            {
+              "type": "feature_list.default[0].items[9]",
+              "content": "Midtkonsoll med lagringsplass, 4 USB-porter og trådløs lading for 2 smarttelefoner"
+            },
+            {
+              "type": "view_details_collapsed",
+              "content": "Vis detaljer",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_EXPAND",
+                    "props": {
+                      "options": [
+                        "$IPW0"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--collapsed"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_details_expanded",
+              "content": "Skjul detaljer",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_COLLAPSE",
+                    "props": {
+                      "options": [
+                        "$IPW0"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--expanded"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[2]",
+              "content": "Video-strømming"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[3]",
+              "content": "Karaoke"
+            },
+            {
+              "type": "feature_list.default[0].items[3].sub_items[4]",
+              "content": "Nettleser"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/ui_swat_int_white.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "delivery",
+              "content": [
+                {
+                  "extra": true
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRM31"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ],
+          "price": 8800,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 8800,
+              "context": "default"
+            }
+          ]
+        },
+        "$IPW1": {
+          "code": "$IPW1",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$PRM31"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$IPW1"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$IBB0",
+                "$IBW0",
+                "$IPB0",
+                "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IN3PB",
+                "$IN3PW",
+                "$IN3B2",
+                "$IN3BB",
+                "$IN3BW"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$PRM31"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$IPW1"
+            },
+            {
+              "action": "set",
+              "target": "$IBB0",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$IBW0",
+                "$IPB0",
+                "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -11784,10 +12702,6 @@
             {
               "type": "price_indicator",
               "content": "Inkludert"
-            },
-            {
-              "type": "disclaimer_oncondition",
-              "content": "Inklusiv Pirelli P Zero-dekk og senket fjæring for bedre veigrep"
             }
           ],
           "extra_content": [
@@ -12297,6 +13211,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3BB",
@@ -12323,6 +13241,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3BB",
@@ -12511,6 +13433,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -12535,6 +13461,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -12724,6 +13654,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -12748,6 +13682,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3PW",
                 "$IN3B2",
@@ -12936,6 +13874,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PW",
                 "$IN3B2",
                 "$IN3BB",
@@ -12960,6 +13902,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PW",
                 "$IN3B2",
                 "$IN3BB",
@@ -13151,6 +14097,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3B2",
                 "$IN3BB",
@@ -13175,6 +14125,10 @@
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
+                "$IBW1",
+                "$IPB1",
+                "$IPW1",
                 "$IN3PB",
                 "$IN3B2",
                 "$IN3BB",
@@ -13430,7 +14384,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -13484,7 +14440,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -13590,7 +14548,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -13625,7 +14585,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -13704,7 +14666,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -13758,7 +14722,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -13926,7 +14892,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -14029,7 +14997,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -14144,7 +15114,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -14179,7 +15151,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -14253,7 +15227,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -14307,7 +15283,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -14413,7 +15391,9 @@
                 "$MT317",
                 "$MT310",
                 "$MT320",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -14448,7 +15428,9 @@
                 "$MT317",
                 "$MT310",
                 "$MT320",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -14527,7 +15509,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -14581,7 +15565,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -14691,7 +15677,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -14736,7 +15724,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -14850,7 +15840,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -14885,7 +15877,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -14985,7 +15979,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -15066,7 +16062,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -15082,6 +16080,22 @@
             {
               "type": "long_name",
               "content": "Model 3 Standard Plus bakhjulsdrift"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Bakhjulsdrift"
+            },
+            {
+              "type": "interior_sound_system",
+              "content": "Tilpasset lyd med oppslukende lyd"
+            },
+            {
+              "type": "interior_floor_mats",
+              "content": "Tilgjengelig tilbehør"
+            },
+            {
+              "type": "interior_heated_seats",
+              "content": "Forseter"
             }
           ],
           "extra_content": [
@@ -15232,7 +16246,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -15308,7 +16324,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -15328,6 +16346,22 @@
             {
               "type": "long_name",
               "content": "Model 3 Long Range firehjulsdrift"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Dual Motor-firehjulsdrift"
+            },
+            {
+              "type": "interior_sound_system",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[1]}"
+            },
+            {
+              "type": "interior_floor_mats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_indicator_included}"
+            },
+            {
+              "type": "interior_heated_seats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[4]}"
             }
           ],
           "extra_content": [
@@ -15474,7 +16508,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -15549,7 +16585,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -15714,7 +16752,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -15802,7 +16842,9 @@
                 "$MT310",
                 "$MT320",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -15842,6 +16884,22 @@
             {
               "type": "long_name",
               "content": "Model 3 Performance – Dual Motor med firehjulsdrift"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Dual Motor-firehjulsdrift"
+            },
+            {
+              "type": "interior_sound_system",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[1]}"
+            },
+            {
+              "type": "interior_floor_mats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_indicator_included}"
+            },
+            {
+              "type": "interior_heated_seats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[4]}"
             }
           ],
           "extra_content": [
@@ -16005,7 +17063,9 @@
                 "$MT317",
                 "$MT310",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -16081,7 +17141,9 @@
                 "$MT317",
                 "$MT310",
                 "$MT309",
-                "$MT336"
+                "$MT336",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -16161,6 +17223,193 @@
             {
               "type": "base_plus_trim",
               "value": 399900,
+              "context": "base_plus_trim"
+            }
+          ]
+        },
+        "$MT321": {
+          "code": "$MT321",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "targets": [
+                  "$DV4W",
+                  "$PRM31"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$APBS"
+              }
+            ],
+            "unset_rules": [
+              {
+                "action": "unset",
+                "target": "$FM3U"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MT321"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MT301",
+                "$MT302",
+                "$MT303",
+                "$MT304",
+                "$MT307",
+                "$MT308",
+                "$MT314",
+                "$MT311",
+                "$MT315",
+                "$MT312",
+                "$MT316",
+                "$MT317",
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336",
+                "$MT337"
+              ]
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$DV4W",
+                "$PRM31"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$APBS"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MT321"
+            },
+            {
+              "action": "set",
+              "target": "$MT314",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT301",
+                "$MT302",
+                "$MT303",
+                "$MT304",
+                "$MT307",
+                "$MT308",
+                "$MT311",
+                "$MT315",
+                "$MT312",
+                "$MT316",
+                "$MT317",
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336",
+                "$MT337"
+              ]
+            },
+            {
+              "action": "unset",
+              "target": "$FM3U"
+            }
+          ],
+          "name": "Long Range firehjulsdrift",
+          "description": "Model 3 – Long Range-firehjulsdrift",
+          "long_name": "Long Range firehjulsdrift",
+          "long_description": "Model 3 – Long Range-firehjulsdrift",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Long Range"
+            },
+            {
+              "type": "long_name",
+              "content": "Model 3 Long Range firehjulsdrift"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Dual Motor-firehjulsdrift"
+            },
+            {
+              "type": "interior_sound_system",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[1]}"
+            },
+            {
+              "type": "interior_floor_mats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_indicator_included}"
+            },
+            {
+              "type": "interior_heated_seats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[4]}"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 239990,
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 239990,
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
+          "price": 144500,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 144500,
+              "context": "default"
+            },
+            {
+              "type": "base_plus_trim",
+              "value": 449900,
               "context": "base_plus_trim"
             }
           ]
@@ -16245,7 +17494,9 @@
                 "$MT317",
                 "$MT310",
                 "$MT320",
-                "$MT309"
+                "$MT309",
+                "$MT321",
+                "$MT337"
               ]
             },
             {
@@ -16323,7 +17574,9 @@
                 "$MT317",
                 "$MT310",
                 "$MT320",
-                "$MT309"
+                "$MT309",
+                "$MT321",
+                "$MT337"
               ]
             }
           ],
@@ -16374,6 +17627,273 @@
                   "configuration": [
                     "$MDL3"
                   ],
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
+          "price": 94500,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 94500,
+              "context": "default"
+            },
+            {
+              "type": "base_plus_trim",
+              "value": 399900,
+              "context": "base_plus_trim"
+            }
+          ]
+        },
+        "$MT337": {
+          "code": "$MT337",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "targets": [
+                  "$DV2W",
+                  "$PRM30"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$APBS"
+              },
+              {
+                "action": "set",
+                "target": "$IBW1",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$IPW1",
+                  "$IPW0",
+                  "$IBW0",
+                  "$IN3PW",
+                  "$IN3BW"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$IBB1",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$IPB1",
+                  "$IPB0",
+                  "$IBB0",
+                  "$IN3PB",
+                  "$IN3B2",
+                  "$IN3BB"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$W40B",
+                "condition_code": "$W38B",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$W41B",
+                "condition_code": "$W39B",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$MT317",
+                "condition_code": "$W33D",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MT337"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MT301",
+                "$MT302",
+                "$MT303",
+                "$MT304",
+                "$MT307",
+                "$MT308",
+                "$MT314",
+                "$MT311",
+                "$MT315",
+                "$MT312",
+                "$MT316",
+                "$MT317",
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336",
+                "$MT321"
+              ]
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$DV2W",
+                "$PRM30"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$APBS"
+            },
+            {
+              "action": "set",
+              "target": "$IBW1",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$IPW1",
+                "$IPW0",
+                "$IBW0",
+                "$IN3PW",
+                "$IN3BW"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IBB1",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$IPB1",
+                "$IPB0",
+                "$IBB0",
+                "$IN3PB",
+                "$IN3B2",
+                "$IN3BB"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$W40B",
+              "condition_code": "$W38B",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$W41B",
+              "condition_code": "$W39B",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$MT317",
+              "condition_code": "$W33D",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MT337"
+            },
+            {
+              "action": "set",
+              "target": "$MT314",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MT301",
+                "$MT302",
+                "$MT303",
+                "$MT304",
+                "$MT307",
+                "$MT308",
+                "$MT311",
+                "$MT315",
+                "$MT312",
+                "$MT316",
+                "$MT317",
+                "$MT310",
+                "$MT320",
+                "$MT309",
+                "$MT336",
+                "$MT321"
+              ]
+            }
+          ],
+          "name": "Standard Range Plus bakhjulsdrift",
+          "description": "Standard Range Plus bakhjulsdrift",
+          "long_name": "Model 3 Standard Range Plus bakhjulsdrift",
+          "long_description": "Standard Range bakhjulsdrift",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Standard Range Plus"
+            },
+            {
+              "type": "long_name",
+              "content": "Model 3 Standard Plus bakhjulsdrift"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Bakhjulsdrift"
+            },
+            {
+              "type": "interior_sound_system",
+              "content": "Tilpasset lyd med oppslukende lyd"
+            },
+            {
+              "type": "interior_floor_mats",
+              "content": "Tilgjengelig tilbehør"
+            },
+            {
+              "type": "interior_heated_seats",
+              "content": "Forseter"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 159900,
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 159900,
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "options": [
+                    "$APBS"
+                  ],
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
                   "condition_state": "and"
                 }
               ]
@@ -16989,12 +18509,12 @@
             }
           ],
           "name": "18'' Nokian-vinterdekksett (pigg)",
-          "description": "Nokian Hakkapeliitta 9-dekk (pigg), spesialdesignet for nordiske vinterforhold, med innebygde støtdempere som minimerer motstanden til piggene på veioverflaten. Dette reduserer både kabinstøyen og slitasjen. Dette settet inkluderer Pinwheel-felger med påmonterte dekk. Aerodeksler kan kjøpes separat i nettbutikken vår.",
-          "long_name": "18'' Nokian-vinterdekk (pigg) med Pinwheel-felger",
+          "description": "Nokian Hakkapeliitta 9-dekk (pigg), spesialdesignet for nordiske vinterforhold, med innebygde støtdempere som minimerer motstanden til piggene på veioverflaten. Dette reduserer både kabinstøyen og slitasjen. Dette settet inkluderer Pinwheel-felger med påmonterte dekk. Aerodeksler og hjulkapselsett kan kjøpes separat i nettbutikken vår.",
+          "long_name": "18\" Nokian-vinterdekksett (pigg) med Pinwheel-felger",
           "extra_copy": [
             {
               "type": "short_description",
-              "content": "Nokian Hakkapeliitta 9-dekk (pigg), spesialdesignet for nordiske vinterforhold, med innebygde støtdempere som minimerer motstanden til piggene på veioverflaten. Dette reduserer både kabinstøyen og slitasjen. Dette settet inkluderer Pinwheel-felger med påmonterte dekk. Aerodeksler kan kjøpes separat i nettbutikken vår."
+              "content": "Nokian Hakkapeliitta 9-dekk (pigg), spesialdesignet for nordiske vinterforhold, med innebygde støtdempere som minimerer motstanden til piggene på veioverflaten. Dette reduserer både kabinstøyen og slitasjen. Dette settet inkluderer Pinwheel-felger med påmonterte dekk. Aerodeksler og hjulkapselsett kan kjøpes separat i nettbutikken vår."
             }
           ],
           "extra_content": [
@@ -17121,7 +18641,7 @@
           ],
           "name": "19'' Nokian-vinterdekksett (pigg)",
           "description": "Nokian Hakkapeliitta 9-dekk (pigg), spesialdesignet for nordiske vinterforhold, med innebygde støtdempere som minimerer motstanden til piggene på veioverflaten. Dette reduserer både kabinstøyen og slitasjen. Dette settet inkluderer 19\" Sport-felger med påmonterte dekk.",
-          "long_name": "19'' Nokian-vinterdekk (pigg) med Sport-felger",
+          "long_name": "19\" Nokian-vinterdekksett (pigg) med Sport-felger",
           "extra_copy": [
             {
               "type": "short_description",
@@ -17623,7 +19143,7 @@
           ],
           "name": "20'' Nokian-vinterdekksett (piggfri)",
           "description": "Nokian Hakkapeliitta R3-vinterdekk (piggfri), spesialdesignet for nordiske vinterforhold, har små, miljøvennlige krystaller i gummien for forbedret grep på snødekte veier. Dette settet inkluderer fire 20\" Performance-felger med påmonterte dekk.",
-          "long_name": "20'' Nokian-vinterdekk (piggfri) med Performance-felger",
+          "long_name": "20\" Nokian-vinterdekksett (piggfri) med Performance-felger",
           "extra_copy": [
             {
               "type": "short_description",
@@ -17752,12 +19272,12 @@
             }
           ],
           "name": "18'' Nokian-vinterdekksett (piggfri)",
-          "description": "Nokian Hakkapeliitta R3-vinterdekk (piggfri), spesialdesignet for nordiske vinterforhold, har små, miljøvennlige krystaller i gummien for forbedret grep på snødekte veier. Dette settet inkluderer Pinwheel-felger med påmonterte dekk. Aerodeksler kan kjøpes separat i nettbutikken vår.",
-          "long_name": "18'' Nokian-vinterdekk (piggfri) med Pinwheel-felger",
+          "description": "Nokian Hakkapeliitta R3-vinterdekk (piggfri), spesialdesignet for nordiske vinterforhold, har små, miljøvennlige krystaller i gummien for forbedret grep på snødekte veier. Dette settet inkluderer Pinwheel-felger med påmonterte dekk. Aerodeksler og hjulkapselsett kan kjøpes separat i nettbutikken vår.",
+          "long_name": "18\" Nokian-vinterdekksett (piggfri) med Pinwheel-felger",
           "extra_copy": [
             {
               "type": "short_description",
-              "content": "Nokian Hakkapeliitta R3-vinterdekk (piggfri), spesialdesignet for nordiske vinterforhold, har små, miljøvennlige krystaller i gummien for forbedret grep på snødekte veier. Dette settet inkluderer Pinwheel-felger med påmonterte dekk. Aerodeksler kan kjøpes separat i nettbutikken vår."
+              "content": "Nokian Hakkapeliitta R3-vinterdekk (piggfri), spesialdesignet for nordiske vinterforhold, har små, miljøvennlige krystaller i gummien for forbedret grep på snødekte veier. Dette settet inkluderer Pinwheel-felger med påmonterte dekk. Aerodeksler og hjulkapselsett kan kjøpes separat i nettbutikken vår."
             }
           ],
           "extra_content": [
@@ -17884,7 +19404,7 @@
           ],
           "name": "19\" Nokian-vinterdekksett (piggfri)",
           "description": "Nokian Hakkapeliitta R3-vinterdekk (piggfri), spesialdesignet for nordiske vinterforhold, har små, miljøvennlige krystaller i gummien for forbedret grep på snødekte veier. Dette settet inkluderer 19\" Sport-felger med påmonterte dekk.",
-          "long_name": "19'' Nokian-vinterdekk (piggfri) med Sport-felger",
+          "long_name": "19\" Nokian-vinterdekksett (piggfri) med Sport-felger",
           "extra_copy": [
             {
               "type": "short_description",
@@ -18715,6 +20235,18 @@
                   "kilometers-per-hour": {
                     "label": "km/t",
                     "short_label": "km/t"
+                  },
+                  "range_units_epa_link": {
+                    "label": "Rekkevidde",
+                    "content": "(WLTP)",
+                    "behavior": [
+                      {
+                        "type": "ACTION",
+                        "content": {
+                          "type": "SHOW_RANGE_MODAL"
+                        }
+                      }
+                    ]
                   }
                 }
               },
@@ -18800,7 +20332,7 @@
                   "range": 448,
                   "topspeed": 225,
                   "acceleration": 5.6,
-                  "range_units_override": "range_units_est"
+                  "range_units_override": "range_units_epa_link"
                 },
                 "$MT315": {
                   "name": "Long Range All-Wheel Drive",
@@ -18821,7 +20353,7 @@
                     }
                   ],
                   "acceleration": 4.4,
-                  "range_units_override": "range_units_epa"
+                  "range_units_override": "range_units_epa_link"
                 },
                 "$MT316": {
                   "name": "Long Range All-Wheel Drive",
@@ -18834,7 +20366,7 @@
                   "range": 567,
                   "topspeed": 261,
                   "acceleration": 3.3,
-                  "range_units_override": "range_units_epa"
+                  "range_units_override": "range_units_epa_link"
                 },
                 "$MT320": {
                   "name": "Standard Range Plus Rear-Wheel Drive",
@@ -23225,7 +24757,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 969,
+      "options_id": 1147,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -24081,10 +25613,10 @@
           }
         }
       ],
-      "copy_id": 1394,
+      "copy_id": 1448,
       "language": "no",
-      "pricing_id": 1034,
-      "reference_id": 969
+      "pricing_id": 1098,
+      "reference_id": 1147
     }
   },
   "edd": [

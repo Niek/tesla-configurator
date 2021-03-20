@@ -447,6 +447,18 @@
             ]
           },
           {
+            "type": "lexicon_specs",
+            "dependencies": [
+              "Lexicon"
+            ],
+            "actions": [
+              "COMPLETE_CONFIGURATION_CHANGED"
+            ],
+            "updates": [
+              "formattedSpecs"
+            ]
+          },
+          {
             "type": "extra_content",
             "dependencies": [
               "Lexicon"
@@ -972,7 +984,9 @@
           "leaseDistance",
           "residualAmount"
         ],
-        "showLeaseSummaryDisclaimer": false,
+        "showLeaseSummaryDisclaimer": [
+          "lease.operational_lease"
+        ],
         "showSecondDepositDisclaimer": {
           "source": true,
           "target": true
@@ -1280,53 +1294,6 @@
             "kwh_price": 0.16
           },
           "variant": "ms",
-          "market": "GB"
-        },
-        {
-          "description": "Plug-in Vehicle Grant",
-          "incentiveType": "government",
-          "financeType": "any",
-          "period": "includedInPurchasePrice",
-          "amount": 0,
-          "toggle_amount": {
-            "if": {
-              "trim_price": {
-                "conditions": {
-                  "<": 50000
-                },
-                "amount": -3000,
-                "trims": [
-                  "$MT300",
-                  "$MT301",
-                  "$MT302",
-                  "$MT303",
-                  "$MT304",
-                  "$MT308",
-                  "$MT314",
-                  "$MT336",
-                  "$MT337",
-                  "$MT309",
-                  "$MT310",
-                  "$MT315",
-                  "$MT316",
-                  "$MT311",
-                  "$MT317",
-                  "$MT321",
-                  "$SPT31"
-                ],
-                "modelOption": "$MDL3"
-              }
-            }
-          },
-          "variant": [
-            "mx",
-            "ms",
-            "m3",
-            "my"
-          ],
-          "inventory": [
-            "new"
-          ],
           "market": "GB"
         },
         {
@@ -1995,12 +1962,12 @@
     },
     "Lexicon.ms": {
       "id": 1010,
-      "effective_date": "2021-03-12T06:00:00.000Z",
+      "effective_date": "2021-03-19T05:00:00.000Z",
       "market": "GB",
       "product": "ms",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing GB 2021.Mar.12 1010.1411.1083",
+      "name": "Marketing GB 2021.Mar.19 1010.1464.1083",
       "groups": [
         {
           "code": "DRIVE",
@@ -5128,74 +5095,35 @@
                 {
                   "type": "DynamicGrid",
                   "props": {
+                    "group": "TRIM",
                     "content": [
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS10.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS10.acceleration"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS11.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS11.acceleration"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS09.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS09.acceleration"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.accelerationFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[1]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS10.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS10.range"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS11.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS11.range"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS09.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS09.range"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.rangeFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[2]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS10.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS10.topspeed"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS11.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS11.topspeed"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS09.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS09.topspeed"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.topspeedFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[3]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS10.name",
-                            "value": "CustomGroups.ALL_WHEEL_DRIVE_ONE.sub_title"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS11.name",
-                            "value": "CustomGroups.ALL_WHEEL_DRIVE_TWO.sub_title"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS09.name",
-                            "value": "CustomGroups.ALL_WHEEL_DRIVE_TWO.sub_title"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "drive_mode"
+                        }
                       }
                     ]
                   }
@@ -13847,6 +13775,10 @@
             {
               "type": "feature_list.default[0].items[6]",
               "content": "Torque vectoring"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Tri Motor All-Wheel Drive"
             }
           ],
           "extra_content": [
@@ -14059,6 +13991,10 @@
             {
               "type": "long_name",
               "content": "Model S Long Range"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Dual Motor All-Wheel Drive"
             }
           ],
           "extra_content": [
@@ -14298,6 +14234,10 @@
             {
               "type": "feature_list.default[0].items[4]",
               "content": "Torque vectoring"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Tri Motor All-Wheel Drive"
             }
           ],
           "extra_content": [
@@ -22811,7 +22751,7 @@
           "content_localized": {}
         }
       ],
-      "copy_id": 1411,
+      "copy_id": 1464,
       "language": "en",
       "pricing_id": 1083
     }

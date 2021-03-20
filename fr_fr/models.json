@@ -447,6 +447,18 @@
             ]
           },
           {
+            "type": "lexicon_specs",
+            "dependencies": [
+              "Lexicon"
+            ],
+            "actions": [
+              "COMPLETE_CONFIGURATION_CHANGED"
+            ],
+            "updates": [
+              "formattedSpecs"
+            ]
+          },
+          {
             "type": "extra_content",
             "dependencies": [
               "Lexicon"
@@ -1119,6 +1131,7 @@
           "PRICE_ADD_DISCOUNT"
         ],
         "actionsToUpdatePrices": [
+          "SUMMARY_PANEL_INCLUDE_SERVICE_FEE_CHANGE",
           "SUMMARY_PANEL_DISTANCE_CHANGE",
           "SUMMARY_PANEL_FINANCE_DISTANCE_CHANGE",
           "ACCOUNT_DETAILS_CHANGED"
@@ -1826,7 +1839,7 @@
       "tcc": []
     },
     "Lexicon.ms": {
-      "effective_date": "2021-03-12T04:00:57.043Z",
+      "effective_date": "2021-03-19T05:00:00.000Z",
       "market": "FR",
       "product": "ms",
       "factory": "GF00",
@@ -1848,7 +1861,7 @@
           }
         }
       },
-      "name": "Marketing FR 2021.Mar.12 1053.1396.1072 [fr]",
+      "name": "Marketing FR 2021.Mar.19 1053.1471.1072 [fr]",
       "groups": [
         {
           "code": "MODEL",
@@ -2875,7 +2888,7 @@
             },
             {
               "type": "name",
-              "content": "Sélectionner l'intérieur Premium"
+              "content": "Intérieur Premium"
             },
             {
               "type": "view_details_collapsed",
@@ -3689,7 +3702,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionnez le volant"
+              "content": "Volant"
             }
           ],
           "extra_content": [
@@ -4982,74 +4995,35 @@
                 {
                   "type": "DynamicGrid",
                   "props": {
+                    "group": "TRIM",
                     "content": [
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS10.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS10.acceleration"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS11.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS11.acceleration"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS09.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS09.acceleration"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.accelerationFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[1]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS10.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS10.range"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS11.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS11.range"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS09.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS09.range"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.rangeFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[2]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS10.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS10.topspeed"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS11.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS11.topspeed"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS09.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTS09.topspeed"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.topspeedFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[3]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS10.name",
-                            "value": "CustomGroups.ALL_WHEEL_DRIVE_ONE.sub_title"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS11.name",
-                            "value": "CustomGroups.ALL_WHEEL_DRIVE_TWO.sub_title"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTS09.name",
-                            "value": "CustomGroups.ALL_WHEEL_DRIVE_TWO.sub_title"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "drive_mode"
+                        }
                       }
                     ]
                   }
@@ -5888,7 +5862,7 @@
             },
             {
               "type": "description",
-              "content": "Garez-vous facilement en créneau ou en bataille en appuyant sur un simple bouton de l'écran central. La Model S vous indique les places de parking disponibles en analysant en permanence l'espace autour de vous."
+              "content": "Garez-vous facilement en créneau ou en bataille en appuyant sur un simple bouton de l'écran central. La Model S vous indique les places de parking disponibles en analysant en permanence l'espace autour de vous."
             },
             {
               "type": "add_options",
@@ -6739,9 +6713,9 @@
               "target": "$CPF1"
             }
           ],
-          "name": "Essai de Connectivité haut de gamme de 1 an",
-          "description": "Essai de la fonction Connexion Premium pendant 1 an",
-          "long_name": "Essai de Connectivité haut de gamme de 1 an",
+          "name": "Connectivité standard",
+          "description": "Connectivité standard",
+          "long_name": "Connectivité standard",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -13673,9 +13647,9 @@
               ]
             }
           ],
-          "name": "Model S Plaid",
-          "description": "Model S Plaid",
-          "long_name": "Model S Plaid",
+          "name": "Model S Plaid+",
+          "description": "Model S Plaid+",
+          "long_name": "Model S Plaid+",
           "extra_copy": [
             {
               "type": "name",
@@ -13723,6 +13697,10 @@
             {
               "type": "feature_list.default[0].description",
               "content": "De série"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Transmission intégrale Tri-Motor"
             }
           ],
           "extra_content": [
@@ -13927,6 +13905,10 @@
             {
               "type": "long_name",
               "content": "Model S Grande Autonomie"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Transmission intégrale Dual Motor"
             }
           ],
           "extra_content": [
@@ -14166,6 +14148,10 @@
             {
               "type": "feature_list.default[0].description",
               "content": "De série"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Transmission intégrale Tri-Motor"
             }
           ],
           "extra_content": [
@@ -15065,7 +15051,7 @@
                   "acceleration": 2.5
                 },
                 "$MTS09": {
-                  "name": "Model S Plaid",
+                  "name": "Model S Plaid+",
                   "group": "TRIM",
                   "range": 837,
                   "topspeed": 322,
@@ -22622,7 +22608,7 @@
           }
         }
       ],
-      "copy_id": 1396,
+      "copy_id": 1471,
       "language": "fr",
       "pricing_id": 1072,
       "reference_id": 1053

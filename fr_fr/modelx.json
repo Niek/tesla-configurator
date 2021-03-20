@@ -500,6 +500,18 @@
             ]
           },
           {
+            "type": "lexicon_specs",
+            "dependencies": [
+              "Lexicon"
+            ],
+            "actions": [
+              "COMPLETE_CONFIGURATION_CHANGED"
+            ],
+            "updates": [
+              "formattedSpecs"
+            ]
+          },
+          {
             "type": "extra_content",
             "dependencies": [
               "Lexicon"
@@ -1167,6 +1179,7 @@
           "PRICE_ADD_DISCOUNT"
         ],
         "actionsToUpdatePrices": [
+          "SUMMARY_PANEL_INCLUDE_SERVICE_FEE_CHANGE",
           "SUMMARY_PANEL_DISTANCE_CHANGE",
           "SUMMARY_PANEL_FINANCE_DISTANCE_CHANGE",
           "ACCOUNT_DETAILS_CHANGED"
@@ -1897,7 +1910,7 @@
       "tcc": []
     },
     "Lexicon.mx": {
-      "effective_date": "2021-03-12T04:19:49.870Z",
+      "effective_date": "2021-03-19T05:00:00.000Z",
       "market": "FR",
       "product": "mx",
       "factory": "GF00",
@@ -1906,7 +1919,7 @@
           "percent": 20
         }
       },
-      "name": "Marketing FR 2021.Mar.12 1096.1398.936 [fr]",
+      "name": "Marketing FR 2021.Mar.19 1096.1494.936 [fr]",
       "groups": [
         {
           "code": "MODEL",
@@ -2719,7 +2732,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionnez la couleur"
+              "content": "Couleur"
             },
             {
               "type": "section_title",
@@ -2821,7 +2834,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionner l'intérieur Premium"
+              "content": "Intérieur Premium"
             }
           ],
           "extra_content": [
@@ -3597,7 +3610,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Sélectionnez le volant"
+              "content": "Volant"
             }
           ]
         },
@@ -4043,7 +4056,7 @@
             },
             {
               "type": "description",
-              "content": "Le flux d'air et la température sont entièrement contrôlés via les écrans, sans aucune intervention au niveau des ventilations physiques. Lors des journées chaudes, l'Anti-surchauffe habitacle garantit que l'intérieur du véhicule reste toujours au frais. Par temps froid, le pré-conditionnement réchauffe automatiquement l'habitacle et prépare la batterie pour une autonomie maximale."
+              "content": "Le flux d'air et la température sont entièrement contrôlés via les écrans, sans aucune intervention au niveau des ventilations physiques. Lors des journées chaudes, l'Anti-surchauffe de l'habitacle garantit que l'intérieur du véhicule reste toujours au frais. Par temps froid, le pré-conditionnement réchauffe automatiquement l'habitacle et prépare la batterie pour une autonomie maximale."
             }
           ],
           "extra_content": [
@@ -5095,58 +5108,35 @@
                 {
                   "type": "DynamicGrid",
                   "props": {
+                    "group": "TRIM",
                     "content": [
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTX10.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTX10.acceleration"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTX11.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTX11.acceleration"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.accelerationFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[1]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTX10.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTX10.range"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTX11.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTX11.range"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.rangeFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[2]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTX10.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTX10.topspeed"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTX11.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTX11.topspeed"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.topspeedFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[3]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTX10.name",
-                            "value": "CustomGroups.ALL_WHEEL_DRIVE_ONE.sub_title"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTX11.name",
-                            "value": "CustomGroups.ALL_WHEEL_DRIVE_TWO.sub_title"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "drive_mode"
+                        }
                       }
                     ]
                   }
@@ -6041,7 +6031,7 @@
             },
             {
               "type": "description",
-              "content": "Garez-vous facilement en créneau ou en bataille en appuyant sur un simple bouton de l'écran central. La Model X vous indique les places de parking disponibles en analysant en permanence l'espace autour de vous."
+              "content": "Garez-vous facilement en créneau ou en bataille en appuyant sur un simple bouton de l'écran central. Le Model X vous indique les places de parking disponibles en analysant en permanence l'espace autour de vous."
             },
             {
               "type": "add_options",
@@ -7115,9 +7105,9 @@
               "target": "$CPF1"
             }
           ],
-          "name": "Essai de Connectivité haut de gamme de 1 an",
-          "description": "Essai de la fonction Connexion Premium pendant 1 an",
-          "long_name": "Essai de Connectivité haut de gamme de 1 an",
+          "name": "Connectivité standard",
+          "description": "Connectivité standard",
+          "long_name": "Connectivité standard",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -13395,6 +13385,10 @@
             {
               "type": "long_name",
               "content": "Model X Grande Autonomie"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Transmission intégrale Dual Motor"
             }
           ],
           "extra_content": [
@@ -13624,6 +13618,10 @@
             {
               "type": "feature_list.default[0].items[5]",
               "content": "Contrôle vectoriel du couple"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Transmission intégrale Tri-Motor"
             }
           ],
           "extra_content": [
@@ -19020,7 +19018,7 @@
           }
         }
       ],
-      "copy_id": 1398,
+      "copy_id": 1494,
       "language": "fr",
       "pricing_id": 936,
       "reference_id": 1096

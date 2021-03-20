@@ -494,6 +494,18 @@
             ]
           },
           {
+            "type": "lexicon_specs",
+            "dependencies": [
+              "Lexicon"
+            ],
+            "actions": [
+              "COMPLETE_CONFIGURATION_CHANGED"
+            ],
+            "updates": [
+              "formattedSpecs"
+            ]
+          },
+          {
             "type": "extra_content",
             "dependencies": [
               "Lexicon"
@@ -1171,6 +1183,7 @@
           "PRICE_ADD_DISCOUNT"
         ],
         "actionsToUpdatePrices": [
+          "SUMMARY_PANEL_INCLUDE_SERVICE_FEE_CHANGE",
           "SUMMARY_PANEL_DISTANCE_CHANGE",
           "SUMMARY_PANEL_FINANCE_DISTANCE_CHANGE",
           "ACCOUNT_DETAILS_CHANGED"
@@ -1514,7 +1527,7 @@
       "tcc": []
     },
     "Lexicon.my": {
-      "effective_date": "2021-03-12T02:30:08.153Z",
+      "effective_date": "2021-03-19T05:00:00.000Z",
       "market": "FR",
       "product": "my",
       "factory": "GF00",
@@ -1523,7 +1536,7 @@
           "percent": 20
         }
       },
-      "name": "Marketing FR 2021.Mar.12 1034.1399.1023 [fr]",
+      "name": "Marketing FR 2021.Mar.19 1034.1495.1023 [fr]",
       "groups": [
         {
           "code": "MODEL",
@@ -2416,7 +2429,7 @@
             },
             {
               "type": "group_disclaimer",
-              "content": "Habitacle 7 sièges disponible en 2021"
+              "content": "Habitacle 7 sièges disponible ultérieurement"
             }
           ],
           "extra_content": [
@@ -3931,7 +3944,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Commander votre Model Y"
+              "content": "Commander le Model Y"
             },
             {
               "type": "goto_payment",
@@ -4937,58 +4950,35 @@
                 {
                   "type": "DynamicGrid",
                   "props": {
+                    "group": "TRIM",
                     "content": [
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTY03.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTY03.acceleration"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTY05.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTY05.acceleration"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.accelerationFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[1]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTY03.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTY03.range"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTY05.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTY05.range"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.rangeFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[2]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTY03.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTY03.topspeed"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTY05.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTY05.topspeed"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.topspeedFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[3]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTY03.name",
-                            "value": "CustomGroups.battery_group_specs.options.$DV4W.name"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTY05.name",
-                            "value": "CustomGroups.battery_group_specs.options.$DV4W.name"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "drive_mode"
+                        }
                       }
                     ]
                   }
@@ -6021,9 +6011,9 @@
               "target": "$CPF1"
             }
           ],
-          "name": "Essai de Connectivité haut de gamme de 1 an",
-          "description": "Essai de la fonction Connexion Premium pendant 1 an",
-          "long_name": "Essai de Connectivité haut de gamme de 1 an",
+          "name": "Connectivité standard",
+          "description": "Connectivité standard",
+          "long_name": "Connectivité standard",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -7816,6 +7806,10 @@
             {
               "type": "long_name",
               "content": "Model Y Grande Autonomie, Transmission intégrale Dual Motor"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Transmission intégrale Dual Motor"
             }
           ],
           "extra_content": [
@@ -8170,6 +8164,10 @@
             {
               "type": "long_name",
               "content": "Model Y Performance, Transmission intégrale Dual Motor"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Transmission intégrale Dual Motor"
             }
           ],
           "extra_content": [
@@ -9874,7 +9872,7 @@
           }
         }
       ],
-      "copy_id": 1399,
+      "copy_id": 1495,
       "language": "fr",
       "pricing_id": 1023,
       "reference_id": 1034
