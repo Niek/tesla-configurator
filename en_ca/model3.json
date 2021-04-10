@@ -963,6 +963,7 @@
         "showFooterEffectiveLoanRate": false,
         "showAsterixAtPriceEnd": false,
         "disclaimerSectionAboveOrderButton": null,
+        "showRateInFooter": false,
         "reversePricingOrder": true,
         "hideTaxesAndFeesExcluded": true
       },
@@ -1031,6 +1032,7 @@
         "showIncentivesPerRegion": false,
         "showIncentivesRegion": [],
         "showCashDescriptions": false,
+        "showEstSavingsLabel": false,
         "pricingDetailsVisible": true
       },
       "Payment": {
@@ -2166,12 +2168,12 @@
       "tcc": []
     },
     "Lexicon.m3": {
-      "effective_date": "2021-03-19T05:00:00.000Z",
+      "effective_date": "2021-04-09T01:15:00.000Z",
       "market": "CA",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CA 2021.Mar.19 1129.1451.1095 [en]",
+      "name": "Marketing CA 2021.Apr.09 1198.1539.1146 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -2412,7 +2414,7 @@
           "exclusive": true,
           "discountable": true,
           "default_options": [
-            "$IBB0"
+            "$IBB1"
           ],
           "name": "Interior",
           "extra_copy": [
@@ -2761,6 +2763,7 @@
             "$MT314",
             "$MT315",
             "$MT317",
+            "$MT319",
             "$MT321"
           ],
           "required": false,
@@ -2776,6 +2779,10 @@
             "$IBW0",
             "$IPB0",
             "$IPW0",
+            "$IBB1",
+            "$IBW1",
+            "$IPB1",
+            "$IPW1",
             "$IN3BB",
             "$IN3BW",
             "$IN3PB",
@@ -2834,6 +2841,7 @@
           "groups": [],
           "context": "configurator",
           "options": [
+            "$MT319",
             "$MT314",
             "$MT315",
             "$MT317"
@@ -3231,11 +3239,12 @@
         },
         {
           "code": "AUTOPILOT_PACKAGE",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$APF2"
+          "groups": [
+            "BASIC_AUTOPILOT",
+            "FSD_AUTOPILOT"
           ],
+          "context": "configurator",
+          "options": [],
           "required": false,
           "exclusive": false,
           "name": "Autopilot",
@@ -3327,9 +3336,6 @@
               "content": [
                 {
                   "type": "RootGroup"
-                },
-                {
-                  "type": "Options"
                 }
               ]
             },
@@ -3534,10 +3540,10 @@
             "$PRM30",
             "$PRM31",
             "$PRM3S",
-            "$IPW0",
-            "$IPB0",
-            "$IBB0",
-            "$IBW0"
+            "$IBB1",
+            "$IBW1",
+            "$IPB1",
+            "$IPW1"
           ],
           "required": false,
           "exclusive": false,
@@ -3581,7 +3587,8 @@
         {
           "code": "REAR_WHEEL_DRIVE_GROUP",
           "groups": [
-            "REAR_WHEEL_PARTIAL"
+            "REAR_WHEEL_SR",
+            "REAR_WHEEL_SR_PLUS"
           ],
           "context": "configurator",
           "options": [],
@@ -3596,6 +3603,45 @@
             {
               "type": "sub_title",
               "content": "Rear-Wheel Drive"
+            },
+            {
+              "type": "add_option",
+              "content": "Limit to 151 km range (est.)"
+            },
+            {
+              "type": "option_disclaimer[0]",
+              "content": "Learn more",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "a"
+                  }
+                },
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURE_LIST_MODAL_OPEN",
+                    "payload": {
+                      "groupName": "STD_FEATURES",
+                      "selectedView": "COMPARE_MODEL_AND_FEATURE",
+                      "analyticsTriggerText": "features-modal-clicked"
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "option_disclaimer[1]",
+              "content": " about Range and Performance",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "span"
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -3612,6 +3658,32 @@
                 },
                 {
                   "type": "RootGroup"
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "style": {
+                      "marginTop": "-5px"
+                    },
+                    "fields": [
+                      {
+                        "field": "option_disclaimer"
+                      }
+                    ],
+                    "classes": "tds-text--caption tds--no_vertical_padding",
+                    "parentClasses": "tds-flex--justify-flex-start tds--no_vertical_padding tds--vertical_padding-bottom"
+                  }
+                },
+                {
+                  "type": "GroupCheckbox",
+                  "props": {
+                    "key": "toggle_trim",
+                    "set": "REAR_WHEEL_SR",
+                    "field": "add_option",
+                    "unset": [
+                      "REAR_WHEEL_SR_PLUS"
+                    ]
+                  }
                 }
               ]
             }
@@ -4246,6 +4318,7 @@
             "$MT314",
             "$MT315",
             "$MT317",
+            "$MT319",
             "$SPT31"
           ],
           "required": false,
@@ -4342,6 +4415,7 @@
             "SPORT_PACKAGE_OPTIONS",
             "INTERIOR",
             "AUTOPILOT",
+            "FSD_AUTOPILOT",
             "AUTOPILOT_OWNERSHIP",
             "AUTOPILOT_PACKAGE"
           ],
@@ -4358,15 +4432,15 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$IBB0",
-            "$IBW0",
-            "$IPB0",
-            "$IPW0"
+            "$IBB1",
+            "$IBW1",
+            "$IPB1",
+            "$IPW1"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$IBB0"
+            "$IBB1"
           ],
           "name": "Interior",
           "extra_content": [
@@ -5025,7 +5099,9 @@
           "code": "AUTOPILOT_CARD",
           "groups": [],
           "context": "configurator",
-          "options": [],
+          "options": [
+            "$APBS"
+          ],
           "required": false,
           "exclusive": false,
           "name": "Basic Autopilot",
@@ -5040,7 +5116,67 @@
             },
             {
               "type": "description",
-              "content": "Included with every Tesla, Autopilot enables your car to steer, accelerate and brake automatically for other vehicles and pedestrians within its lane. Advanced safety and convenience features are designed to assist you with the most burdensome parts of driving, alongside driver assistance features such as emergency braking, collision warning and blind-spot monitoring."
+              "content": "Autopilot enables your car to steer, accelerate and brake automatically for other vehicles and pedestrians within its lane. Advanced safety and convenience features are designed to assist you with the most burdensome parts of driving, alongside driver assistance features such as emergency braking, collision warning and blind-spot monitoring."
+            },
+            {
+              "type": "add_options",
+              "content": "Add Package",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APBS"
+                      ]
+                    },
+                    "panelName": "AUTOPILOT_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-basic-ap",
+                    "selected_by": {
+                      "and": [
+                        "$MT319"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Remove",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APBS"
+                      ]
+                    },
+                    "panelName": "AUTOPILOT_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-basic-ap",
+                    "selected_by": {
+                      "and": [
+                        "$MT319"
+                      ]
+                    }
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -6142,7 +6278,7 @@
             },
             {
               "type": "feature_list.default[0].title",
-              "content": "Model 3 includes Navigation on all models, a 1 year Premium Connectivity trial on Long Range and Performance models and a 30 day trial on Standard Range Plus models enabling:"
+              "content": "Model 3 includes Navigation on all models, a 1 year Premium Connectivity trial on Long Range and Performance models and a 30 day trial on Standard Range and Standard Range Plus models enabling:"
             },
             {
               "type": "feature_list.default[0].items[0]",
@@ -6882,6 +7018,162 @@
               ]
             }
           ]
+        },
+        {
+          "code": "REAR_WHEEL_SR",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$MT319"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [
+            "$MT319"
+          ],
+          "name": "REAR_WHEEL_SR",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "group_selected_by": {
+                    "not": [
+                      "REAR_WHEEL_SR"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Options"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "REAR_WHEEL_SR_PLUS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$MT314"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [
+            "$MT314"
+          ],
+          "name": "REAR_WHEEL_SR_PLUS",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "group_selected_by": {
+                    "and": [
+                      "REAR_WHEEL_SR"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Options"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "BASIC_AUTOPILOT",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APBS"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [
+            "$APBS"
+          ],
+          "name": "BASIC_AUTOPILOT",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "group_selected_by": {
+                    "not": [
+                      "REAR_WHEEL_SR"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Options"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FSD_AUTOPILOT",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APF2"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [
+            "$APF2"
+          ],
+          "name": "FSD_AUTOPILOT",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Options"
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -6953,9 +7245,9 @@
               ]
             }
           ],
-          "name": "Autopilot",
-          "description": "Autopilot",
-          "long_name": "Autopilot",
+          "name": "Basic Autopilot",
+          "description": "Basic Autopilot",
+          "long_name": "Basic Autopilot",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -6967,7 +7259,7 @@
             },
             {
               "type": "feature_list.default.items[0]",
-              "content": "Enables your car to steer, accelerate and brake automatically for other vehicles and pedestrians within its lane."
+              "content": "Automatic steering, acceleration and braking on highways"
             },
             {
               "type": "selectLabel",
@@ -6976,6 +7268,50 @@
             {
               "type": "deselectLabel",
               "content": "Option Selected"
+            },
+            {
+              "type": "add_basic_ap_package",
+              "content": "Add",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APBS"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_basic_ap_package",
+              "content": "Remove",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APBS"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             },
             {
               "type": "#configurator:::confirgurator prefix",
@@ -6996,10 +7332,45 @@
           ],
           "extra_content": [
             {
-              "type": "shape",
+              "type": "components",
               "content": [
                 {
-                  "type": "card"
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "add_basic_ap_package",
+                        "selected_by": {
+                          "not": [
+                            "$APBS"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "remove_basic_ap_package",
+                        "selected_by": {
+                          "or": [
+                            "$APBS"
+                          ]
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -7018,11 +7389,11 @@
                   "condition_state": "set",
                   "target_property": "price",
                   "condition_any_code": [
-                    "$MT318",
                     "$MT306",
+                    "$MT319",
+                    "$MT318",
                     "$MT307",
                     "$MT300",
-                    "$MT319",
                     "$MT313"
                   ]
                 }
@@ -7608,6 +7979,7 @@
                     "selected_by": {
                       "or": [
                         "$MT314",
+                        "$MT319",
                         "$MT320",
                         "$MT337"
                       ]
@@ -8038,7 +8410,7 @@
               "content": [
                 {
                   "app": "m3-boost-image/aasvcb/std/0x0/m3-boost",
-                  "type": "ownership-image",
+                  "type": "product-image",
                   "mobile": "m3-boost-image/aasvcb/std/0x0/m3-boost",
                   "appDark": "m3-boost-image/aasvcb/std/0x0/m3-boost",
                   "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
@@ -8110,13 +8482,12 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IPW1",
@@ -8270,10 +8641,12 @@
               "type": "hidden",
               "content": [
                 {
-                  "configuration": [
-                    "$PRM30"
-                  ],
-                  "condition_state": "not"
+                  "selected_by": {
+                    "not": [
+                      "$MT314",
+                      "$MT319"
+                    ]
+                  }
                 }
               ]
             }
@@ -8335,9 +8708,10 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
@@ -8495,9 +8869,9 @@
               "content": [
                 {
                   "configuration": [
-                    "$PRM30"
+                    "$PRM31"
                   ],
-                  "condition_state": "not"
+                  "condition_state": "and"
                 }
               ]
             }
@@ -8560,12 +8934,12 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IPW1",
@@ -8719,10 +9093,12 @@
               "type": "hidden",
               "content": [
                 {
-                  "configuration": [
-                    "$PRM30"
-                  ],
-                  "condition_state": "not"
+                  "selected_by": {
+                    "not": [
+                      "$MT314",
+                      "$MT319"
+                    ]
+                  }
                 }
               ]
             }
@@ -8785,13 +9161,13 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IPB1",
                 "$IPW1",
                 "$IN3PB",
@@ -8945,9 +9321,9 @@
               "content": [
                 {
                   "configuration": [
-                    "$PRM30"
+                    "$PRM31"
                   ],
-                  "condition_state": "not"
+                  "condition_state": "and"
                 }
               ]
             }
@@ -9005,12 +9381,12 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IPW1",
@@ -9228,13 +9604,13 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPW1",
                 "$IN3PB",
@@ -9451,12 +9827,12 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IPW1",
@@ -9682,13 +10058,13 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IN3PB",
@@ -9945,7 +10321,7 @@
             },
             {
               "type": "non_refundable_order_payment",
-              "value": 0,
+              "value": 100,
               "context": "default"
             },
             {
@@ -9955,7 +10331,7 @@
             },
             {
               "type": "non_refundable_order_payment_used",
-              "value": 0,
+              "value": 100,
               "context": "default"
             }
           ]
@@ -10622,7 +10998,28 @@
           "name": "Rear Heated Seats",
           "description": "Rear Heated Seats",
           "long_name": "Rear Heated Seats",
-          "extra_copy": [],
+          "extra_copy": [
+            {
+              "type": "description",
+              "content": "Enhance your passengers riding experience with rear heated seats"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "app": "rear-heated-seats-light-image/aasvcb/std/0x0/rear-heated-seats-light",
+                  "type": "product-image",
+                  "mobile": "rear-heated-seats-light-image/aasvcb/std/0x0/rear-heated-seats-light",
+                  "appDark": "rear-heated-seats-dark-image/aasvcb/std/0x0/rear-heated-seats-dark",
+                  "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
+                  "desktop": "rear-heated-seats-light-image/aasvcb/std/0x0/rear-heated-seats-light",
+                  "desktop2x": "rear-heated-seats-light-image/aasvcb/std/0x0/rear-heated-seats-light"
+                }
+              ]
+            }
+          ],
           "price": 0,
           "pricing": [
             {
@@ -11778,13 +12175,13 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IPW1",
@@ -12002,13 +12399,13 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IPW1",
@@ -12222,13 +12619,13 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IPW1",
@@ -12442,13 +12839,13 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IPW1",
@@ -12665,13 +13062,13 @@
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
-                "$IBB1",
                 "$IBW1",
                 "$IPB1",
                 "$IPW1",
@@ -15243,41 +15640,6 @@
               "content": "Model 3 Standard Plus Rear-Wheel Drive"
             },
             {
-              "type": "option_disclaimer[0]",
-              "content": "Learn more",
-              "behavior": [
-                {
-                  "type": "CONTAINER",
-                  "content": {
-                    "tag": "a"
-                  }
-                },
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "FEATURE_LIST_MODAL_OPEN",
-                    "payload": {
-                      "groupName": "STD_FEATURES",
-                      "selectedView": "COMPARE_MODEL_AND_FEATURE",
-                      "analyticsTriggerText": "features-modal-clicked"
-                    }
-                  }
-                }
-              ]
-            },
-            {
-              "type": "option_disclaimer[1]",
-              "content": " about Range and Performance",
-              "behavior": [
-                {
-                  "type": "CONTAINER",
-                  "content": {
-                    "tag": "span"
-                  }
-                }
-              ]
-            },
-            {
               "type": "drive_mode",
               "content": "Rear-Wheel Drive"
             },
@@ -15360,26 +15722,6 @@
                   ],
                   "optionPriceKey": "base_plus_trim",
                   "condition_state": "and"
-                }
-              ]
-            },
-            {
-              "type": "components",
-              "content": [
-                {
-                  "type": "ActionTarget",
-                  "props": {
-                    "style": {
-                      "marginTop": "-5px"
-                    },
-                    "fields": [
-                      {
-                        "field": "option_disclaimer"
-                      }
-                    ],
-                    "classes": "tds-text--caption tds--no_vertical_padding",
-                    "parentClasses": "tds-flex--justify-flex-start tds--no_vertical_padding tds--vertical_padding-bottom"
-                  }
                 }
               ]
             }
@@ -15966,6 +16308,120 @@
               ]
             }
           ],
+          "name": "Standard Range Rear-Wheel Drive",
+          "description": "Standard Range Rear-Wheel Drive (CA)",
+          "long_name": "Standard Range Rear-Wheel Drive",
+          "long_description": "Standard Rear-Wheel Drive",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Standard Range"
+            },
+            {
+              "type": "compare_matrix.block[0].label",
+              "content": "Acceleration"
+            },
+            {
+              "type": "compare_matrix.block[0].content",
+              "content": "3.5s 0-60mph"
+            },
+            {
+              "type": "compare_matrix.block[1].label",
+              "content": "Drive"
+            },
+            {
+              "type": "compare_matrix.block[1].content",
+              "content": "Dual Motor All-wheel Drive"
+            },
+            {
+              "type": "long_name",
+              "content": "Model 3 Standard Range Rear-Wheel Drive"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Rear-Wheel Drive"
+            },
+            {
+              "type": "interior_sound_system",
+              "content": "Custom audio with immersive sound"
+            },
+            {
+              "type": "interior_floor_mats",
+              "content": "Available accessory"
+            },
+            {
+              "type": "interior_heated_seats",
+              "content": "Front seats"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 44999,
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "fees": [
+                    "total.once"
+                  ],
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing_aftersavings",
+              "content": [
+                {
+                  "fees": [
+                    "total.once"
+                  ],
+                  "incentive": [
+                    "total.once",
+                    "total.fuel"
+                  ],
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 44999,
+                  "configuration": [
+                    "$MDL3"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
           "price": 0,
           "pricing": [
             {
@@ -16227,6 +16683,18 @@
                 "target": "$IBW0",
                 "condition_code": "$IPW0",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBB1",
+                "condition_code": "$IPB1",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBW1",
+                "condition_code": "$IPW1",
+                "condition_state": "set"
               }
             ]
           },
@@ -16273,6 +16741,18 @@
               "action": "set",
               "target": "$IBW0",
               "condition_code": "$IPW0",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBB1",
+              "condition_code": "$IPB1",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBW1",
+              "condition_code": "$IPW1",
               "condition_state": "set"
             }
           ],
@@ -16374,6 +16854,18 @@
                 "target": "$IPW0",
                 "condition_code": "$IBW0",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IPB1",
+                "condition_code": "$IBB1",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IPW1",
+                "condition_code": "$IBW1",
+                "condition_state": "set"
               }
             ]
           },
@@ -16431,6 +16923,18 @@
               "action": "set",
               "target": "$IPW0",
               "condition_code": "$IBW0",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IPB1",
+              "condition_code": "$IBB1",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IPW1",
+              "condition_code": "$IBW1",
               "condition_state": "set"
             }
           ],
@@ -16503,8 +17007,8 @@
                 "target": "$PRM3S",
                 "condition_state": "set",
                 "condition_any_code": [
-                  "$MT313",
-                  "$MT319"
+                  "$MT307",
+                  "$MT318"
                 ]
               },
               {
@@ -16530,6 +17034,18 @@
                 "target": "$IBW0",
                 "condition_code": "$IPW0",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBB1",
+                "condition_code": "$IPB1",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBW1",
+                "condition_code": "$IPW1",
+                "condition_state": "set"
               }
             ]
           },
@@ -16550,8 +17066,8 @@
               "target": "$PRM3S",
               "condition_state": "set",
               "condition_any_code": [
-                "$MT313",
-                "$MT319"
+                "$MT307",
+                "$MT318"
               ]
             },
             {
@@ -16576,6 +17092,18 @@
               "action": "set",
               "target": "$IBW0",
               "condition_code": "$IPW0",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBB1",
+              "condition_code": "$IPB1",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBW1",
+              "condition_code": "$IPW1",
               "condition_state": "set"
             }
           ],
@@ -17288,6 +17816,74 @@
             },
             "comments": "New Perf Trim w/ MI02 & Battery",
             "effective_date": "2020-10-14"
+          },
+          {
+            "options": {
+              "$IBB0": {
+                "set_rules": [
+                  {
+                    "action": "unset",
+                    "target": "$IBB0"
+                  },
+                  {
+                    "action": "set",
+                    "target": "$IBB1"
+                  }
+                ]
+              }
+            },
+            "comments": "New Interiors on Configurator 4/8/2021"
+          },
+          {
+            "options": {
+              "$IBW0": {
+                "set_rules": [
+                  {
+                    "action": "unset",
+                    "target": "$IBW0"
+                  },
+                  {
+                    "action": "set",
+                    "target": "$IBW1"
+                  }
+                ]
+              }
+            },
+            "comments": "New Interiors on Configurator 4/8/2021"
+          },
+          {
+            "options": {
+              "$IPB0": {
+                "set_rules": [
+                  {
+                    "action": "unset",
+                    "target": "$IPB0"
+                  },
+                  {
+                    "action": "set",
+                    "target": "$IPB1"
+                  }
+                ]
+              }
+            },
+            "comments": "New Interiors on Configurator 4/8/2021"
+          },
+          {
+            "options": {
+              "$IPW0": {
+                "set_rules": [
+                  {
+                    "action": "unset",
+                    "target": "$IPW0"
+                  },
+                  {
+                    "action": "set",
+                    "target": "$IPW1"
+                  }
+                ]
+              }
+            },
+            "comments": "New Interiors on Configurator 4/8/2021"
           }
         ],
         "warranty_rules": [
@@ -17623,6 +18219,13 @@
                   "topspeed": 261,
                   "acceleration": 3.3,
                   "range_units_override": "range_units_epa"
+                },
+                "$MT319": {
+                  "name": "Standard Range Rear-Wheel Drive",
+                  "range": 151,
+                  "topspeed": 225,
+                  "acceleration": 5.6,
+                  "range_units_override": "range_units_est"
                 },
                 "$MT321": {
                   "name": "Long Range All-Wheel Drive",
@@ -21868,7 +22471,7 @@
         }
       },
       "base_configuration": [
-        "$IBB0",
+        "$IBB1",
         "$W40B",
         "$DV2W",
         "$MDL3",
@@ -21879,7 +22482,7 @@
         "$SC04",
         "$APBS"
       ],
-      "options_id": 1129,
+      "options_id": 1198,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -22735,10 +23338,10 @@
           }
         }
       ],
-      "copy_id": 1451,
+      "copy_id": 1539,
       "language": "en",
-      "pricing_id": 1095,
-      "reference_id": 1129
+      "pricing_id": 1146,
+      "reference_id": 1198
     }
   },
   "edd": [
@@ -22852,6 +23455,45 @@
       "model": "m3",
       "options": [
         "$MT317"
+      ],
+      "atDate": null,
+      "inStart": 10,
+      "inEnd": 14,
+      "inType": "weeks",
+      "effectiveStartDate": "2021-04-07T08:10:00"
+    },
+    {
+      "countryCode": "CA",
+      "region": "east",
+      "model": "m3",
+      "options": [
+        "$MT319"
+      ],
+      "atDate": null,
+      "inStart": 8,
+      "inEnd": 12,
+      "inType": "weeks",
+      "effectiveStartDate": "2021-04-07T08:10:00"
+    },
+    {
+      "countryCode": "CA",
+      "region": "west",
+      "model": "m3",
+      "options": [
+        "$MT319"
+      ],
+      "atDate": null,
+      "inStart": 8,
+      "inEnd": 12,
+      "inType": "weeks",
+      "effectiveStartDate": "2021-04-07T08:10:00"
+    },
+    {
+      "countryCode": "CA",
+      "region": "north",
+      "model": "m3",
+      "options": [
+        "$MT319"
       ],
       "atDate": null,
       "inStart": 10,

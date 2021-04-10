@@ -782,7 +782,8 @@
         "showFinanceProductName": true,
         "showFooterEffectiveLoanRate": false,
         "showAsterixAtPriceEnd": false,
-        "disclaimerSectionAboveOrderButton": "ORDER_DISCLAIMER_SECTION"
+        "disclaimerSectionAboveOrderButton": "ORDER_DISCLAIMER_SECTION",
+        "showRateInFooter": false
       },
       "FindMyTesla": {
         "selected_view": "exterior",
@@ -854,7 +855,8 @@
         "showOtherLoanTerms": false,
         "showIncentivesPerRegion": false,
         "showIncentivesRegion": [],
-        "showCashDescriptions": false
+        "showCashDescriptions": false,
+        "showEstSavingsLabel": false
       },
       "Payment": {
         "paymentFormValid": false,
@@ -1559,7 +1561,7 @@
       "tcc": []
     },
     "Lexicon.my": {
-      "effective_date": "2021-03-12T02:30:08.644Z",
+      "effective_date": "2021-04-09T01:15:00.000Z",
       "market": "KR",
       "product": "my",
       "factory": "GF00",
@@ -1581,7 +1583,7 @@
           }
         }
       },
-      "name": "Marketing KR 2021.Mar.12 1037.1365.1035 [ko]",
+      "name": "Marketing KR 2021.Apr.09 1194.1538.1035 [ko]",
       "groups": [
         {
           "code": "MODEL",
@@ -1802,7 +1804,6 @@
           ],
           "required": false,
           "exclusive": true,
-          "discountable": false,
           "name": "SUPER_CHARGER"
         },
         {
@@ -1895,7 +1896,7 @@
           "exclusive": true,
           "discountable": true,
           "default_options": [
-            "$INYPB"
+            "$INPB1"
           ],
           "name": "인테리어",
           "extra_copy": []
@@ -1922,8 +1923,8 @@
           "groups": [],
           "context": "order_summary",
           "options": [
-            "$INYPB",
-            "$INYPW",
+            "$INPB1",
+            "$INPW1",
             "$PBSB",
             "$PMNG",
             "$PPMR",
@@ -2355,8 +2356,8 @@
           ],
           "context": "configurator",
           "options": [
-            "$INYPB",
-            "$INYPW"
+            "$INPB1",
+            "$INPW1"
           ],
           "required": false,
           "exclusive": false,
@@ -2736,8 +2737,8 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$INYPB",
-            "$INYPW"
+            "$INPB1",
+            "$INPW1"
           ],
           "required": false,
           "exclusive": false
@@ -2747,8 +2748,8 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$INYPB",
-            "$INYPW"
+            "$INPB1",
+            "$INPW1"
           ],
           "required": false,
           "exclusive": false
@@ -2758,13 +2759,13 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$INYPB",
-            "$INYPW"
+            "$INPB1",
+            "$INPW1"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$INYPB"
+            "$INPB1"
           ]
         }
       ],
@@ -3127,9 +3128,9 @@
               "target": "$CPF1"
             }
           ],
-          "name": "",
-          "description": "$ CPF0",
-          "long_name": "",
+          "name": "스탠다드 커넥티비티",
+          "description": "스탠다드 커넥티비티",
+          "long_name": "스탠다드 커넥티비티",
           "extra_copy": [
             {
               "type": "premium_connectivity_trail_sr",
@@ -4239,9 +4240,10 @@
             },
             {
               "action": "set",
-              "target": "$INYPB",
+              "target": "$INPB1",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$INYPB",
                 "$INYPW",
                 "$INPW1"
               ]
@@ -4262,6 +4264,121 @@
             {
               "type": "spec_description",
               "content": "Black 레더 인테리어"
+            },
+            {
+              "type": "feature_list.default[0].main_title",
+              "content": "기본사항:"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "12-방향 전동 조절형 앞 좌석 및 뒷좌석 열선 시트"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "독립 접이식 2열 좌석"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "프리미엄 오디오 – 스피커 14개, 서브우퍼 1개, 앰프 2개 및 높은 몰입도의 사운드"
+            },
+            {
+              "type": "feature_list.default[1].items[0].main_title",
+              "content": "프리미엄 커넥티비티 (1년 제공)",
+              "behavior": [
+                {
+                  "type": "REPLACE_CONTENT",
+                  "content": {
+                    "source": "options.$CPF0.premium_connectivity_trail_sr",
+                    "selected_by": {
+                      "or": [
+                        "$MTY01"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "feature_list.default[1].items[0].sub_items[0]",
+              "content": "실시간 교통 상황을 나타내는 위성 지도"
+            },
+            {
+              "type": "feature_list.default[1].items[0].sub_items[1]",
+              "content": "차량 내 인터넷 스트리밍 음악 및 미디어  "
+            },
+            {
+              "type": "feature_list.default[1].items[0].sub_items[2]",
+              "content": "비디오 스트리밍"
+            },
+            {
+              "type": "feature_list.default[1].items[0].sub_items[3]",
+              "content": "인터넷 브라우저"
+            },
+            {
+              "type": "feature_list.default[2].items[0]",
+              "content": "Bluetooth®를 연결하여 음악 및 미디어 재생"
+            },
+            {
+              "type": "feature_list.default[2].items[1]",
+              "content": "LED 안개등"
+            },
+            {
+              "type": "feature_list.default[2].items[2]",
+              "content": "자외선 및 적외선 보호장치를 갖춘 틴티드 글래스 루프"
+            },
+            {
+              "type": "feature_list.default[2].items[3]",
+              "content": "자동 조도 조절 및 전동 조절형 열선 사이드 미러"
+            },
+            {
+              "type": "feature_list.default[2].items[4]",
+              "content": "사용자 지정 운전자 프로필"
+            },
+            {
+              "type": "feature_list.default[2].items[5]",
+              "content": "수납 공간, USB 포트 4개 및 스마트폰 도킹 2개를 갖춘 센터 콘솔"
+            },
+            {
+              "type": "view_details_collapsed",
+              "content": "세부사항 표시하기",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_EXPAND",
+                    "props": {
+                      "options": [
+                        "$INPB1"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--collapsed"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_details_expanded",
+              "content": "세부사항 숨기기",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_COLLAPSE",
+                    "props": {
+                      "options": [
+                        "$INPB1"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--expanded"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -4279,17 +4396,6 @@
               "content": [
                 {
                   "type": "circular"
-                }
-              ]
-            },
-            {
-              "type": "hidden",
-              "content": [
-                {
-                  "configuration": [
-                    "$PRMY1"
-                  ],
-                  "condition_state": "not"
                 }
               ]
             }
@@ -4321,11 +4427,11 @@
             },
             {
               "action": "set",
-              "target": "$INYPB",
+              "target": "$INPB1",
               "condition_state": "unset",
               "condition_all_codes": [
-                "$INYPW",
-                "$INPB1"
+                "$INYPB",
+                "$INYPW"
               ]
             }
           ],
@@ -4342,15 +4448,15 @@
               "content": "포함"
             },
             {
-              "type": "recommended_NA_NA",
-              "content": "권장 사항",
+              "type": "recommended_NA",
+              "content": "#권장 사항",
               "behavior": [
                 {
                   "type": "ACTION",
                   "content": {
                     "type": "SHOW_INTERIOR_MODAL",
                     "props": {
-                      "content_path": "OMS.lexicon.options.$INYPW.recommended_NA_content"
+                      "content_path": "OMS.lexicon.options.$INPW1.recommended_NA_content"
                     },
                     "classNames": [
                       "tsla-recommended_NA"
@@ -4366,6 +4472,121 @@
             {
               "type": "spec_description",
               "content": "White 레더 인테리어"
+            },
+            {
+              "type": "feature_list.default[0].main_title",
+              "content": "기본사항:"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "12-방향 전동 조절형 앞 좌석 및 뒷좌석 열선 시트"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "독립 접이식 2열 좌석"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "프리미엄 오디오 – 스피커 14개, 서브우퍼 1개, 앰프 2개 및 높은 몰입도의 사운드"
+            },
+            {
+              "type": "feature_list.default[1].items[0].main_title",
+              "content": "프리미엄 커넥티비티 (1년 제공)",
+              "behavior": [
+                {
+                  "type": "REPLACE_CONTENT",
+                  "content": {
+                    "source": "options.$CPF0.premium_connectivity_trail_sr",
+                    "selected_by": {
+                      "or": [
+                        "$MTY01"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "feature_list.default[1].items[0].sub_items[0]",
+              "content": "실시간 교통 상황을 나타내는 위성 지도"
+            },
+            {
+              "type": "feature_list.default[1].items[0].sub_items[1]",
+              "content": "차량 내 인터넷 스트리밍 음악 및 미디어  "
+            },
+            {
+              "type": "feature_list.default[1].items[0].sub_items[2]",
+              "content": "비디오 스트리밍"
+            },
+            {
+              "type": "feature_list.default[1].items[0].sub_items[3]",
+              "content": "인터넷 브라우저"
+            },
+            {
+              "type": "feature_list.default[2].items[0]",
+              "content": "Bluetooth®를 연결하여 음악 및 미디어 재생"
+            },
+            {
+              "type": "feature_list.default[2].items[1]",
+              "content": "LED 안개등"
+            },
+            {
+              "type": "feature_list.default[2].items[2]",
+              "content": "자외선 및 적외선 보호장치를 갖춘 틴티드 글래스 루프"
+            },
+            {
+              "type": "feature_list.default[2].items[3]",
+              "content": "자동 조도 조절 및 전동 조절형 열선 사이드 미러"
+            },
+            {
+              "type": "feature_list.default[2].items[4]",
+              "content": "사용자 지정 운전자 프로필"
+            },
+            {
+              "type": "feature_list.default[2].items[5]",
+              "content": "수납 공간, USB 포트 4개 및 스마트폰 도킹 2개를 갖춘 센터 콘솔"
+            },
+            {
+              "type": "view_details_collapsed",
+              "content": "세부사항 표시하기",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_EXPAND",
+                    "props": {
+                      "options": [
+                        "$INPW1"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--collapsed"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_details_expanded",
+              "content": "세부사항 숨기기",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "FEATURES_LIST_COLLAPSE",
+                    "props": {
+                      "options": [
+                        "$INPW1"
+                      ]
+                    },
+                    "classNames": [
+                      "tsla-view-more",
+                      "tsla-view-more--expanded"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -4391,17 +4612,6 @@
               "content": [
                 {
                   "extra": true
-                }
-              ]
-            },
-            {
-              "type": "hidden",
-              "content": [
-                {
-                  "configuration": [
-                    "$PRMY1"
-                  ],
-                  "condition_state": "not"
                 }
               ]
             }
@@ -4441,11 +4651,10 @@
             },
             {
               "action": "set",
-              "target": "$INYPB",
+              "target": "$INPB1",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$INYPW",
-                "$INPB1",
                 "$INPW1"
               ]
             }
@@ -4549,7 +4758,7 @@
                     "type": "FEATURES_LIST_EXPAND",
                     "props": {
                       "options": [
-                        "$INYPB"
+                        "$INPB1"
                       ]
                     },
                     "classNames": [
@@ -4570,7 +4779,7 @@
                     "type": "FEATURES_LIST_COLLAPSE",
                     "props": {
                       "options": [
-                        "$INYPB"
+                        "$INPB1"
                       ]
                     },
                     "classNames": [
@@ -4605,9 +4814,9 @@
               "content": [
                 {
                   "configuration": [
-                    "$PRMY1"
+                    "$MDLY"
                   ],
-                  "condition_state": "not"
+                  "condition_state": "and"
                 }
               ]
             }
@@ -4647,10 +4856,10 @@
             },
             {
               "action": "set",
-              "target": "$INYPB",
+              "target": "$INPB1",
               "condition_state": "unset",
               "condition_all_codes": [
-                "$INPB1",
+                "$INYPB",
                 "$INPW1"
               ]
             }
@@ -4676,7 +4885,7 @@
                   "content": {
                     "type": "SHOW_INTERIOR_MODAL",
                     "props": {
-                      "content_path": "OMS.lexicon.options.$INYPW.recommended_NA_content"
+                      "content_path": "OMS.lexicon.options.$INPW1.recommended_NA_content"
                     },
                     "classNames": [
                       "tsla-recommended_NA"
@@ -4776,7 +4985,7 @@
                     "type": "FEATURES_LIST_EXPAND",
                     "props": {
                       "options": [
-                        "$INYPW"
+                        "$INPW1"
                       ]
                     },
                     "classNames": [
@@ -4797,7 +5006,7 @@
                     "type": "FEATURES_LIST_COLLAPSE",
                     "props": {
                       "options": [
-                        "$INYPW"
+                        "$INPW1"
                       ]
                     },
                     "classNames": [
@@ -4840,9 +5049,9 @@
               "content": [
                 {
                   "configuration": [
-                    "$PRMY1"
+                    "$MDLY"
                   ],
-                  "condition_state": "not"
+                  "condition_state": "and"
                 }
               ]
             }
@@ -4894,9 +5103,9 @@
               ]
             }
           ],
-          "name": "Model Y Standard Range RWD",
+          "name": "Standard Range RWD",
           "description": "Model Y Standar Range Rear-Wheel Drive",
-          "long_name": "Model Y Standard Range RWD",
+          "long_name": "Standard Range RWD",
           "long_description": "Model Y Standar Range Rear-Wheel Drive",
           "extra_copy": [
             {
@@ -6493,6 +6702,40 @@
             },
             "comments": "Performance Trim can NOT have 7 seater",
             "effective_date": "2021-01-07"
+          },
+          {
+            "options": {
+              "$INYPB": {
+                "set_rules": [
+                  {
+                    "action": "unset",
+                    "target": "$INYPB"
+                  },
+                  {
+                    "action": "set",
+                    "target": "$INPB1"
+                  }
+                ]
+              }
+            },
+            "comments": "New Interiors Configurator Launch 4/8/2021"
+          },
+          {
+            "options": {
+              "$INYPW": {
+                "set_rules": [
+                  {
+                    "action": "unset",
+                    "target": "$INYPW"
+                  },
+                  {
+                    "action": "set",
+                    "target": "$INPW1"
+                  }
+                ]
+              }
+            },
+            "comments": "New Interiors Configurator Launch 4/8/2021"
           }
         ],
         "warranty_rules": [
@@ -7012,7 +7255,7 @@
         "$APBS",
         "$CPF0",
         "$DV4W",
-        "$INYPB",
+        "$INPB1",
         "$MDLY",
         "$MTY03",
         "$PPSW",
@@ -7021,7 +7264,7 @@
         "$STY5S",
         "$WY19B"
       ],
-      "options_id": 1037,
+      "options_id": 1194,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -7321,10 +7564,10 @@
           }
         }
       ],
-      "copy_id": 1365,
+      "copy_id": 1538,
       "language": "ko",
       "pricing_id": 1035,
-      "reference_id": 1037
+      "reference_id": 1194
     }
   },
   "edd": []
