@@ -14,6 +14,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "isFinplatEnabled": "0",
               "version": "redesign",
               "model": "m3",
               "variant": "m3"
@@ -32,6 +33,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "isFinplatEnabled": "0",
               "version": "redesign",
               "model": "m3",
               "variant": "m3"
@@ -50,6 +52,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "isFinplatEnabled": "0",
               "version": "redesign",
               "model": "m3",
               "variant": "m3"
@@ -68,24 +71,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
-              "version": "redesign",
-              "model": "m3",
-              "variant": "m3"
-            }
-          }
-        ],
-        "Loan": [
-          {
-            "key": "Loan.m3.m3",
-            "query": {
-              "available_configurations": "m3:m3",
-              "language": "nl",
-              "market": "NL",
-              "app": "find-my-tesla",
-              "date": "",
-              "seekret": "",
-              "tags": "",
-              "context": "",
+              "isFinplatEnabled": "0",
               "version": "redesign",
               "model": "m3",
               "variant": "m3"
@@ -104,6 +90,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "isFinplatEnabled": "0",
               "version": "redesign",
               "model": "m3",
               "variant": "m3"
@@ -122,6 +109,26 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "isFinplatEnabled": "0",
+              "version": "redesign",
+              "model": "m3",
+              "variant": "m3"
+            }
+          }
+        ],
+        "Loan": [
+          {
+            "key": "Loan.m3.m3",
+            "query": {
+              "available_configurations": "m3:m3",
+              "language": "nl",
+              "market": "NL",
+              "app": "find-my-tesla",
+              "date": "",
+              "seekret": "",
+              "tags": "",
+              "context": "",
+              "isFinplatEnabled": "0",
               "version": "redesign",
               "model": "m3",
               "variant": "m3"
@@ -138,6 +145,7 @@
         "seekret": "",
         "tags": "",
         "context": "",
+        "isFinplatEnabled": "0",
         "version": "redesign"
       }
     },
@@ -757,7 +765,8 @@
               "or": [
                 "$MT315",
                 "$MT317",
-                "$MT339"
+                "$MT339",
+                "$MT316"
               ]
             }
           },
@@ -1357,7 +1366,8 @@
           "ACCESSORY_TOGGLE",
           "SUMMARY_PANEL_REGION_CHANGE",
           "SUMMARY_PANEL_DOWNPAYMENT_CHANGE",
-          "PRICE_ADD_DISCOUNT"
+          "PRICE_ADD_DISCOUNT",
+          "FINPLAT_INPUTS_CHANGED"
         ],
         "actionsToUpdatePrices": [
           "SUMMARY_PANEL_INCLUDE_SERVICE_FEE_CHANGE",
@@ -1422,32 +1432,6 @@
             "consequence": {
               "set": [
                 "$SPT31"
-              ]
-            }
-          },
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$W3WE8",
-                      "$W3WE2",
-                      "$W3WN8",
-                      "$W3WN9",
-                      "$W3WN2",
-                      "$W3SN8",
-                      "$W3SN9",
-                      "$W3WE9"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$WIN31"
               ]
             }
           },
@@ -1926,59 +1910,6 @@
         }
       ]
     },
-    "Loan.m3.m3": {
-      "loan": [
-        {
-          "market": "NL",
-          "description": "In NL, loan is called Balloon Loan",
-          "variant": [
-            "m3"
-          ],
-          "inventory": [
-            "new"
-          ],
-          "variables": {
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.4,
-            "downPaymentExVatMode": true,
-            "downPayment": 5000,
-            "interestRate": 3.6,
-            "loanTerm": 60
-          },
-          "loanTermsOffered": {
-            "loanTerm": [
-              12,
-              24,
-              36,
-              48,
-              60
-            ]
-          },
-          "residualRateMatrix": [
-            {
-              "loanTerm": 12,
-              "value": 0.608
-            },
-            {
-              "loanTerm": 24,
-              "value": 0.531
-            },
-            {
-              "loanTerm": 36,
-              "value": 0.459
-            },
-            {
-              "loanTerm": 48,
-              "value": 0.365
-            },
-            {
-              "loanTerm": 60,
-              "value": 0.308
-            }
-          ]
-        }
-      ]
-    },
     "TCC.m3.m3": {
       "tcc": [
         {
@@ -2083,6 +2014,59 @@
             "mileage": 20000,
             "months": 60
           }
+        }
+      ]
+    },
+    "Loan.m3.m3": {
+      "loan": [
+        {
+          "market": "NL",
+          "description": "In NL, loan is called Balloon Loan",
+          "variant": [
+            "m3"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.4,
+            "downPaymentExVatMode": true,
+            "downPayment": 5000,
+            "interestRate": 3.6,
+            "loanTerm": 60
+          },
+          "loanTermsOffered": {
+            "loanTerm": [
+              12,
+              24,
+              36,
+              48,
+              60
+            ]
+          },
+          "residualRateMatrix": [
+            {
+              "loanTerm": 12,
+              "value": 0.608
+            },
+            {
+              "loanTerm": 24,
+              "value": 0.531
+            },
+            {
+              "loanTerm": 36,
+              "value": 0.459
+            },
+            {
+              "loanTerm": 48,
+              "value": 0.365
+            },
+            {
+              "loanTerm": 60,
+              "value": 0.308
+            }
+          ]
         }
       ]
     },
@@ -23961,11 +23945,25 @@
       ],
       "copy_id": 1444,
       "language": "nl",
+      "warnings": [],
       "pricing_id": 1175,
       "reference_id": 1222
     }
   },
   "edd": [
+    {
+      "countryCode": "NL",
+      "region": null,
+      "model": "m3",
+      "options": [
+        "$MT321"
+      ],
+      "atDate": "2021-06-01T00:00:01",
+      "inStart": null,
+      "inEnd": null,
+      "inType": null,
+      "effectiveStartDate": "2021-04-15T00:00:00"
+    },
     {
       "countryCode": "NL",
       "region": null,

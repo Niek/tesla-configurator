@@ -14,6 +14,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "isFinplatEnabled": "0",
               "model": "ms",
               "variant": "ms"
             }
@@ -31,6 +32,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "isFinplatEnabled": "0",
               "model": "ms",
               "variant": "ms"
             }
@@ -48,6 +50,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "isFinplatEnabled": "0",
               "model": "ms",
               "variant": "ms"
             }
@@ -65,23 +68,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
-              "model": "ms",
-              "variant": "ms"
-            }
-          }
-        ],
-        "Loan": [
-          {
-            "key": "Loan.ms.ms",
-            "query": {
-              "available_configurations": "ms:ms",
-              "language": "ja",
-              "market": "JP",
-              "app": "find-my-tesla",
-              "date": "",
-              "seekret": "",
-              "tags": "",
-              "context": "",
+              "isFinplatEnabled": "0",
               "model": "ms",
               "variant": "ms"
             }
@@ -99,6 +86,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "isFinplatEnabled": "0",
               "model": "ms",
               "variant": "ms"
             }
@@ -116,6 +104,25 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "isFinplatEnabled": "0",
+              "model": "ms",
+              "variant": "ms"
+            }
+          }
+        ],
+        "Loan": [
+          {
+            "key": "Loan.ms.ms",
+            "query": {
+              "available_configurations": "ms:ms",
+              "language": "ja",
+              "market": "JP",
+              "app": "find-my-tesla",
+              "date": "",
+              "seekret": "",
+              "tags": "",
+              "context": "",
+              "isFinplatEnabled": "0",
               "model": "ms",
               "variant": "ms"
             }
@@ -130,7 +137,8 @@
         "date": "",
         "seekret": "",
         "tags": "",
-        "context": ""
+        "context": "",
+        "isFinplatEnabled": "0"
       }
     },
     "InitialConfig.ms.ms": {
@@ -696,7 +704,7 @@
         "showBalloonPaymentDrop": false,
         "hasIncentivesEnabled": true,
         "showMaxDownPaymentAmount": false,
-        "showChargerDisclaimer": true,
+        "showChargerDisclaimer": false,
         "includeTeslaInsurance": false,
         "showOtherFeesinSummary": true,
         "showModalonFinanceSelector": false,
@@ -726,7 +734,7 @@
         "showFinanceProductName": true,
         "showFooterEffectiveLoanRate": false,
         "showAsterixAtPriceEnd": false,
-        "disclaimerSectionAboveOrderButton": "ORDER_DISCLAIMER_SECTION",
+        "disclaimerSectionAboveOrderButton": null,
         "showRateInFooter": false,
         "persistentIncentives": [
           {
@@ -902,7 +910,9 @@
         },
         "isSaveDesignEnabled": false,
         "showLocalName": false,
-        "showLegalConsent": [],
+        "showLegalConsent": [
+          "ORDER_CONSENT"
+        ],
         "showPrpLink": false,
         "showVAT": false,
         "assetView": "STUD_3QTR",
@@ -1121,7 +1131,7 @@
         "showCostofCreditBelowAPR": false,
         "showVatDisclaimer": false,
         "showDepositDisclaimer": false,
-        "showGovernmentSubsidy": false,
+        "showGovernmentSubsidy": true,
         "showVehiclePrice": false,
         "commonActionsToUpdatePrices": [
           "COMPLETE_CONFIGURATION_CHANGED",
@@ -1132,10 +1142,12 @@
           "ACCESSORY_TOGGLE",
           "SUMMARY_PANEL_REGION_CHANGE",
           "SUMMARY_PANEL_DOWNPAYMENT_CHANGE",
-          "PRICE_ADD_DISCOUNT"
+          "PRICE_ADD_DISCOUNT",
+          "FINPLAT_INPUTS_CHANGED"
         ],
         "actionsToUpdatePrices": [
-          "SUMMARY_PANEL_FINANCE_APR_CHANGE"
+          "SUMMARY_PANEL_FINANCE_APR_CHANGE",
+          "SUMMARY_PANEL_INCENTIVE_TOGGLE"
         ],
         "showVehicleSubtotal": false,
         "hidePostfixOnUI": false,
@@ -1144,7 +1156,7 @@
           "private",
           "business"
         ],
-        "legalConsentValid": true
+        "legalConsentValid": false
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -1167,27 +1179,6 @@
       "SetRules": {
         "set": [],
         "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$WW01",
-                      "$WW03",
-                      "$WW05"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$WIN31"
-              ]
-            }
-          },
           {
             "target": "Configuration.option_codes",
             "selected_by": {
@@ -1658,6 +1649,9 @@
         }
       ]
     },
+    "TCC.ms.ms": {
+      "tcc": []
+    },
     "Loan.ms.ms": {
       "loan": [
         {
@@ -1738,9 +1732,6 @@
           }
         }
       ]
-    },
-    "TCC.ms.ms": {
-      "tcc": []
     },
     "Lexicon.ms": {
       "id": 1077,
@@ -19556,6 +19547,7 @@
       ],
       "copy_id": 1159,
       "language": "ja",
+      "warnings": [],
       "pricing_id": 1087
     }
   },

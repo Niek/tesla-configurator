@@ -14,6 +14,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "isFinplatEnabled": "0",
               "version": "redesign",
               "model": "m3",
               "variant": "m3"
@@ -32,6 +33,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "isFinplatEnabled": "0",
               "version": "redesign",
               "model": "m3",
               "variant": "m3"
@@ -50,6 +52,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "isFinplatEnabled": "0",
               "version": "redesign",
               "model": "m3",
               "variant": "m3"
@@ -68,24 +71,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
-              "version": "redesign",
-              "model": "m3",
-              "variant": "m3"
-            }
-          }
-        ],
-        "Loan": [
-          {
-            "key": "Loan.m3.m3",
-            "query": {
-              "available_configurations": "m3:m3",
-              "language": "en",
-              "market": "GB",
-              "app": "find-my-tesla",
-              "date": "",
-              "seekret": "",
-              "tags": "",
-              "context": "",
+              "isFinplatEnabled": "0",
               "version": "redesign",
               "model": "m3",
               "variant": "m3"
@@ -104,6 +90,7 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "isFinplatEnabled": "0",
               "version": "redesign",
               "model": "m3",
               "variant": "m3"
@@ -122,6 +109,26 @@
               "seekret": "",
               "tags": "",
               "context": "",
+              "isFinplatEnabled": "0",
+              "version": "redesign",
+              "model": "m3",
+              "variant": "m3"
+            }
+          }
+        ],
+        "Loan": [
+          {
+            "key": "Loan.m3.m3",
+            "query": {
+              "available_configurations": "m3:m3",
+              "language": "en",
+              "market": "GB",
+              "app": "find-my-tesla",
+              "date": "",
+              "seekret": "",
+              "tags": "",
+              "context": "",
+              "isFinplatEnabled": "0",
               "version": "redesign",
               "model": "m3",
               "variant": "m3"
@@ -138,6 +145,7 @@
         "seekret": "",
         "tags": "",
         "context": "",
+        "isFinplatEnabled": "0",
         "version": "redesign"
       }
     },
@@ -757,7 +765,8 @@
               "or": [
                 "$MT315",
                 "$MT317",
-                "$MT339"
+                "$MT339",
+                "$MT316"
               ]
             }
           },
@@ -1394,7 +1403,8 @@
           "ACCESSORY_TOGGLE",
           "SUMMARY_PANEL_REGION_CHANGE",
           "SUMMARY_PANEL_DOWNPAYMENT_CHANGE",
-          "PRICE_ADD_DISCOUNT"
+          "PRICE_ADD_DISCOUNT",
+          "FINPLAT_INPUTS_CHANGED"
         ],
         "actionsToUpdatePrices": [
           "SUMMARY_PANEL_INCLUDE_SERVICE_FEE_CHANGE",
@@ -1460,32 +1470,6 @@
             "consequence": {
               "set": [
                 "$SPT31"
-              ]
-            }
-          },
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$W3WE8",
-                      "$W3WE2",
-                      "$W3WN8",
-                      "$W3WN9",
-                      "$W3WN2",
-                      "$W3SN8",
-                      "$W3SN9",
-                      "$W3WE9"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$WIN31"
               ]
             }
           },
@@ -2694,77 +2678,6 @@
         }
       ]
     },
-    "Loan.m3.m3": {
-      "loan": [
-        {
-          "market": "GB",
-          "id": "hire_purchase",
-          "default": true,
-          "variant": [
-            "m3"
-          ],
-          "description": "In GB, loan is called Hire Purchase",
-          "inventory": [
-            "new"
-          ],
-          "variables": {
-            "downPayment": 9000,
-            "minimumDownPayment": 0.1,
-            "maximumDownPayment": 0.8,
-            "interestRate": 4.9,
-            "loanTerm": 60,
-            "localeSpecific": {
-              "purchaseFee": 10,
-              "discountFactor": 0.89
-            }
-          },
-          "loanTermsOffered": {
-            "loanTerm": [
-              36,
-              48,
-              60
-            ]
-          },
-          "interestRateMatrix": [],
-          "residualRateMatrix": []
-        },
-        {
-          "market": "GB",
-          "id": "tesla_loan",
-          "variant": [
-            "m3",
-            "ms",
-            "mx"
-          ],
-          "description": "In GB, loan is called Tesla Loan",
-          "inventory": [
-            "new"
-          ],
-          "variables": {
-            "downPayment": 9000,
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.5,
-            "interestRate": 3.99,
-            "loanTerm": 72,
-            "localeSpecific": {
-              "bookingFee": 100,
-              "discountFactor": 0
-            }
-          },
-          "loanTermsOffered": {
-            "loanTerm": [
-              24,
-              36,
-              48,
-              60,
-              72
-            ]
-          },
-          "interestRateMatrix": [],
-          "residualRateMatrix": []
-        }
-      ]
-    },
     "TCC.m3.m3": {
       "tcc": [
         {
@@ -2908,6 +2821,77 @@
           "variables": {
             "months": 60
           }
+        }
+      ]
+    },
+    "Loan.m3.m3": {
+      "loan": [
+        {
+          "market": "GB",
+          "id": "hire_purchase",
+          "default": true,
+          "variant": [
+            "m3"
+          ],
+          "description": "In GB, loan is called Hire Purchase",
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "downPayment": 9000,
+            "minimumDownPayment": 0.1,
+            "maximumDownPayment": 0.8,
+            "interestRate": 4.9,
+            "loanTerm": 60,
+            "localeSpecific": {
+              "purchaseFee": 10,
+              "discountFactor": 0.89
+            }
+          },
+          "loanTermsOffered": {
+            "loanTerm": [
+              36,
+              48,
+              60
+            ]
+          },
+          "interestRateMatrix": [],
+          "residualRateMatrix": []
+        },
+        {
+          "market": "GB",
+          "id": "tesla_loan",
+          "variant": [
+            "m3",
+            "ms",
+            "mx"
+          ],
+          "description": "In GB, loan is called Tesla Loan",
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "downPayment": 9000,
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.5,
+            "interestRate": 3.99,
+            "loanTerm": 72,
+            "localeSpecific": {
+              "bookingFee": 100,
+              "discountFactor": 0
+            }
+          },
+          "loanTermsOffered": {
+            "loanTerm": [
+              24,
+              36,
+              48,
+              60,
+              72
+            ]
+          },
+          "interestRateMatrix": [],
+          "residualRateMatrix": []
         }
       ]
     },
@@ -24568,10 +24552,24 @@
       ],
       "copy_id": 1511,
       "language": "en",
+      "warnings": [],
       "pricing_id": 1166
     }
   },
   "edd": [
+    {
+      "countryCode": "GB",
+      "region": null,
+      "model": "m3",
+      "options": [
+        "$MT321"
+      ],
+      "atDate": "2021-06-01T00:00:01",
+      "inStart": null,
+      "inEnd": null,
+      "inType": null,
+      "effectiveStartDate": "2021-04-15T00:00:00"
+    },
     {
       "countryCode": "GB",
       "region": null,
