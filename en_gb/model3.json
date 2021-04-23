@@ -174,7 +174,6 @@
         "isTerritorySelectionEnabled": false,
         "isRegistrationTypeSelectionEnabled": false,
         "isGasSavingsToggleEnabled": false,
-        "showEstimatedDeliveryFooterNote": true,
         "hideEstimatedDeliveryOrderPage": false,
         "bannerModalTrigger": null,
         "pricePostfix": "",
@@ -746,29 +745,6 @@
           {
             "code": "EAP_FEATURES",
             "context": "configurator"
-          },
-          {
-            "code": "SR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT314",
-                "$MT337",
-                "$MT319"
-              ]
-            }
-          },
-          {
-            "code": "LR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT315",
-                "$MT317",
-                "$MT339",
-                "$MT316"
-              ]
-            }
           },
           {
             "code": "18_IN_WINTER_WHEEL_FEATURES_CARD",
@@ -1420,6 +1396,7 @@
           "business"
         ],
         "legalConsentValid": true,
+        "showFinanceModalOnProductChange": true,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -2897,7 +2874,7 @@
     },
     "Lexicon.m3": {
       "id": 1009,
-      "effective_date": "2021-04-09T21:37:45.469Z",
+      "effective_date": "2021-04-23T00:30:00.000Z",
       "market": "GB",
       "product": "m3",
       "factory": "GF00",
@@ -2917,7 +2894,7 @@
           }
         }
       },
-      "name": "Marketing GB 2021.Apr.09 1009.1511.1166",
+      "name": "Marketing GB 2021.Apr.23 1009.1614.1211",
       "groups": [
         {
           "code": "MODEL",
@@ -3727,7 +3704,18 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Options"
+          "name": "Options",
+          "extra_content": [
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY",
+                  "section": 2
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "REVIEW_ORDER",
@@ -3767,7 +3755,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Select Your Car"
+              "content": "Trim"
             },
             {
               "type": "compare_title",
@@ -3915,7 +3903,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Paint"
+              "content": "Colour"
             },
             {
               "type": "section_title",
@@ -3969,8 +3957,17 @@
               "type": "components",
               "content": [
                 {
+                  "show": "cfg",
                   "type": "Title",
                   "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "show": "enterprise",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h4 tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center",
                     "component": "h2"
                   }
                 },
@@ -4039,8 +4036,17 @@
               "type": "components",
               "content": [
                 {
+                  "show": "cfg",
                   "type": "Title",
                   "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "show": "enterprise",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h4 tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center",
                     "component": "h2"
                   }
                 },
@@ -4341,8 +4347,17 @@
               "type": "components",
               "content": [
                 {
+                  "show": "cfg",
                   "type": "Title",
                   "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "show": "enterprise",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h4 tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center",
                     "component": "h2"
                   }
                 },
@@ -5419,12 +5434,22 @@
               "type": "components",
               "content": [
                 {
+                  "hide": "enterprise",
                   "type": "Title"
+                },
+                {
+                  "hide": "cfg",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h4 tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center",
+                    "component": "h2"
+                  }
                 },
                 {
                   "type": "Disclaimer"
                 },
                 {
+                  "hide": "enterprise",
                   "type": "DeliveryDate",
                   "props": {
                     "classes": "tds--vertical_padding-bottom"
@@ -5625,7 +5650,7 @@
           "extra_copy": [
             {
               "type": "federalTax.description",
-              "content": "Take delivery of a new Model 3 in March with the £2,500 Plug-In Car Grant covered by Tesla. <a href='https://www.tesla.com/en_GB/inventory/new/m3?redirect=no' target='_blank'>Explore Inventory</a>"
+              "content": "Business Contract Hire rates apply to deliveries by March 31st. <a href='https://www.tesla.com/en_GB/inventory/new/m3?redirect=no' target='_blank'>Explore Inventory</a>"
             }
           ]
         },
@@ -5661,6 +5686,33 @@
           ],
           "name": "Interior",
           "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "STUD_INTERIOR",
+                  "ratio": "meet",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "STUD_INTERIOR",
+                  "ratio": "slice"
+                }
+              ]
+            },
             {
               "type": "components",
               "content": [
@@ -5782,11 +5834,25 @@
               ]
             },
             {
-              "type": "feature_list.unstyled[2].title",
+              "type": "feature_list.unstyled[2]",
+              "content": "*With first foot of rollout subtracted.",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "classNames": [
+                      "tds-text--caption"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "feature_list.unstyled[3].title",
               "content": "Very Cold Weather"
             },
             {
-              "type": "feature_list.unstyled[3]",
+              "type": "feature_list.unstyled[4]",
               "content": "For the best long range driving experience in the coldest driving conditions, we recommend a Long Range or Performance Model 3.",
               "behavior": [
                 {
@@ -5813,7 +5879,8 @@
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
                         "content_path": {
                           "label": "name",
-                          "value": "formattedSpecs.accelerationFormatted"
+                          "value": "formattedSpecs.accelerationFormatted",
+                          "postfix": "*"
                         }
                       },
                       {
@@ -5874,6 +5941,10 @@
             {
               "type": "dynamic_grid_title[2]",
               "content": "Heated Seats"
+            },
+            {
+              "type": "dynamic_grid_title[3]",
+              "content": "Heated steering wheel"
             },
             {
               "type": "dynamic_grid_feature[0]",
@@ -5961,6 +6032,13 @@
                         "content_path": {
                           "label": "name",
                           "value": "interior_heated_seats"
+                        }
+                      },
+                      {
+                        "title_path": "CustomGroups.INTERIOR_SECTION.dynamic_grid_title[3]",
+                        "content_path": {
+                          "label": "name",
+                          "value": "interior_heated_steering_wheel"
                         }
                       }
                     ]
@@ -7557,6 +7635,22 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT315",
+                      "$MT317",
+                      "$MT339",
+                      "$MT316",
+                      "$MT321"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
@@ -7601,10 +7695,14 @@
             },
             {
               "type": "feature_list.default[1].items[1]",
-              "content": "Tinted glass roof with ultraviolet and infrared protection"
+              "content": "Heated steering wheel"
             },
             {
               "type": "feature_list.default[1].items[2]",
+              "content": "Tinted glass roof with ultraviolet and infrared protection"
+            },
+            {
+              "type": "feature_list.default[1].items[3]",
               "content": "Interior floor mats"
             },
             {
@@ -7672,6 +7770,20 @@
                   "props": {
                     "field": "feature_list.default",
                     "classes": "tds--vertical_padding tds-text--caption "
+                  }
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT314",
+                      "$MT337",
+                      "$MT319"
+                    ]
                   }
                 }
               ]
@@ -8559,12 +8671,12 @@
               "context": "default"
             },
             {
-              "type": "trial",
+              "type": "upgrade",
               "value": 2900,
               "context": "default"
             },
             {
-              "type": "upgrade",
+              "type": "trial",
               "value": 2900,
               "context": "default"
             }
@@ -8702,6 +8814,10 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "feature_description",
+              "content": "Includes all functionality of Basic Autopilot and Enhanced Autopilot. Recognize and respond to traffic lights and stop signs."
             }
           ],
           "extra_content": [
@@ -8709,8 +8825,17 @@
               "type": "components",
               "content": [
                 {
+                  "show": "cfg",
                   "type": "Title",
                   "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "show": "enterprise",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h4 tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center",
                     "component": "h2"
                   }
                 },
@@ -8769,11 +8894,6 @@
               "context": "default"
             },
             {
-              "type": "trial",
-              "value": 6800,
-              "context": "default"
-            },
-            {
               "type": "upgrade",
               "value": 6800,
               "context": "default",
@@ -8787,6 +8907,11 @@
                   "target_property": "price"
                 }
               ]
+            },
+            {
+              "type": "trial",
+              "value": 6800,
+              "context": "default"
             }
           ]
         },
@@ -8930,6 +9055,10 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "feature_description",
+              "content": "Includes Navigation on Autopilot, Auto Lane Change, Autopark and Summon"
             }
           ],
           "extra_content": [
@@ -8937,8 +9066,17 @@
               "type": "components",
               "content": [
                 {
+                  "show": "cfg",
                   "type": "Title",
                   "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "show": "enterprise",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h4 tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center",
                     "component": "h2"
                   }
                 },
@@ -8991,12 +9129,12 @@
               "context": "default"
             },
             {
-              "type": "trial",
+              "type": "upgrade",
               "value": 3400,
               "context": "default"
             },
             {
-              "type": "upgrade",
+              "type": "trial",
               "value": 3400,
               "context": "default"
             }
@@ -9145,12 +9283,12 @@
           "price": 0,
           "pricing": [
             {
-              "type": "1_month",
+              "type": "base",
               "value": 0,
               "context": "default"
             },
             {
-              "type": "base",
+              "type": "1_month",
               "value": 0,
               "context": "default"
             }
@@ -9185,13 +9323,13 @@
           "price": 0,
           "pricing": [
             {
-              "type": "1_month",
-              "value": 9.99,
+              "type": "base",
+              "value": 0,
               "context": "default"
             },
             {
-              "type": "base",
-              "value": 0,
+              "type": "1_month",
+              "value": 9.99,
               "context": "default"
             }
           ]
@@ -9610,28 +9748,6 @@
           "name": "Acceleration Boost",
           "description": "Acceleration Boost",
           "long_name": "Acceleration Boost",
-          "extra_copy": [
-            {
-              "type": "description",
-              "content": "Improve your 0-60 mph acceleration from 4.2 seconds to 3.7 seconds."
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "asset",
-              "content": [
-                {
-                  "app": "m3-boost-image/aasvcb/std/0x0/m3-boost",
-                  "type": "ownership-image",
-                  "mobile": "m3-boost-image/aasvcb/std/0x0/m3-boost",
-                  "appDark": "m3-boost-image/aasvcb/std/0x0/m3-boost",
-                  "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
-                  "desktop": "m3-boost-image/aasvcb/std/0x0/m3-boost",
-                  "desktop2x": "m3-boost-image/aasvcb/std/0x0/m3-boost"
-                }
-              ]
-            }
-          ],
           "price": 1500,
           "pricing": [
             {
@@ -11980,12 +12096,17 @@
               "context": "default"
             },
             {
+              "type": "order_payment",
+              "value": 0,
+              "context": "default"
+            },
+            {
               "type": "reservation_deposit",
               "value": 1000,
               "context": "default"
             },
             {
-              "type": "order_payment",
+              "type": "order_fee",
               "value": 0,
               "context": "default"
             },
@@ -11995,13 +12116,8 @@
               "context": "default"
             },
             {
-              "type": "order_fee",
-              "value": 0,
-              "context": "default"
-            },
-            {
               "type": "non_refundable_order_payment_used",
-              "value": 0,
+              "value": 200,
               "context": "default"
             }
           ]
@@ -12636,12 +12752,12 @@
           "price": 0,
           "pricing": [
             {
-              "type": "upgrade",
+              "type": "base",
               "value": 0,
               "context": "default"
             },
             {
-              "type": "base",
+              "type": "upgrade",
               "value": 0,
               "context": "default"
             }
@@ -13034,8 +13150,17 @@
               "type": "components",
               "content": [
                 {
+                  "show": "cfg",
                   "type": "Title",
                   "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "show": "enterprise",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h4 tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center",
                     "component": "h2"
                   }
                 },
@@ -13458,6 +13583,10 @@
             {
               "type": "price_indicator",
               "content": "Included"
+            },
+            {
+              "type": "disclaimer_oncondition",
+              "content": "Includes Pirelli P Zero tires and lower suspension for improved handling"
             }
           ],
           "extra_content": [
@@ -14019,7 +14148,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "optional"
+              "content": "included"
             }
           ],
           "extra_content": [
@@ -16955,6 +17084,26 @@
             {
               "type": "long_name",
               "content": "Model 3 Long Range Dual Motor All-Wheel Drive"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Dual Motor All-Wheel Drive"
+            },
+            {
+              "type": "interior_sound_system",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[1]}"
+            },
+            {
+              "type": "interior_floor_mats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_indicator_included}"
+            },
+            {
+              "type": "interior_heated_seats",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[4]}"
+            },
+            {
+              "type": "interior_heated_steering_wheel",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_indicator_included}"
             }
           ],
           "extra_content": [
@@ -17210,6 +17359,10 @@
             {
               "type": "interior_heated_seats",
               "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[4]}"
+            },
+            {
+              "type": "interior_heated_steering_wheel",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_indicator_included}"
             }
           ],
           "extra_content": [
@@ -17445,10 +17598,6 @@
               "content": "Performance"
             },
             {
-              "type": "price_indicator",
-              "content": "Optional"
-            },
-            {
               "type": "compare_matrix.block[0].label",
               "content": "Acceleration"
             },
@@ -17483,6 +17632,10 @@
             {
               "type": "interior_heated_seats",
               "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[4]}"
+            },
+            {
+              "type": "interior_heated_steering_wheel",
+              "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_indicator_included}"
             }
           ],
           "extra_content": [
@@ -17969,6 +18122,10 @@
             {
               "type": "interior_heated_seats",
               "content": "Front seats"
+            },
+            {
+              "type": "interior_heated_steering_wheel",
+              "content": "-"
             }
           ],
           "extra_content": [
@@ -18684,8 +18841,17 @@
               "type": "components",
               "content": [
                 {
+                  "show": "cfg",
                   "type": "Title",
                   "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "show": "enterprise",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h4 tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center",
                     "component": "h2"
                   }
                 },
@@ -19367,6 +19533,7 @@
                 "$MT317": {
                   "name": "Long Range All-Wheel Drive Performance",
                   "range": 352,
+                  "postfix": "*",
                   "topspeed": 162,
                   "acceleration": 3.1,
                   "range_units_override": "range_units_epa_link"
@@ -24550,10 +24717,10 @@
           "content_localized": {}
         }
       ],
-      "copy_id": 1511,
+      "copy_id": 1614,
       "language": "en",
       "warnings": [],
-      "pricing_id": 1166
+      "pricing_id": 1211
     }
   },
   "edd": [

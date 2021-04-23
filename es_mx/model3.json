@@ -174,7 +174,6 @@
         "isTerritorySelectionEnabled": false,
         "isRegistrationTypeSelectionEnabled": false,
         "isGasSavingsToggleEnabled": true,
-        "showEstimatedDeliveryFooterNote": false,
         "hideEstimatedDeliveryOrderPage": false,
         "bannerModalTrigger": null,
         "pricePostfix": "",
@@ -746,29 +745,6 @@
           {
             "code": "EAP_FEATURES",
             "context": "configurator"
-          },
-          {
-            "code": "SR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT314",
-                "$MT337",
-                "$MT319"
-              ]
-            }
-          },
-          {
-            "code": "LR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT315",
-                "$MT317",
-                "$MT339",
-                "$MT316"
-              ]
-            }
           },
           {
             "code": "18_IN_WINTER_WHEEL_FEATURES_CARD",
@@ -1363,7 +1339,8 @@
           "private",
           "business"
         ],
-        "legalConsentValid": true
+        "legalConsentValid": true,
+        "showFinanceModalOnProductChange": false
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -1855,12 +1832,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-04-16T18:15:00.000Z",
+      "effective_date": "2021-04-23T00:11:00.000Z",
       "market": "MX",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing MX 2021.Apr.16 1208.1567.1112 [es]",
+      "name": "Marketing MX 2021.Apr.23 1256.1610.1112 [es]",
       "groups": [
         {
           "code": "MODEL",
@@ -2620,7 +2597,7 @@
           "context": "configurator",
           "options": [
             "$MT314",
-            "$MT315",
+            "$MT321",
             "$MT317"
           ],
           "required": true,
@@ -3374,7 +3351,7 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$MT315",
+            "$MT321",
             "$MT317"
           ],
           "required": false,
@@ -3898,7 +3875,8 @@
             "$MT314",
             "$MT315",
             "$MT317",
-            "$SPT31"
+            "$SPT31",
+            "$MT321"
           ],
           "required": false,
           "exclusive": false,
@@ -4288,7 +4266,11 @@
               "content": "Tesla diseñó el Model 3 desde cero como vehículo eléctrico utilizando integración a nivel de sistema en todo el vehículo. Cada componente, incluyendo baterías, motores e incluso la aerodinámica exterior, está optimizado para beneficiarse mutuamente y crear uno de los vehículos más eficientes, pero increíblemente potentes jamás construidos."
             },
             {
-              "type": "feature_list.default[2].main_title",
+              "type": "feature_list.default[2]",
+              "content": "*Con los primeros 30 cm de implementación restados."
+            },
+            {
+              "type": "feature_list.default[3].main_title",
               "content": "Clima muy frío",
               "behavior": [
                 {
@@ -4307,7 +4289,7 @@
               ]
             },
             {
-              "type": "feature_list.default[3]",
+              "type": "feature_list.default[4]",
               "content": "ara obtener la mejor experiencia de conducción con autonomía mayor en las condiciones más frías, recomendamos un modelo de Model 3 Long Range o Performance."
             }
           ],
@@ -4324,7 +4306,8 @@
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
                         "content_path": {
                           "label": "name",
-                          "value": "formattedSpecs.accelerationFormatted"
+                          "value": "formattedSpecs.accelerationFormatted",
+                          "postfix": "*"
                         }
                       },
                       {
@@ -6080,6 +6063,22 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT315",
+                      "$MT317",
+                      "$MT339",
+                      "$MT316",
+                      "$MT321"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
@@ -6199,6 +6198,20 @@
                   "props": {
                     "field": "feature_list.default",
                     "classes": " tds-text--caption "
+                  }
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT314",
+                      "$MT337",
+                      "$MT319"
+                    ]
                   }
                 }
               ]
@@ -7271,7 +7284,9 @@
             },
             {
               "action": "set",
-              "target": "$CPF1"
+              "target": "$CPF0",
+              "condition_code": "$CPF1",
+              "condition_state": "unset"
             }
           ],
           "name": "Conectividad estándar",
@@ -7494,7 +7509,9 @@
             },
             {
               "action": "set",
-              "target": "$DV4W"
+              "target": "$DV2W",
+              "condition_code": "$DV4W",
+              "condition_state": "unset"
             }
           ],
           "name": "Tracción trasera",
@@ -14976,10 +14993,11 @@
             "set_rules": [
               {
                 "action": "set",
-                "targets": [
-                  "$DV4W",
-                  "$PRM31"
-                ]
+                "target": "$DV4W"
+              },
+              {
+                "action": "set",
+                "target": "$PRM31"
               },
               {
                 "action": "set",
@@ -15019,10 +15037,11 @@
             },
             {
               "action": "set",
-              "targets": [
-                "$DV4W",
-                "$PRM31"
-              ]
+              "target": "$DV4W"
+            },
+            {
+              "action": "set",
+              "target": "$PRM31"
             },
             {
               "action": "set",
@@ -15087,6 +15106,10 @@
             {
               "type": "interior_heated_seats",
               "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[4]}"
+            },
+            {
+              "type": "interior_heated_steering_wheel",
+              "content": "Incluido"
             }
           ],
           "extra_content": [
@@ -15900,6 +15923,12 @@
       },
       "metadata": {
         "vat": true,
+        "pricing": {
+          "context_mapping": {
+            "default": "RON",
+            "configurator": "EUR"
+          }
+        },
         "migrations": [
           {
             "options": {
@@ -16596,6 +16625,7 @@
                 "$MT317": {
                   "name": "Gran desempeño de tracción en todas las ruedas de gran autonomía",
                   "range": 507,
+                  "postfix": "*",
                   "topspeed": 261,
                   "acceleration": 3.3,
                   "range_units_override": "range_units_epa"
@@ -20843,7 +20873,7 @@
         "$SC04",
         "$APBS"
       ],
-      "options_id": 1208,
+      "options_id": 1256,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -21699,11 +21729,11 @@
           }
         }
       ],
-      "copy_id": 1567,
+      "copy_id": 1610,
       "language": "es",
       "warnings": [],
       "pricing_id": 1112,
-      "reference_id": 1208
+      "reference_id": 1256
     }
   },
   "edd": [
@@ -21718,20 +21748,20 @@
       "inStart": 7,
       "inEnd": 10,
       "inType": "weeks",
-      "effectiveStartDate": "2021-04-20T08:10:00"
+      "effectiveStartDate": "2021-04-22T08:10:00"
     },
     {
       "countryCode": "MX",
       "region": null,
       "model": "m3",
       "options": [
-        "$MT315"
+        "$MT321"
       ],
       "atDate": null,
       "inStart": 7,
       "inEnd": 10,
       "inType": "weeks",
-      "effectiveStartDate": "2021-04-20T08:10:00"
+      "effectiveStartDate": "2021-04-22T08:10:00"
     },
     {
       "countryCode": "MX",
@@ -21739,6 +21769,19 @@
       "model": "m3",
       "options": [
         "$MT317"
+      ],
+      "atDate": null,
+      "inStart": 7,
+      "inEnd": 10,
+      "inType": "weeks",
+      "effectiveStartDate": "2021-04-22T08:10:00"
+    },
+    {
+      "countryCode": "MX",
+      "region": null,
+      "model": "m3",
+      "options": [
+        "$MT315"
       ],
       "atDate": null,
       "inStart": 7,

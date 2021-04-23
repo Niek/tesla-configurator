@@ -174,7 +174,6 @@
         "isTerritorySelectionEnabled": false,
         "isRegistrationTypeSelectionEnabled": false,
         "isGasSavingsToggleEnabled": false,
-        "showEstimatedDeliveryFooterNote": false,
         "hideEstimatedDeliveryOrderPage": false,
         "bannerModalTrigger": null,
         "pricePostfix": "",
@@ -744,29 +743,6 @@
           {
             "code": "EAP_FEATURES",
             "context": "configurator"
-          },
-          {
-            "code": "SR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT314",
-                "$MT337",
-                "$MT319"
-              ]
-            }
-          },
-          {
-            "code": "LR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT315",
-                "$MT317",
-                "$MT339",
-                "$MT316"
-              ]
-            }
           },
           {
             "code": "18_IN_WINTER_WHEEL_FEATURES_CARD",
@@ -1373,6 +1349,7 @@
           "business"
         ],
         "legalConsentValid": false,
+        "showFinanceModalOnProductChange": false,
         "showCountyLabel": true
       },
       "PrintPdf": {
@@ -1826,12 +1803,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-04-16T03:40:00.000Z",
+      "effective_date": "2021-04-23T00:30:00.000Z",
       "market": "TW",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing TW 2021.Apr.16 1242.1585.1096 [zh]",
+      "name": "Marketing TW 2021.Apr.23 1242.1638.1096 [zh]",
       "groups": [
         {
           "code": "MODEL",
@@ -4146,6 +4123,10 @@
             {
               "type": "feature_list.default[1]",
               "content": "Tesla 以純電動車概念整合系統，從零打造出 Model 3 車款。 每一個細節，包含電池、馬達，甚至外觀空氣力學設計，都經過最佳化且彼此相輔相成，成為有史以來最高效且無可匹敵的強大性能車款之一。"
+            },
+            {
+              "type": "feature_list.default[2]",
+              "content": "*扣除第一英尺起步時間。"
             }
           ],
           "extra_content": [
@@ -4161,7 +4142,8 @@
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
                         "content_path": {
                           "label": "name",
-                          "value": "formattedSpecs.accelerationFormatted"
+                          "value": "formattedSpecs.accelerationFormatted",
+                          "postfix": "*"
                         }
                       },
                       {
@@ -5993,6 +5975,22 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT315",
+                      "$MT317",
+                      "$MT339",
+                      "$MT316",
+                      "$MT321"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
@@ -6108,6 +6106,20 @@
                   "props": {
                     "field": "feature_list.default",
                     "classes": " tds-text--caption "
+                  }
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT314",
+                      "$MT337",
+                      "$MT319"
+                    ]
                   }
                 }
               ]
@@ -16043,6 +16055,7 @@
                 "$MT317": {
                   "name": "Model 3 Performance 全輪驅動",
                   "range": 567,
+                  "postfix": "*",
                   "topspeed": 261,
                   "acceleration": 3.3,
                   "range_units_override": "range_units_epa"
@@ -21137,7 +21150,7 @@
           }
         }
       ],
-      "copy_id": 1585,
+      "copy_id": 1638,
       "language": "zh",
       "warnings": [],
       "pricing_id": 1096,

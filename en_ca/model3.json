@@ -174,7 +174,6 @@
         "isTerritorySelectionEnabled": false,
         "isRegistrationTypeSelectionEnabled": false,
         "isGasSavingsToggleEnabled": true,
-        "showEstimatedDeliveryFooterNote": false,
         "hideEstimatedDeliveryOrderPage": true,
         "bannerModalTrigger": null,
         "pricePostfix": "",
@@ -748,29 +747,6 @@
             "context": "configurator"
           },
           {
-            "code": "SR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT314",
-                "$MT337",
-                "$MT319"
-              ]
-            }
-          },
-          {
-            "code": "LR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT315",
-                "$MT317",
-                "$MT339",
-                "$MT316"
-              ]
-            }
-          },
-          {
             "code": "18_IN_WINTER_WHEEL_FEATURES_CARD",
             "context": "configurator",
             "group_selected_by": {
@@ -971,7 +947,7 @@
         "showFinanceProductName": true,
         "showFooterEffectiveLoanRate": false,
         "showAsterixAtPriceEnd": false,
-        "disclaimerSectionAboveOrderButton": null,
+        "disclaimerSectionAboveOrderButton": "ORDER_DISCLAIMER_SECTION",
         "showRateInFooter": false,
         "reversePricingOrder": true,
         "hideTaxesAndFeesExcluded": true
@@ -1107,7 +1083,7 @@
         "isPaymentFormOpen": false,
         "showTextForPaymentTypes": false,
         "noWireTransferOnBusinessAccount": false,
-        "showOptinDisclaimer": "always",
+        "showOptinDisclaimer": "always_no_disclaimer",
         "billingAddressDetailsPayX": null
       },
       "ReviewDetails": {
@@ -1386,7 +1362,8 @@
           "private",
           "business"
         ],
-        "legalConsentValid": true
+        "legalConsentValid": true,
+        "showFinanceModalOnProductChange": false
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -2152,12 +2129,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-04-16T18:15:00.000Z",
+      "effective_date": "2021-04-23T00:11:00.000Z",
       "market": "CA",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CA 2021.Apr.16 1198.1574.1146 [en]",
+      "name": "Marketing CA 2021.Apr.23 1254.1609.1146 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -2827,7 +2804,7 @@
           "options": [
             "$MT319",
             "$MT314",
-            "$MT315",
+            "$MT321",
             "$MT317"
           ],
           "required": true,
@@ -3778,7 +3755,7 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$MT315",
+            "$MT321",
             "$MT317"
           ],
           "required": false,
@@ -4303,6 +4280,7 @@
             "$MT315",
             "$MT317",
             "$MT319",
+            "$MT321",
             "$SPT31"
           ],
           "required": false,
@@ -4568,7 +4546,11 @@
               "content": "Tesla designed Model 3 from the ground-up as an electric vehicle using system-level integration throughout. Each component, including batteries, motors and even exterior aerodynamics are optimized to benefit from one another and create one of the most efficient, yet unbelievably powerful vehicles ever built."
             },
             {
-              "type": "feature_list.default[2].main_title",
+              "type": "feature_list.default[2]",
+              "content": "*With first foot of rollout subtracted."
+            },
+            {
+              "type": "feature_list.default[3].main_title",
               "content": "Very Cold Weather",
               "behavior": [
                 {
@@ -4587,7 +4569,7 @@
               ]
             },
             {
-              "type": "feature_list.default[3]",
+              "type": "feature_list.default[4]",
               "content": "For the best long range driving experience in the coldest driving conditions, we recommend a Long Range or Performance Model 3."
             }
           ],
@@ -4604,7 +4586,8 @@
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
                         "content_path": {
                           "label": "name",
-                          "value": "formattedSpecs.accelerationFormatted"
+                          "value": "formattedSpecs.accelerationFormatted",
+                          "postfix": "*"
                         }
                       },
                       {
@@ -6418,6 +6401,22 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT315",
+                      "$MT317",
+                      "$MT339",
+                      "$MT316",
+                      "$MT321"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
@@ -6537,6 +6536,20 @@
                   "props": {
                     "field": "feature_list.default",
                     "classes": " tds-text--caption "
+                  }
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT314",
+                      "$MT337",
+                      "$MT319"
+                    ]
                   }
                 }
               ]
@@ -7952,7 +7965,9 @@
             },
             {
               "action": "set",
-              "target": "$CPF1"
+              "target": "$CPF0",
+              "condition_code": "$CPF1",
+              "condition_state": "unset"
             }
           ],
           "name": "Standard Connectivity",
@@ -8176,7 +8191,9 @@
             },
             {
               "action": "set",
-              "target": "$DV4W"
+              "target": "$DV2W",
+              "condition_code": "$DV4W",
+              "condition_state": "unset"
             }
           ],
           "name": "Rear-Wheel Drive",
@@ -16453,10 +16470,11 @@
             "set_rules": [
               {
                 "action": "set",
-                "targets": [
-                  "$DV4W",
-                  "$PRM31"
-                ]
+                "target": "$DV4W"
+              },
+              {
+                "action": "set",
+                "target": "$PRM31"
               },
               {
                 "action": "set",
@@ -16500,10 +16518,11 @@
             },
             {
               "action": "set",
-              "targets": [
-                "$DV4W",
-                "$PRM31"
-              ]
+              "target": "$DV4W"
+            },
+            {
+              "action": "set",
+              "target": "$PRM31"
             },
             {
               "action": "set",
@@ -16572,6 +16591,10 @@
             {
               "type": "interior_heated_seats",
               "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[4]}"
+            },
+            {
+              "type": "interior_heated_steering_wheel",
+              "content": "Included"
             }
           ],
           "extra_content": [
@@ -18227,6 +18250,7 @@
                 "$MT317": {
                   "name": "Long Range All-Wheel Drive Performance",
                   "range": 507,
+                  "postfix": "*",
                   "topspeed": 261,
                   "acceleration": 3.3,
                   "range_units_override": "range_units_epa"
@@ -22493,7 +22517,7 @@
         "$SC04",
         "$APBS"
       ],
-      "options_id": 1198,
+      "options_id": 1254,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -23349,11 +23373,11 @@
           }
         }
       ],
-      "copy_id": 1574,
+      "copy_id": 1609,
       "language": "en",
       "warnings": [],
       "pricing_id": 1146,
-      "reference_id": 1198
+      "reference_id": 1254
     }
   },
   "edd": [
@@ -23368,7 +23392,7 @@
       "inStart": 7,
       "inEnd": 10,
       "inType": "weeks",
-      "effectiveStartDate": "2021-04-20T08:10:00"
+      "effectiveStartDate": "2021-04-22T08:10:00"
     },
     {
       "countryCode": "CA",
@@ -23381,7 +23405,7 @@
       "inStart": 7,
       "inEnd": 10,
       "inType": "weeks",
-      "effectiveStartDate": "2021-04-20T08:10:00"
+      "effectiveStartDate": "2021-04-22T08:10:00"
     },
     {
       "countryCode": "CA",
@@ -23394,7 +23418,85 @@
       "inStart": 9,
       "inEnd": 12,
       "inType": "weeks",
-      "effectiveStartDate": "2021-04-20T08:10:00"
+      "effectiveStartDate": "2021-04-22T08:10:00"
+    },
+    {
+      "countryCode": "CA",
+      "region": "east",
+      "model": "m3",
+      "options": [
+        "$MT321"
+      ],
+      "atDate": null,
+      "inStart": 7,
+      "inEnd": 10,
+      "inType": "weeks",
+      "effectiveStartDate": "2021-04-22T08:10:00"
+    },
+    {
+      "countryCode": "CA",
+      "region": "west",
+      "model": "m3",
+      "options": [
+        "$MT321"
+      ],
+      "atDate": null,
+      "inStart": 7,
+      "inEnd": 10,
+      "inType": "weeks",
+      "effectiveStartDate": "2021-04-22T08:10:00"
+    },
+    {
+      "countryCode": "CA",
+      "region": "north",
+      "model": "m3",
+      "options": [
+        "$MT321"
+      ],
+      "atDate": null,
+      "inStart": 9,
+      "inEnd": 12,
+      "inType": "weeks",
+      "effectiveStartDate": "2021-04-22T08:10:00"
+    },
+    {
+      "countryCode": "CA",
+      "region": "east",
+      "model": "m3",
+      "options": [
+        "$MT317"
+      ],
+      "atDate": null,
+      "inStart": 7,
+      "inEnd": 10,
+      "inType": "weeks",
+      "effectiveStartDate": "2021-04-22T08:10:00"
+    },
+    {
+      "countryCode": "CA",
+      "region": "west",
+      "model": "m3",
+      "options": [
+        "$MT317"
+      ],
+      "atDate": null,
+      "inStart": 7,
+      "inEnd": 10,
+      "inType": "weeks",
+      "effectiveStartDate": "2021-04-22T08:10:00"
+    },
+    {
+      "countryCode": "CA",
+      "region": "north",
+      "model": "m3",
+      "options": [
+        "$MT317"
+      ],
+      "atDate": null,
+      "inStart": 9,
+      "inEnd": 12,
+      "inType": "weeks",
+      "effectiveStartDate": "2021-04-22T08:10:00"
     },
     {
       "countryCode": "CA",
@@ -23428,45 +23530,6 @@
       "model": "m3",
       "options": [
         "$MT315"
-      ],
-      "atDate": null,
-      "inStart": 9,
-      "inEnd": 12,
-      "inType": "weeks",
-      "effectiveStartDate": "2021-04-20T08:10:00"
-    },
-    {
-      "countryCode": "CA",
-      "region": "east",
-      "model": "m3",
-      "options": [
-        "$MT317"
-      ],
-      "atDate": null,
-      "inStart": 7,
-      "inEnd": 10,
-      "inType": "weeks",
-      "effectiveStartDate": "2021-04-20T08:10:00"
-    },
-    {
-      "countryCode": "CA",
-      "region": "west",
-      "model": "m3",
-      "options": [
-        "$MT317"
-      ],
-      "atDate": null,
-      "inStart": 7,
-      "inEnd": 10,
-      "inType": "weeks",
-      "effectiveStartDate": "2021-04-20T08:10:00"
-    },
-    {
-      "countryCode": "CA",
-      "region": "north",
-      "model": "m3",
-      "options": [
-        "$MT317"
       ],
       "atDate": null,
       "inStart": 9,

@@ -174,7 +174,6 @@
         "isTerritorySelectionEnabled": false,
         "isRegistrationTypeSelectionEnabled": false,
         "isGasSavingsToggleEnabled": false,
-        "showEstimatedDeliveryFooterNote": true,
         "hideEstimatedDeliveryOrderPage": false,
         "bannerModalTrigger": null,
         "pricePostfix": "",
@@ -748,29 +747,6 @@
             "context": "configurator"
           },
           {
-            "code": "SR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT314",
-                "$MT337",
-                "$MT319"
-              ]
-            }
-          },
-          {
-            "code": "LR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT315",
-                "$MT317",
-                "$MT339",
-                "$MT316"
-              ]
-            }
-          },
-          {
             "code": "18_IN_WINTER_WHEEL_FEATURES_CARD",
             "context": "configurator",
             "group_selected_by": {
@@ -955,8 +931,26 @@
         "isEstimatedPrice": false,
         "showTotalPaymentFooter": false,
         "showMonthlyPaymentQuote": false,
-        "showFinanceProductsByDriverType": [],
-        "driverType": null,
+        "showFinanceProductsByDriverType": [
+          {
+            "type": "personal",
+            "financeOptions": [
+              "cash",
+              "lease",
+              "operational_lease"
+            ],
+            "defaultOption": "operational_lease"
+          },
+          {
+            "type": "business",
+            "financeOptions": [
+              "cash",
+              "operational_lease_commercial"
+            ],
+            "defaultOption": "operational_lease_commercial"
+          }
+        ],
+        "driverType": "personal",
         "leaseDescriptionwithModelCode": false,
         "taxesAndFeesExcludedIfApplicable": false,
         "showFooterFinanceLink": false,
@@ -1030,7 +1024,9 @@
         "extraDisclaimers": [],
         "disclaimerDateFormat": "DD/MM/YYYY",
         "showIncentivesDisclaimers": true,
-        "extraLeaseDescriptions": [],
+        "extraLeaseDescriptions": [
+          "includeServiceFee"
+        ],
         "extraLoanDescriptions": [],
         "useResidualAmount": false,
         "isResidualAmountEditable": false,
@@ -1374,6 +1370,7 @@
           "business"
         ],
         "legalConsentValid": true,
+        "showFinanceModalOnProductChange": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1462,7 +1459,7 @@
         ]
       },
       "SummaryPanel": {
-        "selected_tab": "lease",
+        "selected_tab": "lease.operational_lease",
         "tabs": [],
         "loanDistance": null,
         "leaseDistance": null,
@@ -2071,6 +2068,43 @@
         {
           "market": "FR",
           "id": "operational_lease",
+          "accountType": "private",
+          "incomplete": true,
+          "variant": [
+            "m3",
+            "ms",
+            "mx"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "leaseTerm": 48,
+            "leaseDistance": 10000
+          },
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "distance",
+                  "term"
+                ]
+              ],
+              "standardFeaturesList": true
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm",
+                "leaseDistance"
+              ]
+            }
+          }
+        },
+        {
+          "market": "FR",
+          "id": "operational_lease_commercial",
+          "accountType": "business",
           "incomplete": true,
           "variant": [
             "m3",
@@ -2115,7 +2149,7 @@
       "loan": []
     },
     "Lexicon.m3": {
-      "effective_date": "2021-04-16T18:15:00.000Z",
+      "effective_date": "2021-04-23T00:30:00.000Z",
       "market": "FR",
       "product": "m3",
       "factory": "GF00",
@@ -2137,7 +2171,7 @@
           }
         }
       },
-      "name": "Marketing FR 2021.Apr.16 1200.1570.1173 [fr]",
+      "name": "Marketing FR 2021.Apr.23 1259.1616.1205 [fr]",
       "groups": [
         {
           "code": "MODEL",
@@ -2984,7 +3018,7 @@
           "context": "configurator",
           "options": [
             "$MT314",
-            "$MT315",
+            "$MT321",
             "$MT317"
           ],
           "required": true,
@@ -3958,7 +3992,7 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$MT315",
+            "$MT321",
             "$MT317"
           ],
           "required": false,
@@ -4438,6 +4472,7 @@
             "$MT316",
             "$MT317",
             "$MT320",
+            "$MT321",
             "$MT336",
             "$SPT31"
           ],
@@ -4783,7 +4818,11 @@
               "content": "Tesla a conçu la Model 3 en tant que véhicule électrique de A à Z, avec une intégration verticale complète. Tous les composants, y compris les batteries, les moteurs et même l'aérodynamique extérieure, sont optimisés pour tirer parti les uns des autres et créer l'un des véhicules les plus économes en énergie, et pourtant incroyablement puissants jamais créés."
             },
             {
-              "type": "feature_list.default[2].main_title",
+              "type": "feature_list.default[2]",
+              "content": "*Hors lancement, environ 30 cm."
+            },
+            {
+              "type": "feature_list.default[3].main_title",
               "content": "Temps très froid",
               "behavior": [
                 {
@@ -4802,7 +4841,7 @@
               ]
             },
             {
-              "type": "feature_list.default[3]",
+              "type": "feature_list.default[4]",
               "content": "Pour une meilleure expérience de conduite sur de longues distances dans les conditions de conduite les plus froides, nous recommandons la Model 3 Grande Autonomie ou Performance."
             }
           ],
@@ -4819,7 +4858,8 @@
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
                         "content_path": {
                           "label": "name",
-                          "value": "formattedSpecs.accelerationFormatted"
+                          "value": "formattedSpecs.accelerationFormatted",
+                          "postfix": "*"
                         }
                       },
                       {
@@ -6660,6 +6700,22 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT315",
+                      "$MT317",
+                      "$MT339",
+                      "$MT316",
+                      "$MT321"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
@@ -6779,6 +6835,20 @@
                   "props": {
                     "field": "feature_list.default",
                     "classes": " tds-text--caption "
+                  }
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT314",
+                      "$MT337",
+                      "$MT319"
+                    ]
                   }
                 }
               ]
@@ -7681,12 +7751,12 @@
               "context": "default"
             },
             {
-              "type": "trial",
+              "type": "upgrade",
               "value": 3200,
               "context": "default"
             },
             {
-              "type": "upgrade",
+              "type": "trial",
               "value": 3200,
               "context": "default"
             }
@@ -7891,11 +7961,6 @@
               "context": "default"
             },
             {
-              "type": "trial",
-              "value": 7500,
-              "context": "default"
-            },
-            {
               "type": "upgrade",
               "value": 7500,
               "context": "default",
@@ -7909,6 +7974,11 @@
                   "target_property": "price"
                 }
               ]
+            },
+            {
+              "type": "trial",
+              "value": 7500,
+              "context": "default"
             }
           ]
         },
@@ -8109,12 +8179,12 @@
               "context": "default"
             },
             {
-              "type": "trial",
+              "type": "upgrade",
               "value": 3800,
               "context": "default"
             },
             {
-              "type": "upgrade",
+              "type": "trial",
               "value": 3800,
               "context": "default"
             }
@@ -8265,12 +8335,12 @@
           "price": 0,
           "pricing": [
             {
-              "type": "1_month",
+              "type": "base",
               "value": 0,
               "context": "default"
             },
             {
-              "type": "base",
+              "type": "1_month",
               "value": 0,
               "context": "default"
             }
@@ -8305,13 +8375,13 @@
           "price": 0,
           "pricing": [
             {
-              "type": "1_month",
-              "value": 9.99,
+              "type": "base",
+              "value": 0,
               "context": "default"
             },
             {
-              "type": "base",
-              "value": 0,
+              "type": "1_month",
+              "value": 9.99,
               "context": "default"
             }
           ]
@@ -8710,7 +8780,7 @@
                 "target": "$IPB0",
                 "condition_state": "set",
                 "condition_any_code": [
-                  "$MT315",
+                  "$MT321",
                   "$MT317"
                 ]
               }
@@ -8749,7 +8819,7 @@
               "target": "$IPB0",
               "condition_state": "set",
               "condition_any_code": [
-                "$MT315",
+                "$MT321",
                 "$MT317"
               ]
             }
@@ -8952,7 +9022,7 @@
                 "target": "$IPB1",
                 "condition_state": "set",
                 "condition_any_code": [
-                  "$MT315",
+                  "$MT321",
                   "$MT317"
                 ]
               }
@@ -8991,7 +9061,7 @@
               "target": "$IPB1",
               "condition_state": "set",
               "condition_any_code": [
-                "$MT315",
+                "$MT321",
                 "$MT317"
               ]
             }
@@ -9195,7 +9265,7 @@
                 "target": "$IPW0",
                 "condition_state": "set",
                 "condition_any_code": [
-                  "$MT315",
+                  "$MT321",
                   "$MT317"
                 ]
               }
@@ -9235,7 +9305,7 @@
               "target": "$IPW0",
               "condition_state": "set",
               "condition_any_code": [
-                "$MT315",
+                "$MT321",
                 "$MT317"
               ]
             }
@@ -9438,7 +9508,7 @@
                 "target": "$IPW1",
                 "condition_state": "set",
                 "condition_any_code": [
-                  "$MT315",
+                  "$MT321",
                   "$MT317"
                 ]
               }
@@ -9478,7 +9548,7 @@
               "target": "$IPW1",
               "condition_state": "set",
               "condition_any_code": [
-                "$MT315",
+                "$MT321",
                 "$MT317"
               ]
             }
@@ -10653,15 +10723,19 @@
                   "condition_state": "set",
                   "target_property": "price",
                   "condition_any_code": [
-                    "$MT336",
+                    "$MT308",
+                    "$MT301",
                     "$MT320",
                     "$MT314",
-                    "$MT301",
-                    "$MT308",
-                    "$MT337"
+                    "$MT336"
                   ]
                 }
               ]
+            },
+            {
+              "type": "order_payment",
+              "value": 0,
+              "context": "default"
             },
             {
               "type": "reservation_deposit",
@@ -10669,7 +10743,7 @@
               "context": "default"
             },
             {
-              "type": "order_payment",
+              "type": "order_fee",
               "value": 0,
               "context": "default"
             },
@@ -10679,13 +10753,8 @@
               "context": "default"
             },
             {
-              "type": "order_fee",
-              "value": 0,
-              "context": "default"
-            },
-            {
               "type": "non_refundable_order_payment_used",
-              "value": 0,
+              "value": 250,
               "context": "default"
             }
           ]
@@ -11320,12 +11389,12 @@
           "price": 0,
           "pricing": [
             {
-              "type": "upgrade",
+              "type": "base",
               "value": 0,
               "context": "default"
             },
             {
-              "type": "base",
+              "type": "upgrade",
               "value": 0,
               "context": "default"
             }
@@ -16295,14 +16364,46 @@
             "set_rules": [
               {
                 "action": "set",
-                "targets": [
-                  "$DV4W",
-                  "$PRM31"
-                ]
+                "target": "$DV4W"
+              },
+              {
+                "action": "set",
+                "target": "$PRM31"
               },
               {
                 "action": "set",
                 "target": "$APBS"
+              },
+              {
+                "action": "set",
+                "target": "$IPW0",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$IN3PW",
+                  "$IN3BW"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$IPB0",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$IN3PB",
+                  "$IN3B2",
+                  "$IN3BB"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$W40B",
+                "condition_code": "$W38B",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$W41B",
+                "condition_code": "$W39B",
+                "condition_state": "set"
               }
             ],
             "unset_rules": [
@@ -16341,14 +16442,46 @@
             },
             {
               "action": "set",
-              "targets": [
-                "$DV4W",
-                "$PRM31"
-              ]
+              "target": "$DV4W"
+            },
+            {
+              "action": "set",
+              "target": "$PRM31"
             },
             {
               "action": "set",
               "target": "$APBS"
+            },
+            {
+              "action": "set",
+              "target": "$IPW0",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$IN3PW",
+                "$IN3BW"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IPB0",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$IN3PB",
+                "$IN3B2",
+                "$IN3BB"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$W40B",
+              "condition_code": "$W38B",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$W41B",
+              "condition_code": "$W39B",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -16412,6 +16545,10 @@
             {
               "type": "interior_heated_seats",
               "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[4]}"
+            },
+            {
+              "type": "interior_heated_steering_wheel",
+              "content": "De série"
             }
           ],
           "extra_content": [
@@ -17167,7 +17304,7 @@
             "set_rules": [
               {
                 "action": "set",
-                "target": "$MT315",
+                "target": "$MT321",
                 "condition_state": "unset",
                 "condition_all_codes": [
                   "$MT302",
@@ -17179,7 +17316,8 @@
                   "$MT311",
                   "$MT312",
                   "$MT316",
-                  "$MT317"
+                  "$MT317",
+                  "$MT315"
                 ]
               },
               {
@@ -17234,7 +17372,7 @@
             },
             {
               "action": "set",
-              "target": "$MT315",
+              "target": "$MT321",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT302",
@@ -17246,7 +17384,8 @@
                 "$MT311",
                 "$MT312",
                 "$MT316",
-                "$MT317"
+                "$MT317",
+                "$MT315"
               ]
             },
             {
@@ -18288,6 +18427,7 @@
                 "$MT317": {
                   "name": "Long Range All-Wheel Drive Performance",
                   "range": 567,
+                  "postfix": "*",
                   "topspeed": 261,
                   "acceleration": 3.3,
                   "range_units_override": "range_units_epa_link"
@@ -18298,11 +18438,39 @@
                   "topspeed": 225,
                   "acceleration": 5.6
                 },
+                "$MT321": {
+                  "name": "Long Range All-Wheel Drive",
+                  "range": 614,
+                  "topspeed": 233,
+                  "overrides": [
+                    {
+                      "content": {
+                        "range": 614,
+                        "topspeed": 233,
+                        "acceleration": 3.9
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$FM3U"
+                        ]
+                      }
+                    }
+                  ],
+                  "acceleration": 4.4,
+                  "range_units_override": "range_units_epa_link"
+                },
                 "$MT336": {
                   "name": "Standard Rage Plus Rear-Wheel Drive",
                   "range": 440,
                   "topspeed": 225,
                   "acceleration": 5.6
+                },
+                "$MT337": {
+                  "name": "Standard Range Plus Rear-Wheel Drive",
+                  "range": 448,
+                  "topspeed": 225,
+                  "acceleration": 5.6,
+                  "range_units_override": "range_units_epa_link"
                 }
               }
             }
@@ -22529,7 +22697,7 @@
         "$APBS",
         "$SC04"
       ],
-      "options_id": 1200,
+      "options_id": 1259,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -23385,11 +23553,11 @@
           }
         }
       ],
-      "copy_id": 1570,
+      "copy_id": 1616,
       "language": "fr",
       "warnings": [],
-      "pricing_id": 1173,
-      "reference_id": 1200
+      "pricing_id": 1205,
+      "reference_id": 1259
     }
   },
   "edd": [

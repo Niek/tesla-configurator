@@ -174,7 +174,6 @@
         "isTerritorySelectionEnabled": false,
         "isRegistrationTypeSelectionEnabled": false,
         "isGasSavingsToggleEnabled": false,
-        "showEstimatedDeliveryFooterNote": false,
         "hideEstimatedDeliveryOrderPage": false,
         "bannerModalTrigger": null,
         "pricePostfix": "",
@@ -744,29 +743,6 @@
           {
             "code": "EAP_FEATURES",
             "context": "configurator"
-          },
-          {
-            "code": "SR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT314",
-                "$MT337",
-                "$MT319"
-              ]
-            }
-          },
-          {
-            "code": "LR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT315",
-                "$MT317",
-                "$MT339",
-                "$MT316"
-              ]
-            }
           },
           {
             "code": "18_IN_WINTER_WHEEL_FEATURES_CARD",
@@ -1376,7 +1352,8 @@
           "private",
           "business"
         ],
-        "legalConsentValid": true
+        "legalConsentValid": true,
+        "showFinanceModalOnProductChange": false
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -1885,12 +1862,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-04-16T03:40:00.000Z",
+      "effective_date": "2021-04-23T00:30:00.000Z",
       "market": "HK",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing HK 2021.Apr.16 1243.1586.904 [zh]",
+      "name": "Marketing HK 2021.Apr.23 1243.1637.904 [zh]",
       "groups": [
         {
           "code": "MODEL",
@@ -4434,6 +4411,10 @@
             {
               "type": "feature_list.default[1]",
               "content": "Model 3 由 Tesla 精心設計，貫徹電動車的設計理念：所有零件包括電池、摩打及車身的空氣動力學設計互相配合，使 Model 3 成為能源效率最高的車輛之一，兼具超乎想像的強大效能。"
+            },
+            {
+              "type": "feature_list.default[2]",
+              "content": "*減去了首一英尺起步時間。"
             }
           ],
           "extra_content": [
@@ -4449,7 +4430,8 @@
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
                         "content_path": {
                           "label": "name",
-                          "value": "formattedSpecs.accelerationFormatted"
+                          "value": "formattedSpecs.accelerationFormatted",
+                          "postfix": "*"
                         }
                       },
                       {
@@ -6265,6 +6247,33 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT315",
+                      "$MT317",
+                      "$MT339",
+                      "$MT316",
+                      "$MT321"
+                    ]
+                  }
+                },
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT315",
+                      "$MT317",
+                      "$MT339",
+                      "$MT316",
+                      "$MT321"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
@@ -6372,6 +6381,29 @@
                   "props": {
                     "field": "feature_list.default",
                     "classes": " tds-text--caption "
+                  }
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT314",
+                      "$MT337",
+                      "$MT319"
+                    ]
+                  }
+                },
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT314",
+                      "$MT337",
+                      "$MT319"
+                    ]
                   }
                 }
               ]
@@ -16680,6 +16712,7 @@
                 "$MT317": {
                   "name": "Long Range All-Wheel Drive Performance",
                   "range": 567,
+                  "postfix": "*",
                   "topspeed": 261,
                   "acceleration": 3.3,
                   "range_units_override": "range_units_epa"
@@ -21785,7 +21818,7 @@
           }
         }
       ],
-      "copy_id": 1586,
+      "copy_id": 1637,
       "language": "zh",
       "warnings": [],
       "pricing_id": 904,

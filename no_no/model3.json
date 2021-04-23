@@ -174,7 +174,6 @@
         "isTerritorySelectionEnabled": false,
         "isRegistrationTypeSelectionEnabled": false,
         "isGasSavingsToggleEnabled": false,
-        "showEstimatedDeliveryFooterNote": true,
         "hideEstimatedDeliveryOrderPage": false,
         "bannerModalTrigger": null,
         "pricePostfix": "",
@@ -746,29 +745,6 @@
           {
             "code": "EAP_FEATURES",
             "context": "configurator"
-          },
-          {
-            "code": "SR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT314",
-                "$MT337",
-                "$MT319"
-              ]
-            }
-          },
-          {
-            "code": "LR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT315",
-                "$MT317",
-                "$MT339",
-                "$MT316"
-              ]
-            }
           },
           {
             "code": "18_IN_WINTER_WHEEL_FEATURES_CARD",
@@ -1371,6 +1347,7 @@
           "business"
         ],
         "legalConsentValid": true,
+        "showFinanceModalOnProductChange": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -2031,14 +2008,16 @@
               "registrationFee": 1051,
               "campaign3plus7": [
                 "$MT314",
-                "$MT315"
+                "$MT315",
+                "$MT337"
               ]
             }
           },
           "interestRateMatrix": [
             {
               "options": [
-                "$MT314"
+                "$MT314",
+                "$MT337"
               ],
               "value": 1.49
             }
@@ -2076,12 +2055,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-04-16T18:15:00.000Z",
+      "effective_date": "2021-04-23T00:30:00.000Z",
       "market": "NO",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing NO 2021.Apr.16 1205.1568.1182 [no]",
+      "name": "Marketing NO 2021.Apr.23 1272.1642.1201 [no]",
       "groups": [
         {
           "code": "MODEL",
@@ -2742,17 +2721,6 @@
           "name": "WINTER_WHEELS"
         },
         {
-          "code": "WINTER_WHEELS_C_GROUP",
-          "groups": [],
-          "context": "default",
-          "options": [
-            "$WIN31"
-          ],
-          "required": false,
-          "exclusive": false,
-          "name": "Vinterhjulsett"
-        },
-        {
           "code": "TOWING",
           "groups": [],
           "context": "default",
@@ -2959,7 +2927,7 @@
           "context": "configurator",
           "options": [
             "$MT314",
-            "$MT315",
+            "$MT321",
             "$MT317"
           ],
           "required": true,
@@ -3429,7 +3397,7 @@
             },
             {
               "type": "view_features",
-              "content": "Egenskaper",
+              "content": "Se Spesifikasjoner",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -3882,7 +3850,7 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$MT315",
+            "$MT321",
             "$MT317"
           ],
           "required": false,
@@ -3912,7 +3880,7 @@
             },
             {
               "type": "compare_features",
-              "content": "Egenskaper",
+              "content": "Se Spesifikasjoner",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -4356,6 +4324,7 @@
             "$MT316",
             "$MT317",
             "$MT320",
+            "$MT321",
             "$MT336",
             "$SPT31"
           ],
@@ -4450,7 +4419,7 @@
                         },
                         "selected_by": {
                           "or": [
-                            "$MT315",
+                            "$MT321",
                             "$MT314"
                           ]
                         }
@@ -4895,7 +4864,19 @@
           "extra_copy": [
             {
               "type": "federalTax.description",
-              "content": "For rask og kontaktløs utlevering, se våre <a href='/no_NO/inventory/new/m3?redirect=no' target='_blank'>ferdigbygde biler</a>"
+              "content": "Renter fra 0,25 %"
+            },
+            {
+              "type": "federalTax.link",
+              "content": "Lær mer",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "SHOW_FINANCE_MODAL"
+                  }
+                }
+              ]
             }
           ]
         },
@@ -5009,10 +4990,14 @@
             },
             {
               "type": "feature_list.default[1]",
-              "content": "Tesla designet Model 3 fra bunnen av som elektrisk kjøretøy som bruker systemnivåintegrasjon gjennom hele bilen. Hver enkelt komponent, inkludert batterier, motorer og til og med utvendig aerodynamikk, er optimalisert for å skape en kraftig og en av de mest effektive bilene som noen sinne er produsert."
+              "content": "Tesla designet Model 3 fra grunnen av som et elektrisk kjøretøy - hver komponent, inkludert batteriet, drivverk og utvendig aerodynamikk, er optimalisert for å dra nytte av hverandre for å skape en av de mest kraftige og energieffektive bilene som noensinne er bygget."
             },
             {
-              "type": "feature_list.default[2].main_title",
+              "type": "feature_list.default[2]",
+              "content": "*Med første fot av utrullingen fratrukket."
+            },
+            {
+              "type": "feature_list.default[3].main_title",
               "content": "Svært kaldt vær",
               "behavior": [
                 {
@@ -5031,7 +5016,7 @@
               ]
             },
             {
-              "type": "feature_list.default[3]",
+              "type": "feature_list.default[4]",
               "content": "For den beste kjøreopplevelsen for langdistanse under de kaldeste kjøreforholdene, anbefaler vi en Long Range eller Performance Model 3."
             }
           ],
@@ -5048,7 +5033,8 @@
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
                         "content_path": {
                           "label": "name",
-                          "value": "formattedSpecs.accelerationFormatted"
+                          "value": "formattedSpecs.accelerationFormatted",
+                          "postfix": "*"
                         }
                       },
                       {
@@ -5533,7 +5519,7 @@
             },
             {
               "type": "description",
-              "content": "Lad hvor som helst der det er strøm. Det meste rekkevidden som brukes til daglig kjøring, kan fylles på med den medfølgende Mobile Connector Bundle og et 220 V husholdningsuttak, eller oppgradere til en Tesla Wall Connector for å få den beste hjemmeladingsopplevelsen. For langturer legger Model 3 opp til 275 kilometer rekkevidde på bare 15 minutter ved å bruke Teslas Supercharger-nettverk, noe som gir deg tilbake på veien, før."
+              "content": "Det er enkelt å lade din Tesla. Rekkevidden du trenger til daglig kjøring kan lades opp hjemme eller på jobb med det medfølgende ladeutstyret, eller ved å installere en Tesla Wall Connector for den beste hjemmeladingsopplevelsen. På lengre turer kan Model 3 lade opptil 275 kilometer på bare 15 minutter ved å benytte Teslas Supercharger-nettverk."
             }
           ],
           "extra_content": [
@@ -5603,7 +5589,7 @@
             },
             {
               "type": "description",
-              "content": "Fjernstyr og overvåk Tesla med nøkkelfri kjøring, rekkevidde- og ladestatus, klimakontroll, live GPS-posisjon og mer. Du kan til og med planlegge service og overvåke hele Tesla-økosystemet, inkludert strøm fra Powerwall eller soltak og solenergipaneler."
+              "content": "Fjernstyr og overvåk din Tesla med funksjoner som nøkkelfri kjøring, rekkevidde- og ladestatus, klimakontroll, live GPS-posisjon og mer i Tesla-appen. Du kan til og med booke servicetime, og overvåke hele Tesla-økosystemet ditt, inkludert energiproduktene Powerwall, Solar Roof og Solar Panel."
             }
           ],
           "extra_content": [
@@ -5673,7 +5659,7 @@
             },
             {
               "type": "description",
-              "content": "Få tilgang til alt på den ekspansive 15-tommers berøringsskjermen, inkludert HD-visning fra siden og bakfra, navigering, filmer, musikk, spill og mer. Omgivelsene visualiseres i sanntid mens du kjører for å vise fartsgrenseskilt, kommende trafikksignaler, fotgjengere, syklister og farer i en 360-graders surroundvisning."
+              "content": "Den store 15-tommers berøringsskjermen gir deg tilgang til alle bilens funksjoner, inkludert ryggekamera med HD-visning bakfra og fra siden, navigasjon, filmer, musikk, spill og mer. Omgivelsene rundt bilen visualiseres i sanntid mens du kjører og viser fartsgrenseskilt, fotjgengere, syklister og farer i 360-graders visning."
             }
           ],
           "extra_content": [
@@ -5813,7 +5799,7 @@
             },
             {
               "type": "description",
-              "content": "Luftstrøm og temperatur styres via skjermen, slik at retningen blir riktig uten at du må se eller berøre en fysisk ventil. På varme dager sørger opphetelsesbeskyttelse av kabinen for at interiøret alltid holder seg kjølig. I kaldt vær varmes kupeen automatisk opp og forbereder batteriet på maksimal rekkevidde effekt."
+              "content": "Luftstrømmene og temperaturen i bilen styres via skjermen. På varme dager sørger bilens overopphetelsesbeskyttelse for at kupeen holder seg kjølig. Med pre-conditioning i kaldt vær varmes kupeen og batteriet opp før du skal ut å kjøre for å optimalisere bilen for kalde kjøreforhold."
             }
           ],
           "extra_content": [
@@ -6272,7 +6258,7 @@
             },
             {
               "type": "description",
-              "content": "Mens du kjører på motorveien, vil automatisk filbytte plassere bilen din i den optimale banen for å forberede deg på sammenfletting og avkjørsler mens du kjører forbi biler som beveger seg langsomt. Førere får tydelig innblikk i kommende baneforandringer, samt tilpasning av funksjonen automatisk filbytte."
+              "content": "Mens du kjører på motorveien, vil automatisk filbytte plassere bilen din i den optimale filen for å forberede deg på sammenfletting og avkjørsler mens du kjører forbi biler som beveger seg langsomt. Førere får tydelig innblikk i kommende filskift, samt tilpasning av funksjonen automatisk filbytte."
             },
             {
               "type": "add_options",
@@ -6484,7 +6470,7 @@
             },
             {
               "type": "description",
-              "content": "Aktivert av Tesla-appen, vil din parkerte bil finne deg hvor som helst på en parkeringsplass, og til og med parkere eller kjøre ut selv på trange steder. Enhanced Summon navigerer i komplekse parkeringssituasjoner mens du følger kjørefeltmarkeringer og stoppskilt, og unngår fotgjengere og hindringer som kjegler, søppelkasser og falske handlekurver."
+              "content": "Aktivert i Tesla-appen, vil din parkerte bil innenfor en viss avstand kunne finne deg på en parkeringsplass. Bilen vil til og med kunne parkere eller kjøre ut selv på trange steder. Enhanced Summon navigerer bilen i komplekse parkeringssituasjoner hvor funksjonen følger kjørefeltmarkeringer og stoppskilt, og unngår fotgjengere og hindringer som kjegler, søppelkasser og handlekurver."
             },
             {
               "type": "add_options",
@@ -6889,6 +6875,33 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT315",
+                      "$MT317",
+                      "$MT339",
+                      "$MT316",
+                      "$MT321"
+                    ]
+                  }
+                },
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT315",
+                      "$MT317",
+                      "$MT339",
+                      "$MT316",
+                      "$MT321"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
@@ -7011,6 +7024,29 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT314",
+                      "$MT337",
+                      "$MT319"
+                    ]
+                  }
+                },
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT314",
+                      "$MT337",
+                      "$MT319"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
@@ -7068,7 +7104,7 @@
             },
             {
               "type": "description",
-              "content": "Model 3 har 542 liter lasterom som er tilgjengelig gjennom både fremre bagasjerom og automatisk bagasjeromsåpning. Ved å utnytte plassen som tradisjonelt er fylt med store motorer, bensintanker og girkasser, gjør designet av Model 3 uforholdsmessig store lagringsplasser for en bil av sin størrelse, samtidig som den øker passasjerens sikkerhet gjennom et romsligere, forsterket karosseri."
+              "content": "Model 3 har elektrisk bakluke og til sammen 542 liter bagsasjeplass fordelt mellom det fremre og bakre bagasjerommet. Ved å utnytte plassen som tradisjonelt er fylt med store motorer, bensintanker og girkasse, gir designet av Model 3 stor lagringsplass med tanke på bilens størrelse, samtidig som den øker passasjerens sikkerhet gjennom et romsligere, forsterket karosseri."
             }
           ],
           "extra_content": [
@@ -7985,7 +8021,7 @@
             },
             {
               "type": "description",
-              "content": "Mens du kjører på motorveien, vil automatisk filbytte plassere bilen din i den optimale banen for å forberede deg på sammenfletting og avkjørsler mens du kjører forbi biler som beveger seg langsomt. Førere får tydelig innblikk i kommende baneforandringer, samt tilpasning av funksjonen automatisk filbytte."
+              "content": "Mens du kjører på motorveien, vil automatisk filbytte plassere bilen din i den optimale filen for å forberede deg på sammenfletting og avkjørsler mens du kjører forbi biler som beveger seg langsomt. Førere får tydelig innblikk i kommende filskift, samt tilpasning av funksjonen automatisk filbytte."
             },
             {
               "type": "add_options",
@@ -8197,7 +8233,7 @@
             },
             {
               "type": "description",
-              "content": "Aktivert av Tesla-appen, vil din parkerte bil finne deg hvor som helst på en parkeringsplass, og til og med parkere eller kjøre ut selv på trange steder. Enhanced Summon navigerer i komplekse parkeringssituasjoner mens du følger kjørefeltmarkeringer og stoppskilt, og unngår fotgjengere og hindringer som kjegler, søppelkasser og falske handlekurver."
+              "content": "Aktivert i Tesla-appen, vil din parkerte bil innenfor en viss avstand kunne finne deg på en parkeringsplass. Bilen vil til og med kunne parkere eller kjøre ut selv på trange steder. Enhanced Summon navigerer bilen i komplekse parkeringssituasjoner hvor funksjonen følger kjørefeltmarkeringer og stoppskilt, og unngår fotgjengere og hindringer som kjegler, søppelkasser og handlekurver."
             },
             {
               "type": "add_options",
@@ -8361,12 +8397,12 @@
               "context": "default"
             },
             {
-              "type": "trial",
+              "type": "upgrade",
               "value": 31400,
               "context": "default"
             },
             {
-              "type": "upgrade",
+              "type": "trial",
               "value": 31400,
               "context": "default"
             }
@@ -8571,11 +8607,6 @@
               "context": "default"
             },
             {
-              "type": "trial",
-              "value": 74500,
-              "context": "default"
-            },
-            {
               "type": "upgrade",
               "value": 74500,
               "context": "default",
@@ -8589,6 +8620,11 @@
                   "target_property": "price"
                 }
               ]
+            },
+            {
+              "type": "trial",
+              "value": 74500,
+              "context": "default"
             }
           ]
         },
@@ -8705,7 +8741,7 @@
             },
             {
               "type": "fsd_features",
-              "content": "Egenskaper",
+              "content": "Se Spesifikasjoner",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -8808,12 +8844,12 @@
               "context": "default"
             },
             {
-              "type": "trial",
+              "type": "upgrade",
               "value": 37250,
               "context": "default"
             },
             {
-              "type": "upgrade",
+              "type": "trial",
               "value": 37250,
               "context": "default"
             }
@@ -8964,12 +9000,12 @@
           "price": 0,
           "pricing": [
             {
-              "type": "1_month",
+              "type": "base",
               "value": 0,
               "context": "default"
             },
             {
-              "type": "base",
+              "type": "1_month",
               "value": 0,
               "context": "default"
             }
@@ -9004,13 +9040,13 @@
           "price": 0,
           "pricing": [
             {
-              "type": "1_month",
-              "value": 129,
+              "type": "base",
+              "value": 0,
               "context": "default"
             },
             {
-              "type": "base",
-              "value": 0,
+              "type": "1_month",
+              "value": 129,
               "context": "default"
             }
           ]
@@ -9409,7 +9445,7 @@
                 "target": "$IPB0",
                 "condition_state": "set",
                 "condition_any_code": [
-                  "$MT315",
+                  "$MT321",
                   "$MT317"
                 ]
               }
@@ -9448,7 +9484,7 @@
               "target": "$IPB0",
               "condition_state": "set",
               "condition_any_code": [
-                "$MT315",
+                "$MT321",
                 "$MT317"
               ]
             }
@@ -9651,7 +9687,7 @@
                 "target": "$IPB1",
                 "condition_state": "set",
                 "condition_any_code": [
-                  "$MT315",
+                  "$MT321",
                   "$MT317"
                 ]
               }
@@ -9690,7 +9726,7 @@
               "target": "$IPB1",
               "condition_state": "set",
               "condition_any_code": [
-                "$MT315",
+                "$MT321",
                 "$MT317"
               ]
             }
@@ -9894,7 +9930,7 @@
                 "target": "$IPW0",
                 "condition_state": "set",
                 "condition_any_code": [
-                  "$MT315",
+                  "$MT321",
                   "$MT317"
                 ]
               }
@@ -9934,7 +9970,7 @@
               "target": "$IPW0",
               "condition_state": "set",
               "condition_any_code": [
-                "$MT315",
+                "$MT321",
                 "$MT317"
               ]
             }
@@ -10137,7 +10173,7 @@
                 "target": "$IPW1",
                 "condition_state": "set",
                 "condition_any_code": [
-                  "$MT315",
+                  "$MT321",
                   "$MT317"
                 ]
               }
@@ -10177,7 +10213,7 @@
               "target": "$IPW1",
               "condition_state": "set",
               "condition_any_code": [
-                "$MT315",
+                "$MT321",
                 "$MT317"
               ]
             }
@@ -11346,17 +11382,12 @@
               "context": "default"
             },
             {
-              "type": "reservation_deposit",
-              "value": 1000,
-              "context": "default"
-            },
-            {
               "type": "order_payment",
               "value": 0,
               "context": "default"
             },
             {
-              "type": "non_refundable_order_payment",
+              "type": "reservation_deposit",
               "value": 1000,
               "context": "default"
             },
@@ -11366,8 +11397,13 @@
               "context": "default"
             },
             {
+              "type": "non_refundable_order_payment",
+              "value": 1000,
+              "context": "default"
+            },
+            {
               "type": "non_refundable_order_payment_used",
-              "value": 0,
+              "value": 2500,
               "context": "default"
             }
           ]
@@ -12002,12 +12038,12 @@
           "price": 0,
           "pricing": [
             {
-              "type": "upgrade",
+              "type": "base",
               "value": 0,
               "context": "default"
             },
             {
-              "type": "base",
+              "type": "upgrade",
               "value": 0,
               "context": "default"
             }
@@ -17336,12 +17372,50 @@
                 "action": "set",
                 "targets": [
                   "$DV4W",
-                  "$PRM31"
+                  "$PRM31",
+                  "$APBS"
                 ]
               },
               {
                 "action": "set",
-                "target": "$APBS"
+                "target": "$W3WN8",
+                "condition_code": "$W3WN2",
+                "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$W3WN2"
+              },
+              {
+                "action": "set",
+                "target": "$IPW0",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$IN3PW",
+                  "$IN3BW"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$IPB0",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$IN3PB",
+                  "$IN3B2",
+                  "$IN3BB"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$W40B",
+                "condition_code": "$W38B",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$W41B",
+                "condition_code": "$W39B",
+                "condition_state": "set"
               }
             ],
             "unset_rules": [
@@ -17382,12 +17456,50 @@
               "action": "set",
               "targets": [
                 "$DV4W",
-                "$PRM31"
+                "$PRM31",
+                "$APBS"
               ]
             },
             {
               "action": "set",
-              "target": "$APBS"
+              "target": "$W3WN8",
+              "condition_code": "$W3WN2",
+              "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$W3WN2"
+            },
+            {
+              "action": "set",
+              "target": "$IPW0",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$IN3PW",
+                "$IN3BW"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$IPB0",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$IN3PB",
+                "$IN3B2",
+                "$IN3BB"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$W40B",
+              "condition_code": "$W38B",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$W41B",
+              "condition_code": "$W39B",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -17451,6 +17563,10 @@
             {
               "type": "interior_heated_seats",
               "content": "{groups_dictionary.configurator.INTERIOR_SECTION.dynamic_grid_feature[4]}"
+            },
+            {
+              "type": "interior_heated_steering_wheel",
+              "content": "Inkludert"
             }
           ],
           "extra_content": [
@@ -18188,7 +18304,7 @@
             "set_rules": [
               {
                 "action": "set",
-                "target": "$MT315",
+                "target": "$MT321",
                 "condition_state": "unset",
                 "condition_all_codes": [
                   "$MT302",
@@ -18200,7 +18316,8 @@
                   "$MT311",
                   "$MT312",
                   "$MT316",
-                  "$MT317"
+                  "$MT317",
+                  "$MT315"
                 ]
               },
               {
@@ -18255,7 +18372,7 @@
             },
             {
               "action": "set",
-              "target": "$MT315",
+              "target": "$MT321",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT302",
@@ -18267,7 +18384,8 @@
                 "$MT311",
                 "$MT312",
                 "$MT316",
-                "$MT317"
+                "$MT317",
+                "$MT315"
               ]
             },
             {
@@ -18942,7 +19060,7 @@
                     "or": [
                       "$MT317",
                       "$MT314",
-                      "$MT315"
+                      "$MT321"
                     ]
                   }
                 }
@@ -19085,7 +19203,7 @@
                     "or": [
                       "$MT317",
                       "$MT314",
-                      "$MT315"
+                      "$MT321"
                     ]
                   }
                 }
@@ -19228,7 +19346,7 @@
                     "or": [
                       "$MT317",
                       "$MT314",
-                      "$MT315"
+                      "$MT321"
                     ]
                   }
                 }
@@ -19608,177 +19726,6 @@
             {
               "type": "base",
               "value": 24900,
-              "context": "default"
-            }
-          ]
-        },
-        "$WIN31": {
-          "code": "$WIN31",
-          "user_defined_rules": {
-            "set_rules": [
-              {
-                "action": "set",
-                "target": "$WIN31"
-              },
-              {
-                "action": "set",
-                "target": "$W3WN8",
-                "condition_state": "unset",
-                "condition_all_codes": [
-                  "$W3WE8",
-                  "$W3WE9",
-                  "$W3WE2",
-                  "$MT304",
-                  "$MT311",
-                  "$MT317",
-                  "$W3WN9",
-                  "$W3SN8",
-                  "$W3SN9"
-                ]
-              },
-              {
-                "action": "set",
-                "target": "$W3WN2",
-                "operator": "and",
-                "condition_state": "set",
-                "condition_any_code": [
-                  "$MT304",
-                  "$MT311",
-                  "$MT317"
-                ]
-              },
-              {
-                "condition_code": "$W3WE2",
-                "condition_state": "unset"
-              }
-            ],
-            "unset_rules": [
-              {
-                "action": "unset",
-                "target": "$WIN31"
-              },
-              {
-                "action": "unset",
-                "target": "$W3WE8"
-              },
-              {
-                "action": "unset",
-                "target": "$W3WE9"
-              },
-              {
-                "action": "unset",
-                "target": "$W3WE2"
-              },
-              {
-                "action": "unset",
-                "target": "$W3WN8"
-              },
-              {
-                "action": "unset",
-                "target": "$W3WN9"
-              },
-              {
-                "action": "unset",
-                "target": "$W3WN2"
-              },
-              {
-                "action": "unset",
-                "target": "$W3SN8"
-              },
-              {
-                "action": "unset",
-                "target": "$W3SN9"
-              }
-            ]
-          },
-          "set_rules": [
-            {
-              "action": "set",
-              "target": "$WIN31"
-            },
-            {
-              "action": "set",
-              "target": "$WIN31"
-            },
-            {
-              "action": "set",
-              "target": "$W3WN8",
-              "condition_state": "unset",
-              "condition_all_codes": [
-                "$W3WE8",
-                "$W3WE9",
-                "$W3WE2",
-                "$MT304",
-                "$MT311",
-                "$MT317",
-                "$W3WN9",
-                "$W3SN8",
-                "$W3SN9"
-              ]
-            },
-            {
-              "action": "set",
-              "target": "$W3WN2",
-              "operator": "and",
-              "condition_state": "set",
-              "condition_any_code": [
-                "$MT304",
-                "$MT311",
-                "$MT317"
-              ]
-            },
-            {
-              "condition_code": "$W3WE2",
-              "condition_state": "unset"
-            }
-          ],
-          "unset_rules": [
-            {
-              "action": "unset",
-              "target": "$WIN31"
-            },
-            {
-              "action": "unset",
-              "target": "$WIN31"
-            },
-            {
-              "action": "unset",
-              "target": "$W3WE8"
-            },
-            {
-              "action": "unset",
-              "target": "$W3WE9"
-            },
-            {
-              "action": "unset",
-              "target": "$W3WE2"
-            },
-            {
-              "action": "unset",
-              "target": "$W3WN8"
-            },
-            {
-              "action": "unset",
-              "target": "$W3WN9"
-            },
-            {
-              "action": "unset",
-              "target": "$W3WN2"
-            },
-            {
-              "action": "unset",
-              "target": "$W3SN8"
-            },
-            {
-              "action": "unset",
-              "target": "$W3SN9"
-            }
-          ],
-          "price": 0,
-          "pricing": [
-            {
-              "type": "base",
-              "value": 0,
               "context": "default"
             }
           ]
@@ -20506,6 +20453,7 @@
                 "$MT317": {
                   "name": "Long Range All-Wheel Drive Performance",
                   "range": 567,
+                  "postfix": "*",
                   "topspeed": 261,
                   "acceleration": 3.3,
                   "range_units_override": "range_units_epa_link"
@@ -20516,11 +20464,39 @@
                   "topspeed": 225,
                   "acceleration": 5.6
                 },
+                "$MT321": {
+                  "name": "Long Range All-Wheel Drive",
+                  "range": 614,
+                  "topspeed": 233,
+                  "overrides": [
+                    {
+                      "content": {
+                        "range": 614,
+                        "topspeed": 233,
+                        "acceleration": 3.9
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$FM3U"
+                        ]
+                      }
+                    }
+                  ],
+                  "acceleration": 4.4,
+                  "range_units_override": "range_units_epa_link"
+                },
                 "$MT336": {
                   "name": "Standard Rage Plus Rear-Wheel Drive",
                   "range": 440,
                   "topspeed": 225,
                   "acceleration": 5.6
+                },
+                "$MT337": {
+                  "name": "Standard Range Plus Rear-Wheel Drive",
+                  "range": 448,
+                  "topspeed": 225,
+                  "acceleration": 5.6,
+                  "range_units_override": "range_units_epa_link"
                 }
               }
             }
@@ -22953,7 +22929,7 @@
           "extra_copy": [
             {
               "type": "description",
-              "content": "Omfatter 5 år fra levering eller 100 000 kilometer (totalt 60 000 miles). Begrenset garanti for batteri og drivenhet er gyldig i 8 år eller 160 000 kilometer totalt (100 000 totalt miles)"
+              "content": "Covers 5 years from when you take delivery or 100,000 Kilometers(60,000 total miles). Battery & drive unit limited warranty valid for 8 years or 160,000 total kilometers (100,000 total miles)"
             }
           ],
           "extra_content": [
@@ -23028,7 +23004,7 @@
           "extra_copy": [
             {
               "type": "description",
-              "content": "Omfatter 5 år fra levering eller 100 000 kilometer (totalt 60 000 miles). Begrenset garanti for batteri og drivenhet er gyldig i 8 år eller 192 000 kilometer totalt (120 000 totalt miles)"
+              "content": "Covers 5 years from when you take delivery or 100,000 Kilometers(60,000 total miles). Battery & drive unit limited warranty valid for 8 years or 192,000 total kilometers (120,000 total miles)"
             }
           ],
           "extra_content": [
@@ -24899,7 +24875,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 1205,
+      "options_id": 1272,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -25755,11 +25731,11 @@
           }
         }
       ],
-      "copy_id": 1568,
+      "copy_id": 1642,
       "language": "no",
       "warnings": [],
-      "pricing_id": 1182,
-      "reference_id": 1205
+      "pricing_id": 1201,
+      "reference_id": 1272
     }
   },
   "edd": [

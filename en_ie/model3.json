@@ -174,7 +174,6 @@
         "isTerritorySelectionEnabled": false,
         "isRegistrationTypeSelectionEnabled": false,
         "isGasSavingsToggleEnabled": false,
-        "showEstimatedDeliveryFooterNote": true,
         "hideEstimatedDeliveryOrderPage": false,
         "bannerModalTrigger": null,
         "pricePostfix": "",
@@ -746,29 +745,6 @@
           {
             "code": "EAP_FEATURES",
             "context": "configurator"
-          },
-          {
-            "code": "SR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT314",
-                "$MT337",
-                "$MT319"
-              ]
-            }
-          },
-          {
-            "code": "LR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT315",
-                "$MT317",
-                "$MT339",
-                "$MT316"
-              ]
-            }
           },
           {
             "code": "18_IN_WINTER_WHEEL_FEATURES_CARD",
@@ -1369,6 +1345,7 @@
           "business"
         ],
         "legalConsentValid": true,
+        "showFinanceModalOnProductChange": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1876,7 +1853,7 @@
     },
     "Lexicon.m3": {
       "id": 1156,
-      "effective_date": "2021-04-16T18:15:00.000Z",
+      "effective_date": "2021-04-23T00:30:00.000Z",
       "market": "IE",
       "product": "m3",
       "factory": "GF00",
@@ -1885,7 +1862,7 @@
           "percent": 23
         }
       },
-      "name": "Marketing IE 2021.Apr.16 1156.1555.1157",
+      "name": "Marketing IE 2021.Apr.23 1156.1626.1189",
       "groups": [
         {
           "code": "MODEL",
@@ -5116,7 +5093,11 @@
               }
             },
             {
-              "type": "feature_list.default[2].main_title",
+              "type": "feature_list.default[2]",
+              "content": "*With first foot of rollout subtracted."
+            },
+            {
+              "type": "feature_list.default[3].main_title",
               "content": "Very Cold Weather",
               "behavior": [
                 {
@@ -5138,7 +5119,7 @@
               }
             },
             {
-              "type": "feature_list.default[3]",
+              "type": "feature_list.default[4]",
               "content": "For the best long range driving experience in the coldest driving conditions, we recommend a Long Range or Performance Model 3.",
               "content_localized": {
                 "fr": "Pour une meilleure expérience de conduite sur de longues distances dans les conditions de conduite les plus froides, nous recommandons la Model 3 Grande Autonomie ou Performance."
@@ -5158,7 +5139,8 @@
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
                         "content_path": {
                           "label": "name",
-                          "value": "formattedSpecs.accelerationFormatted"
+                          "value": "formattedSpecs.accelerationFormatted",
+                          "postfix": "*"
                         }
                       },
                       {
@@ -7455,6 +7437,22 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT315",
+                      "$MT317",
+                      "$MT339",
+                      "$MT316",
+                      "$MT321"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
@@ -7637,6 +7635,20 @@
                   "props": {
                     "field": "feature_list.default",
                     "classes": " tds-text--caption "
+                  }
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT314",
+                      "$MT337",
+                      "$MT319"
+                    ]
                   }
                 }
               ]
@@ -8651,12 +8663,12 @@
               "context": "default"
             },
             {
-              "type": "trial",
+              "type": "upgrade",
               "value": 3200,
               "context": "default"
             },
             {
-              "type": "upgrade",
+              "type": "trial",
               "value": 3200,
               "context": "default"
             }
@@ -8903,11 +8915,6 @@
               "context": "default"
             },
             {
-              "type": "trial",
-              "value": 7500,
-              "context": "default"
-            },
-            {
               "type": "upgrade",
               "value": 7500,
               "context": "default",
@@ -8921,6 +8928,11 @@
                   "target_property": "price"
                 }
               ]
+            },
+            {
+              "type": "trial",
+              "value": 7500,
+              "context": "default"
             }
           ]
         },
@@ -9166,12 +9178,12 @@
               "context": "default"
             },
             {
-              "type": "trial",
+              "type": "upgrade",
               "value": 3800,
               "context": "default"
             },
             {
-              "type": "upgrade",
+              "type": "trial",
               "value": 3800,
               "context": "default"
             }
@@ -9353,12 +9365,12 @@
           "price": 0,
           "pricing": [
             {
-              "type": "1_month",
+              "type": "base",
               "value": 0,
               "context": "default"
             },
             {
-              "type": "base",
+              "type": "1_month",
               "value": 0,
               "context": "default"
             }
@@ -9402,13 +9414,13 @@
           "price": 0,
           "pricing": [
             {
-              "type": "1_month",
-              "value": 9.99,
+              "type": "base",
+              "value": 0,
               "context": "default"
             },
             {
-              "type": "base",
-              "value": 0,
+              "type": "1_month",
+              "value": 9.99,
               "context": "default"
             }
           ]
@@ -12461,12 +12473,17 @@
               "context": "default"
             },
             {
+              "type": "order_payment",
+              "value": 0,
+              "context": "default"
+            },
+            {
               "type": "reservation_deposit",
               "value": 1000,
               "context": "default"
             },
             {
-              "type": "order_payment",
+              "type": "order_fee",
               "value": 0,
               "context": "default"
             },
@@ -12476,13 +12493,8 @@
               "context": "default"
             },
             {
-              "type": "order_fee",
-              "value": 0,
-              "context": "default"
-            },
-            {
               "type": "non_refundable_order_payment_used",
-              "value": 0,
+              "value": 250,
               "context": "default"
             }
           ]
@@ -13228,12 +13240,12 @@
           "price": 0,
           "pricing": [
             {
-              "type": "upgrade",
+              "type": "base",
               "value": 0,
               "context": "default"
             },
             {
-              "type": "base",
+              "type": "upgrade",
               "value": 0,
               "context": "default"
             }
@@ -20368,6 +20380,7 @@
                 "$MT317": {
                   "name": "Long Range All-Wheel Drive Performance",
                   "range": 567,
+                  "postfix": "*",
                   "topspeed": 261,
                   "acceleration": 3.3,
                   "range_units_override": "range_units_epa_link"
@@ -26277,10 +26290,10 @@
           "content_localized": {}
         }
       ],
-      "copy_id": 1555,
+      "copy_id": 1626,
       "language": "en",
       "warnings": [],
-      "pricing_id": 1157
+      "pricing_id": 1189
     }
   },
   "edd": [

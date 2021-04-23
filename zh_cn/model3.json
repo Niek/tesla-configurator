@@ -174,7 +174,6 @@
         "isTerritorySelectionEnabled": false,
         "isRegistrationTypeSelectionEnabled": false,
         "isGasSavingsToggleEnabled": false,
-        "showEstimatedDeliveryFooterNote": true,
         "hideEstimatedDeliveryOrderPage": false,
         "bannerModalTrigger": null,
         "pricePostfix": "",
@@ -746,29 +745,6 @@
             "context": "configurator"
           },
           {
-            "code": "SR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT314",
-                "$MT337",
-                "$MT319"
-              ]
-            }
-          },
-          {
-            "code": "LR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT315",
-                "$MT317",
-                "$MT339",
-                "$MT316"
-              ]
-            }
-          },
-          {
             "code": "18_IN_WINTER_WHEEL_FEATURES_CARD",
             "context": "configurator",
             "group_selected_by": {
@@ -960,7 +936,7 @@
         "showFinanceProductName": true,
         "showFooterEffectiveLoanRate": false,
         "showAsterixAtPriceEnd": false,
-        "disclaimerSectionAboveOrderButton": "ORDER_DISCLAIMER_SECTION",
+        "disclaimerSectionAboveOrderButton": null,
         "showRateInFooter": false,
         "lease": {
           "downPayment": true
@@ -1167,7 +1143,10 @@
         },
         "isSaveDesignEnabled": false,
         "showLocalName": false,
-        "showLegalConsent": [],
+        "showLegalConsent": [
+          "ORDER_CONSENT",
+          "RETURN_POLICY_CONSENT"
+        ],
         "showPrpLink": false,
         "showVAT": true,
         "assetView": "STUD_3QTR",
@@ -1240,9 +1219,7 @@
               "$MT335",
               "$MT336",
               "$MT337",
-              "$MT339",
-              "$MTY03",
-              "$MTY05"
+              "$MT339"
             ]
           },
           "target": true
@@ -1388,7 +1365,7 @@
         "doSessionStartOnMount": true,
         "showModelYear": true,
         "showGrossPriceTotal": true,
-        "oldOrderAgreementVersion": "20201015",
+        "oldOrderAgreementVersion": "20210422",
         "purchasePriceLabel": "",
         "triggerIncentiveSavingsModal": false,
         "showPriceIndicatorForPerformance": true,
@@ -1439,7 +1416,8 @@
           "private",
           "business"
         ],
-        "legalConsentValid": true,
+        "legalConsentValid": false,
+        "showFinanceModalOnProductChange": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -2352,12 +2330,12 @@
     },
     "Lexicon.m3": {
       "id": 1003,
-      "effective_date": "2021-03-19T05:00:00.000Z",
+      "effective_date": "2021-04-23T00:30:00.000Z",
       "market": "CN",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CN 2021.Mar.19 1003.892.731",
+      "name": "Marketing CN 2021.Apr.23 1003.1612.731",
       "groups": [
         {
           "code": "MODEL",
@@ -2770,7 +2748,7 @@
               "content": [
                 {
                   "type": "hero-update",
-                  "view": "STUD_SEAT"
+                  "view": "STUD_INTERIOR"
                 }
               ]
             },
@@ -2779,7 +2757,7 @@
               "content": [
                 {
                   "type": "image-compositor",
-                  "view": "STUD_WHEEL"
+                  "view": "STUD_RIMCLOSEUP"
                 }
               ]
             }
@@ -3105,6 +3083,24 @@
               "type": "sub_title",
               "content": "后轮驱动"
             }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "sub_title",
+                    "classes": "tds-text--start text-loader--subtitle tds-text--500 tds--vertical_padding-10",
+                    "component": "div"
+                  }
+                },
+                {
+                  "type": "RootGroup"
+                }
+              ]
+            }
           ]
         },
         {
@@ -3150,11 +3146,28 @@
                           "$MT332",
                           "$MT333",
                           "$MT334",
-                          "$MT336"
+                          "$MT336",
+                          "$MT337"
                         ]
                       }
                     ]
                   }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "sub_title",
+                    "classes": "tds-text--start text-loader--subtitle tds-text--500 tds--vertical_padding-10",
+                    "component": "div"
+                  }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             }
@@ -3196,22 +3209,36 @@
             },
             {
               "type": "dynamic_disclaimer",
-              "content": "*此为<u>补贴后</u>起售价，由<u>补贴前</u>起售价 ¥269,700 扣除现行新能源汽车补贴金额得出（目前私人购买补贴金额为 ¥19,800，非私人购买或用于营运的新能源乘用车补贴金额为 ¥13,860）。如果选配后的车辆价格高于 ¥300,000，则不享受上述新能源汽车补贴。详见政府政策。"
+              "content": "*此为补贴后起售价，由补贴前起售价 ¥265,740 扣除现行新能源汽车补贴金额得出（目前私人购买补贴金额为 ¥15,840，非私人购买或用于营运的新能源乘用车补贴金额为 ¥11,088）。如果选配后的车辆价格高于 ¥300,000，则不享受上述新能源汽车补贴。详见政府政策。",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {
+                      "style": {
+                        "fontSize": "12px"
+                      }
+                    },
+                    "classNames": [
+                      "tds-text--center"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
             {
-              "type": "dynamic_disclaimer_loader",
+              "type": "components",
               "content": [
                 {
+                  "type": "Title",
                   "props": {
-                    "content_path": "OMS.lexicon.groups_dictionary.configurator.REAR_WHEEL_PARTIAL"
-                  },
-                  "selected_by": {
-                    "and": [
-                      "$MT336"
-                    ]
+                    "field": "sub_title"
                   }
+                },
+                {
+                  "type": "Options"
                 }
               ]
             }
@@ -3316,15 +3343,19 @@
             },
             {
               "type": "modal_list.default[0].items[3].sub_items[1]",
-              "content": "通过车载流量播放网络音乐"
+              "content": "通过车载应用播放网络音乐和视频"
+            },
+            {
+              "type": "modal_list.default[0].items[3].sub_items[2]",
+              "content": "车载网络游戏"
+            },
+            {
+              "type": "modal_list.default[0].items[3].sub_items[3]",
+              "content": "互联网浏览器"
             },
             {
               "type": "modal_list.default[1].main_title",
               "content": "高级版内饰套件包括："
-            },
-            {
-              "type": "modal_list.default[0].items[4].sub_items[3]",
-              "content": "互联网浏览器"
             },
             {
               "type": "modal_list.default[1].items[0]",
@@ -3332,43 +3363,47 @@
             },
             {
               "type": "modal_list.default[1].items[1]",
+              "content": "方向盘加热"
+            },
+            {
+              "type": "modal_list.default[1].items[2]",
               "content": "高级音响系统，包括14个扬声器、1个低音炮、2个功放和沉浸式音效"
             },
             {
-              "type": "modal_list.default[0].items[4].sub_items[2]",
-              "content": "通过车载流量播放网络视频"
-            },
-            {
-              "type": "modal_list.default[1].items[2].main_title",
+              "type": "modal_list.default[1].items[3].main_title",
               "content": "高级车载娱乐服务（第一年免费）:"
             },
             {
-              "type": "modal_list.default[1].items[2].sub_items[0]",
+              "type": "modal_list.default[1].items[3].sub_items[0]",
               "content": "包含卫星视图和实时路况显示的车载地图"
             },
             {
-              "type": "modal_list.default[1].items[2].sub_items[1]",
-              "content": "通过车载流量播放网络音乐"
+              "type": "modal_list.default[1].items[3].sub_items[1]",
+              "content": "通过车载应用播放网络音乐和视频"
             },
             {
-              "type": "modal_list.default[1].items[2].sub_items[2]",
-              "content": "通过车载流量播放网络视频"
+              "type": "modal_list.default[1].items[3].sub_items[2]",
+              "content": "车载网络游戏"
             },
             {
-              "type": "modal_list.default[1].items[2].sub_items[3]",
+              "type": "modal_list.default[1].items[3].sub_items[3]",
               "content": "互联网浏览器"
             },
             {
-              "type": "modal_list.default[1].items[3]",
+              "type": "modal_list.default[1].items[4]",
               "content": "LED 雾灯"
             },
             {
               "type": "modal_list.default[1].items[5]",
+              "content": "内饰氛围灯"
+            },
+            {
+              "type": "modal_list.default[1].items[6]",
               "content": "内饰地垫"
             },
             {
-              "type": "modal_list.default[1].items[4]",
-              "content": "内饰氛围灯"
+              "type": "modal_list.default[2].main_title",
+              "content": "所有内饰套件均包括："
             },
             {
               "type": "modal_list.default[2].items[1]",
@@ -3376,11 +3411,7 @@
             },
             {
               "type": "modal_list.default[2].items[0]",
-              "content": "中控台无线手机充电器"
-            },
-            {
-              "type": "modal_list.default[2].main_title",
-              "content": "所有内饰套件均包括："
+              "content": "中控台包含储物空间，4个USB接口和双座手机无线充电器"
             },
             {
               "type": "modal_list.default[2].items[2]",
@@ -3448,21 +3479,62 @@
               ]
             },
             {
-              "type": "dynamic_disclaimer",
-              "content": "*待监管机构批准。"
+              "type": "compare_features",
+              "content": "查看详情",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "STD_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
             {
-              "type": "dynamic_disclaimer_child_group",
+              "type": "components",
               "content": [
                 {
+                  "type": "Title",
                   "props": {
-                    "content_path": "OMS.lexicon.groups_dictionary.configurator.DUAL_MOTOR_PREMIUM"
-                  },
-                  "selected_by": {
-                    "and": [
-                      "$MT335"
+                    "field": "sub_title"
+                  }
+                },
+                {
+                  "type": "Options"
+                },
+                {
+                  "type": "GroupDescription",
+                  "props": {
+                    "group": "DUAL_MOTOR_PREMIUM"
+                  }
+                },
+                {
+                  "type": "DynamicDisclaimer",
+                  "props": {
+                    "field": "dynamic_disclaimer_loader",
+                    "group": "BATTERY_AND_DRIVE",
+                    "classes": "padding-top--0"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "compare_features",
+                        "props": {
+                          "modal": "STD_FEATURES"
+                        }
+                      }
                     ]
                   }
                 }
@@ -3703,7 +3775,7 @@
               "content": [
                 {
                   "type": "hero-update",
-                  "view": "STUD_3QTR"
+                  "view": "STUD_FRONT34"
                 }
               ]
             },
@@ -3712,8 +3784,59 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR"
+                  "view": "STUD_FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "STUD_FRONT34",
+                  "zoom": 1.3
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "Options",
+                  "props": {
+                    "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center"
+                  }
+                },
+                {
+                  "type": "SelectedPrice"
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY"
                 }
               ]
             }
@@ -3746,7 +3869,7 @@
               "content": [
                 {
                   "type": "hero-update",
-                  "view": "STUD_SEAT"
+                  "view": "STUD_INTERIOR"
                 }
               ]
             },
@@ -3755,7 +3878,42 @@
               "content": [
                 {
                   "type": "image-compositor",
-                  "view": "STUD_WHEEL"
+                  "view": "STUD_RIMCLOSEUP"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "Options",
+                  "props": {
+                    "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center"
+                  }
+                },
+                {
+                  "type": "SelectedPrice"
+                },
+                {
+                  "type": "DisclaimerSpecial",
+                  "props": {
+                    "field": "certified_disclaimer",
+                    "classes": "tds-text--center"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY"
                 }
               ]
             }
@@ -3772,8 +3930,109 @@
           "required": false,
           "exclusive": false,
           "name": "Autopilot",
-          "extra_copy": [],
-          "extra_content": []
+          "extra_copy": [
+            {
+              "type": "video_list.default[0].title",
+              "content": "自动辅助导航驾驶"
+            },
+            {
+              "type": "video_list.default[1].title",
+              "content": "自动辅助变道"
+            },
+            {
+              "type": "video_list.default[2].title",
+              "content": "自动泊车"
+            },
+            {
+              "type": "video_list.default[3].title",
+              "content": "召唤功能"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "detail_size",
+              "content": "regular"
+            },
+            {
+              "type": "direction_type",
+              "content": "column"
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "RootGroup"
+                },
+                {
+                  "type": "Options"
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "FSD_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/route.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/route.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": 0,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  },
+                  "video_content": [
+                    {
+                      "url": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                      "relative": true,
+                      "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                      "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[0]"
+                    },
+                    {
+                      "url": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                      "relative": true,
+                      "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                      "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[1]"
+                    },
+                    {
+                      "url": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                      "relative": true,
+                      "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                      "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[2]"
+                    },
+                    {
+                      "url": "MODEL3/UI/summon_v2.mp4",
+                      "relative": false,
+                      "urlDesktop": "MODEL3/UI/summon_v2.mp4",
+                      "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[3]"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "AUTOPILOT",
@@ -3841,11 +4100,27 @@
             },
             {
               "type": "detail_size",
-              "content": "big"
+              "content": "regular"
             },
             {
               "type": "direction_type",
               "content": "column"
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "RootGroup"
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "FSD_GALLERY"
+                }
+              ]
             }
           ]
         },
@@ -3888,8 +4163,31 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR"
+                  "view": "STUD_FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "STUD_FRONT34",
+                  "zoom": 1.3
                 }
               ]
             }
@@ -3920,8 +4218,31 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR"
+                  "view": "STUD_FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "STUD_FRONT34",
+                  "zoom": 1.3
                 }
               ]
             }
@@ -3943,6 +4264,25 @@
             {
               "type": "name",
               "content": "选择内饰"
+            },
+            {
+              "type": "view_features",
+              "content": "查看详情",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "INTERIOR_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -3950,9 +4290,9 @@
               "type": "asset",
               "content": [
                 {
-                  "bkba": 1,
+                  "bkba": 0,
                   "type": "image-compositor",
-                  "view": "STUD_SEAT",
+                  "view": "STUD_INTERIOR",
                   "ratio": "meet",
                   "selected_by": {
                     "or": [
@@ -3966,10 +4306,46 @@
                   }
                 },
                 {
-                  "bkba": 1,
+                  "bkba": 0,
                   "type": "image-compositor",
-                  "view": "STUD_SEAT",
+                  "view": "STUD_INTERIOR",
                   "ratio": "slice"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "RootGroup"
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "view_features",
+                        "props": {
+                          "modal": "INTERIOR_FEATURES"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY",
+                  "section": 4
                 }
               ]
             }
@@ -4062,7 +4438,16 @@
               "content": "选择内饰"
             }
           ],
-          "extra_content": []
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "RootGroup"
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "SPOILER",
@@ -4140,7 +4525,7 @@
             },
             {
               "type": "name",
-              "content": "中国制造 车型选择"
+              "content": "Model 3"
             },
             {
               "type": "section_title",
@@ -4156,7 +4541,7 @@
             },
             {
               "type": "group_disclaimer",
-              "content": " "
+              "content": "所有车型均标配电动尾门，全景玻璃天窗和基础版辅助驾驶功能。"
             },
             {
               "type": "disclaimer_copy",
@@ -4168,7 +4553,7 @@
             },
             {
               "type": "dynamic_disclaimer",
-              "content": "*此为<u>补贴后</u>起售价，由<u>补贴前</u>起售价 ¥269,700 扣除现行新能源汽车补贴金额得出（目前私人购买补贴金额为 ¥19,800，非私人购买或用于营运的新能源乘用车补贴金额为 ¥13,860）。如果选配后的车辆价格高于 ¥300,000，则不享受上述新能源汽车补贴。详见政府政策。"
+              "content": "*此为<u>补贴后</u>起售价，由<u>补贴前</u>起售价 ¥265,740 扣除现行新能源汽车补贴金额得出（目前私人购买补贴金额为 ¥15,840，非私人购买或用于营运的新能源乘用车补贴金额为 ¥11,088）。如果选配后的车辆价格高于 ¥300,000，则不享受上述新能源汽车补贴。详见政府政策。"
             }
           ],
           "extra_content": [
@@ -4177,8 +4562,31 @@
               "content": [
                 {
                   "bkba": 1,
+                  "crop": [
+                    1300,
+                    450,
+                    300,
+                    300
+                  ],
                   "type": "image-compositor",
-                  "view": "STUD_3QTR"
+                  "view": "STUD_FRONT34",
+                  "zoom": 1,
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "tablet",
+                          "mobile"
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "bkba": 1,
+                  "type": "image-compositor",
+                  "view": "STUD_FRONT34",
+                  "zoom": 1.3
                 }
               ]
             },
@@ -4186,7 +4594,7 @@
               "type": "performance_specs",
               "content": [
                 {
-                  "range": "600+",
+                  "range": "605",
                   "units": "metric",
                   "top_speed": 261,
                   "selected_by": {
@@ -4194,7 +4602,7 @@
                       "$SPT31"
                     ]
                   },
-                  "zero_to_road_limit": 3.4,
+                  "zero_to_road_limit": 3.3,
                   "range_units_override": "range_units_epa"
                 },
                 {
@@ -4354,6 +4762,28 @@
                     ]
                   },
                   "zero_to_road_limit": 5.6
+                },
+                {
+                  "range": "468",
+                  "units": "metric",
+                  "top_speed": 225,
+                  "selected_by": {
+                    "and": [
+                      "$MT337"
+                    ]
+                  },
+                  "zero_to_road_limit": 5.6
+                },
+                {
+                  "range": "605",
+                  "units": "metric",
+                  "top_speed": 261,
+                  "selected_by": {
+                    "and": [
+                      "$MT339"
+                    ]
+                  },
+                  "zero_to_road_limit": 3.3
                 }
               ]
             },
@@ -4362,11 +4792,12 @@
               "content": [
                 {
                   "props": {
+                    "field": "dynamic_disclaimer",
                     "content_path": "OMS.lexicon.groups_dictionary.configurator.REAR_WHEEL_PARTIAL"
                   },
                   "selected_by": {
                     "and": [
-                      "$MT336"
+                      "$MT337"
                     ]
                   }
                 },
@@ -4379,6 +4810,40 @@
                       "$MT334"
                     ]
                   }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title"
+                },
+                {
+                  "type": "Disclaimer"
+                },
+                {
+                  "type": "DeliveryDate",
+                  "props": {
+                    "classes": "tds--vertical_padding-bottom"
+                  }
+                },
+                {
+                  "type": "Specs",
+                  "props": {
+                    "group": "BATTERY_AND_DRIVE"
+                  }
+                },
+                {
+                  "type": "RootGroup"
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY"
                 }
               ]
             }
@@ -4400,6 +4865,19 @@
             {
               "type": "name",
               "content": "竞速套件"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Options"
+                },
+                {
+                  "type": "RootGroup"
+                }
+              ]
             }
           ]
         },
@@ -4624,7 +5102,53 @@
                       "$MT336"
                     ]
                   },
-                  "delivery_date": "预计交付日期：2至4周",
+                  "delivery_date": "预计交付日期：1至4周",
+                  "delivery_description": "Estimated delivery timelines for custom orders of Model 3 Mid Range 后轮驱动 vary by region."
+                },
+                {
+                  "regions": [
+                    {
+                      "region": "Western US",
+                      "delivery_date": "Late December"
+                    },
+                    {
+                      "region": "Central US",
+                      "delivery_date": "Late December"
+                    },
+                    {
+                      "region": "Eastern US",
+                      "delivery_date": "1 月"
+                    }
+                  ],
+                  "selected_by": {
+                    "and": [
+                      "$MT337"
+                    ]
+                  },
+                  "delivery_date": "预计交付日期：5至7周",
+                  "delivery_description": "Estimated delivery timelines for custom orders of Model 3 Mid Range 后轮驱动 vary by region."
+                },
+                {
+                  "regions": [
+                    {
+                      "region": "Western US",
+                      "delivery_date": "Late December"
+                    },
+                    {
+                      "region": "Central US",
+                      "delivery_date": "Late December"
+                    },
+                    {
+                      "region": "Eastern US",
+                      "delivery_date": "1 月"
+                    }
+                  ],
+                  "selected_by": {
+                    "and": [
+                      "$MT339"
+                    ]
+                  },
+                  "delivery_date": "预计交付日期：4至6周",
                   "delivery_description": "Estimated delivery timelines for custom orders of Model 3 Mid Range 后轮驱动 vary by region."
                 }
               ]
@@ -4753,12 +5277,8 @@
           "name": "federalTax",
           "extra_copy": [
             {
-              "type": "federalTax.title",
-              "content": " "
-            },
-            {
               "type": "federalTax.description",
-              "content": "部分 Model 3 车型享受新能源汽车购置税减免和财政补贴政策，最高节省约4.4万"
+              "content": "部分 Model 3 车型享受新能源汽车购置税减免和财政补贴政策，最高节省约4.0万"
             }
           ]
         },
@@ -4777,7 +5297,23 @@
           "default_options": [
             "$IN3B2"
           ],
-          "name": "Interior"
+          "name": "Interior",
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Options",
+                  "props": {
+                    "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center"
+                  }
+                },
+                {
+                  "type": "SelectedPrice"
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -4825,11 +5361,11 @@
             },
             {
               "type": "selectLabel",
-              "content": "选择配置"
+              "content": "添加此功能"
             },
             {
               "type": "deselectLabel",
-              "content": "已选配置"
+              "content": "已选功能"
             }
           ],
           "extra_content": [
@@ -4900,28 +5436,12 @@
           "long_name": "完全自动驾驶能力",
           "extra_copy": [
             {
-              "type": "price_indicator",
-              "content": "可选"
-            },
-            {
               "type": "feature_list.default[0].items[0]",
-              "content": "自动泊车：平行泊车与垂直泊车。"
+              "content": "基础版辅助驾驶和增强版自动辅助驾驶的全部功能。"
             },
             {
-              "type": "feature_list.default[0].items[1]",
-              "content": "自动辅助变道：在高速公路上自动辅助变换车道。"
-            },
-            {
-              "type": "feature_list.default[0].items[2]",
-              "content": "自动辅助导航驾驶：自动驶入和驶出高速公路匝道或立交桥岔路口，超过行驶缓慢的车辆。"
-            },
-            {
-              "type": "feature_list.default[0].items[3]",
-              "content": "智能召唤：在合适的场景下，停在车位的车辆会响应您的召唤，驶出车位并前往您所在的位置。"
-            },
-            {
-              "type": "feature_list.default[1].main_title",
-              "content": "即将推出:"
+              "type": "feature_list.default[1].title",
+              "content": "稍后推出："
             },
             {
               "type": "feature_list.default[1].items[0]",
@@ -4932,62 +5452,79 @@
               "content": "在城市街道中自动辅助驾驶。"
             },
             {
-              "type": "disclaimer_details",
-              "content": "目前可用的功能需要驾驶员主动进行监控，车辆尚未实现完全自动驾驶。上述功能的激活与使用将需要数十亿英里的行驶里程的论证，以达到远超人类驾驶员的可靠性；同时还有赖于行政审批（某些司法管辖区可能会需要更长的时间）。随着上述自动驾驶功能的进化与完善，您的车辆将通过 OTA 空中软件更新而持续升级。"
-            },
-            {
-              "type": "disclaimer_bold",
-              "content": "配置完全自动驾驶车载电脑"
-            },
-            {
-              "type": "disclaimer[0]",
-              "content": "完全自动驾驶能力可在交付后进行购买，价格可能会随着新功能的推出而升高"
+              "type": "disclaimer",
+              "content": "目前可用的功能需要驾驶员主动进行监控，车辆尚未实现完全自动驾驶。上述功能的激活与使用将需要数十亿英里的行驶里程的论证，以达到远超人类驾驶员的可靠性；同时还有赖于行政审批（某些司法管辖区可能会需要更长的时间）。随着上述自动驾驶功能的进化与完善，您的车辆将通过 OTA 空中软件更新而持续升级。  "
             },
             {
               "type": "selectLabel",
-              "content": "选择配置"
+              "content": "添加此功能"
             },
             {
               "type": "deselectLabel",
-              "content": "已选配置"
+              "content": "已选功能"
             },
             {
-              "type": "view_details_collapsed",
-              "content": "Show Details",
+              "type": "description",
+              "content": "   "
+            },
+            {
+              "type": "fsd_features",
+              "content": "了解更多",
               "behavior": [
                 {
-                  "type": "ACTION",
+                  "type": "CONTAINER",
                   "content": {
-                    "type": "FEATURES_LIST_EXPAND",
+                    "tag": "button",
                     "props": {
-                      "options": [
-                        "$APF2"
-                      ]
+                      "data-should-open": "FSD_FEATURES"
                     },
                     "classNames": [
-                      "tsla-view-more",
-                      "tsla-view-more--collapsed"
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
                     ]
                   }
                 }
               ]
             },
             {
-              "type": "view_details_expanded",
-              "content": "Hide Details",
+              "type": "add_fsd_package",
+              "content": "添加此功能",
               "behavior": [
                 {
                   "type": "ACTION",
                   "content": {
-                    "type": "FEATURES_LIST_COLLAPSE",
-                    "props": {
-                      "options": [
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
                         "$APF2"
                       ]
                     },
-                    "classNames": [
-                      "tsla-view-more",
-                      "tsla-view-more--expanded"
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_fsd_package",
+              "content": "移除此功能",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APF2"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--small"
                     ]
                   }
                 }
@@ -4996,10 +5533,57 @@
           ],
           "extra_content": [
             {
-              "type": "shape",
+              "type": "components",
               "content": [
                 {
-                  "type": "card"
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "add_fsd_package",
+                        "selected_by": {
+                          "not": [
+                            "$APF2"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "remove_fsd_package",
+                        "selected_by": {
+                          "and": [
+                            "$APF2"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "fsd_features",
+                        "props": {
+                          "modal": "FSD_FEATURES"
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -5067,89 +5651,154 @@
               "target": "$APPB"
             }
           ],
-          "name": "增强版 Autopilot 自动辅助驾驶",
-          "description": "<p>Model 3 will match speed to traffic conditions, keep within a lane, automatically change lanes, transition from one freeway to another, exit the freeway and self-park at your destination. This is a driver's assistance feature with the driver responsible for remaining in control of the car at all times.</p> <p>Software has begun rolling out and features will continue to be introduced as validation is completed, subject to regulatory approval.</p>",
-          "long_name": "增强版 Autopilot 自动辅助驾驶",
+          "name": "增强版自动辅助驾驶功能",
+          "description": "增强版自动辅助驾驶功能",
+          "long_name": "增强版自动辅助驾驶功能",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "可选"
+              "content": "Optional"
             },
             {
-              "type": "short_description",
-              "content": "在未来的世界里，只需把目的地告诉 Model 3，即可实现自动导航，无需任何其他操作。"
+              "type": "feature_list.default[0].items[0]",
+              "content": "自动辅助导航驾驶：自动驶入和驶出高速公路匝道或立交桥岔路口，超过行驶缓慢的车辆。"
             },
             {
-              "type": "disclaimer",
-              "content": "售后升级价格 ¥65,000 "
+              "type": "feature_list.default[0].items[1]",
+              "content": "自动辅助变道：在高速公路上自动辅助变换车道。"
             },
             {
-              "type": "description",
-              "content": "启用增强版自动辅助驾驶功能后，您的 Tesla 将能够根据交通状况调整车速；保持在车道内行驶；自动变换车道而无需驾驶员介入；从一条高速公路切换至另一条；在接近目的地时驶出高速；在接近停车场时自动泊车；在车库内听候您的［召唤］。相关功能将通过OTA空中升级逐步推送至车辆。推送的具体功能及具体时间将取决于中华人民共和国相关法律、法规、规章的许可。"
+              "type": "feature_list.default[0].items[2]",
+              "content": "自动泊车：平行泊车与垂直泊车。"
             },
             {
-              "type": "disclaimer_details",
-              "content": "【增强版 Autopilot 自动辅助驾驶】套件包含更多辅助驾驶功能。启用 Autopilot 自动辅助驾驶功能后，驾驶员仍须时刻关注行驶状况并保持警觉，随时准备接管车辆。"
-            },
-            {
-              "type": "disclaimer",
-              "content": "售后升级价格 ¥ 65,000 "
+              "type": "feature_list.default[0].items[3]",
+              "content": "智能召唤：在合适的场景下，停在车位的车辆会响应您的召唤，驶出车位并前往您所在的位置。"
             },
             {
               "type": "selectLabel",
-              "content": "选择配置"
+              "content": "添加此功能"
             },
             {
               "type": "deselectLabel",
-              "content": "已选配置"
-            }
-          ],
-          "extra_content": [
+              "content": "已选功能"
+            },
             {
-              "type": "shape",
-              "content": [
+              "type": "enhanced_autopilot_features",
+              "content": "了解更多",
+              "behavior": [
                 {
-                  "type": "card"
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "EAP_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
                 }
               ]
             },
             {
-              "type": "asset",
+              "type": "add_enhanced_autopilot_package",
+              "content": "添加此功能",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_enhanced_autopilot_package",
+              "content": "移除此功能",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
               "content": [
                 {
-                  "url": "MODEL3/UI/autopilot3.jpg",
-                  "type": "image",
-                  "selected_by": {
-                    "or": [
-                      {
-                        "on": [
-                          "mobile"
-                        ]
-                      }
-                    ]
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
                   }
                 },
                 {
-                  "url": "https://www.tesla.com/ns_videos/models/autonomy/hero-mobile.mp4",
-                  "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/models/autonomy/hero.mp4",
-                  "selected_by": {
-                    "or": [
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
                       {
-                        "on": [
-                          "desktop",
-                          "tablet"
-                        ]
+                        "field": "add_enhanced_autopilot_package",
+                        "selected_by": {
+                          "not": [
+                            "$APPB"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "remove_enhanced_autopilot_package",
+                        "selected_by": {
+                          "and": [
+                            "$APPB"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "enhanced_autopilot_features",
+                        "props": {
+                          "modal": "EAP_FEATURES"
+                        }
                       }
                     ]
-                  },
-                  "video_props": {
-                    "loop": 2,
-                    "muted": true,
-                    "autoPlay": true,
-                    "stopTime": 2,
-                    "fullWidth": true
                   }
                 }
               ]
@@ -5244,7 +5893,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/model3_performance_brake.png",
+                  "url": "MODEL3/UI/ZeroG_Brakes.jpg",
                   "type": "image"
                 }
               ]
@@ -5281,10 +5930,39 @@
               "target": "$CPF1"
             }
           ],
-          "name": "Standard Connectivity",
-          "description": "Standard Connectivity",
-          "long_name": "Standard Connectivity",
-          "extra_copy": [],
+          "name": "标准车载娱乐服务包",
+          "description": "标准车载娱乐服务包",
+          "long_name": "标准车载娱乐服务包",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "包括"
+            },
+            {
+              "type": "long_name",
+              "content": "高级车载娱乐服务包 1 年免费试用",
+              "behavior": [
+                {
+                  "type": "REPLACE_CONTENT",
+                  "content": {
+                    "source": "options.$CPF0.premium_connectivity_trail_sr",
+                    "selected_by": {
+                      "or": [
+                        "$MT314",
+                        "$MT320",
+                        "$MT337"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "premium_connectivity_trail_sr",
+              "content": "高级车载娱乐服务包 30 天免费试用"
+            }
+          ],
+          "extra_content": [],
           "price": 0,
           "pricing": [
             {
@@ -5353,10 +6031,10 @@
               "target": "$CPW1"
             }
           ],
-          "name": "19 英寸动力运动轮毂",
-          "description": "优化的设计提高了轮毂的空气动力学效率和性能，悬架更低，整体操控性更佳",
-          "long_name": "19 英寸动力运动轮毂",
-          "long_description": "19 英寸动力运动轮毂",
+          "name": "19 英寸零重力高性能轮毂",
+          "description": "包含倍耐力 P Zero 性能轮胎，且悬架更低，整体操控性更佳",
+          "long_name": "19 英寸零重力高性能轮毂",
+          "long_description": "包含倍耐力 P Zero 性能轮胎，且悬架更低，整体操控性更佳",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -5377,7 +6055,7 @@
               "content": [
                 {
                   "type": "image-compositor",
-                  "view": "STUD_WHEEL_PERF"
+                  "view": "STUD_RIMCLOSEUP"
                 }
               ]
             },
@@ -5808,7 +6486,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_col_pbsb.png",
+                  "url": "MODEL3/UI/Paint_Black.png",
                   "type": "image"
                 }
               ]
@@ -6042,7 +6720,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_col_pmng.png",
+                  "url": "MODEL3/UI/Paint_MidnightSilver.png",
                   "type": "image"
                 }
               ]
@@ -6190,7 +6868,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_col_ppmr.png",
+                  "url": "MODEL3/UI/Paint_Red.png",
                   "type": "image"
                 }
               ]
@@ -6264,7 +6942,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_col_ppsb.png",
+                  "url": "MODEL3/UI/Paint_Blue.png",
                   "type": "image"
                 }
               ]
@@ -6338,7 +7016,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_col_ppsw.png",
+                  "url": "MODEL3/UI/Paint_White.png",
                   "type": "image"
                 }
               ]
@@ -6617,7 +7295,7 @@
             },
             {
               "type": "selectLabel",
-              "content": "选择配置"
+              "content": "添加"
             },
             {
               "type": "deselectLabel",
@@ -7085,11 +7763,11 @@
             },
             {
               "type": "feature_list.default[0].items[3].sub_items[1]",
-              "content": "通过车载流量播放网络音乐"
+              "content": "通过车载应用播放网络音乐和视频"
             },
             {
               "type": "feature_list.default[0].items[3].sub_items[2]",
-              "content": "通过车载流量播放网络视频"
+              "content": "车载网络游戏"
             },
             {
               "type": "feature_list.default[0].items[3].sub_items[3]",
@@ -7163,7 +7841,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_int_in3pb.png",
+                  "url": "MODEL3/UI/Interior_Black.png",
                   "type": "image"
                 }
               ]
@@ -7347,7 +8025,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_int_in3pb.png",
+                  "url": "MODEL3/UI/Interior_Black.png",
                   "type": "image"
                 }
               ]
@@ -7474,11 +8152,11 @@
             },
             {
               "type": "feature_list.default[0].items[3].sub_items[1]",
-              "content": "通过车载流量播放网络音乐"
+              "content": "通过车载应用播放网络音乐和视频"
             },
             {
               "type": "feature_list.default[0].items[3].sub_items[2]",
-              "content": "通过车载流量播放网络视频"
+              "content": "车载网络游戏"
             },
             {
               "type": "feature_list.default[0].items[3].sub_items[3]",
@@ -7552,7 +8230,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_int_white.png",
+                  "url": "MODEL3/UI/Interior_White.png",
                   "type": "image"
                 }
               ]
@@ -7669,11 +8347,11 @@
             },
             {
               "type": "feature_list.default[0].items[2].sub_items[1]",
-              "content": "通过车载流量播放网络音乐"
+              "content": "通过车载应用播放网络音乐和视频"
             },
             {
               "type": "feature_list.default[0].items[2].sub_items[2]",
-              "content": "通过车载流量播放网络视频"
+              "content": "车载网络游戏"
             },
             {
               "type": "feature_list.default[0].items[2].sub_items[3]",
@@ -7759,7 +8437,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_int_in3pb.png",
+                  "url": "MODEL3/UI/Interior_Black.png",
                   "type": "image"
                 }
               ]
@@ -7880,11 +8558,11 @@
             },
             {
               "type": "feature_list.default[0].items[2].sub_items[1]",
-              "content": "通过车载流量播放网络音乐"
+              "content": "通过车载应用播放网络音乐和视频"
             },
             {
               "type": "feature_list.default[0].items[2].sub_items[2]",
-              "content": "通过车载流量播放网络视频"
+              "content": "车载网络游戏"
             },
             {
               "type": "feature_list.default[0].items[2].sub_items[3]",
@@ -7981,7 +8659,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODEL3/UI/ui_swat_int_white.png",
+                  "url": "MODEL3/UI/Interior_White.png",
                   "type": "image"
                 }
               ]
@@ -9588,7 +10266,7 @@
               "type": "price_indicator_override",
               "content": [
                 {
-                  "content": 270150,
+                  "content": 266100,
                   "configuration": [
                     "$MDL3"
                   ],
@@ -9734,7 +10412,7 @@
               "type": "price_indicator_override",
               "content": [
                 {
-                  "content": 270150,
+                  "content": 266100,
                   "configuration": [
                     "$MDL3"
                   ],
@@ -9906,7 +10584,7 @@
               "type": "price_indicator_override",
               "content": [
                 {
-                  "content": 270150,
+                  "content": 266100,
                   "configuration": [
                     "$MDL3"
                   ],
@@ -9918,11 +10596,10 @@
               "type": "option_price_override",
               "content": [
                 {
-                  "content": 291800,
-                  "postfix": "*",
+                  "content": 266100,
                   "incentive": {
-                    "private": -20250,
-                    "business": -14175
+                    "private": -16200,
+                    "business": -11340
                   },
                   "configuration": [
                     "$MDL3"
@@ -10283,7 +10960,6 @@
               "content": [
                 {
                   "content": 419800,
-                  "postfix": "*",
                   "configuration": [
                     "$MDL3"
                   ],
@@ -10456,7 +11132,7 @@
               "type": "price_indicator_override",
               "content": [
                 {
-                  "content": 269700,
+                  "content": 265740,
                   "configuration": [
                     "$MDL3"
                   ],
@@ -10468,11 +11144,10 @@
               "type": "option_price_override",
               "content": [
                 {
-                  "content": 269700,
-                  "postfix": "*",
+                  "content": 265740,
                   "incentive": {
-                    "private": -19800,
-                    "business": -13860
+                    "private": -15840,
+                    "business": -11088
                   },
                   "configuration": [
                     "$MDL3"
@@ -10846,7 +11521,7 @@
           "extra_copy": [
             {
               "type": "selectLabel",
-              "content": "选择配置"
+              "content": "添加"
             },
             {
               "type": "price_indicator",
@@ -10858,7 +11533,7 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "19 英寸动力运动轮毂"
+              "content": "19 英寸零重力高性能轮毂"
             },
             {
               "type": "feature_list.default[0].items[1]",
@@ -10870,37 +11545,33 @@
             },
             {
               "type": "feature_list.default[0].items[3]",
-              "content": "悬架更低"
-            },
-            {
-              "type": "feature_list.default[0].items[4]",
               "content": "铝合金踏板"
             },
             {
-              "type": "feature_list.default[0].items[5]",
-              "content": "最高时速可达 261 公里每小时"
+              "type": "feature_list.default[0].items[4]",
+              "content": "悬架更低"
             },
             {
-              "type": "feature_list.default[0].items[6]",
-              "content": "赛道模式"
-            },
-            {
-              "type": "feature_list.default[0].main_title",
-              "content": "包含竞速套件"
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "shape",
-              "content": [
+              "type": "performance_upgrade_features",
+              "content": "查看详情",
+              "behavior": [
                 {
-                  "type": "checkbox",
-                  "props": {
-                    "invisible": true
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "PERFORMANCE_UPGRADE_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
                   }
                 }
               ]
-            },
+            }
+          ],
+          "extra_content": [
             {
               "type": "action",
               "content": [
@@ -10917,7 +11588,46 @@
                   "content": 0,
                   "selected_by": {
                     "and": [
-                      "$MT311"
+                      "$MT339"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "feature_description"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "performance_upgrade_features",
+                        "props": {
+                          "modal": "PERFORMANCE_UPGRADE_FEATURES"
+                        }
+                      }
                     ]
                   }
                 }
@@ -11242,9 +11952,29 @@
                     "label": "公里",
                     "short_label": "公里"
                   },
+                  "range_units": {
+                    "label": "续航里程<br />预估",
+                    "short_label": "km"
+                  },
+                  "range_units_epa": {
+                    "label": "续航里程 <br />国标工况法",
+                    "short_label": "续航里程 <br />国标工况法"
+                  },
+                  "range_units_est": {
+                    "label": "续航里程<br />预估",
+                    "short_label": "续航里程<br />预估"
+                  },
+                  "top_speed_units": {
+                    "label": "最高时速",
+                    "short_label": "km/h"
+                  },
+                  "zero_to_road_limit": {
+                    "label": "百公里加速",
+                    "short_label": "百公里加速"
+                  },
                   "kilometers-per-hour": {
-                    "label": "公里/小时",
-                    "short_label": "公里/小时"
+                    "label": "公里/时",
+                    "short_label": "公里/时"
                   }
                 }
               },
@@ -11350,6 +12080,27 @@
                   "range": 635,
                   "topspeed": 261,
                   "acceleration": 3.4
+                },
+                "$MT336": {
+                  "name": "Model 3 标准续航后轮驱动升级版 特斯拉中国",
+                  "range": 468,
+                  "topspeed": 225,
+                  "acceleration": 5.6
+                },
+                "$MT337": {
+                  "name": "Model 3 标准续航后轮驱动升级版 特斯拉中国",
+                  "range": 468,
+                  "topspeed": 225,
+                  "acceleration": 5.6,
+                  "range_units_override": "range_units_epa"
+                },
+                "$MT339": {
+                  "name": "Model 3 Performance 高性能全轮驱动版 特斯拉中国",
+                  "range": 605,
+                  "postfix": "*",
+                  "topspeed": 261,
+                  "acceleration": 3.3,
+                  "range_units_override": "range_units_epa"
                 }
               }
             }
@@ -16498,6 +17249,19 @@
           "content_localized": {}
         },
         {
+          "type": "#$GESA14",
+          "content": {
+            "code": "$GESA14",
+            "content": "",
+            "plan_name": "4-Year Extended SAR Assistance-Tier1-M3",
+            "coverage_age": 48,
+            "new_warranty_remainder": true,
+            "coverage_odometer_miles": 50000,
+            "coverage_odometer_kilometers": 80000
+          },
+          "content_localized": {}
+        },
+        {
           "type": "#$GTP00",
           "content": {
             "code": "$GTP00",
@@ -16516,7 +17280,7 @@
           "content_localized": {}
         }
       ],
-      "copy_id": 892,
+      "copy_id": 1612,
       "language": "zh",
       "warnings": [],
       "pricing_id": 731

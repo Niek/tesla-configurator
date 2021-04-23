@@ -174,7 +174,6 @@
         "isTerritorySelectionEnabled": false,
         "isRegistrationTypeSelectionEnabled": false,
         "isGasSavingsToggleEnabled": false,
-        "showEstimatedDeliveryFooterNote": false,
         "hideEstimatedDeliveryOrderPage": false,
         "bannerModalTrigger": null,
         "pricePostfix": "",
@@ -744,29 +743,6 @@
           {
             "code": "EAP_FEATURES",
             "context": "configurator"
-          },
-          {
-            "code": "SR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT314",
-                "$MT337",
-                "$MT319"
-              ]
-            }
-          },
-          {
-            "code": "LR_INTERIOR_FEATURES_CARD",
-            "context": "configurator",
-            "group_selected_by": {
-              "or": [
-                "$MT315",
-                "$MT317",
-                "$MT339",
-                "$MT316"
-              ]
-            }
           },
           {
             "code": "18_IN_WINTER_WHEEL_FEATURES_CARD",
@@ -1360,7 +1336,8 @@
           "private",
           "business"
         ],
-        "legalConsentValid": true
+        "legalConsentValid": true,
+        "showFinanceModalOnProductChange": false
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -1754,12 +1731,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-04-16T03:40:00.000Z",
+      "effective_date": "2021-04-23T00:30:00.000Z",
       "market": "MO",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing MO 2021.Apr.16 1244.1584.905 [en]",
+      "name": "Marketing MO 2021.Apr.23 1244.1640.905 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -4303,6 +4280,10 @@
             {
               "type": "feature_list.default[1]",
               "content": "Tesla designed Model 3 from the ground-up as an electric vehicle using system-level integration throughout. Each component, including batteries, motors and even exterior aerodynamics are optimized to benefit from one another and create one of the most efficient, yet unbelievably powerful vehicles ever built."
+            },
+            {
+              "type": "feature_list.default[2]",
+              "content": "*With first foot of rollout subtracted."
             }
           ],
           "extra_content": [
@@ -4318,7 +4299,8 @@
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
                         "content_path": {
                           "label": "name",
-                          "value": "formattedSpecs.accelerationFormatted"
+                          "value": "formattedSpecs.accelerationFormatted",
+                          "postfix": "*"
                         }
                       },
                       {
@@ -6150,6 +6132,22 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT315",
+                      "$MT317",
+                      "$MT339",
+                      "$MT316",
+                      "$MT321"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
@@ -6265,6 +6263,20 @@
                   "props": {
                     "field": "feature_list.default",
                     "classes": " tds-text--caption "
+                  }
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT314",
+                      "$MT337",
+                      "$MT319"
+                    ]
                   }
                 }
               ]
@@ -16563,6 +16575,7 @@
                 "$MT317": {
                   "name": "Long Range All-Wheel Drive Performance",
                   "range": 567,
+                  "postfix": "*",
                   "topspeed": 261,
                   "acceleration": 3.3,
                   "range_units_override": "range_units_epa"
@@ -21668,7 +21681,7 @@
           }
         }
       ],
-      "copy_id": 1584,
+      "copy_id": 1640,
       "language": "en",
       "warnings": [],
       "pricing_id": 905,
