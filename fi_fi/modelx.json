@@ -2041,12 +2041,12 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2021-04-23T00:11:25.005Z",
+      "effective_date": "2021-04-23T01:00:00.000Z",
       "market": "FI",
       "product": "mx",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing FI 2021.Apr.23 1181.1523.1243 [fi]",
+      "name": "Marketing FI 2021.Apr.23 1181.1709.1243 [fi]",
       "groups": [
         {
           "code": "MODEL",
@@ -4103,7 +4103,7 @@
             },
             {
               "type": "description",
-              "content": "Uudessa keskinäytössä on kuvatarkkuus 2 200 x 1 300, erittäin kirkkaat värit ja uskomaton herkkyys. Näyttö voidaan kallistaa vasemmalle tai oikealle. Kyseessä on ihanteellinen kosketusnäyttö viihteeseen ja pelaamiseen missä tahansa. Toinen näyttö kuljettajan edessä näyttää erilaisia ajoneuvotietoja, ja kolmas näyttö tarjoaa viihdettä ja hallintalaitteet takamatkustajille."
+              "content": "Uudessa keskinäytössä on 2200x1300 kuvatarkkuus, erittäin kirkkaat värit ja uskomaton herkkyys. Kyseessä on ihanteellinen kosketusnäyttö viihteeseen ja pelaamiseen missä tahansa. Toinen näyttö kuljettajan edessä näyttää erilaisia ajoneuvotietoja, ja kolmas näyttö tarjoaa viihdettä ja ohjaimia takamatkustajille."
             }
           ],
           "extra_content": [
@@ -5164,7 +5164,7 @@
           "code": "COMPARE_MODEL_AND_FEATURE",
           "groups": [
             "RANGE_AND_PERFORMANCE",
-            "INTERIOR_SECTION",
+            "INTERIOR_FEATURES_CARD",
             "SAFETY_FEATURE",
             "PREMIUM_CONNECTIVITY"
           ],
@@ -5215,7 +5215,7 @@
             },
             {
               "type": "feature_list.default[1]",
-              "content": "Plaidin kiihtyvyys mitataan käyttämällä kiihdytyskilpailuista tuttua käytäntöä, jossa ensimmäisen 0,3 metrin matkan ajamiseen kulunut aika jätetään huomiotta. Ilmoitettu Plaid-huippunopeus vaatii oikeanlaiset pyörät ja renkaat, jotka tulevat saataville syksyllä 2021."
+              "content": "*Kiihdytyksen ensimmäisen jalan osuutta ei oteta huomioon."
             }
           ],
           "extra_content": [
@@ -5225,58 +5225,36 @@
                 {
                   "type": "DynamicGrid",
                   "props": {
+                    "group": "TRIM",
                     "content": [
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTX10.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTX10.acceleration"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTX11.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTX11.acceleration"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.accelerationFormatted",
+                          "postfix": "*"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[1]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTX10.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTX10.range"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTX11.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTX11.range"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.rangeFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[2]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTX10.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTX10.topspeed"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTX11.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTX11.topspeed"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.topspeedFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[3]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTX10.name",
-                            "value": "CustomGroups.ALL_WHEEL_DRIVE_ONE.sub_title"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTX11.name",
-                            "value": "CustomGroups.ALL_WHEEL_DRIVE_TWO.sub_title"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "drive_mode"
+                        }
                       }
                     ]
                   }
@@ -7242,7 +7220,9 @@
             },
             {
               "action": "set",
-              "target": "$CPF1"
+              "target": "$CPF0",
+              "condition_code": "$CPF1",
+              "condition_state": "unset"
             }
           ],
           "name": "Standard Connectivity",
@@ -8151,7 +8131,9 @@
             },
             {
               "action": "set",
-              "target": "$ST03"
+              "target": "$ST0Y",
+              "condition_code": "$ST03",
+              "condition_state": "unset"
             }
           ],
           "name": "Yoke ohjauspyörä",
@@ -13494,6 +13476,10 @@
             {
               "type": "long_name",
               "content": "Model X Long Range"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Dual Motor All-Wheel Drive"
             }
           ],
           "extra_content": [
@@ -13723,6 +13709,10 @@
             {
               "type": "feature_list.default[0].items[5]",
               "content": "Vääntömomentin vektorointi"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Tri Motor All-Wheel Drive"
             }
           ],
           "extra_content": [
@@ -14638,6 +14628,7 @@
                   "name": "Model X Plaid",
                   "group": "TRIM",
                   "range": 547,
+                  "postfix": "*",
                   "topspeed": 262,
                   "acceleration": 2.6,
                   "range_units_override": "range_units_est"
@@ -19143,7 +19134,7 @@
           }
         }
       ],
-      "copy_id": 1523,
+      "copy_id": 1709,
       "language": "fi",
       "warnings": [],
       "pricing_id": 1243,

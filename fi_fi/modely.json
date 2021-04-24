@@ -1612,12 +1612,12 @@
       "loan": []
     },
     "Lexicon.my": {
-      "effective_date": "2021-04-02T05:05:00.000Z",
+      "effective_date": "2021-04-23T01:00:00.000Z",
       "market": "FI",
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing FI 2021.Apr.02 1190.1531.1025 [fi]",
+      "name": "Marketing FI 2021.Apr.23 1190.1720.1025 [fi]",
       "groups": [
         {
           "code": "MODEL",
@@ -5144,6 +5144,10 @@
             {
               "type": "feature_list.default[0]",
               "content": "Tesla suunnitteli Model Y -auton alusta asti sähköajoneuvoksi hyödyntämällä kokonaisvaltaista järjestelmätason integraatiota. Jokainen komponentti, mukaan lukien akut, moottorit ja jopa ulkoinen aerodynamiikka, on suunniteltu hyödyntämään toisiaan, minkä ansiosta saatiin luotua yksi taloudellisimmista ja samalla tehokkaimmasta autoista maailmassa."
+            },
+            {
+              "type": "feature_list.default[1]",
+              "content": "*Kiihdytyksen ensimmäisen jalan osuutta ei oteta huomioon."
             }
           ],
           "extra_content": [
@@ -5153,58 +5157,36 @@
                 {
                   "type": "DynamicGrid",
                   "props": {
+                    "group": "TRIM",
                     "content": [
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTY03.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTY03.acceleration"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTY05.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTY05.acceleration"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.accelerationFormatted",
+                          "postfix": "*"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[1]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTY03.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTY03.range"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTY05.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTY05.range"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.rangeFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[2]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTY03.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTY03.topspeed"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTY05.name",
-                            "value": "CustomGroups.battery_group_specs.options.$MTY05.topspeed"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "formattedSpecs.topspeedFormatted"
+                        }
                       },
                       {
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[3]",
-                        "content_path": [
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTY03.name",
-                            "value": "CustomGroups.battery_group_specs.options.$DV4W.name"
-                          },
-                          {
-                            "label": "CustomGroups.battery_group_specs.options.$MTY05.name",
-                            "value": "CustomGroups.battery_group_specs.options.$DV4W.name"
-                          }
-                        ]
+                        "content_path": {
+                          "label": "name",
+                          "value": "drive_mode"
+                        }
                       }
                     ]
                   }
@@ -5458,7 +5440,7 @@
             },
             {
               "type": "feature_list.default[1].items[0]",
-              "content": "12 suuntaan sähköisesti säädettävät etu- ja takaistuimet"
+              "content": "12 suuntaan sähköisesti säädettävät etu- ja takaistuimet lämmityksellä"
             },
             {
               "type": "feature_list.default[1].items[1]",
@@ -7514,7 +7496,7 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "12 suuntaan sähköisesti säädettävät etu- ja takaistuimet"
+              "content": "12 suuntaan sähköisesti säädettävät etu- ja takaistuimet lämmityksellä"
             },
             {
               "type": "feature_list.default[0].items[1]",
@@ -7732,7 +7714,7 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "12 suuntaan sähköisesti säädettävät etu- ja takaistuimet"
+              "content": "12 suuntaan sähköisesti säädettävät etu- ja takaistuimet lämmityksellä"
             },
             {
               "type": "feature_list.default[0].items[1]",
@@ -7944,6 +7926,10 @@
             {
               "type": "long_name",
               "content": "Model Y Long Range Dual Motor All-Wheel Drive"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Dual Motor All-Wheel Drive"
             }
           ],
           "extra_content": [
@@ -8298,6 +8284,10 @@
             {
               "type": "long_name",
               "content": "Model Y Performance Dual Motor All-Wheel Drive"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Dual Motor All-Wheel Drive"
             }
           ],
           "extra_content": [
@@ -9310,6 +9300,7 @@
                 "$MTY05": {
                   "name": "Long Range All-Wheel Drive Performance",
                   "range": 480,
+                  "postfix": "*",
                   "topspeed": 241,
                   "overrides": [
                     {
@@ -10006,7 +9997,7 @@
           }
         }
       ],
-      "copy_id": 1531,
+      "copy_id": 1720,
       "language": "fi",
       "warnings": [],
       "pricing_id": 1025,
