@@ -1799,13 +1799,13 @@
       "loan": []
     },
     "Lexicon.m3": {
-      "id": 1302,
-      "effective_date": "2021-04-23T20:26:09.444Z",
+      "id": 1310,
+      "effective_date": "2021-04-30T01:00:00.000Z",
       "market": "AE",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing AE 2021.Apr.23 1302.1440.1190",
+      "name": "Marketing AE 2021.Apr.30 1310.1739.1190",
       "groups": [
         {
           "code": "MODEL",
@@ -2071,7 +2071,6 @@
           ],
           "required": true,
           "exclusive": true,
-          "discountable": true,
           "default_options": [
             "$IBB0"
           ],
@@ -3197,10 +3196,12 @@
           "options": [
             "$PRM30",
             "$PRM31",
-            "$IBB0",
-            "$IBW0",
             "$IPB0",
-            "$IPW0"
+            "$IPW0",
+            "$IBB1",
+            "$IBW1",
+            "$IPB1",
+            "$IPW1"
           ],
           "required": false,
           "exclusive": false,
@@ -4023,15 +4024,17 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$IBB0",
-            "$IBW0",
+            "$IBB1",
+            "$IBW1",
             "$IPB0",
-            "$IPW0"
+            "$IPW0",
+            "$IPB1",
+            "$IPW1"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$IBB0"
+            "$IBB1"
           ],
           "name": "Interior"
         }
@@ -5115,6 +5118,18 @@
                 "target": "$PRM30",
                 "condition_code": "$PRM3S",
                 "condition_state": "unset"
+              },
+              {
+                "action": "set",
+                "target": "$IPB0",
+                "condition_code": "$MT315",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IPB1",
+                "condition_code": "$MT317",
+                "condition_state": "set"
               }
             ]
           },
@@ -5145,6 +5160,18 @@
               "target": "$PRM30",
               "condition_code": "$PRM3S",
               "condition_state": "unset"
+            },
+            {
+              "action": "set",
+              "target": "$IPB0",
+              "condition_code": "$MT315",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IPB1",
+              "condition_code": "$MT317",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -5194,7 +5221,7 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "12-way power adjustable heated front seats"
+              "content": "Power adjustable heated front seats"
             },
             {
               "type": "feature_list.default[0].items[1]",
@@ -5254,7 +5281,7 @@
                     "type": "FEATURES_LIST_EXPAND",
                     "props": {
                       "options": [
-                        "$IBB0"
+                        "$IBB1"
                       ]
                     },
                     "classNames": [
@@ -5275,7 +5302,7 @@
                     "type": "FEATURES_LIST_COLLAPSE",
                     "props": {
                       "options": [
-                        "$IBB0"
+                        "$IBB1"
                       ]
                     },
                     "classNames": [
@@ -5582,6 +5609,18 @@
                 "target": "$PRM30",
                 "condition_code": "$PRM3S",
                 "condition_state": "unset"
+              },
+              {
+                "action": "set",
+                "target": "$IPW0",
+                "condition_code": "$MT315",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IPW1",
+                "condition_code": "$MT317",
+                "condition_state": "set"
               }
             ],
             "unset_rules": []
@@ -5613,6 +5652,18 @@
               "target": "$PRM30",
               "condition_code": "$PRM3S",
               "condition_state": "unset"
+            },
+            {
+              "action": "set",
+              "target": "$IPW0",
+              "condition_code": "$MT315",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IPW1",
+              "condition_code": "$MT317",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -5662,7 +5713,7 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "12-way power adjustable heated front seats"
+              "content": "Power adjustable heated front seats"
             },
             {
               "type": "feature_list.default[0].items[1]",
@@ -5722,7 +5773,7 @@
                     "type": "FEATURES_LIST_EXPAND",
                     "props": {
                       "options": [
-                        "$IBW0"
+                        "$IBW1"
                       ]
                     },
                     "classNames": [
@@ -5743,7 +5794,7 @@
                     "type": "FEATURES_LIST_COLLAPSE",
                     "props": {
                       "options": [
-                        "$IBW0"
+                        "$IBW1"
                       ]
                     },
                     "classNames": [
@@ -5881,10 +5932,14 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "12-way power adjustable front and rear heated seats"
+              "content": "Power adjustable front seats"
             },
             {
               "type": "feature_list.default[0].items[1]",
+              "content": "Heated front and rear seats"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
               "content": "Premium audio – 14 speakers, 1 subwoofer, 2 amps, and immersive sound"
             },
             {
@@ -6005,9 +6060,10 @@
               "content": [
                 {
                   "configuration": [
-                    "$PRM31"
+                    "$MT314",
+                    "$MT317"
                   ],
-                  "condition_state": "not"
+                  "condition_state": "and"
                 }
               ]
             }
@@ -6104,10 +6160,14 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "12-way power adjustable front and rear heated seats"
+              "content": "Power adjustable front seats"
             },
             {
               "type": "feature_list.default[0].items[1]",
+              "content": "Heated front and rear seats"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
               "content": "Premium audio – 14 speakers, 1 subwoofer, 2 amps, and immersive sound"
             },
             {
@@ -6168,7 +6228,7 @@
                     "type": "FEATURES_LIST_EXPAND",
                     "props": {
                       "options": [
-                        "$IPB0"
+                        "$IPB1"
                       ]
                     },
                     "classNames": [
@@ -6189,7 +6249,7 @@
                     "type": "FEATURES_LIST_COLLAPSE",
                     "props": {
                       "options": [
-                        "$IPB0"
+                        "$IPB1"
                       ]
                     },
                     "classNames": [
@@ -6228,9 +6288,10 @@
               "content": [
                 {
                   "configuration": [
-                    "$PRM31"
+                    "$MT315",
+                    "$MT314"
                   ],
-                  "condition_state": "not"
+                  "condition_state": "and"
                 }
               ]
             }
@@ -6349,10 +6410,14 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "12-way power adjustable front and rear heated seats"
+              "content": "Power adjustable front seats"
             },
             {
               "type": "feature_list.default[0].items[1]",
+              "content": "Heated front and rear seats"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
               "content": "Premium audio – 14 speakers, 1 subwoofer, 2 amps, and immersive sound"
             },
             {
@@ -6481,9 +6546,10 @@
               "content": [
                 {
                   "configuration": [
-                    "$PRM31"
+                    "$MT314",
+                    "$MT317"
                   ],
-                  "condition_state": "not"
+                  "condition_state": "and"
                 }
               ]
             }
@@ -6602,10 +6668,14 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "12-way power adjustable front and rear heated seats"
+              "content": "Power adjustable front seats"
             },
             {
               "type": "feature_list.default[0].items[1]",
+              "content": "Heated front and rear seats"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
               "content": "Premium audio – 14 speakers, 1 subwoofer, 2 amps, and immersive sound"
             },
             {
@@ -6666,7 +6736,7 @@
                     "type": "FEATURES_LIST_EXPAND",
                     "props": {
                       "options": [
-                        "$IPW0"
+                        "$IPW1"
                       ]
                     },
                     "classNames": [
@@ -6687,7 +6757,7 @@
                     "type": "FEATURES_LIST_COLLAPSE",
                     "props": {
                       "options": [
-                        "$IPW0"
+                        "$IPW1"
                       ]
                     },
                     "classNames": [
@@ -6734,9 +6804,10 @@
               "content": [
                 {
                   "configuration": [
-                    "$PRM31"
+                    "$MT315",
+                    "$MT314"
                   ],
-                  "condition_state": "not"
+                  "condition_state": "and"
                 }
               ]
             }
@@ -11306,21 +11377,27 @@
               },
               {
                 "action": "set",
-                "target": "$IBW0",
+                "target": "$IBW1",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$IN3PW",
-                  "$IN3BW"
+                  "$IN3BW",
+                  "$IBW0",
+                  "$IPW0",
+                  "$IPW1"
                 ]
               },
               {
                 "action": "set",
-                "target": "$IBB0",
+                "target": "$IBB1",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$IN3PB",
                   "$IN3B2",
-                  "$IN3BB"
+                  "$IN3BB",
+                  "$IBB0",
+                  "$IPB0",
+                  "$IPB1"
                 ]
               },
               {
@@ -11379,21 +11456,27 @@
             },
             {
               "action": "set",
-              "target": "$IBW0",
+              "target": "$IBW1",
               "condition_state": "set",
               "condition_any_code": [
                 "$IN3PW",
-                "$IN3BW"
+                "$IN3BW",
+                "$IBW0",
+                "$IPW0",
+                "$IPW1"
               ]
             },
             {
               "action": "set",
-              "target": "$IBB0",
+              "target": "$IBB1",
               "condition_state": "set",
               "condition_any_code": [
                 "$IN3PB",
                 "$IN3B2",
-                "$IN3BB"
+                "$IN3BB",
+                "$IBB0",
+                "$IPB0",
+                "$IPB1"
               ]
             },
             {
@@ -11556,7 +11639,11 @@
                 "condition_state": "set",
                 "condition_any_code": [
                   "$IN3PW",
-                  "$IN3BW"
+                  "$IN3BW",
+                  "$IBB0",
+                  "$IBW0",
+                  "$IBW1",
+                  "$IPW1"
                 ]
               },
               {
@@ -11566,7 +11653,10 @@
                 "condition_any_code": [
                   "$IN3PB",
                   "$IN3B2",
-                  "$IN3BB"
+                  "$IN3BB",
+                  "$IBB0",
+                  "$IBB1",
+                  "$IPB1"
                 ]
               },
               {
@@ -11634,7 +11724,11 @@
               "condition_state": "set",
               "condition_any_code": [
                 "$IN3PW",
-                "$IN3BW"
+                "$IN3BW",
+                "$IBB0",
+                "$IBW0",
+                "$IBW1",
+                "$IPW1"
               ]
             },
             {
@@ -11644,7 +11738,10 @@
               "condition_any_code": [
                 "$IN3PB",
                 "$IN3B2",
-                "$IN3BB"
+                "$IN3BB",
+                "$IBB0",
+                "$IBB1",
+                "$IPB1"
               ]
             },
             {
@@ -12011,21 +12108,27 @@
               },
               {
                 "action": "set",
-                "target": "$IPW0",
+                "target": "$IPW1",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$IN3PW",
-                  "$IN3BW"
+                  "$IN3BW",
+                  "$IBW0",
+                  "$IBW1",
+                  "$IPW0"
                 ]
               },
               {
                 "action": "set",
-                "target": "$IPB0",
+                "target": "$IPB1",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$IN3PB",
                   "$IN3B2",
-                  "$IN3BB"
+                  "$IN3BB",
+                  "$IBB0",
+                  "$IBB1",
+                  "$IPB0"
                 ]
               },
               {
@@ -12093,21 +12196,27 @@
             },
             {
               "action": "set",
-              "target": "$IPW0",
+              "target": "$IPW1",
               "condition_state": "set",
               "condition_any_code": [
                 "$IN3PW",
-                "$IN3BW"
+                "$IN3BW",
+                "$IBW0",
+                "$IBW1",
+                "$IPW0"
               ]
             },
             {
               "action": "set",
-              "target": "$IPB0",
+              "target": "$IPB1",
               "condition_state": "set",
               "condition_any_code": [
                 "$IN3PB",
                 "$IN3B2",
-                "$IN3BB"
+                "$IN3BB",
+                "$IBB0",
+                "$IBB1",
+                "$IPB0"
               ]
             },
             {
@@ -14525,6 +14634,78 @@
             },
             "comments": "New SR+ with BT41",
             "effective_date": "2021-01-05"
+          },
+          {
+            "options": {
+              "$IBB0": {
+                "set_rules": [
+                  {
+                    "action": "unset",
+                    "target": "$IBB0"
+                  },
+                  {
+                    "action": "set",
+                    "target": "$IBB1"
+                  }
+                ]
+              }
+            },
+            "comments": "New Interior Bundle Configurator launch 4/29/21"
+          },
+          {
+            "options": {
+              "$IBW0": {
+                "set_rules": [
+                  {
+                    "action": "unset",
+                    "target": "$IBW0"
+                  },
+                  {
+                    "action": "set",
+                    "target": "$IBW1"
+                  }
+                ]
+              }
+            },
+            "comments": "New Interior Bundle Configurator launch 4/29/21"
+          },
+          {
+            "options": {
+              "$IPB0": {
+                "set_rules": [
+                  {
+                    "action": "unset",
+                    "target": "$IPB0"
+                  },
+                  {
+                    "action": "set",
+                    "target": "$IPB1",
+                    "condition_code": "$MT317",
+                    "condition_state": "set"
+                  }
+                ]
+              }
+            },
+            "comments": "New Interior Bundle Configurator launch 4/29/21"
+          },
+          {
+            "options": {
+              "$IPW0": {
+                "set_rules": [
+                  {
+                    "action": "unset",
+                    "target": "$IPW0"
+                  },
+                  {
+                    "action": "set",
+                    "target": "$IPW1",
+                    "condition_code": "$MT317",
+                    "condition_state": "set"
+                  }
+                ]
+              }
+            },
+            "comments": "New Interior Bundle Configurator launch 4/29/21"
           }
         ],
         "warranty_rules": [
@@ -19044,7 +19225,7 @@
         }
       },
       "base_configuration": [
-        "$IBB0",
+        "$IBB1",
         "$W40B",
         "$DV2W",
         "$MDL3",
@@ -19055,7 +19236,7 @@
         "$APBS",
         "$SC04"
       ],
-      "options_id": 1302,
+      "options_id": 1310,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -19995,7 +20176,7 @@
           "content_localized": {}
         }
       ],
-      "copy_id": 1440,
+      "copy_id": 1739,
       "language": "en",
       "warnings": [],
       "pricing_id": 1190
