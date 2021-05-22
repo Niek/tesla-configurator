@@ -889,6 +889,8 @@
         "disclaimerSectionAboveOrderButton": "ORDER_DISCLAIMER_SECTION",
         "showRateInFooter": false,
         "showProvincialIncentives": false,
+        "showDriveAwayPricewithIncentives": false,
+        "showNetMonthlyPayment": false,
         "hideTaxesAndFeesExcluded": true
       },
       "FindMyTesla": {
@@ -1306,10 +1308,14 @@
         "legalConsentValid": true,
         "showFinanceModalOnProductChange": false,
         "showExtraDepositAmountInDefaultPricingContext": false,
+        "rangeStandard": "WLTP",
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
           "Vat"
+        ],
+        "extraIncentives": [
+          "winterTireFee"
         ]
       },
       "PrintPdf": {
@@ -1430,6 +1436,7 @@
           "description": "Programa MOVES II",
           "incentiveType": "government",
           "financeType": "any",
+          "customerType": "business",
           "period": "includedInPurchasePrice",
           "amount": 0,
           "toggle_amount": {
@@ -1452,6 +1459,33 @@
           ],
           "inventory": [
             "new"
+          ],
+          "market": "ES"
+        },
+        {
+          "description": "Programa MOVES III",
+          "incentiveType": "government",
+          "financeType": "any",
+          "customerType": "private",
+          "period": "includedInPurchasePrice",
+          "amount": 0,
+          "toggle_amount": {
+            "if": {
+              "car_price": {
+                "conditions": {
+                  "vehiclePrice": {
+                    "<=": 53470
+                  }
+                },
+                "amount": 1210
+              }
+            }
+          },
+          "variant": [
+            "mx",
+            "ms",
+            "m3",
+            "my"
           ],
           "market": "ES"
         },
@@ -1612,6 +1646,55 @@
             "new"
           ],
           "amount": 980,
+          "market": "ES"
+        },
+        {
+          "feeType": "winter_tire_fee",
+          "financeType": "any",
+          "description": "Tire fee",
+          "period": "once",
+          "variant": [
+            "m3",
+            "my",
+            "ms",
+            "mx"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "amount": 5.76,
+          "configuration": {
+            "or": [
+              "$W3WN8",
+              "$W3WN9",
+              "$W3WN2",
+              "$W3SN8",
+              "$W3SN9",
+              "$W3WE8",
+              "$W3WE9",
+              "$W3WE2",
+              "$WW01",
+              "$WW02",
+              "$WW03",
+              "$WW04",
+              "$WW05",
+              "$WW06",
+              "$WW07",
+              "$WW08",
+              "$WW09",
+              "$WW10",
+              "$WW11",
+              "$WW12",
+              "$WW13",
+              "$WW14",
+              "$WW15",
+              "$WW16",
+              "$WW17",
+              "$WW18",
+              "$WW19"
+            ]
+          },
+          "taxable": true,
           "market": "ES"
         },
         {
@@ -1948,7 +2031,7 @@
             },
             {
               "type": "feature_list.default[1].main_title",
-              "content": "Equipamiento y confort"
+              "content": "Conveniencia"
             },
             {
               "type": "feature_list.default[1].items[0]&&feature_list.summary[0].items[0]",
@@ -6225,7 +6308,7 @@
             },
             {
               "type": "feature_list.default[2].main_title",
-              "content": "Equipamiento y confort"
+              "content": "Conveniencia"
             },
             {
               "type": "feature_list.default[2].items[0]",
@@ -6363,7 +6446,7 @@
             },
             {
               "type": "feature_list.default[2].main_title",
-              "content": "Equipamiento y confort"
+              "content": "Conveniencia"
             },
             {
               "type": "feature_list.default[2].items[0]",

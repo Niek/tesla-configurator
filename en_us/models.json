@@ -307,6 +307,7 @@
             "size": 1920,
             "url": "",
             "relevant_groups": [
+              "TRIM",
               "PAINT",
               "INTERIOR_COLORWAY",
               "STEERING_WHEEL"
@@ -797,7 +798,9 @@
         "showAsterixAtPriceEnd": false,
         "disclaimerSectionAboveOrderButton": "ORDER_DISCLAIMER_SECTION",
         "showRateInFooter": false,
-        "showProvincialIncentives": false
+        "showProvincialIncentives": false,
+        "showDriveAwayPricewithIncentives": false,
+        "showNetMonthlyPayment": false
       },
       "FindMyTesla": {
         "selected_view": "exterior",
@@ -1215,7 +1218,8 @@
         ],
         "legalConsentValid": true,
         "showFinanceModalOnProductChange": false,
-        "showExtraDepositAmountInDefaultPricingContext": false
+        "showExtraDepositAmountInDefaultPricingContext": false,
+        "rangeStandard": "EPA"
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -1962,8 +1966,8 @@
       ]
     },
     "Lexicon.ms": {
-      "id": 1075,
-      "effective_date": "2021-05-07T00:00:00.000Z",
+      "id": 1346,
+      "effective_date": "2021-05-21T05:15:00.000Z",
       "market": "US",
       "product": "ms",
       "factory": "GF00",
@@ -1985,7 +1989,7 @@
           }
         }
       },
-      "name": "Marketing US 2021.May.07 1075.1800.1054",
+      "name": "Marketing US 2021.May.21 1346.1847.1054",
       "groups": [
         {
           "code": "MODEL",
@@ -3195,7 +3199,41 @@
                 {
                   "type": "Options",
                   "props": {
-                    "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center"
+                    "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--center tds-flex--justify-center cfg-fixed-height-swatch"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "add_carbon_int",
+                        "optionCodes": [
+                          "$IBC00",
+                          "$IWC00",
+                          "$ICC00"
+                        ],
+                        "selected_by": {
+                          "and": [
+                            "$MTS11"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "add_wood_int",
+                        "optionCodes": [
+                          "$IBE00",
+                          "$IWW00",
+                          "$ICW00"
+                        ],
+                        "selected_by": {
+                          "and": [
+                            "$MTS11"
+                          ]
+                        }
+                      }
+                    ],
+                    "selectedOption": true
                   }
                 },
                 {
@@ -3562,42 +3600,42 @@
                     {
                       "region": "california",
                       "region_name": "california",
-                      "delivery_date": "August-September"
+                      "delivery_date": "June"
                     },
                     {
                       "region": "central",
                       "region_name": "central",
-                      "delivery_date": "August-September"
+                      "delivery_date": "June"
                     },
                     {
                       "region": "eastern",
                       "region_name": "eastern",
-                      "delivery_date": "August-September"
+                      "delivery_date": "June"
                     },
                     {
                       "region": "nonContinental",
                       "region_name": "nonContinental",
-                      "delivery_date": "August-September"
+                      "delivery_date": "June"
                     },
                     {
                       "region": "other",
                       "region_name": "other",
-                      "delivery_date": "August-September"
+                      "delivery_date": "June"
                     },
                     {
                       "region": "texas",
                       "region_name": "texas",
-                      "delivery_date": "August-September"
+                      "delivery_date": "June"
                     },
                     {
                       "region": "western",
                       "region_name": "western",
-                      "delivery_date": "August-September"
+                      "delivery_date": "June"
                     },
                     {
                       "region": "mountainWest",
                       "region_name": "mountainWest",
-                      "delivery_date": "August-September"
+                      "delivery_date": "June"
                     }
                   ],
                   "selected_by": {
@@ -3605,9 +3643,9 @@
                       "$MTS11"
                     ]
                   },
-                  "delivery_date": "Est. Delivery: August-September",
+                  "delivery_date": "Est. Delivery: June",
                   "delivery_date_name": "Est. Delivery ",
-                  "delivery_description": "August-September"
+                  "delivery_description": "June"
                 }
               ]
             }
@@ -3846,6 +3884,10 @@
               "content": "Tri Motor All-Wheel Drive"
             },
             {
+              "type": "disclaimer",
+              "content": "Plaid+ available in mid-2022"
+            },
+            {
               "type": "dynamic_disclaimer",
               "content": "Beginning late 2021"
             },
@@ -3920,6 +3962,13 @@
                 },
                 {
                   "type": "Options"
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "tds-text--center tds-text--caption tds--vertical_padding-bottom"
+                  }
                 },
                 {
                   "type": "GroupDescription",
@@ -6418,7 +6467,9 @@
             },
             {
               "action": "set",
-              "target": "$CPF1"
+              "target": "$CPF0",
+              "condition_code": "$CPF1",
+              "condition_state": "unset"
             }
           ],
           "name": "Standard Connectivity",
@@ -7312,15 +7363,6 @@
             {
               "action": "unset",
               "target": "$SC04"
-            },
-            {
-              "action": "set",
-              "target": "$SC04",
-              "condition_state": "unset",
-              "condition_all_codes": [
-                "$SC05",
-                "$SC06"
-              ]
             }
           ],
           "name": "Pay-as-you-go Supercharging",
@@ -7354,12 +7396,6 @@
             {
               "action": "unset",
               "target": "$SC05"
-            },
-            {
-              "action": "set",
-              "target": "$SC04",
-              "condition_code": "$SC06",
-              "condition_state": "unset"
             }
           ],
           "name": "Free Unlimited Supercharging",
@@ -7399,12 +7435,6 @@
             {
               "action": "unset",
               "target": "$SC06"
-            },
-            {
-              "action": "set",
-              "target": "$SC04",
-              "condition_code": "$SC05",
-              "condition_state": "unset"
             }
           ],
           "name": "Time-bound Supercharging",
@@ -7501,7 +7531,9 @@
             },
             {
               "action": "set",
-              "target": "$ST03"
+              "target": "$ST0Y",
+              "condition_code": "$ST03",
+              "condition_state": "unset"
             }
           ],
           "name": "Yoke Steering",
@@ -8963,6 +8995,50 @@
             {
               "type": "recommended",
               "content": "Carbon Fiber Décor"
+            },
+            {
+              "type": "add_wood_int",
+              "content": "Wood",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$IBE00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "add_carbon_int",
+              "content": "Carbon Fiber",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$IBC00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -8989,7 +9065,10 @@
                 {
                   "selected_by": {
                     "or": [
-                      "$MTS10"
+                      "$MTS10",
+                      "$IBE00",
+                      "$IWW00",
+                      "$ICW00"
                     ]
                   }
                 }
@@ -9012,11 +9091,8 @@
               {
                 "action": "set",
                 "target": "$IBC00",
-                "condition_state": "set",
-                "condition_any_code": [
-                  "$MTS09",
-                  "$MTS11"
-                ]
+                "condition_code": "$MTS09",
+                "condition_state": "set"
               }
             ]
           },
@@ -9038,11 +9114,8 @@
             {
               "action": "set",
               "target": "$IBC00",
-              "condition_state": "set",
-              "condition_any_code": [
-                "$MTS09",
-                "$MTS11"
-              ]
+              "condition_code": "$MTS09",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -9078,6 +9151,50 @@
             {
               "type": "recommended",
               "content": "Ebony Décor"
+            },
+            {
+              "type": "add_wood_int",
+              "content": "Wood",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$IBE00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "add_carbon_int",
+              "content": "Carbon Fiber",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$IBC00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -9105,7 +9222,9 @@
                   "selected_by": {
                     "or": [
                       "$MTS09",
-                      "$MTS11"
+                      "$IBC00",
+                      "$IWC00",
+                      "$ICC00"
                     ]
                   }
                 }
@@ -9187,6 +9306,50 @@
             {
               "type": "recommended",
               "content": "Carbon Fiber Décor"
+            },
+            {
+              "type": "add_wood_int",
+              "content": "Wood",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$ICW00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "add_carbon_int",
+              "content": "Carbon Fiber",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$ICC00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -9213,7 +9376,10 @@
                 {
                   "selected_by": {
                     "or": [
-                      "$MTS10"
+                      "$MTS10",
+                      "$IBE00",
+                      "$IWW00",
+                      "$ICW00"
                     ]
                   }
                 }
@@ -9236,11 +9402,8 @@
               {
                 "action": "set",
                 "target": "$ICC00",
-                "condition_state": "set",
-                "condition_any_code": [
-                  "$MTS09",
-                  "$MTS11"
-                ]
+                "condition_code": "$MTS09",
+                "condition_state": "set"
               }
             ]
           },
@@ -9262,11 +9425,8 @@
             {
               "action": "set",
               "target": "$ICC00",
-              "condition_state": "set",
-              "condition_any_code": [
-                "$MTS09",
-                "$MTS11"
-              ]
+              "condition_code": "$MTS09",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -9301,6 +9461,50 @@
             {
               "type": "recommended",
               "content": "Walnut Décor"
+            },
+            {
+              "type": "add_wood_int",
+              "content": "Wood",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$ICW00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "add_carbon_int",
+              "content": "Carbon Fiber",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$ICC00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -9328,7 +9532,9 @@
                   "selected_by": {
                     "or": [
                       "$MTS09",
-                      "$MTS11"
+                      "$IBC00",
+                      "$IWC00",
+                      "$ICC00"
                     ]
                   }
                 }
@@ -11642,6 +11848,50 @@
             {
               "type": "recommended",
               "content": "Carbon Fiber Décor"
+            },
+            {
+              "type": "add_wood_int",
+              "content": "Wood",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$IWW00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "add_carbon_int",
+              "content": "Carbon Fiber",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$IWC00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -11668,7 +11918,10 @@
                 {
                   "selected_by": {
                     "or": [
-                      "$MTS10"
+                      "$MTS10",
+                      "$IBE00",
+                      "$IWW00",
+                      "$ICW00"
                     ]
                   }
                 }
@@ -11691,11 +11944,8 @@
               {
                 "action": "set",
                 "target": "$IWC00",
-                "condition_state": "set",
-                "condition_any_code": [
-                  "$MTS09",
-                  "$MTS11"
-                ]
+                "condition_code": "$MTS09",
+                "condition_state": "set"
               }
             ]
           },
@@ -11717,11 +11967,8 @@
             {
               "action": "set",
               "target": "$IWC00",
-              "condition_state": "set",
-              "condition_any_code": [
-                "$MTS09",
-                "$MTS11"
-              ]
+              "condition_code": "$MTS09",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -11756,6 +12003,50 @@
             {
               "type": "recommended",
               "content": "Walnut Décor"
+            },
+            {
+              "type": "add_wood_int",
+              "content": "Wood",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$IWW00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "add_carbon_int",
+              "content": "Carbon Fiber",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$IWC00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -11783,7 +12074,9 @@
                   "selected_by": {
                     "or": [
                       "$MTS09",
-                      "$MTS11"
+                      "$IBC00",
+                      "$IWC00",
+                      "$ICC00"
                     ]
                   }
                 }
@@ -13400,6 +13693,18 @@
                     "$MDLS"
                   ],
                   "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "disable_override",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$MDLS"
+                  ],
                   "condition_state": "and"
                 }
               ]
@@ -21286,7 +21591,7 @@
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 1075,
+      "options_id": 1346,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -22338,7 +22643,7 @@
           "content_localized": {}
         }
       ],
-      "copy_id": 1800,
+      "copy_id": 1847,
       "language": "en",
       "warnings": [
         {
