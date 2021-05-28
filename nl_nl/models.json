@@ -578,6 +578,10 @@
             "context": "configurator"
           },
           {
+            "code": "AUTOPILOT_CONVIENCE_FEATURE",
+            "context": "configurator"
+          },
+          {
             "code": "COLOR_AND_WHEELS",
             "context": "configurator"
           },
@@ -682,6 +686,10 @@
             "context": "configurator"
           },
           {
+            "code": "BASIC_AP_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "EXTERIOR_GALLERY",
             "context": "configurator"
           },
@@ -733,7 +741,10 @@
           }
         ],
         "hideDynamicIncentive": true,
-        "showMonthlyPaymentExVAT": true,
+        "showMonthlyPaymentExVAT": [
+          "lease.operational_lease_commercial",
+          "lease.lease"
+        ],
         "hideAfterSavingsPrice": true,
         "hideAfterSavingsModal": false,
         "showSavingsAmount": [],
@@ -866,7 +877,9 @@
         "extraDisclaimers": [],
         "disclaimerDateFormat": "",
         "showIncentivesDisclaimers": true,
-        "extraLeaseDescriptions": [],
+        "extraLeaseDescriptions": [
+          "includeServiceFee"
+        ],
         "extraLoanDescriptions": [],
         "useResidualAmount": false,
         "isResidualAmountEditable": true,
@@ -1016,7 +1029,9 @@
           "residualAmountExVAT",
           "vatExcluded"
         ],
-        "showLeaseSummaryDisclaimer": false,
+        "showLeaseSummaryDisclaimer": [
+          "lease.operational_lease"
+        ],
         "showSecondDepositDisclaimer": {
           "source": true,
           "target": true
@@ -1710,7 +1725,8 @@
         },
         {
           "market": "NL",
-          "id": "operational_lease",
+          "id": "operational_lease_commercial",
+          "accountType": "business",
           "incomplete": true,
           "default": true,
           "variant": [
@@ -1737,6 +1753,43 @@
                 ]
               ],
               "standardFeaturesList": true
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm",
+                "leaseDistance"
+              ]
+            }
+          }
+        },
+        {
+          "market": "NL",
+          "id": "operational_lease",
+          "accountType": "private",
+          "incomplete": true,
+          "default": true,
+          "variant": [
+            "m3",
+            "ms",
+            "mx"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "leaseTerm": 60,
+            "leaseDistance": 10000
+          },
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "distance",
+                  "term"
+                ]
+              ],
+              "standardFeaturesList": false
             },
             "reviewDetails": {
               "showLeaseSummaryFields": [
@@ -1806,12 +1859,12 @@
       ]
     },
     "Lexicon.ms": {
-      "effective_date": "2021-04-23T01:00:00.000Z",
+      "effective_date": "2021-05-28T00:30:00.000Z",
       "market": "NL",
       "product": "ms",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing NL 2021.Apr.23 1012.1676.1217 [nl]",
+      "name": "Marketing NL 2021.May.28 1012.1891.1217 [nl]",
       "groups": [
         {
           "code": "MODEL",
@@ -3587,6 +3640,10 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "disclaimer_plaid",
+              "content": "Plaid+ beschikbaar in 2022"
             }
           ],
           "extra_content": [
@@ -3603,6 +3660,13 @@
                 },
                 {
                   "type": "Options"
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer_plaid",
+                    "classes": "tds-text--center tds-text--caption tds--vertical_padding-bottom"
+                  }
                 },
                 {
                   "type": "GroupDescription",
@@ -13598,6 +13662,18 @@
                   "condition_state": "and"
                 }
               ]
+            },
+            {
+              "type": "disable_override",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$MDLS"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
           "price": 78000,
@@ -22409,7 +22485,7 @@
           }
         }
       ],
-      "copy_id": 1676,
+      "copy_id": 1891,
       "language": "nl",
       "warnings": [
         {

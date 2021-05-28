@@ -611,6 +611,10 @@
             "context": "configurator"
           },
           {
+            "code": "AUTOPILOT_CONVIENCE_FEATURE",
+            "context": "configurator"
+          },
+          {
             "code": "COLOR_AND_WHEELS",
             "context": "configurator"
           },
@@ -715,6 +719,10 @@
             "context": "configurator"
           },
           {
+            "code": "BASIC_AP_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "EXTERIOR_GALLERY",
             "context": "configurator"
           },
@@ -766,7 +774,10 @@
           }
         ],
         "hideDynamicIncentive": true,
-        "showMonthlyPaymentExVAT": true,
+        "showMonthlyPaymentExVAT": [
+          "lease.operational_lease_commercial",
+          "lease.lease"
+        ],
         "hideAfterSavingsPrice": true,
         "hideAfterSavingsModal": false,
         "showSavingsAmount": [],
@@ -899,7 +910,9 @@
         "extraDisclaimers": [],
         "disclaimerDateFormat": "",
         "showIncentivesDisclaimers": true,
-        "extraLeaseDescriptions": [],
+        "extraLeaseDescriptions": [
+          "includeServiceFee"
+        ],
         "extraLoanDescriptions": [],
         "useResidualAmount": false,
         "isResidualAmountEditable": true,
@@ -1049,7 +1062,9 @@
           "residualAmountExVAT",
           "vatExcluded"
         ],
-        "showLeaseSummaryDisclaimer": false,
+        "showLeaseSummaryDisclaimer": [
+          "lease.operational_lease"
+        ],
         "showSecondDepositDisclaimer": {
           "source": true,
           "target": true
@@ -1758,7 +1773,8 @@
         },
         {
           "market": "NL",
-          "id": "operational_lease",
+          "id": "operational_lease_commercial",
+          "accountType": "business",
           "incomplete": true,
           "default": true,
           "variant": [
@@ -1785,6 +1801,43 @@
                 ]
               ],
               "standardFeaturesList": true
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm",
+                "leaseDistance"
+              ]
+            }
+          }
+        },
+        {
+          "market": "NL",
+          "id": "operational_lease",
+          "accountType": "private",
+          "incomplete": true,
+          "default": true,
+          "variant": [
+            "m3",
+            "ms",
+            "mx"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "leaseTerm": 60,
+            "leaseDistance": 10000
+          },
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "distance",
+                  "term"
+                ]
+              ],
+              "standardFeaturesList": false
             },
             "reviewDetails": {
               "showLeaseSummaryFields": [

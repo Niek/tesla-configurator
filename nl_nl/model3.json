@@ -775,6 +775,10 @@
             "context": "configurator"
           },
           {
+            "code": "BASIC_AP_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "FSD_GALLERY",
             "context": "configurator"
           },
@@ -821,7 +825,10 @@
           }
         ],
         "hideDynamicIncentive": true,
-        "showMonthlyPaymentExVAT": true,
+        "showMonthlyPaymentExVAT": [
+          "lease.operational_lease_commercial",
+          "lease.lease"
+        ],
         "hideAfterSavingsPrice": true,
         "hideAfterSavingsModal": false,
         "showSavingsAmount": [],
@@ -952,7 +959,9 @@
         "extraDisclaimers": [],
         "disclaimerDateFormat": "",
         "showIncentivesDisclaimers": true,
-        "extraLeaseDescriptions": [],
+        "extraLeaseDescriptions": [
+          "includeServiceFee"
+        ],
         "extraLoanDescriptions": [],
         "useResidualAmount": false,
         "isResidualAmountEditable": true,
@@ -1102,7 +1111,9 @@
           "residualAmountExVAT",
           "vatExcluded"
         ],
-        "showLeaseSummaryDisclaimer": false,
+        "showLeaseSummaryDisclaimer": [
+          "lease.operational_lease"
+        ],
         "showSecondDepositDisclaimer": {
           "source": true,
           "target": true
@@ -1851,7 +1862,8 @@
         },
         {
           "market": "NL",
-          "id": "operational_lease",
+          "id": "operational_lease_commercial",
+          "accountType": "business",
           "incomplete": true,
           "default": true,
           "variant": [
@@ -1878,6 +1890,43 @@
                 ]
               ],
               "standardFeaturesList": true
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm",
+                "leaseDistance"
+              ]
+            }
+          }
+        },
+        {
+          "market": "NL",
+          "id": "operational_lease",
+          "accountType": "private",
+          "incomplete": true,
+          "default": true,
+          "variant": [
+            "m3",
+            "ms",
+            "mx"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "leaseTerm": 60,
+            "leaseDistance": 10000
+          },
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "distance",
+                  "term"
+                ]
+              ],
+              "standardFeaturesList": false
             },
             "reviewDetails": {
               "showLeaseSummaryFields": [
@@ -2051,12 +2100,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-05-07T00:20:00.000Z",
+      "effective_date": "2021-05-28T00:30:00.000Z",
       "market": "NL",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing NL 2021.May.07 1325.1813.1199 [nl]",
+      "name": "Marketing NL 2021.May.28 1361.1906.1199 [nl]",
       "groups": [
         {
           "code": "MODEL",
@@ -2138,145 +2187,6 @@
             {
               "type": "feature_list.default[0].items[2]&&feature_list.summary[0].items[2]",
               "content": "Premium upgrades"
-            }
-          ]
-        },
-        {
-          "code": "FIRST_PRODUCTION",
-          "groups": [
-            "BATTERY",
-            "PREMIUM_PACKAGE"
-          ],
-          "context": "default",
-          "options": [],
-          "required": true,
-          "exclusive": false,
-          "default_options": [],
-          "name": "Eerste productie",
-          "description": "De Model 3 is ontworpen om de hoogste veiligheidsscore in iedere categorie te behalen.",
-          "extra_copy": [
-            {
-              "type": "title",
-              "content": "Standaardkenmerken van de Model 3"
-            },
-            {
-              "type": "compare_title",
-              "content": "Premium interieur"
-            },
-            {
-              "type": "feature_list.default[0].main_title",
-              "content": "Veiligheid"
-            },
-            {
-              "type": "feature_list.default[0].description",
-              "content": "Model 3 is ontworpen om de hoogste veiligheidsscore in iedere categorie te behalen."
-            },
-            {
-              "type": "features.title",
-              "content": "Standaardkenmerken van de Model 3"
-            },
-            {
-              "type": "feature_list.default[0].items[0]&&feature_list.summary[0].items[2]",
-              "content": "Automatic Emergency Braking en Side Collision Warning"
-            },
-            {
-              "type": "feature_list.default[0].items[1]",
-              "content": "Acht airbags"
-            },
-            {
-              "type": "feature_list.default[0].items[2]",
-              "content": "Elektronische stabiliteit en tractiecontrole"
-            },
-            {
-              "type": "feature_list.default[1].main_title",
-              "content": "Gemak"
-            },
-            {
-              "type": "feature_list.default[1].items[0]&&feature_list.summary[0].items[0]",
-              "content": "Touchscreen van 15\" met kaarten en navigatie aan boord"
-            },
-            {
-              "type": "feature_list.default[1].items[1]",
-              "content": "Wifi en LTE-internetverbinding"
-            },
-            {
-              "type": "feature_list.default[1].items[2]&&feature_list.summary[0].items[1]",
-              "content": "Toegang zonder sleutel en klimaatbeheersing op afstand met de app"
-            },
-            {
-              "type": "feature_list.default[1].items[3]",
-              "content": "Spraakbediening"
-            },
-            {
-              "type": "feature_list.default[1].items[4]",
-              "content": "Achterbank bestaat uit twee delen en klapt neer in een verhouding van 60/40"
-            },
-            {
-              "type": "feature_list.default[2].main_title",
-              "content": "Garantie"
-            },
-            {
-              "type": "feature_list.default[2].items[0]",
-              "content": "Beperkte garantie van 4 jaar, maximaal 50.000 mijl"
-            },
-            {
-              "type": "feature_list.default[2].items[1]",
-              "content": "8 jaar garantie, maximaal 100.000 mijl (Standaard)"
-            },
-            {
-              "type": "feature_list.default[2].items[2]",
-              "content": "8 jaar garantie, maximaal 120.000 mijl (Long Range)"
-            },
-            {
-              "type": "feature_list.detail[0].items[0]",
-              "content": "Premium stoelverwarming en materialen in de hele auto, waaronder een decor van openporig hout en twee USB-aansluitingen achterin"
-            },
-            {
-              "type": "feature_list.detail[0].items[1]",
-              "content": "12-voudig elektrisch verstelbare stoelen voorin, stuurkolom en buitenspiegels, met aangepaste bestuurdersprofielen"
-            },
-            {
-              "type": "feature_list.detail[0].items[2]",
-              "content": "Premium audiosysteem met meer kracht, tweeters, surroundspeakers en subwoofer"
-            },
-            {
-              "type": "feature_list.detail[0].items[3]",
-              "content": "Getint glazen dak met zon- en UV bescherming"
-            },
-            {
-              "type": "feature_list.detail[0].items[4]",
-              "content": "Automatisch dimmende en inklapbare, verwarmde zijspiegels"
-            },
-            {
-              "type": "feature_list.detail[0].items[5]",
-              "content": "LED-mistlampen"
-            },
-            {
-              "type": "feature_list.detail[0].items[6]",
-              "content": "Middenconsole met afgedekte opbergruimte en houder voor twee smartphones"
-            },
-            {
-              "type": "view_details",
-              "content": "Bekijk alle standaardkenmerken",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "VIEW_STANDARD_FEATURES"
-                  }
-                }
-              ]
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "asset",
-              "content": [
-                {
-                  "url": "MODEL3/UI/m3_specs.png",
-                  "type": "image"
-                }
-              ]
             }
           ]
         },
@@ -2549,84 +2459,6 @@
           "extra_content": []
         },
         {
-          "code": "POST_SOP",
-          "groups": [],
-          "context": "default",
-          "options": [],
-          "required": false,
-          "exclusive": false,
-          "default_options": [],
-          "name": "POST_SOP",
-          "extra_copy": [
-            {
-              "type": "coming_soon_description",
-              "content": "<p>Naarmate de productie oploopt, zal de instapuitvoering van Model 3 zonder upgrades van €35.000 beschikbaar zijn.</p>"
-            },
-            {
-              "type": "feature_list.default[0].description",
-              "content": "<p>Naarmate de productie oploopt, zal de instapuitvoering van Model 3 zonder upgrades van €35.000 beschikbaar zijn.</p>"
-            },
-            {
-              "type": "title",
-              "content": "Binnenkort"
-            },
-            {
-              "type": "features.title",
-              "content": "Binnenkort"
-            },
-            {
-              "type": "feature_list.default[1].items[0]&&feature_list.summary[0].items[0]",
-              "content": "Standaardbatterij - 220 mijl (EPA-schatting) (eind 2018)"
-            },
-            {
-              "type": "coming_soon_title",
-              "content": "Binnenkort"
-            },
-            {
-              "type": "base_35",
-              "content": "Basisuitvoering voor €35.000"
-            },
-            {
-              "type": "fall_17",
-              "content": "Eind 2018"
-            },
-            {
-              "type": "standard_range",
-              "content": "Standaardbatterij - 220 mijl (EPA-schatting)"
-            },
-            {
-              "type": "premium_upgrade",
-              "content": "Premium upgrades optioneel"
-            },
-            {
-              "type": "winter_18",
-              "content": "Medio 2018"
-            },
-            {
-              "type": "all_wheel",
-              "content": "Dual Motor All-Wheel Drive"
-            },
-            {
-              "type": "features.notifyMe",
-              "content": "Informeer mij wanneer deze beschikbaar is",
-              "behavior": [
-                {
-                  "type": "CONTAINER",
-                  "content": {
-                    "tag": "span"
-                  }
-                },
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "NOTIFY_ME"
-                  }
-                }
-              ]
-            }
-          ]
-        },
-        {
           "code": "BATTERY",
           "groups": [],
           "context": "default",
@@ -2713,17 +2545,6 @@
           "discountable": true,
           "default_options": [],
           "name": "WINTER_WHEELS"
-        },
-        {
-          "code": "WINTER_WHEELS_C_GROUP",
-          "groups": [],
-          "context": "default",
-          "options": [
-            "$WIN31"
-          ],
-          "required": false,
-          "exclusive": false,
-          "name": "Groep winterwielen"
         },
         {
           "code": "TOWING",
@@ -2954,126 +2775,6 @@
           ]
         },
         {
-          "code": "INTERIOR_BLACK",
-          "groups": [],
-          "context": "configurator",
-          "options": [],
-          "required": false,
-          "exclusive": false,
-          "default_options": [],
-          "name": "Interieur",
-          "extra_copy": [
-            {
-              "type": "feature_list.detail[0].title",
-              "content": "Premium interieur"
-            },
-            {
-              "type": "feature_list.detail[0].items[0]",
-              "content": "Touchscreen-display van 15\""
-            },
-            {
-              "type": "feature_list.detail[0].items[1]",
-              "content": "Klimaatbeheersingssysteem voor twee zones"
-            },
-            {
-              "type": "feature_list.detail[0].items[2]",
-              "content": "FM en streamen van internetradio"
-            },
-            {
-              "type": "feature_list.detail[0].items[3]",
-              "content": "Premium 12-voudig elektrisch verstelbare voorstoelen"
-            },
-            {
-              "type": "feature_list.detail[0].items[4]",
-              "content": "Middenconsole met afgedekte opbergruimte, 4 USB-aansluitingen en dockingstations voor 2 smartphones"
-            },
-            {
-              "type": "feature_list.detail[0].items[5]",
-              "content": "Premium audiosysteem"
-            },
-            {
-              "type": "feature_list.detail[0].items[6]",
-              "content": "Getint glazen dak met zon- en UV bescherming"
-            },
-            {
-              "type": "feature_list.detail[0].items[7]",
-              "content": "5 stoelen met stoelverwarming"
-            },
-            {
-              "type": "feature_list.detail[0].items[8]",
-              "content": "Automatisch dimmende en inklapbare, verwarmde zijspiegels"
-            },
-            {
-              "type": "feature_list.detail[0].items[9]",
-              "content": "Persoonlijke bestuurdersprofielen"
-            },
-            {
-              "type": "feature_list.detail[0].items[10]",
-              "content": "LED-mistlampen"
-            }
-          ]
-        },
-        {
-          "code": "INTERIOR_WHITE",
-          "groups": [],
-          "context": "configurator",
-          "options": [],
-          "required": false,
-          "exclusive": false,
-          "default_options": [],
-          "name": "Interieur",
-          "extra_copy": [
-            {
-              "type": "feature_list.detail[0].title",
-              "content": "Premium interieur"
-            },
-            {
-              "type": "feature_list.detail[0].items[0]",
-              "content": "Touchscreen-display van 15\""
-            },
-            {
-              "type": "feature_list.detail[0].items[1]",
-              "content": "Klimaatbeheersingssysteem voor twee zones"
-            },
-            {
-              "type": "feature_list.detail[0].items[2]",
-              "content": "FM en streamen van internetradio"
-            },
-            {
-              "type": "feature_list.detail[0].items[3]",
-              "content": "Premium 12-voudig elektrisch verstelbare voorstoelen"
-            },
-            {
-              "type": "feature_list.detail[0].items[4]",
-              "content": "Middenconsole met afgedekte opbergruimte, 4 USB-aansluitingen en dockingstations voor 2 smartphones"
-            },
-            {
-              "type": "feature_list.detail[0].items[5]",
-              "content": "Premium audiosysteem"
-            },
-            {
-              "type": "feature_list.detail[0].items[6]",
-              "content": "Getint glazen dak met zon- en UV bescherming"
-            },
-            {
-              "type": "feature_list.detail[0].items[7]",
-              "content": "5 stoelen met stoelverwarming"
-            },
-            {
-              "type": "feature_list.detail[0].items[8]",
-              "content": "Automatisch dimmende en inklapbare, verwarmde zijspiegels"
-            },
-            {
-              "type": "feature_list.detail[0].items[9]",
-              "content": "Persoonlijke bestuurdersprofielen"
-            },
-            {
-              "type": "feature_list.detail[0].items[10]",
-              "content": "LED-mistlampen"
-            }
-          ]
-        },
-        {
           "code": "PAINT",
           "groups": [],
           "context": "configurator",
@@ -3175,7 +2876,9 @@
         },
         {
           "code": "WHEELS",
-          "groups": [],
+          "groups": [
+            "WINTER_WHEELS_OPTIONS"
+          ],
           "context": "configurator",
           "options": [
             "$W40B",
@@ -3237,6 +2940,9 @@
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
                   }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             },
@@ -4061,143 +3767,6 @@
               ]
             },
             {
-              "type": "performance_specs",
-              "content": [
-                {
-                  "range": 409,
-                  "units": "metric",
-                  "top_speed": 225,
-                  "selected_by": {
-                    "and": [
-                      "$MT308"
-                    ]
-                  },
-                  "zero_to_road_limit": 5.6
-                },
-                {
-                  "range": 600,
-                  "units": "metric",
-                  "top_speed": 225,
-                  "selected_by": {
-                    "and": [
-                      "$MT309"
-                    ]
-                  },
-                  "zero_to_road_limit": 5.3
-                },
-                {
-                  "range": 560,
-                  "units": "metric",
-                  "top_speed": 233,
-                  "selected_by": {
-                    "and": [
-                      "$MT310"
-                    ]
-                  },
-                  "zero_to_road_limit": 4.6
-                },
-                {
-                  "range": 530,
-                  "units": "metric",
-                  "top_speed": 261,
-                  "selected_by": {
-                    "and": [
-                      "$MT311"
-                    ]
-                  },
-                  "zero_to_road_limit": 3.4
-                },
-                {
-                  "range": 409,
-                  "units": "metric",
-                  "top_speed": 225,
-                  "selected_by": {
-                    "and": [
-                      "$MT301"
-                    ]
-                  },
-                  "zero_to_road_limit": 5.6
-                },
-                {
-                  "range": 600,
-                  "units": "metric",
-                  "top_speed": 225,
-                  "selected_by": {
-                    "and": [
-                      "$MT302"
-                    ]
-                  },
-                  "zero_to_road_limit": 5.3
-                },
-                {
-                  "range": 560,
-                  "units": "metric",
-                  "top_speed": 233,
-                  "selected_by": {
-                    "and": [
-                      "$MT303"
-                    ]
-                  },
-                  "zero_to_road_limit": 4.6
-                },
-                {
-                  "range": 530,
-                  "units": "metric",
-                  "top_speed": 261,
-                  "selected_by": {
-                    "and": [
-                      "$MT304"
-                    ]
-                  },
-                  "zero_to_road_limit": 3.4
-                },
-                {
-                  "range": 580,
-                  "units": "metric",
-                  "top_speed": 233,
-                  "selected_by": {
-                    "and": [
-                      "$MT315"
-                    ]
-                  },
-                  "zero_to_road_limit": 4.4
-                },
-                {
-                  "range": 567,
-                  "units": "metric",
-                  "top_speed": 261,
-                  "selected_by": {
-                    "and": [
-                      "$MT317"
-                    ]
-                  },
-                  "zero_to_road_limit": 3.3
-                },
-                {
-                  "range": 430,
-                  "units": "metric",
-                  "top_speed": 225,
-                  "selected_by": {
-                    "and": [
-                      "$MT320"
-                    ]
-                  },
-                  "zero_to_road_limit": 5.6
-                },
-                {
-                  "range": 448,
-                  "units": "metric",
-                  "top_speed": 225,
-                  "selected_by": {
-                    "and": [
-                      "$MT314"
-                    ]
-                  },
-                  "zero_to_road_limit": 5.6
-                }
-              ]
-            },
-            {
               "type": "components",
               "content": [
                 {
@@ -4346,7 +3915,6 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$WIN31",
             "$W3WE8",
             "$W3WE9",
             "$W3WE2"
@@ -4371,61 +3939,176 @@
           "exclusive": false,
           "default_options": [],
           "name": "Winterwielen",
-          "extra_copy": [],
-          "extra_content": []
-        },
-        {
-          "code": "EXTERIOR_GROUP",
-          "groups": [
-            "PAINT",
-            "WHEELS",
-            "WINTER_WHEELS",
-            "TOWING"
-          ],
-          "context": "configurator",
-          "options": [],
-          "required": false,
-          "exclusive": false,
-          "name": "Kleur en velgen",
-          "description": "Kleur en velgen",
-          "long_name": "Kleur en velgen",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Exterieur"
+              "content": "Winterwielen"
+            },
+            {
+              "type": "feature_description",
+              "content": "Voeg een set winterbanden toe om optimaal in besneeuwde en ijzige omstandigheden te rijden"
+            },
+            {
+              "type": "add_component",
+              "content": "Kies set",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$W3WE2"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MT317"
+                          ]
+                        }
+                      },
+                      {
+                        "option": {
+                          "set": [
+                            "$W3WE8"
+                          ]
+                        },
+                        "selected_by": {
+                          "or": [
+                            "$MT321",
+                            "$MT337"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_component",
+              "content": "Verwijderen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$W3WE2"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MT317"
+                          ]
+                        }
+                      },
+                      {
+                        "option": {
+                          "set": [
+                            "$W3WE8"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$W3WE8"
+                          ]
+                        }
+                      },
+                      {
+                        "option": {
+                          "set": [
+                            "$W3WE9"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$W3WE9"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn tds-btn--outline tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_features",
+              "content": "Kenmerken",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "WINTER_WHEELS_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small "
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
             {
-              "type": "asset",
+              "type": "components",
               "content": [
                 {
-                  "bkba": 1,
-                  "crop": [
-                    1300,
-                    450,
-                    300,
-                    300
-                  ],
-                  "type": "image-compositor",
-                  "view": "STUD_FRONT34",
-                  "zoom": 1,
-                  "selected_by": {
-                    "or": [
-                      {
-                        "on": [
-                          "tablet",
-                          "mobile"
-                        ]
-                      }
-                    ]
+                  "type": "Title",
+                  "props": {
+                    "component": "h5"
                   }
                 },
                 {
-                  "bkba": 1,
-                  "type": "image-compositor",
-                  "view": "STUD_FRONT34",
-                  "zoom": 1.3
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "feature_description",
+                        "classes": "tds-text--center"
+                      },
+                      {
+                        "field": "add_component"
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "SelectedPrice"
+                      },
+                      {
+                        "field": "remove_component"
+                      },
+                      {
+                        "field": "view_features",
+                        "props": {
+                          "modal": "WINTER_WHEELS_FEATURES"
+                        }
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
                 }
               ]
             }
@@ -4451,7 +4134,6 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$CPW1",
             "$BC3R",
             "$SLR1",
             "$PL31"
@@ -7471,6 +7153,308 @@
               ]
             }
           ]
+        },
+        {
+          "code": "WINTER_WHEELS_FEATURES",
+          "groups": [
+            "18_IN_WINTER_WHEEL_FEATURES_CARD",
+            "19_IN_WINTER_WHEEL_FEATURES_CARD",
+            "20_IN_WINTER_WHEEL_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Winterbanden details",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Modellen vergelijken"
+            }
+          ]
+        },
+        {
+          "code": "18_IN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$W3WE8"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "18\" Pirelli winterbandenset",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "18\" Pirelli winterbandenset"
+            },
+            {
+              "type": "eyebrow",
+              "content": "Inbegrepen"
+            },
+            {
+              "type": "description",
+              "content": "Pirelli Sottozero 3 winterbanden combineren een lage rolweerstand met veel grip op besneeuwde wegen. Deze set bevat Pinwheel velgen met gemonteerde banden. Aero-doppen kunnen afzonderlijk worden besteld in onze online store."
+            },
+            {
+              "type": "add_options",
+              "content": "Toevoegen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$W3WE8"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Verwijderen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$W3WE8"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODEL3/UI/wheels-18-pirelli.jpg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MT317"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "19_IN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$W3WE9"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "19\" Pirelli winterbandenset",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "19\" Pirelli winterbandenset"
+            },
+            {
+              "type": "eyebrow",
+              "content": "Inbegrepen"
+            },
+            {
+              "type": "description",
+              "content": "Pirelli Sottozero 3 winterbanden combineren een lage rolweerstand met veel grip op besneeuwde wegen. Deze set bestaat uit vier 19\" sportvelgen met gemonteerde banden."
+            },
+            {
+              "type": "add_options",
+              "content": "Toevoegen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$W3WE9"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Verwijderen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$W3WE9"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODEL3/UI/wheels-19-pirelli.jpg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MT317"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "20_IN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$W3WE2"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "20\" Pirelli winterbandenset",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "20\" Pirelli winterbandenset"
+            },
+            {
+              "type": "eyebrow",
+              "content": "Inbegrepen"
+            },
+            {
+              "type": "description",
+              "content": "Pirelli Sottozero 3 winterbanden combineren een lage rolweerstand met veel grip op besneeuwde wegen. Deze set bestaat uit vier 20\" Performance-velgen met gemonteerde banden."
+            },
+            {
+              "type": "add_options",
+              "content": "Toevoegen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$W3WE2"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Verwijderen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$W3WE2"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODEL3/UI/wheels-20-pirelli.jpg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MT337",
+                      "$MT321"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -8186,75 +8170,6 @@
             }
           ]
         },
-        "$CPW1": {
-          "code": "$CPW1",
-          "set_rules": [
-            {
-              "action": "set",
-              "target": "$CPW1"
-            }
-          ],
-          "unset_rules": [
-            {
-              "action": "unset",
-              "target": "$CPW1"
-            }
-          ],
-          "name": "20\" Überturbine velgen",
-          "description": "Inclusief Pirelli P Zero-banden en verlaagde vering voor een betere wegligging",
-          "long_name": "20\" Überturbine velgen",
-          "long_description": "20 inch Performance-velgen",
-          "extra_copy": [
-            {
-              "type": "price_indicator",
-              "content": "Inbegrepen"
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "shape",
-              "content": [
-                {
-                  "type": "cardAddon"
-                }
-              ]
-            },
-            {
-              "type": "asset",
-              "content": [
-                {
-                  "type": "image-compositor",
-                  "view": "STUD_RIMCLOSEUP"
-                }
-              ]
-            },
-            {
-              "type": "hidden",
-              "content": [
-                {
-                  "selected_by": {
-                    "not": [
-                      {
-                        "on": [
-                          "desktop"
-                        ]
-                      }
-                    ]
-                  },
-                  "check_selected": true
-                }
-              ]
-            }
-          ],
-          "price": 0,
-          "pricing": [
-            {
-              "type": "base",
-              "value": 0,
-              "context": "default"
-            }
-          ]
-        },
         "$DV2W": {
           "code": "$DV2W",
           "user_defined_rules": {
@@ -8652,152 +8567,6 @@
           "description": "Volledig zwart interieur",
           "long_name": "Gedeeltelijk premium interieur, volledig zwart",
           "long_description": "Volledig zwart interieur",
-          "extra_copy": [
-            {
-              "type": "name",
-              "content": "Volledig zwart"
-            },
-            {
-              "type": "price_indicator",
-              "content": "Inbegrepen"
-            },
-            {
-              "type": "spec_description",
-              "content": "Zwart lederen interieur"
-            },
-            {
-              "type": "feature_list.default[0].main_title",
-              "content": "Inclusief:"
-            },
-            {
-              "type": "feature_list.default[0].items[0]",
-              "content": "12-voudig elektrisch verstelbare en verwarmde voorstoelen"
-            },
-            {
-              "type": "feature_list.default[0].items[1]",
-              "content": "Premium stoelmaterialen en bekleding"
-            },
-            {
-              "type": "feature_list.default[0].items[2]",
-              "content": "Audiosysteem met upgrade – Immersive Sound"
-            },
-            {
-              "type": "feature_list.default[0].items[3].main_title",
-              "content": "Premium Connectivity (30 dagen inbegrepen):"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[0]",
-              "content": "Satellietkaarten met live verkeersweergave"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[1]",
-              "content": "Streaming muziek en media via internet in de auto"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[2]",
-              "content": "Video streamen"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[3]",
-              "content": "Caraoke"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[4]",
-              "content": "Internetbrowser"
-            },
-            {
-              "type": "feature_list.default[0].items[4]",
-              "content": "Muziek en media via Bluetooth®"
-            },
-            {
-              "type": "feature_list.default[0].items[5]",
-              "content": "Getint glazen dak met zon- en UV bescherming"
-            },
-            {
-              "type": "feature_list.default[0].items[6]",
-              "content": "Automatisch dimmende en inklapbare, verwarmde zijspiegels"
-            },
-            {
-              "type": "feature_list.default[0].items[7]",
-              "content": "Persoonlijke bestuurdersprofielen"
-            },
-            {
-              "type": "feature_list.default[0].items[8]",
-              "content": "Middenconsole met opbergruimte, 4 USB-aansluitingen en draadloos opladen voor 2 smartphones"
-            },
-            {
-              "type": "view_details_collapsed",
-              "content": "Details weergeven",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "FEATURES_LIST_EXPAND",
-                    "props": {
-                      "options": [
-                        "$IBB0"
-                      ]
-                    },
-                    "classNames": [
-                      "tsla-view-more",
-                      "tsla-view-more--collapsed"
-                    ]
-                  }
-                }
-              ]
-            },
-            {
-              "type": "view_details_expanded",
-              "content": "Details verbergen",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "FEATURES_LIST_COLLAPSE",
-                    "props": {
-                      "options": [
-                        "$IBB0"
-                      ]
-                    },
-                    "classNames": [
-                      "tsla-view-more",
-                      "tsla-view-more--expanded"
-                    ]
-                  }
-                }
-              ]
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "asset",
-              "content": [
-                {
-                  "url": "MODEL3/UI/ui_swat_int_in3pb.png",
-                  "type": "image"
-                }
-              ]
-            },
-            {
-              "type": "shape",
-              "content": [
-                {
-                  "type": "circular"
-                }
-              ]
-            },
-            {
-              "type": "hidden",
-              "content": [
-                {
-                  "configuration": [
-                    "$PRM30"
-                  ],
-                  "condition_state": "not"
-                }
-              ]
-            }
-          ],
           "price": 0,
           "pricing": [
             {
@@ -9138,152 +8907,6 @@
           "description": "Zwart en wit interieur",
           "long_name": "Gedeeltelijk premium interieur, zwart en wit",
           "long_description": "Zwart en wit interieur",
-          "extra_copy": [
-            {
-              "type": "name",
-              "content": "Zwart en wit"
-            },
-            {
-              "type": "price_indicator",
-              "content": "Inbegrepen"
-            },
-            {
-              "type": "spec_description",
-              "content": "Zwart lederen interieur"
-            },
-            {
-              "type": "feature_list.default[0].main_title",
-              "content": "Inclusief:"
-            },
-            {
-              "type": "feature_list.default[0].items[0]",
-              "content": "12-voudig elektrisch verstelbare en verwarmde voorstoelen"
-            },
-            {
-              "type": "feature_list.default[0].items[1]",
-              "content": "Premium stoelmaterialen en bekleding"
-            },
-            {
-              "type": "feature_list.default[0].items[2]",
-              "content": "Audiosysteem met upgrade – Immersive Sound"
-            },
-            {
-              "type": "feature_list.default[0].items[3].main_title",
-              "content": "Premium Connectivity (30 dagen inbegrepen):"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[0]",
-              "content": "Satellietkaarten met live verkeersweergave"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[1]",
-              "content": "Streaming muziek en media via internet in de auto"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[2]",
-              "content": "Video streamen"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[3]",
-              "content": "Caraoke"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[4]",
-              "content": "Internetbrowser"
-            },
-            {
-              "type": "feature_list.default[0].items[4]",
-              "content": "Muziek en media via Bluetooth®"
-            },
-            {
-              "type": "feature_list.default[0].items[5]",
-              "content": "Getint glazen dak met zon- en UV bescherming"
-            },
-            {
-              "type": "feature_list.default[0].items[6]",
-              "content": "Automatisch dimmende en inklapbare, verwarmde buitenspiegels"
-            },
-            {
-              "type": "feature_list.default[0].items[7]",
-              "content": "Persoonlijke bestuurdersprofielen"
-            },
-            {
-              "type": "feature_list.default[0].items[8]",
-              "content": "Middenconsole met opbergruimte, 4 USB-aansluitingen en draadloos opladen voor 2 smartphones"
-            },
-            {
-              "type": "view_details_collapsed",
-              "content": "Details weergeven",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "FEATURES_LIST_EXPAND",
-                    "props": {
-                      "options": [
-                        "$IBW0"
-                      ]
-                    },
-                    "classNames": [
-                      "tsla-view-more",
-                      "tsla-view-more--collapsed"
-                    ]
-                  }
-                }
-              ]
-            },
-            {
-              "type": "view_details_expanded",
-              "content": "Details verbergen",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "FEATURES_LIST_COLLAPSE",
-                    "props": {
-                      "options": [
-                        "$IBW0"
-                      ]
-                    },
-                    "classNames": [
-                      "tsla-view-more",
-                      "tsla-view-more--expanded"
-                    ]
-                  }
-                }
-              ]
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "asset",
-              "content": [
-                {
-                  "url": "MODEL3/UI/ui_swat_int_white.png",
-                  "type": "image"
-                }
-              ]
-            },
-            {
-              "type": "shape",
-              "content": [
-                {
-                  "type": "circular"
-                }
-              ]
-            },
-            {
-              "type": "hidden",
-              "content": [
-                {
-                  "configuration": [
-                    "$PRM30"
-                  ],
-                  "condition_state": "not"
-                }
-              ]
-            }
-          ],
           "price": 1200,
           "pricing": [
             {
@@ -9600,156 +9223,6 @@
           "name": "Gedeeltelijk premium interieur, volledig zwart",
           "description": "Gedeeltelijk premium interieur, volledig zwart",
           "long_name": "Gedeeltelijk premium interieur, volledig zwart",
-          "extra_copy": [
-            {
-              "type": "name",
-              "content": "Volledig zwart"
-            },
-            {
-              "type": "price_indicator",
-              "content": "Inbegrepen"
-            },
-            {
-              "type": "spec_description",
-              "content": "Zwart lederen interieur"
-            },
-            {
-              "type": "feature_list.default[0].main_title",
-              "content": "Inclusief:"
-            },
-            {
-              "type": "feature_list.default[0].items[0]",
-              "content": "12-voudig elektrisch verstelbare voorstoelen"
-            },
-            {
-              "type": "feature_list.default[0].items[1]",
-              "content": "Stoelverwarming voorin en achterin"
-            },
-            {
-              "type": "feature_list.default[0].items[2]",
-              "content": "Premium audiosysteem – 14 speakers, 1 subwoofer, 2 versterkers, en Immersive Sound"
-            },
-            {
-              "type": "feature_list.default[0].items[3].description",
-              "content": "Premium Connectivity (1 jaar):"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[0]",
-              "content": "Satellietkaarten met live verkeersweergave"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[1]",
-              "content": "Streaming muziek en media via internet in de auto"
-            },
-            {
-              "type": "feature_list.default[0].items[4]",
-              "content": "Muziek en media via Bluetooth®"
-            },
-            {
-              "type": "feature_list.default[0].items[5]",
-              "content": "LED-mistlampen"
-            },
-            {
-              "type": "feature_list.default[0].items[6]",
-              "content": "Getint glazen dak met zon- en UV bescherming"
-            },
-            {
-              "type": "feature_list.default[0].items[7]",
-              "content": "Automatisch dimmende en inklapbare, verwarmde buitenspiegels"
-            },
-            {
-              "type": "feature_list.default[0].items[8]",
-              "content": "Persoonlijke bestuurdersprofielen"
-            },
-            {
-              "type": "feature_list.default[0].items[9]",
-              "content": "Middenconsole met opbergruimte, 4 USB-aansluitingen en draadloos opladen voor 2 smartphones"
-            },
-            {
-              "type": "view_details_collapsed",
-              "content": "Details weergeven",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "FEATURES_LIST_EXPAND",
-                    "props": {
-                      "options": [
-                        "$IPB0"
-                      ]
-                    },
-                    "classNames": [
-                      "tsla-view-more",
-                      "tsla-view-more--collapsed"
-                    ]
-                  }
-                }
-              ]
-            },
-            {
-              "type": "view_details_expanded",
-              "content": "Details verbergen",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "FEATURES_LIST_COLLAPSE",
-                    "props": {
-                      "options": [
-                        "$IPB0"
-                      ]
-                    },
-                    "classNames": [
-                      "tsla-view-more",
-                      "tsla-view-more--expanded"
-                    ]
-                  }
-                }
-              ]
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[2]",
-              "content": "Video streamen"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[3]",
-              "content": "Caraoke"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[4]",
-              "content": "Internetbrowser"
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "asset",
-              "content": [
-                {
-                  "url": "MODEL3/UI/ui_swat_int_in3pb.png",
-                  "type": "image"
-                }
-              ]
-            },
-            {
-              "type": "shape",
-              "content": [
-                {
-                  "type": "circular"
-                }
-              ]
-            },
-            {
-              "type": "hidden",
-              "content": [
-                {
-                  "configuration": [
-                    "$PRM31"
-                  ],
-                  "condition_state": "not"
-                }
-              ]
-            }
-          ],
           "price": 0,
           "pricing": [
             {
@@ -10046,168 +9519,6 @@
           "name": "Zwart en wit premium interieur",
           "description": "Zwart en wit premium interieur",
           "long_name": "Zwart en wit premium interieur",
-          "extra_copy": [
-            {
-              "type": "name",
-              "content": "Zwart en wit"
-            },
-            {
-              "type": "price_indicator",
-              "content": "Inbegrepen"
-            },
-            {
-              "type": "recommended_content",
-              "content": "Zwart en wit interieur bevat onze meest premium materialen voor maximaal comfort en optimale vormgeving, die tevens voldoen aan onze strenge normen voor duurzaamheid en vlekbestendigheid."
-            },
-            {
-              "type": "spec_description",
-              "content": "Wit lederen interieur"
-            },
-            {
-              "type": "feature_list.default[0].main_title",
-              "content": "Inclusief:"
-            },
-            {
-              "type": "feature_list.default[0].items[0]",
-              "content": "12-voudig elektrisch verstelbare voorstoelen"
-            },
-            {
-              "type": "feature_list.default[0].items[1]",
-              "content": "Stoelverwarming voorin en achterin"
-            },
-            {
-              "type": "feature_list.default[0].items[2]",
-              "content": "Premium audiosysteem – 14 speakers, 1 subwoofer, 2 versterkers, en Immersive Sound"
-            },
-            {
-              "type": "feature_list.default[0].items[3].description",
-              "content": "Premium Connectivity (1 jaar):"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[0]",
-              "content": "Satellietkaarten met live verkeersweergave"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[1]",
-              "content": "Streaming muziek en media via internet in de auto"
-            },
-            {
-              "type": "feature_list.default[0].items[4]",
-              "content": "Muziek en media via Bluetooth®"
-            },
-            {
-              "type": "feature_list.default[0].items[5]",
-              "content": "LED-mistlampen"
-            },
-            {
-              "type": "feature_list.default[0].items[6]",
-              "content": "Getint glazen dak met zon- en UV bescherming"
-            },
-            {
-              "type": "feature_list.default[0].items[7]",
-              "content": "Automatisch dimmende en inklapbare, verwarmde buitenspiegels"
-            },
-            {
-              "type": "feature_list.default[0].items[8]",
-              "content": "Persoonlijke bestuurdersprofielen"
-            },
-            {
-              "type": "feature_list.default[0].items[9]",
-              "content": "Middenconsole met opbergruimte, 4 USB-aansluitingen en draadloos opladen voor 2 smartphones"
-            },
-            {
-              "type": "view_details_collapsed",
-              "content": "Details weergeven",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "FEATURES_LIST_EXPAND",
-                    "props": {
-                      "options": [
-                        "$IPW0"
-                      ]
-                    },
-                    "classNames": [
-                      "tsla-view-more",
-                      "tsla-view-more--collapsed"
-                    ]
-                  }
-                }
-              ]
-            },
-            {
-              "type": "view_details_expanded",
-              "content": "Details verbergen",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "FEATURES_LIST_COLLAPSE",
-                    "props": {
-                      "options": [
-                        "$IPW0"
-                      ]
-                    },
-                    "classNames": [
-                      "tsla-view-more",
-                      "tsla-view-more--expanded"
-                    ]
-                  }
-                }
-              ]
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[2]",
-              "content": "Video streamen"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[3]",
-              "content": "Caraoke"
-            },
-            {
-              "type": "feature_list.default[0].items[3].sub_items[4]",
-              "content": "Internetbrowser"
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "asset",
-              "content": [
-                {
-                  "url": "MODEL3/UI/ui_swat_int_white.png",
-                  "type": "image"
-                }
-              ]
-            },
-            {
-              "type": "shape",
-              "content": [
-                {
-                  "type": "circular"
-                }
-              ]
-            },
-            {
-              "type": "delivery",
-              "content": [
-                {
-                  "extra": true
-                }
-              ]
-            },
-            {
-              "type": "hidden",
-              "content": [
-                {
-                  "configuration": [
-                    "$PRM31"
-                  ],
-                  "condition_state": "not"
-                }
-              ]
-            }
-          ],
           "price": 1200,
           "pricing": [
             {
@@ -15836,16 +15147,26 @@
                 "targets": [
                   "$DV4W",
                   "$PRM31",
-                  "$SPT31"
+                  "$SPT31",
+                  "$APBS"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$W3WE2",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$W3WE8",
+                  "$W3WE9"
                 ]
               },
               {
                 "action": "unset",
-                "target": "$TW01"
-              },
-              {
-                "action": "set",
-                "target": "$APBS"
+                "targets": [
+                  "$W3WE8",
+                  "$W3WE9",
+                  "$TW01"
+                ]
               },
               {
                 "action": "set",
@@ -15918,16 +15239,26 @@
               "targets": [
                 "$DV4W",
                 "$PRM31",
-                "$SPT31"
+                "$SPT31",
+                "$APBS"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$W3WE2",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$W3WE8",
+                "$W3WE9"
               ]
             },
             {
               "action": "unset",
-              "target": "$TW01"
-            },
-            {
-              "action": "set",
-              "target": "$APBS"
+              "targets": [
+                "$W3WE8",
+                "$W3WE9",
+                "$TW01"
+              ]
             },
             {
               "action": "set",
@@ -16367,15 +15698,21 @@
             "set_rules": [
               {
                 "action": "set",
-                "target": "$DV4W"
+                "targets": [
+                  "$DV4W",
+                  "$PRM31",
+                  "$APBS"
+                ]
               },
               {
                 "action": "set",
-                "target": "$PRM31"
+                "target": "$W3WE8",
+                "condition_code": "$W3WE2",
+                "condition_state": "set"
               },
               {
-                "action": "set",
-                "target": "$APBS"
+                "action": "unset",
+                "target": "$W3WE2"
               },
               {
                 "action": "set",
@@ -16445,15 +15782,21 @@
             },
             {
               "action": "set",
-              "target": "$DV4W"
+              "targets": [
+                "$DV4W",
+                "$PRM31",
+                "$APBS"
+              ]
             },
             {
               "action": "set",
-              "target": "$PRM31"
+              "target": "$W3WE8",
+              "condition_code": "$W3WE2",
+              "condition_state": "set"
             },
             {
-              "action": "set",
-              "target": "$APBS"
+              "action": "unset",
+              "target": "$W3WE2"
             },
             {
               "action": "set",
@@ -16911,6 +16254,16 @@
                 "target": "$W41B",
                 "condition_code": "$W39B",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$W3WE8",
+                "condition_code": "$W3WE2",
+                "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$W3WE2"
               }
             ],
             "unset_rules": []
@@ -16984,6 +16337,16 @@
               "target": "$W41B",
               "condition_code": "$W39B",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$W3WE8",
+              "condition_code": "$W3WE2",
+              "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$W3WE2"
             }
           ],
           "unset_rules": [
@@ -17780,7 +17143,6 @@
               "content": [
                 {
                   "configuration": [
-                    "$WIN31",
                     "$MT317"
                   ],
                   "condition_state": "not"
@@ -17879,18 +17241,8 @@
               "content": [
                 {
                   "selected_by": {
-                    "or": [
-                      {
-                        "and": [
-                          "$WIN31",
-                          "$MT317"
-                        ]
-                      },
-                      {
-                        "not": [
-                          "$WIN31"
-                        ]
-                      }
+                    "and": [
+                      "$MT317"
                     ]
                   }
                 }
@@ -17988,18 +17340,8 @@
               "content": [
                 {
                   "selected_by": {
-                    "or": [
-                      {
-                        "and": [
-                          "$WIN31",
-                          "$MT317"
-                        ]
-                      },
-                      {
-                        "not": [
-                          "$WIN31"
-                        ]
-                      }
+                    "and": [
+                      "$MT317"
                     ]
                   }
                 }
@@ -18011,194 +17353,6 @@
             {
               "type": "base",
               "value": 3680,
-              "context": "default"
-            }
-          ]
-        },
-        "$WIN31": {
-          "code": "$WIN31",
-          "user_defined_rules": {
-            "set_rules": [
-              {
-                "action": "set",
-                "target": "$WIN31"
-              },
-              {
-                "action": "set",
-                "target": "$W3WE8",
-                "condition_state": "unset",
-                "condition_all_codes": [
-                  "$W3WE9",
-                  "$W3WE2",
-                  "$MT304",
-                  "$MT311",
-                  "$MT317"
-                ]
-              },
-              {
-                "action": "set",
-                "target": "$W3WE2",
-                "condition_state": "set",
-                "condition_any_code": [
-                  "$MT304",
-                  "$MT311",
-                  "$MT317"
-                ]
-              }
-            ],
-            "unset_rules": [
-              {
-                "action": "unset",
-                "target": "$WIN31"
-              },
-              {
-                "action": "unset",
-                "target": "$W3WE8"
-              },
-              {
-                "action": "unset",
-                "target": "$W3WE9"
-              },
-              {
-                "action": "unset",
-                "target": "$W3WE2"
-              }
-            ]
-          },
-          "set_rules": [
-            {
-              "action": "set",
-              "target": "$WIN31"
-            },
-            {
-              "action": "set",
-              "target": "$WIN31"
-            },
-            {
-              "action": "set",
-              "target": "$W3WE8",
-              "condition_state": "unset",
-              "condition_all_codes": [
-                "$W3WE9",
-                "$W3WE2",
-                "$MT304",
-                "$MT311",
-                "$MT317"
-              ]
-            },
-            {
-              "action": "set",
-              "target": "$W3WE2",
-              "condition_state": "set",
-              "condition_any_code": [
-                "$MT304",
-                "$MT311",
-                "$MT317"
-              ]
-            }
-          ],
-          "unset_rules": [
-            {
-              "action": "unset",
-              "target": "$WIN31"
-            },
-            {
-              "action": "unset",
-              "target": "$WIN31"
-            },
-            {
-              "action": "unset",
-              "target": "$W3WE8"
-            },
-            {
-              "action": "unset",
-              "target": "$W3WE9"
-            },
-            {
-              "action": "unset",
-              "target": "$W3WE2"
-            }
-          ],
-          "name": "Groep winterbanden",
-          "description": "Groep winterbanden",
-          "long_name": "Groep winterbanden",
-          "extra_copy": [
-            {
-              "type": "name",
-              "content": " "
-            },
-            {
-              "type": "selectLabel",
-              "content": "Winterbanden toevoegen"
-            },
-            {
-              "type": "deselectLabel",
-              "content": "Winterbanden toevoegen"
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "shape",
-              "content": [
-                {
-                  "type": "checkbox"
-                }
-              ]
-            },
-            {
-              "type": "asset",
-              "content": [
-                {
-                  "url": "MODEL3/UI/option-wheels-18-pirrelli.png",
-                  "type": "image",
-                  "selected_by": {
-                    "and": [
-                      "$W3WE8"
-                    ]
-                  }
-                },
-                {
-                  "url": "MODEL3/UI/option-wheels-19-pirrelli.png",
-                  "type": "image",
-                  "selected_by": {
-                    "and": [
-                      "$W3WE9"
-                    ]
-                  }
-                },
-                {
-                  "url": "MODEL3/UI/option-wheels-20-pirrelli.png",
-                  "type": "image",
-                  "selected_by": {
-                    "and": [
-                      "$W3WE2"
-                    ]
-                  }
-                }
-              ]
-            },
-            {
-              "type": "price_override",
-              "content": [
-                {
-                  "options": [
-                    "$W3WE8",
-                    "$W3WE9",
-                    "$W3WE2"
-                  ],
-                  "default_price": 9500,
-                  "default_by_trim": {
-                    "$MT317": 19500
-                  }
-                }
-              ]
-            }
-          ],
-          "price": 0,
-          "pricing": [
-            {
-              "type": "base",
-              "value": 0,
               "context": "default"
             }
           ]
@@ -18686,7 +17840,6 @@
             "transform_ignored_groups": [
               "WINTER_WHEELS",
               "WINTER_WHEELS_OPTIONS",
-              "WINTER_WHEELS_C_GROUP",
               "HEATED_SEAT"
             ],
             "transform_ignored_options": [
@@ -23173,7 +22326,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 1325,
+      "options_id": 1361,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -24029,11 +23182,11 @@
           }
         }
       ],
-      "copy_id": 1813,
+      "copy_id": 1906,
       "language": "nl",
       "warnings": [],
       "pricing_id": 1199,
-      "reference_id": 1325
+      "reference_id": 1361
     }
   },
   "edd": [
