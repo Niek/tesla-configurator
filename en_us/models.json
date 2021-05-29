@@ -3199,7 +3199,24 @@
             "$INB3P"
           ],
           "name": "Interior",
-          "extra_copy": [],
+          "extra_copy": [
+            {
+              "type": "carbon_disclaimer",
+              "content": "White or Carbon Fiber deliveries begin in August",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "span",
+                    "classNames": [
+                      "tds-text--center",
+                      "tds-text--caption"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "extra_content": [
             {
               "type": "components",
@@ -3215,11 +3232,11 @@
                   "props": {
                     "fields": [
                       {
-                        "field": "add_carbon_int",
+                        "field": "add_wood_int",
                         "optionCodes": [
-                          "$IBC00",
-                          "$IWC00",
-                          "$ICC00"
+                          "$IBE00",
+                          "$IWW00",
+                          "$ICW00"
                         ],
                         "selected_by": {
                           "and": [
@@ -3228,11 +3245,11 @@
                         }
                       },
                       {
-                        "field": "add_wood_int",
+                        "field": "add_carbon_int",
                         "optionCodes": [
-                          "$IBE00",
-                          "$IWW00",
-                          "$ICW00"
+                          "$IBC00",
+                          "$IWC00",
+                          "$ICC00"
                         ],
                         "selected_by": {
                           "and": [
@@ -3246,6 +3263,29 @@
                 },
                 {
                   "type": "SelectedPrice"
+                },
+                {
+                  "type": "DynamicCopy",
+                  "props": {
+                    "field": "carbon_disclaimer_loader",
+                    "group": "INTERIOR_PACKAGE"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "carbon_disclaimer_loader",
+              "content": [
+                {
+                  "props": {
+                    "field": "carbon_disclaimer",
+                    "content_path": "CustomGroups.INTERIOR_PACKAGE"
+                  },
+                  "selected_by": {
+                    "or": [
+                      "$MTS11"
+                    ]
+                  }
                 }
               ]
             }
@@ -3602,6 +3642,70 @@
                   "delivery_date": "Est. Delivery: September-October",
                   "delivery_date_name": "Est. Delivery ",
                   "delivery_description": "September-October"
+                },
+                {
+                  "regions": [
+                    {
+                      "region": "california",
+                      "region_name": "california",
+                      "delivery_date": "August"
+                    },
+                    {
+                      "region": "central",
+                      "region_name": "central",
+                      "delivery_date": "August"
+                    },
+                    {
+                      "region": "eastern",
+                      "region_name": "eastern",
+                      "delivery_date": "August"
+                    },
+                    {
+                      "region": "nonContinental",
+                      "region_name": "nonContinental",
+                      "delivery_date": "August"
+                    },
+                    {
+                      "region": "other",
+                      "region_name": "other",
+                      "delivery_date": "August"
+                    },
+                    {
+                      "region": "texas",
+                      "region_name": "texas",
+                      "delivery_date": "August"
+                    },
+                    {
+                      "region": "western",
+                      "region_name": "western",
+                      "delivery_date": "August"
+                    },
+                    {
+                      "region": "mountainWest",
+                      "region_name": "mountainWest",
+                      "delivery_date": "August"
+                    }
+                  ],
+                  "selected_by": {
+                    "and": [
+                      {
+                        "or": [
+                          "$IBC00",
+                          "$IWC00",
+                          "$ICC00",
+                          "$IWW00"
+                        ]
+                      },
+                      {
+                        "and": [
+                          "$MTS11"
+                        ]
+                      }
+                    ]
+                  },
+                  "delivery_date": "Est. Delivery: August",
+                  "delivery_date_name": "Est. Delivery ",
+                  "delivery_description": "August"
                 },
                 {
                   "regions": [
@@ -13939,24 +14043,6 @@
             "set_rules": [
               {
                 "action": "set",
-                "target": "$IBC00",
-                "condition_code": "$IBE00",
-                "condition_state": "set"
-              },
-              {
-                "action": "set",
-                "target": "$IWC00",
-                "condition_code": "$IWW00",
-                "condition_state": "set"
-              },
-              {
-                "action": "set",
-                "target": "$ICC00",
-                "condition_code": "$ICW00",
-                "condition_state": "set"
-              },
-              {
-                "action": "set",
                 "target": "$WS90",
                 "condition_state": "set",
                 "condition_any_code": [
@@ -13995,24 +14081,6 @@
                 "$MTS09",
                 "$MTS10"
               ]
-            },
-            {
-              "action": "set",
-              "target": "$IBC00",
-              "condition_code": "$IBE00",
-              "condition_state": "set"
-            },
-            {
-              "action": "set",
-              "target": "$IWC00",
-              "condition_code": "$IWW00",
-              "condition_state": "set"
-            },
-            {
-              "action": "set",
-              "target": "$ICC00",
-              "condition_code": "$ICW00",
-              "condition_state": "set"
             },
             {
               "action": "set",

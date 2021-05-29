@@ -1000,12 +1000,12 @@
       }
     },
     "Lexicon.mp": {
-      "effective_date": "2020-08-27T17:20:00.000Z",
+      "effective_date": "2020-08-27T17:30:00.000Z",
       "market": "CN",
       "product": "mp",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CN 2020.Aug.27 167.186.177 [zh]",
+      "name": "Marketing CN 2020.Aug.27 1382.1922.1295 [zh]",
       "groups": [
         {
           "code": "MODEL",
@@ -1144,7 +1144,11 @@
           "groups": [],
           "context": "order_summary",
           "options": [
-            "$APF2"
+            "$APBS",
+            "$APF2",
+            "$IDD",
+            "$PDD",
+            "$WDD"
           ],
           "required": false,
           "exclusive": false,
@@ -1153,10 +1157,12 @@
         {
           "code": "REVIEW_ORDER",
           "groups": [
+            "PAINT",
+            "WHEELS",
+            "INTERIOR",
             "AUTOPILOT",
             "AUTOPILOT_OWNERSHIP",
-            "AUTOPILOT_PACKAGE",
-            "AUTOPILOT_FIRMWARE"
+            "AUTOPILOT_PACKAGE"
           ],
           "context": "order_summary",
           "options": [],
@@ -1792,10 +1798,11 @@
             },
             {
               "action": "unset",
-              "targets": [
-                "$MTP02",
-                "$MTP03"
-              ]
+              "target": "$MTP02"
+            },
+            {
+              "action": "unset",
+              "target": "$MTP03"
             },
             {
               "action": "set",
@@ -1810,11 +1817,13 @@
             {
               "action": "set",
               "target": "$MTP01",
-              "condition_state": "unset",
-              "condition_all_codes": [
-                "$MTP02",
-                "$MTP03"
-              ]
+              "operator": "and",
+              "condition_code": "$MTP02",
+              "condition_state": "unset"
+            },
+            {
+              "condition_code": "$MTP03",
+              "condition_state": "unset"
             }
           ],
           "name": "单电机后轮驱动",
@@ -1871,10 +1880,11 @@
             },
             {
               "action": "unset",
-              "targets": [
-                "$MTP01",
-                "$MTP03"
-              ]
+              "target": "$MTP01"
+            },
+            {
+              "action": "unset",
+              "target": "$MTP03"
             },
             {
               "action": "set",
@@ -1947,10 +1957,11 @@
             },
             {
               "action": "unset",
-              "targets": [
-                "$MTP01",
-                "$MTP02"
-              ]
+              "target": "$MTP01"
+            },
+            {
+              "action": "unset",
+              "target": "$MTP02"
             },
             {
               "action": "set",
@@ -2048,12 +2059,12 @@
         "$WDD",
         "$SC04"
       ],
-      "options_id": 167,
-      "copy_id": 186,
+      "options_id": 1382,
+      "copy_id": 1922,
       "language": "zh",
       "warnings": [],
-      "pricing_id": 177,
-      "reference_id": 167
+      "pricing_id": 1295,
+      "reference_id": 1382
     }
   },
   "edd": []
