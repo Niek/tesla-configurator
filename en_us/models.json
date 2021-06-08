@@ -1981,8 +1981,8 @@
       ]
     },
     "Lexicon.ms": {
-      "id": 1346,
-      "effective_date": "2021-05-21T05:15:00.000Z",
+      "id": 1478,
+      "effective_date": "2021-06-07T21:00:00.000Z",
       "market": "US",
       "product": "ms",
       "factory": "GF00",
@@ -2004,7 +2004,7 @@
           }
         }
       },
-      "name": "Marketing US 2021.May.21 1346.1847.1054",
+      "name": "Marketing US 2021.Jun.07 1478.1995.1054",
       "groups": [
         {
           "code": "MODEL",
@@ -3776,8 +3776,7 @@
           "context": "configurator",
           "options": [
             "$MTS10",
-            "$MTS11",
-            "$MTS09"
+            "$MTS11"
           ],
           "required": true,
           "exclusive": true,
@@ -3987,8 +3986,7 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$MTS11",
-            "$MTS09"
+            "$MTS11"
           ],
           "required": false,
           "exclusive": false,
@@ -4001,10 +3999,6 @@
             {
               "type": "sub_title",
               "content": "Tri Motor All-Wheel Drive"
-            },
-            {
-              "type": "disclaimer",
-              "content": "Plaid+ available in mid-2022"
             },
             {
               "type": "dynamic_disclaimer",
@@ -4747,6 +4741,20 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$APD2",
+                      "$APD3",
+                      "$APPC"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
@@ -5150,6 +5158,20 @@
                   "url": "MODEL3/UI/FSDComputer.png",
                   "type": "image",
                   "ratio": "slice"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$APD2",
+                      "$APD3",
+                      "$APPC"
+                    ]
+                  }
                 }
               ]
             }
@@ -6057,6 +6079,137 @@
             "$SC04"
           ],
           "name": "Supercharger"
+        },
+        {
+          "code": "AUTOPILOT_CONVIENCE_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APD2",
+            "$APD3",
+            "$APPC"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Autopilot with convenience features",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Included"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Auto Lane Change"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Autopark"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Summon"
+            },
+            {
+              "type": "disclaimer[0]",
+              "content": "Cannot be upgraded to Full Self-Driving capability"
+            },
+            {
+              "type": "disclaimer[1]",
+              "content": "The currently enabled features require active driver supervision and do not make the vehicle autonomous. The activation and use of these features are dependent on achieving reliability far in excess of human drivers as demonstrated by billions of miles of experience, as well as regulatory approval, which may take longer in some jurisdictions. As these self-driving features evolve, your car will be continuously upgraded through over-the-air software updates."
+            },
+            {
+              "type": "fsd_features",
+              "content": "Feature Details",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "FSD_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "legacy_options",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$APD2",
+                      "$APD3",
+                      "$APPC"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "fsd_features",
+                        "props": {
+                          "modal": "FSD_FEATURES"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Basic Autopilot Features",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Feature Cards"
+            }
+          ]
         }
       ],
       "options": {
@@ -6209,7 +6362,7 @@
               "target": "$APPB"
             }
           ],
-          "name": "Autopilot",
+          "name": "Basic Autopilot",
           "description": "Autopilot",
           "long_name": "Autopilot",
           "extra_copy": [
@@ -6219,11 +6372,15 @@
             },
             {
               "type": "feature_list.default.items[0]",
-              "content": "Enables your car to steer, accelerate and brake automatically for other vehicles and pedestrians within its lane."
+              "content": "Automatic steering, acceleration and braking on highways"
             },
             {
               "type": "selectLabel",
               "content": "Select Option"
+            },
+            {
+              "type": "disclaimer",
+              "content": "The currently enabled features require active driver supervision and do not make the vehicle autonomous. The activation and use of these features are dependent on achieving reliability far in excess of human drivers as demonstrated by billions of miles of experience, as well as regulatory approval, which may take longer in some jurisdictions. As these self-driving features evolve, your car will be continuously upgraded through over-the-air software updates."
             },
             {
               "type": "deselectLabel",
@@ -6232,6 +6389,24 @@
             {
               "type": "description",
               "content": " "
+            },
+            {
+              "type": "compare_features",
+              "content": "Feature Details",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {
+                      "data-should-open": "BASIC_AP_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -6240,6 +6415,46 @@
               "content": [
                 {
                   "type": "card"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "compare_features",
+                        "props": {
+                          "modal": "BASIC_AP_FEATURES"
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -6262,6 +6477,46 @@
               "context": "default"
             }
           ]
+        },
+        "$APD2": {
+          "code": "$APD2",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD2"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD2"
+            }
+          ],
+          "name": "Autopilot with convenience features",
+          "description": "Autopilot with convenience features",
+          "long_name": "Autopilot with convenience features",
+          "extra_copy": [],
+          "extra_content": []
+        },
+        "$APD3": {
+          "code": "$APD3",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD3"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD3"
+            }
+          ],
+          "name": "Autopilot with convenience features",
+          "description": "Autopilot with convenience features",
+          "long_name": "Autopilot with convenience features",
+          "extra_copy": [],
+          "extra_content": []
         },
         "$APF2": {
           "code": "$APF2",
@@ -6303,7 +6558,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "optional"
+              "content": "Included"
             },
             {
               "type": "feature_list.default[0].items[0]",
@@ -6566,6 +6821,26 @@
               "context": "default"
             }
           ]
+        },
+        "$APPC": {
+          "code": "$APPC",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APPC"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APPC"
+            }
+          ],
+          "name": "Autopilot with convenience features",
+          "description": "Autopilot with convenience features",
+          "long_name": "Autopilot with convenience features",
+          "extra_copy": [],
+          "extra_content": []
         },
         "$CPF0": {
           "code": "$CPF0",
@@ -12043,6 +12318,18 @@
                       "$ICW00"
                     ]
                   }
+                }
+              ]
+            },
+            {
+              "type": "disable_override",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$MTS11"
+                  ],
+                  "condition_state": "and"
                 }
               ]
             }
@@ -21674,7 +21961,7 @@
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 1346,
+      "options_id": 1478,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -22726,7 +23013,7 @@
           "content_localized": {}
         }
       ],
-      "copy_id": 1847,
+      "copy_id": 1995,
       "language": "en",
       "warnings": [
         {
