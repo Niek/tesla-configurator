@@ -2333,7 +2333,6 @@
             {
               "value": 4.06,
               "options": [
-                "$MTY03",
                 "$MTY06"
               ]
             },
@@ -2350,6 +2349,12 @@
               "options": [
                 "$MTY04",
                 "$MTY05"
+              ]
+            },
+            {
+              "value": 4.45,
+              "options": [
+                "$MTY03"
               ]
             }
           ],
@@ -2401,15 +2406,15 @@
       ]
     },
     "Lexicon.m3": {
-      "id": 1334,
-      "effective_date": "2021-05-21T05:18:00.000Z",
+      "id": 1481,
+      "effective_date": "2021-06-10T01:10:00.000Z",
       "market": "US",
       "product": "m3",
       "factory": "GF00",
       "fees": {
         "fuel_reward": {
           "amount": 1500,
-          "period": "includedInPurchasePrice",
+          "period": "once",
           "uiSettings": {
             "order": 1,
             "price": 1500,
@@ -2424,7 +2429,7 @@
           }
         }
       },
-      "name": "Marketing US 2021.May.21 1334.1812.1286",
+      "name": "Marketing US 2021.Jun.10 1481.2024.1286",
       "groups": [
         {
           "code": "TRIM",
@@ -3865,7 +3870,7 @@
             },
             {
               "type": "disclaimer_savingsPrice",
-              "content": "* Costs above include potential incentives and gas savings of {SAVING_PRICE}."
+              "content": "* Prices above include potential incentives and gas savings of {SAVING_PRICE}."
             },
             {
               "type": "disclaimer_purchasePrice",
@@ -3873,11 +3878,11 @@
             },
             {
               "type": "disclaimer_savingsPrice_CA",
-              "content": "* Prices shown include the {INCENTIVE_AMOUNT} {NAME_OF_INCENTIVE} and potential incentives and gas savings of {SAVING_PRICE}."
+              "content": "* Prices shown include the {INCENTIVE_AMOUNT} {NAME_OF_INCENTIVE} and potential incentives and gas savings for a total of {SAVING_PRICE}."
             },
             {
               "type": "disclaimer_purchasePrice_CA",
-              "content": "Prices shown without the {INCENTIVE_AMOUNT} {NAME_OF_INCENTIVE} and potential incentives and gas savings of {SAVING_PRICE}."
+              "content": "Prices shown without the {INCENTIVE_AMOUNT} {NAME_OF_INCENTIVE} and potential incentives and gas savings for a total of {SAVING_PRICE}."
             },
             {
               "type": "disclaimer_customIncentives",
@@ -6780,6 +6785,23 @@
           "required": false,
           "exclusive": false,
           "default_options": []
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Basic Autopilot Features",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Feature Cards"
+            }
+          ]
         }
       ],
       "options": {
@@ -6847,7 +6869,7 @@
               ]
             }
           ],
-          "name": "Autopilot",
+          "name": "Basic Autopilot",
           "description": "Autopilot",
           "long_name": "Autopilot",
           "extra_copy": [
@@ -6861,7 +6883,11 @@
             },
             {
               "type": "feature_list.default.items[0]",
-              "content": "Enables your car to steer, accelerate and brake automatically for other vehicles and pedestrians within its lane."
+              "content": "Automatic steering, acceleration and braking on highways"
+            },
+            {
+              "type": "disclaimer",
+              "content": "The currently enabled features require active driver supervision and do not make the vehicle autonomous. The activation and use of these features are dependent on achieving reliability far in excess of human drivers as demonstrated by billions of miles of experience, as well as regulatory approval, which may take longer in some jurisdictions. As these self-driving features evolve, your car will be continuously upgraded through over-the-air software updates."
             },
             {
               "type": "selectLabel",
@@ -6870,6 +6896,24 @@
             {
               "type": "deselectLabel",
               "content": "Option Selected"
+            },
+            {
+              "type": "compare_features",
+              "content": "Feature Details",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {
+                      "data-should-open": "BASIC_AP_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             },
             {
               "type": "#configurator:::confirgurator prefix",
@@ -6894,6 +6938,46 @@
               "content": [
                 {
                   "type": "card"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "compare_features",
+                        "props": {
+                          "modal": "BASIC_AP_FEATURES"
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -6996,7 +7080,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "optional"
+              "content": "Included"
             },
             {
               "type": "feature_list.default[0].items[0]",
@@ -15929,6 +16013,7 @@
                 "target": "$APF2"
               }
             ],
+            "category": "EAP",
             "comments": "test"
           },
           "Upgrade to FSD": {
@@ -15939,6 +16024,8 @@
                 "target": "$APF2"
               }
             ],
+            "context": "new",
+            "category": "FSD",
             "comments": "test2"
           }
         },
@@ -20978,7 +21065,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 1334,
+      "options_id": 1481,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -21918,7 +22005,7 @@
           "content_localized": {}
         }
       ],
-      "copy_id": 1812,
+      "copy_id": 2024,
       "language": "en",
       "warnings": [],
       "pricing_id": 1286
