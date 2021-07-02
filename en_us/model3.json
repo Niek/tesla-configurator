@@ -1245,6 +1245,7 @@
         "showInventoryOrderFirstPaymentPolicy": false,
         "showDOCandOMVICfees": true,
         "showVATBreakdown": false,
+        "showDeliveryEstDisclaimer": false,
         "nonRefundPolicy": {
           "source": true,
           "target": true
@@ -1750,7 +1751,7 @@
         },
         {
           "description": [
-            "State Incentive for US m3"
+            "State Incentive for US m3, my"
           ],
           "regionCode": "NY",
           "incentiveType": "regional",
@@ -1760,11 +1761,23 @@
             "lease"
           ],
           "period": "once",
-          "amount": 2000,
-          "toggle_amount": null,
+          "amount": 500,
+          "toggle_amount": {
+            "if": {
+              "car_price": {
+                "conditions": {
+                  "vehiclePrice": {
+                    "<": 42000
+                  }
+                },
+                "amount": 2000
+              }
+            }
+          },
           "long_name": "New York",
           "variant": [
-            "m3"
+            "m3",
+            "my"
           ],
           "inventory": [
             "new"

@@ -1240,6 +1240,7 @@
         "showInventoryOrderFirstPaymentPolicy": false,
         "showDOCandOMVICfees": true,
         "showVATBreakdown": false,
+        "showDeliveryEstDisclaimer": false,
         "nonRefundPolicy": {
           "source": true,
           "target": true
@@ -1459,13 +1460,17 @@
           "customerType": "private",
           "toggle_amount": {
             "if": {
-              "grant_conditions": {
+              "car_price": {
                 "conditions": {
+                  "vehiclePrice": {
+                    "<": 60000
+                  },
                   "odometerMileage": {
                     "<=": 50
                   }
                 },
-                "amount": -5000
+                "amount": 5000,
+                "includeFees": true
               }
             }
           },
