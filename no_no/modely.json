@@ -638,8 +638,9 @@
             "code": "SPOILER",
             "context": "configurator",
             "group_selected_by": {
-              "and": [
-                "$MTY05"
+              "or": [
+                "$MTY05",
+                "$MTY10"
               ]
             }
           },
@@ -682,8 +683,9 @@
             "code": "SPORT_PACKAGE",
             "context": "configurator",
             "group_selected_by": {
-              "and": [
-                "$MTY05"
+              "or": [
+                "$MTY05",
+                "$MTY10"
               ]
             }
           },
@@ -889,12 +891,12 @@
         "loanFieldsFormat": null,
         "gasSavingsExampleParams": {
           "yearlyDistance": 20000,
-          "petrolSavingsPerYear": 28500,
-          "petrolSavings": 118200,
-          "timesLower": 6,
-          "fuelEconomy": 11.9,
-          "electricityPrice": 1.52,
-          "petrolPrice": 16.94
+          "petrolSavingsPerYear": 18000,
+          "petrolSavings": 71400,
+          "timesLower": 5,
+          "fuelEconomy": 17.5,
+          "electricityPrice": 1.098,
+          "petrolPrice": 15.723
         },
         "extraDisclaimers": [],
         "disclaimerDateFormat": "",
@@ -906,7 +908,7 @@
         "useResidualAmount": false,
         "isResidualAmountEditable": false,
         "showRegionalIncentiveDropDown": false,
-        "showDescriptionWithoutIncentive": true,
+        "showDescriptionWithoutIncentive": false,
         "showOtherLoanTerms": false,
         "showIncentivesPerRegion": false,
         "showIncentivesRegion": [],
@@ -971,13 +973,13 @@
         "defaultEncryptor": "Adyen",
         "hideAllBillingInfo": false,
         "splitPayment": [],
-        "displayPaymentDisclaimer": false,
+        "displayPaymentDisclaimer": true,
         "displayOtherEUDisclaimer": false,
         "useProvinceFromBillingInfo": false,
         "isPaymentFormOpen": false,
         "showTextForPaymentTypes": false,
         "noWireTransferOnBusinessAccount": false,
-        "showOptinDisclaimer": "always",
+        "showOptinDisclaimer": "always_no_disclaimer",
         "billingAddressDetailsPayX": "full",
         "calculatePriceOnOrder": false
       },
@@ -1193,8 +1195,8 @@
         "showVATBreakdown": false,
         "showDeliveryEstDisclaimer": false,
         "nonRefundPolicy": {
-          "source": false,
-          "target": false
+          "source": true,
+          "target": true
         },
         "displayOrderRefundLongCopy": {
           "source": false,
@@ -1205,7 +1207,7 @@
           },
           "target": true
         },
-        "nonRefundPolicyDisclaimer": false,
+        "nonRefundPolicyDisclaimer": true,
         "showOrderRefundDisclaimer": true,
         "doSessionStartOnMount": true,
         "showModelYear": true,
@@ -1272,9 +1274,7 @@
           "CompanyName",
           "Vat"
         ],
-        "extraIncentives": [
-          "generic"
-        ]
+        "extraIncentives": []
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -1341,16 +1341,16 @@
         {
           "incentiveType": "fuel",
           "description": "Fuel economy inputs for NO my",
-          "amount": 118200,
+          "amount": 71400,
           "period": "fuel",
           "variables": {
             "months": 60,
             "distance": 100000,
-            "fuel_efficiency_metric": 8.4,
-            "kwh_consumption": 0.159,
+            "fuel_efficiency_metric": 5.7142857143,
+            "kwh_consumption": 0.167,
             "supercharger_kwh_price": 1.7,
-            "fuel_price": 16.94,
-            "kwh_price": 1.52
+            "fuel_price": 15.723,
+            "kwh_price": 1.098
           },
           "variant": "my",
           "market": "NO"
@@ -1444,6 +1444,20 @@
     },
     "Fees.my.my": {
       "fees": [
+        {
+          "financeType": "loan",
+          "feeType": "dnb_loan_fee",
+          "description": "Norway establishment fee",
+          "amount": 1730,
+          "period": "included",
+          "variant": [
+            "m3",
+            "ms",
+            "mx",
+            "my"
+          ],
+          "market": "NO"
+        },
         {
           "financeType": "loan",
           "feeType": "dnb_admin_fee",
@@ -1581,7 +1595,58 @@
       "tcc": []
     },
     "Loan.my.my": {
-      "loan": []
+      "loan": [
+        {
+          "market": "NO",
+          "variant": [
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "minimumDownPayment": 1000,
+            "interestRate": 0.25,
+            "loanTerm": 96,
+            "downPayment": 0.35,
+            "loanDistance": 15000,
+            "initialTerm": 36,
+            "finalRate": 3.25,
+            "maximumDownPayment": 0.8,
+            "localeSpecific": {
+              "registrationFee": 1051,
+              "campaign3plus7": [
+                "$MT315",
+                "$MT321"
+              ]
+            }
+          },
+          "interestRateMatrix": [
+            {
+              "options": [
+                "$MT314",
+                "$MT337",
+                "$MT317",
+                "$MTY07",
+                "$MTY05"
+              ],
+              "value": 1.99
+            }
+          ],
+          "loanTermsOffered": {
+            "loanTerm": [
+              60,
+              72,
+              84,
+              96,
+              108,
+              120
+            ]
+          },
+          "residualRateMatrix": []
+        }
+      ]
     },
     "Lexicon.my": {
       "effective_date": "2021-07-02T01:22:00.000Z",
@@ -9284,7 +9349,11 @@
               "$MTY04",
               "$MTY05",
               "$MTY01",
-              "$MTY06"
+              "$MTY06",
+              "$MTY07",
+              "$MTY08",
+              "$MTY09",
+              "$MTY10"
             ]
           }
         ],

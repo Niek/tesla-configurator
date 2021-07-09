@@ -638,8 +638,9 @@
             "code": "SPOILER",
             "context": "configurator",
             "group_selected_by": {
-              "and": [
-                "$MTY05"
+              "or": [
+                "$MTY05",
+                "$MTY10"
               ]
             }
           },
@@ -682,8 +683,9 @@
             "code": "SPORT_PACKAGE",
             "context": "configurator",
             "group_selected_by": {
-              "and": [
-                "$MTY05"
+              "or": [
+                "$MTY05",
+                "$MTY10"
               ]
             }
           },
@@ -888,12 +890,12 @@
         "loanFieldsFormat": null,
         "gasSavingsExampleParams": {
           "yearlyDistance": 20000,
-          "petrolSavingsPerYear": 2600,
-          "petrolSavings": 10600,
-          "timesLower": 5,
-          "fuelEconomy": 11.9,
-          "electricityPrice": 0.16,
-          "petrolPrice": 1.56
+          "petrolSavingsPerYear": 1500,
+          "petrolSavings": 4500,
+          "timesLower": 3,
+          "fuelEconomy": 17.5,
+          "electricityPrice": 0.172,
+          "petrolPrice": 1.295
         },
         "extraDisclaimers": [],
         "disclaimerDateFormat": "",
@@ -905,7 +907,7 @@
         "useResidualAmount": false,
         "isResidualAmountEditable": false,
         "showRegionalIncentiveDropDown": false,
-        "showDescriptionWithoutIncentive": true,
+        "showDescriptionWithoutIncentive": false,
         "showOtherLoanTerms": false,
         "showIncentivesPerRegion": false,
         "showIncentivesRegion": [],
@@ -970,13 +972,13 @@
         "defaultEncryptor": "Adyen",
         "hideAllBillingInfo": false,
         "splitPayment": [],
-        "displayPaymentDisclaimer": false,
+        "displayPaymentDisclaimer": true,
         "displayOtherEUDisclaimer": false,
         "useProvinceFromBillingInfo": false,
         "isPaymentFormOpen": false,
         "showTextForPaymentTypes": false,
         "noWireTransferOnBusinessAccount": false,
-        "showOptinDisclaimer": "always",
+        "showOptinDisclaimer": "always_no_disclaimer",
         "billingAddressDetailsPayX": "full",
         "calculatePriceOnOrder": false
       },
@@ -1194,8 +1196,8 @@
         "showVATBreakdown": false,
         "showDeliveryEstDisclaimer": false,
         "nonRefundPolicy": {
-          "source": false,
-          "target": false
+          "source": true,
+          "target": true
         },
         "displayOrderRefundLongCopy": {
           "source": false,
@@ -1206,7 +1208,7 @@
           },
           "target": true
         },
-        "nonRefundPolicyDisclaimer": false,
+        "nonRefundPolicyDisclaimer": true,
         "showOrderRefundDisclaimer": true,
         "doSessionStartOnMount": true,
         "showModelYear": true,
@@ -1275,8 +1277,7 @@
           "Vat"
         ],
         "extraIncentives": [
-          "regionalTax",
-          "generic"
+          "regionalTax"
         ]
       },
       "PrintPdf": {
@@ -1344,16 +1345,16 @@
         {
           "incentiveType": "fuel",
           "description": "Fuel economy inputs for FI my",
-          "amount": 10600,
+          "amount": 4500,
           "period": "fuel",
           "variables": {
             "months": 60,
             "distance": 100000,
-            "fuel_efficiency_metric": 8.4,
-            "kwh_consumption": 0.159,
+            "fuel_efficiency_metric": 5.7142857143,
+            "kwh_consumption": 0.167,
             "supercharger_kwh_price": 0.3,
-            "fuel_price": 1.56,
-            "kwh_price": 0.16
+            "fuel_price": 1.295,
+            "kwh_price": 0.172
           },
           "variant": "my",
           "market": "FI"
@@ -1732,7 +1733,145 @@
       "tcc": []
     },
     "Loan.my.my": {
-      "loan": []
+      "loan": [
+        {
+          "market": "FI",
+          "variant": [
+            "m3",
+            "ms",
+            "mx",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "minimumDownPayment": 0.1,
+            "downPayment": 10000,
+            "maximumDownPayment": 0.5,
+            "interestRate": 1.2,
+            "loanTerm": 60,
+            "loanDistance": 10000
+          },
+          "loanTermsOffered": {
+            "loanTerm": [
+              24,
+              36,
+              48,
+              60
+            ],
+            "loanDistance": [
+              10000,
+              15000,
+              20000,
+              25000,
+              30000
+            ]
+          },
+          "residualRateMatrix": [
+            {
+              "loanTerm": 24,
+              "loanDistance": 10000,
+              "value": 0.55
+            },
+            {
+              "loanTerm": 24,
+              "loanDistance": 15000,
+              "value": 0.55
+            },
+            {
+              "loanTerm": 24,
+              "loanDistance": 20000,
+              "value": 0.54
+            },
+            {
+              "loanTerm": 24,
+              "loanDistance": 25000,
+              "value": 0.53
+            },
+            {
+              "loanTerm": 24,
+              "loanDistance": 30000,
+              "value": 0.52
+            },
+            {
+              "loanTerm": 36,
+              "loanDistance": 10000,
+              "value": 0.53
+            },
+            {
+              "loanTerm": 36,
+              "loanDistance": 15000,
+              "value": 0.52
+            },
+            {
+              "loanTerm": 36,
+              "loanDistance": 20000,
+              "value": 0.51
+            },
+            {
+              "loanTerm": 36,
+              "loanDistance": 25000,
+              "value": 0.5
+            },
+            {
+              "loanTerm": 36,
+              "loanDistance": 30000,
+              "value": 0.45
+            },
+            {
+              "loanTerm": 48,
+              "loanDistance": 10000,
+              "value": 0.47
+            },
+            {
+              "loanTerm": 48,
+              "loanDistance": 15000,
+              "value": 0.46
+            },
+            {
+              "loanTerm": 48,
+              "loanDistance": 20000,
+              "value": 0.45
+            },
+            {
+              "loanTerm": 48,
+              "loanDistance": 25000,
+              "value": 0.42
+            },
+            {
+              "loanTerm": 48,
+              "loanDistance": 30000,
+              "value": 0.4
+            },
+            {
+              "loanTerm": 60,
+              "loanDistance": 10000,
+              "value": 0.43
+            },
+            {
+              "loanTerm": 60,
+              "loanDistance": 15000,
+              "value": 0.42
+            },
+            {
+              "loanTerm": 60,
+              "loanDistance": 20000,
+              "value": 0.41
+            },
+            {
+              "loanTerm": 60,
+              "loanDistance": 25000,
+              "value": 0.37
+            },
+            {
+              "loanTerm": 60,
+              "loanDistance": 30000,
+              "value": 0.35
+            }
+          ]
+        }
+      ]
     },
     "Lexicon.my": {
       "effective_date": "2021-07-02T01:22:00.000Z",
@@ -9490,7 +9629,10 @@
               "$MTY03",
               "$MTY04",
               "$MTY05",
-              "$MTY06"
+              "$MTY06",
+              "$MTY07",
+              "$MTY09",
+              "$MTY10"
             ]
           },
           {
@@ -9503,7 +9645,11 @@
               "$MTY04",
               "$MTY05",
               "$MTY01",
-              "$MTY06"
+              "$MTY06",
+              "$MTY07",
+              "$MTY08",
+              "$MTY09",
+              "$MTY10"
             ]
           }
         ],

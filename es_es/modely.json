@@ -638,8 +638,9 @@
             "code": "SPOILER",
             "context": "configurator",
             "group_selected_by": {
-              "and": [
-                "$MTY05"
+              "or": [
+                "$MTY05",
+                "$MTY10"
               ]
             }
           },
@@ -682,8 +683,9 @@
             "code": "SPORT_PACKAGE",
             "context": "configurator",
             "group_selected_by": {
-              "and": [
-                "$MTY05"
+              "or": [
+                "$MTY05",
+                "$MTY10"
               ]
             }
           },
@@ -745,8 +747,7 @@
         ],
         "activeTabs": [
           "finance_options",
-          "gas_savings",
-          "incentives"
+          "gas_savings"
         ],
         "menuItems": [
           {
@@ -897,12 +898,12 @@
         "loanFieldsFormat": null,
         "gasSavingsExampleParams": {
           "yearlyDistance": 20000,
-          "petrolSavingsPerYear": 2300,
-          "petrolSavings": 7800,
-          "timesLower": 3,
-          "fuelEconomy": 11.9,
-          "electricityPrice": 0.22,
-          "petrolPrice": 1.34
+          "petrolSavingsPerYear": 1300,
+          "petrolSavings": 2800,
+          "timesLower": 2,
+          "fuelEconomy": 17.5,
+          "electricityPrice": 0.213,
+          "petrolPrice": 1.115
         },
         "extraDisclaimers": [],
         "disclaimerDateFormat": "",
@@ -912,7 +913,7 @@
         "useResidualAmount": false,
         "isResidualAmountEditable": false,
         "showRegionalIncentiveDropDown": false,
-        "showDescriptionWithoutIncentive": true,
+        "showDescriptionWithoutIncentive": false,
         "showOtherLoanTerms": false,
         "showIncentivesPerRegion": false,
         "showIncentivesRegion": [],
@@ -977,13 +978,13 @@
         "defaultEncryptor": "Stripe",
         "hideAllBillingInfo": false,
         "splitPayment": [],
-        "displayPaymentDisclaimer": false,
+        "displayPaymentDisclaimer": true,
         "displayOtherEUDisclaimer": false,
         "useProvinceFromBillingInfo": false,
         "isPaymentFormOpen": false,
         "showTextForPaymentTypes": false,
         "noWireTransferOnBusinessAccount": false,
-        "showOptinDisclaimer": "always",
+        "showOptinDisclaimer": "always_no_disclaimer",
         "billingAddressDetailsPayX": "full",
         "calculatePriceOnOrder": false
       },
@@ -1200,8 +1201,8 @@
         "showVATBreakdown": false,
         "showDeliveryEstDisclaimer": false,
         "nonRefundPolicy": {
-          "source": false,
-          "target": false
+          "source": true,
+          "target": true
         },
         "displayOrderRefundLongCopy": {
           "source": false,
@@ -1212,7 +1213,7 @@
           },
           "target": true
         },
-        "nonRefundPolicyDisclaimer": false,
+        "nonRefundPolicyDisclaimer": true,
         "showOrderRefundDisclaimer": true,
         "doSessionStartOnMount": true,
         "showModelYear": true,
@@ -1279,9 +1280,7 @@
           "CompanyName",
           "Vat"
         ],
-        "extraIncentives": [
-          "generic"
-        ]
+        "extraIncentives": []
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -1348,16 +1347,16 @@
         {
           "incentiveType": "fuel",
           "description": "Fuel economy inputs for ES my",
-          "amount": 7800,
+          "amount": 2800,
           "period": "fuel",
           "variables": {
             "months": 60,
             "distance": 100000,
-            "fuel_efficiency_metric": 8.4,
-            "kwh_consumption": 0.159,
+            "fuel_efficiency_metric": 5.7142857143,
+            "kwh_consumption": 0.167,
             "supercharger_kwh_price": 0.29,
-            "fuel_price": 1.34,
-            "kwh_price": 0.22
+            "fuel_price": 1.115,
+            "kwh_price": 0.213
           },
           "variant": "my",
           "market": "ES"
@@ -1680,7 +1679,36 @@
       "tcc": []
     },
     "Loan.my.my": {
-      "loan": []
+      "loan": [
+        {
+          "market": "ES",
+          "variant": [
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "minimumDownPayment": 0,
+            "downPayment": 13900,
+            "minimumFinancedAmount": 3000,
+            "interestRate": 3.25,
+            "loanTerm": 120
+          },
+          "loanTermsOffered": {
+            "loanTerm": [
+              48,
+              60,
+              72,
+              84,
+              96,
+              120
+            ]
+          },
+          "interestRateMatrix": [],
+          "residualRateMatrix": []
+        }
+      ]
     },
     "Lexicon.my": {
       "effective_date": "2021-07-02T01:22:00.000Z",
@@ -9455,7 +9483,10 @@
               "$MTY03",
               "$MTY04",
               "$MTY05",
-              "$MTY06"
+              "$MTY06",
+              "$MTY07",
+              "$MTY09",
+              "$MTY10"
             ]
           },
           {
@@ -9468,7 +9499,11 @@
               "$MTY04",
               "$MTY05",
               "$MTY01",
-              "$MTY06"
+              "$MTY06",
+              "$MTY07",
+              "$MTY08",
+              "$MTY09",
+              "$MTY10"
             ]
           }
         ],

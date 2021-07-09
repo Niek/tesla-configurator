@@ -638,8 +638,9 @@
             "code": "SPOILER",
             "context": "configurator",
             "group_selected_by": {
-              "and": [
-                "$MTY05"
+              "or": [
+                "$MTY05",
+                "$MTY10"
               ]
             }
           },
@@ -682,8 +683,9 @@
             "code": "SPORT_PACKAGE",
             "context": "configurator",
             "group_selected_by": {
-              "and": [
-                "$MTY05"
+              "or": [
+                "$MTY05",
+                "$MTY10"
               ]
             }
           },
@@ -745,8 +747,7 @@
         ],
         "activeTabs": [
           "finance_options",
-          "gas_savings",
-          "incentives"
+          "gas_savings"
         ],
         "menuItems": [
           {
@@ -895,12 +896,12 @@
         "loanFieldsFormat": null,
         "gasSavingsExampleParams": {
           "yearlyDistance": 20000,
-          "petrolSavingsPerYear": 2700,
-          "petrolSavings": 9900,
-          "timesLower": 4,
-          "fuelEconomy": 11.9,
-          "electricityPrice": 0.22,
-          "petrolPrice": 1.59
+          "petrolSavingsPerYear": 1500,
+          "petrolSavings": 3200,
+          "timesLower": 2,
+          "fuelEconomy": 17.5,
+          "electricityPrice": 0.265,
+          "petrolPrice": 1.336
         },
         "extraDisclaimers": [],
         "disclaimerDateFormat": "DD/MM/YYYY",
@@ -975,13 +976,13 @@
         "defaultEncryptor": "Stripe",
         "hideAllBillingInfo": false,
         "splitPayment": [],
-        "displayPaymentDisclaimer": false,
+        "displayPaymentDisclaimer": true,
         "displayOtherEUDisclaimer": false,
         "useProvinceFromBillingInfo": false,
         "isPaymentFormOpen": false,
         "showTextForPaymentTypes": false,
         "noWireTransferOnBusinessAccount": false,
-        "showOptinDisclaimer": "always",
+        "showOptinDisclaimer": "always_no_disclaimer",
         "billingAddressDetailsPayX": "full",
         "calculatePriceOnOrder": false
       },
@@ -1199,8 +1200,8 @@
         "showVATBreakdown": false,
         "showDeliveryEstDisclaimer": false,
         "nonRefundPolicy": {
-          "source": false,
-          "target": false
+          "source": true,
+          "target": true
         },
         "displayOrderRefundLongCopy": {
           "source": false,
@@ -1211,7 +1212,7 @@
           },
           "target": true
         },
-        "nonRefundPolicyDisclaimer": false,
+        "nonRefundPolicyDisclaimer": true,
         "showOrderRefundDisclaimer": true,
         "doSessionStartOnMount": true,
         "showModelYear": true,
@@ -1278,9 +1279,7 @@
           "CompanyName",
           "Vat"
         ],
-        "extraIncentives": [
-          "generic"
-        ]
+        "extraIncentives": []
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -1288,7 +1287,6 @@
         "disclaimerPrecedings": [],
         "leaseFields": [
           "downPayment",
-          "distance",
           "term"
         ],
         "loanFields": [
@@ -1350,16 +1348,16 @@
         {
           "incentiveType": "fuel",
           "description": "Fuel economy inputs for PT my",
-          "amount": 9900,
+          "amount": 3200,
           "period": "fuel",
           "variables": {
             "months": 60,
             "distance": 100000,
-            "fuel_efficiency_metric": 8.4,
-            "kwh_consumption": 0.159,
+            "fuel_efficiency_metric": 5.7142857143,
+            "kwh_consumption": 0.167,
             "supercharger_kwh_price": 0.24,
-            "fuel_price": 1.59,
-            "kwh_price": 0.22
+            "fuel_price": 1.336,
+            "kwh_price": 0.265
           },
           "variant": "my",
           "market": "PT"
@@ -1637,7 +1635,64 @@
       ]
     },
     "Lease.my.my": {
-      "lease": []
+      "lease": [
+        {
+          "market": "PT",
+          "id": "lease",
+          "variant": [
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "minimumDownPayment": 0,
+            "downPayment": 23500,
+            "minimumFinancedAmount": 5000,
+            "interestRate": 1.5,
+            "leaseTerm": 84,
+            "localeSpecific": {
+              "monthlyCommission": 3.08,
+              "initialCommission": 246
+            }
+          },
+          "leaseTermsOffered": {
+            "leaseTerm": [
+              48,
+              60,
+              72,
+              84
+            ]
+          },
+          "interestRateMatrix": [],
+          "residualRateMatrix": [
+            {
+              "value": 0.05
+            }
+          ],
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "downPayment",
+                  "term"
+                ],
+                [
+                  "financedAmount"
+                ]
+              ]
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm",
+                "interestRate",
+                "effectiveRate"
+              ]
+            }
+          }
+        }
+      ]
     },
     "TCC.my.my": {
       "tcc": []
@@ -9400,7 +9455,10 @@
               "$MTY03",
               "$MTY04",
               "$MTY05",
-              "$MTY06"
+              "$MTY06",
+              "$MTY07",
+              "$MTY09",
+              "$MTY10"
             ]
           },
           {
@@ -9413,7 +9471,11 @@
               "$MTY04",
               "$MTY05",
               "$MTY01",
-              "$MTY06"
+              "$MTY06",
+              "$MTY07",
+              "$MTY08",
+              "$MTY09",
+              "$MTY10"
             ]
           }
         ],

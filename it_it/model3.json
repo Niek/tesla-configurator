@@ -834,9 +834,7 @@
           "loan"
         ],
         "hideAfterSavingsModal": false,
-        "showSavingsAmount": [
-          "loan"
-        ],
+        "showSavingsAmount": [],
         "showSavingAmountInModal": false,
         "showSavingAmtWithoutMinus": false,
         "showAmountIncludingFees": true,
@@ -959,7 +957,7 @@
           "petrolPrice": 1.64
         },
         "extraDisclaimers": [],
-        "disclaimerDateFormat": "",
+        "disclaimerDateFormat": "MM/YYYY",
         "showIncentivesDisclaimers": true,
         "extraLeaseDescriptions": [],
         "extraLoanDescriptions": [],
@@ -1353,9 +1351,7 @@
         "leaseFields": [
           "downPayment",
           "distance",
-          "term",
-          "standardFeaturesList",
-          "additionalFeaturesList"
+          "term"
         ],
         "loanFields": [
           "downPayment",
@@ -1725,75 +1721,22 @@
           "description": "Start fee for Loan",
           "period": "included",
           "variant": [
-            "m3"
+            "m3",
+            "my"
           ],
-          "amount": 350,
+          "amount": 400,
           "market": "IT"
         },
         {
-          "feeType": "installation_fee_1",
+          "feeType": "monthly_fee",
           "financeType": "loan",
-          "description": "Installation fee for Loan",
+          "description": "Monthly fee for Loan",
           "period": "included",
           "variant": [
-            "m3"
+            "m3",
+            "my"
           ],
-          "amount": 12.8,
-          "market": "IT"
-        },
-        {
-          "feeType": "installation_fee_2",
-          "financeType": "loan",
-          "description": "Installation fee 2 for Loan",
-          "period": "included",
-          "variant": [
-            "m3"
-          ],
-          "amount": 147,
-          "market": "IT"
-        },
-        {
-          "feeType": "installation_fee_3",
-          "financeType": "loan",
-          "description": "Installation fee 3 for Loan",
-          "period": "included",
-          "variant": [
-            "m3"
-          ],
-          "amount": 252,
-          "market": "IT"
-        },
-        {
-          "feeType": "installation_fee_4",
-          "financeType": "loan",
-          "description": "Installation fee 4 for Loan",
-          "period": "included",
-          "variant": [
-            "m3"
-          ],
-          "amount": 22.4,
-          "market": "IT"
-        },
-        {
-          "feeType": "installation_fee_5",
-          "financeType": "loan",
-          "description": "Restitution Cost",
-          "period": "included",
-          "variant": [
-            "m3"
-          ],
-          "amount": 5,
-          "market": "IT"
-        },
-        {
-          "feeType": "reverse_stamp_duty_fee",
-          "financeType": "loan",
-          "description": "Reverse Stamp Duty on Contract fee for Loan",
-          "period": "included",
-          "variant": [
-            "m3"
-          ],
-          "amount": 16,
+          "amount": 1,
           "market": "IT"
         },
         {
@@ -2140,6 +2083,7 @@
           ],
           "variables": {
             "downPayment": 0.1,
+            "downPaymentPercent": 10,
             "leaseTerm": 48,
             "leaseDistance": 20000
           },
@@ -2162,6 +2106,15 @@
                 "leaseTerm",
                 "leaseDistance"
               ]
+            },
+            "pdf": {
+              "leaseFields": [
+                "downPaymentPercentage",
+                "distance",
+                "term",
+                "standardFeaturesList",
+                "additionalFeaturesList"
+              ]
             }
           }
         }
@@ -2175,24 +2128,26 @@
         {
           "market": "IT",
           "variant": [
-            "m3"
+            "m3",
+            "my"
           ],
           "inventory": [
             "new"
           ],
           "variables": {
             "minimumDownPayment": 0,
-            "downPayment": 8000,
+            "downPayment": 12100,
             "maximumDownPayment": 0.35,
             "interestRate": 3.95,
-            "loanTerm": 60,
+            "loanTerm": 48,
             "localeSpecific": {
-              "refinancingRate": 4.95
+              "refinancingRate": 5.95,
+              "documentationFee": 3,
+              "monthlyCommission": 1
             }
           },
           "loanTermsOffered": {
             "loanTerm": [
-              24,
               36,
               48,
               60
@@ -2201,20 +2156,16 @@
           "interestRateMatrix": [],
           "residualRateMatrix": [
             {
-              "loanTerm": 24,
-              "value": 0.65
-            },
-            {
               "loanTerm": 36,
-              "value": 0.55
+              "value": 0.6
             },
             {
               "loanTerm": 48,
-              "value": 0.45
+              "value": 0.5
             },
             {
               "loanTerm": 60,
-              "value": 0.35
+              "value": 0.4
             }
           ]
         }

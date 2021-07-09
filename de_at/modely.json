@@ -638,8 +638,9 @@
             "code": "SPOILER",
             "context": "configurator",
             "group_selected_by": {
-              "and": [
-                "$MTY05"
+              "or": [
+                "$MTY05",
+                "$MTY10"
               ]
             }
           },
@@ -682,8 +683,9 @@
             "code": "SPORT_PACKAGE",
             "context": "configurator",
             "group_selected_by": {
-              "and": [
-                "$MTY05"
+              "or": [
+                "$MTY05",
+                "$MTY10"
               ]
             }
           },
@@ -784,7 +786,7 @@
         "showSavingAmountInModal": true,
         "showSavingAmtWithoutMinus": false,
         "showAmountIncludingFees": true,
-        "showAmountIncludingFeesSummary": false,
+        "showAmountIncludingFeesSummary": true,
         "loanAfterSavingsLabel": "netPrice__after_savings",
         "showSecondDepositDisclaimer": false,
         "useModelYContent": false,
@@ -889,12 +891,12 @@
         "loanFieldsFormat": null,
         "gasSavingsExampleParams": {
           "yearlyDistance": 20000,
-          "petrolSavingsPerYear": 2200,
-          "petrolSavings": 8600,
-          "timesLower": 4,
-          "fuelEconomy": 11.9,
-          "electricityPrice": 0.16,
-          "petrolPrice": 1.33
+          "petrolSavingsPerYear": 1200,
+          "petrolSavings": 2600,
+          "timesLower": 2,
+          "fuelEconomy": 17.5,
+          "electricityPrice": 0.202,
+          "petrolPrice": 1.041
         },
         "extraDisclaimers": [],
         "disclaimerDateFormat": "",
@@ -968,13 +970,13 @@
         "defaultEncryptor": "Adyen",
         "hideAllBillingInfo": false,
         "splitPayment": [],
-        "displayPaymentDisclaimer": false,
+        "displayPaymentDisclaimer": true,
         "displayOtherEUDisclaimer": false,
         "useProvinceFromBillingInfo": false,
         "isPaymentFormOpen": false,
         "showTextForPaymentTypes": false,
         "noWireTransferOnBusinessAccount": false,
-        "showOptinDisclaimer": "always",
+        "showOptinDisclaimer": "always_no_disclaimer",
         "billingAddressDetailsPayX": "full",
         "calculatePriceOnOrder": false
       },
@@ -1078,7 +1080,7 @@
         "showWithoutAdjustments": false,
         "hideFinanceSummary": false,
         "displayFinanceDisclaimerEverywhere": false,
-        "hideDestinationDocFee": false,
+        "hideDestinationDocFee": true,
         "showDisclaimerLink": false,
         "showTraderLicense": false,
         "disclaimerModalContent": [
@@ -1181,7 +1183,7 @@
         },
         "leaseDisclaimerOnPaymenti18nKey": "FinancingOptions.lease__disclaimer",
         "showPricesDetail": true,
-        "summaryRegionalFees": false,
+        "summaryRegionalFees": true,
         "showIncentivesSectionTitle": false,
         "showLoanFieldsOrderPageLineItem": [],
         "showSavingsDisclaimeronCashTab": false,
@@ -1192,14 +1194,14 @@
         "showVATBreakdown": false,
         "showDeliveryEstDisclaimer": false,
         "nonRefundPolicy": {
-          "source": false,
-          "target": false
+          "source": true,
+          "target": true
         },
         "displayOrderRefundLongCopy": {
           "source": false,
           "target": false
         },
-        "nonRefundPolicyDisclaimer": false,
+        "nonRefundPolicyDisclaimer": true,
         "showOrderRefundDisclaimer": true,
         "doSessionStartOnMount": true,
         "showModelYear": true,
@@ -1267,7 +1269,10 @@
           "Vat"
         ],
         "extraIncentives": [
-          "generic"
+          "eMobilityBonus"
+        ],
+        "leaseExtraIncentives": [
+          "eMobilityBonus"
         ]
       },
       "PrintPdf": {
@@ -1335,18 +1340,33 @@
         {
           "incentiveType": "fuel",
           "description": "Fuel economy inputs for AT my",
-          "amount": 8600,
+          "amount": 2600,
           "period": "fuel",
           "variables": {
             "months": 60,
             "distance": 100000,
-            "fuel_efficiency_metric": 8.4,
-            "kwh_consumption": 0.159,
+            "fuel_efficiency_metric": 5.7142857143,
+            "kwh_consumption": 0.167,
             "supercharger_kwh_price": 0.28,
-            "fuel_price": 1.33,
-            "kwh_price": 0.16
+            "fuel_price": 1.041,
+            "kwh_price": 0.202
           },
           "variant": "my",
+          "market": "AT"
+        },
+        {
+          "description": "E-Mobility Bonus",
+          "incentiveType": "government",
+          "financeType": "any",
+          "period": "includedInPurchasePrice",
+          "amount": 2400,
+          "inventory": [
+            "new"
+          ],
+          "variant": [
+            "m3",
+            "my"
+          ],
           "market": "AT"
         },
         {
@@ -1552,7 +1572,108 @@
       ]
     },
     "Lease.my.my": {
-      "lease": []
+      "lease": [
+        {
+          "market": "AT",
+          "id": "lease",
+          "variant": [
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "downPayment": 5000,
+            "interestRate": 1.79,
+            "leaseTerm": 60,
+            "leaseDistance": 10000,
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.5
+          },
+          "leaseTermsOffered": {
+            "leaseTerm": [
+              36,
+              48,
+              60
+            ],
+            "leaseDistance": [
+              10000,
+              20000,
+              30000
+            ]
+          },
+          "residualRateMatrix": [
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 10000,
+              "value": 0.55
+            },
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 20000,
+              "value": 0.52
+            },
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 30000,
+              "value": 0.5
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 10000,
+              "value": 0.46
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 20000,
+              "value": 0.42
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 30000,
+              "value": 0.4
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 10000,
+              "value": 0.43
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 20000,
+              "value": 0.37
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 30000,
+              "value": 0.33
+            }
+          ],
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "downPayment",
+                  "distance"
+                ],
+                [
+                  "term"
+                ]
+              ]
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "leaseTerm",
+                "leaseDistance",
+                "downPayment",
+                "residualAmountYears",
+                "financedAmount"
+              ]
+            }
+          }
+        }
+      ]
     },
     "TCC.my.my": {
       "tcc": []
@@ -9349,7 +9470,10 @@
               "$MTY03",
               "$MTY04",
               "$MTY05",
-              "$MTY06"
+              "$MTY06",
+              "$MTY07",
+              "$MTY09",
+              "$MTY10"
             ]
           },
           {
@@ -9362,7 +9486,11 @@
               "$MTY04",
               "$MTY05",
               "$MTY01",
-              "$MTY06"
+              "$MTY06",
+              "$MTY07",
+              "$MTY08",
+              "$MTY09",
+              "$MTY10"
             ]
           }
         ],
@@ -9596,7 +9724,7 @@
             },
             {
               "type": "odometer_unit",
-              "content": "miles"
+              "content": "kilometers"
             },
             {
               "type": "general_coverage",
@@ -9671,7 +9799,7 @@
             },
             {
               "type": "odometer_unit",
-              "content": "miles"
+              "content": "kilometers"
             },
             {
               "type": "general_coverage",
@@ -9841,7 +9969,7 @@
                   "marketing",
                   "customer"
                 ],
-                "odometer_unit": "miles",
+                "odometer_unit": "kilometers",
                 "vehicle_damage_history": [
                   "clean",
                   "previous accident(s)"

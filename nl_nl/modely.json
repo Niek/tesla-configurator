@@ -638,8 +638,9 @@
             "code": "SPOILER",
             "context": "configurator",
             "group_selected_by": {
-              "and": [
-                "$MTY05"
+              "or": [
+                "$MTY05",
+                "$MTY10"
               ]
             }
           },
@@ -682,8 +683,9 @@
             "code": "SPORT_PACKAGE",
             "context": "configurator",
             "group_selected_by": {
-              "and": [
-                "$MTY05"
+              "or": [
+                "$MTY05",
+                "$MTY10"
               ]
             }
           },
@@ -918,12 +920,12 @@
         "loanFieldsFormat": null,
         "gasSavingsExampleParams": {
           "yearlyDistance": 20000,
-          "petrolSavingsPerYear": 2800,
-          "petrolSavings": 10900,
-          "timesLower": 4,
-          "fuelEconomy": 11.9,
-          "electricityPrice": 0.2,
-          "petrolPrice": 1.68
+          "petrolSavingsPerYear": 1700,
+          "petrolSavings": 4900,
+          "timesLower": 2,
+          "fuelEconomy": 17.5,
+          "electricityPrice": 0.22,
+          "petrolPrice": 1.512
         },
         "extraDisclaimers": [],
         "disclaimerDateFormat": "",
@@ -999,13 +1001,13 @@
         "defaultEncryptor": "Adyen",
         "hideAllBillingInfo": false,
         "splitPayment": [],
-        "displayPaymentDisclaimer": false,
+        "displayPaymentDisclaimer": true,
         "displayOtherEUDisclaimer": false,
         "useProvinceFromBillingInfo": false,
         "isPaymentFormOpen": false,
         "showTextForPaymentTypes": false,
         "noWireTransferOnBusinessAccount": false,
-        "showOptinDisclaimer": "always",
+        "showOptinDisclaimer": "always_no_disclaimer",
         "billingAddressDetailsPayX": "full",
         "calculatePriceOnOrder": false
       },
@@ -1227,8 +1229,8 @@
         "showVATBreakdown": false,
         "showDeliveryEstDisclaimer": false,
         "nonRefundPolicy": {
-          "source": false,
-          "target": false
+          "source": true,
+          "target": true
         },
         "displayOrderRefundLongCopy": {
           "source": false,
@@ -1239,7 +1241,7 @@
           },
           "target": true
         },
-        "nonRefundPolicyDisclaimer": false,
+        "nonRefundPolicyDisclaimer": true,
         "showOrderRefundDisclaimer": true,
         "doSessionStartOnMount": true,
         "showModelYear": true,
@@ -1307,9 +1309,7 @@
           "CompanyName",
           "Vat"
         ],
-        "extraIncentives": [
-          "generic"
-        ]
+        "extraIncentives": []
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -1376,16 +1376,16 @@
         {
           "incentiveType": "fuel",
           "description": "Fuel economy inputs for NL my",
-          "amount": 10900,
+          "amount": 4900,
           "period": "fuel",
           "variables": {
             "months": 60,
             "distance": 100000,
-            "fuel_efficiency_metric": 8.4,
-            "kwh_consumption": 0.159,
+            "fuel_efficiency_metric": 5.7142857143,
+            "kwh_consumption": 0.167,
             "supercharger_kwh_price": 0.25,
-            "fuel_price": 1.68,
-            "kwh_price": 0.2
+            "fuel_price": 1.512,
+            "kwh_price": 0.22
           },
           "variant": "my",
           "market": "NL"
@@ -1653,7 +1653,162 @@
       ]
     },
     "Lease.my.my": {
-      "lease": []
+      "lease": [
+        {
+          "id": "lease",
+          "market": "NL",
+          "variant": [
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "downPayment": 5000,
+            "interestRate": 3.8,
+            "leaseTerm": 60,
+            "leaseDistance": 20000,
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.5
+          },
+          "leaseTermsOffered": {
+            "leaseTerm": [
+              12,
+              24,
+              36,
+              48,
+              60
+            ],
+            "leaseDistance": [
+              15000,
+              20000,
+              25000
+            ]
+          },
+          "residualRateMatrix": [
+            {
+              "leaseTerm": 12,
+              "value": 0.7
+            },
+            {
+              "leaseTerm": 24,
+              "value": 0.65
+            },
+            {
+              "leaseTerm": 36,
+              "value": 0.55
+            },
+            {
+              "leaseTerm": 48,
+              "value": 0.45
+            },
+            {
+              "leaseTerm": 60,
+              "value": 0.4
+            }
+          ],
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "downPayment",
+                  "term"
+                ],
+                [
+                  "residualAmountWithoutVat"
+                ]
+              ]
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "financedAmountExVAT",
+                "downPayment",
+                "leaseTerm",
+                "residualAmountExVAT",
+                "vatExcluded"
+              ]
+            }
+          }
+        },
+        {
+          "id": "lease_private",
+          "market": "NL",
+          "variant": [
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "downPayment": 5000,
+            "interestRate": 3.8,
+            "leaseTerm": 60,
+            "leaseDistance": 20000,
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.5
+          },
+          "leaseTermsOffered": {
+            "leaseTerm": [
+              12,
+              24,
+              36,
+              48,
+              60
+            ],
+            "leaseDistance": [
+              15000,
+              20000,
+              25000
+            ]
+          },
+          "residualRateMatrix": [
+            {
+              "leaseTerm": 12,
+              "value": 0.7
+            },
+            {
+              "leaseTerm": 24,
+              "value": 0.65
+            },
+            {
+              "leaseTerm": 36,
+              "value": 0.55
+            },
+            {
+              "leaseTerm": 48,
+              "value": 0.45
+            },
+            {
+              "leaseTerm": 60,
+              "value": 0.4
+            }
+          ],
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "downPayment",
+                  "term"
+                ],
+                [
+                  "residualAmount"
+                ]
+              ]
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "financedAmount",
+                "downPayment",
+                "leaseTerm",
+                "residualAmount",
+                "vatIncluded"
+              ]
+            }
+          }
+        }
+      ]
     },
     "TCC.my.my": {
       "tcc": []
@@ -9294,7 +9449,10 @@
               "$MTY03",
               "$MTY04",
               "$MTY05",
-              "$MTY06"
+              "$MTY06",
+              "$MTY07",
+              "$MTY09",
+              "$MTY10"
             ]
           },
           {
@@ -9307,7 +9465,11 @@
               "$MTY04",
               "$MTY05",
               "$MTY01",
-              "$MTY06"
+              "$MTY06",
+              "$MTY07",
+              "$MTY08",
+              "$MTY09",
+              "$MTY10"
             ]
           }
         ],
