@@ -1428,6 +1428,7 @@
               "$MT339",
               "$MTY03",
               "$MTY05",
+              "$MTY07",
               "$MTY08",
               "$MTY10"
             ]
@@ -10931,6 +10932,16 @@
         },
         "$RSF0": {
           "code": "$RSF0",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$RSF1",
+                "condition_code": "$MT339",
+                "condition_state": "set"
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -10939,6 +10950,12 @@
             {
               "action": "unset",
               "target": "$RSF1"
+            },
+            {
+              "action": "set",
+              "target": "$RSF1",
+              "condition_code": "$MT339",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -10967,6 +10984,19 @@
         },
         "$RSF1": {
           "code": "$RSF1",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$RSF0",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MT336",
+                  "$MT337"
+                ]
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -10975,6 +11005,15 @@
             {
               "action": "unset",
               "target": "$RSF0"
+            },
+            {
+              "action": "set",
+              "target": "$RSF0",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MT336",
+                "$MT337"
+              ]
             }
           ],
           "unset_rules": [
@@ -15639,11 +15678,11 @@
             "set_rules": [
               {
                 "action": "set",
-                "target": "$DV2W"
-              },
-              {
-                "action": "set",
-                "target": "$PRM30"
+                "targets": [
+                  "$DV2W",
+                  "$PRM30",
+                  "$RSF0"
+                ]
               },
               {
                 "action": "set",
@@ -15722,11 +15761,11 @@
             },
             {
               "action": "set",
-              "target": "$DV2W"
-            },
-            {
-              "action": "set",
-              "target": "$PRM30"
+              "targets": [
+                "$DV2W",
+                "$PRM30",
+                "$RSF0"
+              ]
             },
             {
               "action": "set",
@@ -15891,11 +15930,11 @@
             "set_rules": [
               {
                 "action": "set",
-                "target": "$DV2W"
-              },
-              {
-                "action": "set",
-                "target": "$PRM30"
+                "targets": [
+                  "$DV2W",
+                  "$PRM30",
+                  "$RSF0"
+                ]
               },
               {
                 "action": "set",
@@ -15981,11 +16020,11 @@
             },
             {
               "action": "set",
-              "target": "$DV2W"
-            },
-            {
-              "action": "set",
-              "target": "$PRM30"
+              "targets": [
+                "$DV2W",
+                "$PRM30",
+                "$RSF0"
+              ]
             },
             {
               "action": "set",
@@ -16185,6 +16224,7 @@
                 "targets": [
                   "$DV4W",
                   "$PRM31",
+                  "$RSF1",
                   "$SPT31"
                 ]
               },
@@ -16271,6 +16311,7 @@
               "targets": [
                 "$DV4W",
                 "$PRM31",
+                "$RSF1",
                 "$SPT31"
               ]
             },

@@ -828,8 +828,25 @@
         "isEstimatedPrice": false,
         "showTotalPaymentFooter": false,
         "showMonthlyPaymentQuote": false,
-        "showFinanceProductsByDriverType": [],
-        "driverType": null,
+        "showFinanceProductsByDriverType": [
+          {
+            "type": "personal",
+            "financeOptions": [
+              "cash",
+              "loan"
+            ],
+            "defaultOption": "cash"
+          },
+          {
+            "type": "business",
+            "financeOptions": [
+              "cash",
+              "loan"
+            ],
+            "defaultOption": "cash"
+          }
+        ],
+        "driverType": "personal",
         "leaseDescriptionwithModelCode": false,
         "taxesAndFeesExcludedIfApplicable": false,
         "showFooterFinanceLink": false,
@@ -1743,7 +1760,7 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2021-07-09T22:26:00.000Z",
+      "effective_date": "2021-07-16T00:30:00.000Z",
       "market": "DE",
       "product": "my",
       "factory": "GF00",
@@ -1752,7 +1769,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2021.Jul.09 1505.2202.1412 [de]",
+      "name": "Marketing DE 2021.Jul.16 1505.2333.1412 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -2652,14 +2669,16 @@
               "content": "3. Sitzreihe zeigen",
               "behavior": [
                 {
-                  "type": "ACTION",
+                  "type": "CONTAINER",
                   "content": {
-                    "type": "FEATURE_LIST_MODAL_OPEN",
-                    "payload": {
-                      "groupName": "INTERIOR_FEATURES",
-                      "selectedView": "SEVEN_SEATS_CARD",
-                      "analyticsTriggerText": "features-modal-clicked"
-                    }
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "INTERIOR_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-link",
+                      "tds-link--primary"
+                    ]
                   }
                 }
               ]
@@ -2741,11 +2760,13 @@
                   "props": {
                     "fields": [
                       {
-                        "field": "view_link"
+                        "field": "view_link",
+                        "props": {
+                          "modal": "INTERIOR_FEATURES",
+                          "selectedView": "SEVEN_SEATS_CARD"
+                        }
                       }
-                    ],
-                    "classes": "tds-link tds-link--primary",
-                    "component": "a"
+                    ]
                   },
                   "selected_by": {
                     "and": [
@@ -2822,7 +2843,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Spoiler wählen"
+              "content": "Spoiler"
             }
           ]
         },
@@ -3010,8 +3031,8 @@
                   "type": "Title",
                   "props": {
                     "field": "sub_title",
-                    "classes": "tds-text--start text-loader--subtitle tds-text--500 tds--vertical_padding-10",
-                    "component": "div"
+                    "classes": "tds-text--h6 tds-text--start text-loader--subtitle tds-text--500 tds-text_color--30 tds--vertical_padding-10",
+                    "component": "h2"
                   }
                 },
                 {
@@ -3076,7 +3097,7 @@
             },
             {
               "type": "range_units_short",
-              "content": "km"
+              "content": "mi"
             },
             {
               "type": "top_speed_units_short",
@@ -4598,7 +4619,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Sitzreihe-Herbeirufen",
+          "name": "Smart Herbeirufen",
           "extra_copy": [
             {
               "type": "title",
@@ -4610,7 +4631,7 @@
             },
             {
               "type": "description",
-              "content": "Bei Ansteuerung mit der Tesla App findet Ihr geparktes Auto Sie und kommt zu Ihnen. Besonders praktisch auf engen Stellplätzen: Ihr Auto kann sogar ganz von allein ein- und ausparken. Die Funktion \"Smart Herbeirufen\" meistert auch komplexe Parkbedingungen. Sie hält sich an Spurmarkierungen oder Stoppschilder und vermeidet Fußgänger oder Hindernisse wie Verkehrskegel, Abfallkörbe oder abgestellte Einkaufswagen."
+              "content": "Bei Ansteuerung mit der Tesla App findet Ihr geparktes Auto Sie und kommt zu Ihnen. Besonders praktisch auf engen Stellplätzen: Ihr Auto kann sogar ganz von allein ein- und ausparken. Die Funktion \"Smart-Herbeirufen\" meistert auch komplexe Parkbedingungen. Sie hält sich an Spurmarkierungen oder Stoppschilder und vermeidet Fußgänger oder Hindernisse wie Verkehrskegel, Abfallkörbe oder abgestellte Einkaufswagen."
             },
             {
               "type": "add_options",
@@ -5116,7 +5137,7 @@
             },
             {
               "type": "description",
-              "content": "Luftstrom und Temperatur werden vollständig über das Display gesteuert, was eine präzise Ausrichtung ermöglicht, ohne dass Sie jemals einen Luftauslass kontrollieren oder anfassen müssen. An heißen Tagen hält der Innenraum-Überhitzungsschutz den Innenraum stets angenehm kühl. Bei kaltem Wetter ermöglicht die Vorklimatisierung das automatische Vorwärmen von Innenraum und Fahrzeugbatterie, was sich in maximaler Reichweite und Effizienz auswirkt."
+              "content": "Luftstrom und Temperatur werden vollständig über das Display gesteuert, was eine präzise Ausrichtung ermöglicht, ohne dass Sie jemals einen Luftauslass kontrollieren oder anfassen müssen. An heißen Tagen sorgt der Innenraum-Überhitzungsschutz dafür, dass der Innenraum stets kühl bleibt, während unser HEPA-Filtersystem für bestmögliche Innenraumluftqualität sorgt. Bei kaltem Wetter ermöglicht die Vorklimatisierung das automatische Vorwärmen von Innenraum und Fahrzeugbatterie, was sich in maximaler Reichweite und Effizienz auswirkt."
             }
           ],
           "extra_content": [
@@ -5124,7 +5145,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODELY/UI/Y_Int_Climate_v2.jpg",
+                  "url": "MODELY/UI/Y_Int_Climate-1.jpeg",
                   "type": "image",
                   "ratio": "slice"
                 }
@@ -5513,6 +5534,10 @@
             {
               "type": "feature_list.default[2].items[2]",
               "content": "Individuelle Fahrerprofile"
+            },
+            {
+              "type": "feature_list.default[2].items[2]",
+              "content": "HEPA-Luftreinigungsfilter für den Innenraum"
             },
             {
               "type": "feature_list.default[2].items[3]",
@@ -6075,7 +6100,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Sitzreihe-Herbeirufen",
+          "name": "Smart Herbeirufen",
           "extra_copy": [
             {
               "type": "title",
@@ -6087,7 +6112,7 @@
             },
             {
               "type": "description",
-              "content": "Bei Ansteuerung mit der Tesla App findet Ihr geparktes Auto Sie und kommt zu Ihnen. Besonders praktisch auf engen Stellplätzen: Ihr Auto kann sogar ganz von allein ein- und ausparken. Die Funktion \"Smart Herbeirufen\" meistert auch komplexe Parkbedingungen. Sie hält sich an Spurmarkierungen oder Stoppschilder und vermeidet Fußgänger oder Hindernisse wie Verkehrskegel, Abfallkörbe oder abgestellte Einkaufswagen."
+              "content": "Bei Ansteuerung mit der Tesla App findet Ihr geparktes Auto Sie und kommt zu Ihnen. Besonders praktisch auf engen Stellplätzen: Ihr Auto kann sogar ganz von allein ein- und ausparken. Die Funktion \"Smart-Herbeirufen\" meistert auch komplexe Parkbedingungen. Sie hält sich an Spurmarkierungen oder Stoppschilder und vermeidet Fußgänger oder Hindernisse wie Verkehrskegel, Abfallkörbe oder abgestellte Einkaufswagen."
             },
             {
               "type": "add_options",
@@ -7114,9 +7139,9 @@
               "target": "$MDLY"
             }
           ],
-          "name": "Model Y 2021",
+          "name": "Model Y",
           "description": "Die Auslieferung beginnt in den USA und richtet sich nach Bestelldatum und gewählten Optionen.",
-          "long_name": "Model Y 2021",
+          "long_name": "Model Y",
           "extra_copy": [
             {
               "type": "learn_more",
@@ -9425,7 +9450,7 @@
             },
             {
               "type": "long_name",
-              "content": "Maximale Reichweite mit Dualmotor-Allradantrieb"
+              "content": "Long Range mit Dualmotor-Allradantrieb"
             },
             {
               "type": "drive_mode",
@@ -9906,9 +9931,9 @@
               "target": "$WWY00"
             }
           ],
-          "name": "19\" Pirelli Winter Tire Set",
-          "description": "19\" Pirelli Winter Tire Set",
-          "long_name": "19\" Pirelli Winter Tire Set",
+          "name": "19\" Pirelli-Winterreifensatz",
+          "description": "19\" Pirelli-Winterreifensatz",
+          "long_name": "19\" Pirelli-Winterreifensatz",
           "price": 3000,
           "pricing": [
             {
@@ -11214,7 +11239,7 @@
           }
         }
       ],
-      "copy_id": 2202,
+      "copy_id": 2333,
       "language": "de",
       "warnings": [],
       "pricing_id": 1412,

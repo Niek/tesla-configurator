@@ -828,8 +828,25 @@
         "isEstimatedPrice": false,
         "showTotalPaymentFooter": false,
         "showMonthlyPaymentQuote": false,
-        "showFinanceProductsByDriverType": [],
-        "driverType": null,
+        "showFinanceProductsByDriverType": [
+          {
+            "type": "personal",
+            "financeOptions": [
+              "cash",
+              "loan"
+            ],
+            "defaultOption": "cash"
+          },
+          {
+            "type": "business",
+            "financeOptions": [
+              "cash",
+              "loan"
+            ],
+            "defaultOption": "cash"
+          }
+        ],
+        "driverType": "personal",
         "leaseDescriptionwithModelCode": false,
         "taxesAndFeesExcludedIfApplicable": false,
         "showFooterFinanceLink": false,
@@ -1604,12 +1621,12 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2021-07-09T22:26:00.000Z",
+      "effective_date": "2021-07-16T00:30:00.000Z",
       "market": "CH",
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CH 2021.Jul.09 1510.2196.1401 [fr]",
+      "name": "Marketing CH 2021.Jul.16 1510.2347.1401 [fr]",
       "groups": [
         {
           "code": "MODEL",
@@ -1827,7 +1844,7 @@
           "required": false,
           "exclusive": false,
           "discountable": false,
-          "name": "Pilotage automatique",
+          "name": "Autopilot",
           "extra_copy": [],
           "extra_content": []
         },
@@ -2334,7 +2351,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Autopilote",
+          "name": "Autopilot",
           "extra_copy": [
             {
               "type": "video_list.default[0].title",
@@ -2463,7 +2480,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Pilotage automatique",
+          "name": "Autopilot",
           "extra_copy": [],
           "extra_content": []
         },
@@ -2509,14 +2526,16 @@
               "content": "Afficher la troisième rangée",
               "behavior": [
                 {
-                  "type": "ACTION",
+                  "type": "CONTAINER",
                   "content": {
-                    "type": "FEATURE_LIST_MODAL_OPEN",
-                    "payload": {
-                      "groupName": "INTERIOR_FEATURES",
-                      "selectedView": "SEVEN_SEATS_CARD",
-                      "analyticsTriggerText": "features-modal-clicked"
-                    }
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "INTERIOR_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-link",
+                      "tds-link--primary"
+                    ]
                   }
                 }
               ]
@@ -2598,11 +2617,13 @@
                   "props": {
                     "fields": [
                       {
-                        "field": "view_link"
+                        "field": "view_link",
+                        "props": {
+                          "modal": "INTERIOR_FEATURES",
+                          "selectedView": "SEVEN_SEATS_CARD"
+                        }
                       }
-                    ],
-                    "classes": "tds-link tds-link--primary",
-                    "component": "a"
+                    ]
                   },
                   "selected_by": {
                     "and": [
@@ -2867,8 +2888,8 @@
                   "type": "Title",
                   "props": {
                     "field": "sub_title",
-                    "classes": "tds-text--start text-loader--subtitle tds-text--500 tds--vertical_padding-10",
-                    "component": "div"
+                    "classes": "tds-text--h6 tds-text--start text-loader--subtitle tds-text--500 tds-text_color--30 tds--vertical_padding-10",
+                    "component": "h2"
                   }
                 },
                 {
@@ -2933,7 +2954,7 @@
             },
             {
               "type": "range_units_short",
-              "content": "km"
+              "content": "mi"
             },
             {
               "type": "top_speed_units_short",
@@ -4972,7 +4993,7 @@
             },
             {
               "type": "description",
-              "content": "L'écran permet de contrôler entièrement le flux d'air et la température. Vous pouvez les régler précisément sans jamais voir ni toucher la ventilation physique. Lors des journées chaudes, la Protection de surchauffe de l'habitacle garantit que l'intérieur du véhicule reste toujours au frais. Par temps froid, le pré-conditionnement réchauffe automatiquement l'habitacle et prépare la batterie, de façon à optimiser l'autonomie et l'efficacité."
+              "content": "L'écran permet de contrôler entièrement le flux d'air et la température. Vous pouvez les régler précisément sans jamais voir ni toucher la ventilation physique. Lors des journées chaudes, la Protection de surchauffe de l'habitacle garantit que l'intérieur du véhicule reste toujours au frais et notre système de filtration HEPA offre la meilleure qualité d'air possible dans l'habitacle. Par temps froid, le pré-conditionnement réchauffe automatiquement l'habitacle et prépare la batterie, de façon à optimiser l'autonomie et l'efficacité."
             }
           ],
           "extra_content": [
@@ -4980,7 +5001,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODELY/UI/Y_Int_Climate_v2.jpg",
+                  "url": "MODELY/UI/Y_Int_Climate-1.jpeg",
                   "type": "image",
                   "ratio": "slice"
                 }
@@ -5372,6 +5393,10 @@
             },
             {
               "type": "feature_list.default[2].items[3]",
+              "content": "Système de filtration d'air HEPA"
+            },
+            {
+              "type": "feature_list.default[2].items[4]",
               "content": "Console centrale avec espace de rangement, 4 ports USB-C et recharge sans fil pour 2 smartphones"
             },
             {
@@ -8754,7 +8779,7 @@
             },
             {
               "type": "delivery_date",
-              "content": "Livraison prévue : Début 2022"
+              "content": "Livraison prévue : début 2022"
             },
             {
               "type": "disclaimer_details",
@@ -8925,7 +8950,7 @@
             },
             {
               "type": "delivery_date",
-              "content": "Livraison prévue : Début 2022"
+              "content": "Livraison prévue : début 2022"
             },
             {
               "type": "price_indicator",
@@ -9112,7 +9137,7 @@
             },
             {
               "type": "delivery_date",
-              "content": "Livraison prévue : Début 2022"
+              "content": "Livraison prévue : début 2022"
             },
             {
               "type": "compare_matrix.block[0].label",
@@ -9275,7 +9300,7 @@
             },
             {
               "type": "delivery_date",
-              "content": "Livraison prévue : Début 2022"
+              "content": "Livraison prévue : début 2022"
             },
             {
               "type": "disclaimer_details",
@@ -9378,7 +9403,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Ensemble haut de gamme"
+              "content": "Premium"
             },
             {
               "type": "price_indicator",
@@ -9776,9 +9801,9 @@
               "target": "$WWY00"
             }
           ],
-          "name": "19\" Pirelli Winter Tire Set",
-          "description": "19\" Pirelli Winter Tire Set",
-          "long_name": "19\" Pirelli Winter Tire Set",
+          "name": "Jeu de pneus hiver Pirelli 19\"",
+          "description": "Jeu de pneus hiver Pirelli 19\"",
+          "long_name": "Jeu de pneus hiver Pirelli 19\"",
           "price": 3000,
           "pricing": [
             {
@@ -11085,7 +11110,7 @@
           }
         }
       ],
-      "copy_id": 2196,
+      "copy_id": 2347,
       "language": "fr",
       "warnings": [],
       "pricing_id": 1401,
