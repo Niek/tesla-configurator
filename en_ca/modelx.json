@@ -2082,12 +2082,12 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2021-05-07T00:00:00.000Z",
+      "effective_date": "2021-07-16T00:50:00.000Z",
       "market": "CA",
       "product": "mx",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CA 2021.May.07 1099.1803.1125 [en]",
+      "name": "Marketing CA 2021.Jul.16 1099.2314.1125 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -3459,14 +3459,16 @@
               "content": "View Seating Layouts",
               "behavior": [
                 {
-                  "type": "ACTION",
+                  "type": "CONTAINER",
                   "content": {
-                    "type": "FEATURE_LIST_MODAL_OPEN",
-                    "payload": {
-                      "groupName": "INTERIOR_FEATURES",
-                      "selectedView": "INTERIOR_LAYOUTS_CARD",
-                      "analyticsTriggerText": "features-modal-clicked"
-                    }
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "INTERIOR_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-link",
+                      "tds-link--primary"
+                    ]
                   }
                 }
               ]
@@ -3496,11 +3498,13 @@
                   "props": {
                     "fields": [
                       {
-                        "field": "view_link"
+                        "field": "view_link",
+                        "props": {
+                          "modal": "INTERIOR_FEATURES",
+                          "selectedView": "INTERIOR_LAYOUTS_CARD"
+                        }
                       }
-                    ],
-                    "classes": "tds-link tds-link--primary",
-                    "component": "a"
+                    ]
                   }
                 }
               ]
@@ -3761,6 +3765,96 @@
               ]
             },
             {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 580,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX00",
+                      "$MTX10"
+                    ]
+                  }
+                },
+                {
+                  "value": 564,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX20",
+                      "$MTX10"
+                    ]
+                  }
+                },
+                {
+                  "value": 547,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX00",
+                      "$MTX11"
+                    ]
+                  }
+                },
+                {
+                  "value": 531,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX20",
+                      "$MTX11"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "certified_topspeed_disclaimer",
+              "content": [
+                {
+                  "value": 240,
+                  "subtype": "certified_topspeed",
+                  "selected_by": {
+                    "and": [
+                      "$WX00",
+                      "$MTX11"
+                    ]
+                  }
+                },
+                {
+                  "value": 262,
+                  "subtype": "certified_topspeed",
+                  "selected_by": {
+                    "and": [
+                      "$WX20",
+                      "$MTX11"
+                    ]
+                  }
+                },
+                {
+                  "value": 240,
+                  "subtype": "certified_topspeed",
+                  "selected_by": {
+                    "and": [
+                      "$WX00",
+                      "$MTX10"
+                    ]
+                  }
+                },
+                {
+                  "value": 250,
+                  "subtype": "certified_topspeed",
+                  "selected_by": {
+                    "and": [
+                      "$WX20",
+                      "$MTX10"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
               "type": "components",
               "content": [
                 {
@@ -3783,6 +3877,13 @@
                   "props": {
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
+                  }
+                },
+                {
+                  "type": "DisclaimerSpecial",
+                  "props": {
+                    "field": "certified_topspeed_disclaimer",
+                    "classes": "tds-text--center tds--no_vertical_padding"
                   }
                 }
               ]
@@ -3949,8 +4050,8 @@
                   "type": "Title",
                   "props": {
                     "field": "sub_title",
-                    "classes": "tds-text--start text-loader--subtitle tds-text--500 tds--vertical_padding-10",
-                    "component": "div"
+                    "classes": "tds-text--h6 tds-text--start text-loader--subtitle tds-text--500 tds-text_color--30 tds--vertical_padding-10",
+                    "component": "h2"
                   }
                 },
                 {
@@ -4048,8 +4149,8 @@
                   "type": "Title",
                   "props": {
                     "field": "sub_title",
-                    "classes": "tds-text--start text-loader--subtitle tds-text--500 tds--vertical_padding-10",
-                    "component": "div"
+                    "classes": "tds-text--h6 tds-text--start text-loader--subtitle tds-text--500 tds-text_color--30 tds--vertical_padding-10",
+                    "component": "h2"
                   }
                 },
                 {
@@ -14010,6 +14111,28 @@
                   "group": "TRIM",
                   "range": 580,
                   "topspeed": 250,
+                  "overrides": [
+                    {
+                      "content": {
+                        "range": 564
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$WX20"
+                        ]
+                      }
+                    },
+                    {
+                      "content": {
+                        "topspeed": 240
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$WX00"
+                        ]
+                      }
+                    }
+                  ],
                   "acceleration": 3.9,
                   "range_units_override": "range_units_est"
                 },
@@ -14019,6 +14142,28 @@
                   "range": 547,
                   "postfix": "*",
                   "topspeed": 262,
+                  "overrides": [
+                    {
+                      "content": {
+                        "range": 531
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$WX20"
+                        ]
+                      }
+                    },
+                    {
+                      "content": {
+                        "topspeed": 240
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$WX00"
+                        ]
+                      }
+                    }
+                  ],
                   "acceleration": 2.6,
                   "range_units_override": "range_units_est"
                 }
@@ -18523,7 +18668,7 @@
           }
         }
       ],
-      "copy_id": 1803,
+      "copy_id": 2314,
       "language": "en",
       "warnings": [
         {
