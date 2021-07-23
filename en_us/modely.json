@@ -1521,6 +1521,49 @@
           "market": "US"
         },
         {
+          "description": "New Jersey Point of Sale Incentive",
+          "regionCode": "NJ",
+          "incentiveType": "regional",
+          "financeType": [
+            "cash",
+            "loan",
+            "lease"
+          ],
+          "period": "once",
+          "amount": 0,
+          "toggle_amount": {
+            "if": {
+              "car_price": [
+                {
+                  "conditions": {
+                    "vehiclePrice": {
+                      "<=": 45000
+                    }
+                  },
+                  "amount": 5000
+                },
+                {
+                  "conditions": {
+                    "vehiclePrice": {
+                      "<=": 55000
+                    }
+                  },
+                  "amount": 2000
+                }
+              ]
+            }
+          },
+          "long_name": "New Jersey",
+          "variant": [
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "market": "US"
+        },
+        {
           "description": [
             "State Incentive for US m3, my"
           ],
@@ -2038,7 +2081,12 @@
                 "$MT303",
                 "$MT310",
                 "$MT315",
-                "$MT316",
+                "$MT316"
+              ]
+            },
+            {
+              "value": 4.79,
+              "options": [
                 "$MT321"
               ]
             },
@@ -2049,7 +2097,7 @@
               ]
             },
             {
-              "value": 4.56,
+              "value": 4.76,
               "options": [
                 "$MTY06"
               ]
@@ -2124,8 +2172,8 @@
       ]
     },
     "Lexicon.my": {
-      "id": 1484,
-      "effective_date": "2021-07-17T01:50:00.000Z",
+      "id": 1533,
+      "effective_date": "2021-07-23T00:45:00.000Z",
       "market": "US",
       "product": "my",
       "factory": "GF00",
@@ -2147,7 +2195,7 @@
           }
         }
       },
-      "name": "Marketing US 2021.Jul.17 1484.2327.1503",
+      "name": "Marketing US 2021.Jul.23 1533.2445.1530",
       "groups": [
         {
           "code": "MODEL",
@@ -2180,7 +2228,7 @@
           "exclusive": true,
           "discountable": true,
           "default_options": [
-            "$MTY03"
+            "$MTY06"
           ],
           "name": "TRIM"
         },
@@ -2565,13 +2613,13 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$MTY03",
+            "$MTY06",
             "$MTY05"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTY03"
+            "$MTY06"
           ],
           "name": "TRIM",
           "extra_copy": [
@@ -3303,13 +3351,13 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$MTY03",
+            "$MTY06",
             "$MTY05"
           ],
           "required": false,
           "exclusive": false,
           "default_options": [
-            "$MTY03"
+            "$MTY06"
           ],
           "name": "DUAL_MOTOR_PREMIUM",
           "extra_copy": [
@@ -3625,7 +3673,8 @@
             "$MTY02",
             "$MTY03",
             "$MTY04",
-            "$MTY05"
+            "$MTY05",
+            "$MTY06"
           ],
           "required": false,
           "exclusive": false,
@@ -5699,7 +5748,7 @@
             },
             {
               "type": "feature_list.default[0].items[9]",
-              "content": "68 cubic feet of cargo space including a secure front trunk"
+              "content": "76 cubic feet of cargo space including a secure front trunk"
             }
           ],
           "extra_content": [
@@ -5894,15 +5943,19 @@
             },
             {
               "type": "feature_list.default[1].items[3]",
-              "content": "Tinted glass roof with ultraviolet and infrared protection"
+              "content": "HEPA air filtration system"
             },
             {
               "type": "feature_list.default[1].items[4]",
-              "content": "Independent flat-fold rear seats"
+              "content": "Tinted glass roof with ultraviolet and infrared protection"
+            },
+            {
+              "type": "feature_list.default[1].items[6]",
+              "content": "Interior floor mats"
             },
             {
               "type": "feature_list.default[1].items[5]",
-              "content": "Interior floor mats"
+              "content": "Independent flat-fold rear seats"
             },
             {
               "type": "feature_list.default[2].main_title",
@@ -5922,10 +5975,6 @@
             },
             {
               "type": "feature_list.default[2].items[3]",
-              "content": "HEPA air filtration system"
-            },
-            {
-              "type": "feature_list.default[2].items[4]",
               "content": "Center console with storage, 4 USB-C ports and wireless charging for 2 smartphones"
             },
             {
@@ -6073,7 +6122,7 @@
             },
             {
               "type": "description",
-              "content": "Model Y features 68 ft³ of cargo space accessible through both the front trunk and the automatically opening and closing rear trunk. Taking advantage of the space traditionally occupied by bulky engines, gas tanks and transmissions, the design of Model Y enables disproportionately large amounts of storage for a car its size, while bolstering occupant safety through a more spacious, reinforced body and chassis."
+              "content": "Model Y features 76 ft³ of cargo space accessible through both the front trunk and the automatically opening and closing rear trunk. Taking advantage of the space traditionally occupied by bulky engines, gas tanks and transmissions, the design of Model Y enables disproportionately large amounts of storage for a car its size, while bolstering occupant safety through a more spacious, reinforced body and chassis."
             }
           ],
           "extra_content": [
@@ -6952,8 +7001,11 @@
               {
                 "action": "set",
                 "target": "$DV4W",
-                "condition_code": "$MTY03",
-                "condition_state": "set"
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTY03",
+                  "$MTY06"
+                ]
               }
             ]
           },
@@ -6973,8 +7025,11 @@
             {
               "action": "set",
               "target": "$DV4W",
-              "condition_code": "$MTY03",
-              "condition_state": "set"
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTY03",
+                "$MTY06"
+              ]
             }
           ],
           "unset_rules": [
@@ -8805,13 +8860,13 @@
             },
             {
               "action": "set",
-              "target": "$MTY03",
+              "target": "$MTY06",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY02",
+                "$MTY03",
                 "$MTY04",
-                "$MTY05",
-                "$MTY06"
+                "$MTY05"
               ]
             }
           ],
@@ -8965,13 +9020,13 @@
             },
             {
               "action": "set",
-              "target": "$MTY03",
+              "target": "$MTY06",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY01",
+                "$MTY03",
                 "$MTY04",
-                "$MTY05",
-                "$MTY06"
+                "$MTY05"
               ]
             }
           ],
@@ -9098,14 +9153,13 @@
             },
             {
               "action": "set",
-              "target": "$MTY03",
+              "target": "$MTY06",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY01",
                 "$MTY02",
                 "$MTY04",
-                "$MTY05",
-                "$MTY06"
+                "$MTY05"
               ]
             },
             {
@@ -9200,16 +9254,16 @@
               ]
             }
           ],
-          "price": 13000,
+          "price": 14000,
           "pricing": [
             {
               "type": "base",
-              "value": 13000,
+              "value": 14000,
               "context": "USD"
             },
             {
               "type": "base_plus_trim",
-              "value": 52990,
+              "value": 53990,
               "context": "USD"
             }
           ]
@@ -9292,13 +9346,13 @@
             },
             {
               "action": "set",
-              "target": "$MTY03",
+              "target": "$MTY06",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY01",
                 "$MTY02",
-                "$MTY05",
-                "$MTY06"
+                "$MTY03",
+                "$MTY05"
               ]
             },
             {
@@ -9481,13 +9535,13 @@
             },
             {
               "action": "set",
-              "target": "$MTY03",
+              "target": "$MTY06",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY01",
                 "$MTY02",
-                "$MTY04",
-                "$MTY06"
+                "$MTY03",
+                "$MTY04"
               ]
             },
             {
@@ -9670,11 +9724,12 @@
             },
             {
               "action": "set",
-              "target": "$MTY03",
+              "target": "$MTY06",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY01",
                 "$MTY02",
+                "$MTY03",
                 "$MTY04",
                 "$MTY05"
               ]
@@ -9702,6 +9757,10 @@
             {
               "type": "long_name",
               "content": "Model Y Long Range Dual Motor All-Wheel Drive"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Dual Motor All-Wheel Drive"
             }
           ],
           "extra_content": [
@@ -9767,16 +9826,16 @@
               ]
             }
           ],
-          "price": 13000,
+          "price": 14000,
           "pricing": [
             {
               "type": "base",
-              "value": 13000,
+              "value": 14000,
               "context": "USD"
             },
             {
               "type": "base_plus_trim",
-              "value": 52990,
+              "value": 53990,
               "context": "USD"
             }
           ]
@@ -10554,6 +10613,19 @@
           },
           {
             "options": {
+              "$MTY03": {
+                "set_rules": [
+                  {
+                    "action": "set",
+                    "target": "$MTY06"
+                  }
+                ]
+              }
+            },
+            "comments": "Updating LR AWD Trim Code RENA + KR 7/8/21"
+          },
+          {
+            "options": {
               "$MTY04": {
                 "set_rules": [
                   {
@@ -10672,10 +10744,7 @@
               "$MTY03",
               "$MTY04",
               "$MTY05",
-              "$MTY06",
-              "$MTY07",
-              "$MTY09",
-              "$MTY10"
+              "$MTY06"
             ]
           },
           {
@@ -10688,11 +10757,7 @@
               "$MTY04",
               "$MTY05",
               "$MTY01",
-              "$MTY06",
-              "$MTY07",
-              "$MTY08",
-              "$MTY09",
-              "$MTY10"
+              "$MTY06"
             ]
           }
         ],
@@ -11225,12 +11290,12 @@
         "$MDLY",
         "$STY5S",
         "$PRMY1",
-        "$MTY03",
+        "$MTY06",
         "$APBS",
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 1484,
+      "options_id": 1533,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -11553,10 +11618,10 @@
           "content_localized": {}
         }
       ],
-      "copy_id": 2327,
+      "copy_id": 2445,
       "language": "en",
       "warnings": [],
-      "pricing_id": 1503
+      "pricing_id": 1530
     }
   },
   "edd": [
