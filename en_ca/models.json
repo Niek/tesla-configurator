@@ -2014,12 +2014,12 @@
       ]
     },
     "Lexicon.ms": {
-      "effective_date": "2021-07-23T00:45:00.000Z",
+      "effective_date": "2021-07-27T23:38:00.000Z",
       "market": "CA",
       "product": "ms",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CA 2021.Jul.23 1469.2417.1351 [en]",
+      "name": "Marketing CA 2021.Jul.27 1469.2476.1351 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -3747,19 +3747,98 @@
                       "$MTS10"
                     ]
                   },
-                  "delivery_date": "Est. delivery : September-October",
+                  "delivery_date": "Est. delivery : Feb-March",
                   "delivery_date_name": "Est. delivery : ",
-                  "delivery_description": "September-October"
+                  "delivery_description": "Feb-March"
                 },
                 {
                   "selected_by": {
                     "and": [
-                      "$MTS11"
+                      {
+                        "or": [
+                          "$IBC00",
+                          "$ICC00"
+                        ]
+                      },
+                      {
+                        "and": [
+                          "$MTS11"
+                        ]
+                      }
                     ]
                   },
-                  "delivery_date": "Est. delivery : August-September",
+                  "delivery_date": "Est. delivery : Dec-Jan",
                   "delivery_date_name": "Est. delivery : ",
-                  "delivery_description": "August-September"
+                  "delivery_description": "Dec-Jan"
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTS11",
+                      "$IBE00"
+                    ]
+                  },
+                  "delivery_date": "Est. delivery : Sep-Oct",
+                  "delivery_date_name": "Est. delivery : ",
+                  "delivery_description": "Sep-Oct"
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTS11",
+                      "$ICW00",
+                      "$WS10"
+                    ]
+                  },
+                  "delivery_date": "Est. delivery : Sep-Oct",
+                  "delivery_date_name": "Est. delivery : ",
+                  "delivery_description": "Sep-Oct"
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTS11",
+                      "$ICW00",
+                      "$WS90"
+                    ]
+                  },
+                  "delivery_date": "Est. delivery : octobre-novembre",
+                  "delivery_date_name": "Est. delivery : ",
+                  "delivery_description": "octobre-novembre"
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTS11",
+                      "$ICW00",
+                      "$WS10"
+                    ]
+                  },
+                  "delivery_date": "Est. delivery : Sep-Oct",
+                  "delivery_date_name": "Est. delivery : ",
+                  "delivery_description": "Sep-Oct"
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTS11",
+                      "$IWC00"
+                    ]
+                  },
+                  "delivery_date": "Est. delivery : Feb-March",
+                  "delivery_date_name": "Est. delivery : ",
+                  "delivery_description": "Feb-March"
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTS11",
+                      "$IWW00"
+                    ]
+                  },
+                  "delivery_date": "Est. delivery : Nov-Dec",
+                  "delivery_date_name": "Est. delivery : ",
+                  "delivery_description": "Nov-Dec"
                 }
               ]
             }
@@ -4966,6 +5045,20 @@
                   "fullWidth": true
                 }
               }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$APD2",
+                      "$APD3",
+                      "$APPC"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
@@ -5357,6 +5450,20 @@
                 "type": "image",
                 "ratio": "slice"
               }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$APD2",
+                      "$APD3",
+                      "$APPC"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
@@ -6242,6 +6349,28 @@
             {
               "type": "deselectLabel",
               "content": "Option Selected"
+            },
+            {
+              "type": "disclaimer",
+              "content": "The currently enabled features require active driver supervision and do not make the vehicle autonomous. The activation and use of these features are dependent on achieving reliability far in excess of human drivers as demonstrated by billions of miles of experience, as well as regulatory approval, which may take longer in some jurisdictions. As these self-driving features evolve, your car will be continuously upgraded through over-the-air software updates."
+            },
+            {
+              "type": "compare_features",
+              "content": "Feature Details",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {
+                      "data-should-open": "BASIC_AP_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -6250,6 +6379,46 @@
               "content": [
                 {
                   "type": "card"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "compare_features",
+                        "props": {
+                          "modal": "BASIC_AP_FEATURES"
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -6313,7 +6482,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "optional"
+              "content": "Included"
             },
             {
               "type": "feature_list.default[0].items[0]",
@@ -22444,7 +22613,7 @@
           }
         }
       ],
-      "copy_id": 2417,
+      "copy_id": 2476,
       "language": "en",
       "warnings": [
         {

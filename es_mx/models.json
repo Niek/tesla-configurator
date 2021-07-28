@@ -1670,12 +1670,12 @@
       ]
     },
     "Lexicon.ms": {
-      "effective_date": "2021-07-23T00:45:00.000Z",
+      "effective_date": "2021-07-27T23:38:00.000Z",
       "market": "MX",
       "product": "ms",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing MX 2021.Jul.23 1522.2433.1341 [es]",
+      "name": "Marketing MX 2021.Jul.27 1522.2475.1341 [es]",
       "groups": [
         {
           "code": "MODEL",
@@ -3302,6 +3302,37 @@
                       "$MTS10"
                     ]
                   },
+                  "delivery_date": "Entrega Estimada: febrero-marzo",
+                  "delivery_date_name": "Entrega Estimada: ",
+                  "delivery_description": "febrero-marzo"
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      {
+                        "or": [
+                          "$IBC00",
+                          "$ICC00"
+                        ]
+                      },
+                      {
+                        "and": [
+                          "$MTS11"
+                        ]
+                      }
+                    ]
+                  },
+                  "delivery_date": "Entrega Estimada: diciembre-enero",
+                  "delivery_date_name": "Entrega Estimada: ",
+                  "delivery_description": "diciembre-enero"
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTS11",
+                      "$IBE00"
+                    ]
+                  },
                   "delivery_date": "Entrega Estimada: septiembre-octubre",
                   "delivery_date_name": "Entrega Estimada: ",
                   "delivery_description": "septiembre-octubre"
@@ -3309,12 +3340,60 @@
                 {
                   "selected_by": {
                     "and": [
-                      "$MTS11"
+                      "$MTS11",
+                      "$ICW00",
+                      "$WS10"
                     ]
                   },
-                  "delivery_date": "Entrega Estimada: agosto-septiembre",
+                  "delivery_date": "Entrega Estimada: septiembre-octubre",
                   "delivery_date_name": "Entrega Estimada: ",
-                  "delivery_description": "agosto-septiembre"
+                  "delivery_description": "septiembre-octubre"
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTS11",
+                      "$ICW00",
+                      "$WS90"
+                    ]
+                  },
+                  "delivery_date": "Entrega Estimada: octubre-noviembre",
+                  "delivery_date_name": "Entrega Estimada: ",
+                  "delivery_description": "octubre-noviembre"
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTS11",
+                      "$ICW00",
+                      "$WS10"
+                    ]
+                  },
+                  "delivery_date": "Entrega Estimada: septiembre-octubre",
+                  "delivery_date_name": "Entrega Estimada: ",
+                  "delivery_description": "septiembre-octubre"
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTS11",
+                      "$IWC00"
+                    ]
+                  },
+                  "delivery_date": "Entrega Estimada:febrero-marzo",
+                  "delivery_date_name": "Entrega Estimada: ",
+                  "delivery_description": "febrero-marzo"
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTS11",
+                      "$IWW00"
+                    ]
+                  },
+                  "delivery_date": "Entrega Estimada: noviembre-diciembre",
+                  "delivery_date_name": "Entrega Estimada: ",
+                  "delivery_description": "noviembre-diciembre"
                 }
               ]
             }
@@ -4439,6 +4518,20 @@
                   "fullWidth": true
                 }
               }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$APD2",
+                      "$APD3",
+                      "$APPC"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
@@ -4830,6 +4923,20 @@
                 "type": "image",
                 "ratio": "slice"
               }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$APD2",
+                      "$APD3",
+                      "$APPC"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         },
@@ -5758,6 +5865,28 @@
             {
               "type": "deselectLabel",
               "content": "Opción seleccionada"
+            },
+            {
+              "type": "disclaimer",
+              "content": "The currently enabled features require active driver supervision and do not make the vehicle autonomous. The activation and use of these features are dependent on achieving reliability far in excess of human drivers as demonstrated by billions of miles of experience, as well as regulatory approval, which may take longer in some jurisdictions. As these self-driving features evolve, your car will be continuously upgraded through over-the-air software updates."
+            },
+            {
+              "type": "compare_features",
+              "content": "Feature Details",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {
+                      "data-should-open": "BASIC_AP_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -5766,6 +5895,46 @@
               "content": [
                 {
                   "type": "card"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "compare_features",
+                        "props": {
+                          "modal": "BASIC_AP_FEATURES"
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -21954,7 +22123,7 @@
           }
         }
       ],
-      "copy_id": 2433,
+      "copy_id": 2475,
       "language": "es",
       "warnings": [
         {
