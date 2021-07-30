@@ -1238,7 +1238,8 @@
         "legalConsentValid": true,
         "showFinanceModalOnProductChange": false,
         "showExtraDepositAmountInDefaultPricingContext": false,
-        "rangeStandard": "EPA"
+        "rangeStandard": "EPA",
+        "featureHighlightGroups": []
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -1647,7 +1648,8 @@
             "mx"
           ],
           "inventory": [
-            "new"
+            "new",
+            "used"
           ],
           "variables": {
             "minimumDownPayment": 0.2,
@@ -1670,12 +1672,12 @@
       ]
     },
     "Lexicon.ms": {
-      "effective_date": "2021-07-27T23:38:00.000Z",
+      "effective_date": "2021-07-30T00:00:00.000Z",
       "market": "MX",
       "product": "ms",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing MX 2021.Jul.27 1522.2475.1341 [es]",
+      "name": "Marketing MX 2021.Jul.30 1539.2483.1341 [es]",
       "groups": [
         {
           "code": "MODEL",
@@ -3170,13 +3172,15 @@
         },
         {
           "code": "AUTOPILOT",
-          "groups": [
-            "AUTOPILOT_PACKAGE"
-          ],
+          "groups": [],
           "context": "configurator",
-          "options": [],
+          "options": [
+            "$APBS",
+            "$APPB"
+          ],
           "required": false,
           "exclusive": false,
+          "default_options": [],
           "name": "Autopilot",
           "extra_copy": [],
           "extra_content": []
@@ -3748,6 +3752,7 @@
             "AUTOPILOT_CARD",
             "SUPER_CHARGER_CARD",
             "SENTRY_MODE_CARD",
+            "ADAPTIVE_SUSPENSION_CARD",
             "EXPANSIVE_STORAGE_CARD",
             "MOBILE_APP_CARD"
           ],
@@ -5677,6 +5682,172 @@
               ]
             }
           ]
+        },
+        {
+          "code": "ADAPTIVE_SUSPENSION_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Suspensión adaptable",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Suspensión adaptable"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "La suspensión adaptable del Model S reacciona a las condiciones del camino y las entradas del conductor cientos de veces por segundo para ofrecer una calidad de conducción excepcionales. El sistema también ajusta automáticamente la altura de conducción para una mayor comodidad y para mantener el Model S en su configuración más aerodinámica para lograr una máxima autonomía."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELS/UI/S_Suspension.jpeg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "AUTOPILOT_CONVIENCE_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APD2",
+            "$APD3",
+            "$APPC"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Piloto automático con características de comodidad",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Incluido"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Dirección, aceleración y frenado automáticos en carretera"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Cambio de carril automático"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Estacionado automático"
+            },
+            {
+              "type": "disclaimer[0]",
+              "content": "El vehículo no se puede actualizar a la Capacidad de conducción autónoma total"
+            },
+            {
+              "type": "disclaimer[1]",
+              "content": "Las funciones disponibles actualmente requieren de una supervisión activa del conductor y no hacen que el vehículo sea autónomo. La activación y uso de estas funciones dependerá de que se logre una confiabilidad que supere por mucho la de los conductores humanos y que se demuestre con miles de millones de kilómetros de experiencia, así como de aprobaciones regulatorias, lo que podría tardar más en algunas jurisdicciones. A medida que estas capacidades de conducción autónoma vayan evolucionando, su auto se irá actualizando de forma continua e inalámbrica."
+            },
+            {
+              "type": "fsd_features",
+              "content": "Detalles de la función",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "FSD_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "legacy_options",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$APD2",
+                      "$APD3",
+                      "$APPC"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "fsd_features",
+                        "props": {
+                          "modal": "FSD_FEATURES"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Funciones básicas del Autopilot",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Tarjetas de características"
+            }
+          ]
         }
       ],
       "options": {
@@ -5868,11 +6039,11 @@
             },
             {
               "type": "disclaimer",
-              "content": "The currently enabled features require active driver supervision and do not make the vehicle autonomous. The activation and use of these features are dependent on achieving reliability far in excess of human drivers as demonstrated by billions of miles of experience, as well as regulatory approval, which may take longer in some jurisdictions. As these self-driving features evolve, your car will be continuously upgraded through over-the-air software updates."
+              "content": "Las funciones disponibles actualmente requieren de una supervisión activa del conductor y no hacen que el vehículo sea autónomo. La activación y uso de estas funciones dependerá de que se logre una confiabilidad que supere por mucho la de los conductores humanos y que se demuestre con miles de millones de kilómetros de experiencia, así como de aprobaciones regulatorias, lo que podría tardar más en algunas jurisdicciones. A medida que estas capacidades de conducción autónoma vayan evolucionando, su auto se irá actualizando de forma continua e inalámbrica."
             },
             {
               "type": "compare_features",
-              "content": "Feature Details",
+              "content": "Detalles de la función",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -5958,6 +6129,46 @@
             }
           ]
         },
+        "$APD2": {
+          "code": "$APD2",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD2"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD2"
+            }
+          ],
+          "name": "Piloto automático con características de comodidad",
+          "description": "Piloto automático con características de comodidad",
+          "long_name": "Piloto automático con características de comodidad",
+          "extra_copy": [],
+          "extra_content": []
+        },
+        "$APD3": {
+          "code": "$APD3",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD3"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD3"
+            }
+          ],
+          "name": "Piloto automático con características de comodidad",
+          "description": "Piloto automático con características de comodidad",
+          "long_name": "Piloto automático con características de comodidad",
+          "extra_copy": [],
+          "extra_content": []
+        },
         "$APF2": {
           "code": "$APF2",
           "user_defined_rules": {
@@ -5998,7 +6209,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Opcional"
+              "content": "ppcional"
             },
             {
               "type": "feature_list.default[0].items[0]",
@@ -6006,7 +6217,7 @@
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Estacionado automático "
+              "content": "Estacionado automático"
             },
             {
               "type": "feature_list.default[0].items[2]",
@@ -6018,11 +6229,11 @@
             },
             {
               "type": "feature_list.default[1].items[0]",
-              "content": "Navegar en Autopilot"
+              "content": "Navegar en Autopilot "
             },
             {
               "type": "feature_list.default[1].items[1]",
-              "content": "Semáforo y Control de señales de alto"
+              "content": "Semáforo y Control de señales de alto."
             },
             {
               "type": "feature_list.default[1].title",
@@ -6030,7 +6241,7 @@
             },
             {
               "type": "feature_list.default[1].items[2]",
-              "content": "Autosteer en calles de la ciudad"
+              "content": "Dirección automática en calles de la ciudad"
             },
             {
               "type": "disclaimer",
@@ -6038,7 +6249,7 @@
             },
             {
               "type": "fsd_features",
-              "content": "Especificaciones",
+              "content": "Detalles de la función",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -6272,6 +6483,26 @@
             }
           ]
         },
+        "$APPC": {
+          "code": "$APPC",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APPC"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APPC"
+            }
+          ],
+          "name": "Piloto automático con características de comodidad",
+          "description": "Piloto automático con características de comodidad",
+          "long_name": "Piloto automático con características de comodidad",
+          "extra_copy": [],
+          "extra_content": []
+        },
         "$CPF0": {
           "code": "$CPF0",
           "set_rules": [
@@ -6304,7 +6535,7 @@
             },
             {
               "type": "long_name",
-              "content": "Conectividad premium de 1 año"
+              "content": "Prueba de Conectividad premium de 1 año"
             }
           ],
           "price": 0,
@@ -6355,7 +6586,7 @@
             },
             {
               "type": "long_name",
-              "content": "Conectividad premium de 1 año"
+              "content": "Prueba de Conectividad premium de 1 año"
             }
           ],
           "price": 0,
@@ -9584,7 +9815,7 @@
             },
             {
               "type": "recommended",
-              "content": "Finition en bois de chêne"
+              "content": "Decoración de madera de roble"
             }
           ],
           "extra_content": [
@@ -9694,11 +9925,11 @@
             },
             {
               "type": "name",
-              "content": "Tout noir"
+              "content": "Completamente negro"
             },
             {
               "type": "recommended",
-              "content": "Finition en bois de frêne figuré"
+              "content": "Decorado de madera de fresno con figuras"
             }
           ],
           "extra_content": [
@@ -9892,11 +10123,11 @@
             },
             {
               "type": "name",
-              "content": "Tout noir"
+              "content": "Completamente negro"
             },
             {
               "type": "recommended",
-              "content": "Décor en fibre de carbone"
+              "content": "Decoración de fibra de carbono"
             }
           ],
           "extra_content": [
@@ -10017,11 +10248,11 @@
             },
             {
               "type": "name",
-              "content": "Noir et blanc"
+              "content": "Blanco y negro"
             },
             {
               "type": "recommended",
-              "content": "Décor en fibre de carbone"
+              "content": "Decoración de fibra de carbono"
             }
           ],
           "extra_content": [
@@ -10208,7 +10439,7 @@
             },
             {
               "type": "recommended",
-              "content": "Finition en bois de frêne foncé"
+              "content": "Decoración de madera de fresno oscura"
             }
           ],
           "extra_content": [
@@ -10310,7 +10541,7 @@
             },
             {
               "type": "recommended",
-              "content": "Finition en bois de chêne"
+              "content": "Decoración de madera de roble"
             }
           ],
           "extra_content": [
@@ -10446,7 +10677,7 @@
             },
             {
               "type": "recommended",
-              "content": "Finition en bois de frêne foncé"
+              "content": "Decoración de madera de fresno oscura"
             }
           ],
           "extra_content": [
@@ -10567,11 +10798,11 @@
             },
             {
               "type": "name",
-              "content": "Noir et blanc"
+              "content": "Blanco y negro"
             },
             {
               "type": "recommended",
-              "content": "Finition en bois de frêne foncé"
+              "content": "Decoración de madera de fresno oscura"
             }
           ],
           "extra_content": [
@@ -10673,7 +10904,7 @@
             },
             {
               "type": "recommended",
-              "content": "Finition en bois de frêne figuré"
+              "content": "Decorado de madera de fresno con figuras"
             }
           ],
           "extra_content": [
@@ -10905,7 +11136,7 @@
             },
             {
               "type": "recommended",
-              "content": "Finition en bois de frêne figuré"
+              "content": "Decorado de madera de fresno con figuras"
             }
           ],
           "extra_content": [
@@ -11177,7 +11408,7 @@
             },
             {
               "type": "recommended",
-              "content": "Finition en bois de chêne"
+              "content": "Decoración de madera de roble"
             }
           ],
           "extra_content": [
@@ -11741,7 +11972,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Autonomía Estándar"
+              "content": "Autonomía estándar"
             }
           ],
           "extra_content": [
@@ -11945,7 +12176,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Autonomía Mayor"
+              "content": "Mayor autonomía"
             }
           ],
           "extra_content": [
@@ -12935,23 +13166,23 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Aceleración de 0 a 100 km/h: <2.1 s"
+              "content": "Aceleración de: 0 a 100 km/h en 2.5 s"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "1100 caballos de fuerza"
+              "content": "Cuarto de milla: <0.0 s"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Tres unidades de potencia de alto rendimiento"
+              "content": "Más de 0,000 caballos de fuerza"
             },
             {
               "type": "feature_list.default[0].items[3]",
-              "content": "Rotores con revestimiento de carbono"
+              "content": "Tres unidades de potencia de alto rendimiento"
             },
             {
               "type": "feature_list.default[0].items[4]",
-              "content": "distribución de potencia"
+              "content": "rotores con revestimiento de carbono"
             },
             {
               "type": "feature_list.default[0].items[5]",
@@ -13099,7 +13330,7 @@
             },
             {
               "type": "feature_list.default[0].main_title",
-              "content": "Mejora para Plaid+",
+              "content": "Plaid + Mejoras",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -13118,19 +13349,19 @@
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "0 a 100 km/h: <2.1 s"
+              "content": "0-100 km/h: <2.1 s"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Quarter mile: <9.0s"
+              "content": "400 m: < 9 s"
             },
             {
               "type": "feature_list.default[0].items[3]",
-              "content": "1,100+ caballos de fuerza"
+              "content": "Más de 1100 caballos de fuerza"
             },
             {
               "type": "feature_list.default[0].items[4]",
-              "content": "Tres motores de alto rendimiento con rotores de manga de carbono"
+              "content": "Tres motores de alto rendimiento con rotores con mangas de carbono"
             },
             {
               "type": "feature_list.default[0].items[5]",
@@ -13142,7 +13373,7 @@
             },
             {
               "type": "drive_mode",
-              "content": "Tracción en todas las ruedas de motor triple"
+              "content": "Tracción en todas las ruedas de triple motor"
             }
           ],
           "extra_content": [
@@ -13599,7 +13830,7 @@
             },
             {
               "type": "feature_list.default[0].main_title",
-              "content": "Mejora para Plaid",
+              "content": "Mejoras Plaid",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -13614,23 +13845,23 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "El automóvil de aceleración más rápida actualmente en producción."
+              "content": "El auto con la aceleración más rápida en producción actualmente"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "0 a 100 km/h: 2.1 s"
+              "content": "0-100 km/h: 2.1 s"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "1/4 mile: 9.23@250 km/h velocidad de la trampa"
+              "content": "1/4 de milla: 9.23 a 250 km/h de velocidad de trampa"
             },
             {
               "type": "feature_list.default[0].items[3]",
-              "content": "1020 caballos de fuerza"
+              "content": "1,020 caballos de fuerza"
             },
             {
               "type": "feature_list.default[0].items[4]",
-              "content": "Tres motores de alto rendimiento con rotores de manga de carbono"
+              "content": "Tres motores de alto rendimiento con rotores con mangas de carbono"
             },
             {
               "type": "feature_list.default[0].items[5]",
@@ -13642,7 +13873,7 @@
             },
             {
               "type": "drive_mode",
-              "content": "Tracción en todas las ruedas de motor triple"
+              "content": "Tracción en todas las ruedas de triple motor"
             }
           ],
           "extra_content": [
@@ -21163,7 +21394,7 @@
         "$ST0Y",
         "$CPF1"
       ],
-      "options_id": 1522,
+      "options_id": 1539,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -22123,7 +22354,7 @@
           }
         }
       ],
-      "copy_id": 2475,
+      "copy_id": 2483,
       "language": "es",
       "warnings": [
         {
@@ -22140,7 +22371,7 @@
         }
       ],
       "pricing_id": 1341,
-      "reference_id": 1522
+      "reference_id": 1539
     }
   },
   "edd": []

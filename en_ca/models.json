@@ -1256,7 +1256,8 @@
         "legalConsentValid": true,
         "showFinanceModalOnProductChange": false,
         "showExtraDepositAmountInDefaultPricingContext": false,
-        "rangeStandard": "EPA"
+        "rangeStandard": "EPA",
+        "featureHighlightGroups": []
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -2014,12 +2015,12 @@
       ]
     },
     "Lexicon.ms": {
-      "effective_date": "2021-07-27T23:38:00.000Z",
+      "effective_date": "2021-07-30T00:00:00.000Z",
       "market": "CA",
       "product": "ms",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CA 2021.Jul.27 1469.2476.1351 [en]",
+      "name": "Marketing CA 2021.Jul.30 1538.2492.1351 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -4275,6 +4276,7 @@
             "AUTOPILOT_CARD",
             "SUPER_CHARGER_CARD",
             "SENTRY_MODE_CARD",
+            "ADAPTIVE_SUSPENSION_CARD",
             "EXPANSIVE_STORAGE_CARD",
             "MOBILE_APP_CARD"
           ],
@@ -6161,6 +6163,172 @@
               ]
             }
           ]
+        },
+        {
+          "code": "ADAPTIVE_SUSPENSION_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Adaptive Suspension",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Adaptive Suspension"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Model S’ adaptive suspension reacts to road conditions and driver inputs hundreds of times per second to deliver exceptional ride quality and handling. The system also automatically adjusts ride height for greater comfort and to keep Model S in its most aerodynamic setting for maximum range."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELS/UI/S_Suspension.jpeg",
+                  "type": "image",
+                  "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "AUTOPILOT_CONVIENCE_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APD2",
+            "$APD3",
+            "$APPC"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Autopilot with convenience features",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Included"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Automatic steering, acceleration and braking on highways"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Auto Lane Change"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Autopark"
+            },
+            {
+              "type": "disclaimer[0]",
+              "content": "Vehicle cannot be upgraded to Full Self-Driving Capability"
+            },
+            {
+              "type": "disclaimer[1]",
+              "content": "The currently enabled features require active driver supervision and do not make the vehicle autonomous. The activation and use of these features are dependent on achieving reliability far in excess of human drivers as demonstrated by billions of miles of experience, as well as regulatory approval, which may take longer in some jurisdictions. As these self-driving features evolve, your car will be continuously upgraded through over-the-air software updates."
+            },
+            {
+              "type": "fsd_features",
+              "content": "Feature Details",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "FSD_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "legacy_options",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$APD2",
+                      "$APD3",
+                      "$APPC"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "fsd_features",
+                        "props": {
+                          "modal": "FSD_FEATURES"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Basic Autopilot Features",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Feature Cards"
+            }
+          ]
         }
       ],
       "options": {
@@ -6441,6 +6609,46 @@
               "context": "CAD"
             }
           ]
+        },
+        "$APD2": {
+          "code": "$APD2",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD2"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD2"
+            }
+          ],
+          "name": "Autopilot with convenience features",
+          "description": "Autopilot with convenience features",
+          "long_name": "Autopilot with convenience features",
+          "extra_copy": [],
+          "extra_content": []
+        },
+        "$APD3": {
+          "code": "$APD3",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD3"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD3"
+            }
+          ],
+          "name": "Autopilot with convenience features",
+          "description": "Autopilot with convenience features",
+          "long_name": "Autopilot with convenience features",
+          "extra_copy": [],
+          "extra_content": []
         },
         "$APF2": {
           "code": "$APF2",
@@ -6745,6 +6953,26 @@
               "context": "CAD"
             }
           ]
+        },
+        "$APPC": {
+          "code": "$APPC",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APPC"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APPC"
+            }
+          ],
+          "name": "Autopilot with convenience features",
+          "description": "Autopilot with convenience features",
+          "long_name": "Autopilot with convenience features",
+          "extra_copy": [],
+          "extra_content": []
         },
         "$CPF0": {
           "code": "$CPF0",
@@ -21653,7 +21881,7 @@
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 1469,
+      "options_id": 1538,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -22613,7 +22841,7 @@
           }
         }
       ],
-      "copy_id": 2476,
+      "copy_id": 2492,
       "language": "en",
       "warnings": [
         {
@@ -22630,7 +22858,7 @@
         }
       ],
       "pricing_id": 1351,
-      "reference_id": 1469
+      "reference_id": 1538
     }
   },
   "edd": []
