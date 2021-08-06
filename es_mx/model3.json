@@ -1308,7 +1308,9 @@
         "showFinanceModalOnProductChange": false,
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "EPA",
-        "featureHighlightGroups": []
+        "featureHighlightGroups": [],
+        "showPremiumConnectivity": false,
+        "showBusinessInformation": false
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -1801,12 +1803,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-07-30T00:00:00.000Z",
+      "effective_date": "2021-08-06T00:25:00.000Z",
       "market": "MX",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing MX 2021.Jul.30 1525.2526.1112 [es]",
+      "name": "Marketing MX 2021.Aug.06 1697.2526.1112 [es]",
       "groups": [
         {
           "code": "MODEL",
@@ -2600,13 +2602,15 @@
         },
         {
           "code": "AUTOPILOT",
-          "groups": [
-            "AUTOPILOT_PACKAGE"
-          ],
+          "groups": [],
           "context": "configurator",
-          "options": [],
+          "options": [
+            "$APBS",
+            "$APPB"
+          ],
           "required": false,
           "exclusive": false,
+          "default_options": [],
           "name": "Paquete del Autopilot",
           "description": "Descripción del paquete de Autopilot",
           "extra_copy": [],
@@ -6105,6 +6109,23 @@
               ]
             }
           ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Funciones básicas del Autopilot",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Tarjetas de características"
+            }
+          ]
         }
       ],
       "options": {
@@ -6113,12 +6134,15 @@
           "user_defined_rules": {
             "unset_rules": [
               {
-                "action": "unset",
-                "target": "$APF2"
+                "action": "set",
+                "target": "$APBS"
               },
               {
                 "action": "unset",
-                "target": "$APPB"
+                "targets": [
+                  "$APF2",
+                  "$APPB"
+                ]
               }
             ]
           },
@@ -6134,12 +6158,15 @@
               "target": "$APBS"
             },
             {
-              "action": "unset",
-              "target": "$APF2"
+              "action": "set",
+              "target": "$APBS"
             },
             {
               "action": "unset",
-              "target": "$APPB"
+              "targets": [
+                "$APF2",
+                "$APPB"
+              ]
             }
           ],
           "name": "Autopilot",
@@ -19919,7 +19946,7 @@
         "$SC04",
         "$APBS"
       ],
-      "options_id": 1525,
+      "options_id": 1697,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -20779,7 +20806,7 @@
       "language": "es",
       "warnings": [],
       "pricing_id": 1112,
-      "reference_id": 1525
+      "reference_id": 1697
     }
   },
   "edd": [

@@ -710,6 +710,10 @@
             "context": "configurator"
           },
           {
+            "code": "WINTER_WHEELS_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "PERFORMANCE_UPGRADE_FEATURES",
             "context": "configurator"
           },
@@ -869,7 +873,8 @@
         "showNetMonthlyPayment": false,
         "hideRegistrationTypeToggle": true,
         "showSavingsColumn": true,
-        "hideTaxesAndFeesExcluded": true
+        "hideTaxesAndFeesExcluded": true,
+        "showMaintenanceCost": true
       },
       "FindMyTesla": {
         "selected_view": "exterior",
@@ -1289,7 +1294,8 @@
         "actionsToUpdatePrices": [
           "SUMMARY_PANEL_DISTANCE_CHANGE",
           "SUMMARY_PANEL_FINANCE_DISTANCE_CHANGE",
-          "ACCOUNT_DETAILS_CHANGED"
+          "ACCOUNT_DETAILS_CHANGED",
+          "SET_FINANCE_MODAL_DRIVER_TYPE"
         ],
         "showVehicleSubtotal": false,
         "hidePostfixOnUI": false,
@@ -1303,9 +1309,12 @@
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
         "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
+          "CHAMBER_OF_COMMERCE",
           "Vat"
         ],
         "extraIncentives": [
@@ -1770,7 +1779,7 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2021-07-23T00:45:00.000Z",
+      "effective_date": "2021-08-06T00:05:00.000Z",
       "market": "DE",
       "product": "my",
       "factory": "GF00",
@@ -1779,7 +1788,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2021.Jul.23 1505.2467.1412 [de]",
+      "name": "Marketing DE 2021.Aug.06 1586.2605.1412 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -2190,7 +2199,7 @@
             "AUTOPILOT_PACKAGE",
             "AUTOPILOT_FIRMWARE",
             "TOWING",
-            "WINTER_WHEELS"
+            "WINTER_WHEELS_OPTIONS"
           ],
           "context": "order_summary",
           "options": [],
@@ -2365,7 +2374,9 @@
         },
         {
           "code": "WHEELS",
-          "groups": [],
+          "groups": [
+            "WINTER_WHEELS_OPTIONS"
+          ],
           "context": "configurator",
           "options": [
             "$WY19B",
@@ -2481,6 +2492,9 @@
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
                   }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             },
@@ -3625,6 +3639,7 @@
             "BATTERY_AND_DRIVE",
             "PAINT",
             "WHEELS",
+            "WINTER_WHEELS_OPTIONS",
             "TOWING",
             "PACKAGES",
             "AUTOPILOT",
@@ -6301,6 +6316,309 @@
                   "url": "MODEL3/UI/Traffic_Light_and_Stop_Sign.png",
                   "type": "image",
                   "ratio": "slice"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "FEDERAL_TAX_CREDIT",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "federalTax",
+          "extra_copy": [
+            {
+              "type": "federalTax.description",
+              "content": "Model Y qualifiziert sich für den Umweltbonus von 7.500 €."
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Winterreifen/-felgen",
+          "extra_copy": [],
+          "extra_content": []
+        },
+        {
+          "code": "WINTER_WHEELS_OPTIONS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Winterreifen/-felgen",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Winterreifen/-felgen"
+            },
+            {
+              "type": "feature_description",
+              "content": "Für optimales Fahrverhalten auf Schnee und Eis ist ein Winterreifen-Felgen-Set unverzichtbar."
+            },
+            {
+              "type": "add_component",
+              "content": "Set auswählen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_component",
+              "content": "Entfernen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn tds-btn--outline tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_features",
+              "content": "Produktdetails",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "WINTER_WHEELS_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small "
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h5"
+                  }
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "feature_description",
+                        "classes": "tds-text--center"
+                      },
+                      {
+                        "field": "add_component",
+                        "component": "button"
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "SelectedPrice"
+                      },
+                      {
+                        "field": "remove_component",
+                        "component": "button"
+                      },
+                      {
+                        "field": "view_features",
+                        "props": {
+                          "modal": "WINTER_WHEELS_FEATURES"
+                        }
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS_FEATURES",
+          "groups": [
+            "19_IN_WINTER_WHEEL_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Produktdetails – Winterreifen/-felgen",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Modelle vergleichen"
+            }
+          ]
+        },
+        {
+          "code": "19_IN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "19\" Pirelli-Winterreifensatz",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "19\" Pirelli-Winterreifensatz"
+            },
+            {
+              "type": "eyebrow",
+              "content": "Inklusive"
+            },
+            {
+              "type": "description",
+              "content": "Pirelli Sottozero 3 Winterreifen verbinden niedrigen Rollwiderstand mit hervorragendem Grip auf verschneiten Straßen. Dieser Reifen-/Felgensatz beinhaltet vier 19\" Sport-Felgen, auf denen die Reifen montiert sind."
+            },
+            {
+              "type": "add_options",
+              "content": "Hinzufügen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Entfernen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELY/UI/option-wheels-19-pirelli.jpeg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
                 }
               ]
             }
@@ -9954,8 +10272,51 @@
             }
           ],
           "name": "19\" Pirelli-Winterreifensatz",
-          "description": "19\" Pirelli-Winterreifensatz",
-          "long_name": "19\" Pirelli-Winterreifensatz",
+          "description": "Pirelli Sottozero 3 Winterreifen verbinden niedrigen Rollwiderstand mit hervorragendem Grip auf verschneiten Straßen. Dieser Reifen-/Felgensatz beinhaltet vier 19\" Sport-Felgen, auf denen die Reifen montiert sind.",
+          "long_name": "19\" Pirelli-Winterreifen mit Sport-Felgen",
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WWY00"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Sottozero-Selector@3x.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "price": 3000,
           "pricing": [
             {
@@ -10961,7 +11322,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 1505,
+      "options_id": 1586,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -11261,11 +11622,11 @@
           }
         }
       ],
-      "copy_id": 2467,
+      "copy_id": 2605,
       "language": "de",
       "warnings": [],
       "pricing_id": 1412,
-      "reference_id": 1505
+      "reference_id": 1586
     }
   },
   "edd": [

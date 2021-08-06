@@ -883,19 +883,19 @@
             "type": "personal",
             "financeOptions": [
               "cash",
-              "lease",
+              "lease_private",
               "loan"
             ],
-            "defaultOption": "lease"
+            "defaultOption": "lease_private"
           },
           {
             "type": "business",
             "financeOptions": [
               "cash",
-              "lease",
+              "business_lease",
               "operational_lease"
             ],
-            "defaultOption": "lease"
+            "defaultOption": "business_lease"
           }
         ],
         "driverType": "personal",
@@ -1332,6 +1332,8 @@
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
         "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1416,7 +1418,7 @@
         ]
       },
       "SummaryPanel": {
-        "selected_tab": "lease.lease",
+        "selected_tab": "lease.lease_private",
         "tabs": [],
         "loanDistance": null,
         "leaseDistance": null,
@@ -1745,7 +1747,123 @@
       "lease": [
         {
           "market": "CH",
-          "id": "lease",
+          "id": "lease_private",
+          "variant": [
+            "m3",
+            "ms",
+            "mx"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "downPayment": 10000,
+            "interestRate": 3.4,
+            "leaseTerm": 60,
+            "leaseDistance": 15000,
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.7
+          },
+          "leaseTermsOffered": {
+            "leaseTerm": [
+              36,
+              48,
+              60
+            ],
+            "leaseDistance": [
+              10000,
+              15000,
+              20000,
+              25000
+            ]
+          },
+          "residualRateMatrix": [
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 10000,
+              "value": 0.45
+            },
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 15000,
+              "value": 0.44
+            },
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 20000,
+              "value": 0.43
+            },
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 25000,
+              "value": 0.42
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 10000,
+              "value": 0.41
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 15000,
+              "value": 0.41
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 20000,
+              "value": 0.4
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 25000,
+              "value": 0.37
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 10000,
+              "value": 0.37
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 15000,
+              "value": 0.37
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 20000,
+              "value": 0.36
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 25000,
+              "value": 0.33
+            }
+          ],
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "downPayment",
+                  "distance"
+                ],
+                [
+                  "term"
+                ]
+              ]
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm",
+                "leaseDistance",
+                "residualAmount"
+              ]
+            }
+          }
+        },
+        {
+          "market": "CH",
+          "id": "business_lease",
           "variant": [
             "m3",
             "ms",
@@ -1954,12 +2072,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-07-23T00:45:00.000Z",
+      "effective_date": "2021-08-06T00:25:00.000Z",
       "market": "CH",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CH 2021.Jul.23 1366.2395.1519 [fr]",
+      "name": "Marketing CH 2021.Aug.06 1680.2395.1519 [fr]",
       "groups": [
         {
           "code": "MODEL",
@@ -7407,12 +7525,15 @@
           "user_defined_rules": {
             "unset_rules": [
               {
-                "action": "unset",
-                "target": "$APF2"
+                "action": "set",
+                "target": "$APBS"
               },
               {
                 "action": "unset",
-                "target": "$APPB"
+                "targets": [
+                  "$APF2",
+                  "$APPB"
+                ]
               }
             ]
           },
@@ -7428,12 +7549,15 @@
               "target": "$APBS"
             },
             {
-              "action": "unset",
-              "target": "$APF2"
+              "action": "set",
+              "target": "$APBS"
             },
             {
               "action": "unset",
-              "target": "$APPB"
+              "targets": [
+                "$APF2",
+                "$APPB"
+              ]
             }
           ],
           "name": "Autopilot",
@@ -22226,7 +22350,7 @@
         "$APBS",
         "$SC04"
       ],
-      "options_id": 1366,
+      "options_id": 1680,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -23086,10 +23210,37 @@
       "language": "fr",
       "warnings": [],
       "pricing_id": 1519,
-      "reference_id": 1366
+      "reference_id": 1680
     }
   },
   "edd": [
+    {
+      "countryCode": "CH",
+      "region": null,
+      "model": "m3",
+      "options": [
+        "$MT316",
+        "$MT321"
+      ],
+      "atDate": "2021-12-01T00:00:00",
+      "inStart": null,
+      "inEnd": null,
+      "inType": null,
+      "effectiveStartDate": "2021-08-05T00:00:01"
+    },
+    {
+      "countryCode": "CH",
+      "region": null,
+      "model": "m3",
+      "options": [
+        "$MT317"
+      ],
+      "atDate": "2021-09-01T00:00:00",
+      "inStart": null,
+      "inEnd": null,
+      "inType": null,
+      "effectiveStartDate": "2021-08-05T00:00:00"
+    },
     {
       "countryCode": "CH",
       "region": null,
@@ -23110,28 +23261,13 @@
       "region": null,
       "model": "m3",
       "options": [
-        "$MT315",
-        "$MT316",
-        "$MT321"
+        "$MT315"
       ],
       "atDate": "2021-11-01T00:00:00",
       "inStart": null,
       "inEnd": null,
       "inType": null,
       "effectiveStartDate": "2021-06-07T00:00:00"
-    },
-    {
-      "countryCode": "CH",
-      "region": null,
-      "model": "m3",
-      "options": [
-        "$MT317"
-      ],
-      "atDate": "2021-08-01T00:00:00",
-      "inStart": null,
-      "inEnd": null,
-      "inType": null,
-      "effectiveStartDate": "2021-06-01T00:00:00"
     },
     {
       "countryCode": "CH",

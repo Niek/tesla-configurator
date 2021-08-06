@@ -710,6 +710,10 @@
             "context": "configurator"
           },
           {
+            "code": "WINTER_WHEELS_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "PERFORMANCE_UPGRADE_FEATURES",
             "context": "configurator"
           },
@@ -1294,6 +1298,8 @@
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
         "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1766,12 +1772,12 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2021-07-23T00:45:00.000Z",
+      "effective_date": "2021-08-06T00:05:00.000Z",
       "market": "IT",
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing IT 2021.Jul.23 1516.2446.1414 [it]",
+      "name": "Marketing IT 2021.Aug.06 1575.2589.1414 [it]",
       "groups": [
         {
           "code": "MODEL",
@@ -2357,7 +2363,9 @@
         },
         {
           "code": "WHEELS",
-          "groups": [],
+          "groups": [
+            "WINTER_WHEELS_OPTIONS"
+          ],
           "context": "configurator",
           "options": [
             "$WY19B",
@@ -2473,6 +2481,9 @@
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
                   }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             },
@@ -6249,6 +6260,294 @@
               ]
             }
           ]
+        },
+        {
+          "code": "WINTER_WHEELS_OPTIONS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Cerchi invernali",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Cerchi invernali"
+            },
+            {
+              "type": "feature_description",
+              "content": "Aggiungi un set di pneumatici invernali e cerchi per una guida ottimale in condizioni di neve e ghiaccio"
+            },
+            {
+              "type": "add_component",
+              "content": "Scegli il set",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_component",
+              "content": "Rimuovi",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn tds-btn--outline tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_features",
+              "content": "Caratteristiche",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "WINTER_WHEELS_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small "
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h5"
+                  }
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "feature_description",
+                        "classes": "tds-text--center"
+                      },
+                      {
+                        "field": "add_component",
+                        "component": "button"
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "SelectedPrice"
+                      },
+                      {
+                        "field": "remove_component",
+                        "component": "button"
+                      },
+                      {
+                        "field": "view_features",
+                        "props": {
+                          "modal": "WINTER_WHEELS_FEATURES"
+                        }
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS_FEATURES",
+          "groups": [
+            "19_IN_WINTER_WHEEL_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Caratteristiche delle ruote invernali",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Confronta i modelli"
+            }
+          ]
+        },
+        {
+          "code": "19_IN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Set di pneumatici Pirelli Winter da 19\"",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Set di pneumatici Pirelli Winter da 19\""
+            },
+            {
+              "type": "eyebrow",
+              "content": "Di serie"
+            },
+            {
+              "type": "description",
+              "content": "Gli pneumatici invernali Pirelli Sottozero 3 combinano la bassa resistenza al rotolamento all'elevata aderenza su strade innevate. Questo set include quattro cerchi Sport da 19\" con pneumatici montati."
+            },
+            {
+              "type": "add_options",
+              "content": "Aggiungi",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Rimuovi",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELY/UI/option-wheels-19-pirelli.jpeg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Cerchi invernali",
+          "extra_copy": [],
+          "extra_content": []
         }
       ],
       "options": {
@@ -9142,6 +9441,10 @@
                   "$SLR1",
                   "$WY21P"
                 ]
+              },
+              {
+                "action": "unset",
+                "target": "$WWY00"
               }
             ],
             "unset_rules": [
@@ -9183,6 +9486,10 @@
                 "$SLR1",
                 "$WY21P"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$WWY00"
             }
           ],
           "unset_rules": [
@@ -9879,8 +10186,57 @@
             }
           ],
           "name": "Set di pneumatici Pirelli Winter da 19\"",
-          "description": "Set di pneumatici Pirelli Winter da 19\"",
-          "long_name": "Set di pneumatici Pirelli Winter da 19\"",
+          "description": "Gli pneumatici invernali Pirelli Sottozero 3 combinano la bassa resistenza al rotolamento all'elevata aderenza su strade innevate. Questo set include quattro cerchi Sport da 19\" con pneumatici montati.",
+          "long_name": "Pneumatici Pirelli Winter da 19\" con cerchi Sport",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Gli pneumatici invernali Pirelli Sottozero 3 combinano la bassa resistenza al rotolamento all'elevata aderenza su strade innevate. Questo set include quattro cerchi Sport da 19\" con pneumatici montati."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WWY00"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Sottozero-Selector@3x.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "price": 3000,
           "pricing": [
             {
@@ -10886,7 +11242,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 1516,
+      "options_id": 1575,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -11186,11 +11542,11 @@
           }
         }
       ],
-      "copy_id": 2446,
+      "copy_id": 2589,
       "language": "it",
       "warnings": [],
       "pricing_id": 1414,
-      "reference_id": 1516
+      "reference_id": 1575
     }
   },
   "edd": [

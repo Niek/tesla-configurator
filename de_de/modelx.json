@@ -875,7 +875,8 @@
         "showNetMonthlyPayment": false,
         "hideRegistrationTypeToggle": true,
         "showSavingsColumn": true,
-        "hideTaxesAndFeesExcluded": true
+        "hideTaxesAndFeesExcluded": true,
+        "showMaintenanceCost": true
       },
       "FindMyTesla": {
         "selected_view": "exterior",
@@ -1295,7 +1296,8 @@
         "actionsToUpdatePrices": [
           "SUMMARY_PANEL_DISTANCE_CHANGE",
           "SUMMARY_PANEL_FINANCE_DISTANCE_CHANGE",
-          "ACCOUNT_DETAILS_CHANGED"
+          "ACCOUNT_DETAILS_CHANGED",
+          "SET_FINANCE_MODAL_DRIVER_TYPE"
         ],
         "showVehicleSubtotal": false,
         "hidePostfixOnUI": false,
@@ -1309,9 +1311,12 @@
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
         "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
+          "CHAMBER_OF_COMMERCE",
           "Vat"
         ]
       },
@@ -2113,7 +2118,7 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2021-08-04T00:00:00.000Z",
+      "effective_date": "2021-08-06T00:25:00.000Z",
       "market": "DE",
       "product": "mx",
       "factory": "GF00",
@@ -2122,7 +2127,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2021.Aug.04 1095.2307.1582 [de]",
+      "name": "Marketing DE 2021.Aug.06 1647.2307.1582 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -2453,7 +2458,7 @@
           ],
           "required": true,
           "exclusive": true,
-          "discountable": false,
+          "discountable": true,
           "default_options": [
             "$CPF0"
           ],
@@ -4040,7 +4045,8 @@
             "SENTRY_MODE_STD_FEATURE",
             "AUTOMATIC_DOORS_CARD",
             "EXPANSIVE_STORAGE_CARD",
-            "MOBILE_APP_CARD"
+            "MOBILE_APP_CARD",
+            "TOW_HITCH_CARD"
           ],
           "context": "configurator",
           "options": [],
@@ -6449,6 +6455,14 @@
               ]
             }
           ]
+        },
+        {
+          "code": "TOW_HITCH_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false
         }
       ],
       "options": {
@@ -6576,6 +6590,10 @@
               {
                 "action": "unset",
                 "target": "$APPB"
+              },
+              {
+                "action": "set",
+                "target": "$APBS"
               }
             ]
           },
@@ -6597,6 +6615,10 @@
             {
               "action": "unset",
               "target": "$APPB"
+            },
+            {
+              "action": "set",
+              "target": "$APBS"
             }
           ],
           "name": "Autopilot",
@@ -6886,7 +6908,8 @@
                 "action": "unset",
                 "target": "$APF2"
               }
-            ]
+            ],
+            "unset_rules": []
           },
           "set_rules": [
             {
@@ -18259,6 +18282,7 @@
         }
       },
       "base_configuration": [
+        "$APBS",
         "$MDLX",
         "$MTX10",
         "$PPSW",
@@ -18269,7 +18293,7 @@
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 1095,
+      "options_id": 1647,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -19265,7 +19289,7 @@
         }
       ],
       "pricing_id": 1582,
-      "reference_id": 1095
+      "reference_id": 1647
     }
   },
   "edd": []

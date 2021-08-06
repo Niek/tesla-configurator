@@ -710,6 +710,10 @@
             "context": "configurator"
           },
           {
+            "code": "WINTER_WHEELS_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "PERFORMANCE_UPGRADE_FEATURES",
             "context": "configurator"
           },
@@ -1267,6 +1271,8 @@
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
         "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1617,12 +1623,12 @@
       "loan": []
     },
     "Lexicon.my": {
-      "effective_date": "2021-07-23T00:45:00.000Z",
+      "effective_date": "2021-08-06T00:05:00.000Z",
       "market": "SI",
       "product": "my",
       "factory": "GF03",
       "fees": {},
-      "name": "Marketing SI 2021.Jul.23 1518.2466.1499 [sl]",
+      "name": "Marketing SI 2021.Aug.06 1585.2595.1499 [sl]",
       "groups": [
         {
           "code": "MODEL",
@@ -2208,7 +2214,9 @@
         },
         {
           "code": "WHEELS",
-          "groups": [],
+          "groups": [
+            "WINTER_WHEELS_OPTIONS"
+          ],
           "context": "configurator",
           "options": [
             "$WY19B",
@@ -2324,6 +2332,9 @@
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
                   }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             },
@@ -4836,11 +4847,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "steklena streha",
+          "name": "Steklena streha",
           "extra_copy": [
             {
               "type": "title",
-              "content": "steklena streha"
+              "content": "Steklena streha"
             },
             {
               "type": "eyebrow",
@@ -6047,6 +6058,294 @@
               ]
             }
           ]
+        },
+        {
+          "code": "WINTER_WHEELS_OPTIONS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Kolesa za zimske pnevmatike",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Kolesa za zimske pnevmatike"
+            },
+            {
+              "type": "feature_description",
+              "content": "Dodajte komplet zimskih pnevmatik in platišč za optimalno vožnjo v zasneženih in poledenelih razmerah"
+            },
+            {
+              "type": "add_component",
+              "content": "Izberite komplet",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_component",
+              "content": "Odstrani",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn tds-btn--outline tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_features",
+              "content": "funkcije",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "WINTER_WHEELS_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small "
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h5"
+                  }
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "feature_description",
+                        "classes": "tds-text--center"
+                      },
+                      {
+                        "field": "add_component",
+                        "component": "button"
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "SelectedPrice"
+                      },
+                      {
+                        "field": "remove_component",
+                        "component": "button"
+                      },
+                      {
+                        "field": "view_features",
+                        "props": {
+                          "modal": "WINTER_WHEELS_FEATURES"
+                        }
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS_FEATURES",
+          "groups": [
+            "19_IN_WINTER_WHEEL_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Lastnosti platišč za zimske pnevmatike",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Primerjava modelov"
+            }
+          ]
+        },
+        {
+          "code": "19_IN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Komplet 19\" zimskih pnevmatik Pirelli",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Komplet 19\" zimskih pnevmatik Pirelli"
+            },
+            {
+              "type": "eyebrow",
+              "content": "Vključeno"
+            },
+            {
+              "type": "description",
+              "content": "Zimske pnevmatike Pirelli Sottozero 3 se ponašajo z majhnim kotalnim uporom in dobrim oprijemom na zasneženem cestišču. Komplet vključuje štiri 19\" platišča Sport z nameščenimi pnevmatikami."
+            },
+            {
+              "type": "add_options",
+              "content": "Dodaj",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Odstrani",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELY/UI/option-wheels-19-pirelli.jpeg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Kolesa za zimske pnevmatike",
+          "extra_copy": [],
+          "extra_content": []
         }
       ],
       "options": {
@@ -9110,6 +9409,10 @@
                   "$SLR1",
                   "$WY21P"
                 ]
+              },
+              {
+                "action": "unset",
+                "target": "$WWY00"
               }
             ],
             "unset_rules": [
@@ -9151,6 +9454,10 @@
                 "$SLR1",
                 "$WY21P"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$WWY00"
             }
           ],
           "unset_rules": [
@@ -9847,8 +10154,57 @@
             }
           ],
           "name": "Komplet 19\" zimskih pnevmatik Pirelli",
-          "description": "Komplet 19\" zimskih pnevmatik Pirelli",
-          "long_name": "Komplet 19\" zimskih pnevmatik Pirelli",
+          "description": "Zimske pnevmatike Pirelli Sottozero 3 se ponašajo z majhnim kotalnim uporom in dobrim oprijemom na zasneženem cestišču. Komplet vključuje štiri 19\" platišča Sport z nameščenimi pnevmatikami.",
+          "long_name": "19\" zimske pnevmatike Pirelli s platišči Sport",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Zimske pnevmatike Pirelli Sottozero 3 se ponašajo z majhnim kotalnim uporom in dobrim oprijemom na zasneženem cestišču. Komplet vključuje štiri 19\" platišča Sport z nameščenimi pnevmatikami."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WWY00"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Sottozero-Selector@3x.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "price": 3000,
           "pricing": [
             {
@@ -10866,7 +11222,7 @@
         "$CPF1",
         "$SC04"
       ],
-      "options_id": 1518,
+      "options_id": 1585,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -11166,7 +11522,7 @@
           }
         }
       ],
-      "copy_id": 2466,
+      "copy_id": 2595,
       "language": "sl",
       "warnings": [
         {
@@ -11179,7 +11535,7 @@
         }
       ],
       "pricing_id": 1499,
-      "reference_id": 1518
+      "reference_id": 1585
     }
   },
   "edd": [

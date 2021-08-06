@@ -710,6 +710,10 @@
             "context": "configurator"
           },
           {
+            "code": "WINTER_WHEELS_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "PERFORMANCE_UPGRADE_FEATURES",
             "context": "configurator"
           },
@@ -1285,6 +1289,8 @@
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
         "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1709,12 +1715,12 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2021-07-23T00:45:00.000Z",
+      "effective_date": "2021-08-06T00:05:00.000Z",
       "market": "DK",
       "product": "my",
       "factory": "GF03",
       "fees": {},
-      "name": "Marketing DK 2021.Jul.23 1511.2460.1406 [da]",
+      "name": "Marketing DK 2021.Aug.06 1589.2591.1406 [da]",
       "groups": [
         {
           "code": "MODEL",
@@ -2300,7 +2306,9 @@
         },
         {
           "code": "WHEELS",
-          "groups": [],
+          "groups": [
+            "WINTER_WHEELS_OPTIONS"
+          ],
           "context": "configurator",
           "options": [
             "$WY19B",
@@ -2416,6 +2424,9 @@
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
                   }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             },
@@ -6139,6 +6150,294 @@
               ]
             }
           ]
+        },
+        {
+          "code": "WINTER_WHEELS_OPTIONS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Vinterhjul",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Vinterhjul"
+            },
+            {
+              "type": "feature_description",
+              "content": "Tilføj et sæt vinterdæk og hjul for optimal kørsel i sne og iskolde forhold"
+            },
+            {
+              "type": "add_component",
+              "content": "Vælg sæt",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_component",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn tds-btn--outline tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_features",
+              "content": "Funktioner",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "WINTER_WHEELS_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small "
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h5"
+                  }
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "feature_description",
+                        "classes": "tds-text--center"
+                      },
+                      {
+                        "field": "add_component",
+                        "component": "button"
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "SelectedPrice"
+                      },
+                      {
+                        "field": "remove_component",
+                        "component": "button"
+                      },
+                      {
+                        "field": "view_features",
+                        "props": {
+                          "modal": "WINTER_WHEELS_FEATURES"
+                        }
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS_FEATURES",
+          "groups": [
+            "19_IN_WINTER_WHEEL_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Egenskaber vinterhjul",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Sammenlign modeller"
+            }
+          ]
+        },
+        {
+          "code": "19_IN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "19\" Pirelli vinterhjul",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "19\" Pirelli vinterhjul"
+            },
+            {
+              "type": "eyebrow",
+              "content": "Inkluderet"
+            },
+            {
+              "type": "description",
+              "content": "Pirelli Sottozero 3 vinterdæk kombinerer lav rullemodstand med godt vejgreb på snedækkede veje. Dette sæt indeholder fire 19\" Sport-fælge med dæk monteret."
+            },
+            {
+              "type": "add_options",
+              "content": "Tilføj",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELY/UI/option-wheels-19-pirelli.jpeg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Vinterhjul",
+          "extra_copy": [],
+          "extra_content": []
         }
       ],
       "options": {
@@ -9200,6 +9499,10 @@
                   "$SLR1",
                   "$WY21P"
                 ]
+              },
+              {
+                "action": "unset",
+                "target": "$WWY00"
               }
             ],
             "unset_rules": [
@@ -9241,6 +9544,10 @@
                 "$SLR1",
                 "$WY21P"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$WWY00"
             }
           ],
           "unset_rules": [
@@ -9943,8 +10250,57 @@
             }
           ],
           "name": "19\" Pirelli vinterhjul",
-          "description": "19\" Pirelli vinterhjul",
-          "long_name": "19\" Pirelli vinterhjul",
+          "description": "Pirelli Sottozero 3 vinterdæk kombinerer lav rullemodstand med godt vejgreb på snedækkede veje. Dette sæt indeholder fire 19\" Sport-fælge med dæk monteret.",
+          "long_name": "19\" Pirelli vinterdæk med Sport-fælge",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Pirelli Sottozero 3 vinterdæk kombinerer lav rullemodstand med godt vejgreb på snedækkede veje. Dette sæt indeholder fire 19\" Sport-fælge med dæk monteret."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WWY00"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Sottozero-Selector@3x.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "price": 24000,
           "pricing": [
             {
@@ -10962,7 +11318,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 1511,
+      "options_id": 1589,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -11262,7 +11618,7 @@
           }
         }
       ],
-      "copy_id": 2460,
+      "copy_id": 2591,
       "language": "da",
       "warnings": [
         {
@@ -11275,7 +11631,7 @@
         }
       ],
       "pricing_id": 1406,
-      "reference_id": 1511
+      "reference_id": 1589
     }
   },
   "edd": [

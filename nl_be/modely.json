@@ -710,6 +710,10 @@
             "context": "configurator"
           },
           {
+            "code": "WINTER_WHEELS_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "PERFORMANCE_UPGRADE_FEATURES",
             "context": "configurator"
           },
@@ -1284,6 +1288,8 @@
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
         "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1689,12 +1695,12 @@
       "loan": []
     },
     "Lexicon.my": {
-      "effective_date": "2021-07-23T00:45:00.000Z",
+      "effective_date": "2021-08-06T00:05:00.000Z",
       "market": "BE",
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing BE 2021.Jul.23 1501.2462.1410 [nl]",
+      "name": "Marketing BE 2021.Aug.06 1590.2588.1410 [nl]",
       "groups": [
         {
           "code": "MODEL",
@@ -2280,7 +2286,9 @@
         },
         {
           "code": "WHEELS",
-          "groups": [],
+          "groups": [
+            "WINTER_WHEELS_OPTIONS"
+          ],
           "context": "configurator",
           "options": [
             "$WY19B",
@@ -2396,6 +2404,9 @@
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
                   }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             },
@@ -6224,6 +6235,291 @@
               ]
             }
           ]
+        },
+        {
+          "code": "WINTER_WHEELS_OPTIONS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Winterwielen",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Winterwielen"
+            },
+            {
+              "type": "feature_description",
+              "content": "Voeg een set winterbanden toe om optimaal in besneeuwde en ijzige omstandigheden te rijden"
+            },
+            {
+              "type": "add_component",
+              "content": "Kies set",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_component",
+              "content": "Verwijderen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn tds-btn--outline tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_features",
+              "content": "Kenmerken",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "WINTER_WHEELS_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small "
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h5"
+                  }
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "feature_description",
+                        "classes": "tds-text--center"
+                      },
+                      {
+                        "field": "add_component",
+                        "component": "button"
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "SelectedPrice"
+                      },
+                      {
+                        "field": "remove_component",
+                        "component": "button"
+                      },
+                      {
+                        "field": "view_features",
+                        "props": {
+                          "modal": "WINTER_WHEELS_FEATURES"
+                        }
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS_FEATURES",
+          "groups": [
+            "19_IN_WINTER_WHEEL_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Winterbanden details",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Modellen vergelijken"
+            }
+          ]
+        },
+        {
+          "code": "19_IN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "19\" Pirelli winterbandenset",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "19\" Pirelli winterbandenset"
+            },
+            {
+              "type": "eyebrow",
+              "content": "Inbegrepen"
+            },
+            {
+              "type": "description",
+              "content": "Pirelli Sottozero 3 winterbanden combineren een lage rolweerstand met veel grip op besneeuwde wegen. Deze set bestaat uit vier 19\" sportvelgen met gemonteerde banden."
+            },
+            {
+              "type": "add_options",
+              "content": "Toevoegen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Verwijderen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELY/UI/option-wheels-19-pirelli.jpeg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": []
         }
       ],
       "options": {
@@ -9327,6 +9623,10 @@
                   "$SLR1",
                   "$WY21P"
                 ]
+              },
+              {
+                "action": "unset",
+                "target": "$WWY00"
               }
             ],
             "unset_rules": [
@@ -9368,6 +9668,10 @@
                 "$SLR1",
                 "$WY21P"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$WWY00"
             }
           ],
           "unset_rules": [
@@ -10072,8 +10376,57 @@
             }
           ],
           "name": "19\" Pirelli winterbandenset",
-          "description": "19\" Pirelli winterbandenset",
-          "long_name": "19\" Pirelli winterbandenset",
+          "description": "Pirelli Sottozero 3 winterbanden combineren een lage rolweerstand met veel grip op besneeuwde wegen. Deze set bestaat uit vier 19\" sportvelgen met gemonteerde banden.",
+          "long_name": "19\" Pirelli winterbanden met sportvelgen",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Pirelli Sottozero 3 winterbanden combineren een lage rolweerstand met veel grip op besneeuwde wegen. Deze set bestaat uit vier 19\" sportvelgen met gemonteerde banden."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Sottozero-Selector@3x.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WWY00"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "price": 3000,
           "pricing": [
             {
@@ -11080,7 +11433,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 1501,
+      "options_id": 1590,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -11380,11 +11733,11 @@
           }
         }
       ],
-      "copy_id": 2462,
+      "copy_id": 2588,
       "language": "nl",
       "warnings": [],
       "pricing_id": 1410,
-      "reference_id": 1501
+      "reference_id": 1590
     }
   },
   "edd": [

@@ -710,6 +710,10 @@
             "context": "configurator"
           },
           {
+            "code": "WINTER_WHEELS_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "PERFORMANCE_UPGRADE_FEATURES",
             "context": "configurator"
           },
@@ -1278,6 +1282,8 @@
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
         "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1658,12 +1664,12 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2021-07-23T00:45:00.000Z",
+      "effective_date": "2021-08-06T00:05:00.000Z",
       "market": "NO",
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing NO 2021.Jul.23 1502.2470.1408 [no]",
+      "name": "Marketing NO 2021.Aug.06 1588.2597.1408 [no]",
       "groups": [
         {
           "code": "MODEL",
@@ -2251,7 +2257,9 @@
         },
         {
           "code": "WHEELS",
-          "groups": [],
+          "groups": [
+            "WINTER_WHEELS_OPTIONS"
+          ],
           "context": "configurator",
           "options": [
             "$WY19B",
@@ -2367,6 +2375,9 @@
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
                   }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             },
@@ -3511,6 +3522,7 @@
             "BATTERY_AND_DRIVE",
             "PAINT",
             "WHEELS",
+            "WINTER_WHEELS_OPTIONS",
             "TOWING",
             "PACKAGES",
             "AUTOPILOT",
@@ -6179,6 +6191,425 @@
               ]
             }
           ]
+        },
+        {
+          "code": "REVIEW_ORDER",
+          "groups": [
+            "PAINT",
+            "SPORT_PACKAGE_OPTIONS",
+            "WHEELS",
+            "INTERIOR",
+            "AUTOPILOT",
+            "AUTOPILOT_OWNERSHIP",
+            "AUTOPILOT_PACKAGE",
+            "PERF_FIRMWARE",
+            "WINTER_WHEELS_OPTIONS",
+            "TOWING"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": []
+        },
+        {
+          "code": "WINTER_WHEELS_FEATURES",
+          "groups": [
+            "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+            "19_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Vinterhjuldetaljer",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Sammenlign modeller"
+            }
+          ]
+        },
+        {
+          "code": "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY01"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "19'' Nokian-vinterdekksett (piggfri)",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "19'' Nokian-vinterdekksett (piggfri)"
+            },
+            {
+              "type": "eyebrow",
+              "content": "Inkludert"
+            },
+            {
+              "type": "description",
+              "content": "Nokian Hakkapeliitta R3-vinterdekk (piggfri), spesialdesignet for nordiske vinterforhold, har små, miljøvennlige krystaller i gummien for forbedret grep på snødekte veier. Dette settet inkluderer 19\" Sport-felger med påmonterte dekk."
+            },
+            {
+              "type": "add_options",
+              "content": "Legg til pakke",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY01"
+                      ]
+                    },
+                    "panelName": "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-19-winter-wheels"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY01"
+                      ]
+                    },
+                    "panelName": "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-19-winter-wheels"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELY/UI/option-wheels-19-nokian-std.jpeg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            }
+          ]
+        },
+        {
+          "code": "19_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY02"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "19'' Nokian-vinterdekksett (pigg) ",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "19'' Nokian-vinterdekksett (pigg)"
+            },
+            {
+              "type": "eyebrow",
+              "content": "Inkludert"
+            },
+            {
+              "type": "description",
+              "content": "Nokian Hakkapeliitta 9-dekk (pigg), spesialdesignet for nordiske vinterforhold, med innebygde støtdempere som minimerer motstanden til piggene på veioverflaten. Dette reduserer både kabinstøyen og slitasjen. Dette settet inkluderer 19\" Sport-felger med påmonterte dekk."
+            },
+            {
+              "type": "add_options",
+              "content": "Legg til pakke",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY02"
+                      ]
+                    },
+                    "panelName": "19_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-19-studded-winter-wheels"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY02"
+                      ]
+                    },
+                    "panelName": "19_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-19-studded-winter-wheels"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELY/UI/option-wheels-19-nokian-studded.jpeg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS_OPTIONS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY01",
+            "$WWY02"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Vinterhjul",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Vinterhjul"
+            },
+            {
+              "type": "feature_description",
+              "content": "Legg til et sett med vinterdekk og felg for optimal kjøring på snø og isete forhold"
+            },
+            {
+              "type": "add_component",
+              "content": "Velg sett",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY01"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_component",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY01"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$WWY01"
+                          ]
+                        }
+                      },
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY02"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$WWY02"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn tds-btn--outline tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_features",
+              "content": "Vis detaljer",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "WINTER_WHEELS_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small "
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "action",
+              "content": [
+                {
+                  "type": "hero-update",
+                  "view": "STUD_SEAT"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "type": "image-compositor",
+                  "view": "STUD_WHEEL"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h5"
+                  }
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "feature_description",
+                        "classes": "tds-text--center"
+                      },
+                      {
+                        "field": "add_component",
+                        "component": "button"
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "SelectedPrice"
+                      },
+                      {
+                        "field": "remove_component",
+                        "component": "button"
+                      },
+                      {
+                        "field": "view_features",
+                        "props": {
+                          "modal": "WINTER_WHEELS_FEATURES"
+                        }
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY01",
+            "$WWY02"
+          ],
+          "required": false,
+          "exclusive": true,
+          "default_options": [],
+          "name": "Vinterhjul",
+          "extra_copy": [],
+          "extra_content": []
         }
       ],
       "options": {
@@ -9091,6 +9522,13 @@
                   "$SLR1",
                   "$WY21P"
                 ]
+              },
+              {
+                "action": "unset",
+                "targets": [
+                  "$WWY01",
+                  "$WWY02"
+                ]
               }
             ],
             "unset_rules": [
@@ -9131,6 +9569,13 @@
                 "$PL31",
                 "$SLR1",
                 "$WY21P"
+              ]
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$WWY01",
+                "$WWY02"
               ]
             }
           ],
@@ -9805,6 +10250,10 @@
                 "target": "$WWY01",
                 "condition_code": "$MTY05",
                 "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$WWY02"
               }
             ],
             "unset_rules": []
@@ -9819,6 +10268,10 @@
               "target": "$WWY01",
               "condition_code": "$MTY05",
               "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$WWY02"
             }
           ],
           "unset_rules": [
@@ -9827,9 +10280,58 @@
               "target": "$WWY01"
             }
           ],
-          "name": "19\" Nokian Winter Tire Set",
-          "description": "19\" Nokian Winter Tire Set",
-          "long_name": "19\" Nokian Winter Tire Set",
+          "name": "19\" Nokian-vinterdekksett (piggfri)",
+          "description": "Nokian Hakkapeliitta R3-vinterdekk (piggfri), spesialdesignet for nordiske vinterforhold, har små, miljøvennlige krystaller i gummien for forbedret grep på snødekte veier. Dette settet inkluderer 19\" Sport-felger med påmonterte dekk.",
+          "long_name": "19\" Nokian-vinterdekksett (piggfri) med Sport-felger",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Nokian Hakkapeliitta R3-vinterdekk (piggfri), spesialdesignet for nordiske vinterforhold, har små, miljøvennlige krystaller i gummien for forbedret grep på snødekte veier. Dette settet inkluderer 19\" Sport-felger med påmonterte dekk."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WWY01"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Nokian-Selector@3x.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "price": 24900,
           "pricing": [
             {
@@ -9848,6 +10350,10 @@
                 "target": "$WWY02",
                 "condition_code": "$MTY05",
                 "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$WWY01"
               }
             ],
             "unset_rules": []
@@ -9862,6 +10368,10 @@
               "target": "$WWY02",
               "condition_code": "$MTY05",
               "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$WWY01"
             }
           ],
           "unset_rules": [
@@ -9870,9 +10380,58 @@
               "target": "$WWY02"
             }
           ],
-          "name": "19\" Nokian Studded Winter Tire Set",
-          "description": "19\" Nokian Studded Winter Tire Set",
-          "long_name": "19\" Nokian Studded Winter Tire Set",
+          "name": "19'' Nokian-vinterdekksett (pigg)",
+          "description": "Nokian Hakkapeliitta 9-dekk (pigg), spesialdesignet for nordiske vinterforhold, med innebygde støtdempere som minimerer motstanden til piggene på veioverflaten. Dette reduserer både kabinstøyen og slitasjen. Dette settet inkluderer 19\" Sport-felger med påmonterte dekk.",
+          "long_name": "19\" Nokian-vinterdekksett (pigg) med Sport-felger",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Nokian Hakkapeliitta 9-dekk (pigg), spesialdesignet for nordiske vinterforhold, med innebygde støtdempere som minimerer motstanden til piggene på veioverflaten. Dette reduserer både kabinstøyen og slitasjen. Dette settet inkluderer 19\" Sport-felger med påmonterte dekk."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WWY02"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/ui-option-selector-studded-wheels.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "price": 24900,
           "pricing": [
             {
@@ -10889,7 +11448,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 1502,
+      "options_id": 1588,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -11189,11 +11748,11 @@
           }
         }
       ],
-      "copy_id": 2470,
+      "copy_id": 2597,
       "language": "no",
       "warnings": [],
       "pricing_id": 1408,
-      "reference_id": 1502
+      "reference_id": 1588
     }
   },
   "edd": [

@@ -710,6 +710,10 @@
             "context": "configurator"
           },
           {
+            "code": "WINTER_WHEELS_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "PERFORMANCE_UPGRADE_FEATURES",
             "context": "configurator"
           },
@@ -1268,6 +1272,8 @@
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
         "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1661,12 +1667,12 @@
       "loan": []
     },
     "Lexicon.my": {
-      "effective_date": "2021-07-23T00:45:00.000Z",
+      "effective_date": "2021-08-06T00:05:00.000Z",
       "market": "PL",
       "product": "my",
       "factory": "GF03",
       "fees": {},
-      "name": "Marketing PL 2021.Jul.23 1515.2461.1400 [pl]",
+      "name": "Marketing PL 2021.Aug.06 1577.2604.1400 [pl]",
       "groups": [
         {
           "code": "MODEL",
@@ -2252,7 +2258,9 @@
         },
         {
           "code": "WHEELS",
-          "groups": [],
+          "groups": [
+            "WINTER_WHEELS_OPTIONS"
+          ],
           "context": "configurator",
           "options": [
             "$WY19B",
@@ -2368,6 +2376,9 @@
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
                   }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             },
@@ -6106,6 +6117,294 @@
               "content": "Oprocentowanie 2% przy dostawie do września."
             }
           ]
+        },
+        {
+          "code": "WINTER_WHEELS_OPTIONS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Koła zimowe",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Koła zimowe"
+            },
+            {
+              "type": "feature_description",
+              "content": "Dodaj zestaw opon i kół zimowych, aby zapewnić optymalną jazdę w zaśnieżonych i oblodzonych warunkach"
+            },
+            {
+              "type": "add_component",
+              "content": "Wybierz zestaw",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_component",
+              "content": "Usuń",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn tds-btn--outline tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_features",
+              "content": "funkcje",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "WINTER_WHEELS_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small "
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h5"
+                  }
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "feature_description",
+                        "classes": "tds-text--center"
+                      },
+                      {
+                        "field": "add_component",
+                        "component": "button"
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "SelectedPrice"
+                      },
+                      {
+                        "field": "remove_component",
+                        "component": "button"
+                      },
+                      {
+                        "field": "view_features",
+                        "props": {
+                          "modal": "WINTER_WHEELS_FEATURES"
+                        }
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS_FEATURES",
+          "groups": [
+            "19_IN_WINTER_WHEEL_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Funkcje kół zimowych",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Porównanie modeli"
+            }
+          ]
+        },
+        {
+          "code": "19_IN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Zestaw Opon Zimowych Pirelli 19″",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Zestaw Opon Zimowych Pirelli 19″"
+            },
+            {
+              "type": "eyebrow",
+              "content": "W zestawie"
+            },
+            {
+              "type": "description",
+              "content": "Opony zimowe Pirelli Sottozero 3 wyróżniają się zarówno niskimi oporami toczenia, jak i wysoką przyczepnością na zaśnieżonych drogach. Zestaw zawiera cztery koła Sport 19″ z zamontowanymi oponami."
+            },
+            {
+              "type": "add_options",
+              "content": "Dodaj",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Usuń",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELY/UI/option-wheels-19-pirelli.jpeg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Koła zimowe",
+          "extra_copy": [],
+          "extra_content": []
         }
       ],
       "options": {
@@ -9169,6 +9468,10 @@
                   "$SLR1",
                   "$WY21P"
                 ]
+              },
+              {
+                "action": "unset",
+                "target": "$WWY00"
               }
             ],
             "unset_rules": [
@@ -9210,6 +9513,10 @@
                 "$SLR1",
                 "$WY21P"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$WWY00"
             }
           ],
           "unset_rules": [
@@ -9906,8 +10213,57 @@
             }
           ],
           "name": "Zestaw Opon Zimowych Pirelli 19″",
-          "description": "Zestaw Opon Zimowych Pirelli 19″",
-          "long_name": "Zestaw Opon Zimowych Pirelli 19″",
+          "description": "Opony zimowe Pirelli Sottozero 3 wyróżniają się zarówno niskimi oporami toczenia, jak i wysoką przyczepnością na zaśnieżonych drogach. Zestaw zawiera cztery koła Sport 19″ z zamontowanymi oponami.",
+          "long_name": "Opony Zimowe Pirelli 19″ z Kołami Sport",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Opony zimowe Pirelli Sottozero 3 wyróżniają się zarówno niskimi oporami toczenia, jak i wysoką przyczepnością na zaśnieżonych drogach. Zestaw zawiera cztery koła Sport 19″ z zamontowanymi oponami."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WWY00"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Sottozero-Selector@3x.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "price": 15000,
           "pricing": [
             {
@@ -10925,7 +11281,7 @@
         "$CPF1",
         "$SC04"
       ],
-      "options_id": 1515,
+      "options_id": 1577,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -11225,7 +11581,7 @@
           }
         }
       ],
-      "copy_id": 2461,
+      "copy_id": 2604,
       "language": "pl",
       "warnings": [
         {
@@ -11238,7 +11594,7 @@
         }
       ],
       "pricing_id": 1400,
-      "reference_id": 1515
+      "reference_id": 1577
     }
   },
   "edd": [

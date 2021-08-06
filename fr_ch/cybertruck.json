@@ -449,19 +449,19 @@
             "type": "personal",
             "financeOptions": [
               "cash",
-              "lease",
+              "lease_private",
               "loan"
             ],
-            "defaultOption": "lease"
+            "defaultOption": "lease_private"
           },
           {
             "type": "business",
             "financeOptions": [
               "cash",
-              "lease",
+              "business_lease",
               "operational_lease"
             ],
-            "defaultOption": "lease"
+            "defaultOption": "business_lease"
           }
         ],
         "driverType": "personal",
@@ -891,6 +891,8 @@
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
         "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -940,12 +942,12 @@
       }
     },
     "Lexicon.mp": {
-      "effective_date": "2020-08-26T17:45:00.000Z",
+      "effective_date": "2021-08-05T23:45:00.000Z",
       "market": "CH",
       "product": "mp",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CH 2020.Aug.26 133.138.132 [fr]",
+      "name": "Marketing CH 2021.Aug.05 133.2548.132 [fr]",
       "groups": [
         {
           "code": "MODEL",
@@ -990,7 +992,7 @@
           "default_options": [
             "$DV2W"
           ],
-          "name": "Drive Mode",
+          "name": "Mode conduite",
           "extra_copy": []
         },
         {
@@ -1005,7 +1007,7 @@
           "default_options": [
             "$IDD"
           ],
-          "name": "Interior",
+          "name": "Intérieur",
           "extra_copy": []
         },
         {
@@ -1020,7 +1022,7 @@
           "default_options": [
             "$PDD"
           ],
-          "name": "Color"
+          "name": "Couleur"
         },
         {
           "code": "WHEELS",
@@ -1034,7 +1036,7 @@
           "default_options": [
             "$WDD"
           ],
-          "name": "Wheels"
+          "name": "Jantes"
         },
         {
           "code": "SUPER_CHARGER",
@@ -1077,7 +1079,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Payment"
+          "name": "Règlement"
         },
         {
           "code": "OPTIONS",
@@ -1125,6 +1127,10 @@
             {
               "type": "name",
               "content": " "
+            },
+            {
+              "type": "order_disclaimer",
+              "content": "Entièrement remboursable. Vous pourrez finaliser votre configuration à l'approche de la mise en production en 2022. Toutes les configurations sont conformes aux spécifications américaines uniquement."
             }
           ]
         },
@@ -1139,12 +1145,12 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Battery & Drivetrain",
-          "description": "Battery and Drivetrain",
+          "name": "Batterie et groupe motopropulseur",
+          "description": "Batterie et groupe motopropulseur",
           "extra_copy": [
             {
               "type": "zero_to_road_limit_units",
-              "content": "0-60 mph"
+              "content": "0-100 km/h"
             },
             {
               "type": "range_units",
@@ -1164,7 +1170,7 @@
             },
             {
               "type": "top_speed_units_short",
-              "content": "mph"
+              "content": "mi/h"
             },
             {
               "type": "range_units_epa",
@@ -1172,11 +1178,11 @@
             },
             {
               "type": "top_speed_units",
-              "content": "Top Speed"
+              "content": "Vitesse maximale"
             },
             {
               "type": "name",
-              "content": "Pré-commander Cybertruck"
+              "content": "Commander Cybertruck"
             },
             {
               "type": "towing_capacity_short",
@@ -1184,7 +1190,7 @@
             },
             {
               "type": "towing_capacity_units",
-              "content": "Capacité de remorquage"
+              "content": "Capacité de traction"
             }
           ],
           "extra_content": [
@@ -1238,8 +1244,8 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Delivery timings",
-          "description": "Delivery timings",
+          "name": "Délais de livraison",
+          "description": "Délais de livraison",
           "extra_copy": []
         },
         {
@@ -1253,7 +1259,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Payment"
+          "name": "Règlement"
         },
         {
           "code": "AUTOPILOT",
@@ -1289,9 +1295,9 @@
               "target": "$IDD"
             }
           ],
-          "name": "Default Interior Configuration",
-          "description": "Default Interior Configuration",
-          "long_name": "Default Interior Configuration",
+          "name": "Configuration de l'intérieur par défaut",
+          "description": "Configuration de l'intérieur par défaut",
+          "long_name": "Configuration de l'intérieur par défaut",
           "extra_copy": [],
           "extra_content": [
             {
@@ -1331,13 +1337,13 @@
               "target": "$PDD"
             }
           ],
-          "name": "Default Paint Configuration",
-          "description": "Default Paint Configuration",
-          "long_name": "Default Paint Configuration",
+          "name": "Configuration de peinture par défaut",
+          "description": "Configuration de peinture par défaut",
+          "long_name": "Configuration de peinture par défaut",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "De série"
             }
           ]
         },
@@ -1359,14 +1365,14 @@
               "target": "$WDD"
             }
           ],
-          "name": "Default Wheel Configuration",
-          "description": "Default Wheel Configuration",
-          "long_name": "Default Wheel Configuration",
-          "long_description": "Default Wheel Configuration",
+          "name": "Configuration des roues par défaut",
+          "description": "Configuration des roues par défaut",
+          "long_name": "Configuration des roues par défaut",
+          "long_description": "Configuration des roues par défaut",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "De série"
             }
           ],
           "extra_content": [
@@ -1406,13 +1412,13 @@
               "target": "$APBS"
             }
           ],
-          "name": "Base Autopilot",
-          "description": "Base Autopilot",
-          "long_name": "Base Autopilot",
+          "name": "Autopilot Standard",
+          "description": "Autopilot Standard",
+          "long_name": "Autopilot Standard",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "included"
+              "content": "Incluse"
             }
           ],
           "extra_content": [
@@ -1499,11 +1505,11 @@
             },
             {
               "type": "recommended_content",
-              "content": "Les fonctionnalités actuelles exigent une surveillance active de la part du conducteur et ne rendent pas le véhicule autonome. Certaines fonctionnalités requièrent l'activation des clignotants et ont une portée limitée. L'activation et l'utilisation future de ces fonctionnalités sans surveillance dépendent d'une fiabilité prouvée par des milliards de kilomètres de test pour être significativement supérieure à celle des conducteurs humains, ainsi que de l'approbation réglementaire, dont l'obtention peut être plus longue dans certains pays. Au fur et à mesure de l'évolution de ces fonctionnalités de conduite autonome, votre véhicule sera en permanence mis à niveau par le biais de mises à jour logicielles à distance."
+              "content": "Les fonctionnalités actuelles exigent une surveillance active de la part du conducteur et ne rendent pas le véhicule autonome. L'activation et l'utilisation future de ces fonctionnalités sans surveillance dépendent d'une fiabilité prouvée par des milliards de kilomètres de test pour être significativement supérieure à celle des conducteurs humains, ainsi que de l'approbation réglementaire, dont l'obtention peut être plus longue dans certains pays. Au fur et à mesure de l'évolution de ces fonctionnalités de conduite autonome, votre véhicule sera en permanence mis à niveau par le biais de mises à jour logicielles à distance."
             },
             {
               "type": "deselectLabel",
-              "content": "Conduite entièrement autonome sélectionnée"
+              "content": "Ajout de la Capacité de Conduite entièrement autonome"
             }
           ],
           "extra_content": [
@@ -1573,9 +1579,9 @@
               "target": "$DV4W"
             }
           ],
-          "name": "Rear-Wheel Drive",
-          "description": "Rear-Wheel Drive",
-          "long_name": "Rear-Wheel Drive",
+          "name": "Propulsion",
+          "description": "Propulsion",
+          "long_name": "Propulsion",
           "extra_copy": [],
           "extra_content": [
             {
@@ -1636,9 +1642,9 @@
               "target": "$DV2W"
             }
           ],
-          "name": "Dual Motor All-Wheel Drive",
-          "description": "Dual Motor All-Wheel Drive",
-          "long_name": "Dual Motor All-Wheel Drive",
+          "name": "Transmission intégrale Dual Motor",
+          "description": "Transmission intégrale Dual Motor",
+          "long_name": "Transmission intégrale Dual Motor",
           "extra_copy": [],
           "extra_content": [
             {
@@ -1705,13 +1711,13 @@
               "target": "$SC04"
             }
           ],
-          "name": "Supercharger Network Access + Pay-as-you-go",
-          "description": "Supercharger Network Access + Pay-as-you-go",
-          "long_name": "Supercharger Network Access + Pay-as-you-go",
+          "name": "Accès au réseau Superchargeur - Paiement à la demande",
+          "description": "Accès au réseau Superchargeur - Paiement à la demande",
+          "long_name": "Accès au réseau Superchargeur - Paiement à la demande",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "optional"
+              "content": "en option"
             }
           ]
         },
@@ -1758,9 +1764,9 @@
             }
           ],
           "name": "Single Motor RWD",
-          "description": "Cybertruck Single Motor RWD",
+          "description": "Cybertruck Propulsion",
           "long_name": "Single Motor RWD",
-          "long_description": "Cybertruck Single Motor RWD",
+          "long_description": "Cybertruck Propulsion",
           "extra_copy": [
             {
               "type": "name",
@@ -1768,11 +1774,11 @@
             },
             {
               "type": "long_name",
-              "content": "Cybertruck - Single Motor RWD"
+              "content": "Cybertruck Propulsion"
             },
             {
               "type": "order_disclaimer",
-              "content": "Entièrement remboursable. Vous pourrez finaliser votre configuration à l'approche de la production fin 2021. La production du modèle Single Motor RWD devrait débuter fin 2022. <br/>Toutes les configurations sont conformes aux spécifications américaines uniquement."
+              "content": "Entièrement remboursable. Vous pourrez finaliser votre configuration à l'approche de la mise en production fin 2021. La production de la version Single Motor RWD devrait débuter fin 2022."
             }
           ],
           "extra_content": [
@@ -1834,9 +1840,9 @@
             }
           ],
           "name": "Dual Motor AWD",
-          "description": "Cybertruck Dual Motor AWD",
+          "description": "Cybertruck Transmission intégrale Dual Motor",
           "long_name": "Dual Motor AWD",
-          "long_description": "Cybertruck Dual Motor AWD",
+          "long_description": "Cybertruck Transmission intégrale Dual Motor",
           "extra_copy": [
             {
               "type": "name",
@@ -1844,11 +1850,11 @@
             },
             {
               "type": "long_name",
-              "content": "Cybertruck Dual Motor AWD"
+              "content": "Cybertruck Transmission intégrale Dual Motor"
             },
             {
               "type": "order_disclaimer",
-              "content": "Entièrement remboursable. Vous pourrez finaliser votre configuration à l'approche de la production fin 2021. La production du modèle Dual Motor AWD devrait débuter fin 2021. <br/>Toutes les configurations sont conformes aux spécifications américaines uniquement."
+              "content": "Entièrement remboursable. Vous pourrez finaliser votre configuration à l'approche de la production fin 2021. La production du modèle Dual Motor AWD devrait débuter fin 2021."
             }
           ],
           "extra_content": [
@@ -1910,9 +1916,9 @@
             }
           ],
           "name": "Tri Motor AWD",
-          "description": "Cybertruck Tri Motor AWD",
+          "description": "Cybertruck Transmission intégrale Tri Motor",
           "long_name": "Tri Motor AWD",
-          "long_description": "Cybertruck Tri Motor AWD",
+          "long_description": "Cybertruck Transmission intégrale Tri Motor",
           "extra_copy": [
             {
               "type": "name",
@@ -1920,7 +1926,7 @@
             },
             {
               "type": "order_disclaimer",
-              "content": "Entièrement remboursable. Vous pourrez finaliser votre configuration à l'approche de la production fin 2021. La production du modèle Tri Motor AWD est prévue pour fin 2021. <br/>Toutes les configurations sont conformes aux spécifications américaines uniquement."
+              "content": "Entièrement remboursable. Vous pourrez finaliser votre configuration à l'approche de la production fin 2021. La production du modèle Tri Motor AWD est prévue pour fin 2021."
             }
           ],
           "extra_content": [
@@ -1989,7 +1995,7 @@
         "$SC04"
       ],
       "options_id": 133,
-      "copy_id": 138,
+      "copy_id": 2548,
       "language": "fr",
       "warnings": [],
       "pricing_id": 132,

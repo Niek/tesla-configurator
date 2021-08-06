@@ -710,6 +710,10 @@
             "context": "configurator"
           },
           {
+            "code": "WINTER_WHEELS_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "PERFORMANCE_UPGRADE_FEATURES",
             "context": "configurator"
           },
@@ -1280,6 +1284,8 @@
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
         "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1968,12 +1974,12 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2021-07-23T00:45:00.000Z",
+      "effective_date": "2021-08-06T00:05:00.000Z",
       "market": "FI",
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing FI 2021.Jul.23 1521.2455.1417 [fi]",
+      "name": "Marketing FI 2021.Aug.06 1591.2592.1417 [fi]",
       "groups": [
         {
           "code": "MODEL",
@@ -2561,7 +2567,9 @@
         },
         {
           "code": "WHEELS",
-          "groups": [],
+          "groups": [
+            "WINTER_WHEELS_OPTIONS"
+          ],
           "context": "configurator",
           "options": [
             "$WY19B",
@@ -2677,6 +2685,9 @@
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
                   }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             },
@@ -3824,6 +3835,7 @@
             "BATTERY_AND_DRIVE",
             "PAINT",
             "WHEELS",
+            "WINTER_WHEELS_OPTIONS",
             "TOWING",
             "PACKAGES",
             "AUTOPILOT",
@@ -5535,7 +5547,7 @@
             },
             {
               "type": "feature_list.default[0]",
-              "content": "Tesla suunnitteli Model Y -auton alusta asti sähköajoneuvoksi hyödyntämällä kokonaisvaltaista järjestelmätason integraatiota. Jokainen komponentti, mukaan lukien akut, moottorit ja jopa ulkoinen aerodynamiikka, on suunniteltu hyödyntämään toisiaan, minkä ansiosta saatiin luotua yksi taloudellisimmista ja samalla tehokkaimmasta autoista maailmassa."
+              "content": "Tesla suunnitteli Model Y -auton alusta asti sähköautoksi hyödyntämällä kokonaisvaltaista järjestelmätason integraatiota. Jokainen komponentti, mukaan lukien akut, moottorit ja jopa ulkoinen aerodynamiikka, on suunniteltu hyödyntämään toisiaan, minkä ansiosta saatiin luotua yksi taloudellisimmista ja samalla tehokkaimmasta autoista maailmassa."
             },
             {
               "type": "feature_list.default[1]",
@@ -6492,6 +6504,449 @@
               ]
             }
           ]
+        },
+        {
+          "code": "REVIEW_ORDER",
+          "groups": [
+            "PAINT",
+            "SPORT_PACKAGE_OPTIONS",
+            "WHEELS",
+            "INTERIOR",
+            "AUTOPILOT",
+            "AUTOPILOT_OWNERSHIP",
+            "AUTOPILOT_PACKAGE",
+            "PERF_FIRMWARE",
+            "WINTER_WHEELS_OPTIONS",
+            "TOWING"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": []
+        },
+        {
+          "code": "WINTER_WHEELS_FEATURES",
+          "groups": [
+            "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+            "19_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Talvirenkaiden ja -vanteiden ominaisuudet",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Vertaile malleja"
+            }
+          ]
+        },
+        {
+          "code": "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY01"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "19'' Nokian kitkarengassarja",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "19'' Nokian kitkarengassarja"
+            },
+            {
+              "type": "eyebrow",
+              "content": "Sisältyy"
+            },
+            {
+              "type": "description",
+              "content": "Nokian Hakkapeliitta R3 -kitkarenkaat on suunniteltu erityisesti pohjoisiin talviolosuhteisiin. Kumiin on upotettu pieniä, ympäristöystävällisiä kiteitä, jotka parantavat pitoa lumisilla teillä. Tähän sarjaan kuuluu 19\" Sport-vanteet, joihin on asennettu renkaat."
+            },
+            {
+              "type": "add_options",
+              "content": "Lisää paketti",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY01"
+                      ]
+                    },
+                    "panelName": "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-19-winter-wheels"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Poista",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY01"
+                      ]
+                    },
+                    "panelName": "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-19-winter-wheels"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELY/UI/option-wheels-19-nokian-std.jpeg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "19_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY02"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "19'' Nokian nastarengassarja ",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "19'' Nokian nastarengassarja"
+            },
+            {
+              "type": "eyebrow",
+              "content": "Sisältyy"
+            },
+            {
+              "type": "description",
+              "content": "Nokian Hakkapeliitta 9 -nastarenkaat on suunniteltu erityisesti pohjoisen talvisiin ajo-olosuhteisiin. Niissä on sisäänrakennetut iskunvaimentimet, jotka minimoivat nastojen ja tienpinnan välisen kitkan. Tämä vähentää sekä ohjaamoon kantautuvaa melua että renkaiden kulumista. Tähän sarjaan kuuluu 19\" Sport-vanteet, joihin on asennettu renkaat."
+            },
+            {
+              "type": "add_options",
+              "content": "Lisää paketti",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY02"
+                      ]
+                    },
+                    "panelName": "19_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-19-studded-winter-wheels"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Poista",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY02"
+                      ]
+                    },
+                    "panelName": "19_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-19-studded-winter-wheels"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELY/UI/option-wheels-19-nokian-studded.jpeg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS_OPTIONS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY01",
+            "$WWY02"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Talvivanteet",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Talvivanteet"
+            },
+            {
+              "type": "feature_description",
+              "content": "Hankkimalla talvirenkaiden ja -vanteiden sarjan voit taata optimaalisen ajokokemuksen talvisissa olosuhteissa"
+            },
+            {
+              "type": "add_component",
+              "content": "Valitse sarja",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY01"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_component",
+              "content": "Poista",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY01"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$WWY01"
+                          ]
+                        }
+                      },
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY02"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$WWY02"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn tds-btn--outline tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_features",
+              "content": "näytä ominaisuudet",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "WINTER_WHEELS_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small "
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "action",
+              "content": [
+                {
+                  "type": "hero-update",
+                  "view": "STUD_SEAT"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "type": "image-compositor",
+                  "view": "STUD_WHEEL"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h5"
+                  }
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "feature_description",
+                        "classes": "tds-text--center"
+                      },
+                      {
+                        "field": "add_component",
+                        "component": "button"
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "SelectedPrice"
+                      },
+                      {
+                        "field": "remove_component",
+                        "component": "button"
+                      },
+                      {
+                        "field": "view_features",
+                        "props": {
+                          "modal": "WINTER_WHEELS_FEATURES"
+                        }
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY01",
+            "$WWY02"
+          ],
+          "required": false,
+          "exclusive": true,
+          "default_options": [],
+          "name": "Talvivanteet",
+          "extra_copy": [],
+          "extra_content": []
         }
       ],
       "options": {
@@ -9385,6 +9840,13 @@
                   "$SLR1",
                   "$WY21P"
                 ]
+              },
+              {
+                "action": "unset",
+                "targets": [
+                  "$WWY01",
+                  "$WWY02"
+                ]
               }
             ],
             "unset_rules": [
@@ -9425,6 +9887,13 @@
                 "$PL31",
                 "$SLR1",
                 "$WY21P"
+              ]
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$WWY01",
+                "$WWY02"
               ]
             }
           ],
@@ -10099,6 +10568,10 @@
                 "target": "$WWY01",
                 "condition_code": "$MTY05",
                 "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$WWY02"
               }
             ],
             "unset_rules": []
@@ -10113,6 +10586,10 @@
               "target": "$WWY01",
               "condition_code": "$MTY05",
               "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$WWY02"
             }
           ],
           "unset_rules": [
@@ -10121,9 +10598,58 @@
               "target": "$WWY01"
             }
           ],
-          "name": "19\" Nokian Winter Tire Set",
-          "description": "19\" Nokian Winter Tire Set",
-          "long_name": "19\" Nokian Winter Tire Set",
+          "name": "19\" Nokian kitkarengassarja",
+          "description": "Nokian Hakkapeliitta R3 -kitkarenkaat on suunniteltu erityisesti pohjoisiin talviolosuhteisiin. Kumiin on upotettu pieniä, ympäristöystävällisiä kiteitä, jotka parantavat pitoa lumisilla teillä. Tähän sarjaan kuuluu 19\" Sport-vanteet, joihin on asennettu renkaat.",
+          "long_name": "19\" Nokian kitkarenkaat ja Sport-vanteet",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Nokian Hakkapeliitta R3 -kitkarenkaat on suunniteltu erityisesti pohjoisiin talviolosuhteisiin. Kumiin on upotettu pieniä, ympäristöystävällisiä kiteitä, jotka parantavat pitoa lumisilla teillä. Tähän sarjaan kuuluu 19\" Sport-vanteet, joihin on asennettu renkaat."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WWY01"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Nokian-Selector@3x.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "price": 3000,
           "pricing": [
             {
@@ -10142,6 +10668,10 @@
                 "target": "$WWY02",
                 "condition_code": "$MTY05",
                 "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$WWY01"
               }
             ],
             "unset_rules": []
@@ -10156,6 +10686,10 @@
               "target": "$WWY02",
               "condition_code": "$MTY05",
               "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$WWY01"
             }
           ],
           "unset_rules": [
@@ -10164,9 +10698,58 @@
               "target": "$WWY02"
             }
           ],
-          "name": "19\" Nokian Studded Winter Tire Set",
-          "description": "19\" Nokian Studded Winter Tire Set",
-          "long_name": "19\" Nokian Studded Winter Tire Set",
+          "name": "19'' Nokian nastarengassarja",
+          "description": "Nokian Hakkapeliitta 9 -nastarenkaat on suunniteltu erityisesti pohjoisen talvisiin ajo-olosuhteisiin. Niissä on sisäänrakennetut iskunvaimentimet, jotka keventävät nastojen iskua tienpintaan. Tämä vähentää sekä ohjaamoon kantautuvaa melua että renkaiden kulumista. Tähän sarjaan kuuluu 19\" Sport-vanteet, joihin on asennettu renkaat.",
+          "long_name": "19\" Nokian nastarenkaat ja Sport-vanteet",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Nokian Hakkapeliitta 9 -nastarenkaat on suunniteltu erityisesti pohjoisen talvisiin ajo-olosuhteisiin. Niissä on sisäänrakennetut iskunvaimentimet, jotka keventävät nastojen iskua tienpintaan. Tämä vähentää sekä ohjaamoon kantautuvaa melua että renkaiden kulumista. Tähän sarjaan kuuluu 19\" Sport-vanteet, joihin on asennettu renkaat."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WWY02"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/ui-option-selector-studded-wheels.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "price": 3000,
           "pricing": [
             {
@@ -11184,7 +11767,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 1521,
+      "options_id": 1591,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -11484,11 +12067,11 @@
           }
         }
       ],
-      "copy_id": 2455,
+      "copy_id": 2592,
       "language": "fi",
       "warnings": [],
       "pricing_id": 1417,
-      "reference_id": 1521
+      "reference_id": 1591
     }
   },
   "edd": [

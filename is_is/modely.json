@@ -710,6 +710,10 @@
             "context": "configurator"
           },
           {
+            "code": "WINTER_WHEELS_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "PERFORMANCE_UPGRADE_FEATURES",
             "context": "configurator"
           },
@@ -1269,6 +1273,8 @@
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
         "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false,
         "showAccountTypeSwitch": true,
         "extraPersonalFields": [
           "CHAMBER_OF_COMMERCE"
@@ -1658,12 +1664,12 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2021-07-23T00:45:00.000Z",
+      "effective_date": "2021-08-06T00:05:00.000Z",
       "market": "IS",
       "product": "my",
       "factory": "GF03",
       "fees": {},
-      "name": "Marketing IS 2021.Jul.23 1514.2463.1425 [is]",
+      "name": "Marketing IS 2021.Aug.06 1579.2598.1425 [is]",
       "groups": [
         {
           "code": "MODEL",
@@ -2251,7 +2257,9 @@
         },
         {
           "code": "WHEELS",
-          "groups": [],
+          "groups": [
+            "WINTER_WHEELS_OPTIONS"
+          ],
           "context": "configurator",
           "options": [
             "$WY19B",
@@ -2367,6 +2375,9 @@
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
                   }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             },
@@ -3510,6 +3521,7 @@
             "BATTERY_AND_DRIVE",
             "PAINT",
             "WHEELS",
+            "WINTER_WHEELS_OPTIONS",
             "TOWING",
             "PACKAGES",
             "AUTOPILOT",
@@ -6090,6 +6102,449 @@
               ]
             }
           ]
+        },
+        {
+          "code": "REVIEW_ORDER",
+          "groups": [
+            "PAINT",
+            "SPORT_PACKAGE_OPTIONS",
+            "WHEELS",
+            "INTERIOR",
+            "AUTOPILOT",
+            "AUTOPILOT_OWNERSHIP",
+            "AUTOPILOT_PACKAGE",
+            "PERF_FIRMWARE",
+            "WINTER_WHEELS_OPTIONS",
+            "TOWING"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": []
+        },
+        {
+          "code": "WINTER_WHEELS_FEATURES",
+          "groups": [
+            "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+            "19_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Eiginleikar vetrardekkja",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Bera saman tegundir"
+            }
+          ]
+        },
+        {
+          "code": "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY01"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "19\" Nokian-vetrardekkjasett (ónegld)",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "19\" Nokian-vetrardekkjasett (ónegld)"
+            },
+            {
+              "type": "eyebrow",
+              "content": "Innifalið"
+            },
+            {
+              "type": "description",
+              "content": "Nokian Hakkapeliitta R3-vetrardekk (ónegld), sérhönnuð fyrir norrænar vetraraðstæður, búin litlum, umhverfisvænum kristöllum i gúmmíinu sem gefur aukið grip á snjóþöktum vegum. Settið samanstendur af fjórum dekkjum á 19\" Sport felgum."
+            },
+            {
+              "type": "add_options",
+              "content": "Bæta pakka við",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY01"
+                      ]
+                    },
+                    "panelName": "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-19-winter-wheels"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Fjarlægja",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY01"
+                      ]
+                    },
+                    "panelName": "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-19-winter-wheels"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELY/UI/option-wheels-19-nokian-std.jpeg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "19_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY02"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "19\" Nokian-vetrardekkjasett (negld) ",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "19\" Nokian-vetrardekkjasett (negld)"
+            },
+            {
+              "type": "eyebrow",
+              "content": "Innifalið"
+            },
+            {
+              "type": "description",
+              "content": "Nokian Hakkapeliitta 9-dekk (negld), sérhönnuð fyrir norrænar vetraraðstæður, búin innbyggðum höggdeyfum sem lágmarka mótstöðuna í nöglunum á yfirborði vega. Auk þess að minnka veghljóð og slit á dekkjum. Settið samanstendur af fjórum dekkjum á 19\" Sport felgum."
+            },
+            {
+              "type": "add_options",
+              "content": "Bæta pakka við",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY02"
+                      ]
+                    },
+                    "panelName": "19_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-19-studded-winter-wheels"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Fjarlægja",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY02"
+                      ]
+                    },
+                    "panelName": "19_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-19-studded-winter-wheels"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELY/UI/option-wheels-19-nokian-studded.jpeg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS_OPTIONS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY01",
+            "$WWY02"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Vetrardekk",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Vetrardekk"
+            },
+            {
+              "type": "feature_description",
+              "content": "Bættu vetrardekkjum og felgum við til að akstur verði sem bestur í snjó og hálku"
+            },
+            {
+              "type": "add_component",
+              "content": "Velja sett",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY01"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_component",
+              "content": "Fjarlægja",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY01"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$WWY01"
+                          ]
+                        }
+                      },
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY02"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$WWY02"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn tds-btn--outline tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_features",
+              "content": "skoða eiginleika",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "WINTER_WHEELS_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small "
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "action",
+              "content": [
+                {
+                  "type": "hero-update",
+                  "view": "STUD_SEAT"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "type": "image-compositor",
+                  "view": "STUD_WHEEL"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h5"
+                  }
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "feature_description",
+                        "classes": "tds-text--center"
+                      },
+                      {
+                        "field": "add_component",
+                        "component": "button"
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "SelectedPrice"
+                      },
+                      {
+                        "field": "remove_component",
+                        "component": "button"
+                      },
+                      {
+                        "field": "view_features",
+                        "props": {
+                          "modal": "WINTER_WHEELS_FEATURES"
+                        }
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY01",
+            "$WWY02"
+          ],
+          "required": false,
+          "exclusive": true,
+          "default_options": [],
+          "name": "Vetrardekk",
+          "extra_copy": [],
+          "extra_content": []
         }
       ],
       "options": {
@@ -9153,6 +9608,13 @@
                   "$SLR1",
                   "$WY21P"
                 ]
+              },
+              {
+                "action": "unset",
+                "targets": [
+                  "$WWY01",
+                  "$WWY02"
+                ]
               }
             ],
             "unset_rules": [
@@ -9193,6 +9655,13 @@
                 "$PL31",
                 "$SLR1",
                 "$WY21P"
+              ]
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$WWY01",
+                "$WWY02"
               ]
             }
           ],
@@ -9902,6 +10371,10 @@
                 "target": "$WWY01",
                 "condition_code": "$MTY05",
                 "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$WWY02"
               }
             ],
             "unset_rules": []
@@ -9916,6 +10389,10 @@
               "target": "$WWY01",
               "condition_code": "$MTY05",
               "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$WWY02"
             }
           ],
           "unset_rules": [
@@ -9924,9 +10401,58 @@
               "target": "$WWY01"
             }
           ],
-          "name": "19\" Nokian Winter Tire Set",
-          "description": "19\" Nokian Winter Tire Set",
-          "long_name": "19\" Nokian Winter Tire Set",
+          "name": "19 '' Nokian winter tire set (studless)",
+          "description": "Nokian Hakkapeliitta R3 studless winter tires, specially designed for Nordic winter conditions, have small, environmentally friendly crystals in the rubber that improve grip on snow-covered roads. This set includes four 19\" Sport wheels with tires mounted.",
+          "long_name": "19 '' Nokian winter tire set (studless) with Sport Wheels",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Nokian Hakkapeliitta R3 studless winter tires, specially designed for Nordic winter conditions, have small, environmentally friendly crystals in the rubber that improve grip on snow-covered roads. This set includes four 19\" Sport wheels with tires mounted."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WWY01"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Nokian-Selector@3x.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "price": 324900,
           "pricing": [
             {
@@ -9945,6 +10471,10 @@
                 "target": "$WWY02",
                 "condition_code": "$MTY05",
                 "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$WWY01"
               }
             ],
             "unset_rules": []
@@ -9959,6 +10489,10 @@
               "target": "$WWY02",
               "condition_code": "$MTY05",
               "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$WWY01"
             }
           ],
           "unset_rules": [
@@ -9967,9 +10501,58 @@
               "target": "$WWY02"
             }
           ],
-          "name": "19\" Nokian Studded Winter Tire Set",
-          "description": "19\" Nokian Studded Winter Tire Set",
-          "long_name": "19\" Nokian Studded Winter Tire Set",
+          "name": "19'' Nokian Winter Tire Set (studded)",
+          "description": "Nokian Hakkapeliitta 9 studded tires, specially designed for Nordic winter conditions, feature built-in shock absorbers that minimize the resistance of the spikes on the road surface. This reduces both cabin noise and wear. This set includes four 19\" Sport wheels with tires mounted.",
+          "long_name": "19'' Nokian Winter Tire Set (studded) with Sport Wheels",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Nokian Hakkapeliitta 9 studded tires, specially designed for Nordic winter conditions, feature built-in shock absorbers that minimize the resistance of the spikes on the road surface. This reduces both cabin noise and wear. This set includes four 19\" Sport wheels with tires mounted."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WWY02"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/ui-option-selector-studded-wheels.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "price": 324900,
           "pricing": [
             {
@@ -10987,7 +11570,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 1514,
+      "options_id": 1579,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -11287,7 +11870,7 @@
           }
         }
       ],
-      "copy_id": 2463,
+      "copy_id": 2598,
       "language": "is",
       "warnings": [
         {
@@ -11300,7 +11883,7 @@
         }
       ],
       "pricing_id": 1425,
-      "reference_id": 1514
+      "reference_id": 1579
     }
   },
   "edd": [

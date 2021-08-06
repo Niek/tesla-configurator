@@ -935,12 +935,6 @@
           [
             "apr",
             "financedAmount"
-          ],
-          [
-            "teslaInsurance"
-          ],
-          [
-            "includeTeslaInsurace"
           ]
         ],
         "showLeaseFields": [],
@@ -1321,7 +1315,9 @@
         "showFinanceModalOnProductChange": false,
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
-        "featureHighlightGroups": []
+        "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -1743,6 +1739,7 @@
     "Loan.m3.m3": {
       "loan": [
         {
+          "id": "hire_purchase",
           "market": "HK",
           "variant": [
             "m3",
@@ -1754,7 +1751,7 @@
           "variables": {
             "minimumDownPayment": 50000,
             "maximumDownPayment": 0.3,
-            "interestRate": 4.08,
+            "interestRate": 4.05,
             "loanTerm": 36,
             "loanDistance": 10000,
             "downPayment": 50000
@@ -1765,86 +1762,41 @@
               48,
               60
             ]
-          },
-          "residualRateMatrix": [
-            {
-              "loanTerm": 36,
-              "value": 0.5
-            },
-            {
-              "loanTerm": 48,
-              "value": 0.5
-            },
-            {
-              "loanTerm": 60,
-              "value": 0.5
-            }
+          }
+        },
+        {
+          "id": "unsecured_loan",
+          "market": "HK",
+          "variant": [
+            "m3",
+            "my"
           ],
-          "teslaInsuranceMatrix": [
-            {
-              "options": [
-                "$MT301"
-              ],
-              "value": 10265
-            },
-            {
-              "options": [
-                "$MT303"
-              ],
-              "value": 11990
-            },
-            {
-              "options": [
-                "$MT304"
-              ],
-              "value": 13370
-            },
-            {
-              "options": [
-                "$MT308"
-              ],
-              "value": 10265
-            },
-            {
-              "options": [
-                "$MT314"
-              ],
-              "value": 10265
-            },
-            {
-              "options": [
-                "$MT336",
-                "$MT337"
-              ],
-              "value": 10265
-            },
-            {
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321"
-              ],
-              "value": 11990
-            },
-            {
-              "options": [
-                "$MT311",
-                "$MT317"
-              ],
-              "value": 13370
-            }
-          ]
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "interestRate": 3.88,
+            "loanTerm": 36,
+            "loanDistance": 10000,
+            "maximumFinancedAmount": 250000
+          },
+          "loanTermsOffered": {
+            "loanTerm": [
+              36,
+              48,
+              60
+            ]
+          }
         }
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-07-23T00:45:00.000Z",
+      "effective_date": "2021-08-06T00:30:00.000Z",
       "market": "HK",
       "product": "m3",
       "factory": "GF03",
       "fees": {},
-      "name": "Marketing HK 2021.Jul.23 1352.2398.1365 [zh]",
+      "name": "Marketing HK 2021.Aug.06 1699.2585.1365 [zh]",
       "groups": [
         {
           "code": "MODEL",
@@ -6204,6 +6156,13 @@
               {
                 "action": "set",
                 "target": "$APBS"
+              },
+              {
+                "action": "unset",
+                "targets": [
+                  "$APF2",
+                  "$APPB"
+                ]
               }
             ]
           },
@@ -6221,6 +6180,13 @@
             {
               "action": "set",
               "target": "$APBS"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$APF2",
+                "$APPB"
+              ]
             }
           ],
           "name": "Autopilot 自動輔助駕駛",
@@ -6353,7 +6319,7 @@
             },
             {
               "type": "disclaimer",
-              "content": "目前啟用的功能仍需要駕駛員主動監督，尚未實現車輛完全自動駕駛。何時啟用和使用這些功能，取決於此功能的可靠程度能否遠勝人類數十億英里的駕駛經驗，以及監管部門的批准，在某些司法管轄區則可能需要更長時間。隨著這些自動駕駛功能的不斷發展，你的車輛也會持續透過無線軟件更新升級。"
+              "content": "目前啟用的功能仍需要駕駛員主動監督，尚未實現車輛完全自動駕駛。這些功能的啟用和使用，取決於此功能的可靠程度能否遠勝人類數十億英里的駕駛經驗，以及監管部門的批准，在某些司法管轄區則可能需要更長時間。隨著這些自動駕駛功能的不斷發展，你的車輛也會持續透過無線軟件更新升級。"
             },
             {
               "type": "fsd_features",
@@ -9684,7 +9650,28 @@
           "name": "暖感後排座椅",
           "description": "暖感後排座椅",
           "long_name": "暖感後排座椅",
-          "extra_copy": [],
+          "extra_copy": [
+            {
+              "type": "description",
+              "content": "暖感後排座椅提升乘客的乘坐體驗"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "app": "rear-heated-seats-light-image/aasvcb/std/0x0/rear-heated-seats-light",
+                  "type": "product-image",
+                  "mobile": "rear-heated-seats-light-image/aasvcb/std/0x0/rear-heated-seats-light",
+                  "appDark": "rear-heated-seats-dark-image/aasvcb/std/0x0/rear-heated-seats-dark",
+                  "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
+                  "desktop": "rear-heated-seats-light-image/aasvcb/std/0x0/rear-heated-seats-light",
+                  "desktop2x": "rear-heated-seats-light-image/aasvcb/std/0x0/rear-heated-seats-light"
+                }
+              ]
+            }
+          ],
           "price": 0,
           "pricing": [
             {
@@ -10929,7 +10916,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "包括"
+              "content": "包含"
             }
           ],
           "extra_content": [
@@ -13437,7 +13424,7 @@
             },
             {
               "type": "long_name",
-              "content": "Model 3 長續航全輪驅動"
+              "content": "Model 3 長續航全輪驅動版"
             },
             {
               "type": "compare_matrix.block[0].label",
@@ -13473,7 +13460,7 @@
             },
             {
               "type": "interior_heated_steering_wheel",
-              "content": "包括"
+              "content": "包含"
             }
           ],
           "extra_content": [
@@ -13712,7 +13699,7 @@
             },
             {
               "type": "long_name",
-              "content": "Model 3 Performance 雙摩打全輪驅"
+              "content": "Model 3 長續航全輪驅動 Performance 版"
             },
             {
               "type": "drive_mode",
@@ -13732,7 +13719,7 @@
             },
             {
               "type": "interior_heated_steering_wheel",
-              "content": "包括"
+              "content": "包含"
             }
           ],
           "extra_content": [
@@ -14141,7 +14128,7 @@
             },
             {
               "type": "long_name",
-              "content": "Model 3 標準續航 Plus 後輪驅動版 "
+              "content": "Model 3 標準續航 Plus 後輪驅動"
             },
             {
               "type": "price_indicator",
@@ -19745,7 +19732,7 @@
         "$APBS",
         "$SC04"
       ],
-      "options_id": 1352,
+      "options_id": 1699,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -20601,11 +20588,11 @@
           }
         }
       ],
-      "copy_id": 2398,
+      "copy_id": 2585,
       "language": "zh",
       "warnings": [],
       "pricing_id": 1365,
-      "reference_id": 1352
+      "reference_id": 1699
     }
   },
   "edd": []

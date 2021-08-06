@@ -710,6 +710,10 @@
             "context": "configurator"
           },
           {
+            "code": "WINTER_WHEELS_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "PERFORMANCE_UPGRADE_FEATURES",
             "context": "configurator"
           },
@@ -1273,6 +1277,8 @@
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
         "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1619,12 +1625,12 @@
       "loan": []
     },
     "Lexicon.my": {
-      "effective_date": "2021-07-23T00:45:00.000Z",
+      "effective_date": "2021-08-06T00:05:00.000Z",
       "market": "LU",
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing LU 2021.Jul.23 1504.2472.1416 [fr]",
+      "name": "Marketing LU 2021.Aug.06 1581.2599.1416 [fr]",
       "groups": [
         {
           "code": "MODEL",
@@ -2210,7 +2216,9 @@
         },
         {
           "code": "WHEELS",
-          "groups": [],
+          "groups": [
+            "WINTER_WHEELS_OPTIONS"
+          ],
           "context": "configurator",
           "options": [
             "$WY19B",
@@ -2326,6 +2334,9 @@
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
                   }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             },
@@ -3469,6 +3480,7 @@
             "BATTERY_AND_DRIVE",
             "PAINT",
             "WHEELS",
+            "WINTER_WHEELS_OPTIONS",
             "TOWING",
             "PACKAGES",
             "AUTOPILOT",
@@ -6149,6 +6161,327 @@
               ]
             }
           ]
+        },
+        {
+          "code": "REVIEW_ORDER",
+          "groups": [
+            "PAINT",
+            "SPORT_PACKAGE_OPTIONS",
+            "WHEELS",
+            "INTERIOR",
+            "AUTOPILOT",
+            "AUTOPILOT_OWNERSHIP",
+            "AUTOPILOT_PACKAGE",
+            "PERF_FIRMWARE",
+            "WINTER_WHEELS_OPTIONS",
+            "TOWING"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": []
+        },
+        {
+          "code": "WINTER_WHEELS_FEATURES",
+          "groups": [
+            "19_IN_WINTER_WHEEL_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Les roues hiver incluent",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Comparer les modèles"
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Roues hiver",
+          "extra_copy": [],
+          "extra_content": []
+        },
+        {
+          "code": "WINTER_WHEELS_OPTIONS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Roues hiver",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Roues hiver"
+            },
+            {
+              "type": "feature_description",
+              "content": "Ajoutez un jeu de jantes et de pneus hiver pour une conduite optimale sur neige et en conditions hivernales."
+            },
+            {
+              "type": "add_component",
+              "content": "Choisir un jeu",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      },
+                      {
+                        "option": {
+                          "set": [
+                            "$W3WE8"
+                          ]
+                        },
+                        "selected_by": {
+                          "or": [
+                            "$MT321",
+                            "$MT337"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_component",
+              "content": "Supprimer",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn tds-btn--outline tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_features",
+              "content": "inclus",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "WINTER_WHEELS_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small "
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h5"
+                  }
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "feature_description",
+                        "classes": "tds-text--center"
+                      },
+                      {
+                        "field": "add_component",
+                        "component": "button"
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "SelectedPrice"
+                      },
+                      {
+                        "field": "remove_component",
+                        "component": "button"
+                      },
+                      {
+                        "field": "view_features",
+                        "props": {
+                          "modal": "WINTER_WHEELS_FEATURES"
+                        }
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "19_IN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Jeu de pneus hiver Pirelli 19\"",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Jeu de pneus hiver Pirelli 19\""
+            },
+            {
+              "type": "eyebrow",
+              "content": "De série"
+            },
+            {
+              "type": "description",
+              "content": "Pneus hiver Pirelli Sottozero 3 présentant une faible resistance au roulement et une forte adhérence sur les routes enneigées. Ce jeu comprend quatre jantes Sport 19\" et leurs pneumatiques montés."
+            },
+            {
+              "type": "add_options",
+              "content": "Ajouter",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Supprimer",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELY/UI/option-wheels-19-pirelli.jpeg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -7009,6 +7342,14 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "feature_list.default[0].iconList[0]",
+              "content": "De 0 à 100 km/h"
+            },
+            {
+              "type": "feature_list.default[0].iconList[1]",
+              "content": "De 0 à 100 km/h"
             }
           ],
           "extra_content": [
@@ -9050,6 +9391,10 @@
                   "$SLR1",
                   "$WY21P"
                 ]
+              },
+              {
+                "action": "unset",
+                "target": "$WWY00"
               }
             ],
             "unset_rules": [
@@ -9091,6 +9436,10 @@
                 "$SLR1",
                 "$WY21P"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$WWY00"
             }
           ],
           "unset_rules": [
@@ -9795,8 +10144,57 @@
             }
           ],
           "name": "Jeu de pneus hiver Pirelli 19\"",
-          "description": "Jeu de pneus hiver Pirelli 19\"",
-          "long_name": "Jeu de pneus hiver Pirelli 19\"",
+          "description": "Pneus hiver Pirelli Sottozero 3 présentant une faible resistance au roulement et une forte adhérence sur les routes enneigées. Ce jeu comprend quatre jantes Sport 19\" et leurs pneumatiques montés.",
+          "long_name": "Pneus hiver Pirelli 19\" avec jantes Sport",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Pneus hiver Pirelli Sottozero 3 présentant une faible resistance au roulement et une forte adhérence sur les routes enneigées. Ce jeu comprend quatre jantes Sport 19\" et leurs pneumatiques montés."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WWY00"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Sottozero-Selector@3x.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "price": 3000,
           "pricing": [
             {
@@ -10814,7 +11212,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 1504,
+      "options_id": 1581,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -11114,11 +11512,11 @@
           }
         }
       ],
-      "copy_id": 2472,
+      "copy_id": 2599,
       "language": "fr",
       "warnings": [],
       "pricing_id": 1416,
-      "reference_id": 1504
+      "reference_id": 1581
     }
   },
   "edd": [

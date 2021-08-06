@@ -1318,6 +1318,8 @@
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
         "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false,
         "showCountyLabel": true
       },
       "PrintPdf": {
@@ -1770,12 +1772,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-07-28T00:00:00.000Z",
+      "effective_date": "2021-08-06T00:30:00.000Z",
       "market": "TW",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing TW 2021.Jul.28 1530.2480.1526 [zh]",
+      "name": "Marketing TW 2021.Aug.06 1701.2582.1526 [zh]",
       "groups": [
         {
           "code": "MODEL",
@@ -6164,6 +6166,13 @@
               {
                 "action": "set",
                 "target": "$APBS"
+              },
+              {
+                "action": "unset",
+                "targets": [
+                  "$APF2",
+                  "$APPB"
+                ]
               }
             ]
           },
@@ -6181,6 +6190,13 @@
             {
               "action": "set",
               "target": "$APBS"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$APF2",
+                "$APPB"
+              ]
             }
           ],
           "name": "Autopilot 自動輔助駕駛",
@@ -6313,7 +6329,7 @@
             },
             {
               "type": "disclaimer",
-              "content": "目前啟用的功能仍需要駕駛人主動監督，車輛無法自動駕駛。是否能在無人監督的情況下啟動與使用這類功能，需視在數十億里程的駕駛體驗中，能否達到超過真人駕駛的穩定度而定，同時也需要法規的批准，而在某些司法轄區中這可能會花費比較長的時間。隨著這些自動駕駛功能的不斷發展，您的車輛將會持續透過空中下載 (OTA) 軟體不斷地更新升級。"
+              "content": "目前啟用的功能需要駕駛人主動監督，並無法使車輛自動駕駛。是否能在無人監督的情況下啟動與使用這類功能，需視在數十億里程的駕駛體驗中，能否達到超過真人駕駛的穩定度而定，同時也需要法規的批准，而在某些司法轄區中這可能會花費比較長的時間。隨著這些自駕功能不斷演進，您的車輛也會持續透過空中下載 (OTA) 軟體更新來升級。"
             },
             {
               "type": "fsd_features",
@@ -9270,7 +9286,28 @@
           "name": "後排加熱座椅",
           "description": "後排加熱座椅",
           "long_name": "後排加熱座椅",
-          "extra_copy": [],
+          "extra_copy": [
+            {
+              "type": "description",
+              "content": "後排加熱座椅提升乘客的乘坐體驗"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "app": "rear-heated-seats-light-image/aasvcb/std/0x0/rear-heated-seats-light",
+                  "type": "product-image",
+                  "mobile": "rear-heated-seats-light-image/aasvcb/std/0x0/rear-heated-seats-light",
+                  "appDark": "rear-heated-seats-dark-image/aasvcb/std/0x0/rear-heated-seats-dark",
+                  "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
+                  "desktop": "rear-heated-seats-light-image/aasvcb/std/0x0/rear-heated-seats-light",
+                  "desktop2x": "rear-heated-seats-light-image/aasvcb/std/0x0/rear-heated-seats-light"
+                }
+              ]
+            }
+          ],
           "price": 0,
           "pricing": [
             {
@@ -9629,7 +9666,14 @@
         "$W39B": {
           "code": "$W39B",
           "user_defined_rules": {
-            "set_rules": [],
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$W39P",
+                "condition_code": "$MT317",
+                "condition_state": "set"
+              }
+            ],
             "unset_rules": [
               {
                 "action": "set",
@@ -9652,6 +9696,12 @@
                 "$W40B",
                 "$W41B"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$W39P",
+              "condition_code": "$MT317",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -9848,6 +9898,12 @@
                 "target": "$W40B",
                 "condition_code": "$SPT31",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$W41B",
+                "condition_code": "$MT321",
+                "condition_state": "set"
               }
             ]
           },
@@ -9875,6 +9931,12 @@
               "action": "unset",
               "target": "$W40B",
               "condition_code": "$SPT31",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$W41B",
+              "condition_code": "$MT321",
               "condition_state": "set"
             }
           ],
@@ -9963,14 +10025,14 @@
             "set_rules": [
               {
                 "action": "set",
-                "target": "$W33D",
-                "condition_code": "$MT317",
+                "target": "$W40B",
+                "condition_code": "$MT314",
                 "condition_state": "set"
               },
               {
                 "action": "set",
-                "target": "$W40B",
-                "condition_code": "$MT314",
+                "target": "$W39P",
+                "condition_code": "$MT317",
                 "condition_state": "set"
               }
             ],
@@ -9992,14 +10054,14 @@
             },
             {
               "action": "set",
-              "target": "$W33D",
-              "condition_code": "$MT317",
+              "target": "$W40B",
+              "condition_code": "$MT314",
               "condition_state": "set"
             },
             {
               "action": "set",
-              "target": "$W40B",
-              "condition_code": "$MT314",
+              "target": "$W39P",
+              "condition_code": "$MT317",
               "condition_state": "set"
             }
           ],
@@ -13410,8 +13472,8 @@
             }
           ],
           "name": "Performance 全輪驅動",
-          "description": "Model 3 Performance 全輪驅動",
-          "long_name": "Model 3 Performance 全輪驅動",
+          "description": "Model 3 Performance",
+          "long_name": "Model 3 Long Range 全輪驅動 Performance",
           "long_description": "Model 3 Performance AWD",
           "extra_copy": [
             {
@@ -13727,6 +13789,12 @@
               {
                 "action": "set",
                 "target": "$APBS"
+              },
+              {
+                "action": "set",
+                "target": "$W41B",
+                "condition_code": "$W40B",
+                "condition_state": "set"
               }
             ],
             "unset_rules": [
@@ -13773,6 +13841,12 @@
             {
               "action": "set",
               "target": "$APBS"
+            },
+            {
+              "action": "set",
+              "target": "$W41B",
+              "condition_code": "$W40B",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -19532,7 +19606,7 @@
         "$APBS",
         "$SC04"
       ],
-      "options_id": 1530,
+      "options_id": 1701,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -20388,11 +20462,11 @@
           }
         }
       ],
-      "copy_id": 2480,
+      "copy_id": 2582,
       "language": "zh",
       "warnings": [],
       "pricing_id": 1526,
-      "reference_id": 1530
+      "reference_id": 1701
     }
   },
   "edd": []

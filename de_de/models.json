@@ -836,7 +836,8 @@
         "showNetMonthlyPayment": false,
         "hideRegistrationTypeToggle": true,
         "showSavingsColumn": true,
-        "hideTaxesAndFeesExcluded": true
+        "hideTaxesAndFeesExcluded": true,
+        "showMaintenanceCost": true
       },
       "FindMyTesla": {
         "selected_view": "exterior",
@@ -1261,7 +1262,8 @@
         "actionsToUpdatePrices": [
           "SUMMARY_PANEL_DISTANCE_CHANGE",
           "SUMMARY_PANEL_FINANCE_DISTANCE_CHANGE",
-          "ACCOUNT_DETAILS_CHANGED"
+          "ACCOUNT_DETAILS_CHANGED",
+          "SET_FINANCE_MODAL_DRIVER_TYPE"
         ],
         "showVehicleSubtotal": false,
         "hidePostfixOnUI": false,
@@ -1275,9 +1277,12 @@
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
         "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
+          "CHAMBER_OF_COMMERCE",
           "Vat"
         ]
       },
@@ -2059,7 +2064,7 @@
       ]
     },
     "Lexicon.ms": {
-      "effective_date": "2021-08-04T00:00:00.000Z",
+      "effective_date": "2021-08-06T00:25:00.000Z",
       "market": "DE",
       "product": "ms",
       "factory": "GF00",
@@ -2068,7 +2073,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2021.Aug.04 1566.2517.1555 [de]",
+      "name": "Marketing DE 2021.Aug.06 1630.2517.1555 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -2220,6 +2225,7 @@
             "$WTD2",
             "$WTDS",
             "$WTMS",
+            "$WTSD",
             "$WTTC"
           ],
           "required": true,
@@ -6466,6 +6472,10 @@
               {
                 "action": "unset",
                 "target": "$APPB"
+              },
+              {
+                "action": "set",
+                "target": "$APBS"
               }
             ]
           },
@@ -6487,6 +6497,10 @@
             {
               "action": "unset",
               "target": "$APPB"
+            },
+            {
+              "action": "set",
+              "target": "$APBS"
             }
           ],
           "name": "Autopilot",
@@ -6776,7 +6790,8 @@
                 "action": "unset",
                 "target": "$APF2"
               }
-            ]
+            ],
+            "unset_rules": []
           },
           "set_rules": [
             {
@@ -8226,6 +8241,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -8254,6 +8270,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -8324,6 +8341,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -8353,6 +8371,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -8431,6 +8450,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -8467,6 +8487,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -8537,6 +8558,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -8565,6 +8587,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -8635,6 +8658,7 @@
                 "$WTAS",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -8663,6 +8687,7 @@
                 "$WTAS",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -8733,6 +8758,7 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -8761,6 +8787,7 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -8831,6 +8858,7 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTDS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -8859,6 +8887,7 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTDS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -8906,12 +8935,39 @@
             {
               "action": "set",
               "target": "$WTSD"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$WS10",
+                "$WS90",
+                "$WTAB",
+                "$WTAS",
+                "$WTD2",
+                "$WTDS",
+                "$WTMS",
+                "$WTTC"
+              ]
             }
           ],
           "unset_rules": [
             {
               "action": "unset",
               "target": "$WTSD"
+            },
+            {
+              "action": "set",
+              "target": "$WS90",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$WS10",
+                "$WTAB",
+                "$WTAS",
+                "$WTD2",
+                "$WTDS",
+                "$WTMS",
+                "$WTTC"
+              ]
             }
           ],
           "name": "20-Zoll Slipstream zweifarbig",
@@ -8954,7 +9010,8 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTDS",
-                "$WTMS"
+                "$WTMS",
+                "$WTSD"
               ]
             },
             {
@@ -8982,7 +9039,8 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTDS",
-                "$WTMS"
+                "$WTMS",
+                "$WTSD"
               ]
             }
           ],
@@ -21987,6 +22045,7 @@
         }
       },
       "base_configuration": [
+        "$APBS",
         "$MDLS",
         "$MTS10",
         "$PPSW",
@@ -21996,7 +22055,7 @@
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 1566,
+      "options_id": 1630,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -22973,7 +23032,7 @@
         }
       ],
       "pricing_id": 1555,
-      "reference_id": 1566
+      "reference_id": 1630
     }
   },
   "edd": []

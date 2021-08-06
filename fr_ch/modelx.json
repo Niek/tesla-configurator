@@ -845,19 +845,19 @@
             "type": "personal",
             "financeOptions": [
               "cash",
-              "lease",
+              "lease_private",
               "loan"
             ],
-            "defaultOption": "lease"
+            "defaultOption": "lease_private"
           },
           {
             "type": "business",
             "financeOptions": [
               "cash",
-              "lease",
+              "business_lease",
               "operational_lease"
             ],
-            "defaultOption": "lease"
+            "defaultOption": "business_lease"
           }
         ],
         "driverType": "personal",
@@ -1296,6 +1296,8 @@
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
         "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1368,7 +1370,7 @@
         ]
       },
       "SummaryPanel": {
-        "selected_tab": "lease.lease",
+        "selected_tab": "lease.lease_private",
         "tabs": [],
         "loanDistance": null,
         "leaseDistance": null,
@@ -1653,7 +1655,123 @@
       "lease": [
         {
           "market": "CH",
-          "id": "lease",
+          "id": "lease_private",
+          "variant": [
+            "m3",
+            "ms",
+            "mx"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "downPayment": 10000,
+            "interestRate": 3.4,
+            "leaseTerm": 60,
+            "leaseDistance": 15000,
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.7
+          },
+          "leaseTermsOffered": {
+            "leaseTerm": [
+              36,
+              48,
+              60
+            ],
+            "leaseDistance": [
+              10000,
+              15000,
+              20000,
+              25000
+            ]
+          },
+          "residualRateMatrix": [
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 10000,
+              "value": 0.45
+            },
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 15000,
+              "value": 0.44
+            },
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 20000,
+              "value": 0.43
+            },
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 25000,
+              "value": 0.42
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 10000,
+              "value": 0.41
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 15000,
+              "value": 0.41
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 20000,
+              "value": 0.4
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 25000,
+              "value": 0.37
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 10000,
+              "value": 0.37
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 15000,
+              "value": 0.37
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 20000,
+              "value": 0.36
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 25000,
+              "value": 0.33
+            }
+          ],
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "downPayment",
+                  "distance"
+                ],
+                [
+                  "term"
+                ]
+              ]
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm",
+                "leaseDistance",
+                "residualAmount"
+              ]
+            }
+          }
+        },
+        {
+          "market": "CH",
+          "id": "business_lease",
           "variant": [
             "m3",
             "ms",

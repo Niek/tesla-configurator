@@ -710,6 +710,10 @@
             "context": "configurator"
           },
           {
+            "code": "WINTER_WHEELS_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "PERFORMANCE_UPGRADE_FEATURES",
             "context": "configurator"
           },
@@ -1268,6 +1272,8 @@
         "showExtraDepositAmountInDefaultPricingContext": false,
         "rangeStandard": "WLTP",
         "featureHighlightGroups": [],
+        "showPremiumConnectivity": true,
+        "showBusinessInformation": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1576,12 +1582,12 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2021-07-23T00:45:00.000Z",
+      "effective_date": "2021-08-06T00:05:00.000Z",
       "market": "CZ",
       "product": "my",
       "factory": "GF03",
       "fees": {},
-      "name": "Marketing CZ 2021.Jul.23 1520.2453.1405 [cs]",
+      "name": "Marketing CZ 2021.Aug.06 1587.2603.1405 [cs]",
       "groups": [
         {
           "code": "MODEL",
@@ -1992,7 +1998,7 @@
             "AUTOPILOT_PACKAGE",
             "AUTOPILOT_FIRMWARE",
             "TOWING",
-            "WINTER_WHEELS"
+            "WINTER_WHEELS_OPTIONS"
           ],
           "context": "order_summary",
           "options": [],
@@ -2167,7 +2173,9 @@
         },
         {
           "code": "WHEELS",
-          "groups": [],
+          "groups": [
+            "WINTER_WHEELS_OPTIONS"
+          ],
           "context": "configurator",
           "options": [
             "$WY19B",
@@ -2283,6 +2291,9 @@
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
                   }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             },
@@ -3426,6 +3437,7 @@
             "BATTERY_AND_DRIVE",
             "PAINT",
             "WHEELS",
+            "WINTER_WHEELS_OPTIONS",
             "TOWING",
             "PACKAGES",
             "AUTOPILOT",
@@ -6001,6 +6013,294 @@
                     "controls": false,
                     "fullWidth": true,
                     "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Zimní kola",
+          "extra_copy": [],
+          "extra_content": []
+        },
+        {
+          "code": "WINTER_WHEELS_OPTIONS",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Zimní kola",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Zimní kola"
+            },
+            {
+              "type": "feature_description",
+              "content": "Přidejte sadu zimních pneumatik a kol pro optimální jízdu na sněhu a ledu"
+            },
+            {
+              "type": "add_component",
+              "content": "Vybrat sadu",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_component",
+              "content": "Odebrat",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY07"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn tds-btn--outline tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_features",
+              "content": "vlastnosti",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "WINTER_WHEELS_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small "
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h5"
+                  }
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "feature_description",
+                        "classes": "tds-text--center"
+                      },
+                      {
+                        "field": "add_component",
+                        "component": "button"
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "SelectedPrice"
+                      },
+                      {
+                        "field": "remove_component",
+                        "component": "button"
+                      },
+                      {
+                        "field": "view_features",
+                        "props": {
+                          "modal": "WINTER_WHEELS_FEATURES"
+                        }
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS_FEATURES",
+          "groups": [
+            "19_IN_WINTER_WHEEL_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Vlastnosti zimních kol",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Porovnat modely"
+            }
+          ]
+        },
+        {
+          "code": "19_IN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Sada 19\" zimních pneumatik Pirelli",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Sada 19\" zimních pneumatik Pirelli"
+            },
+            {
+              "type": "eyebrow",
+              "content": "v ceně"
+            },
+            {
+              "type": "description",
+              "content": "Zimní pneumatiky Pirelli Sottozero 3 nabízejí nízký valivý odpor a vysokou přilnavost na zasněžených silnicích. Tato sada obsahuje čtyři 19\" kola Sport s nasazenými pneumatikami."
+            },
+            {
+              "type": "add_options",
+              "content": "Přidat",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Odebrat",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY00"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELY/UI/option-wheels-19-pirelli.jpeg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
                   }
                 }
               ]
@@ -9069,6 +9369,10 @@
                   "$SLR1",
                   "$WY21P"
                 ]
+              },
+              {
+                "action": "unset",
+                "target": "$WWY00"
               }
             ],
             "unset_rules": [
@@ -9110,6 +9414,10 @@
                 "$SLR1",
                 "$WY21P"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$WWY00"
             }
           ],
           "unset_rules": [
@@ -9806,8 +10114,57 @@
             }
           ],
           "name": "Sada 19\" zimních pneumatik Pirelli",
-          "description": "Sada 19\" zimních pneumatik Pirelli",
-          "long_name": "Sada 19\" zimních pneumatik Pirelli",
+          "description": "Zimní pneumatiky Pirelli Sottozero 3 nabízejí nízký valivý odpor a vysokou přilnavost na zasněžených silnicích. Tato sada obsahuje čtyři 19\" kola Sport s nasazenými pneumatikami.",
+          "long_name": "19\" zimní pneumatiky Pirelli s koly Sport",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Zimní pneumatiky Pirelli Sottozero 3 nabízejí nízký valivý odpor a vysokou přilnavost na zasněžených silnicích. Tato sada obsahuje čtyři 19\" kola Sport s nasazenými pneumatikami."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WWY00"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Sottozero-Selector@3x.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY05"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "price": 84900,
           "pricing": [
             {
@@ -10825,7 +11182,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 1520,
+      "options_id": 1587,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -11125,7 +11482,7 @@
           }
         }
       ],
-      "copy_id": 2453,
+      "copy_id": 2603,
       "language": "cs",
       "warnings": [
         {
@@ -11138,7 +11495,7 @@
         }
       ],
       "pricing_id": 1405,
-      "reference_id": 1520
+      "reference_id": 1587
     }
   },
   "edd": [
