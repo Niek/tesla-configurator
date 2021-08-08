@@ -1695,12 +1695,12 @@
       ]
     },
     "Lexicon.ms": {
-      "effective_date": "2021-07-30T00:00:00.000Z",
+      "effective_date": "2021-08-06T00:25:00.000Z",
       "market": "HK",
       "product": "ms",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing HK 2021.Jul.30 1560.2519.1008 [zh]",
+      "name": "Marketing HK 2021.Aug.06 1606.2519.1008 [zh]",
       "groups": [
         {
           "code": "MODEL",
@@ -1852,6 +1852,7 @@
             "$WTD2",
             "$WTDS",
             "$WTMS",
+            "$WTSD",
             "$WTTC"
           ],
           "required": true,
@@ -5575,6 +5576,10 @@
               {
                 "action": "unset",
                 "target": "$APPB"
+              },
+              {
+                "action": "set",
+                "target": "$APBS"
               }
             ]
           },
@@ -5596,6 +5601,10 @@
             {
               "action": "unset",
               "target": "$APPB"
+            },
+            {
+              "action": "set",
+              "target": "$APBS"
             }
           ],
           "name": "Autopilot 自動輔助駕駛",
@@ -5898,12 +5907,7 @@
                 "target": "$APF2"
               }
             ],
-            "unset_rules": [
-              {
-                "action": "unset",
-                "target": "$APF2"
-              }
-            ]
+            "unset_rules": []
           },
           "set_rules": [
             {
@@ -5923,10 +5927,6 @@
             {
               "action": "unset",
               "target": "$APPB"
-            },
-            {
-              "action": "unset",
-              "target": "$APF2"
             }
           ],
           "name": "升級版 Autopilot 自動輔助駕駛",
@@ -7353,6 +7353,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -7381,6 +7382,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -7451,6 +7453,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -7480,6 +7483,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -7558,6 +7562,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -7594,6 +7599,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -7664,6 +7670,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -7692,6 +7699,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -7762,6 +7770,7 @@
                 "$WTAS",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -7790,6 +7799,7 @@
                 "$WTAS",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -7860,6 +7870,7 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -7888,6 +7899,7 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -7958,6 +7970,7 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTDS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -7986,6 +7999,7 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTDS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -8033,12 +8047,39 @@
             {
               "action": "set",
               "target": "$WTSD"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$WS10",
+                "$WS90",
+                "$WTAB",
+                "$WTAS",
+                "$WTD2",
+                "$WTDS",
+                "$WTMS",
+                "$WTTC"
+              ]
             }
           ],
           "unset_rules": [
             {
               "action": "unset",
               "target": "$WTSD"
+            },
+            {
+              "action": "set",
+              "target": "$WS90",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$WS10",
+                "$WTAB",
+                "$WTAS",
+                "$WTD2",
+                "$WTDS",
+                "$WTMS",
+                "$WTTC"
+              ]
             }
           ],
           "name": "20 吋雙色滑流",
@@ -8081,7 +8122,8 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTDS",
-                "$WTMS"
+                "$WTMS",
+                "$WTSD"
               ]
             },
             {
@@ -8109,7 +8151,8 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTDS",
-                "$WTMS"
+                "$WTMS",
+                "$WTSD"
               ]
             }
           ],
@@ -20920,6 +20963,7 @@
         }
       },
       "base_configuration": [
+        "$APBS",
         "$MDLS",
         "$MTS10",
         "$PPSW",
@@ -20930,7 +20974,7 @@
         "$DRRH",
         "$CPF0"
       ],
-      "options_id": 1560,
+      "options_id": 1606,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -21907,7 +21951,7 @@
         }
       ],
       "pricing_id": 1008,
-      "reference_id": 1560
+      "reference_id": 1606
     }
   },
   "edd": []

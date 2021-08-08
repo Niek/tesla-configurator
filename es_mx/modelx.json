@@ -1728,14 +1728,14 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2021-08-04T04:08:00.000Z",
+      "effective_date": "2021-08-06T00:25:00.000Z",
       "market": "MX",
       "product": "mx",
       "factory": "GF00",
       "fees": {
         "tax_credit": 3750
       },
-      "name": "Marketing MX 2021.Aug.04 1523.2544.873 [es]",
+      "name": "Marketing MX 2021.Aug.06 1655.2544.873 [es]",
       "groups": [
         {
           "code": "MODEL",
@@ -2821,13 +2821,15 @@
         },
         {
           "code": "AUTOPILOT",
-          "groups": [
-            "AUTOPILOT_PACKAGE"
-          ],
+          "groups": [],
           "context": "configurator",
-          "options": [],
+          "options": [
+            "$APBS",
+            "$APPB"
+          ],
           "required": false,
           "exclusive": false,
+          "default_options": [],
           "name": "Autopilot",
           "extra_copy": [
             {
@@ -5439,6 +5441,137 @@
               ]
             }
           ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Funciones básicas del Autopilot",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Tarjetas de características"
+            }
+          ]
+        },
+        {
+          "code": "AUTOPILOT_CONVIENCE_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APD2",
+            "$APD3",
+            "$APPC"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Piloto automático con características de comodidad",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Incluido"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Dirección, aceleración y frenado automáticos en carretera"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Cambio de carril automático"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Estacionado automático"
+            },
+            {
+              "type": "disclaimer[0]",
+              "content": "El vehículo no se puede actualizar a la Capacidad de conducción autónoma total"
+            },
+            {
+              "type": "disclaimer[1]",
+              "content": "Las funciones disponibles actualmente requieren de una supervisión activa del conductor y no hacen que el vehículo sea autónomo. La activación y uso de estas funciones dependerá de que se logre una confiabilidad que supere por mucho la de los conductores humanos y que se demuestre con miles de millones de kilómetros de experiencia, así como de aprobaciones regulatorias, lo que podría tardar más en algunas jurisdicciones. A medida que estas capacidades de conducción autónoma vayan evolucionando, su auto se irá actualizando de forma continua e inalámbrica."
+            },
+            {
+              "type": "fsd_features",
+              "content": "Detalles de la función",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "FSD_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "legacy_options",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$APD2",
+                      "$APD3",
+                      "$APPC"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "fsd_features",
+                        "props": {
+                          "modal": "FSD_FEATURES"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -5579,6 +5712,10 @@
               {
                 "action": "unset",
                 "target": "$APPB"
+              },
+              {
+                "action": "set",
+                "target": "$APBS"
               }
             ]
           },
@@ -5600,6 +5737,10 @@
             {
               "action": "unset",
               "target": "$APPB"
+            },
+            {
+              "action": "set",
+              "target": "$APBS"
             }
           ],
           "name": "Autopilot",
@@ -5717,6 +5858,46 @@
               "context": "default"
             }
           ]
+        },
+        "$APD2": {
+          "code": "$APD2",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD2"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD2"
+            }
+          ],
+          "name": "Piloto automático con características de comodidad",
+          "description": "Piloto automático con características de comodidad",
+          "long_name": "Piloto automático con características de comodidad",
+          "extra_copy": [],
+          "extra_content": []
+        },
+        "$APD3": {
+          "code": "$APD3",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD3"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD3"
+            }
+          ],
+          "name": "Piloto automático con características de comodidad",
+          "description": "Piloto automático con características de comodidad",
+          "long_name": "Piloto automático con características de comodidad",
+          "extra_copy": [],
+          "extra_content": []
         },
         "$APF2": {
           "code": "$APF2",
@@ -5968,12 +6149,7 @@
                 "target": "$APF2"
               }
             ],
-            "unset_rules": [
-              {
-                "action": "unset",
-                "target": "$APF2"
-              }
-            ]
+            "unset_rules": []
           },
           "set_rules": [
             {
@@ -5993,10 +6169,6 @@
             {
               "action": "unset",
               "target": "$APPB"
-            },
-            {
-              "action": "unset",
-              "target": "$APF2"
             }
           ],
           "name": "Piloto automático mejorado",
@@ -6022,6 +6194,26 @@
               "context": "default"
             }
           ]
+        },
+        "$APPC": {
+          "code": "$APPC",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APPC"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APPC"
+            }
+          ],
+          "name": "Piloto automático con características de comodidad",
+          "description": "Piloto automático con características de comodidad",
+          "long_name": "Piloto automático con características de comodidad",
+          "extra_copy": [],
+          "extra_content": []
         },
         "$CC01": {
           "code": "$CC01",
@@ -17057,6 +17249,7 @@
         }
       },
       "base_configuration": [
+        "$APBS",
         "$MDLX",
         "$MTX10",
         "$PPSW",
@@ -17067,7 +17260,7 @@
         "$ST0Y",
         "$CPF1"
       ],
-      "options_id": 1523,
+      "options_id": 1655,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -18054,7 +18247,7 @@
       "language": "es",
       "warnings": [],
       "pricing_id": 873,
-      "reference_id": 1523
+      "reference_id": 1655
     }
   },
   "edd": []

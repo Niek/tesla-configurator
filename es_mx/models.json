@@ -1674,12 +1674,12 @@
       ]
     },
     "Lexicon.ms": {
-      "effective_date": "2021-08-04T04:08:00.000Z",
+      "effective_date": "2021-08-06T00:25:00.000Z",
       "market": "MX",
       "product": "ms",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing MX 2021.Aug.04 1539.2541.1341 [es]",
+      "name": "Marketing MX 2021.Aug.06 1595.2541.1341 [es]",
       "groups": [
         {
           "code": "MODEL",
@@ -1831,6 +1831,7 @@
             "$WTD2",
             "$WTDS",
             "$WTMS",
+            "$WTSD",
             "$WTTC"
           ],
           "required": true,
@@ -5992,6 +5993,10 @@
               {
                 "action": "unset",
                 "target": "$APPB"
+              },
+              {
+                "action": "set",
+                "target": "$APBS"
               }
             ]
           },
@@ -6013,6 +6018,10 @@
             {
               "action": "unset",
               "target": "$APPB"
+            },
+            {
+              "action": "set",
+              "target": "$APBS"
             }
           ],
           "name": "Autopilot",
@@ -6421,12 +6430,7 @@
                 "target": "$APF2"
               }
             ],
-            "unset_rules": [
-              {
-                "action": "unset",
-                "target": "$APF2"
-              }
-            ]
+            "unset_rules": []
           },
           "set_rules": [
             {
@@ -6446,10 +6450,6 @@
             {
               "action": "unset",
               "target": "$APPB"
-            },
-            {
-              "action": "unset",
-              "target": "$APF2"
             }
           ],
           "name": "Piloto automático mejorado",
@@ -7737,6 +7737,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -7765,6 +7766,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -7835,6 +7837,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -7864,6 +7867,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -7942,6 +7946,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -7978,6 +7983,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -8048,6 +8054,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -8076,6 +8083,7 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -8146,6 +8154,7 @@
                 "$WTAS",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -8174,6 +8183,7 @@
                 "$WTAS",
                 "$WTDS",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -8244,6 +8254,7 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -8272,6 +8283,7 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTMS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -8342,6 +8354,7 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTDS",
+                "$WTSD",
                 "$WTTC"
               ]
             },
@@ -8370,6 +8383,7 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTDS",
+                "$WTSD",
                 "$WTTC"
               ]
             }
@@ -8411,6 +8425,58 @@
             }
           ]
         },
+        "$WTSD": {
+          "code": "$WTSD",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WTSD"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$WS10",
+                "$WS90",
+                "$WTAB",
+                "$WTAS",
+                "$WTD2",
+                "$WTDS",
+                "$WTMS",
+                "$WTTC"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WTSD"
+            },
+            {
+              "action": "set",
+              "target": "$WS90",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$WS10",
+                "$WTAB",
+                "$WTAS",
+                "$WTD2",
+                "$WTDS",
+                "$WTMS",
+                "$WTTC"
+              ]
+            }
+          ],
+          "name": "Slipstream de dos tonos de 20\"",
+          "description": "Slipstream de dos tonos de 20\"",
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "MXN"
+            }
+          ]
+        },
         "$WTTC": {
           "code": "$WTTC",
           "user_defined_rules": {
@@ -8440,7 +8506,8 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTDS",
-                "$WTMS"
+                "$WTMS",
+                "$WTSD"
               ]
             },
             {
@@ -8468,7 +8535,8 @@
                 "$WTAS",
                 "$WTD2",
                 "$WTDS",
-                "$WTMS"
+                "$WTMS",
+                "$WTSD"
               ]
             }
           ],
@@ -21399,6 +21467,7 @@
         }
       },
       "base_configuration": [
+        "$APBS",
         "$MDLS",
         "$MTS11",
         "$PPSW",
@@ -21408,7 +21477,7 @@
         "$ST0Y",
         "$CPF1"
       ],
-      "options_id": 1539,
+      "options_id": 1595,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -22385,7 +22454,7 @@
         }
       ],
       "pricing_id": 1341,
-      "reference_id": 1539
+      "reference_id": 1595
     }
   },
   "edd": []
