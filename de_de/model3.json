@@ -679,6 +679,14 @@
             "context": "configurator"
           },
           {
+            "code": "EMISSIONS_BANNER",
+            "context": "configurator"
+          },
+          {
+            "code": "EMISSIONS",
+            "context": "configurator"
+          },
+          {
             "code": "ALUMINUM_PEDAL",
             "context": "configurator",
             "group_selected_by": {
@@ -786,7 +794,8 @@
         "activeTabs": [
           "finance_options",
           "gas_savings",
-          "incentives"
+          "incentives",
+          "emissions"
         ],
         "menuItems": [
           {
@@ -812,6 +821,10 @@
           {
             "key": "tesla_insurance",
             "i18nLabel": "TeslaInsurance.title"
+          },
+          {
+            "key": "emissions",
+            "i18nLabel": "FinancingOptions.tabLabels.emissions"
           }
         ],
         "hideDynamicIncentive": true,
@@ -2164,7 +2177,7 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-08-06T00:25:00.000Z",
+      "effective_date": "2021-08-26T20:45:40.111Z",
       "market": "DE",
       "product": "m3",
       "factory": "GF00",
@@ -2173,7 +2186,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2021.Aug.06 1672.2396.1510 [de]",
+      "name": "Marketing DE 2021.Aug.26 1713.2639.1510 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -7633,6 +7646,113 @@
                     "controls": false,
                     "fullWidth": true,
                     "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "EMISSIONS_BANNER",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "emissionsBanner",
+          "description": "Emissions Banner",
+          "extra_copy": [
+            {
+              "type": "emissionsBanner.description",
+              "content": "Offizieller Stromverbrauch: {ENERGY_CONSUMPTION} kWh/100km. CO<sub>2</sub> Emissionen im komibinierten Testzyklus: 0 g/km. CO<sub>2</sub> Effizienzklasse: {EFFICIENCY_CLASS}."
+            },
+            {
+              "type": "emissionsBanner.link",
+              "content": "Weitere Information",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "SHOW_EMISSIONS_MODAL"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": []
+        },
+        {
+          "code": "EMISSIONS",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Emissions",
+          "extra_copy": [
+            {
+              "type": "title[0]",
+              "content": "Leistung (kW)"
+            },
+            {
+              "type": "title[1]",
+              "content": "Masse (kg)"
+            },
+            {
+              "type": "title[2]",
+              "content": "Stromverbrauch"
+            },
+            {
+              "type": "title[3]",
+              "content": "CO<sub>2</sub> Emissionen"
+            },
+            {
+              "type": "title[4]",
+              "content": "CO<sub>2</sub> Effizienzklasse"
+            },
+            {
+              "type": "or_word",
+              "content": "oder"
+            },
+            {
+              "type": "footer",
+              "content": "Besuchen Sie unsere <a href='/de_DE/support/european-union-energy-label?redirect=no' target='_blank'>Support-Seite</a> für weitere Informationen."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "title_path": "CustomGroups.EMISSIONS.title[0]",
+                  "content_path": {
+                    "value": "formattedSpecs.rawData.power"
+                  }
+                },
+                {
+                  "title_path": "CustomGroups.EMISSIONS.title[1]",
+                  "content_path": {
+                    "value": "formattedSpecs.rawData.mass"
+                  }
+                },
+                {
+                  "postfix": "kWh/100km",
+                  "title_path": "CustomGroups.EMISSIONS.title[2]",
+                  "content_path": {
+                    "value": "formattedSpecs.rawData.energy_consumption"
+                  }
+                },
+                {
+                  "content": "0 g/km",
+                  "title_path": "CustomGroups.EMISSIONS.title[3]",
+                  "content_localized": {
+                    "de": "0 g/km"
+                  }
+                },
+                {
+                  "title_path": "CustomGroups.EMISSIONS.title[4]",
+                  "content_path": {
+                    "value": "formattedSpecs.rawData.efficiency_class"
                   }
                 }
               ]
@@ -18224,11 +18344,17 @@
                   "acceleration": 4.4
                 },
                 "$MT317": {
+                  "mass": 1919,
                   "name": "Long Range All-Wheel Drive Performance",
+                  "power": [
+                    377
+                  ],
                   "range": 567,
                   "postfix": "*",
                   "topspeed": 261,
                   "acceleration": 3.3,
+                  "efficiency_class": "A+",
+                  "energy_consumption": 16.5,
                   "range_units_override": "range_units_epa_link"
                 },
                 "$MT320": {
@@ -18238,7 +18364,11 @@
                   "acceleration": 5.6
                 },
                 "$MT321": {
+                  "mass": 1919,
                   "name": "Long Range All-Wheel Drive",
+                  "power": [
+                    366
+                  ],
                   "range": 614,
                   "topspeed": 233,
                   "overrides": [
@@ -18256,6 +18386,8 @@
                     }
                   ],
                   "acceleration": 4.4,
+                  "efficiency_class": "A+",
+                  "energy_consumption": 14.8,
                   "range_units_override": "range_units_epa_link"
                 },
                 "$MT336": {
@@ -18265,10 +18397,16 @@
                   "acceleration": 5.6
                 },
                 "$MT337": {
+                  "mass": 1825,
                   "name": "Standard Range Plus Rear-Wheel Drive",
+                  "power": [
+                    239
+                  ],
                   "range": 448,
                   "topspeed": 225,
                   "acceleration": 5.6,
+                  "efficiency_class": "A+",
+                  "energy_consumption": 14,
                   "range_units_override": "range_units_epa_link"
                 }
               }
@@ -22501,7 +22639,7 @@
         "$APBS",
         "$SC04"
       ],
-      "options_id": 1672,
+      "options_id": 1713,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -23357,11 +23495,11 @@
           }
         }
       ],
-      "copy_id": 2396,
+      "copy_id": 2639,
       "language": "de",
       "warnings": [],
       "pricing_id": 1510,
-      "reference_id": 1672
+      "reference_id": 1713
     }
   },
   "edd": [
