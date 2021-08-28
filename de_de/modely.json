@@ -1779,7 +1779,7 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2021-08-23T19:56:00.000Z",
+      "effective_date": "2021-08-27T14:47:20.381Z",
       "market": "DE",
       "product": "my",
       "factory": "GF00",
@@ -1788,7 +1788,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2021.Aug.23 1586.2617.1634 [de]",
+      "name": "Marketing DE 2021.Aug.27 1718.2651.1634 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -3254,6 +3254,12 @@
                   "type": "DeliveryDate",
                   "props": {
                     "classes": "tds--vertical_padding-bottom"
+                  }
+                },
+                {
+                  "type": "EmissionsBanner",
+                  "props": {
+                    "classes": "emissions-banner"
                   }
                 },
                 {
@@ -6626,6 +6632,113 @@
                     "and": [
                       "$MTY05"
                     ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "EMISSIONS_BANNER",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "emissionsBanner",
+          "description": "Emissions Banner",
+          "extra_copy": [
+            {
+              "type": "emissionsBanner.description",
+              "content": "Offizieller Stromverbrauch: {ENERGY_CONSUMPTION} kWh/100km. CO<sub>2</sub> Emissionen im komibinierten Testzyklus: 0 g/km. CO<sub>2</sub> Effizienzklasse: {EFFICIENCY_CLASS}."
+            },
+            {
+              "type": "emissionsBanner.link",
+              "content": "Weitere Information",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "SHOW_EMISSIONS_MODAL"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": []
+        },
+        {
+          "code": "EMISSIONS",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Emissions",
+          "extra_copy": [
+            {
+              "type": "title[0]",
+              "content": "Leistung (kW)"
+            },
+            {
+              "type": "title[1]",
+              "content": "Masse (kg)"
+            },
+            {
+              "type": "title[2]",
+              "content": "Stromverbrauch"
+            },
+            {
+              "type": "title[3]",
+              "content": "CO<sub>2</sub> Emissionen"
+            },
+            {
+              "type": "title[4]",
+              "content": "CO<sub>2</sub> Effizienzklasse"
+            },
+            {
+              "type": "or_word",
+              "content": "oder"
+            },
+            {
+              "type": "footer",
+              "content": "Besuchen Sie unsere <a href='/de_DE/support/european-union-energy-label?redirect=no' target='_blank'>Support-Seite</a> für weitere Informationen."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "title_path": "CustomGroups.EMISSIONS.title[0]",
+                  "content_path": {
+                    "value": "formattedSpecs.rawData.power"
+                  }
+                },
+                {
+                  "title_path": "CustomGroups.EMISSIONS.title[1]",
+                  "content_path": {
+                    "value": "formattedSpecs.rawData.mass"
+                  }
+                },
+                {
+                  "postfix": "kWh/100km",
+                  "title_path": "CustomGroups.EMISSIONS.title[2]",
+                  "content_path": {
+                    "value": "formattedSpecs.rawData.energy_consumption"
+                  }
+                },
+                {
+                  "content": "0 g/km",
+                  "title_path": "CustomGroups.EMISSIONS.title[3]",
+                  "content_localized": {
+                    "de": "0 g/km"
+                  }
+                },
+                {
+                  "title_path": "CustomGroups.EMISSIONS.title[4]",
+                  "content_path": {
+                    "value": "formattedSpecs.rawData.efficiency_class"
                   }
                 }
               ]
@@ -10936,7 +11049,11 @@
                   "range_units_override": "range_units_est"
                 },
                 "$MTY05": {
+                  "mass": 2072,
                   "name": "Long Range All-Wheel Drive Performance",
+                  "power": [
+                    393
+                  ],
                   "range": 480,
                   "postfix": "*",
                   "topspeed": 241,
@@ -10955,13 +11072,21 @@
                     }
                   ],
                   "acceleration": 3.7,
+                  "efficiency_class": "A+",
+                  "energy_consumption": 17.1,
                   "range_units_override": "range_units_est"
                 },
                 "$MTY07": {
+                  "mass": 2056,
                   "name": "Long Range All-Wheel Drive",
+                  "power": [
+                    378
+                  ],
                   "range": 507,
                   "topspeed": 217,
                   "acceleration": 5,
+                  "efficiency_class": "A+",
+                  "energy_consumption": 16.9,
                   "range_units_override": "range_units_epa_link"
                 }
               },
@@ -11350,7 +11475,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 1586,
+      "options_id": 1718,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -11650,11 +11775,11 @@
           }
         }
       ],
-      "copy_id": 2617,
+      "copy_id": 2651,
       "language": "de",
       "warnings": [],
       "pricing_id": 1634,
-      "reference_id": 1586
+      "reference_id": 1718
     }
   },
   "edd": [

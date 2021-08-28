@@ -1794,12 +1794,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-08-06T00:25:00.000Z",
+      "effective_date": "2021-08-27T00:52:29.644Z",
       "market": "KR",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing KR 2021.Aug.06 1703.2523.1102 [ko]",
+      "name": "Marketing KR 2021.Aug.27 1714.2647.1102 [ko]",
       "groups": [
         {
           "code": "MODEL",
@@ -2709,7 +2709,10 @@
             "AUTOPILOT_PACKAGE"
           ],
           "context": "configurator",
-          "options": [],
+          "options": [
+            "$APBS",
+            "$APPB"
+          ],
           "required": false,
           "exclusive": false,
           "name": "오토파일럿 패키지",
@@ -6166,6 +6169,23 @@
               ]
             }
           ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "기본 오토파일럿 기능",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "기능 카드"
+            }
+          ]
         }
       ],
       "options": {
@@ -6232,6 +6252,28 @@
             {
               "type": "deselectLabel",
               "content": "옵션 선택됨"
+            },
+            {
+              "type": "disclaimer",
+              "content": "현재 사용가능한 기능들은 운전자의 적극적인 주의가 필요하고 운전자에게 책임이 주어집니다. 현재 차량이 자율적으로 주행하는 것이 아닙니다. 이러한 기능들이 상용화되기 위해서는 수십억 마일의 주행 테스트를 통해 차량의 자율 주행 능력이 운전자의 주행 능력보다 크게 앞선다는 사실이 검증이 되어야 하며, 일부 관할권에서는 규제 승인이 더 오래 걸릴 수 있습니다. 셀프-드라이빙 기능이 진화함에 따라 차량도 OTA 소프트웨어 업데이트를 통해 지속적으로 업그레이드됩니다."
+            },
+            {
+              "type": "compare_features",
+              "content": "기능 세부사항",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {
+                      "data-should-open": "BASIC_AP_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -6240,6 +6282,46 @@
               "content": [
                 {
                   "type": "card"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "compare_features",
+                        "props": {
+                          "modal": "BASIC_AP_FEATURES"
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -6405,6 +6487,26 @@
                       "tds-btn--small"
                     ]
                   }
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.disclaimerOnImage",
+              "content": "오토파일럿 필수",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": "NO_AUTOPILOT"
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.text",
+              "content": "풀 셀프-드라이빙 구현 기능은 오토파일럿이 필수 항목이며 추가 비용으로 장바구니에 추가됩니다.",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": "NO_AUTOPILOT"
                 }
               ]
             }
@@ -13955,7 +14057,7 @@
             },
             {
               "type": "disclaimer",
-              "content": "공급 부족으로 인해 2022년 주문 가능",
+              "content": "제한된 공급으로 2022년부터 주문 가능",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -19578,7 +19680,7 @@
         "$APBS",
         "$SC04"
       ],
-      "options_id": 1703,
+      "options_id": 1714,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -20434,11 +20536,11 @@
           }
         }
       ],
-      "copy_id": 2523,
+      "copy_id": 2647,
       "language": "ko",
       "warnings": [],
       "pricing_id": 1102,
-      "reference_id": 1703
+      "reference_id": 1714
     }
   },
   "edd": []
