@@ -828,7 +828,7 @@
         ],
         "hideDynamicIncentive": false,
         "showMonthlyPaymentExVAT": false,
-        "hideAfterSavingsPrice": false,
+        "hideAfterSavingsPrice": true,
         "hideAfterSavingsModal": false,
         "showSavingsAmount": [],
         "showSavingAmountInModal": true,
@@ -856,7 +856,7 @@
         "showMaxBalloonPaymentAmount": false,
         "showBalloonPaymentDrop": false,
         "hasIncentivesEnabled": true,
-        "showMaxDownPaymentAmount": false,
+        "showMaxDownPaymentAmount": true,
         "showChargerDisclaimer": false,
         "includeTeslaInsurance": false,
         "showOtherFeesinSummary": true,
@@ -894,11 +894,8 @@
         "showNetMonthlyPayment": false,
         "hideRegistrationTypeToggle": false,
         "showSavingsColumn": false,
-        "persistentIncentives": [
-          {
-            "incentiveType": "ecoTaxReduction"
-          }
-        ],
+        "showIncentivesTotal": false,
+        "showFuelMonthlySavings": true,
         "toggleIncentiveLabel": "SummaryPanel.ecoTaxReduction_label",
         "priceDisclaimers": [
           "SummaryPanel.disclaimers.includesConsumptionTax"
@@ -908,6 +905,9 @@
             "feeType": "JACCS_fee",
             "label": "SummaryPanel.disclaimers.JACCS_fee"
           }
+        ],
+        "showEVCreditInput": [
+          "cash"
         ]
       },
       "FindMyTesla": {
@@ -942,6 +942,9 @@
           [
             "loanDownPayment",
             "term"
+          ],
+          [
+            "residualAmount"
           ]
         ],
         "showLeaseFields": [],
@@ -970,7 +973,7 @@
         "showIncentivesPerRegion": false,
         "showIncentivesRegion": [],
         "showCashDescriptions": false,
-        "showEstSavingsLabel": false
+        "showEstSavingsLabel": true
       },
       "Payment": {
         "paymentFormValid": false,
@@ -1308,7 +1311,8 @@
         ],
         "actionsToUpdatePrices": [
           "SUMMARY_PANEL_FINANCE_APR_CHANGE",
-          "SUMMARY_PANEL_INCENTIVE_TOGGLE"
+          "SUMMARY_PANEL_INCENTIVE_TOGGLE",
+          "SUMMARY_PANEL_RESIDUAL_AMOUNT_CHANGE"
         ],
         "showVehicleSubtotal": false,
         "hidePostfixOnUI": false,
@@ -1640,12 +1644,8 @@
           ],
           "description": "Japan consumption tax (消費税)",
           "period": "once",
-          "variant": [
-            "ms",
-            "mx",
-            "m3"
-          ],
-          "amount": 76450,
+          "variant": "m3",
+          "amount": 212000,
           "market": "JP"
         },
         {
@@ -1787,71 +1787,96 @@
         {
           "market": "JP",
           "variant": [
-            "m3"
+            "m3",
+            "ms",
+            "mx"
           ],
           "inventory": [
             "new"
           ],
           "variables": {
             "interestRate": 1.9,
-            "loanTerm": 60,
+            "loanTerm": 120,
             "loanDistance": 10000,
-            "downPayment": 0.2,
+            "downPayment": 1500000,
             "minimumDownPayment": 0,
-            "maximumDownPayment": 1
+            "maximumDownPayment": 0.5
           },
           "residualRateMatrix": [
             {
               "loanTerm": 36,
-              "loanDistance": 10000,
-              "value": 0.5
-            },
-            {
-              "loanTerm": 36,
-              "loanDistance": 15000,
-              "value": 0.5
-            },
-            {
-              "loanTerm": 36,
-              "loanDistance": 20000,
-              "value": 0.5
-            },
-            {
-              "loanTerm": 48,
-              "loanDistance": 10000,
               "value": 0.4
             },
             {
               "loanTerm": 48,
-              "loanDistance": 15000,
-              "value": 0.4
-            },
-            {
-              "loanTerm": 48,
-              "loanDistance": 20000,
-              "value": 0.4
+              "value": 0.35
             },
             {
               "loanTerm": 60,
-              "loanDistance": 10000,
               "value": 0.3
             },
             {
-              "loanTerm": 60,
-              "loanDistance": 15000,
-              "value": 0.3
-            },
-            {
-              "loanTerm": 60,
-              "loanDistance": 20000,
-              "value": 0.3
+              "loanTerm": 120,
+              "value": 0
             }
           ],
           "loanTermsOffered": {
             "loanTerm": [
               36,
               48,
-              60
+              60,
+              120
+            ],
+            "residualRateMatrix": [
+              {
+                "value": [
+                  0,
+                  0.05,
+                  0.1,
+                  0.15,
+                  0.2,
+                  0.25,
+                  0.3,
+                  0.35,
+                  0.4
+                ],
+                "term": 36,
+                "default": 0.4
+              },
+              {
+                "value": [
+                  0,
+                  0.05,
+                  0.1,
+                  0.15,
+                  0.2,
+                  0.25,
+                  0.3,
+                  0.35
+                ],
+                "term": 48,
+                "default": 0.35
+              },
+              {
+                "value": [
+                  0,
+                  0.05,
+                  0.1,
+                  0.15,
+                  0.2,
+                  0.25,
+                  0.3
+                ],
+                "term": 60,
+                "default": 0.3
+              },
+              {
+                "value": [
+                  0
+                ],
+                "term": 120,
+                "default": 0
+              }
             ]
           }
         }

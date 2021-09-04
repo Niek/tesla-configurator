@@ -834,8 +834,27 @@
         "isEstimatedPrice": false,
         "showTotalPaymentFooter": false,
         "showMonthlyPaymentQuote": false,
-        "showFinanceProductsByDriverType": [],
-        "driverType": null,
+        "showFinanceProductsByDriverType": [
+          {
+            "type": "personal",
+            "financeOptions": [
+              "cash",
+              "operational_lease",
+              "dnb_loan"
+            ],
+            "defaultOption": "cash"
+          },
+          {
+            "type": "business",
+            "financeOptions": [
+              "cash",
+              "operational_lease_commercial",
+              "loan"
+            ],
+            "defaultOption": "cash"
+          }
+        ],
+        "driverType": "personal",
         "leaseDescriptionwithModelCode": false,
         "taxesAndFeesExcludedIfApplicable": false,
         "showFooterFinanceLink": false,
@@ -850,6 +869,8 @@
         "showNetMonthlyPayment": false,
         "hideRegistrationTypeToggle": false,
         "showSavingsColumn": false,
+        "showIncentivesTotal": true,
+        "showFuelMonthlySavings": false,
         "hideTaxesAndFeesExcluded": true
       },
       "FindMyTesla": {
@@ -1061,7 +1082,9 @@
           "leaseTerm",
           "leaseDistance"
         ],
-        "showLeaseSummaryDisclaimer": false,
+        "showLeaseSummaryDisclaimer": [
+          "lease.dnb_loan"
+        ],
         "showSecondDepositDisclaimer": {
           "source": true,
           "target": true
@@ -1820,6 +1843,73 @@
               "leaseFields": [
                 "downPaymentPercentage",
                 "distance",
+                "term"
+              ]
+            }
+          }
+        },
+        {
+          "market": "DK",
+          "id": "dnb_loan",
+          "variant": [
+            "m3",
+            "my",
+            "ms",
+            "mx"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "downPaymentPercent": 0.2,
+            "downPaymentPercentMatrix": [
+              0.2,
+              0.35,
+              0.45
+            ],
+            "interestRate": 1.25,
+            "leaseTerm": 96,
+            "localeSpecific": {
+              "insuranceFee": 950,
+              "establishmentFee": 2000,
+              "fixedRegistrationFee": 1750,
+              "registrationFeePercentage": 1.5,
+              "collectionFee": 30,
+              "titleRetention": 750
+            }
+          },
+          "leaseTermsOffered": {
+            "leaseTerm": [
+              12,
+              24,
+              36,
+              48,
+              60,
+              72,
+              84,
+              96,
+              108,
+              120
+            ]
+          },
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "downPaymentPercent",
+                  "term"
+                ]
+              ]
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm"
+              ]
+            },
+            "pdf": {
+              "leaseFields": [
+                "downPayment",
                 "term"
               ]
             }
@@ -6196,7 +6286,32 @@
           "context": "configurator",
           "options": [],
           "required": false,
-          "exclusive": false
+          "exclusive": false,
+          "name": "Tow Hitch",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Anhængertræk"
+            },
+            {
+              "type": "eyebrow",
+              "content": " "
+            },
+            {
+              "type": "description",
+              "content": "Anhængertræk i højstyrkestål med aftagelig adapter. Med en trækkapacitet på 2.268 kg kan du nemt medbringe din cykel- eller skiholder på din næste biltur."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELX/UI/X_StdFeat_TowHitch.jpg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            }
+          ]
         }
       ],
       "options": {

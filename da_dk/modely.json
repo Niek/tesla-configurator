@@ -842,8 +842,27 @@
         "isEstimatedPrice": false,
         "showTotalPaymentFooter": false,
         "showMonthlyPaymentQuote": false,
-        "showFinanceProductsByDriverType": [],
-        "driverType": null,
+        "showFinanceProductsByDriverType": [
+          {
+            "type": "personal",
+            "financeOptions": [
+              "cash",
+              "operational_lease",
+              "dnb_loan"
+            ],
+            "defaultOption": "cash"
+          },
+          {
+            "type": "business",
+            "financeOptions": [
+              "cash",
+              "operational_lease_commercial",
+              "loan"
+            ],
+            "defaultOption": "cash"
+          }
+        ],
+        "driverType": "personal",
         "leaseDescriptionwithModelCode": false,
         "taxesAndFeesExcludedIfApplicable": false,
         "showFooterFinanceLink": false,
@@ -858,6 +877,8 @@
         "showNetMonthlyPayment": false,
         "hideRegistrationTypeToggle": false,
         "showSavingsColumn": false,
+        "showIncentivesTotal": true,
+        "showFuelMonthlySavings": false,
         "hideTaxesAndFeesExcluded": true
       },
       "FindMyTesla": {
@@ -1066,7 +1087,9 @@
           "leaseTerm",
           "leaseDistance"
         ],
-        "showLeaseSummaryDisclaimer": false,
+        "showLeaseSummaryDisclaimer": [
+          "lease.dnb_loan"
+        ],
         "showSecondDepositDisclaimer": {
           "source": true,
           "target": true
@@ -1664,7 +1687,75 @@
       ]
     },
     "Lease.my.my": {
-      "lease": []
+      "lease": [
+        {
+          "market": "DK",
+          "id": "dnb_loan",
+          "variant": [
+            "m3",
+            "my",
+            "ms",
+            "mx"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "downPaymentPercent": 0.2,
+            "downPaymentPercentMatrix": [
+              0.2,
+              0.35,
+              0.45
+            ],
+            "interestRate": 1.25,
+            "leaseTerm": 96,
+            "localeSpecific": {
+              "insuranceFee": 950,
+              "establishmentFee": 2000,
+              "fixedRegistrationFee": 1750,
+              "registrationFeePercentage": 1.5,
+              "collectionFee": 30,
+              "titleRetention": 750
+            }
+          },
+          "leaseTermsOffered": {
+            "leaseTerm": [
+              12,
+              24,
+              36,
+              48,
+              60,
+              72,
+              84,
+              96,
+              108,
+              120
+            ]
+          },
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "downPaymentPercent",
+                  "term"
+                ]
+              ]
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm"
+              ]
+            },
+            "pdf": {
+              "leaseFields": [
+                "downPayment",
+                "term"
+              ]
+            }
+          }
+        }
+      ]
     },
     "Loan.my.my": {
       "loan": [
@@ -11660,11 +11751,11 @@
       "options": [
         "$MTY07"
       ],
-      "atDate": "2021-09-29T00:00:00",
+      "atDate": "2021-11-01T00:00:00",
       "inStart": null,
       "inEnd": null,
       "inType": null,
-      "effectiveStartDate": "2021-07-09T00:00:01"
+      "effectiveStartDate": "2021-09-01T00:00:00"
     }
   ]
 }
