@@ -1278,6 +1278,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": true,
+        "hideIncentivesOrderPage": false,
         "extraIncentives": []
       },
       "PrintPdf": {
@@ -1554,12 +1555,12 @@
       "loan": []
     },
     "Lexicon.my": {
-      "effective_date": "2021-09-08T00:25:00.000Z",
+      "effective_date": "2021-09-10T00:30:00.000Z",
       "market": "MX",
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing MX 2021.Sep.08 1531.2764.1621 [es]",
+      "name": "Marketing MX 2021.Sep.10 1729.2764.1621 [es]",
       "groups": [
         {
           "code": "MODEL",
@@ -1886,6 +1887,18 @@
           "discountable": true,
           "default_options": [],
           "name": "Gancho para remolque"
+        },
+        {
+          "code": "PERF_FIRMWARE",
+          "groups": [],
+          "context": "default",
+          "options": [
+            "$FM3U"
+          ],
+          "required": false,
+          "exclusive": false,
+          "discountable": false,
+          "default_options": []
         },
         {
           "code": "CORE",
@@ -2370,11 +2383,12 @@
         },
         {
           "code": "AUTOPILOT",
-          "groups": [
-            "AUTOPILOT_PACKAGE"
-          ],
+          "groups": [],
           "context": "configurator",
-          "options": [],
+          "options": [
+            "$APBS",
+            "$APPB"
+          ],
           "required": false,
           "exclusive": false,
           "default_options": [],
@@ -5687,6 +5701,23 @@
               ]
             }
           ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Funciones básicas del Autopilot",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Tarjetas de características"
+            }
+          ]
         }
       ],
       "options": {
@@ -6591,6 +6622,63 @@
             {
               "type": "base",
               "value": 0,
+              "context": "MXN"
+            }
+          ]
+        },
+        "$FM3U": {
+          "code": "$FM3U",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$FM3U"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$FM3U"
+            },
+            {
+              "action": "unset",
+              "target": "$FM3U"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$FM3U"
+            }
+          ],
+          "name": "Impulso para aceleración",
+          "description": "Impulso para aceleración",
+          "long_name": "Impulso para aceleración",
+          "extra_copy": [
+            {
+              "type": "description",
+              "content": "Mejora en el tiempo para pasar de 0 a 100 km/h, de 4.8 s a 4.2 s"
+            },
+            {
+              "type": "feature_list.default[0].iconList[0]",
+              "content": "De 0 a 100 km/h"
+            },
+            {
+              "type": "feature_list.default[0].iconList[1]",
+              "content": "De 0 a 100 km/h"
+            }
+          ],
+          "price": 39100,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 39100,
+              "context": "MXN"
+            },
+            {
+              "type": "upgrade",
+              "value": 39100,
               "context": "MXN"
             }
           ]
@@ -10568,7 +10656,7 @@
         "$CPF1",
         "$SC04"
       ],
-      "options_id": 1531,
+      "options_id": 1729,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -10872,7 +10960,7 @@
       "language": "es",
       "warnings": [],
       "pricing_id": 1621,
-      "reference_id": 1531
+      "reference_id": 1729
     }
   },
   "edd": [

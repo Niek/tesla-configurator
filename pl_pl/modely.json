@@ -1279,6 +1279,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": true,
+        "hideIncentivesOrderPage": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1669,12 +1670,12 @@
       "loan": []
     },
     "Lexicon.my": {
-      "effective_date": "2021-09-08T00:25:00.000Z",
+      "effective_date": "2021-09-10T00:30:00.000Z",
       "market": "PL",
       "product": "my",
       "factory": "GF03",
       "fees": {},
-      "name": "Marketing PL 2021.Sep.08 1577.2753.1400 [pl]",
+      "name": "Marketing PL 2021.Sep.10 1726.2753.1670 [pl]",
       "groups": [
         {
           "code": "MODEL",
@@ -2012,6 +2013,18 @@
           "exclusive": false,
           "default_options": [],
           "name": "WINTER_WHEELS"
+        },
+        {
+          "code": "PERF_FIRMWARE",
+          "groups": [],
+          "context": "default",
+          "options": [
+            "$FM3U"
+          ],
+          "required": false,
+          "exclusive": false,
+          "discountable": false,
+          "default_options": []
         },
         {
           "code": "CORE",
@@ -6415,6 +6428,23 @@
           "name": "Koła zimowe",
           "extra_copy": [],
           "extra_content": []
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Podstawowe funkcje Autopilota",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Karty funkcji"
+            }
+          ]
         }
       ],
       "options": {
@@ -6545,13 +6575,13 @@
           "price": 0,
           "pricing": [
             {
-              "type": "base",
-              "value": 0,
+              "type": "trial",
+              "value": 4000,
               "context": "PLN"
             },
             {
-              "type": "trial",
-              "value": 4000,
+              "type": "base",
+              "value": 0,
               "context": "PLN"
             },
             {
@@ -6776,12 +6806,12 @@
           "price": 39000,
           "pricing": [
             {
-              "type": "base",
+              "type": "trial",
               "value": 39000,
               "context": "PLN"
             },
             {
-              "type": "trial",
+              "type": "base",
               "value": 39000,
               "context": "PLN"
             },
@@ -6990,12 +7020,12 @@
           "price": 19500,
           "pricing": [
             {
-              "type": "base",
+              "type": "trial",
               "value": 19500,
               "context": "PLN"
             },
             {
-              "type": "trial",
+              "type": "base",
               "value": 19500,
               "context": "PLN"
             },
@@ -7129,12 +7159,12 @@
           "price": 0,
           "pricing": [
             {
-              "type": "1_month",
+              "type": "base",
               "value": 0,
               "context": "PLN"
             },
             {
-              "type": "base",
+              "type": "1_month",
               "value": 0,
               "context": "PLN"
             }
@@ -7202,13 +7232,13 @@
           "price": 0,
           "pricing": [
             {
-              "type": "1_month",
-              "value": 9.99,
+              "type": "base",
+              "value": 0,
               "context": "PLN"
             },
             {
-              "type": "base",
-              "value": 0,
+              "type": "1_month",
+              "value": 9.99,
               "context": "PLN"
             }
           ]
@@ -7316,6 +7346,49 @@
             }
           ]
         },
+        "$FM3U": {
+          "code": "$FM3U",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$FM3U"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$FM3U"
+            },
+            {
+              "action": "unset",
+              "target": "$FM3U"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$FM3U"
+            }
+          ],
+          "name": "Przyśpieszenie Boost",
+          "description": "Przyśpieszenie Boost",
+          "long_name": "Przyśpieszenie Boost",
+          "price": 9500,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 9500,
+              "context": "PLN"
+            },
+            {
+              "type": "upgrade",
+              "value": 9500,
+              "context": "PLN"
+            }
+          ]
+        },
         "$MDLY": {
           "code": "$MDLY",
           "set_rules": [
@@ -7370,15 +7443,20 @@
               ]
             }
           ],
-          "price": 0,
+          "price": 239000,
           "pricing": [
+            {
+              "type": "order_payment",
+              "value": 0,
+              "context": "PLN"
+            },
             {
               "type": "reservation_deposit",
               "value": 1000,
               "context": "PLN"
             },
             {
-              "type": "order_payment",
+              "type": "order_fee",
               "value": 0,
               "context": "PLN"
             },
@@ -7389,12 +7467,7 @@
             },
             {
               "type": "base",
-              "value": 0,
-              "context": "PLN"
-            },
-            {
-              "type": "order_fee",
-              "value": 0,
+              "value": 239000,
               "context": "PLN"
             },
             {
@@ -9732,11 +9805,11 @@
               ]
             }
           ],
-          "price": 329990,
+          "price": 90990,
           "pricing": [
             {
               "type": "base",
-              "value": 329990,
+              "value": 90990,
               "context": "PLN"
             },
             {
@@ -9864,11 +9937,11 @@
               ]
             }
           ],
-          "price": 299990,
+          "price": 60990,
           "pricing": [
             {
               "type": "base",
-              "value": 299990,
+              "value": 60990,
               "context": "PLN"
             },
             {
@@ -11373,7 +11446,7 @@
         "$CPF1",
         "$SC04"
       ],
-      "options_id": 1577,
+      "options_id": 1726,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -11685,8 +11758,8 @@
           "message": "The discountable group's, option '$MTY04' is not defined in the pricing lexicon."
         }
       ],
-      "pricing_id": 1400,
-      "reference_id": 1577
+      "pricing_id": 1670,
+      "reference_id": 1726
     }
   },
   "edd": [
