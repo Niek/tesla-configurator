@@ -2025,12 +2025,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-09-24T04:00:00.000Z",
+      "effective_date": "2021-10-08T00:40:00.000Z",
       "market": "NO",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing NO 2021.Sep.24 1799.2989.1784 [no]",
+      "name": "Marketing NO 2021.Oct.08 1765.3030.1784 [no]",
       "groups": [
         {
           "code": "MODEL",
@@ -4049,9 +4049,17 @@
               "type": "components",
               "content": [
                 {
+                  "hide": "inventory",
                   "type": "Title",
                   "props": {
                     "component": "h5"
+                  }
+                },
+                {
+                  "hide": "cfg",
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
                   }
                 },
                 {
@@ -7731,6 +7739,23 @@
               ]
             }
           ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Grunnleggende Autopilot-funksjoner",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Funksjonskort"
+            }
+          ]
         }
       ],
       "options": {
@@ -7785,10 +7810,6 @@
             {
               "type": "feature_list.default.items[0]",
               "content": "Gjør det mulig for Teslaen å styre, akselerere og bremse automatisk for andre kjøretøy og fotgjengere i kjørebanen."
-            },
-            {
-              "type": "description",
-              "content": " "
             },
             {
               "type": "selectLabel",
@@ -7867,6 +7888,20 @@
                       }
                     ]
                   }
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "app": "ap-light-mode-image/aasvcb/std/0x0/ap-light-mode",
+                  "type": "product-image",
+                  "mobile": "ap-light-mode-image/aasvcb/std/0x0/ap-light-mode",
+                  "appDark": "ap-dark-mode-image/aasvcb/std/0x0/ap-dark-mode",
+                  "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
+                  "desktop": "ap-light-mode-image/aasvcb/std/0x0/ap-light-mode",
+                  "desktop2x": "ap-light-mode-image/aasvcb/std/0x0/ap-light-mode"
                 }
               ]
             }
@@ -8029,7 +8064,9 @@
               "behavior": [
                 {
                   "type": "DISPLAY_CONDITION",
-                  "content": "NO_AUTOPILOT"
+                  "content": [
+                    "NO_AUTOPILOT"
+                  ]
                 }
               ]
             },
@@ -8039,7 +8076,153 @@
               "behavior": [
                 {
                   "type": "DISPLAY_CONDITION",
-                  "content": "NO_AUTOPILOT"
+                  "content": [
+                    "NO_AUTOPILOT"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.disclaimerOnImage[0]",
+              "content": "Autopilot påkreves",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NO_AUTOPILOT",
+                    "IS_UPGRADE"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.text[0]",
+              "content": "Autopilot er en forutsetning for Fremtidig selvkjørende funksjoner, og vil bli lagt til handlekurven din mot et pristillegg",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NO_AUTOPILOT",
+                    "IS_UPGRADE"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.disclaimerOnImage[1]",
+              "content": "Kjøp av Autopilot kreves",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NO_AUTOPILOT",
+                    "IS_SUBSCRIPTION"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.text[1]",
+              "content": "Autopilot er en forutsetning for fremtidig selvkjørende funksjoner. Etter at du har kjøpt Autopilot, vil kjøretøyet være kvalifisert for abonnementet på fremtidig selvkjørende funksjoner.",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NO_AUTOPILOT",
+                    "IS_SUBSCRIPTION"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.ctaText[1]",
+              "content": "KJØP AUTOPILOT",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NO_AUTOPILOT"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.disclaimerOnImage[2]",
+              "content": "Maskinvareoppgradering kreves",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NEED_HARDWARE_UPGRADE",
+                    "IS_SUBSCRIPTION"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.text[2]",
+              "content": "Det kreves en fullverdig selvkjørende datamaskin-installasjon pålydende ##cost## Når installasjonen er fullført, vil du være berettiget til å abonnere.",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NEED_HARDWARE_UPGRADE",
+                    "IS_SUBSCRIPTION"
+                  ],
+                  "textReplaceKey": "##cost##",
+                  "textReplaceValue": "$1,000"
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.ctaText[2]",
+              "content": "BESTILL INSTALLASJON",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NEED_HARDWARE_UPGRADE"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::subscription_agreement",
+              "content": "Når du ##ACTION##, blir din lagrede betalingsmetode belastet og automatisk fakturert månedlig. Hvis du vil vite mer, besøk ##termsAndConditions##.\n\nEt abonnement på Fremtidig selvkjørende funksjoner kan kanselleres når som helst, men det kan ikke refunderes. Hvis du vil vite mer, besøk ##cancellationPolicy##.\n\nHvis det er aktuelt, beregnes skatt basert på adressen du oppga da du bestilte.\n\nDe nåværende funksjonene for Fremtidig selvkjørende funksjoner krever aktivt førertilsyn og gjør ikke bilen autonom. Den fremtidige bruken av disse funksjonene uten tilsyn er avhengig av å oppnå pålitelighet langt utover menneskelige sjåfører, som demonstrert av milliarder av kilometers erfaring, samt myndighetsgodkjenning, som kan ta lengre tid i noen jurisdiksjoner.",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "IS_SUBSCRIPTION"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::terms_and_conditions",
+              "content": "Vilkår og betingelser",
+              "behavior": [
+                {
+                  "hash": "#full-self-driving-capability-subscription-agreement",
+                  "path": "legal/additional-resources",
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "IS_SUBSCRIPTION"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::cancellation_policy",
+              "content": "Avbestillingsregler",
+              "behavior": [
+                {
+                  "hash": "#cancellations",
+                  "path": "support/full-self-driving-subscriptions",
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "IS_SUBSCRIPTION"
+                  ]
                 }
               ]
             }
@@ -8097,6 +8280,20 @@
                   "props": {
                     "field": "disclaimer"
                   }
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "app": "fsd-light-mode-image/aasvcb/std/0x0/fsd-light-mode",
+                  "type": "product-image",
+                  "mobile": "fsd-light-mode-image/aasvcb/std/0x0/fsd-light-mode",
+                  "appDark": "fsd-dark-mode-image/aasvcb/std/0x0/fsd-dark-mode",
+                  "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
+                  "desktop": "fsd-light-mode-image/aasvcb/std/0x0/fsd-light-mode",
+                  "desktop2x": "fsd-light-mode-image/aasvcb/std/0x0/fsd-light-mode"
                 }
               ]
             }
@@ -8170,7 +8367,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "valgfritt"
+              "content": "Inkludert"
             },
             {
               "type": "feature_list.default[0].items[0]",
@@ -8330,6 +8527,20 @@
                       }
                     ]
                   }
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "app": "eap-light-mode-image/aasvcb/std/0x0/eap-light-mode",
+                  "type": "product-image",
+                  "mobile": "eap-light-mode-image/aasvcb/std/0x0/eap-light-mode",
+                  "appDark": "eap-dark-mode-image/aasvcb/std/0x0/eap-dark-mode",
+                  "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
+                  "desktop": "eap-light-mode-image/aasvcb/std/0x0/eap-light-mode",
+                  "desktop2x": "eap-light-mode-image/aasvcb/std/0x0/eap-light-mode"
                 }
               ]
             }
@@ -8535,7 +8746,187 @@
           "name": "Premium Connectivity",
           "description": "Premium Connectivity",
           "long_name": "Premium Connectivity",
-          "extra_copy": [],
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Inkludert"
+            },
+            {
+              "type": "long_name",
+              "content": "1 års prøveperiode på Premium Connectivity",
+              "behavior": [
+                {
+                  "type": "REPLACE_CONTENT",
+                  "content": {
+                    "source": "options.$CPF1.premium_connectivity_trail_sr",
+                    "selected_by": {
+                      "or": [
+                        "$MT314",
+                        "$MT320",
+                        "$MT337"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "premium_connectivity_trail_sr",
+              "content": "30 dagers prøveperiode på Premium Connectivity"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Direkte visualisering av trafikk"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Musikk"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Video-streaming"
+            },
+            {
+              "type": "feature_list.default[0].items[3]",
+              "content": "Internett"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "og mer"
+            },
+            {
+              "type": "table_header.default[0].items[0]",
+              "content": "Connectivity-pakker"
+            },
+            {
+              "type": "table_header.default[0].items[1]",
+              "content": "Standard"
+            },
+            {
+              "type": "table_header.default[0].items[2]",
+              "content": "Premium"
+            },
+            {
+              "type": "table_subheader.default[0].items[0]",
+              "content": " "
+            },
+            {
+              "type": "table_subheader.default[0].items[1]",
+              "content": "Inkludert"
+            },
+            {
+              "type": "table_subheader.default[0].items[2]",
+              "content": "{{price}}"
+            },
+            {
+              "type": "table_caption",
+              "content": "*Kun tilgjengelig på Wi-Fi med Standard Connectivity"
+            },
+            {
+              "type": "table_column.default[0].items[0]",
+              "content": "Navigasjon",
+              "behavior": [
+                true,
+                true
+              ]
+            },
+            {
+              "type": "table_column.default[0].items[1]",
+              "content": "Direkte visualisering av trafikk",
+              "behavior": [
+                false,
+                true
+              ]
+            },
+            {
+              "type": "table_column.default[0].items[2]",
+              "content": "Satellittvisningskart",
+              "behavior": [
+                false,
+                true
+              ]
+            },
+            {
+              "type": "table_column.default[0].items[3]",
+              "content": "Video-streaming*",
+              "behavior": [
+                false,
+                true
+              ]
+            },
+            {
+              "type": "table_column.default[0].items[4]",
+              "content": "Caraoke*",
+              "behavior": [
+                false,
+                true
+              ]
+            },
+            {
+              "type": "table_column.default[0].items[5]",
+              "content": "Musikk-streaming*",
+              "behavior": [
+                false,
+                true
+              ]
+            },
+            {
+              "type": "table_column.default[0].items[6]",
+              "content": "Nettleser*",
+              "behavior": [
+                false,
+                true
+              ]
+            },
+            {
+              "type": "subscription_agreement",
+              "content": "Når du ##ACTION##, blir din lagrede betalingsmetode belastet og automatisk fakturert månedlig. Hvis du vil vite mer, besøk ##termsAndConditions##.\n\nPremium Connectivity-abonnement kan avbestilles når som helst; det kan imidlertid ikke refunderes. Hvis du vil vite mer, besøk ##cancellationPolicy##.\n\nHvis det er aktuelt, beregnes skatt basert på adressen du oppga da du bestilte."
+            },
+            {
+              "type": "terms_and_conditions",
+              "content": "Vilkår og betingelser",
+              "behavior": [
+                {
+                  "hash": "#premium-connectivity-subscription-agreement",
+                  "path": "legal/terms",
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "IS_SUBSCRIPTION"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "cancellation_policy",
+              "content": "Avbestillingsregler",
+              "behavior": [
+                {
+                  "hash": "#cancel-between-cycles",
+                  "path": "support/connectivity",
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "IS_SUBSCRIPTION"
+                  ]
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "app": "app-premium-connectivity-image/aasvcb/std/0x0/premium-connectivity",
+                  "type": "product-image",
+                  "mobile": "mobile-premium-connectivity-image/aasvcb/std/0x0/premium-connectivity",
+                  "appDark": "app-premium-connectivity-image/aasvcb/std/0x0/premium-connectivity",
+                  "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
+                  "desktop": "desktop-premium-connectivity-image/aasvcb/std/0x0/premium-connectivity",
+                  "desktop2x": "desktop2x-premium-connectivity-image/aasvcb/std/0x0/premium-connectivity"
+                }
+              ]
+            }
+          ],
           "price": 0,
           "pricing": [
             {
@@ -16570,11 +16961,9 @@
                 "target": "$IBW1",
                 "condition_state": "set",
                 "condition_any_code": [
-                  "$IPW1",
-                  "$IPW0",
-                  "$IBW0",
                   "$IN3PW",
-                  "$IN3BW"
+                  "$IN3BW",
+                  "$IBW0"
                 ]
               },
               {
@@ -16582,12 +16971,10 @@
                 "target": "$IBB1",
                 "condition_state": "set",
                 "condition_any_code": [
-                  "$IPB1",
-                  "$IPB0",
-                  "$IBB0",
                   "$IN3PB",
                   "$IN3B2",
-                  "$IN3BB"
+                  "$IN3BB",
+                  "$IBB0"
                 ]
               },
               {
@@ -16651,11 +17038,9 @@
               "target": "$IBW1",
               "condition_state": "set",
               "condition_any_code": [
-                "$IPW1",
-                "$IPW0",
-                "$IBW0",
                 "$IN3PW",
-                "$IN3BW"
+                "$IN3BW",
+                "$IBW0"
               ]
             },
             {
@@ -16663,12 +17048,10 @@
               "target": "$IBB1",
               "condition_state": "set",
               "condition_any_code": [
-                "$IPB1",
-                "$IPB0",
-                "$IBB0",
                 "$IN3PB",
                 "$IN3B2",
-                "$IN3BB"
+                "$IN3BB",
+                "$IBB0"
               ]
             },
             {
@@ -19194,6 +19577,78 @@
       },
       "metadata": {
         "vat": true,
+        "mutations": {
+          "add_W3SN8": {
+            "type": "service_center",
+            "rules": [
+              {
+                "action": "set",
+                "target": "$W3SN8",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MT301",
+                  "$MT308",
+                  "$MT314",
+                  "$MT320",
+                  "$MT336",
+                  "$MT337",
+                  "$MT303",
+                  "$MT310",
+                  "$MT315",
+                  "$MT316",
+                  "$MT321"
+                ]
+              }
+            ],
+            "context": "new",
+            "category": "WINTER_WHEELS_OPTIONS",
+            "comments": "Add $W3SN8 18\" Base Nokian Winter Wheel/Tire Set (Studded)"
+          },
+          "add_W3WN2": {
+            "type": "service_center",
+            "rules": [
+              {
+                "action": "set",
+                "target": "$W3WN2",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MT304",
+                  "$MT311",
+                  "$MT317"
+                ]
+              }
+            ],
+            "context": "new",
+            "category": "WINTER_WHEELS_OPTIONS",
+            "comments": "Add $W3WN2 20\" Base Nokian Winter Wheel/Tire Set"
+          },
+          "add_W3WN8": {
+            "type": "service_center",
+            "rules": [
+              {
+                "action": "set",
+                "target": "$W3WN8",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MT301",
+                  "$MT308",
+                  "$MT314",
+                  "$MT320",
+                  "$MT336",
+                  "$MT337",
+                  "$MT303",
+                  "$MT310",
+                  "$MT315",
+                  "$MT316",
+                  "$MT321"
+                ]
+              }
+            ],
+            "context": "new",
+            "category": "WINTER_WHEELS_OPTIONS",
+            "comments": "Add $W3WN8 18\" Base Nokian Winter Wheel/Tire Set"
+          }
+        },
         "migrations": [
           {
             "options": {
@@ -19633,7 +20088,8 @@
               "$MT318",
               "$MT319",
               "$MT320",
-              "$MT337"
+              "$MT337",
+              "$MT322"
             ]
           },
           {
@@ -19656,7 +20112,9 @@
               "$MT316",
               "$MT317",
               "$MT321",
-              "$MT339"
+              "$MT339",
+              "$MT323",
+              "$MT325"
             ]
           },
           {
@@ -19693,7 +20151,10 @@
               "$MT320",
               "$MT321",
               "$MT337",
-              "$MT339"
+              "$MT339",
+              "$MT322",
+              "$MT323",
+              "$MT325"
             ]
           }
         ],
@@ -24369,7 +24830,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 1799,
+      "options_id": 1765,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -25223,13 +25684,61 @@
             "content": "",
             "plan_name": "21' Tire Plan"
           }
+        },
+        {
+          "type": "#$GEW01",
+          "content": {
+            "code": "$GEW01",
+            "content": "",
+            "plan_name": "Extended Warranty: 1 year / 20,000 km",
+            "coverage_age": 12,
+            "new_warranty_remainder": true,
+            "coverage_odometer_miles": 12500,
+            "coverage_odometer_kilometers": 20000
+          }
+        },
+        {
+          "type": "#$GEW02",
+          "content": {
+            "code": "$GEW02",
+            "content": "",
+            "plan_name": "Extended Warranty: 2 years / 40,000 km",
+            "coverage_age": 24,
+            "new_warranty_remainder": true,
+            "coverage_odometer_miles": 25000,
+            "coverage_odometer_kilometers": 40000
+          }
+        },
+        {
+          "type": "#$GEW03",
+          "content": {
+            "code": "$GEW03",
+            "content": "",
+            "plan_name": "Extended Warranty: 3 years / 60,000 km",
+            "coverage_age": 36,
+            "new_warranty_remainder": true,
+            "coverage_odometer_miles": 32500,
+            "coverage_odometer_kilometers": 60000
+          }
+        },
+        {
+          "type": "#$GEW04",
+          "content": {
+            "code": "$GEW04",
+            "content": "",
+            "plan_name": "Extended Warranty: 4 years / 80,000 km",
+            "coverage_age": 36,
+            "new_warranty_remainder": true,
+            "coverage_odometer_miles": 50000,
+            "coverage_odometer_kilometers": 80000
+          }
         }
       ],
-      "copy_id": 2989,
+      "copy_id": 3030,
       "language": "no",
       "warnings": [],
       "pricing_id": 1784,
-      "reference_id": 1799
+      "reference_id": 1765
     }
   },
   "edd": [

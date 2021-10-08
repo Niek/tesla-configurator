@@ -2050,12 +2050,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-09-24T04:00:00.000Z",
+      "effective_date": "2021-10-08T00:40:00.000Z",
       "market": "DK",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing DK 2021.Sep.24 1771.3002.1798 [da]",
+      "name": "Marketing DK 2021.Oct.08 1836.3011.1798 [da]",
       "groups": [
         {
           "code": "MODEL",
@@ -4059,9 +4059,17 @@
               "type": "components",
               "content": [
                 {
+                  "hide": "inventory",
                   "type": "Title",
                   "props": {
                     "component": "h5"
+                  }
+                },
+                {
+                  "hide": "cfg",
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
                   }
                 },
                 {
@@ -7508,6 +7516,23 @@
               ]
             }
           ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Basic Autopilot-funktioner",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Produktkort"
+            }
+          ]
         }
       ],
       "options": {
@@ -7574,6 +7599,28 @@
             {
               "type": "deselectLabel",
               "content": "Mulighed valgt"
+            },
+            {
+              "type": "disclaimer",
+              "content": "De aktuelt aktiverede funktioner kræver aktiv overvågning fra førerens side og gør ikke køretøjet autonomt. Aktiveringen af og den fremtidige brug af disse funktioner afhænger af opnåelsen af en pålidelighed, der langt overstiger menneskelige førere med tusindvis af kilometers erfaring samt godkendelse fra de relevante myndigheder, hvilket kan tage lang tid i visse jurisdiktioner. I takt med at disse selvkørende funktioner udvikler sig, vil din bil blive opgraderet løbende gennem over-the-air-softwareopdateringer."
+            },
+            {
+              "type": "compare_features",
+              "content": "Funktionsdetajler",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {
+                      "data-should-open": "BASIC_AP_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -7582,6 +7629,60 @@
               "content": [
                 {
                   "type": "card"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "compare_features",
+                        "props": {
+                          "modal": "BASIC_AP_FEATURES"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "app": "ap-light-mode-image/aasvcb/std/0x0/ap-light-mode",
+                  "type": "product-image",
+                  "mobile": "ap-light-mode-image/aasvcb/std/0x0/ap-light-mode",
+                  "appDark": "ap-dark-mode-image/aasvcb/std/0x0/ap-dark-mode",
+                  "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
+                  "desktop": "ap-light-mode-image/aasvcb/std/0x0/ap-light-mode",
+                  "desktop2x": "ap-light-mode-image/aasvcb/std/0x0/ap-light-mode"
                 }
               ]
             }
@@ -7669,7 +7770,7 @@
             },
             {
               "type": "fsd_features",
-              "content": "Funktionsdetaljer",
+              "content": "Funktionsdetajler",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -7737,6 +7838,174 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.disclaimerOnImage",
+              "content": "Autopilot er påkrævet",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NO_AUTOPILOT"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.text",
+              "content": "Autopilot er en forudsætning for Fuldt selvkørende funktion, og funktionen vil blive tilføjet til din kurv for en merpris",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NO_AUTOPILOT"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.disclaimerOnImage[0]",
+              "content": "Autopilot er påkrævet",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NO_AUTOPILOT",
+                    "IS_UPGRADE"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.text[0]",
+              "content": "Autopilot er en forudsætning for Fuldt selvkørende funktion, og funktionen vil blive tilføjet til din kurv for en merpris",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NO_AUTOPILOT",
+                    "IS_UPGRADE"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.disclaimerOnImage[1]",
+              "content": "Køb af Autopilot er påkrævet",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NO_AUTOPILOT",
+                    "IS_SUBSCRIPTION"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.text[1]",
+              "content": "Autopilot er en forudsætning for Fuldt selvkørende funktion. Når du har købt Autopilot, er dit køretøj kvalificeret til abonnementet på Fuldt selvkørende funktion.",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NO_AUTOPILOT",
+                    "IS_SUBSCRIPTION"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.ctaText[1]",
+              "content": "KØB AUTOPILOT",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NO_AUTOPILOT"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.disclaimerOnImage[2]",
+              "content": "Opgradering af hardware er påkrævet",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NEED_HARDWARE_UPGRADE",
+                    "IS_SUBSCRIPTION"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.text[2]",
+              "content": "En fuldt selvkørende computerinstallation til ##cost## er påkrævet. Når installationen er færdig, er du berettiget til at abonnere.",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NEED_HARDWARE_UPGRADE",
+                    "IS_SUBSCRIPTION"
+                  ],
+                  "textReplaceKey": "##cost##",
+                  "textReplaceValue": "$1,000"
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::upgrade.ctaText[2]",
+              "content": "PLANLÆG INSTALLATION",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "NEED_HARDWARE_UPGRADE"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::subscription_agreement",
+              "content": "Når du ##ACTION##, vil beløbet blive hævet automatisk hver måned via din gemte betalingsmetode. Besøg siden ##termsAndConditions## for at lære mere.\n\nAbonnementet på Fuldt selvkørende funktion kan opsiges når som helst, men det kan ikke refunderes. Besøg siden ##cancellationPolicy## for at lære mere.\n\nEventuel moms beregnes på baggrund af den adresse, der oplyses i forbindelse med bestillingen.\n\nDe aktuelle Fuldt selvkørende funktioner kræver aktiv overvågning fra førerens side og gør ikke køretøjet autonomt. Fremtidig brug af disse funktioner uden overvågning afhænger af opnåelsen af en pålidelighed, der langt overstiger menneskelige førere med milliarder af kilometers erfaring samt godkendelse fra de relevante myndigheder, hvilket kan tage lang tid i visse jurisdiktioner.",
+              "behavior": [
+                {
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "IS_SUBSCRIPTION"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::terms_and_conditions",
+              "content": "Vilkår og betingelser",
+              "behavior": [
+                {
+                  "hash": "#full-self-driving-capability-subscription-agreement",
+                  "path": "legal/additional-resources",
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "IS_SUBSCRIPTION"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "#owner_xp:::cancellation_policy",
+              "content": "Annulleringspolitik",
+              "behavior": [
+                {
+                  "hash": "#cancellations",
+                  "path": "support/full-self-driving-subscriptions",
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "IS_SUBSCRIPTION"
+                  ]
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -7792,6 +8061,20 @@
                   "props": {
                     "field": "disclaimer"
                   }
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "app": "fsd-light-mode-image/aasvcb/std/0x0/fsd-light-mode",
+                  "type": "product-image",
+                  "mobile": "fsd-light-mode-image/aasvcb/std/0x0/fsd-light-mode",
+                  "appDark": "fsd-dark-mode-image/aasvcb/std/0x0/fsd-dark-mode",
+                  "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
+                  "desktop": "fsd-light-mode-image/aasvcb/std/0x0/fsd-light-mode",
+                  "desktop2x": "fsd-light-mode-image/aasvcb/std/0x0/fsd-light-mode"
                 }
               ]
             }
@@ -7865,7 +8148,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "valgfri"
+              "content": "Inkluderet"
             },
             {
               "type": "feature_list.default[0].items[0]",
@@ -7889,7 +8172,7 @@
             },
             {
               "type": "fsd_features",
-              "content": "Funktionsdetaljer",
+              "content": "Funktionsdetajler",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -8006,6 +8289,20 @@
                       }
                     ]
                   }
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "app": "eap-light-mode-image/aasvcb/std/0x0/eap-light-mode",
+                  "type": "product-image",
+                  "mobile": "eap-light-mode-image/aasvcb/std/0x0/eap-light-mode",
+                  "appDark": "eap-dark-mode-image/aasvcb/std/0x0/eap-dark-mode",
+                  "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
+                  "desktop": "eap-light-mode-image/aasvcb/std/0x0/eap-light-mode",
+                  "desktop2x": "eap-light-mode-image/aasvcb/std/0x0/eap-light-mode"
                 }
               ]
             }
@@ -8211,7 +8508,187 @@
           "name": "Premium Connectivity",
           "description": "Premium Connectivity",
           "long_name": "Premium Connectivity",
-          "extra_copy": [],
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Inkluderet"
+            },
+            {
+              "type": "long_name",
+              "content": "1 års prøveperiode på Premium Connectivity",
+              "behavior": [
+                {
+                  "type": "REPLACE_CONTENT",
+                  "content": {
+                    "source": "options.$CPF1.premium_connectivity_trail_sr",
+                    "selected_by": {
+                      "or": [
+                        "$MT314",
+                        "$MT320",
+                        "$MT337"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "premium_connectivity_trail_sr",
+              "content": "30-dages prøveperiode på Premium Connectivity"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Live trafikvisualisering"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Musik"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Streaming af video"
+            },
+            {
+              "type": "feature_list.default[0].items[3]",
+              "content": "Internet"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "og meget mere"
+            },
+            {
+              "type": "table_header.default[0].items[0]",
+              "content": "Connectivity-pakker"
+            },
+            {
+              "type": "table_header.default[0].items[1]",
+              "content": "Standard"
+            },
+            {
+              "type": "table_header.default[0].items[2]",
+              "content": "Premium"
+            },
+            {
+              "type": "table_subheader.default[0].items[0]",
+              "content": " "
+            },
+            {
+              "type": "table_subheader.default[0].items[1]",
+              "content": "Inkluderet"
+            },
+            {
+              "type": "table_subheader.default[0].items[2]",
+              "content": "{{price}}"
+            },
+            {
+              "type": "table_caption",
+              "content": "*Kun tilgængelig via Wi-Fi med Standard Connectivity"
+            },
+            {
+              "type": "table_column.default[0].items[0]",
+              "content": "Navigation",
+              "behavior": [
+                true,
+                true
+              ]
+            },
+            {
+              "type": "table_column.default[0].items[1]",
+              "content": "Live trafikvisualisering",
+              "behavior": [
+                false,
+                true
+              ]
+            },
+            {
+              "type": "table_column.default[0].items[2]",
+              "content": "Kort med satellitvisning",
+              "behavior": [
+                false,
+                true
+              ]
+            },
+            {
+              "type": "table_column.default[0].items[3]",
+              "content": "Streaming af video*",
+              "behavior": [
+                false,
+                true
+              ]
+            },
+            {
+              "type": "table_column.default[0].items[4]",
+              "content": "Caraoke*",
+              "behavior": [
+                false,
+                true
+              ]
+            },
+            {
+              "type": "table_column.default[0].items[5]",
+              "content": "Streaming af musik*",
+              "behavior": [
+                false,
+                true
+              ]
+            },
+            {
+              "type": "table_column.default[0].items[6]",
+              "content": "Internetbrowser*",
+              "behavior": [
+                false,
+                true
+              ]
+            },
+            {
+              "type": "subscription_agreement",
+              "content": "Når du ##ACTION##, vil beløbet blive hævet automatisk hver måned via din gemte betalingsmetode. Besøg siden ##termsAndConditions## for at lære mere.\n\nAbonnementet på Premium Connectivity kan annulleres når som helst, men det kan ikke refunderes. Besøg siden ##cancellationPolicy## for at lære mere.\n\nEventuelle afgifter beregnes på baggrund af den adresse, der oplyses i forbindelse med bestillingen."
+            },
+            {
+              "type": "terms_and_conditions",
+              "content": "Vilkår og betingelser",
+              "behavior": [
+                {
+                  "hash": "#premium-connectivity-subscription-agreement",
+                  "path": "legal/terms",
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "IS_SUBSCRIPTION"
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "cancellation_policy",
+              "content": "Annulleringspolitik",
+              "behavior": [
+                {
+                  "hash": "#cancel-between-cycles",
+                  "path": "support/connectivity",
+                  "type": "DISPLAY_CONDITION",
+                  "content": [
+                    "IS_SUBSCRIPTION"
+                  ]
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "app": "app-premium-connectivity-image/aasvcb/std/0x0/premium-connectivity",
+                  "type": "product-image",
+                  "mobile": "mobile-premium-connectivity-image/aasvcb/std/0x0/premium-connectivity",
+                  "appDark": "app-premium-connectivity-image/aasvcb/std/0x0/premium-connectivity",
+                  "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
+                  "desktop": "desktop-premium-connectivity-image/aasvcb/std/0x0/premium-connectivity",
+                  "desktop2x": "desktop2x-premium-connectivity-image/aasvcb/std/0x0/premium-connectivity"
+                }
+              ]
+            }
+          ],
           "price": 0,
           "pricing": [
             {
@@ -17418,7 +17895,7 @@
             },
             {
               "type": "performance_upgrade_features",
-              "content": "Funktionsdetaljer",
+              "content": "Funktionsdetajler",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -18322,7 +18799,8 @@
               "$MT318",
               "$MT319",
               "$MT320",
-              "$MT337"
+              "$MT337",
+              "$MT322"
             ]
           },
           {
@@ -18345,7 +18823,9 @@
               "$MT316",
               "$MT317",
               "$MT321",
-              "$MT339"
+              "$MT339",
+              "$MT325",
+              "$MT323"
             ]
           },
           {
@@ -18382,7 +18862,10 @@
               "$MT320",
               "$MT321",
               "$MT337",
-              "$MT339"
+              "$MT339",
+              "$MT322",
+              "$MT323",
+              "$MT325"
             ]
           }
         ],
@@ -22905,7 +23388,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 1771,
+      "options_id": 1836,
       "extra_content": [
         {
           "type": "#$GN00",
@@ -23759,13 +24242,61 @@
             "content": "",
             "plan_name": "21' Tire Plan"
           }
+        },
+        {
+          "type": "#$GEW01",
+          "content": {
+            "code": "$GEW01",
+            "content": "",
+            "plan_name": "Extended Warranty: 1 year / 20,000 km",
+            "coverage_age": 12,
+            "new_warranty_remainder": true,
+            "coverage_odometer_miles": 12500,
+            "coverage_odometer_kilometers": 20000
+          }
+        },
+        {
+          "type": "#$GEW02",
+          "content": {
+            "code": "$GEW02",
+            "content": "",
+            "plan_name": "Extended Warranty: 2 years / 40,000 km",
+            "coverage_age": 24,
+            "new_warranty_remainder": true,
+            "coverage_odometer_miles": 25000,
+            "coverage_odometer_kilometers": 40000
+          }
+        },
+        {
+          "type": "#$GEW03",
+          "content": {
+            "code": "$GEW03",
+            "content": "",
+            "plan_name": "Extended Warranty: 3 years / 60,000 km",
+            "coverage_age": 36,
+            "new_warranty_remainder": true,
+            "coverage_odometer_miles": 32500,
+            "coverage_odometer_kilometers": 60000
+          }
+        },
+        {
+          "type": "#$GEW04",
+          "content": {
+            "code": "$GEW04",
+            "content": "",
+            "plan_name": "Extended Warranty: 4 years / 80,000 km",
+            "coverage_age": 36,
+            "new_warranty_remainder": true,
+            "coverage_odometer_miles": 50000,
+            "coverage_odometer_kilometers": 80000
+          }
         }
       ],
-      "copy_id": 3002,
+      "copy_id": 3011,
       "language": "da",
       "warnings": [],
       "pricing_id": 1798,
-      "reference_id": 1771
+      "reference_id": 1836
     }
   },
   "edd": [
