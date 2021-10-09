@@ -702,7 +702,8 @@
               "or": [
                 "$MT311",
                 "$MT317",
-                "$MT339"
+                "$MT339",
+                "$MT325"
               ]
             }
           },
@@ -713,7 +714,8 @@
               "or": [
                 "$MT311",
                 "$MT317",
-                "$MT339"
+                "$MT339",
+                "$MT325"
               ]
             }
           },
@@ -1722,18 +1724,23 @@
             "new"
           ],
           "variables": {
-            "downPayment": 0.3,
-            "minimumDownPayment": 0.2,
-            "maximumDownPayment": 0.5,
-            "interestRate": 3.75,
-            "leaseTerm": 60
+            "downPayment": 0.2,
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.9,
+            "interestRate": 3.55,
+            "leaseTerm": 60,
+            "localeSpecific": {
+              "residualAmount": 1500,
+              "upfrontFeeRate": 0.4
+            }
           },
           "leaseTermsOffered": {
             "leaseTerm": [
               24,
               36,
               48,
-              60
+              60,
+              72
             ],
             "leaseDistance": [
               10000,
@@ -1741,90 +1748,7 @@
               20000,
               25000
             ]
-          },
-          "interestRateMatrix": [],
-          "residualRateMatrix": [
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 10000,
-              "value": 0.01
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 15000,
-              "value": 0.01
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 20000,
-              "value": 0.01
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 25000,
-              "value": 0.01
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 10000,
-              "value": 0.01
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 15000,
-              "value": 0.01
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 20000,
-              "value": 0.01
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 25000,
-              "value": 0.01
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 10000,
-              "value": 0.01
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 15000,
-              "value": 0.01
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 20000,
-              "value": 0.01
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 25000,
-              "value": 0.01
-            },
-            {
-              "leaseTerm": 60,
-              "leaseDistance": 10000,
-              "value": 0.01
-            },
-            {
-              "leaseTerm": 60,
-              "leaseDistance": 15000,
-              "value": 0.01
-            },
-            {
-              "leaseTerm": 60,
-              "leaseDistance": 20000,
-              "value": 0.01
-            },
-            {
-              "leaseTerm": 60,
-              "leaseDistance": 25000,
-              "value": 0.01
-            }
-          ]
+          }
         }
       ]
     },
@@ -18812,9 +18736,162 @@
           ],
           "required": false,
           "exclusive": false
+        },
+        {
+          "code": "EXTENDED_WARRANTY_INSURANCE",
+          "groups": [],
+          "context": "default",
+          "options": [
+            "$EW01",
+            "$EW02",
+            "$EW03",
+            "$EW04"
+          ],
+          "required": false,
+          "exclusive": false
         }
       ],
       "warranty_options": {
+        "$EW01": {
+          "code": "$EW01",
+          "name": "EWI Warranty",
+          "description": "EWI Warranty",
+          "extra_copy": [
+            {
+              "type": "description",
+              "content": "Extended Warranty: 1 year / 20,000 km"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "title",
+              "content": [
+                "NEW"
+              ]
+            },
+            {
+              "type": "odometer_unit",
+              "content": "kilometers"
+            },
+            {
+              "type": "general_coverage",
+              "content": {
+                "code": "$GEW01",
+                "content": "",
+                "plan_name": "Extended Warranty: 1 year / 20,000 km",
+                "coverage_age": 12,
+                "new_warranty_remainder": true,
+                "coverage_odometer_miles": 12500,
+                "coverage_odometer_kilometers": 20000
+              }
+            }
+          ]
+        },
+        "$EW02": {
+          "code": "$EW02",
+          "name": "EWI Warranty",
+          "description": "EWI Warranty",
+          "extra_copy": [
+            {
+              "type": "description",
+              "content": "Extended Warranty: 2 year / 40,000 km"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "title",
+              "content": [
+                "NEW"
+              ]
+            },
+            {
+              "type": "odometer_unit",
+              "content": "kilometers"
+            },
+            {
+              "type": "general_coverage",
+              "content": {
+                "code": "$GEW02",
+                "content": "",
+                "plan_name": "Extended Warranty: 2 years / 40,000 km",
+                "coverage_age": 24,
+                "new_warranty_remainder": true,
+                "coverage_odometer_miles": 25000,
+                "coverage_odometer_kilometers": 40000
+              }
+            }
+          ]
+        },
+        "$EW03": {
+          "code": "$EW03",
+          "name": "EWI Warranty",
+          "description": "EWI Warranty",
+          "extra_copy": [
+            {
+              "type": "description",
+              "content": "Extended Warranty: 3 year / 60,000 km"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "title",
+              "content": [
+                "NEW"
+              ]
+            },
+            {
+              "type": "odometer_unit",
+              "content": "kilometers"
+            },
+            {
+              "type": "general_coverage",
+              "content": {
+                "code": "$GEW03",
+                "content": "",
+                "plan_name": "Extended Warranty: 3 years / 60,000 km",
+                "coverage_age": 36,
+                "new_warranty_remainder": true,
+                "coverage_odometer_miles": 32500,
+                "coverage_odometer_kilometers": 60000
+              }
+            }
+          ]
+        },
+        "$EW04": {
+          "code": "$EW04",
+          "name": "EWI Warranty",
+          "description": "EWI Warranty",
+          "extra_copy": [
+            {
+              "type": "description",
+              "content": "Extended Warranty: 4 year / 80,000 km"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "title",
+              "content": [
+                "NEW"
+              ]
+            },
+            {
+              "type": "odometer_unit",
+              "content": "kilometers"
+            },
+            {
+              "type": "general_coverage",
+              "content": {
+                "code": "$GEW04",
+                "content": "",
+                "plan_name": "Extended Warranty: 4 years / 80,000 km",
+                "coverage_age": 36,
+                "new_warranty_remainder": true,
+                "coverage_odometer_miles": 50000,
+                "coverage_odometer_kilometers": 80000
+              }
+            }
+          ]
+        },
         "$NW00": {
           "code": "$NW00",
           "name": "Novo MFG jamstvo",
