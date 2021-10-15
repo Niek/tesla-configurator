@@ -938,12 +938,12 @@
       }
     },
     "Lexicon.mp": {
-      "effective_date": "2021-08-05T23:45:00.000Z",
+      "effective_date": "2021-10-15T00:45:00.000Z",
       "market": "JP",
       "product": "mp",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing JP 2021.Aug.05 20.2559.18 [ja]",
+      "name": "Marketing JP 2021.Oct.15 1896.3254.18 [ja]",
       "groups": [
         {
           "code": "DRIVE",
@@ -980,12 +980,13 @@
           "options": [
             "$MTP01",
             "$MTP02",
-            "$MTP03"
+            "$MTP03",
+            "$MTP04"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTP01"
+            "$MTP04"
           ],
           "name": "TRIM"
         },
@@ -1085,7 +1086,8 @@
             "$MDLP",
             "$MTP01",
             "$MTP02",
-            "$MTP03"
+            "$MTP03",
+            "$MTP04"
           ],
           "required": false,
           "exclusive": false,
@@ -1104,12 +1106,7 @@
         },
         {
           "code": "REVIEW_ORDER",
-          "groups": [
-            "AUTOPILOT",
-            "AUTOPILOT_OWNERSHIP",
-            "AUTOPILOT_PACKAGE",
-            "AUTOPILOT_FIRMWARE"
-          ],
+          "groups": [],
           "context": "order_summary",
           "options": [],
           "required": false,
@@ -1125,12 +1122,13 @@
           "options": [
             "$MTP01",
             "$MTP02",
-            "$MTP03"
+            "$MTP03",
+            "$MTP04"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTP01"
+            "$MTP04"
           ],
           "name": "TRIM",
           "extra_copy": [
@@ -1140,16 +1138,13 @@
             },
             {
               "type": "order_disclaimer",
-              "content": "全額払い戻し可能。2022年の生産が近づくと、デザインを完成することができます。<br/>表示スペックは米国仕様です"
+              "content": "全額払い戻し可能。"
             }
           ]
         },
         {
           "code": "BATTERY_AND_DRIVE",
-          "groups": [
-            "TRIM",
-            "AUTOPILOT"
-          ],
+          "groups": [],
           "context": "configurator",
           "options": [],
           "required": false,
@@ -1159,90 +1154,15 @@
           "description": "バッテリーとドライブトレイン",
           "extra_copy": [
             {
-              "type": "zero_to_road_limit_units",
-              "content": "0-60 mile/h"
-            },
-            {
-              "type": "range_units",
-              "content": "航続距離（EPA推定）"
-            },
-            {
-              "type": "epa",
-              "content": " "
-            },
-            {
-              "type": "speed_units_short",
-              "content": "秒"
-            },
-            {
-              "type": "range_units_short",
-              "content": "mi"
-            },
-            {
-              "type": "top_speed_units_short",
-              "content": "mph"
-            },
-            {
-              "type": "range_units_epa",
-              "content": "航続距離（EPA推定）"
-            },
-            {
-              "type": "top_speed_units",
-              "content": "最高時速"
+              "type": "order_disclaimer",
+              "content": "2022年の生産が近づくと、デザインを完成することができます。<br/>表示スペックは米国仕様です"
             },
             {
               "type": "name",
               "content": "Cybertruckの先行予約"
-            },
-            {
-              "type": "towing_capacity_short",
-              "content": "ポンド"
-            },
-            {
-              "type": "towing_capacity_units",
-              "content": "牽引能力"
             }
           ],
-          "extra_content": [
-            {
-              "type": "performance_specs",
-              "content": [
-                {
-                  "range": "250+",
-                  "units": "imperial",
-                  "selected_by": {
-                    "and": [
-                      "$MTP01"
-                    ]
-                  },
-                  "towing_capacity": "7,500+",
-                  "zero_to_road_limit": "<6.5"
-                },
-                {
-                  "range": "300+",
-                  "units": "imperial",
-                  "selected_by": {
-                    "and": [
-                      "$MTP02"
-                    ]
-                  },
-                  "towing_capacity": "10,000+",
-                  "zero_to_road_limit": "<4.5"
-                },
-                {
-                  "range": "500+",
-                  "units": "imperial",
-                  "selected_by": {
-                    "and": [
-                      "$MTP03"
-                    ]
-                  },
-                  "towing_capacity": "14,000+",
-                  "zero_to_road_limit": "<2.9"
-                }
-              ]
-            }
-          ]
+          "extra_content": []
         },
         {
           "code": "DELIVERY_TIMING",
@@ -1265,7 +1185,8 @@
           "options": [
             "$MTP01",
             "$MTP02",
-            "$MTP03"
+            "$MTP03",
+            "$MTP04"
           ],
           "required": false,
           "exclusive": false,
@@ -1585,7 +1506,7 @@
               {
                 "action": "set",
                 "target": "$DV2W",
-                "condition_code": "$MTP01",
+                "condition_code": "$MTP04",
                 "condition_state": "set"
               }
             ]
@@ -1602,7 +1523,7 @@
             {
               "action": "set",
               "target": "$DV2W",
-              "condition_code": "$MTP01",
+              "condition_code": "$MTP04",
               "condition_state": "set"
             }
           ],
@@ -1613,7 +1534,9 @@
             },
             {
               "action": "set",
-              "target": "$DV4W"
+              "target": "$DV2W",
+              "condition_code": "$DV4W",
+              "condition_state": "unset"
             }
           ],
           "name": "RWD (後輪駆動)",
@@ -1777,7 +1700,8 @@
               "action": "unset",
               "targets": [
                 "$MTP02",
-                "$MTP03"
+                "$MTP03",
+                "$MTP04"
               ]
             },
             {
@@ -1792,7 +1716,7 @@
             },
             {
               "action": "set",
-              "target": "$MTP01",
+              "target": "$MTP04",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTP02",
@@ -1856,7 +1780,8 @@
               "action": "unset",
               "targets": [
                 "$MTP01",
-                "$MTP03"
+                "$MTP03",
+                "$MTP04"
               ]
             },
             {
@@ -1871,9 +1796,12 @@
             },
             {
               "action": "set",
-              "target": "$MTP01",
-              "condition_code": "$MTP03",
-              "condition_state": "unset"
+              "target": "$MTP04",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTP01",
+                "$MTP03"
+              ]
             }
           ],
           "name": "デュアルモーターAWD",
@@ -1932,7 +1860,8 @@
               "action": "unset",
               "targets": [
                 "$MTP01",
-                "$MTP02"
+                "$MTP02",
+                "$MTP04"
               ]
             },
             {
@@ -1947,9 +1876,12 @@
             },
             {
               "action": "set",
-              "target": "$MTP01",
-              "condition_code": "$MTP02",
-              "condition_state": "unset"
+              "target": "$MTP04",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTP01",
+                "$MTP02"
+              ]
             }
           ],
           "name": "トライモーターAWD",
@@ -1982,6 +1914,65 @@
               "type": "base",
               "value": 0,
               "context": "default"
+            }
+          ]
+        },
+        "$MTP04": {
+          "code": "$MTP04",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$DV2W"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTP04"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTP01",
+                "$MTP02",
+                "$MTP03"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$DV2W"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTP04"
+            },
+            {
+              "action": "set",
+              "target": "$MTP04",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTP01",
+                "$MTP02",
+                "$MTP03"
+              ]
+            }
+          ],
+          "name": "Cybertruck",
+          "description": "Cybertruck",
+          "long_name": "Cybertruck",
+          "long_description": "Cybertruck",
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
             }
           ]
         }
@@ -2026,18 +2017,18 @@
         "$DV2W",
         "$IDD",
         "$MDLP",
-        "$MTP01",
+        "$MTP04",
         "$PDD",
         "$WDD",
         "$DRRH",
         "$SC04"
       ],
-      "options_id": 20,
-      "copy_id": 2559,
+      "options_id": 1896,
+      "copy_id": 3254,
       "language": "ja",
       "warnings": [],
       "pricing_id": 18,
-      "reference_id": 20
+      "reference_id": 1896
     }
   },
   "edd": []

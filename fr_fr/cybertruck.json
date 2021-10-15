@@ -945,12 +945,12 @@
       }
     },
     "Lexicon.mp": {
-      "effective_date": "2021-08-05T23:45:00.000Z",
+      "effective_date": "2021-10-15T00:45:00.000Z",
       "market": "FR",
       "product": "mp",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing FR 2021.Aug.05 132.2551.131 [fr]",
+      "name": "Marketing FR 2021.Oct.15 1911.3264.131 [fr]",
       "groups": [
         {
           "code": "MODEL",
@@ -973,12 +973,13 @@
           "options": [
             "$MTP01",
             "$MTP02",
-            "$MTP03"
+            "$MTP03",
+            "$MTP04"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTP01"
+            "$MTP04"
           ],
           "name": "TRIM"
         },
@@ -1078,7 +1079,8 @@
             "$MDLP",
             "$MTP01",
             "$MTP02",
-            "$MTP03"
+            "$MTP03",
+            "$MTP04"
           ],
           "required": false,
           "exclusive": false,
@@ -1097,12 +1099,7 @@
         },
         {
           "code": "REVIEW_ORDER",
-          "groups": [
-            "AUTOPILOT",
-            "AUTOPILOT_OWNERSHIP",
-            "AUTOPILOT_PACKAGE",
-            "AUTOPILOT_FIRMWARE"
-          ],
+          "groups": [],
           "context": "order_summary",
           "options": [],
           "required": false,
@@ -1118,12 +1115,13 @@
           "options": [
             "$MTP01",
             "$MTP02",
-            "$MTP03"
+            "$MTP03",
+            "$MTP04"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTP01"
+            "$MTP04"
           ],
           "name": "TRIM",
           "extra_copy": [
@@ -1133,16 +1131,13 @@
             },
             {
               "type": "order_disclaimer",
-              "content": "Entièrement remboursable. Vous pourrez finaliser votre configuration à l'approche de la mise en production en 2022. Toutes les configurations sont conformes aux spécifications américaines uniquement."
+              "content": "Entièrement remboursable."
             }
           ]
         },
         {
           "code": "BATTERY_AND_DRIVE",
-          "groups": [
-            "TRIM",
-            "AUTOPILOT"
-          ],
+          "groups": [],
           "context": "configurator",
           "options": [],
           "required": false,
@@ -1152,90 +1147,15 @@
           "description": "Batterie et groupe motopropulseur",
           "extra_copy": [
             {
-              "type": "zero_to_road_limit_units",
-              "content": "0-100 km/h"
-            },
-            {
-              "type": "range_units",
-              "content": "Autonomie (EPA est.)"
-            },
-            {
-              "type": "epa",
-              "content": " "
-            },
-            {
-              "type": "speed_units_short",
-              "content": "s"
-            },
-            {
-              "type": "range_units_short",
-              "content": "mi"
-            },
-            {
-              "type": "top_speed_units_short",
-              "content": "mi/h"
-            },
-            {
-              "type": "range_units_epa",
-              "content": "Autonomie (EPA est.)"
-            },
-            {
-              "type": "top_speed_units",
-              "content": "Vitesse maximale"
+              "type": "order_disclaimer",
+              "content": "Vous pourrez finaliser votre configuration à l'approche de la mise en production en 2022."
             },
             {
               "type": "name",
               "content": "Commander Cybertruck"
-            },
-            {
-              "type": "towing_capacity_short",
-              "content": "lbs"
-            },
-            {
-              "type": "towing_capacity_units",
-              "content": "Capacité de traction"
             }
           ],
-          "extra_content": [
-            {
-              "type": "performance_specs",
-              "content": [
-                {
-                  "range": "250+",
-                  "units": "imperial",
-                  "selected_by": {
-                    "and": [
-                      "$MTP01"
-                    ]
-                  },
-                  "towing_capacity": "7,500+",
-                  "zero_to_road_limit": "<6.5"
-                },
-                {
-                  "range": "300+",
-                  "units": "imperial",
-                  "selected_by": {
-                    "and": [
-                      "$MTP02"
-                    ]
-                  },
-                  "towing_capacity": "10,000+",
-                  "zero_to_road_limit": "<4.5"
-                },
-                {
-                  "range": "500+",
-                  "units": "imperial",
-                  "selected_by": {
-                    "and": [
-                      "$MTP03"
-                    ]
-                  },
-                  "towing_capacity": "14,000+",
-                  "zero_to_road_limit": "<2.9"
-                }
-              ]
-            }
-          ]
+          "extra_content": []
         },
         {
           "code": "DELIVERY_TIMING",
@@ -1258,7 +1178,8 @@
           "options": [
             "$MTP01",
             "$MTP02",
-            "$MTP03"
+            "$MTP03",
+            "$MTP04"
           ],
           "required": false,
           "exclusive": false,
@@ -1551,7 +1472,7 @@
               {
                 "action": "set",
                 "target": "$DV2W",
-                "condition_code": "$MTP01",
+                "condition_code": "$MTP04",
                 "condition_state": "set"
               }
             ]
@@ -1568,7 +1489,7 @@
             {
               "action": "set",
               "target": "$DV2W",
-              "condition_code": "$MTP01",
+              "condition_code": "$MTP04",
               "condition_state": "set"
             }
           ],
@@ -1579,7 +1500,9 @@
             },
             {
               "action": "set",
-              "target": "$DV4W"
+              "target": "$DV2W",
+              "condition_code": "$DV4W",
+              "condition_state": "unset"
             }
           ],
           "name": "Propulsion",
@@ -1743,7 +1666,8 @@
               "action": "unset",
               "targets": [
                 "$MTP02",
-                "$MTP03"
+                "$MTP03",
+                "$MTP04"
               ]
             },
             {
@@ -1758,7 +1682,7 @@
             },
             {
               "action": "set",
-              "target": "$MTP01",
+              "target": "$MTP04",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTP02",
@@ -1822,7 +1746,8 @@
               "action": "unset",
               "targets": [
                 "$MTP01",
-                "$MTP03"
+                "$MTP03",
+                "$MTP04"
               ]
             },
             {
@@ -1837,9 +1762,12 @@
             },
             {
               "action": "set",
-              "target": "$MTP01",
-              "condition_code": "$MTP03",
-              "condition_state": "unset"
+              "target": "$MTP04",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTP01",
+                "$MTP03"
+              ]
             }
           ],
           "name": "Dual Motor AWD",
@@ -1898,7 +1826,8 @@
               "action": "unset",
               "targets": [
                 "$MTP01",
-                "$MTP02"
+                "$MTP02",
+                "$MTP04"
               ]
             },
             {
@@ -1913,9 +1842,12 @@
             },
             {
               "action": "set",
-              "target": "$MTP01",
-              "condition_code": "$MTP02",
-              "condition_state": "unset"
+              "target": "$MTP04",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTP01",
+                "$MTP02"
+              ]
             }
           ],
           "name": "Tri Motor AWD",
@@ -1948,6 +1880,65 @@
               "type": "base",
               "value": 0,
               "context": "default"
+            }
+          ]
+        },
+        "$MTP04": {
+          "code": "$MTP04",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$DV2W"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTP04"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTP01",
+                "$MTP02",
+                "$MTP03"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$DV2W"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTP04"
+            },
+            {
+              "action": "set",
+              "target": "$MTP04",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTP01",
+                "$MTP02",
+                "$MTP03"
+              ]
+            }
+          ],
+          "name": "Cybertruck",
+          "description": "Cybertruck",
+          "long_name": "Cybertruck",
+          "long_description": "Cybertruck",
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
             }
           ]
         }
@@ -1992,17 +1983,17 @@
         "$DV2W",
         "$IDD",
         "$MDLP",
-        "$MTP01",
+        "$MTP04",
         "$PDD",
         "$WDD",
         "$SC04"
       ],
-      "options_id": 132,
-      "copy_id": 2551,
+      "options_id": 1911,
+      "copy_id": 3264,
       "language": "fr",
       "warnings": [],
       "pricing_id": 131,
-      "reference_id": 132
+      "reference_id": 1911
     }
   },
   "edd": []

@@ -939,12 +939,12 @@
       }
     },
     "Lexicon.mp": {
-      "effective_date": "2021-08-05T23:45:00.000Z",
+      "effective_date": "2021-10-15T00:45:00.000Z",
       "market": "TW",
       "product": "mp",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing TW 2021.Aug.05 53.2553.54 [zh]",
+      "name": "Marketing TW 2021.Oct.15 1900.3257.54 [zh]",
       "groups": [
         {
           "code": "MODEL",
@@ -982,12 +982,13 @@
           "options": [
             "$MTP01",
             "$MTP02",
-            "$MTP03"
+            "$MTP03",
+            "$MTP04"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTP01"
+            "$MTP04"
           ],
           "name": "TRIM"
         },
@@ -1072,7 +1073,8 @@
             "$MDLP",
             "$MTP01",
             "$MTP02",
-            "$MTP03"
+            "$MTP03",
+            "$MTP04"
           ],
           "required": false,
           "exclusive": false,
@@ -1091,12 +1093,7 @@
         },
         {
           "code": "REVIEW_ORDER",
-          "groups": [
-            "AUTOPILOT",
-            "AUTOPILOT_OWNERSHIP",
-            "AUTOPILOT_PACKAGE",
-            "AUTOPILOT_FIRMWARE"
-          ],
+          "groups": [],
           "context": "order_summary",
           "options": [],
           "required": false,
@@ -1112,12 +1109,13 @@
           "options": [
             "$MTP01",
             "$MTP02",
-            "$MTP03"
+            "$MTP03",
+            "$MTP04"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTP01"
+            "$MTP04"
           ],
           "name": "TRIM",
           "extra_copy": [
@@ -1127,7 +1125,7 @@
             },
             {
               "type": "order_disclaimer",
-              "content": "可全額退款。預計於 2022 年後車輛即將量產時開放配置。所有配置均為美國規格。"
+              "content": "可全額退款。"
             }
           ]
         },
@@ -1145,10 +1143,7 @@
         },
         {
           "code": "BATTERY_AND_DRIVE",
-          "groups": [
-            "TRIM",
-            "AUTOPILOT"
-          ],
+          "groups": [],
           "context": "configurator",
           "options": [],
           "required": false,
@@ -1158,90 +1153,15 @@
           "description": "電池和傳動系統",
           "extra_copy": [
             {
-              "type": "zero_to_road_limit_units",
-              "content": "0-100 公里/小時"
-            },
-            {
-              "type": "range_units",
-              "content": "續航里程 (EPA 預估值)"
-            },
-            {
-              "type": "epa",
-              "content": " "
-            },
-            {
-              "type": "speed_units_short",
-              "content": "秒"
-            },
-            {
-              "type": "range_units_short",
-              "content": "英里"
-            },
-            {
-              "type": "top_speed_units_short",
-              "content": "英里/小時"
-            },
-            {
-              "type": "range_units_epa",
-              "content": "續航里程 (EPA 預估值)"
-            },
-            {
-              "type": "top_speed_units",
-              "content": "最高車速"
-            },
-            {
               "type": "name",
               "content": "訂購 Cybertruck"
             },
             {
-              "type": "towing_capacity_short",
-              "content": "千克"
-            },
-            {
-              "type": "towing_capacity_units",
-              "content": "拖曳能力"
+              "type": "order_disclaimer",
+              "content": "預計於 2022 年後車輛即將量產時開放配置。"
             }
           ],
-          "extra_content": [
-            {
-              "type": "performance_specs",
-              "content": [
-                {
-                  "range": "250+",
-                  "units": "imperial",
-                  "selected_by": {
-                    "and": [
-                      "$MTP01"
-                    ]
-                  },
-                  "towing_capacity": "7,500+",
-                  "zero_to_road_limit": "<6.5"
-                },
-                {
-                  "range": "300+",
-                  "units": "imperial",
-                  "selected_by": {
-                    "and": [
-                      "$MTP02"
-                    ]
-                  },
-                  "towing_capacity": "10,000+",
-                  "zero_to_road_limit": "<4.5"
-                },
-                {
-                  "range": "500+",
-                  "units": "imperial",
-                  "selected_by": {
-                    "and": [
-                      "$MTP03"
-                    ]
-                  },
-                  "towing_capacity": "14,000+",
-                  "zero_to_road_limit": "<2.9"
-                }
-              ]
-            }
-          ]
+          "extra_content": []
         },
         {
           "code": "DELIVERY_TIMING",
@@ -1264,7 +1184,8 @@
           "options": [
             "$MTP01",
             "$MTP02",
-            "$MTP03"
+            "$MTP03",
+            "$MTP04"
           ],
           "required": false,
           "exclusive": false,
@@ -1543,7 +1464,7 @@
               {
                 "action": "set",
                 "target": "$DV2W",
-                "condition_code": "$MTP01",
+                "condition_code": "$MTP04",
                 "condition_state": "set"
               }
             ]
@@ -1560,7 +1481,7 @@
             {
               "action": "set",
               "target": "$DV2W",
-              "condition_code": "$MTP01",
+              "condition_code": "$MTP04",
               "condition_state": "set"
             }
           ],
@@ -1571,7 +1492,9 @@
             },
             {
               "action": "set",
-              "target": "$DV4W"
+              "target": "$DV2W",
+              "condition_code": "$DV4W",
+              "condition_state": "unset"
             }
           ],
           "name": "後輪驅動",
@@ -1735,7 +1658,8 @@
               "action": "unset",
               "targets": [
                 "$MTP02",
-                "$MTP03"
+                "$MTP03",
+                "$MTP04"
               ]
             },
             {
@@ -1750,7 +1674,7 @@
             },
             {
               "action": "set",
-              "target": "$MTP01",
+              "target": "$MTP04",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTP02",
@@ -1814,7 +1738,8 @@
               "action": "unset",
               "targets": [
                 "$MTP01",
-                "$MTP03"
+                "$MTP03",
+                "$MTP04"
               ]
             },
             {
@@ -1829,9 +1754,12 @@
             },
             {
               "action": "set",
-              "target": "$MTP01",
-              "condition_code": "$MTP03",
-              "condition_state": "unset"
+              "target": "$MTP04",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTP01",
+                "$MTP03"
+              ]
             }
           ],
           "name": "雙馬達四輪驅動",
@@ -1890,7 +1818,8 @@
               "action": "unset",
               "targets": [
                 "$MTP01",
-                "$MTP02"
+                "$MTP02",
+                "$MTP04"
               ]
             },
             {
@@ -1905,9 +1834,12 @@
             },
             {
               "action": "set",
-              "target": "$MTP01",
-              "condition_code": "$MTP02",
-              "condition_state": "unset"
+              "target": "$MTP04",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTP01",
+                "$MTP02"
+              ]
             }
           ],
           "name": "三馬達全輪驅動",
@@ -1940,6 +1872,65 @@
               "type": "base",
               "value": 0,
               "context": "default"
+            }
+          ]
+        },
+        "$MTP04": {
+          "code": "$MTP04",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$DV2W"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTP04"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTP01",
+                "$MTP02",
+                "$MTP03"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$DV2W"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTP04"
+            },
+            {
+              "action": "set",
+              "target": "$MTP04",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTP01",
+                "$MTP02",
+                "$MTP03"
+              ]
+            }
+          ],
+          "name": "Cybertruck",
+          "description": "Cybertruck",
+          "long_name": "Cybertruck",
+          "long_description": "Cybertruck",
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
             }
           ]
         }
@@ -1984,17 +1975,17 @@
         "$DV2W",
         "$IDD",
         "$MDLP",
-        "$MTP01",
+        "$MTP04",
         "$PDD",
         "$WDD",
         "$SC04"
       ],
-      "options_id": 53,
-      "copy_id": 2553,
+      "options_id": 1900,
+      "copy_id": 3257,
       "language": "zh",
       "warnings": [],
       "pricing_id": 54,
-      "reference_id": 53
+      "reference_id": 1900
     }
   },
   "edd": []
