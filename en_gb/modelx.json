@@ -2123,13 +2123,13 @@
       "tcc": []
     },
     "Lexicon.mx": {
-      "id": 1653,
+      "id": 1882,
       "effective_date": "2021-10-15T00:15:00.000Z",
       "market": "GB",
       "product": "mx",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing GB 2021.Oct.15 1653.3209.1580",
+      "name": "Marketing GB 2021.Oct.15 1882.3209.1580",
       "groups": [
         {
           "code": "MODEL",
@@ -3352,11 +3352,11 @@
         },
         {
           "code": "AUTOPILOT",
-          "groups": [
-            "AUTOPILOT_PACKAGE"
-          ],
+          "groups": [],
           "context": "configurator",
-          "options": [],
+          "options": [
+            "$APBS"
+          ],
           "required": false,
           "exclusive": false,
           "name": "Autopilot",
@@ -6700,6 +6700,120 @@
               }
             }
           ]
+        },
+        {
+          "code": "AUTOPILOT_CONVIENCE_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APD2",
+            "$APD3",
+            "$APPC"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Autopilot with convenience features",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Included"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Automatic steering, acceleration and braking on motorways"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Auto Lane Change"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Autopark"
+            },
+            {
+              "type": "disclaimer[0]",
+              "content": "Vehicle cannot be upgraded to Full Self-Driving Capability"
+            },
+            {
+              "type": "disclaimer[1]",
+              "content": "The currently enabled features require active driver supervision and do not make the vehicle autonomous. The activation and use of these features are dependent on achieving reliability far in excess of human drivers as demonstrated by billions of miles of experience, as well as regulatory approval, which may take longer in some jurisdictions. As these self-driving features evolve, your car will be continuously upgraded through over-the-air software updates."
+            },
+            {
+              "type": "fsd_features",
+              "content": "Feature Details",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "FSD_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "legacy_options",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$APD2",
+                      "$APD3",
+                      "$APPC"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "fsd_features",
+                        "props": {
+                          "modal": "FSD_FEATURES"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -6987,6 +7101,46 @@
               "context": "GBP"
             }
           ]
+        },
+        "$APD2": {
+          "code": "$APD2",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD2"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD2"
+            }
+          ],
+          "name": "Autopilot with convenience features",
+          "description": "Autopilot with convenience features",
+          "long_name": "Autopilot with convenience features",
+          "extra_copy": [],
+          "extra_content": []
+        },
+        "$APD3": {
+          "code": "$APD3",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD3"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD3"
+            }
+          ],
+          "name": "Autopilot with convenience features",
+          "description": "Autopilot with convenience features",
+          "long_name": "Autopilot with convenience features",
+          "extra_copy": [],
+          "extra_content": []
         },
         "$APF2": {
           "code": "$APF2",
@@ -7691,6 +7845,26 @@
               "context": "GBP"
             }
           ]
+        },
+        "$APPC": {
+          "code": "$APPC",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APPC"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APPC"
+            }
+          ],
+          "name": "Autopilot with convenience features",
+          "description": "Autopilot with convenience features",
+          "long_name": "Autopilot with convenience features",
+          "extra_copy": [],
+          "extra_content": []
         },
         "$CC01": {
           "code": "$CC01",
@@ -19101,7 +19275,7 @@
         "$DRRH",
         "$CPF0"
       ],
-      "options_id": 1653,
+      "options_id": 1882,
       "extra_content": [
         {
           "type": "#$GN00",
