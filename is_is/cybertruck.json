@@ -943,8 +943,9 @@
       "groups": [
         {
           "code": "MODEL",
-          "groups": [],
+          "name": "MODEL",
           "context": "default",
+          "groups": [],
           "options": [
             "$MDLP"
           ],
@@ -952,13 +953,13 @@
           "exclusive": true,
           "default_options": [
             "$MDLP"
-          ],
-          "name": "MODEL"
+          ]
         },
         {
           "code": "TRIM",
-          "groups": [],
+          "name": "TRIM",
           "context": "default",
+          "groups": [],
           "options": [
             "$MTP01",
             "$MTP02",
@@ -969,13 +970,14 @@
           "exclusive": true,
           "default_options": [
             "$MTP04"
-          ],
-          "name": "TRIM"
+          ]
         },
         {
           "code": "DRIVE_MODE",
-          "groups": [],
+          "name": "Akstursstilling",
           "context": "default",
+          "extra_copy": [],
+          "groups": [],
           "options": [
             "$DV2W",
             "$DV4W"
@@ -984,14 +986,14 @@
           "exclusive": true,
           "default_options": [
             "$DV2W"
-          ],
-          "name": "Akstursstilling",
-          "extra_copy": []
+          ]
         },
         {
           "code": "INTERIOR",
-          "groups": [],
+          "name": "Innrétting",
           "context": "default",
+          "extra_copy": [],
+          "groups": [],
           "options": [
             "$IDD"
           ],
@@ -999,14 +1001,13 @@
           "exclusive": true,
           "default_options": [
             "$IDD"
-          ],
-          "name": "Innrétting",
-          "extra_copy": []
+          ]
         },
         {
           "code": "PAINT",
-          "groups": [],
+          "name": "Litur",
           "context": "default",
+          "groups": [],
           "options": [
             "$PDD"
           ],
@@ -1014,13 +1015,13 @@
           "exclusive": true,
           "default_options": [
             "$PDD"
-          ],
-          "name": "Litur"
+          ]
         },
         {
           "code": "WHEELS",
-          "groups": [],
+          "name": "Felgur",
           "context": "default",
+          "groups": [],
           "options": [
             "$WDD"
           ],
@@ -1028,13 +1029,13 @@
           "exclusive": true,
           "default_options": [
             "$WDD"
-          ],
-          "name": "Felgur"
+          ]
         },
         {
           "code": "SUPER_CHARGER",
-          "groups": [],
+          "name": "SUPER_CHARGER",
           "context": "default",
+          "groups": [],
           "options": [
             "$SC04"
           ],
@@ -1042,13 +1043,13 @@
           "exclusive": true,
           "default_options": [
             "$SC04"
-          ],
-          "name": "SUPER_CHARGER"
+          ]
         },
         {
           "code": "AUTOPILOT",
-          "groups": [],
+          "name": "Autopilot",
           "context": "default",
+          "groups": [],
           "options": [
             "$APBS",
             "$APF2"
@@ -1057,8 +1058,7 @@
           "exclusive": false,
           "default_options": [
             "$APBS"
-          ],
-          "name": "Autopilot"
+          ]
         },
         {
           "code": "CORE",
@@ -1099,8 +1099,19 @@
         },
         {
           "code": "TRIM",
-          "groups": [],
+          "name": "TRIM",
           "context": "configurator",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            },
+            {
+              "type": "order_disclaimer",
+              "content": "Fæst að fullu endurgreitt."
+            }
+          ],
+          "groups": [],
           "options": [
             "$MTP01",
             "$MTP02",
@@ -1111,17 +1122,6 @@
           "exclusive": true,
           "default_options": [
             "$MTP04"
-          ],
-          "name": "TRIM",
-          "extra_copy": [
-            {
-              "type": "name",
-              "content": " "
-            },
-            {
-              "type": "order_disclaimer",
-              "content": "Fæst að fullu endurgreitt."
-            }
           ]
         },
         {
@@ -1133,7 +1133,6 @@
           "exclusive": false,
           "default_options": [],
           "name": "Rafhlaða og Aflrás",
-          "description": "Rafhlaða og Aflrás",
           "extra_copy": [
             {
               "type": "order_disclaimer",
@@ -1144,6 +1143,7 @@
               "content": "Panta Cybertruck"
             }
           ],
+          "description": "Rafhlaða og Aflrás",
           "extra_content": []
         },
         {
@@ -1157,8 +1157,8 @@
           "exclusive": false,
           "default_options": [],
           "name": "Afhendingartími",
-          "description": "Afhendingartími",
-          "extra_copy": []
+          "extra_copy": [],
+          "description": "Afhendingartími"
         },
         {
           "code": "CORE_CONFIGURATOR",
@@ -1176,8 +1176,9 @@
         },
         {
           "code": "AUTOPILOT",
-          "groups": [],
+          "name": "Autopilot",
           "context": "configurator",
+          "groups": [],
           "options": [
             "$APF2"
           ],
@@ -1185,8 +1186,7 @@
           "exclusive": false,
           "default_options": [
             "$APF2"
-          ],
-          "name": "Autopilot"
+          ]
         }
       ],
       "options": {
@@ -1990,9 +1990,62 @@
         "$SC04"
       ],
       "options_id": 1919,
+      "warnings": [
+        {
+          "type": "ELIGIBLE_GROUPS_TO_MOVE",
+          "message": "These groups should be moved to Copy lexicon from Options.",
+          "groups": [
+            {
+              "code": "CORE",
+              "context": [
+                "order_summary"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "BATTERY_AND_DRIVE",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "OPTIONS",
+              "context": [
+                "order_summary"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "REVIEW_ORDER",
+              "context": [
+                "order_summary"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "DELIVERY_TIMING",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "CORE_CONFIGURATOR",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            }
+          ]
+        },
+        {
+          "type": "ELIGIBLE_FEES_TO_MOVE",
+          "message": "'Fees' should be moved to Copy lexicon from Options."
+        }
+      ],
       "copy_id": 3265,
       "language": "is",
-      "warnings": [],
       "pricing_id": 150,
       "reference_id": 1919
     }

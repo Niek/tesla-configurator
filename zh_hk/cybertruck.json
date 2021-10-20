@@ -940,8 +940,9 @@
       "groups": [
         {
           "code": "DRIVE",
-          "groups": [],
+          "name": "DRIVE",
           "context": "default",
+          "groups": [],
           "options": [
             "$DRRH"
           ],
@@ -949,13 +950,13 @@
           "exclusive": true,
           "default_options": [
             "$DRRH"
-          ],
-          "name": "DRIVE"
+          ]
         },
         {
           "code": "MODEL",
-          "groups": [],
+          "name": "MODEL",
           "context": "default",
+          "groups": [],
           "options": [
             "$MDLP"
           ],
@@ -963,13 +964,13 @@
           "exclusive": true,
           "default_options": [
             "$MDLP"
-          ],
-          "name": "MODEL"
+          ]
         },
         {
           "code": "TRIM",
-          "groups": [],
+          "name": "TRIM",
           "context": "default",
+          "groups": [],
           "options": [
             "$MTP01",
             "$MTP02",
@@ -980,13 +981,14 @@
           "exclusive": true,
           "default_options": [
             "$MTP04"
-          ],
-          "name": "TRIM"
+          ]
         },
         {
           "code": "DRIVE_MODE",
-          "groups": [],
+          "name": "駕駛模式",
           "context": "default",
+          "extra_copy": [],
+          "groups": [],
           "options": [
             "$DV2W",
             "$DV4W"
@@ -995,14 +997,14 @@
           "exclusive": true,
           "default_options": [
             "$DV2W"
-          ],
-          "name": "駕駛模式",
-          "extra_copy": []
+          ]
         },
         {
           "code": "INTERIOR",
-          "groups": [],
+          "name": "內飾",
           "context": "default",
+          "extra_copy": [],
+          "groups": [],
           "options": [
             "$IDD"
           ],
@@ -1010,14 +1012,13 @@
           "exclusive": true,
           "default_options": [
             "$IDD"
-          ],
-          "name": "內飾",
-          "extra_copy": []
+          ]
         },
         {
           "code": "PAINT",
-          "groups": [],
+          "name": "顏色",
           "context": "default",
+          "groups": [],
           "options": [
             "$PDD"
           ],
@@ -1025,13 +1026,13 @@
           "exclusive": true,
           "default_options": [
             "$PDD"
-          ],
-          "name": "顏色"
+          ]
         },
         {
           "code": "WHEELS",
-          "groups": [],
+          "name": "車輪",
           "context": "default",
+          "groups": [],
           "options": [
             "$WDD"
           ],
@@ -1039,13 +1040,13 @@
           "exclusive": true,
           "default_options": [
             "$WDD"
-          ],
-          "name": "車輪"
+          ]
         },
         {
           "code": "SUPER_CHARGER",
-          "groups": [],
+          "name": "SUPER_CHARGER",
           "context": "default",
+          "groups": [],
           "options": [
             "$SC04"
           ],
@@ -1053,13 +1054,13 @@
           "exclusive": true,
           "default_options": [
             "$SC04"
-          ],
-          "name": "SUPER_CHARGER"
+          ]
         },
         {
           "code": "AUTOPILOT",
-          "groups": [],
+          "name": "Autopilot 自動輔助駕駛",
           "context": "default",
+          "groups": [],
           "options": [
             "$APBS",
             "$APF2"
@@ -1068,8 +1069,7 @@
           "exclusive": false,
           "default_options": [
             "$APBS"
-          ],
-          "name": "Autopilot 自動輔助駕駛"
+          ]
         },
         {
           "code": "CORE",
@@ -1110,8 +1110,19 @@
         },
         {
           "code": "TRIM",
-          "groups": [],
+          "name": "TRIM",
           "context": "configurator",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            },
+            {
+              "type": "order_disclaimer",
+              "content": "可全額退款。"
+            }
+          ],
+          "groups": [],
           "options": [
             "$MTP01",
             "$MTP02",
@@ -1122,17 +1133,6 @@
           "exclusive": true,
           "default_options": [
             "$MTP04"
-          ],
-          "name": "TRIM",
-          "extra_copy": [
-            {
-              "type": "name",
-              "content": " "
-            },
-            {
-              "type": "order_disclaimer",
-              "content": "可全額退款。"
-            }
           ]
         },
         {
@@ -1144,7 +1144,6 @@
           "exclusive": false,
           "default_options": [],
           "name": "電池及動力傳動系統",
-          "description": "電池及動力傳動系統",
           "extra_copy": [
             {
               "type": "name",
@@ -1155,6 +1154,7 @@
               "content": "預計於 2022 年接近量產時開放配置。"
             }
           ],
+          "description": "電池及動力傳動系統",
           "extra_content": []
         },
         {
@@ -1168,8 +1168,8 @@
           "exclusive": false,
           "default_options": [],
           "name": "交車時間表",
-          "description": "交車時間表",
-          "extra_copy": []
+          "extra_copy": [],
+          "description": "交車時間表"
         },
         {
           "code": "CORE_CONFIGURATOR",
@@ -1187,8 +1187,9 @@
         },
         {
           "code": "AUTOPILOT",
-          "groups": [],
+          "name": "Autopilot 自動輔助駕駛",
           "context": "configurator",
+          "groups": [],
           "options": [
             "$APF2"
           ],
@@ -1196,8 +1197,7 @@
           "exclusive": false,
           "default_options": [
             "$APF2"
-          ],
-          "name": "Autopilot 自動輔助駕駛"
+          ]
         }
       ],
       "options": {
@@ -2025,9 +2025,62 @@
         "$SC04"
       ],
       "options_id": 1897,
+      "warnings": [
+        {
+          "type": "ELIGIBLE_GROUPS_TO_MOVE",
+          "message": "These groups should be moved to Copy lexicon from Options.",
+          "groups": [
+            {
+              "code": "CORE",
+              "context": [
+                "order_summary"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "BATTERY_AND_DRIVE",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "OPTIONS",
+              "context": [
+                "order_summary"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "REVIEW_ORDER",
+              "context": [
+                "order_summary"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "DELIVERY_TIMING",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "CORE_CONFIGURATOR",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            }
+          ]
+        },
+        {
+          "type": "ELIGIBLE_FEES_TO_MOVE",
+          "message": "'Fees' should be moved to Copy lexicon from Options."
+        }
+      ],
       "copy_id": 3256,
       "language": "zh",
-      "warnings": [],
       "pricing_id": 55,
       "reference_id": 1897
     }

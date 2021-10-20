@@ -952,8 +952,9 @@
       "groups": [
         {
           "code": "MODEL",
-          "groups": [],
+          "name": "MODEL",
           "context": "default",
+          "groups": [],
           "options": [
             "$MDLP"
           ],
@@ -961,13 +962,13 @@
           "exclusive": true,
           "default_options": [
             "$MDLP"
-          ],
-          "name": "MODEL"
+          ]
         },
         {
           "code": "TRIM",
-          "groups": [],
+          "name": "TRIM",
           "context": "default",
+          "groups": [],
           "options": [
             "$MTP01",
             "$MTP02",
@@ -978,13 +979,14 @@
           "exclusive": true,
           "default_options": [
             "$MTP04"
-          ],
-          "name": "TRIM"
+          ]
         },
         {
           "code": "DRIVE_MODE",
-          "groups": [],
+          "name": "Rijmodus",
           "context": "default",
+          "extra_copy": [],
+          "groups": [],
           "options": [
             "$DV2W",
             "$DV4W"
@@ -993,14 +995,14 @@
           "exclusive": true,
           "default_options": [
             "$DV2W"
-          ],
-          "name": "Rijmodus",
-          "extra_copy": []
+          ]
         },
         {
           "code": "INTERIOR",
-          "groups": [],
+          "name": "Interieur",
           "context": "default",
+          "extra_copy": [],
+          "groups": [],
           "options": [
             "$IDD"
           ],
@@ -1008,14 +1010,13 @@
           "exclusive": true,
           "default_options": [
             "$IDD"
-          ],
-          "name": "Interieur",
-          "extra_copy": []
+          ]
         },
         {
           "code": "PAINT",
-          "groups": [],
+          "name": "Lakkleur",
           "context": "default",
+          "groups": [],
           "options": [
             "$PDD"
           ],
@@ -1023,13 +1024,13 @@
           "exclusive": true,
           "default_options": [
             "$PDD"
-          ],
-          "name": "Lakkleur"
+          ]
         },
         {
           "code": "WHEELS",
-          "groups": [],
+          "name": "Velgen",
           "context": "default",
+          "groups": [],
           "options": [
             "$WDD"
           ],
@@ -1037,13 +1038,13 @@
           "exclusive": true,
           "default_options": [
             "$WDD"
-          ],
-          "name": "Velgen"
+          ]
         },
         {
           "code": "SUPER_CHARGER",
-          "groups": [],
+          "name": "SUPER_CHARGER",
           "context": "default",
+          "groups": [],
           "options": [
             "$SC04"
           ],
@@ -1051,13 +1052,13 @@
           "exclusive": true,
           "default_options": [
             "$SC04"
-          ],
-          "name": "SUPER_CHARGER"
+          ]
         },
         {
           "code": "AUTOPILOT",
-          "groups": [],
+          "name": "Autopilot",
           "context": "default",
+          "groups": [],
           "options": [
             "$APBS",
             "$APF2"
@@ -1066,8 +1067,7 @@
           "exclusive": false,
           "default_options": [
             "$APBS"
-          ],
-          "name": "Autopilot"
+          ]
         },
         {
           "code": "CORE",
@@ -1108,8 +1108,19 @@
         },
         {
           "code": "TRIM",
-          "groups": [],
+          "name": "TRIM",
           "context": "configurator",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            },
+            {
+              "type": "order_disclaimer",
+              "content": "Kosteloos annuleren."
+            }
+          ],
+          "groups": [],
           "options": [
             "$MTP01",
             "$MTP02",
@@ -1120,17 +1131,6 @@
           "exclusive": true,
           "default_options": [
             "$MTP04"
-          ],
-          "name": "TRIM",
-          "extra_copy": [
-            {
-              "type": "name",
-              "content": " "
-            },
-            {
-              "type": "order_disclaimer",
-              "content": "Kosteloos annuleren."
-            }
           ]
         },
         {
@@ -1142,7 +1142,6 @@
           "exclusive": false,
           "default_options": [],
           "name": "Batterij en aandrijflijn",
-          "description": "Batterij en aandrijflijn",
           "extra_copy": [
             {
               "type": "order_disclaimer",
@@ -1153,6 +1152,7 @@
               "content": "Bestel Cybertruck"
             }
           ],
+          "description": "Batterij en aandrijflijn",
           "extra_content": []
         },
         {
@@ -1166,8 +1166,8 @@
           "exclusive": false,
           "default_options": [],
           "name": "Levertijden",
-          "description": "Levertijden",
-          "extra_copy": []
+          "extra_copy": [],
+          "description": "Levertijden"
         },
         {
           "code": "CORE_CONFIGURATOR",
@@ -1185,8 +1185,9 @@
         },
         {
           "code": "AUTOPILOT",
-          "groups": [],
+          "name": "Autopilot",
           "context": "configurator",
+          "groups": [],
           "options": [
             "$APF2"
           ],
@@ -1194,8 +1195,7 @@
           "exclusive": false,
           "default_options": [
             "$APF2"
-          ],
-          "name": "Autopilot"
+          ]
         }
       ],
       "options": {
@@ -1995,9 +1995,62 @@
         "$SC04"
       ],
       "options_id": 1906,
+      "warnings": [
+        {
+          "type": "ELIGIBLE_GROUPS_TO_MOVE",
+          "message": "These groups should be moved to Copy lexicon from Options.",
+          "groups": [
+            {
+              "code": "CORE",
+              "context": [
+                "order_summary"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "BATTERY_AND_DRIVE",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "OPTIONS",
+              "context": [
+                "order_summary"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "REVIEW_ORDER",
+              "context": [
+                "order_summary"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "DELIVERY_TIMING",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "CORE_CONFIGURATOR",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            }
+          ]
+        },
+        {
+          "type": "ELIGIBLE_FEES_TO_MOVE",
+          "message": "'Fees' should be moved to Copy lexicon from Options."
+        }
+      ],
       "copy_id": 3266,
       "language": "nl",
-      "warnings": [],
       "pricing_id": 141,
       "reference_id": 1906
     }

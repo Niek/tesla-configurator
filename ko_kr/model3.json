@@ -1807,8 +1807,9 @@
       "groups": [
         {
           "code": "MODEL",
-          "groups": [],
+          "name": "MODEL",
           "context": "default",
+          "groups": [],
           "options": [
             "$MDL3"
           ],
@@ -1817,13 +1818,13 @@
           "discountable": true,
           "default_options": [
             "$MDL3"
-          ],
-          "name": "MODEL"
+          ]
         },
         {
           "code": "TRIM",
-          "groups": [],
+          "name": "TRIM",
           "context": "default",
+          "groups": [],
           "options": [
             "$MT300",
             "$MT301",
@@ -1847,8 +1848,7 @@
           "discountable": true,
           "default_options": [
             "$MT314"
-          ],
-          "name": "TRIM"
+          ]
         },
         {
           "code": "SOP",
@@ -1857,12 +1857,20 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "default_options": []
+          "default_options": [],
+          "name": "SOP"
         },
         {
           "code": "DRIVE_MODE",
-          "groups": [],
+          "name": "구동 장치",
           "context": "default",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "차량 선택하기"
+            }
+          ],
+          "groups": [],
           "options": [
             "$DV2W",
             "$DV4W"
@@ -1871,40 +1879,12 @@
           "exclusive": true,
           "default_options": [
             "$DV2W"
-          ],
-          "name": "구동 장치",
-          "extra_copy": [
-            {
-              "type": "name",
-              "content": "차량 선택하기"
-            }
           ]
         },
         {
           "code": "INTERIOR",
-          "groups": [],
-          "context": "default",
-          "options": [
-            "$IN3PB",
-            "$IN3PW",
-            "$IN3B2",
-            "$IN3BB",
-            "$IBB1",
-            "$IBW1",
-            "$IPB1",
-            "$IPW1",
-            "$IN3BW",
-            "$IBB0",
-            "$IPB0",
-            "$IPW0"
-          ],
-          "required": true,
-          "exclusive": true,
-          "discountable": true,
-          "default_options": [
-            "$IBB1"
-          ],
           "name": "인테리어",
+          "context": "default",
           "extra_copy": [
             {
               "type": "feature_list.detail[0].title",
@@ -1986,28 +1966,33 @@
               "type": "feature_list.detail[0].items[13].sub_items[2]",
               "content": "Wi-Fi 또는 셀룰러 데이터를 연결하여 OTA 소프트웨어 업데이트"
             }
-          ]
-        },
-        {
-          "code": "PAINT",
+          ],
           "groups": [],
-          "context": "default",
           "options": [
-            "$PBSB",
-            "$PMNG",
-            "$PPSB",
-            "$PPSW",
-            "$PPMR",
-            "$PMBL",
-            "$PMSS"
+            "$IN3PB",
+            "$IN3PW",
+            "$IN3B2",
+            "$IN3BB",
+            "$IBB1",
+            "$IBW1",
+            "$IPB1",
+            "$IPW1",
+            "$IN3BW",
+            "$IBB0",
+            "$IPB0",
+            "$IPW0"
           ],
           "required": true,
           "exclusive": true,
           "discountable": true,
           "default_options": [
-            "$PPSW"
-          ],
+            "$IBB1"
+          ]
+        },
+        {
+          "code": "PAINT",
           "name": "색상",
+          "context": "default",
           "extra_copy": [
             {
               "type": "name",
@@ -2061,28 +2046,28 @@
                 }
               ]
             }
-          ]
-        },
-        {
-          "code": "WHEELS",
+          ],
           "groups": [],
-          "context": "default",
           "options": [
-            "$W32D",
-            "$W32P",
-            "$W33D",
-            "$W38B",
-            "$W39B",
-            "$W40B",
-            "$W41B"
+            "$PBSB",
+            "$PMNG",
+            "$PPSB",
+            "$PPSW",
+            "$PPMR",
+            "$PMBL",
+            "$PMSS"
           ],
           "required": true,
           "exclusive": true,
           "discountable": true,
           "default_options": [
-            "$W40B"
-          ],
+            "$PPSW"
+          ]
+        },
+        {
+          "code": "WHEELS",
           "name": "휠",
+          "context": "default",
           "extra_copy": [
             {
               "type": "name",
@@ -2108,12 +2093,31 @@
                 }
               ]
             }
+          ],
+          "groups": [],
+          "options": [
+            "$W32D",
+            "$W32P",
+            "$W33D",
+            "$W38B",
+            "$W39B",
+            "$W40B",
+            "$W41B"
+          ],
+          "required": true,
+          "exclusive": true,
+          "discountable": true,
+          "default_options": [
+            "$W40B"
           ]
         },
         {
           "code": "AUTOPILOT",
-          "groups": [],
+          "name": "오토파일럿",
           "context": "default",
+          "extra_copy": [],
+          "extra_content": [],
+          "groups": [],
           "options": [
             "$APBS",
             "$APF2",
@@ -2121,25 +2125,23 @@
           ],
           "required": false,
           "exclusive": false,
-          "discountable": false,
-          "name": "오토파일럿",
-          "extra_copy": [],
-          "extra_content": []
+          "discountable": false
         },
         {
           "code": "BATTERY",
-          "groups": [],
+          "name": "배터리",
           "context": "default",
+          "groups": [],
           "options": [],
           "required": true,
           "exclusive": true,
-          "default_options": [],
-          "name": "배터리"
+          "default_options": []
         },
         {
           "code": "PREMIUM_PACKAGE",
-          "groups": [],
+          "name": "프리미엄 패키지",
           "context": "default",
+          "groups": [],
           "options": [
             "$PRM31",
             "$PRM30",
@@ -2149,35 +2151,35 @@
           "exclusive": true,
           "default_options": [
             "$PRM30"
-          ],
-          "name": "프리미엄 패키지"
+          ]
         },
         {
           "code": "SPOILER",
-          "groups": [],
+          "name": "스포일러",
           "context": "default",
+          "groups": [],
           "options": [
             "$SLR1"
           ],
           "required": false,
-          "exclusive": false,
-          "name": "스포일러"
+          "exclusive": false
         },
         {
           "code": "PEDALS",
-          "groups": [],
+          "name": "PEDALS",
           "context": "default",
+          "groups": [],
           "options": [
             "$PL31"
           ],
           "required": false,
-          "exclusive": false,
-          "name": "PEDALS"
+          "exclusive": false
         },
         {
           "code": "SPORT_PACKAGE",
-          "groups": [],
+          "name": "SPORT_PACKAGE",
           "context": "default",
+          "groups": [],
           "options": [
             "$SPT31"
           ],
@@ -2186,37 +2188,37 @@
           "discountable": true,
           "default_options": [
             "$SPT31"
-          ],
-          "name": "SPORT_PACKAGE"
+          ]
         },
         {
           "code": "BRAKES",
-          "groups": [],
+          "name": "BRAKES",
           "context": "default",
+          "groups": [],
           "options": [
             "$BC3R"
           ],
           "required": false,
-          "exclusive": false,
-          "name": "BRAKES"
+          "exclusive": false
         },
         {
           "code": "SUPER_CHARGER",
-          "groups": [],
+          "name": "SUPER_CHARGER",
           "context": "default",
+          "groups": [],
           "options": [
             "$SC04",
             "$SC05",
             "$SC06"
           ],
           "required": false,
-          "exclusive": true,
-          "name": "SUPER_CHARGER"
+          "exclusive": true
         },
         {
           "code": "CONNECTIVITY",
-          "groups": [],
+          "name": "CONNECTIVITY",
           "context": "default",
+          "groups": [],
           "options": [
             "$CPF0",
             "$CPF1"
@@ -2226,34 +2228,33 @@
           "discountable": false,
           "default_options": [
             "$CPF0"
-          ],
-          "name": "CONNECTIVITY"
+          ]
         },
         {
           "code": "PERF_FIRMWARE",
-          "groups": [],
+          "name": "PERF_FIRMWARE",
           "context": "default",
+          "groups": [],
           "options": [
             "$FM3U"
           ],
           "required": false,
           "exclusive": false,
           "discountable": false,
-          "default_options": [],
-          "name": "PERF_FIRMWARE"
+          "default_options": []
         },
         {
           "code": "HEATED_SEAT",
-          "groups": [],
+          "name": "HEATED_SEAT",
           "context": "default",
+          "groups": [],
           "options": [
             "$RSF0",
             "$RSF1"
           ],
           "required": false,
           "exclusive": true,
-          "discountable": false,
-          "name": "HEATED_SEAT"
+          "discountable": false
         },
         {
           "code": "CORE",
@@ -2345,19 +2346,8 @@
         },
         {
           "code": "TRIM",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$MT314",
-            "$MT321",
-            "$MT317"
-          ],
-          "required": true,
-          "exclusive": true,
-          "default_options": [
-            "$MT314"
-          ],
           "name": "TRIM",
+          "context": "configurator",
           "extra_copy": [
             {
               "type": "name",
@@ -2367,6 +2357,17 @@
               "type": "compare_title",
               "content": "비교"
             }
+          ],
+          "groups": [],
+          "options": [
+            "$MT314",
+            "$MT321",
+            "$MT317"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$MT314"
           ]
         },
         {
@@ -2415,21 +2416,8 @@
         },
         {
           "code": "PAINT",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$PPSW",
-            "$PBSB",
-            "$PMNG",
-            "$PPSB",
-            "$PPMR"
-          ],
-          "required": true,
-          "exclusive": true,
-          "default_options": [
-            "$PPSW"
-          ],
           "name": "색상",
+          "context": "configurator",
           "extra_copy": [
             {
               "type": "name",
@@ -2511,23 +2499,25 @@
                 }
               ]
             }
-          ]
-        },
-        {
-          "code": "WHEELS",
+          ],
           "groups": [],
-          "context": "configurator",
           "options": [
-            "$W40B",
-            "$W41B",
-            "$W33D"
+            "$PPSW",
+            "$PBSB",
+            "$PMNG",
+            "$PPSB",
+            "$PPMR"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$W40B"
-          ],
+            "$PPSW"
+          ]
+        },
+        {
+          "code": "WHEELS",
           "name": "휠",
+          "context": "configurator",
           "extra_copy": [
             {
               "type": "name",
@@ -2591,18 +2581,23 @@
                 }
               ]
             }
+          ],
+          "groups": [],
+          "options": [
+            "$W40B",
+            "$W41B",
+            "$W33D"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$W40B"
           ]
         },
         {
           "code": "AUTOPILOT_PACKAGE",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$APF2"
-          ],
-          "required": false,
-          "exclusive": false,
           "name": "오토파일럿",
+          "context": "configurator",
           "extra_copy": [
             {
               "type": "video_list.default[0].title",
@@ -2705,23 +2700,29 @@
                 }
               ]
             }
-          ]
+          ],
+          "groups": [],
+          "options": [
+            "$APF2"
+          ],
+          "required": false,
+          "exclusive": false
         },
         {
           "code": "AUTOPILOT",
+          "name": "오토파일럿 패키지",
+          "context": "configurator",
+          "extra_copy": [],
+          "extra_content": [],
           "groups": [
             "AUTOPILOT_PACKAGE"
           ],
-          "context": "configurator",
           "options": [
             "$APBS",
             "$APPB"
           ],
           "required": false,
-          "exclusive": false,
-          "name": "오토파일럿 패키지",
-          "extra_copy": [],
-          "extra_content": []
+          "exclusive": false
         },
         {
           "code": "PACKAGES",
@@ -2734,7 +2735,6 @@
           "exclusive": false,
           "default_options": [],
           "name": "패키지",
-          "description": "패키지",
           "extra_copy": [
             {
               "type": "name",
@@ -2760,6 +2760,7 @@
               ]
             }
           ],
+          "description": "패키지",
           "extra_content": [
             {
               "type": "asset",
@@ -2878,10 +2879,29 @@
         },
         {
           "code": "PREMIUM_PACKAGE",
+          "name": "인테리어",
+          "context": "configurator",
+          "long_name": "프리미엄 업그레이드",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "인테리어"
+            }
+          ],
+          "description": "추가 기능과 프리미엄 소재로 차량 내부를 업그레이드하세요.",
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "RootGroup"
+                }
+              ]
+            }
+          ],
           "groups": [
             "INTERIOR"
           ],
-          "context": "configurator",
           "options": [
             "$PRM30",
             "$PRM31",
@@ -2892,43 +2912,24 @@
             "$IBW1"
           ],
           "required": false,
-          "exclusive": false,
-          "name": "인테리어",
-          "description": "추가 기능과 프리미엄 소재로 차량 내부를 업그레이드하세요.",
-          "long_name": "프리미엄 업그레이드",
-          "extra_copy": [
-            {
-              "type": "name",
-              "content": "인테리어"
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "components",
-              "content": [
-                {
-                  "type": "RootGroup"
-                }
-              ]
-            }
-          ]
+          "exclusive": false
         },
         {
           "code": "SPOILER",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$SLR1"
-          ],
-          "required": false,
-          "exclusive": false,
           "name": "스포일러",
+          "context": "configurator",
           "extra_copy": [
             {
               "type": "name",
               "content": "스포일러"
             }
-          ]
+          ],
+          "groups": [],
+          "options": [
+            "$SLR1"
+          ],
+          "required": false,
+          "exclusive": false
         },
         {
           "code": "REAR_WHEEL_DRIVE_GROUP",
@@ -3213,7 +3214,6 @@
           "exclusive": false,
           "default_options": [],
           "name": "배터리 및 구동 장치",
-          "description": "배터리 및 구동 장치",
           "extra_copy": [
             {
               "type": "zero_to_road_limit_units",
@@ -3284,6 +3284,7 @@
               "content": "모든 차량에는 전동 후면 트렁크, 글래스 루프 및 오토파일럿이 제공됩니다."
             }
           ],
+          "description": "배터리 및 구동 장치",
           "extra_content": [
             {
               "type": "asset",
@@ -3362,14 +3363,8 @@
         },
         {
           "code": "SPORT_PACKAGE",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$SPT31"
-          ],
-          "required": false,
-          "exclusive": false,
           "name": "퍼포먼스 업그레이드",
+          "context": "configurator",
           "extra_copy": [
             {
               "type": "name",
@@ -3388,7 +3383,13 @@
                 }
               ]
             }
-          ]
+          ],
+          "groups": [],
+          "options": [
+            "$SPT31"
+          ],
+          "required": false,
+          "exclusive": false
         },
         {
           "code": "DELIVERY_TIMING",
@@ -3401,8 +3402,8 @@
           "exclusive": false,
           "default_options": [],
           "name": "인도 시기",
-          "description": "인도 시기",
           "extra_copy": [],
+          "description": "인도 시기",
           "extra_content": [
             {
               "type": "delivery_time",
@@ -3658,19 +3659,8 @@
         },
         {
           "code": "INTERIOR",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$IBB1",
-            "$IPB1",
-            "$IPW1"
-          ],
-          "required": true,
-          "exclusive": true,
-          "default_options": [
-            "$IBB1"
-          ],
           "name": "인테리어",
+          "context": "configurator",
           "extra_content": [
             {
               "type": "components",
@@ -3686,6 +3676,17 @@
                 }
               ]
             }
+          ],
+          "groups": [],
+          "options": [
+            "$IBB1",
+            "$IPB1",
+            "$IPW1"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$IBB1"
           ]
         },
         {
@@ -20200,6 +20201,440 @@
         "$SC04"
       ],
       "options_id": 1714,
+      "warnings": [
+        {
+          "type": "ELIGIBLE_GROUPS_TO_MOVE",
+          "message": "These groups should be moved to Copy lexicon from Options.",
+          "groups": [
+            {
+              "code": "CORE",
+              "context": [
+                "order_summary"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "OPTIONS",
+              "context": [
+                "order_summary"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "REVIEW_ORDER",
+              "context": [
+                "order_summary",
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "LONG_RANGE_TRIM",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "PERFORMANCE_TRIM",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "PACKAGES",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "ALUMINUM_PEDAL",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "REAR_WHEEL_DRIVE_GROUP",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "REAR_WHEEL_STANDARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in only Options lexicons"
+            },
+            {
+              "code": "REAR_WHEEL_PARTIAL",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "REAR_WHEEL_PREMIUM",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in only Options lexicons"
+            },
+            {
+              "code": "DUAL_MOTOR_ALL_WHEEL_DRIVE",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "DUAL_MOTOR_PREMIUM",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "BATTERY_AND_DRIVE",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "DELIVERY_TIMING",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "CORE_CONFIGURATOR",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "REAR_WHEEL_DRIVE_STANDARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "AUTOPILOT_OWNERSHIP",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "SPORT_PACKAGE_OPTIONS",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "REVIEW_ORDER",
+              "context": [
+                "order_summary",
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "MAIN_CONTENT",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in only Options lexicons"
+            },
+            {
+              "code": "REVIEW_ORDER_PLUS",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in only Options lexicons"
+            },
+            {
+              "code": "STD_FEATURES",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in only Options lexicons"
+            },
+            {
+              "code": "COMPARE_MODEL_AND_FEATURE",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "RANGE_AND_PERFORMANCE",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "INTERIOR_SECTION",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "GLASS_ROOF_STD_FEATURE",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "INTERIOR_FEATURES",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "PERFORMANCE_UPGRADE_FEATURES",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "FSD_FEATURES",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "FSD_TRAFFIC_LIGHT_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "PAYMENT",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "SUPER_CHARGER_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "OVER_THE_AIR_UPDATES_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "MOBILE_APP_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "AUTOPILOT_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "CENTER_DISPLAY_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "GLASS_ROOF_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "WIRELESS_CHARGER_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "VEGAN_INTERIOR_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "ADVANCED_CLIMATE_CONTROL_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "20_IN_PERFORMANCE_WHEELS_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "PERFORMANCE_BRAKES_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "PERFORMANCE_PEDALS_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "CARBON_FIBER_SPOILER_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "TRACK_MODE_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "FSD_NAVIGATE_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "FSD_LANE_CHANGE_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "FSD_AUTOPARK_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "FSD_SUMMON_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "FSD_COMPUTER_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "SAFETY_FEATURE",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "PREMIUM_CONNECTIVITY",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "SR_INTERIOR_FEATURES_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "LR_INTERIOR_FEATURES_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "SENTRY_MODE_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EXPANSIVE_STORAGE_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EXTERIOR_GALLERY",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "FSD_GALLERY",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "BASIC_AP_FEATURES",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            }
+          ]
+        },
+        {
+          "type": "ELIGIBLE_FEES_TO_MOVE",
+          "message": "'Fees' should be moved to Copy lexicon from Options."
+        }
+      ],
       "extra_content": [
         {
           "type": "#$GN00",
@@ -21105,7 +21540,6 @@
       ],
       "copy_id": 3130,
       "language": "ko",
-      "warnings": [],
       "pricing_id": 1102,
       "reference_id": 1714
     }
