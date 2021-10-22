@@ -1177,7 +1177,7 @@
         "showPaymentModalTriggerBelowPrice": false,
         "showSavingsAmountTrigger": false,
         "checkEmailAvailability": true,
-        "hideApplyForFinancing": true,
+        "hideApplyForFinancing": false,
         "preOrderMode": true,
         "showLegalDataTable": false,
         "showSavingsDisclaimer": true,
@@ -1293,12 +1293,15 @@
         "showVehicleInspection": false,
         "showNonTransferrable": true,
         "hideIncentivesOrderPage": false,
+        "showAvailableInState": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
           "Vat"
         ],
-        "extraIncentives": []
+        "extraIncentives": [
+          "regionalTax"
+        ]
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -1477,7 +1480,7 @@
             "new"
           ],
           "taxable_reg_costs": 0,
-          "tax_pct": 0
+          "tax_pct": 0.027
         },
         {
           "feeType": "reg_and_doc_fee",
@@ -2092,12 +2095,12 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2021-10-20T04:47:00.000Z",
+      "effective_date": "2021-10-21T22:35:00.000Z",
       "market": "FI",
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing FI 2021.Oct.20 1781.3225.2408 [fi]",
+      "name": "Marketing FI 2021.Oct.21 1982.3331.2408 [fi]",
       "groups": [
         {
           "code": "MODEL",
@@ -2123,7 +2126,8 @@
             "$MTY03",
             "$MTY04",
             "$MTY05",
-            "$MTY07"
+            "$MTY07",
+            "$MTY12"
           ],
           "required": true,
           "exclusive": true,
@@ -2459,7 +2463,8 @@
             "$MTY03",
             "$MTY04",
             "$MTY05",
-            "$MTY07"
+            "$MTY07",
+            "$MTY12"
           ],
           "required": false,
           "exclusive": false,
@@ -3620,7 +3625,8 @@
             "$MTY03",
             "$MTY04",
             "$MTY05",
-            "$MTY07"
+            "$MTY07",
+            "$MTY12"
           ],
           "required": false,
           "exclusive": false,
@@ -9080,7 +9086,8 @@
                 "condition_state": "unset",
                 "condition_all_codes": [
                   "$MTY04",
-                  "$MTY05"
+                  "$MTY05",
+                  "$MTY12"
                 ]
               }
             ],
@@ -9091,7 +9098,8 @@
                 "condition_state": "set",
                 "condition_any_code": [
                   "$MTY04",
-                  "$MTY05"
+                  "$MTY05",
+                  "$MTY12"
                 ]
               }
             ]
@@ -9107,7 +9115,8 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY04",
-                "$MTY05"
+                "$MTY05",
+                "$MTY12"
               ]
             }
           ],
@@ -9122,7 +9131,8 @@
               "condition_state": "set",
               "condition_any_code": [
                 "$MTY04",
-                "$MTY05"
+                "$MTY05",
+                "$MTY12"
               ]
             }
           ],
@@ -10195,7 +10205,8 @@
               "targets": [
                 "$MTY04",
                 "$MTY05",
-                "$MTY07"
+                "$MTY07",
+                "$MTY12"
               ]
             },
             {
@@ -10217,7 +10228,8 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY04",
-                "$MTY05"
+                "$MTY05",
+                "$MTY12"
               ]
             }
           ],
@@ -10345,7 +10357,8 @@
               "targets": [
                 "$MTY03",
                 "$MTY05",
-                "$MTY07"
+                "$MTY07",
+                "$MTY12"
               ]
             },
             {
@@ -10377,7 +10390,8 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY03",
-                "$MTY05"
+                "$MTY05",
+                "$MTY12"
               ]
             },
             {
@@ -10531,7 +10545,8 @@
               "targets": [
                 "$MTY03",
                 "$MTY04",
-                "$MTY07"
+                "$MTY07",
+                "$MTY12"
               ]
             },
             {
@@ -10570,7 +10585,8 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY03",
-                "$MTY04"
+                "$MTY04",
+                "$MTY12"
               ]
             },
             {
@@ -10717,7 +10733,8 @@
               "targets": [
                 "$MTY03",
                 "$MTY04",
-                "$MTY05"
+                "$MTY05",
+                "$MTY12"
               ]
             },
             {
@@ -10740,7 +10757,8 @@
               "condition_all_codes": [
                 "$MTY03",
                 "$MTY04",
-                "$MTY05"
+                "$MTY05",
+                "$MTY12"
               ]
             }
           ],
@@ -10826,6 +10844,206 @@
             }
           ]
         },
+        "$MTY12": {
+          "code": "$MTY12",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "targets": [
+                  "$DV4W",
+                  "$PRMY1"
+                ]
+              },
+              {
+                "action": "set",
+                "targets": [
+                  "$SPTY1",
+                  "$BCYR",
+                  "$PL31",
+                  "$SLR1",
+                  "$WY21P"
+                ]
+              }
+            ],
+            "unset_rules": [
+              {
+                "action": "unset",
+                "targets": [
+                  "$SLR1",
+                  "$SPTY1"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTY12"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTY03",
+                "$MTY04",
+                "$MTY05",
+                "$MTY07"
+              ]
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$DV4W",
+                "$PRMY1"
+              ]
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$SPTY1",
+                "$BCYR",
+                "$PL31",
+                "$SLR1",
+                "$WY21P"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTY12"
+            },
+            {
+              "action": "set",
+              "target": "$MTY07",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTY03",
+                "$MTY04",
+                "$MTY05"
+              ]
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$SLR1",
+                "$SPTY1"
+              ]
+            }
+          ],
+          "name": "Long Range All-Wheel Drive Performance",
+          "description": "Model Y Performance AWD",
+          "long_name": "Model Y Long Range All-Wheel Drive Performance",
+          "long_description": "Model Y Performance AWD",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Performance"
+            },
+            {
+              "type": "price_indicator",
+              "content": "Valinnainen"
+            },
+            {
+              "type": "compare_matrix.block[0].label",
+              "content": "Kiihtyvyys"
+            },
+            {
+              "type": "compare_matrix.block[0].content",
+              "content": "3,5 sek 0–100 km/h"
+            },
+            {
+              "type": "compare_matrix.block[1].label",
+              "content": "Vetotapa"
+            },
+            {
+              "type": "compare_matrix.block[1].content",
+              "content": "Dual Motor -neliveto"
+            },
+            {
+              "type": "disclaimer_details",
+              "content": "Teslan nelivedossa on kaksi itsenäistä moottoria, joissa molemmissa on vain yksi liikkuva osa. Luotettavat moottorit vaativat minimaalista huoltoa ja tarjoavat maksimaalista kestävyyttä. Perinteisistä nelivetojärjestelmistä poiketen ne ohjaavat digitaalisesti etu- ja takapyörien vetoa – tuloksena on parempi auton käsiteltävyys ja luistonesto."
+            },
+            {
+              "type": "long_name",
+              "content": "Model Y Performance Dual Motor All-Wheel Drive"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Kaksi moottoria, neliveto"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "delivery",
+              "content": [
+                {
+                  "extra": true
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": 59990,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "option_price_override",
+              "content": [
+                {
+                  "content": 59990,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "options": [
+                    "$SPTY1"
+                  ],
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
+          "price": 23600,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 23600,
+              "context": "EUR"
+            },
+            {
+              "type": "base_plus_trim",
+              "value": 72400,
+              "context": "EUR"
+            }
+          ]
+        },
         "$PRMY1": {
           "code": "$PRMY1",
           "user_defined_rules": {
@@ -10905,8 +11123,11 @@
                 "condition_state": "unset"
               },
               {
-                "condition_code": "$MTY05",
-                "condition_state": "unset"
+                "condition_state": "unset",
+                "condition_all_codes": [
+                  "$MTY05",
+                  "$MTY12"
+                ]
               }
             ],
             "unset_rules": [
@@ -10947,8 +11168,11 @@
               "condition_state": "unset"
             },
             {
-              "condition_code": "$MTY05",
-              "condition_state": "unset"
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTY05",
+                "$MTY12"
+              ]
             }
           ],
           "unset_rules": [
@@ -12112,7 +12336,8 @@
       },
       "agent_version": 101,
       "extra_factories": [
-        "GF03"
+        "GF03",
+        "GF05"
       ],
       "warranty_groups": [
         {
@@ -12618,7 +12843,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 1781,
+      "options_id": 1982,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -13400,10 +13625,10 @@
           }
         }
       ],
-      "copy_id": 3225,
+      "copy_id": 3331,
       "language": "fi",
       "pricing_id": 2408,
-      "reference_id": 1781
+      "reference_id": 1982
     }
   },
   "edd": [

@@ -1286,6 +1286,7 @@
         "showVehicleInspection": false,
         "showNonTransferrable": true,
         "hideIncentivesOrderPage": false,
+        "showAvailableInState": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1634,12 +1635,12 @@
       "loan": []
     },
     "Lexicon.my": {
-      "effective_date": "2021-10-20T04:47:00.000Z",
+      "effective_date": "2021-10-21T22:35:00.000Z",
       "market": "AE",
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing AE 2021.Oct.20 1746.3238.2417 [en]",
+      "name": "Marketing AE 2021.Oct.21 1998.3238.2417 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -1665,7 +1666,8 @@
             "$MTY03",
             "$MTY04",
             "$MTY05",
-            "$MTY07"
+            "$MTY07",
+            "$MTY12"
           ],
           "required": true,
           "exclusive": true,
@@ -1987,7 +1989,8 @@
             "$MTY03",
             "$MTY04",
             "$MTY05",
-            "$MTY07"
+            "$MTY07",
+            "$MTY12"
           ],
           "required": false,
           "exclusive": false,
@@ -3112,7 +3115,8 @@
             "$MTY03",
             "$MTY04",
             "$MTY05",
-            "$MTY07"
+            "$MTY07",
+            "$MTY12"
           ],
           "required": false,
           "exclusive": false,
@@ -7607,7 +7611,8 @@
                 "condition_state": "unset",
                 "condition_all_codes": [
                   "$MTY04",
-                  "$MTY05"
+                  "$MTY05",
+                  "$MTY12"
                 ]
               }
             ],
@@ -7618,7 +7623,8 @@
                 "condition_state": "set",
                 "condition_any_code": [
                   "$MTY04",
-                  "$MTY05"
+                  "$MTY05",
+                  "$MTY12"
                 ]
               }
             ]
@@ -7634,7 +7640,8 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY04",
-                "$MTY05"
+                "$MTY05",
+                "$MTY12"
               ]
             }
           ],
@@ -7649,7 +7656,8 @@
               "condition_state": "set",
               "condition_any_code": [
                 "$MTY04",
-                "$MTY05"
+                "$MTY05",
+                "$MTY12"
               ]
             }
           ],
@@ -8906,7 +8914,8 @@
               "targets": [
                 "$MTY04",
                 "$MTY05",
-                "$MTY07"
+                "$MTY07",
+                "$MTY12"
               ]
             },
             {
@@ -8928,7 +8937,8 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY04",
-                "$MTY05"
+                "$MTY05",
+                "$MTY12"
               ]
             }
           ],
@@ -9043,7 +9053,8 @@
               "targets": [
                 "$MTY03",
                 "$MTY05",
-                "$MTY07"
+                "$MTY07",
+                "$MTY12"
               ]
             },
             {
@@ -9075,7 +9086,8 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY03",
-                "$MTY05"
+                "$MTY05",
+                "$MTY12"
               ]
             },
             {
@@ -9209,7 +9221,8 @@
               "targets": [
                 "$MTY03",
                 "$MTY04",
-                "$MTY07"
+                "$MTY07",
+                "$MTY12"
               ]
             },
             {
@@ -9241,7 +9254,8 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY03",
-                "$MTY04"
+                "$MTY04",
+                "$MTY12"
               ]
             },
             {
@@ -9375,7 +9389,8 @@
               "targets": [
                 "$MTY03",
                 "$MTY04",
-                "$MTY05"
+                "$MTY05",
+                "$MTY12"
               ]
             },
             {
@@ -9398,7 +9413,8 @@
               "condition_all_codes": [
                 "$MTY03",
                 "$MTY04",
-                "$MTY05"
+                "$MTY05",
+                "$MTY12"
               ]
             }
           ],
@@ -9484,6 +9500,94 @@
             }
           ]
         },
+        "$MTY12": {
+          "code": "$MTY12",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "targets": [
+                  "$DV4W",
+                  "$PRMY1"
+                ]
+              },
+              {
+                "action": "set",
+                "targets": [
+                  "$SPTY1",
+                  "$BCYR",
+                  "$PL31",
+                  "$SLR1",
+                  "$WY21P"
+                ]
+              }
+            ],
+            "unset_rules": [
+              {
+                "action": "unset",
+                "targets": [
+                  "$SLR1",
+                  "$SPTY1"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTY12"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTY03",
+                "$MTY04",
+                "$MTY05",
+                "$MTY07"
+              ]
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$DV4W",
+                "$PRMY1"
+              ]
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$SPTY1",
+                "$BCYR",
+                "$PL31",
+                "$SLR1",
+                "$WY21P"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTY12"
+            },
+            {
+              "action": "set",
+              "target": "$MTY07",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTY03",
+                "$MTY04",
+                "$MTY05"
+              ]
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$SLR1",
+                "$SPTY1"
+              ]
+            }
+          ]
+        },
         "$PRMY1": {
           "code": "$PRMY1",
           "user_defined_rules": {
@@ -9555,8 +9659,11 @@
                 "condition_state": "unset"
               },
               {
-                "condition_code": "$MTY05",
-                "condition_state": "unset"
+                "condition_state": "unset",
+                "condition_all_codes": [
+                  "$MTY05",
+                  "$MTY12"
+                ]
               }
             ],
             "unset_rules": [
@@ -9597,8 +9704,11 @@
               "condition_state": "unset"
             },
             {
-              "condition_code": "$MTY05",
-              "condition_state": "unset"
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTY05",
+                "$MTY12"
+              ]
             }
           ],
           "unset_rules": [
@@ -9862,8 +9972,11 @@
               {
                 "action": "unset",
                 "target": "$WWY00",
-                "condition_code": "$MTY05",
-                "condition_state": "set"
+                "condition_state": "set",
+                "condition_all_codes": [
+                  "$MTY05",
+                  "$MTY12"
+                ]
               }
             ],
             "unset_rules": []
@@ -9876,8 +9989,11 @@
             {
               "action": "unset",
               "target": "$WWY00",
-              "condition_code": "$MTY05",
-              "condition_state": "set"
+              "condition_state": "set",
+              "condition_all_codes": [
+                "$MTY05",
+                "$MTY12"
+              ]
             }
           ],
           "unset_rules": [
@@ -10543,7 +10659,8 @@
       },
       "agent_version": 101,
       "extra_factories": [
-        "GF03"
+        "GF03",
+        "GF05"
       ],
       "warranty_groups": [
         {
@@ -10921,7 +11038,7 @@
         "$CPF1",
         "$SC04"
       ],
-      "options_id": 1746,
+      "options_id": 1998,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -10934,6 +11051,10 @@
         {
           "type": "MISSING_PRICE",
           "message": "The discountable group's, option '$MTY05' is not defined in the pricing lexicon."
+        },
+        {
+          "type": "MISSING_PRICE",
+          "message": "The discountable group's, option '$MTY12' is not defined in the pricing lexicon."
         },
         {
           "type": "MISSING_PRICE",
@@ -11705,7 +11826,7 @@
       "copy_id": 3238,
       "language": "en",
       "pricing_id": 2417,
-      "reference_id": 1746
+      "reference_id": 1998
     }
   },
   "edd": []
