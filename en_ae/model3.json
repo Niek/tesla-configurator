@@ -1486,6 +1486,7 @@
                 "$MT301": 5000,
                 "$MT308": 5000,
                 "$MT314": 5000,
+                "$MT322": 5000,
                 "$MT336": 5000,
                 "$MT319": 5000
               }
@@ -1762,12 +1763,12 @@
       "loan": []
     },
     "Lexicon.m3": {
-      "effective_date": "2021-10-21T22:35:00.000Z",
+      "effective_date": "2021-11-02T22:52:00.000Z",
       "market": "AE",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing AE 2021.Oct.21 1967.3297.2351 [en]",
+      "name": "Marketing AE 2021.Nov.02 2081.3496.3428 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -1816,7 +1817,7 @@
           "exclusive": true,
           "discountable": true,
           "default_options": [
-            "$MT337"
+            "$MT322"
           ]
         },
         {
@@ -2319,6 +2320,7 @@
             "$MT321",
             "$MT322",
             "$MT323",
+            "$MT325",
             "$MT336",
             "$MT337"
           ],
@@ -2444,14 +2446,14 @@
           ],
           "groups": [],
           "options": [
-            "$MT337",
+            "$MT322",
             "$MT323",
-            "$MT317"
+            "$MT325"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MT337"
+            "$MT322"
           ]
         },
         {
@@ -2983,7 +2985,7 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$MT337"
+            "$MT322"
           ],
           "required": false,
           "exclusive": false,
@@ -3143,7 +3145,7 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$MT337"
+            "$MT322"
           ],
           "required": false,
           "exclusive": false,
@@ -3234,7 +3236,7 @@
           "context": "configurator",
           "options": [
             "$MT323",
-            "$MT317"
+            "$MT325"
           ],
           "required": false,
           "exclusive": false,
@@ -3581,6 +3583,7 @@
             "$MT321",
             "$MT322",
             "$MT323",
+            "$MT325",
             "$MT336",
             "$MT337",
             "$SPT31"
@@ -6704,6 +6707,23 @@
               ]
             }
           ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Basic Autopilot Features",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Feature Cards"
+            }
+          ]
         }
       ],
       "options": {
@@ -6770,6 +6790,28 @@
             {
               "type": "deselectLabel",
               "content": "Option Selected"
+            },
+            {
+              "type": "disclaimer",
+              "content": "The currently enabled features require active driver supervision and do not make the vehicle autonomous. The activation and use of these features are dependent on achieving reliability far in excess of human drivers as demonstrated by billions of miles of experience, as well as regulatory approval, which may take longer in some jurisdictions. As these self-driving features evolve, your car will be continuously upgraded through over-the-air software updates."
+            },
+            {
+              "type": "compare_features",
+              "content": "Feature Details",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {
+                      "data-should-open": "BASIC_AP_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -6778,6 +6820,46 @@
               "content": [
                 {
                   "type": "card"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "compare_features",
+                        "props": {
+                          "modal": "BASIC_AP_FEATURES"
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -6841,7 +6923,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "optional"
+              "content": "Included"
             },
             {
               "type": "feature_list.default[0].items[0]",
@@ -7061,7 +7143,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "optional"
+              "content": "Included"
             },
             {
               "type": "feature_list.default[0].items[0]",
@@ -7985,9 +8067,10 @@
                 "target": "$IPB1",
                 "condition_state": "set",
                 "condition_any_code": [
-                  "$MT315",
                   "$MT317",
-                  "$MT323"
+                  "$MT321",
+                  "$MT323",
+                  "$MT325"
                 ]
               }
             ]
@@ -8025,9 +8108,10 @@
               "target": "$IPB1",
               "condition_state": "set",
               "condition_any_code": [
-                "$MT315",
                 "$MT317",
-                "$MT323"
+                "$MT321",
+                "$MT323",
+                "$MT325"
               ]
             }
           ],
@@ -8474,9 +8558,10 @@
                 "target": "$IPW1",
                 "condition_state": "set",
                 "condition_any_code": [
-                  "$MT315",
                   "$MT317",
-                  "$MT323"
+                  "$MT321",
+                  "$MT323",
+                  "$MT325"
                 ]
               }
             ],
@@ -8515,9 +8600,10 @@
               "target": "$IPW1",
               "condition_state": "set",
               "condition_any_code": [
-                "$MT315",
                 "$MT317",
-                "$MT323"
+                "$MT321",
+                "$MT323",
+                "$MT325"
               ]
             }
           ],
@@ -9136,7 +9222,7 @@
                 {
                   "configuration": [
                     "$MT315",
-                    "$MT337"
+                    "$MT322"
                   ],
                   "condition_state": "or"
                 }
@@ -9608,7 +9694,7 @@
                 {
                   "configuration": [
                     "$MT315",
-                    "$MT337"
+                    "$MT322"
                   ],
                   "condition_state": "or"
                 }
@@ -11066,8 +11152,11 @@
               {
                 "action": "set",
                 "target": "$W40B",
-                "condition_code": "$MT317",
-                "condition_state": "set"
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MT317",
+                  "$MT325"
+                ]
               }
             ]
           },
@@ -11114,8 +11203,11 @@
             {
               "action": "set",
               "target": "$W40B",
-              "condition_code": "$MT317",
-              "condition_state": "set"
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MT317",
+                "$MT325"
+              ]
             }
           ],
           "name": "20’’ Uberturbine Wheels",
@@ -11151,7 +11243,7 @@
               "content": [
                 {
                   "configuration": [
-                    "$MT317"
+                    "$MT325"
                   ],
                   "condition_state": "not"
                 }
@@ -11595,7 +11687,7 @@
               "content": [
                 {
                   "configuration": [
-                    "$MT317"
+                    "$MT325"
                   ],
                   "condition_state": "and"
                 }
@@ -12795,7 +12887,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT302",
@@ -12813,9 +12905,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT323",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             }
@@ -12872,16 +12964,16 @@
               ]
             }
           ],
-          "price": 30390,
+          "price": 35390,
           "pricing": [
             {
               "type": "base",
-              "value": 30390,
+              "value": 35390,
               "context": "AED"
             },
             {
               "type": "base_plus_trim",
-              "value": 169990,
+              "value": 174990,
               "context": "AED"
             }
           ]
@@ -12946,7 +13038,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -12964,9 +13056,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT323",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             }
@@ -13051,7 +13143,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -13069,9 +13161,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT323",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             },
@@ -13204,7 +13296,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -13222,9 +13314,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT323",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             },
@@ -13364,7 +13456,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -13382,9 +13474,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT323",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             }
@@ -13464,7 +13556,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -13482,9 +13574,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT323",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             }
@@ -13541,16 +13633,16 @@
               ]
             }
           ],
-          "price": 30390,
+          "price": 35390,
           "pricing": [
             {
               "type": "base",
-              "value": 30390,
+              "value": 35390,
               "context": "AED"
             },
             {
               "type": "base_plus_trim",
-              "value": 169990,
+              "value": 174990,
               "context": "AED"
             }
           ]
@@ -13615,7 +13707,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -13633,9 +13725,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT323",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             }
@@ -13720,7 +13812,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -13738,9 +13830,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT323",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             },
@@ -13885,7 +13977,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -13903,9 +13995,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT323",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             },
@@ -14044,7 +14136,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -14062,9 +14154,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT323",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             }
@@ -14226,7 +14318,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -14244,9 +14336,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT323",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             }
@@ -14332,16 +14424,16 @@
               ]
             }
           ],
-          "price": 30390,
+          "price": 35390,
           "pricing": [
             {
               "type": "base",
-              "value": 30390,
+              "value": 35390,
               "context": "AED"
             },
             {
               "type": "base_plus_trim",
-              "value": 169990,
+              "value": 174990,
               "context": "AED"
             }
           ]
@@ -14496,7 +14588,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -14514,9 +14606,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT323",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             },
@@ -14749,7 +14841,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -14767,9 +14859,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT323",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             },
@@ -15028,7 +15120,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -15046,9 +15138,9 @@
                 "$MT316",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT323",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             },
@@ -15325,7 +15417,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -15343,9 +15435,9 @@
                 "$MT316",
                 "$MT317",
                 "$MT321",
-                "$MT322",
                 "$MT323",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             }
@@ -15416,16 +15508,16 @@
               ]
             }
           ],
-          "price": 30390,
+          "price": 35390,
           "pricing": [
             {
               "type": "base",
-              "value": 30390,
+              "value": 35390,
               "context": "AED"
             },
             {
               "type": "base_plus_trim",
-              "value": 169990,
+              "value": 174990,
               "context": "AED"
             }
           ]
@@ -15502,7 +15594,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -15520,9 +15612,9 @@
                 "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT322",
                 "$MT323",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             },
@@ -15688,7 +15780,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -15709,18 +15801,19 @@
                 "$MT321",
                 "$MT323",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             }
           ],
-          "name": "Standard Range Plus Rear-Wheel Drive",
-          "description": "Standard Range Plus Rear-Wheel Drive",
-          "long_name": "Model 3 Standard Range Plus Rear-Wheel Drive",
-          "long_description": "Standard Plus Rear-Wheel Drive",
+          "name": "Model 3 Rear-Wheel Drive",
+          "description": "Model 3 Rear-Wheel Drive",
+          "long_name": "Model 3 Rear-Wheel Drive",
+          "long_description": "Model 3 Rear-Wheel Drive",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Standard Range Plus"
+              "content": "Model 3"
             },
             {
               "type": "compare_matrix.block[0].label",
@@ -15740,7 +15833,7 @@
             },
             {
               "type": "long_name",
-              "content": "Model 3 Standard Plus Rear-Wheel Drive"
+              "content": "Model 3 Rear-Wheel Drive"
             },
             {
               "type": "drive_mode",
@@ -15811,16 +15904,16 @@
               ]
             }
           ],
-          "price": 27300,
+          "price": 35390,
           "pricing": [
             {
               "type": "base",
-              "value": 27300,
+              "value": 35390,
               "context": "AED"
             },
             {
               "type": "base_plus_trim",
-              "value": 166900,
+              "value": 174990,
               "context": "AED"
             }
           ]
@@ -15965,7 +16058,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -15984,8 +16077,8 @@
                 "$MT317",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT336",
+                "$MT337",
                 "$MT325"
               ]
             },
@@ -15996,12 +16089,12 @@
           ],
           "name": "Long Range All-Wheel Drive",
           "description": "Model 3 Long Range AWD",
-          "long_name": "Long Range All-Wheel Drive",
+          "long_name": "Model 3 Long Range Dual Motor All-Wheel Drive",
           "long_description": "Model 3 Long Range AWD",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Long Range"
+              "content": "Model 3 Long Range"
             },
             {
               "type": "long_name",
@@ -16262,7 +16355,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -16281,9 +16374,9 @@
                 "$MT317",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT323",
-                "$MT336"
+                "$MT336",
+                "$MT337"
               ]
             },
             {
@@ -16291,14 +16384,14 @@
               "target": "$SPT31"
             }
           ],
-          "name": "Long Range All-Wheel Drive Performance",
+          "name": "Performance All-Wheel Drive",
           "description": "Model 3 Performance",
-          "long_name": "Model 3 Long Range All-Wheel Drive Performance",
+          "long_name": "Model 3 Performance Dual Motor All-Wheel Drive",
           "long_description": "Model 3 Performance AWD",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Performance"
+              "content": "Model 3 Performance"
             },
             {
               "type": "price_indicator",
@@ -16593,7 +16686,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -16612,8 +16705,8 @@
                 "$MT317",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT323",
+                "$MT337",
                 "$MT325"
               ]
             }
@@ -16670,16 +16763,16 @@
               ]
             }
           ],
-          "price": 30390,
+          "price": 35390,
           "pricing": [
             {
               "type": "base",
-              "value": 30390,
+              "value": 35390,
               "context": "AED"
             },
             {
               "type": "base_plus_trim",
-              "value": 169990,
+              "value": 174990,
               "context": "AED"
             }
           ]
@@ -16827,7 +16920,7 @@
             },
             {
               "action": "set",
-              "target": "$MT337",
+              "target": "$MT322",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -16846,7 +16939,6 @@
                 "$MT317",
                 "$MT320",
                 "$MT321",
-                "$MT322",
                 "$MT323",
                 "$MT336",
                 "$MT325"
@@ -16951,16 +17043,16 @@
               ]
             }
           ],
-          "price": 30390,
+          "price": 35390,
           "pricing": [
             {
               "type": "base",
-              "value": 30390,
+              "value": 35390,
               "context": "AED"
             },
             {
               "type": "base_plus_trim",
-              "value": 169990,
+              "value": 174990,
               "context": "AED"
             }
           ]
@@ -17143,7 +17235,7 @@
             "set_rules": [
               {
                 "action": "set",
-                "target": "$MT321",
+                "target": "$MT323",
                 "condition_state": "unset",
                 "condition_all_codes": [
                   "$MT302",
@@ -17157,7 +17249,8 @@
                   "$MT315",
                   "$MT316",
                   "$MT317",
-                  "$MT323"
+                  "$MT321",
+                  "$MT325"
                 ]
               },
               {
@@ -17212,7 +17305,7 @@
             },
             {
               "action": "set",
-              "target": "$MT321",
+              "target": "$MT323",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT302",
@@ -17226,7 +17319,8 @@
                 "$MT315",
                 "$MT316",
                 "$MT317",
-                "$MT323"
+                "$MT321",
+                "$MT325"
               ]
             },
             {
@@ -17352,7 +17446,8 @@
                 "condition_all_codes": [
                   "$MT304",
                   "$MT311",
-                  "$MT317"
+                  "$MT317",
+                  "$MT325"
                 ]
               }
             ],
@@ -17394,7 +17489,8 @@
               "condition_all_codes": [
                 "$MT304",
                 "$MT311",
-                "$MT317"
+                "$MT317",
+                "$MT325"
               ]
             }
           ],
@@ -18439,6 +18535,57 @@
               }
             },
             "comments": "New Interior Bundle Configurator launch 4/29/21"
+          },
+          {
+            "options": {
+              "$MT317": {
+                "set_rules": [
+                  {
+                    "action": "unset",
+                    "target": "$MT317"
+                  },
+                  {
+                    "action": "set",
+                    "target": "$MT325"
+                  }
+                ]
+              }
+            },
+            "comments": "New Perf Trim w / BT43 GF03 SOP 1/1/2022"
+          },
+          {
+            "options": {
+              "$MT337": {
+                "set_rules": [
+                  {
+                    "action": "unset",
+                    "target": "$MT337"
+                  },
+                  {
+                    "action": "set",
+                    "target": "$MT322"
+                  }
+                ]
+              }
+            },
+            "comments": "New SR+ with BTFA Battery GF03 SOP 1/1/2022"
+          },
+          {
+            "options": {
+              "$MT321": {
+                "set_rules": [
+                  {
+                    "action": "unset",
+                    "target": "$MT321"
+                  },
+                  {
+                    "action": "set",
+                    "target": "$MT323"
+                  }
+                ]
+              }
+            },
+            "comments": "New LR with BT43"
           }
         ],
         "warranty_rules": [
@@ -18485,7 +18632,8 @@
               "$MT321",
               "$MT339",
               "$MT325",
-              "$MT323"
+              "$MT323",
+              "$MT324"
             ]
           },
           {
@@ -18525,7 +18673,8 @@
               "$MT339",
               "$MT322",
               "$MT323",
-              "$MT325"
+              "$MT325",
+              "$MT324"
             ]
           }
         ],
@@ -18786,9 +18935,9 @@
                 },
                 "$MT322": {
                   "name": "Standard Range Plus Rear-Wheel Drive",
-                  "range": 448,
+                  "range": 491,
                   "topspeed": 225,
-                  "acceleration": 5.6,
+                  "acceleration": 6.1,
                   "range_units_override": "range_units_epa_link"
                 },
                 "$MT323": {
@@ -18814,11 +18963,11 @@
                 },
                 "$MT325": {
                   "name": "Long Range All-Wheel Drive Performance",
-                  "range": 567,
+                  "range": 547,
                   "postfix": "*",
                   "topspeed": 261,
                   "acceleration": 3.3,
-                  "range_units_override": "range_units_epa_link"
+                  "range_units_override": "range_units_est"
                 },
                 "$MT336": {
                   "name": "Standard Rage Plus Rear-Wheel Drive",
@@ -23082,13 +23231,13 @@
         "$DV2W",
         "$IBB1",
         "$MDL3",
-        "$MT337",
+        "$MT322",
         "$PPSW",
         "$PRM30",
         "$SC04",
         "$W40B"
       ],
-      "options_id": 1967,
+      "options_id": 2081,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -23543,6 +23692,13 @@
             },
             {
               "code": "EAP_SUMMON_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "BASIC_AP_FEATURES",
               "context": [
                 "configurator"
               ],
@@ -24410,10 +24566,10 @@
           }
         }
       ],
-      "copy_id": 3297,
+      "copy_id": 3496,
       "language": "en",
-      "pricing_id": 2351,
-      "reference_id": 1967
+      "pricing_id": 3428,
+      "reference_id": 2081
     }
   },
   "edd": [
