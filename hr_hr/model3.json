@@ -1004,6 +1004,7 @@
         "PaymentTypes": [
           "WT"
         ],
+        "paymentTabsType": "tabs",
         "collectAllBillingInfo": true,
         "registration": {
           "showBusinessFields": true,
@@ -1756,12 +1757,12 @@
       "loan": []
     },
     "Lexicon.m3": {
-      "effective_date": "2021-11-02T22:52:00.000Z",
+      "effective_date": "2021-11-05T00:05:00.000Z",
       "market": "HR",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing HR 2021.Nov.02 2078.3398.3420 [hr]",
+      "name": "Marketing HR 2021.Nov.05 2173.3398.3420 [hr]",
       "groups": [
         {
           "code": "MODEL",
@@ -2271,6 +2272,18 @@
           "required": false,
           "exclusive": true,
           "discountable": false
+        },
+        {
+          "code": "COLD_WEATHER",
+          "groups": [],
+          "context": "default",
+          "options": [
+            "$CW03"
+          ],
+          "required": false,
+          "exclusive": true,
+          "default_options": [],
+          "name": "COLD_WEATHER"
         },
         {
           "code": "CORE",
@@ -8123,6 +8136,21 @@
               "type": "1_month",
               "value": 0,
               "context": "HRK"
+            }
+          ]
+        },
+        "$CW03": {
+          "code": "$CW03",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$CW03"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$CW03"
             }
           ]
         },
@@ -18307,7 +18335,8 @@
                 "condition_any_code": [
                   "$MT304",
                   "$MT311",
-                  "$MT317"
+                  "$MT317",
+                  "$MT325"
                 ]
               }
             ],
@@ -18333,7 +18362,9 @@
                   "$MT310",
                   "$MT315",
                   "$MT316",
-                  "$MT321"
+                  "$MT321",
+                  "$MT322",
+                  "$MT323"
                 ]
               }
             ],
@@ -18359,7 +18390,9 @@
                   "$MT310",
                   "$MT315",
                   "$MT316",
-                  "$MT321"
+                  "$MT321",
+                  "$MT322",
+                  "$MT323"
                 ]
               }
             ],
@@ -18952,12 +18985,14 @@
             "client_id": "default",
             "transform_ignored_groups": [
               "WINTER_WHEELS",
-              "WINTER_WHEELS_OPTIONS"
+              "WINTER_WHEELS_OPTIONS",
+              "HEATED_SEAT"
             ],
             "transform_ignored_options": [
               "$SC04",
               "$RSF0",
-              "$RSF1"
+              "$RSF1",
+              "$CW03"
             ]
           }
         ],
@@ -23618,7 +23653,7 @@
         "$CPF1",
         "$SC04"
       ],
-      "options_id": 2078,
+      "options_id": 2173,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -25048,7 +25083,7 @@
       "copy_id": 3398,
       "language": "hr",
       "pricing_id": 3420,
-      "reference_id": 2078
+      "reference_id": 2173
     }
   },
   "edd": [

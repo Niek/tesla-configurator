@@ -919,6 +919,7 @@
         "PaymentTypes": [
           "CC"
         ],
+        "paymentTabsType": "tabs",
         "collectAllBillingInfo": true,
         "registration": {
           "showBusinessFields": true,
@@ -1586,12 +1587,12 @@
       ]
     },
     "Lexicon.ms": {
-      "effective_date": "2021-11-02T01:30:00.000Z",
+      "effective_date": "2021-11-05T00:05:00.000Z",
       "market": "CZ",
       "product": "ms",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CZ 2021.Nov.02 1618.3478.3092 [cs]",
+      "name": "Marketing CZ 2021.Nov.05 2090.3478.3092 [cs]",
       "groups": [
         {
           "code": "MODEL",
@@ -5951,6 +5952,137 @@
               ]
             }
           ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Základní funkce systému Autopilot",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Karty funkcí"
+            }
+          ]
+        },
+        {
+          "code": "AUTOPILOT_CONVIENCE_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APD2",
+            "$APD3",
+            "$APPC"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Autopilot s praktickými funkcemi",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "v ceně"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Automatické řízení, akcelerace a brzdění na dálnicích"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Automatická změna jízdního pruhu"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Automatické parkování"
+            },
+            {
+              "type": "disclaimer[0]",
+              "content": "Vozidlo nelze upgradovat na schopnost plně autonomního řízení"
+            },
+            {
+              "type": "disclaimer[1]",
+              "content": "Aktuálně dostupné funkce vyžadují aktivní dohled řidiče a neumožňují autonomní řízení vozidla. Aktivace a využití těchto funkcí závisí na dosažení spolehlivosti výrazně překonávající schopnosti řidiče-člověka, ověřené miliardami kilometrů testů, a rovněž na schválení regulačními orgány, což může v některých jurisdikcích trvat déle. Jak se budou tyto funkce autonomního řízení vyvíjet, vaše vozidlo bude průběžně modernizováno prostřednictvím bezdrátových aktualizací softwaru."
+            },
+            {
+              "type": "fsd_features",
+              "content": "Detaily funkce",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "FSD_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "legacy_options",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$APD2",
+                      "$APD3",
+                      "$APPC"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "fsd_features",
+                        "props": {
+                          "modal": "FSD_FEATURES"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -6240,6 +6372,46 @@
               "context": "CZK"
             }
           ]
+        },
+        "$APD2": {
+          "code": "$APD2",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD2"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD2"
+            }
+          ],
+          "name": "Autopilot s praktickými funkcemi",
+          "description": "Autopilot s praktickými funkcemi",
+          "long_name": "Autopilot s praktickými funkcemi",
+          "extra_copy": [],
+          "extra_content": []
+        },
+        "$APD3": {
+          "code": "$APD3",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD3"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD3"
+            }
+          ],
+          "name": "Autopilot s praktickými funkcemi",
+          "description": "Autopilot s praktickými funkcemi",
+          "long_name": "Autopilot s praktickými funkcemi",
+          "extra_copy": [],
+          "extra_content": []
         },
         "$APF2": {
           "code": "$APF2",
@@ -6918,6 +7090,26 @@
               "context": "CZK"
             }
           ]
+        },
+        "$APPC": {
+          "code": "$APPC",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APPC"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APPC"
+            }
+          ],
+          "name": "Autopilot s praktickými funkcemi",
+          "description": "Autopilot s praktickými funkcemi",
+          "long_name": "Autopilot s praktickými funkcemi",
+          "extra_copy": [],
+          "extra_content": []
         },
         "$CPF0": {
           "code": "$CPF0",
@@ -22110,7 +22302,7 @@
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 1618,
+      "options_id": 2090,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -22489,6 +22681,20 @@
             },
             {
               "code": "ADAPTIVE_SUSPENSION_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "BASIC_AP_FEATURES",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "AUTOPILOT_CONVIENCE_FEATURE",
               "context": [
                 "configurator"
               ],
@@ -23511,7 +23717,7 @@
       "copy_id": 3478,
       "language": "cs",
       "pricing_id": 3092,
-      "reference_id": 1618
+      "reference_id": 2090
     }
   },
   "edd": []

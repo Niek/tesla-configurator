@@ -961,6 +961,7 @@
         "PaymentTypes": [
           "CC"
         ],
+        "paymentTabsType": "tabs",
         "collectAllBillingInfo": true,
         "registration": {
           "showBusinessFields": true,
@@ -1721,12 +1722,12 @@
       "loan": []
     },
     "Lexicon.mx": {
-      "effective_date": "2021-11-02T01:30:00.000Z",
+      "effective_date": "2021-11-05T00:05:00.000Z",
       "market": "LU",
       "product": "mx",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing LU 2021.Nov.02 1664.3440.3046 [fr]",
+      "name": "Marketing LU 2021.Nov.05 2103.3440.3046 [fr]",
       "groups": [
         {
           "code": "MODEL",
@@ -6204,6 +6205,137 @@
               }
             }
           ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Fonctionnalités de l'Autopilot Standard",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Cartes de caractéristiques"
+            }
+          ]
+        },
+        {
+          "code": "AUTOPILOT_CONVIENCE_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APD2",
+            "$APD3",
+            "$APPC"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Autopilot avec fonctionnalités de confort",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "De série"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Pilotage, accélération et freinage automatiques sur autoroute"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Changement de voie auto"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Parking auto"
+            },
+            {
+              "type": "disclaimer[0]",
+              "content": "Le véhicule ne peut pas être mis à niveau vers la Capacité de conduite entièrement autonome"
+            },
+            {
+              "type": "disclaimer[1]",
+              "content": "Les fonctionnalités actuelles exigent une surveillance active de la part du conducteur et ne rendent pas le véhicule autonome. L'activation et l'utilisation future de ces fonctionnalités sans surveillance dépendent d'une fiabilité prouvée par des milliards de kilomètres de test pour être significativement supérieure à celle des conducteurs humains, ainsi que de l'approbation réglementaire, dont l'obtention peut être plus longue dans certains pays. Au fur et à mesure de l'évolution de ces fonctionnalités de conduite autonome, votre véhicule sera en permanence mis à niveau par le biais de mises à jour logicielles à distance."
+            },
+            {
+              "type": "fsd_features",
+              "content": "Détails des fonctionnalités",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "FSD_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "legacy_options",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$APD2",
+                      "$APD3",
+                      "$APPC"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "fsd_features",
+                        "props": {
+                          "modal": "FSD_FEATURES"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -6491,6 +6623,46 @@
               "context": "EUR"
             }
           ]
+        },
+        "$APD2": {
+          "code": "$APD2",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD2"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD2"
+            }
+          ],
+          "name": "Autopilot avec fonctionnalités de confort",
+          "description": "Autopilot avec fonctionnalités de confort",
+          "long_name": "Autopilot avec fonctionnalités de confort",
+          "extra_copy": [],
+          "extra_content": []
+        },
+        "$APD3": {
+          "code": "$APD3",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD3"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD3"
+            }
+          ],
+          "name": "Autopilot avec fonctionnalités de confort",
+          "description": "Autopilot avec fonctionnalités de confort",
+          "long_name": "Autopilot avec fonctionnalités de confort",
+          "extra_copy": [],
+          "extra_content": []
         },
         "$APF2": {
           "code": "$APF2",
@@ -7169,6 +7341,26 @@
               "context": "EUR"
             }
           ]
+        },
+        "$APPC": {
+          "code": "$APPC",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APPC"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APPC"
+            }
+          ],
+          "name": "Autopilot avec fonctionnalités de confort",
+          "description": "Autopilot avec fonctionnalités de confort",
+          "long_name": "Autopilot avec fonctionnalités de confort",
+          "extra_copy": [],
+          "extra_content": []
         },
         "$CC01": {
           "code": "$CC01",
@@ -18651,7 +18843,7 @@
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 1664,
+      "options_id": 2103,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -19082,6 +19274,20 @@
             },
             {
               "code": "TOW_HITCH_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "BASIC_AP_FEATURES",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "AUTOPILOT_CONVIENCE_FEATURE",
               "context": [
                 "configurator"
               ],
@@ -20127,7 +20333,7 @@
       "copy_id": 3440,
       "language": "fr",
       "pricing_id": 3046,
-      "reference_id": 1664
+      "reference_id": 2103
     }
   },
   "edd": []

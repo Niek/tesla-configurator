@@ -894,10 +894,10 @@
             "type": "business",
             "financeOptions": [
               "cash",
-              "business_lease",
+              "business_leaseteq",
               "operational_lease"
             ],
-            "defaultOption": "business_lease"
+            "defaultOption": "operational_lease"
           }
         ],
         "driverType": "personal",
@@ -1026,6 +1026,7 @@
         "PaymentTypes": [
           "CC"
         ],
+        "paymentTabsType": "tabs",
         "collectAllBillingInfo": true,
         "registration": {
           "showBusinessFields": true,
@@ -1889,11 +1890,9 @@
         },
         {
           "market": "CH",
-          "id": "business_lease",
+          "id": "business_leaseteq",
           "variant": [
-            "m3",
-            "ms",
-            "mx"
+            "m3"
           ],
           "inventory": [
             "new"
@@ -2096,12 +2095,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-11-02T01:30:00.000Z",
+      "effective_date": "2021-11-05T00:05:00.000Z",
       "market": "CH",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CH 2021.Nov.02 2072.3381.2352 [fr]",
+      "name": "Marketing CH 2021.Nov.05 2165.3381.2352 [fr]",
       "groups": [
         {
           "code": "MODEL",
@@ -2611,6 +2610,18 @@
           "required": false,
           "exclusive": true,
           "discountable": false
+        },
+        {
+          "code": "COLD_WEATHER",
+          "groups": [],
+          "context": "default",
+          "options": [
+            "$CW03"
+          ],
+          "required": false,
+          "exclusive": true,
+          "default_options": [],
+          "name": "COLD_WEATHER"
         },
         {
           "code": "CORE",
@@ -8701,6 +8712,21 @@
               "type": "1_month",
               "value": 12.99,
               "context": "CHF"
+            }
+          ]
+        },
+        "$CW03": {
+          "code": "$CW03",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$CW03"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$CW03"
             }
           ]
         },
@@ -18898,7 +18924,8 @@
                 "condition_any_code": [
                   "$MT304",
                   "$MT311",
-                  "$MT317"
+                  "$MT317",
+                  "$MT325"
                 ]
               }
             ],
@@ -18924,7 +18951,9 @@
                   "$MT310",
                   "$MT315",
                   "$MT316",
-                  "$MT321"
+                  "$MT321",
+                  "$MT322",
+                  "$MT323"
                 ]
               }
             ],
@@ -18950,7 +18979,9 @@
                   "$MT310",
                   "$MT315",
                   "$MT316",
-                  "$MT321"
+                  "$MT321",
+                  "$MT322",
+                  "$MT323"
                 ]
               }
             ],
@@ -19549,7 +19580,8 @@
             "transform_ignored_options": [
               "$SC04",
               "$RSF0",
-              "$RSF1"
+              "$RSF1",
+              "$CW03"
             ]
           }
         ],
@@ -24202,7 +24234,7 @@
         "$APBS",
         "$SC04"
       ],
-      "options_id": 2072,
+      "options_id": 2165,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -25620,7 +25652,7 @@
       "copy_id": 3381,
       "language": "fr",
       "pricing_id": 2352,
-      "reference_id": 2072
+      "reference_id": 2165
     }
   },
   "edd": [

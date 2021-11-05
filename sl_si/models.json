@@ -864,7 +864,7 @@
           "petrolPrice": 1
         },
         "extraDisclaimers": [],
-        "disclaimerDateFormat": "",
+        "disclaimerDateFormat": "D.M.YYYY",
         "showIncentivesDisclaimers": true,
         "extraLeaseDescriptions": [],
         "extraLoanDescriptions": [],
@@ -919,6 +919,7 @@
         "PaymentTypes": [
           "CC"
         ],
+        "paymentTabsType": "tabs",
         "collectAllBillingInfo": true,
         "registration": {
           "showBusinessFields": true,
@@ -1473,25 +1474,6 @@
           "market": "SI"
         },
         {
-          "feeType": "start_fee",
-          "financeType": [
-            "lease"
-          ],
-          "description": "Slovenia Start Fee",
-          "period": "included",
-          "variant": [
-            "m3",
-            "my",
-            "ms",
-            "mx"
-          ],
-          "inventory": [
-            "new"
-          ],
-          "amount": 300,
-          "market": "SI"
-        },
-        {
           "feeType": "inspect_prep",
           "financeType": "any",
           "description": "Inspect Prep Fee",
@@ -1610,8 +1592,8 @@
             "downPayment": 0.2,
             "minimumDownPayment": 0.2,
             "maximumDownPayment": 0.8,
-            "interestRate": 4.6,
-            "leaseTerm": 72
+            "interestRate": 3.5,
+            "leaseTerm": 60
           },
           "leaseTermsOffered": {
             "leaseTerm": [
@@ -1623,7 +1605,28 @@
             ]
           },
           "interestRateMatrix": [],
-          "residualRateMatrix": []
+          "residualRateMatrix": [
+            {
+              "leaseTerm": 24,
+              "value": 0.5
+            },
+            {
+              "leaseTerm": 36,
+              "value": 0.4
+            },
+            {
+              "leaseTerm": 48,
+              "value": 0.3
+            },
+            {
+              "leaseTerm": 60,
+              "value": 0.2
+            },
+            {
+              "leaseTerm": 72,
+              "value": 0
+            }
+          ]
         }
       ]
     },
@@ -1631,12 +1634,12 @@
       "loan": []
     },
     "Lexicon.ms": {
-      "effective_date": "2021-11-02T01:30:00.000Z",
+      "effective_date": "2021-11-05T00:05:00.000Z",
       "market": "SI",
       "product": "ms",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing SI 2021.Nov.02 1604.3475.3072 [sl]",
+      "name": "Marketing SI 2021.Nov.05 2087.3475.3072 [sl]",
       "groups": [
         {
           "code": "MODEL",
@@ -5988,6 +5991,137 @@
               ]
             }
           ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Basic Autopilot Features",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Feature Cards"
+            }
+          ]
+        },
+        {
+          "code": "AUTOPILOT_CONVIENCE_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APD2",
+            "$APD3",
+            "$APPC"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Autopilot with convenience features",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Included"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Automatic steering, acceleration and braking on highways"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Auto Lane Change"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "Autopark"
+            },
+            {
+              "type": "disclaimer[0]",
+              "content": "Vehicle cannot be upgraded to Full Self-Driving Capability"
+            },
+            {
+              "type": "disclaimer[1]",
+              "content": "The currently enabled features require active driver supervision and do not make the vehicle autonomous. The activation and use of these features are dependent on achieving reliability far in excess of human drivers as demonstrated by billions of miles of experience, as well as regulatory approval, which may take longer in some jurisdictions. As these self-driving features evolve, your car will be continuously upgraded through over-the-air software updates."
+            },
+            {
+              "type": "fsd_features",
+              "content": "Feature Details",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "FSD_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "legacy_options",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$APD2",
+                      "$APD3",
+                      "$APPC"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "fsd_features",
+                        "props": {
+                          "modal": "FSD_FEATURES"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -6263,6 +6397,46 @@
               "context": "EUR"
             }
           ]
+        },
+        "$APD2": {
+          "code": "$APD2",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD2"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD2"
+            }
+          ],
+          "name": "Autopilot with convenience features",
+          "description": "Autopilot with convenience features",
+          "long_name": "Autopilot with convenience features",
+          "extra_copy": [],
+          "extra_content": []
+        },
+        "$APD3": {
+          "code": "$APD3",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD3"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD3"
+            }
+          ],
+          "name": "Autopilot with convenience features",
+          "description": "Autopilot with convenience features",
+          "long_name": "Autopilot with convenience features",
+          "extra_copy": [],
+          "extra_content": []
         },
         "$APF2": {
           "code": "$APF2",
@@ -6721,6 +6895,26 @@
               "context": "EUR"
             }
           ]
+        },
+        "$APPC": {
+          "code": "$APPC",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APPC"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APPC"
+            }
+          ],
+          "name": "Autopilot with convenience features",
+          "description": "Autopilot with convenience features",
+          "long_name": "Autopilot with convenience features",
+          "extra_copy": [],
+          "extra_content": []
         },
         "$CPF0": {
           "code": "$CPF0",
@@ -21769,7 +21963,7 @@
         "$ST0Y",
         "$CPF1"
       ],
-      "options_id": 1604,
+      "options_id": 2087,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -22155,6 +22349,20 @@
             },
             {
               "code": "ADAPTIVE_SUSPENSION_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "BASIC_AP_FEATURES",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "AUTOPILOT_CONVIENCE_FEATURE",
               "context": [
                 "configurator"
               ],
@@ -23177,7 +23385,7 @@
       "copy_id": 3475,
       "language": "sl",
       "pricing_id": 3072,
-      "reference_id": 1604
+      "reference_id": 2087
     }
   },
   "edd": []
