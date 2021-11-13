@@ -180,7 +180,8 @@
         "showAssetGallery": true,
         "isCollapsedFlow": true,
         "isApplePayInPayX": true,
-        "hideSectionsOnFooter": []
+        "hideSectionsOnFooter": [],
+        "showMinMaxRangeValues": false
       },
       "Compositor": {
         "available_views": {
@@ -1778,12 +1779,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-11-05T18:50:00.000Z",
+      "effective_date": "2021-11-12T00:30:00.000Z",
       "market": "TW",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing TW 2021.Nov.05 2179.3108.3558 [zh]",
+      "name": "Marketing TW 2021.Nov.12 2188.3609.3558 [zh]",
       "groups": [
         {
           "code": "MODEL",
@@ -2584,7 +2585,7 @@
                   "type": "DisclaimerSpecial",
                   "props": {
                     "field": "certified_disclaimer",
-                    "classes": "tds-text--center"
+                    "classes": "tds-text--center tds-text--caption"
                   }
                 },
                 {
@@ -3683,7 +3684,9 @@
           "groups": [],
           "options": [
             "$IBB1",
-            "$IPB1"
+            "$IBW1",
+            "$IPB1",
+            "$IPW1"
           ],
           "required": true,
           "exclusive": true,
@@ -3937,6 +3940,14 @@
               "content": "649 公升置物空間，包含前行李廂"
             },
             {
+              "type": "feature_list.default[0].items[6]",
+              "content": "加熱座椅，5 個座椅均可獨立控制"
+            },
+            {
+              "type": "feature_list.default[0].items[7]",
+              "content": "電熱方向盤"
+            },
+            {
               "type": "dynamic_grid_indicator_included",
               "content": "包含"
             }
@@ -3959,24 +3970,11 @@
                         }
                       },
                       {
+                        "classes": "dynamic-grid--space-evenly",
                         "title_path": "CustomGroups.INTERIOR_SECTION.dynamic_grid_title[1]",
                         "content_path": {
                           "label": "name",
                           "value": "interior_floor_mats"
-                        }
-                      },
-                      {
-                        "title_path": "CustomGroups.INTERIOR_SECTION.dynamic_grid_title[2]",
-                        "content_path": {
-                          "label": "name",
-                          "value": "interior_heated_seats"
-                        }
-                      },
-                      {
-                        "title_path": "CustomGroups.INTERIOR_SECTION.dynamic_grid_title[3]",
-                        "content_path": {
-                          "label": "name",
-                          "value": "interior_heated_steering_wheel"
                         }
                       }
                     ]
@@ -5587,6 +5585,14 @@
             },
             {
               "type": "feature_list.default[1].items[1]",
+              "content": "具備加熱功能的前排與後排座椅"
+            },
+            {
+              "type": "feature_list.default[1].items[2]",
+              "content": "電熱方向盤"
+            },
+            {
+              "type": "feature_list.default[1].items[3]",
               "content": "可抗紫外線和紅外線的染色玻璃車頂"
             },
             {
@@ -7272,6 +7278,14 @@
                   ]
                 }
               ]
+            },
+            {
+              "type": "price_indicator",
+              "content": "包含"
+            },
+            {
+              "type": "long_name",
+              "content": "頂級連線功能試用 30 天"
             }
           ],
           "extra_content": [
@@ -7318,9 +7332,9 @@
               "target": "$CW03"
             }
           ],
-          "name": "heated steering wheel and rear seats",
-          "description": "heated steering wheel and rear seats",
-          "long_name": "heated steering wheel and rear seats"
+          "name": "方向盤與後排座椅加熱",
+          "description": "方向盤與後排座椅加熱",
+          "long_name": "方向盤與後排座椅加熱"
         },
         "$DV2W": {
           "code": "$DV2W",
@@ -8081,7 +8095,6 @@
                 "target": "$IBW1",
                 "condition_state": "set",
                 "condition_any_code": [
-                  "$MT314",
                   "$MT315",
                   "$MT317",
                   "$MT320",
@@ -8124,7 +8137,6 @@
               "target": "$IBW1",
               "condition_state": "set",
               "condition_any_code": [
-                "$MT314",
                 "$MT315",
                 "$MT317",
                 "$MT320",
@@ -8709,6 +8721,12 @@
                 "target": "$IPB1",
                 "condition_code": "$MT317",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBW1",
+                "condition_code": "$MT314",
+                "condition_state": "set"
               }
             ]
           },
@@ -8742,6 +8760,12 @@
               "action": "set",
               "target": "$IPB1",
               "condition_code": "$MT317",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBW1",
+              "condition_code": "$MT314",
               "condition_state": "set"
             }
           ],
@@ -8927,9 +8951,10 @@
               "content": [
                 {
                   "configuration": [
-                    "$PRM31"
+                    "$MT317",
+                    "$MT314"
                   ],
-                  "condition_state": "not"
+                  "condition_state": "or"
                 }
               ]
             }
@@ -13768,6 +13793,12 @@
               {
                 "action": "set",
                 "target": "$SPT31"
+              },
+              {
+                "action": "set",
+                "target": "$IPB1",
+                "condition_code": "$IPW1",
+                "condition_state": "set"
               }
             ],
             "unset_rules": [
@@ -13814,6 +13845,12 @@
             {
               "action": "set",
               "target": "$SPT31"
+            },
+            {
+              "action": "set",
+              "target": "$IPB1",
+              "condition_code": "$IPW1",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -15553,33 +15590,33 @@
                 },
                 "unit_definitions": {
                   "seconds": {
-                    "label": "seconds",
+                    "label": "秒鐘",
                     "short_label": "秒"
                   },
                   "kilometers": {
-                    "label": "km",
-                    "short_label": "km"
+                    "label": "公里",
+                    "short_label": "公里"
                   },
                   "range_units": {
                     "label": "續航里程"
                   },
                   "range_units_epa": {
-                    "label": "續航里程 (WLTP)"
+                    "label": "續航里程 (EPA 預估值)"
                   },
                   "range_units_est": {
-                    "label": "續航里程(預估值)"
+                    "label": "續航里程 (預估值)"
                   },
                   "top_speed_units": {
-                    "label": "最高時速",
-                    "short_label": "mph"
+                    "label": "最高車速",
+                    "short_label": "英里/小時"
                   },
                   "zero_to_road_limit": {
-                    "label": "靜止起步至時速 100 公里",
-                    "short_label": "0-100 km/h"
+                    "label": "0-100 公里/小時",
+                    "short_label": "0-100 公里/小時"
                   },
                   "kilometers-per-hour": {
-                    "label": "km/h",
-                    "short_label": "km/h"
+                    "label": "公里/小時",
+                    "short_label": "公里/小時"
                   }
                 }
               },
@@ -20141,7 +20178,7 @@
         "$APBS",
         "$SC04"
       ],
-      "options_id": 2179,
+      "options_id": 2188,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -21476,10 +21513,10 @@
           }
         }
       ],
-      "copy_id": 3108,
+      "copy_id": 3609,
       "language": "zh",
       "pricing_id": 3558,
-      "reference_id": 2179
+      "reference_id": 2188
     }
   },
   "edd": []

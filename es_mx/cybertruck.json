@@ -100,7 +100,8 @@
         "showAssetGallery": false,
         "isCollapsedFlow": true,
         "isApplePayInPayX": true,
-        "hideSectionsOnFooter": []
+        "hideSectionsOnFooter": [],
+        "showMinMaxRangeValues": true
       },
       "Compositor": {
         "available_views": {},
@@ -823,7 +824,7 @@
         },
         "nonRefundPolicyDisclaimer": false,
         "showOrderRefundDisclaimer": true,
-        "doSessionStartOnMount": false,
+        "doSessionStartOnMount": true,
         "showModelYear": true,
         "showGrossPriceTotal": false,
         "oldOrderAgreementVersion": "",
@@ -934,12 +935,12 @@
       }
     },
     "Lexicon.mp": {
-      "effective_date": "2021-10-15T00:45:00.000Z",
+      "effective_date": "2021-11-12T01:00:00.000Z",
       "market": "MX",
       "product": "mp",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing MX 2021.Oct.15 1924.3280.51 [es]",
+      "name": "Marketing MX 2021.Nov.12 1845.3282.51 [es]",
       "groups": [
         {
           "code": "MODEL",
@@ -1111,22 +1112,33 @@
               "content": "Completamente reembolsable."
             }
           ],
-          "groups": [],
-          "options": [
-            "$MTP01",
-            "$MTP02",
-            "$MTP03",
-            "$MTP04"
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "sub_title"
+                  }
+                },
+                {
+                  "type": "Options"
+                }
+              ]
+            }
           ],
-          "required": true,
+          "groups": [],
+          "options": [],
+          "required": false,
           "exclusive": true,
-          "default_options": [
-            "$MTP04"
-          ]
+          "default_options": []
         },
         {
           "code": "BATTERY_AND_DRIVE",
-          "groups": [],
+          "groups": [
+            "TRIM"
+          ],
           "context": "configurator",
           "options": [],
           "required": false,
@@ -1144,7 +1156,35 @@
             }
           ],
           "description": "Batería y tren motriz",
-          "extra_content": []
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "classes": "coin-title",
+                    "component": "h3"
+                  }
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "order_disclaimer",
+                    "classes": "tds--vertical_padding"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "DELIVERY_TIMING",
@@ -1178,6 +1218,7 @@
           "code": "AUTOPILOT",
           "name": "Autopilot",
           "context": "configurator",
+          "extra_content": [],
           "groups": [],
           "options": [
             "$APF2"
@@ -1186,6 +1227,28 @@
           "exclusive": false,
           "default_options": [
             "$APF2"
+          ]
+        },
+        {
+          "code": "EXTERIOR_GALLERY",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Galería de configuración",
+          "description": "Galería de configuración",
+          "extra_content": [
+            {
+              "type": "asset[0]",
+              "content": [
+                {
+                  "url": "CYBERTRUCK/NVRP_m.png",
+                  "type": "image"
+                }
+              ]
+            }
           ]
         }
       ],
@@ -1850,7 +1913,7 @@
             },
             {
               "type": "order_disclaimer",
-              "content": "Completamente reembolsable. Podrá completar la configuración a medida que se acerque la producción a finales de 2021. Se prevé que la producción de la configuración para tracción en las cuatro ruedas trimotor comenzará a finales de 2021."
+              "content": "Completamente reembolsable."
             }
           ],
           "extra_content": [
@@ -1916,6 +1979,20 @@
               ]
             }
           ],
+          "name": "Cybertruck",
+          "description": "Cybertruck",
+          "long_name": "Cybertruck",
+          "long_description": "Cybertruck",
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            }
+          ],
           "price": 0,
           "pricing": [
             {
@@ -1942,7 +2019,107 @@
           }
         },
         "specs": {
-          "data": [],
+          "data": [
+            {
+              "meta": {
+                "specs": {
+                  "range": {
+                    "units": "miles",
+                    "source": "EPA"
+                  },
+                  "topspeed": {
+                    "units": "miles-per-hour"
+                  },
+                  "ludicrous": {
+                    "units": "seconds",
+                    "measurement": {
+                      "units": "miles-per-hour",
+                      "value": "0-60"
+                    }
+                  },
+                  "acceleration": {
+                    "units": "seconds",
+                    "measurement": {
+                      "units": "miles-per-hour",
+                      "value": "0-60"
+                    }
+                  }
+                },
+                "unit_definitions": {
+                  "miles": {
+                    "label": "miles",
+                    "short_label": "mi"
+                  },
+                  "seconds": {
+                    "label": "s",
+                    "short_label": "sec"
+                  },
+                  "kilometers": {
+                    "label": "kilómetros",
+                    "short_label": "km"
+                  },
+                  "range_units": {
+                    "label": "Autonomía"
+                  },
+                  "miles-per-hour": {
+                    "label": "miles per hour",
+                    "short_label": "mph"
+                  },
+                  "range_units_epa": {
+                    "label": "Autonomía (norma de EPA)"
+                  },
+                  "top_speed_units": {
+                    "label": "Velocidad máxima",
+                    "short_label": "km/h"
+                  },
+                  "towing_capacity": {
+                    "label": "Capacidad de remolque",
+                    "short_label": "lbs"
+                  },
+                  "zero_to_road_limit": {
+                    "label": "0-60 mph",
+                    "short_label": "0-60 mph"
+                  },
+                  "kilometers-per-hour": {
+                    "label": "kilómetros por hora",
+                    "short_label": "km/h"
+                  }
+                }
+              },
+              "options": {
+                "$MTP01": {
+                  "name": "Single Motor RWD",
+                  "range": "250+",
+                  "acceleration": "<6.5",
+                  "name_localized": {
+                    "es": "Tracción trasera con un solo motor"
+                  },
+                  "towing_capacity": "7,500+",
+                  "range_units_override": "range_units_epa"
+                },
+                "$MTP02": {
+                  "name": "Dual Motor AWD",
+                  "range": "300+",
+                  "acceleration": "<4.5",
+                  "name_localized": {
+                    "es": "Tracción en las cuatro ruedas con doble motor"
+                  },
+                  "towing_capacity": "10,000+",
+                  "range_units_override": "range_units_epa"
+                },
+                "$MTP03": {
+                  "name": "Tri Motor AWD",
+                  "range": "500+",
+                  "acceleration": "<2.9",
+                  "name_localized": {
+                    "es": "Tracción en las cuatro ruedas trimotor"
+                  },
+                  "towing_capacity": "14,000+",
+                  "range_units_override": "range_units_epa"
+                }
+              }
+            }
+          ],
           "refs": {
             "time": {
               "label": "seconds",
@@ -1971,7 +2148,7 @@
         "$WDD",
         "$SC04"
       ],
-      "options_id": 1924,
+      "options_id": 1845,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -2018,6 +2195,13 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EXTERIOR_GALLERY",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -2026,10 +2210,10 @@
           "message": "'Fees' should be moved to Copy lexicon from Options."
         }
       ],
-      "copy_id": 3280,
+      "copy_id": 3282,
       "language": "es",
       "pricing_id": 51,
-      "reference_id": 1924
+      "reference_id": 1845
     }
   },
   "edd": []

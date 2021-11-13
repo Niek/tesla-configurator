@@ -100,7 +100,8 @@
         "showAssetGallery": false,
         "isCollapsedFlow": true,
         "isApplePayInPayX": true,
-        "hideSectionsOnFooter": []
+        "hideSectionsOnFooter": [],
+        "showMinMaxRangeValues": true
       },
       "Compositor": {
         "available_views": {},
@@ -831,7 +832,7 @@
         },
         "nonRefundPolicyDisclaimer": false,
         "showOrderRefundDisclaimer": true,
-        "doSessionStartOnMount": false,
+        "doSessionStartOnMount": true,
         "showModelYear": true,
         "showGrossPriceTotal": false,
         "oldOrderAgreementVersion": "",
@@ -850,7 +851,7 @@
         "showPaymentDisclaimers": true,
         "showFoundersDisclaimers": false,
         "showPurchasePrice": false,
-        "showAccountDetailDisclaimer": false,
+        "showAccountDetailDisclaimer": true,
         "USLegalDisclaimer": true,
         "formErrors": {},
         "showAccountType": true,
@@ -943,13 +944,13 @@
       }
     },
     "Lexicon.mp": {
-      "id": 1888,
-      "effective_date": "2021-10-15T00:45:00.000Z",
+      "id": 1843,
+      "effective_date": "2021-11-12T01:00:00.000Z",
       "market": "US",
       "product": "mp",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing US 2021.Oct.15 1888.3250.491",
+      "name": "Marketing US 2021.Nov.12 1843.3249.491",
       "groups": [
         {
           "code": "MODEL",
@@ -1121,23 +1122,33 @@
               "content": "Fully refundable."
             }
           ],
-          "groups": [],
-          "options": [
-            "$MTP01",
-            "$MTP02",
-            "$MTP03",
-            "$MTP04"
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "sub_title"
+                  }
+                },
+                {
+                  "type": "Options"
+                }
+              ]
+            }
           ],
-          "required": true,
+          "groups": [],
+          "options": [],
+          "required": false,
           "exclusive": true,
-          "default_options": [
-            "$MTP04"
-          ]
+          "default_options": []
         },
         {
           "code": "AUTOPILOT",
           "name": "Autopilot",
           "context": "configurator",
+          "extra_content": [],
           "groups": [],
           "options": [
             "$APF2"
@@ -1150,7 +1161,9 @@
         },
         {
           "code": "BATTERY_AND_DRIVE",
-          "groups": [],
+          "groups": [
+            "TRIM"
+          ],
           "context": "configurator",
           "options": [],
           "required": false,
@@ -1170,8 +1183,31 @@
           "description": "Battery and Drivetrain",
           "extra_content": [
             {
-              "type": "performance_specs",
-              "content": []
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "classes": "coin-title",
+                    "component": "h3"
+                  }
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "order_disclaimer",
+                    "classes": "tds--vertical_padding"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "gallery",
+              "content": [
+                {
+                  "group": "EXTERIOR_GALLERY"
+                }
+              ]
             }
           ]
         },
@@ -1202,6 +1238,28 @@
           "required": false,
           "exclusive": false,
           "name": "Payment"
+        },
+        {
+          "code": "EXTERIOR_GALLERY",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Configuration Gallery",
+          "description": "Configuration Gallery",
+          "extra_content": [
+            {
+              "type": "asset[0]",
+              "content": [
+                {
+                  "url": "CYBERTRUCK/NVRP_m.png",
+                  "type": "image"
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -1972,7 +2030,90 @@
           }
         },
         "specs": {
-          "data": [],
+          "data": [
+            {
+              "meta": {
+                "specs": {
+                  "range": {
+                    "units": "miles",
+                    "source": "EPA"
+                  },
+                  "topspeed": {
+                    "units": "miles-per-hour"
+                  },
+                  "ludicrous": {
+                    "units": "seconds",
+                    "measurement": {
+                      "units": "miles-per-hour",
+                      "value": "0-60"
+                    }
+                  },
+                  "acceleration": {
+                    "units": "seconds",
+                    "measurement": {
+                      "units": "miles-per-hour",
+                      "value": "0-60"
+                    }
+                  }
+                },
+                "unit_definitions": {
+                  "miles": {
+                    "label": "miles",
+                    "short_label": "mi"
+                  },
+                  "seconds": {
+                    "label": "seconds",
+                    "short_label": "sec"
+                  },
+                  "range_units": {
+                    "label": "Range"
+                  },
+                  "miles-per-hour": {
+                    "label": "miles per hour",
+                    "short_label": "mph"
+                  },
+                  "range_units_epa": {
+                    "label": "Range (EPA est.)"
+                  },
+                  "top_speed_units": {
+                    "label": "Top Speed",
+                    "short_label": "mph"
+                  },
+                  "towing_capacity": {
+                    "label": "Towing capacity",
+                    "short_label": "lbs"
+                  },
+                  "zero_to_road_limit": {
+                    "label": "0-60 mph",
+                    "short_label": "0-60 mph"
+                  }
+                }
+              },
+              "options": {
+                "$MTP01": {
+                  "name": "Single Motor RWD",
+                  "range": "250+",
+                  "acceleration": "<6.5",
+                  "towing_capacity": "7,500+",
+                  "range_units_override": "range_units_epa"
+                },
+                "$MTP02": {
+                  "name": "Dual Motor AWD",
+                  "range": "300+",
+                  "acceleration": "<4.5",
+                  "towing_capacity": "10,000+",
+                  "range_units_override": "range_units_epa"
+                },
+                "$MTP03": {
+                  "name": "Tri Motor AWD",
+                  "range": "500+",
+                  "acceleration": "<2.9",
+                  "towing_capacity": "14,000+",
+                  "range_units_override": "range_units_epa"
+                }
+              }
+            }
+          ],
           "refs": {
             "time": {
               "label": "seconds",
@@ -2001,7 +2142,7 @@
         "$WDD",
         "$SC04"
       ],
-      "options_id": 1888,
+      "options_id": 1843,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -2048,6 +2189,13 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EXTERIOR_GALLERY",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -2056,7 +2204,7 @@
           "message": "'Fees' should be moved to Copy lexicon from Options."
         }
       ],
-      "copy_id": 3250,
+      "copy_id": 3249,
       "language": "en",
       "pricing_id": 491
     }
