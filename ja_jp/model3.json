@@ -1074,6 +1074,7 @@
         },
         "isSaveDesignEnabled": false,
         "showLocalName": false,
+        "showCompanyAgentLabel": false,
         "showLegalConsent": [
           "ORDER_CONSENT"
         ],
@@ -1865,12 +1866,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-11-19T02:45:00.000Z",
+      "effective_date": "2021-12-03T02:00:00.000Z",
       "market": "JP",
       "product": "m3",
       "factory": "GF03",
       "fees": {},
-      "name": "Marketing JP 2021.Nov.19 2220.3854.3971 [ja]",
+      "name": "Marketing JP 2021.Dec.03 2282.3876.4243 [ja]",
       "groups": [
         {
           "code": "MODEL",
@@ -3040,7 +3041,7 @@
             },
             {
               "type": "sub_title",
-              "content": "RWD (後輪駆動)"
+              "content": "RWD"
             }
           ],
           "extra_content": [
@@ -3583,7 +3584,7 @@
             },
             {
               "type": "sub_title",
-              "content": "RWD (後輪駆動)"
+              "content": "RWD"
             },
             {
               "type": "modal_list.default[0].main_title",
@@ -6261,6 +6262,23 @@
               ]
             }
           ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "ベーシックオートパイロット機能",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "機能カード"
+            }
+          ]
         }
       ],
       "options": {
@@ -6323,6 +6341,28 @@
             {
               "type": "deselectLabel",
               "content": "選択済みオプション"
+            },
+            {
+              "type": "disclaimer",
+              "content": "現在ご利用いただける機能はドライバー自身が監視する必要や責任があり、完全自動運転ではありません。将来的にこれらの機能を実現するには、何十億マイルもの経験で証明された人間のドライバーを超える信頼性を習得する必要があります。同時に規制当局による認可も必要で、国や地域によっては長い時間がかかる場合があります。セルフドライビング機能は進化を続け、ワイヤレスアップデートを通じて、あなたのTeslaの機能は継続的にアップグレードされます。"
+            },
+            {
+              "type": "compare_features",
+              "content": "機能の詳細",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {
+                      "data-should-open": "BASIC_AP_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -6345,6 +6385,46 @@
                   "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
                   "desktop": "ap-light-mode-image/aasvcb/std/0x0/ap-light-mode",
                   "desktop2x": "ap-light-mode-image/aasvcb/std/0x0/ap-light-mode"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "compare_features",
+                        "props": {
+                          "modal": "BASIC_AP_FEATURES"
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -6406,6 +6486,10 @@
           "description": "フル セルフドライビング ケイパビリティ",
           "long_name": "フル セルフドライビング ケイパビリティ",
           "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "標準"
+            },
             {
               "type": "feature_list.default[0].items[0]",
               "content": "オートパーキング"
@@ -6826,7 +6910,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "任意"
+              "content": "標準"
             },
             {
               "type": "feature_list.default[0].items[0]",
@@ -7380,10 +7464,19 @@
               "target": "$CW03"
             }
           ],
-          "name": "ヒーター付きハンドルとリアシート",
-          "description": "ヒーター付きハンドルとリアシート",
-          "long_name": "ヒーター付きハンドルとリアシート",
-          "extra_copy": [],
+          "name": "コールドウェザー機能",
+          "description": "リアシートヒーターやステアリングヒーターで、より快適なドライブをお楽しみいただけます。",
+          "long_name": "コールドウェザー機能",
+          "extra_copy": [
+            {
+              "type": "description",
+              "content": "リアシートヒーターやステアリングヒーターで、より快適なドライブをお楽しみいただけます。"
+            },
+            {
+              "type": "upgrade.disclaimerOnImage",
+              "content": "ステアリングヒーターを含む。"
+            }
+          ],
           "price": 0,
           "pricing": [
             {
@@ -7492,9 +7585,9 @@
               "condition_state": "unset"
             }
           ],
-          "name": "RWD (後輪駆動)",
-          "description": "RWD (後輪駆動)",
-          "long_name": "RWD (後輪駆動)",
+          "name": "RWD",
+          "description": "RWD",
+          "long_name": "RWD",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -11416,9 +11509,9 @@
                   "condition_state": "set",
                   "target_property": "price",
                   "condition_any_code": [
+                    "$MT315",
                     "$MT323",
-                    "$MT316",
-                    "$MT315"
+                    "$MT316"
                   ]
                 }
               ]
@@ -14973,7 +15066,7 @@
             },
             {
               "type": "drive_mode",
-              "content": "RWD (後輪駆動)"
+              "content": "RWD"
             },
             {
               "type": "interior_sound_system",
@@ -15522,7 +15615,7 @@
             },
             {
               "type": "drive_mode",
-              "content": "RWD (後輪駆動)"
+              "content": "RWD"
             },
             {
               "type": "interior_sound_system",
@@ -16822,7 +16915,7 @@
                     "label": "航続距離"
                   },
                   "range_units_epa": {
-                    "label": "航続距離（WLTP推定）"
+                    "label": "航続距離（EPA推定）"
                   },
                   "range_units_est": {
                     "label": "航続距離（推定）"
@@ -21425,7 +21518,7 @@
         "$APBS",
         "$SC04"
       ],
-      "options_id": 2220,
+      "options_id": 2282,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -21852,6 +21945,13 @@
             },
             {
               "code": "FSD_GALLERY",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "BASIC_AP_FEATURES",
               "context": [
                 "configurator"
               ],
@@ -22767,10 +22867,10 @@
           }
         }
       ],
-      "copy_id": 3854,
+      "copy_id": 3876,
       "language": "ja",
-      "pricing_id": 3971,
-      "reference_id": 2220
+      "pricing_id": 4243,
+      "reference_id": 2282
     }
   },
   "edd": [

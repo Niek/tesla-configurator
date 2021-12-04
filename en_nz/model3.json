@@ -1090,6 +1090,7 @@
         },
         "isSaveDesignEnabled": false,
         "showLocalName": false,
+        "showCompanyAgentLabel": false,
         "showLegalConsent": [
           "ORDER_CONSENT"
         ],
@@ -1880,13 +1881,13 @@
       ]
     },
     "Lexicon.m3": {
-      "id": 2217,
-      "effective_date": "2021-11-19T02:52:00.000Z",
+      "id": 2265,
+      "effective_date": "2021-12-03T02:00:00.000Z",
       "market": "NZ",
       "product": "m3",
       "factory": "GF03",
       "fees": {},
-      "name": "Marketing NZ 2021.Nov.19 2217.3847.3991",
+      "name": "Marketing NZ 2021.Dec.03 2265.3873.4237",
       "groups": [
         {
           "code": "MODEL",
@@ -3736,7 +3737,7 @@
             },
             {
               "type": "range_info_disclaimer",
-              "content": "<p>Range figures shown are based on the WLTP standard which may be useful in comparing ranges among electric vehicles. Your actual vehicle range will vary depending on the vehicle configuration, battery age and condition, driving style and operating, environmental and climate conditions.</p><p>Rated range as displayed on the Energy Consumption label is calculated according to the ADR 81/02 NEDC based standard as defined by UNECE R101/01. <a href='https://www.tesla.com/en_NZ/support/range-calculator-ref?redirect=no' target='_blank'>Learn more.</a></p>"
+              "content": "<p>All ranges follow the WLTP standard, which can be useful in comparing ranges among electric vehicles. Certified ranges at the top of our configurator are tested on the largest wheel option, as required by law, reflecting the lowest-range configuration. Actual range may vary based on factors such as speed, weather conditions and elevation change.<br/><br/>What is WLTP and how does it work?<br/>The WLTP rates electric vehicle driving range. It uses a dynamic test cycle lasting 30 minutes with a number of driving phases and includes a balance between urban and non-urban driving. Testing is performed at different speeds and includes stops, acceleration and braking.<br/><br/>What is the discrepancy between the WLTP estimate and real-world range?<br/>WLTP aims to test cars under conditions that are realistic and mimic on-road performance however it does not cover all possible variations. The car’s actual range depends on many factors, including the environment and personal driving habits. For example, one driver might accelerate faster and brake more suddenly than another who may drive more conservatively.<br/><br/>While WLTP testing aims to be based on real-world performance, it still uses a specific test cycle that is reproducible and repeatable by any testing facility with any vehicle. Because all manufacturers must use the exact same testing conditions, the main purpose of the WLTP is to allow for realistic comparison of range between electric vehicles from different manufacturers <a href='https://www.tesla.com/en_AU/support/range-calculator-ref?redirect=no' target='_blank'><br><br>Learn more.</a></p>"
             }
           ],
           "description": "Battery and Drivetrain",
@@ -6483,6 +6484,23 @@
               "content": "<p><strong>What is the offer?</strong><br/>The New Zealand Government has introduced the Clean Car Discount of $8,625 on new electric vehicles with a Drive Away Price under $80,000 (Vehicle Subtotal including GST and on road costs).<br/><br/>This offer is on a first come, first serve basis. If rebate refunds are exhausted due to high demand, Waka Kotahi will notify customers that the rebate window is closed and no further rebates will be offered.</p><p><strong>Am I eligible?</strong><br/>Eligible purchases are for new electric vehicles first registered in New Zealand between 1 July 2021 and 31 March 2022, with a Drive Away Price under $80,000 (including GST and on road costs). The rebate is only accessible to New Zealand residents and businesses. <a href='https://www.nzta.govt.nz/vehicles/clean-car-programme/clean-car-discount/eligibility-criteria/' target='_blank'>Learn more.</a></p><p><strong>How can I receive the Clean Car Discount?</strong><br/>Once the vehicle registration and delivery is complete, application for the rebate can be completed via <a href='https://transact.nzta.govt.nz/v2/apply-clean-car-rebate' target='_blank'>Waka Kotahi</a>. Rebate applications will require the vehicle plate number, a copy of the MVOA and Final Invoice and bank account details of the registered person. <a href='https://www.nzta.govt.nz/vehicles/clean-car-programme/clean-car-discount/' target='_blank'>Learn more.<a/></p><p>For additional information visit <a href='https://www.nzta.govt.nz/vehicles/clean-car-programme/clean-car-discount/' target='_blank'>Clean Car Programme</a>.</p>"
             }
           ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Basic Autopilot Features",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Feature Cards"
+            }
+          ]
         }
       ],
       "options": {
@@ -6545,6 +6563,28 @@
             {
               "type": "deselectLabel",
               "content": "Option Selected"
+            },
+            {
+              "type": "disclaimer",
+              "content": "The currently enabled features require active driver supervision and do not make the vehicle autonomous. The activation and use of these features are dependent on achieving reliability far in excess of human drivers as demonstrated by billions of miles of experience, as well as regulatory approval, which may take longer in some jurisdictions. As these self-driving features evolve, your car will be continuously upgraded through over-the-air software updates."
+            },
+            {
+              "type": "compare_features",
+              "content": "Feature Details",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {
+                      "data-should-open": "BASIC_AP_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -6567,6 +6607,46 @@
                   "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
                   "desktop": "ap-light-mode-image/aasvcb/std/0x0/ap-light-mode",
                   "desktop2x": "ap-light-mode-image/aasvcb/std/0x0/ap-light-mode"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "compare_features",
+                        "props": {
+                          "modal": "BASIC_AP_FEATURES"
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -6738,6 +6818,10 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "price_indicator",
+              "content": "Included"
             },
             {
               "type": "#owner_xp:::upgrade.disclaimerOnImage",
@@ -7048,7 +7132,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Optional"
+              "content": "Included"
             },
             {
               "type": "feature_list.default[0].items[0]",
@@ -7605,10 +7689,19 @@
               "target": "$CW03"
             }
           ],
-          "name": "heated steering wheel and rear seats",
-          "description": "heated steering wheel and rear seats",
-          "long_name": "heated steering wheel and rear seats",
-          "extra_copy": [],
+          "name": "Cold Weather Feature",
+          "description": "Enhance your riding experience with rear heated seats and a heated steering wheel.",
+          "long_name": "Cold Weather Feature",
+          "extra_copy": [
+            {
+              "type": "description",
+              "content": "Enhance your riding experience with rear heated seats and a heated steering wheel."
+            },
+            {
+              "type": "upgrade.disclaimerOnImage",
+              "content": "Includes Heated Steering Wheel"
+            }
+          ],
           "price": 0,
           "pricing": [
             {
@@ -10354,7 +10447,7 @@
             },
             {
               "type": "upgrade",
-              "value": 500,
+              "value": 330,
               "context": "NZD",
               "set_rules": [
                 {
@@ -11626,9 +11719,9 @@
                   "condition_state": "set",
                   "target_property": "price",
                   "condition_any_code": [
+                    "$MT315",
                     "$MT323",
-                    "$MT316",
-                    "$MT315"
+                    "$MT316"
                   ]
                 }
               ]
@@ -22347,7 +22440,7 @@
         "$APBS",
         "$SC04"
       ],
-      "options_id": 2217,
+      "options_id": 2265,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -22749,6 +22842,13 @@
             },
             {
               "code": "FEDERAL_TAX_CREDIT",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "BASIC_AP_FEATURES",
               "context": [
                 "configurator"
               ],
@@ -23752,9 +23852,9 @@
           "content_localized": {}
         }
       ],
-      "copy_id": 3847,
+      "copy_id": 3873,
       "language": "en",
-      "pricing_id": 3991
+      "pricing_id": 4237
     }
   },
   "edd": [

@@ -1069,6 +1069,7 @@
         },
         "isSaveDesignEnabled": false,
         "showLocalName": false,
+        "showCompanyAgentLabel": false,
         "showLegalConsent": [
           "ORDER_CONSENT",
           "DECLARATION_OF_CONSENT"
@@ -1755,12 +1756,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-11-15T19:52:00.000Z",
+      "effective_date": "2021-12-03T02:00:00.000Z",
       "market": "TW",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing TW 2021.Nov.15 2188.3609.3731 [zh]",
+      "name": "Marketing TW 2021.Dec.03 2278.3907.4226 [zh]",
       "groups": [
         {
           "code": "MODEL",
@@ -6158,6 +6159,23 @@
               ]
             }
           ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Basic Autopilot Features",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Feature Cards"
+            }
+          ]
         }
       ],
       "options": {
@@ -6220,6 +6238,28 @@
             {
               "type": "deselectLabel",
               "content": "方案已選擇"
+            },
+            {
+              "type": "disclaimer",
+              "content": "目前啟用的功能需要駕駛人主動監督，並無法使車輛自動駕駛。是否能在無人監督的情況下啟動與使用這類功能，需視在數十億里程的駕駛體驗中，能否達到超過真人駕駛的穩定度而定，同時也需要法規的批准，而在某些司法轄區中這可能會花費比較長的時間。隨著這些自駕功能不斷演進，您的車輛也會持續透過空中下載 (OTA) 軟體更新來升級。"
+            },
+            {
+              "type": "compare_features",
+              "content": "Feature Details",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {
+                      "data-should-open": "BASIC_AP_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -6242,6 +6282,46 @@
                   "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
                   "desktop": "ap-light-mode-image/aasvcb/std/0x0/ap-light-mode",
                   "desktop2x": "ap-light-mode-image/aasvcb/std/0x0/ap-light-mode"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "compare_features",
+                        "props": {
+                          "modal": "BASIC_AP_FEATURES"
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -6305,7 +6385,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "選配"
+              "content": "包含"
             },
             {
               "type": "feature_list.default[0].items[0]",
@@ -6731,7 +6811,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "選配"
+              "content": "包含"
             },
             {
               "type": "feature_list.default[0].items[0]",
@@ -7308,9 +7388,19 @@
               "target": "$CW03"
             }
           ],
-          "name": "方向盤與後排座椅加熱",
-          "description": "方向盤與後排座椅加熱",
-          "long_name": "方向盤與後排座椅加熱",
+          "name": "寒冷天氣功能",
+          "description": "開通後排座椅加熱及方向盤加熱功能，提升乘坐體驗。",
+          "long_name": "寒冷天氣功能",
+          "extra_copy": [
+            {
+              "type": "description",
+              "content": "開通後排座椅加熱及方向盤加熱功能，提升乘坐體驗。"
+            },
+            {
+              "type": "upgrade.disclaimerOnImage",
+              "content": "包含方向盤加熱"
+            }
+          ],
           "price": 0,
           "pricing": [
             {
@@ -9043,7 +9133,7 @@
             },
             {
               "type": "non_refundable_order_payment_used",
-              "value": 0,
+              "value": 3000,
               "context": "TWD"
             }
           ]
@@ -15590,7 +15680,7 @@
                     "label": "續航里程"
                   },
                   "range_units_epa": {
-                    "label": "續航里程 (WLTP)"
+                    "label": "續航里程 (EPA 預估值)"
                   },
                   "range_units_est": {
                     "label": "續航里程 (預估值)"
@@ -20167,7 +20257,7 @@
         "$APBS",
         "$SC04"
       ],
-      "options_id": 2188,
+      "options_id": 2278,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -20587,6 +20677,13 @@
             },
             {
               "code": "FSD_GALLERY",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "BASIC_AP_FEATURES",
               "context": [
                 "configurator"
               ],
@@ -21502,10 +21599,10 @@
           }
         }
       ],
-      "copy_id": 3609,
+      "copy_id": 3907,
       "language": "zh",
-      "pricing_id": 3731,
-      "reference_id": 2188
+      "pricing_id": 4226,
+      "reference_id": 2278
     }
   },
   "edd": []
