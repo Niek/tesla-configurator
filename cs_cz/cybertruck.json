@@ -754,6 +754,7 @@
           "entryPoints",
           "sealsAndTrimDamage"
         ],
+        "showInventoryRangeDisclosure": false,
         "showReturnPolicy": true,
         "product": {
           "isInventory": false,
@@ -940,12 +941,12 @@
       }
     },
     "Lexicon.mp": {
-      "effective_date": "2021-10-15T00:45:00.000Z",
+      "effective_date": "2021-12-10T01:32:00.000Z",
       "market": "CZ",
       "product": "mp",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CZ 2021.Oct.15 1904.3276.147 [cs]",
+      "name": "Marketing CZ 2021.Dec.10 2204.3792.147 [cs]",
       "groups": [
         {
           "code": "MODEL",
@@ -1117,13 +1118,24 @@
               "content": "Plně vratná záloha."
             }
           ],
-          "groups": [],
-          "options": [
-            "$MTP01",
-            "$MTP02",
-            "$MTP03",
-            "$MTP04"
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "sub_title"
+                  }
+                },
+                {
+                  "type": "Options"
+                }
+              ]
+            }
           ],
+          "groups": [],
+          "options": [],
           "required": true,
           "exclusive": true,
           "default_options": [
@@ -1132,7 +1144,9 @@
         },
         {
           "code": "BATTERY_AND_DRIVE",
-          "groups": [],
+          "groups": [
+            "TRIM"
+          ],
           "context": "configurator",
           "options": [],
           "required": false,
@@ -1142,7 +1156,7 @@
           "extra_copy": [
             {
               "type": "order_disclaimer",
-              "content": "Konfiguraci svého vozu budete moci dokončit před zahájením výroby v roce 2022."
+              "content": "Konfiguraci svého vozu budete moci dokončit před zahájením výroby."
             },
             {
               "type": "name",
@@ -1150,7 +1164,35 @@
             }
           ],
           "description": "Baterie a hnací ústrojí",
-          "extra_content": []
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "gallery",
+                  "content": [
+                    {
+                      "group": "EXTERIOR_GALLERY"
+                    }
+                  ]
+                },
+                {
+                  "type": "Title",
+                  "props": {
+                    "classes": "coin-title",
+                    "component": "h3"
+                  }
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "order_disclaimer",
+                    "classes": "tds--vertical_padding"
+                  }
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "DELIVERY_TIMING",
@@ -1192,6 +1234,28 @@
           "exclusive": false,
           "default_options": [
             "$APF2"
+          ]
+        },
+        {
+          "code": "EXTERIOR_GALLERY",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Galerie konfigurace",
+          "description": "Galerie konfigurace",
+          "extra_content": [
+            {
+              "type": "asset[0]",
+              "content": [
+                {
+                  "url": "CYBERTRUCK/NVRP_m.png",
+                  "type": "image"
+                }
+              ]
+            }
           ]
         }
       ],
@@ -1765,14 +1829,14 @@
               ]
             }
           ],
-          "name": "Dva motory (AWD)",
+          "name": "Dual Motor (AWD)",
           "description": "Cybertruck se dvěma motory (AWD)",
-          "long_name": "Dva motory (AWD)",
+          "long_name": "Dual Motor (AWD)",
           "long_description": "Cybertruck se dvěma motory (AWD)",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Dva motory (AWD)"
+              "content": "Dual Motor (AWD)"
             },
             {
               "type": "long_name",
@@ -1991,7 +2055,7 @@
         "$WDD",
         "$SC04"
       ],
-      "options_id": 1904,
+      "options_id": 2204,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -2038,6 +2102,13 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EXTERIOR_GALLERY",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -2046,10 +2117,10 @@
           "message": "'Fees' should be moved to Copy lexicon from Options."
         }
       ],
-      "copy_id": 3276,
+      "copy_id": 3792,
       "language": "cs",
       "pricing_id": 147,
-      "reference_id": 1904
+      "reference_id": 2204
     }
   },
   "edd": []

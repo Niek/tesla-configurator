@@ -768,6 +768,7 @@
           "entryPoints",
           "sealsAndTrimDamage"
         ],
+        "showInventoryRangeDisclosure": false,
         "showReturnPolicy": true,
         "product": {
           "isInventory": false,
@@ -949,12 +950,12 @@
       }
     },
     "Lexicon.mp": {
-      "effective_date": "2021-10-15T00:45:00.000Z",
+      "effective_date": "2021-12-10T01:32:00.000Z",
       "market": "KR",
       "product": "mp",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing KR 2021.Oct.15 1895.3253.17 [ko]",
+      "name": "Marketing KR 2021.Dec.10 2195.3770.17 [ko]",
       "groups": [
         {
           "code": "MODEL",
@@ -989,7 +990,7 @@
         },
         {
           "code": "DRIVE_MODE",
-          "name": "Drive Mode",
+          "name": "주행 모드",
           "context": "default",
           "extra_copy": [],
           "groups": [],
@@ -1005,7 +1006,7 @@
         },
         {
           "code": "INTERIOR",
-          "name": "Interior",
+          "name": "인테리어",
           "context": "default",
           "extra_copy": [],
           "groups": [],
@@ -1020,7 +1021,7 @@
         },
         {
           "code": "PAINT",
-          "name": "Color",
+          "name": "색상",
           "context": "default",
           "groups": [],
           "options": [
@@ -1034,7 +1035,7 @@
         },
         {
           "code": "WHEELS",
-          "name": "Wheels",
+          "name": "휠",
           "context": "default",
           "groups": [],
           "options": [
@@ -1062,7 +1063,7 @@
         },
         {
           "code": "AUTOPILOT",
-          "name": "Autopilot",
+          "name": "오토파일럿",
           "context": "default",
           "groups": [],
           "options": [
@@ -1088,7 +1089,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Payment"
+          "name": "결제"
         },
         {
           "code": "OPTIONS",
@@ -1099,7 +1100,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Options"
+          "name": "옵션"
         },
         {
           "code": "REVIEW_ORDER",
@@ -1126,13 +1127,24 @@
               "content": "전액 환불 가능합니다."
             }
           ],
-          "groups": [],
-          "options": [
-            "$MTP01",
-            "$MTP02",
-            "$MTP03",
-            "$MTP04"
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "sub_title"
+                  }
+                },
+                {
+                  "type": "Options"
+                }
+              ]
+            }
           ],
+          "groups": [],
+          "options": [],
           "required": true,
           "exclusive": true,
           "default_options": [
@@ -1141,25 +1153,55 @@
         },
         {
           "code": "BATTERY_AND_DRIVE",
-          "groups": [],
+          "groups": [
+            "TRIM"
+          ],
           "context": "configurator",
           "options": [],
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Battery & Drivetrain",
+          "name": "배터리 및 구동 장치",
           "extra_copy": [
             {
               "type": "order_disclaimer",
-              "content": "생산이 예정된 2022년부터 나만의 디자인을 구성할 수 있습니다."
+              "content": "생산 시기가 가까워지면 구성을 완료할 수 있습니다."
             },
             {
               "type": "name",
-              "content": "Cybertruck 사전 주문"
+              "content": "Cybertruck 주문하기"
             }
           ],
-          "description": "Battery and Drivetrain",
-          "extra_content": []
+          "description": "배터리 및 구동 장치",
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "gallery",
+                  "content": [
+                    {
+                      "group": "EXTERIOR_GALLERY"
+                    }
+                  ]
+                },
+                {
+                  "type": "Title",
+                  "props": {
+                    "classes": "coin-title",
+                    "component": "h3"
+                  }
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "order_disclaimer",
+                    "classes": "tds--vertical_padding"
+                  }
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "DELIVERY_TIMING",
@@ -1171,9 +1213,9 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Delivery timings",
+          "name": "인도 시기",
           "extra_copy": [],
-          "description": "Delivery timings"
+          "description": "인도 시기"
         },
         {
           "code": "CORE_CONFIGURATOR",
@@ -1187,11 +1229,11 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Payment"
+          "name": "결제"
         },
         {
           "code": "AUTOPILOT",
-          "name": "Autopilot",
+          "name": "오토파일럿",
           "context": "configurator",
           "groups": [],
           "options": [
@@ -1201,6 +1243,28 @@
           "exclusive": false,
           "default_options": [
             "$APF2"
+          ]
+        },
+        {
+          "code": "EXTERIOR_GALLERY",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "구성 갤러리",
+          "description": "구성 갤러리",
+          "extra_content": [
+            {
+              "type": "asset[0]",
+              "content": [
+                {
+                  "url": "CYBERTRUCK/NVRP_m.png",
+                  "type": "image"
+                }
+              ]
+            }
           ]
         }
       ],
@@ -1223,9 +1287,9 @@
               "target": "$IDD"
             }
           ],
-          "name": "Default Interior Configuration",
-          "description": "Default Interior Configuration",
-          "long_name": "Default Interior Configuration",
+          "name": "기본 인테리어 구성",
+          "description": "기본 인테리어 구성",
+          "long_name": "기본 인테리어 구성",
           "extra_copy": [],
           "extra_content": [
             {
@@ -1265,13 +1329,13 @@
               "target": "$PDD"
             }
           ],
-          "name": "Default Paint Configuration",
-          "description": "Default Paint Configuration",
-          "long_name": "Default Paint Configuration",
+          "name": "기본 색상 구성",
+          "description": "기본 색상 구성",
+          "long_name": "기본 색상 구성",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "포함"
             }
           ]
         },
@@ -1293,14 +1357,14 @@
               "target": "$WDD"
             }
           ],
-          "name": "Default Wheel Configuration",
-          "description": "Default Wheel Configuration",
-          "long_name": "Default Wheel Configuration",
-          "long_description": "Default Wheel Configuration",
+          "name": "기본 휠 구성",
+          "description": "기본 휠 구성",
+          "long_name": "기본 휠 구성",
+          "long_description": "기본 휠 구성",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "포함"
             }
           ],
           "extra_content": [
@@ -1340,13 +1404,13 @@
               "target": "$APBS"
             }
           ],
-          "name": "Base Autopilot",
-          "description": "Base Autopilot",
-          "long_name": "Base Autopilot",
+          "name": "기본 오토파일럿",
+          "description": "기본 오토파일럿",
+          "long_name": "기본 오토파일럿",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "included"
+              "content": "포함"
             }
           ],
           "extra_content": [
@@ -1388,7 +1452,7 @@
             },
             {
               "type": "disclaimer[0]",
-              "content": "지금 풀 셀프-드라이빙 구현 기능을 추가하여 비용을 절감해보세요. 추후 가격이 인상될 수도 있습니다.",
+              "content": "지금 풀 셀프-드라이빙 구현 기능을 선택하여 비용을 절감해보세요. 추후 가격이 인상될 수도 있습니다.",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -1409,7 +1473,7 @@
             },
             {
               "type": "disclaimer[1]",
-              "content": " 자세히 알아보기 ",
+              "content": "자세히 알아보기",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -1433,7 +1497,7 @@
             },
             {
               "type": "recommended_content",
-              "content": "현재의 풀 셀프-드라이빙 구현 기능은 운전자의 적극적인 주의가 필요하며 차량이 자율적으로 주행하는 것은 아닙니다. 이 기능을 활성화하고 실제 상용화되기 위해서는 수십업 마일의 주행 테스트를 통해 차량의 자율 주행 능력이 운전자의 주행 능력보다 크게 앞선다는 사실이 검증이 되어야 하며, 일부 지역에서는 규제 승인이 더 오래 걸릴 수 있습니다. 셀프- 드라이빙 기능이 진화함에 따라 차량도 OTA 업그레이드를 통해 지속적으로 업그레이드 됩니다."
+              "content": "현재 사용가능한 기능들은 운전자의 적극적인 주의가 필요하고 운전자에게 책임이 주어집니다. 현재 차량이 자율적으로 주행하는 것이 아닙니다. 이러한 기능들이 상용화되기 위해서는 수십억 마일의 주행 테스트를 통해 차량의 자율 주행 능력이 운전자의 주행 능력보다 크게 앞선다는 사실이 검증이 되어야 하며, 일부 관할권에서는 규제 승인이 더 오래 걸릴 수 있습니다. 셀프-드라이빙 기능이 진화함에 따라 차량도 OTA 소프트웨어 업데이트를 통해 지속적으로 업그레이드됩니다."
             },
             {
               "type": "deselectLabel",
@@ -1509,9 +1573,9 @@
               "condition_state": "unset"
             }
           ],
-          "name": "Rear-Wheel Drive",
-          "description": "Rear-Wheel Drive",
-          "long_name": "Rear-Wheel Drive",
+          "name": "후륜구동(RWD)",
+          "description": "후륜구동(RWD)",
+          "long_name": "후륜구동(RWD)",
           "extra_copy": [],
           "extra_content": [
             {
@@ -1572,9 +1636,9 @@
               "target": "$DV2W"
             }
           ],
-          "name": "Dual Motor All-Wheel Drive",
-          "description": "Dual Motor All-Wheel Drive",
-          "long_name": "Dual Motor All-Wheel Drive",
+          "name": "듀얼 모터 상시 사륜구동(AWD)",
+          "description": "듀얼 모터 상시 사륜구동(AWD)",
+          "long_name": "듀얼 모터 상시 사륜구동(AWD)",
           "extra_copy": [],
           "extra_content": [
             {
@@ -1641,13 +1705,13 @@
               "target": "$SC04"
             }
           ],
-          "name": "Supercharger Network Access + Pay-as-you-go",
-          "description": "Supercharger Network Access + Pay-as-you-go",
-          "long_name": "Supercharger Network Access + Pay-as-you-go",
+          "name": "수퍼차저 네트워크 이용 + 사용량에 따른 요금",
+          "description": "수퍼차저 네트워크 이용 + 사용량에 따른 요금",
+          "long_name": "수퍼차저 네트워크 이용 + 사용량에 따른 요금",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "optional"
+              "content": "옵션"
             }
           ]
         },
@@ -1695,9 +1759,9 @@
             }
           ],
           "name": "싱글 모터 RWD",
-          "description": "Cybertruck Single Motor RWD",
+          "description": "Cybertruck 싱글 모터 RWD",
           "long_name": "싱글 모터 RWD",
-          "long_description": "Cybertruck Single Motor RWD",
+          "long_description": "Cybertruck 싱글 모터 RWD",
           "extra_copy": [
             {
               "type": "name",
@@ -1705,11 +1769,11 @@
             },
             {
               "type": "long_name",
-              "content": "Cybertruck Single Motor RWD"
+              "content": "Cybertruck 싱글 모터 RWD"
             },
             {
               "type": "order_disclaimer",
-              "content": "전액 환불 가능합니다. 생산이 예정된 2021년 후반부터 나만의 디자인을 구성할 수 있습니다. 싱글 모터 RWD 생산은 2022년후반부터 시작될 것으로 예상됩니다. 모든 디자인 구성은 미국 제원 기준입니다."
+              "content": "전액 환불 가능합니다. 생산이 예정된 2021년 말부터 나만의 디자인을 구성할 수 있습니다. 싱글 모터 RWD 생산은 2022년 말에 시작될 예정입니다."
             }
           ],
           "extra_content": [
@@ -1775,9 +1839,9 @@
             }
           ],
           "name": "듀얼 모터 AWD",
-          "description": "Cybertruck Dual Motor AWD",
+          "description": "Cybertruck 듀얼 모터 AWD",
           "long_name": "듀얼 모터 AWD",
-          "long_description": "Cybertruck Dual Motor AWD",
+          "long_description": "Cybertruck 듀얼 모터 AWD",
           "extra_copy": [
             {
               "type": "name",
@@ -1785,11 +1849,11 @@
             },
             {
               "type": "long_name",
-              "content": "Cybertruck Dual Motor AWD"
+              "content": "Cybertruck 듀얼 모터 AWD"
             },
             {
               "type": "order_disclaimer",
-              "content": "전액 환불 가능합니다. 생산이 예정된 2021년 후반부터 나만의 디자인을 구성할 수 있습니다. 듀얼 모터 AWD 생산은 2021년후반부터 시작될 것으로 예상됩니다. 모든 디자인 구성은 미국 제원 기준입니다."
+              "content": "전액 환불 가능합니다. 생산이 예정된 2021년 말부터 나만의 디자인을 구성할 수 있습니다. 듀얼 모터 AWD 생산은 2021년말부터 시작될 것으로 예상됩니다."
             }
           ],
           "extra_content": [
@@ -1855,9 +1919,9 @@
             }
           ],
           "name": "트라이 모터 AWD",
-          "description": "Cybertruck Tri Motor AWD",
+          "description": "Cybertruck 트라이 모터 AWD",
           "long_name": "트라이 모터 AWD",
-          "long_description": "Cybertruck Tri Motor AWD",
+          "long_description": "Cybertruck 트라이 모터 AWD",
           "extra_copy": [
             {
               "type": "name",
@@ -1865,7 +1929,7 @@
             },
             {
               "type": "order_disclaimer",
-              "content": "전액 환불 가능합니다. 생산이 예정된 2021년 후반부터 나만의 디자인을 구성할 수 있습니다. 트라이 모터 AWD 생산은 2021년후반부터 시작될 것으로 예상됩니다. 모든 디자인 구성은 미국 제원 기준입니다."
+              "content": "전액 환불 가능합니다. 생산이 예정된 2021년 말부터 나만의 디자인을 구성할 수 있습니다. 트라이 모터 AWD 생산은 2021년말부터 시작될 것으로 예상됩니다."
             }
           ],
           "extra_content": [
@@ -2000,7 +2064,7 @@
         "$WDD",
         "$SC04"
       ],
-      "options_id": 1895,
+      "options_id": 2195,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -2047,6 +2111,13 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EXTERIOR_GALLERY",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -2055,10 +2126,10 @@
           "message": "'Fees' should be moved to Copy lexicon from Options."
         }
       ],
-      "copy_id": 3253,
+      "copy_id": 3770,
       "language": "ko",
       "pricing_id": 17,
-      "reference_id": 1895
+      "reference_id": 2195
     }
   },
   "edd": []

@@ -760,6 +760,7 @@
           "entryPoints",
           "sealsAndTrimDamage"
         ],
+        "showInventoryRangeDisclosure": false,
         "showReturnPolicy": true,
         "product": {
           "isInventory": false,
@@ -948,12 +949,12 @@
       }
     },
     "Lexicon.mp": {
-      "effective_date": "2021-10-15T00:45:00.000Z",
+      "effective_date": "2021-12-10T01:32:00.000Z",
       "market": "SE",
       "product": "mp",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing SE 2021.Oct.15 1917.3268.142 [sv]",
+      "name": "Marketing SE 2021.Dec.10 2300.3784.142 [sv]",
       "groups": [
         {
           "code": "MODEL",
@@ -1125,13 +1126,24 @@
               "content": "Helt återbetalningsbar."
             }
           ],
-          "groups": [],
-          "options": [
-            "$MTP01",
-            "$MTP02",
-            "$MTP03",
-            "$MTP04"
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "sub_title"
+                  }
+                },
+                {
+                  "type": "Options"
+                }
+              ]
+            }
           ],
+          "groups": [],
+          "options": [],
           "required": true,
           "exclusive": true,
           "default_options": [
@@ -1140,7 +1152,9 @@
         },
         {
           "code": "BATTERY_AND_DRIVE",
-          "groups": [],
+          "groups": [
+            "TRIM"
+          ],
           "context": "configurator",
           "options": [],
           "required": false,
@@ -1150,7 +1164,7 @@
           "extra_copy": [
             {
               "type": "order_disclaimer",
-              "content": "Du kommer att kunna färdigställa din konfiguration när produktionsstart närmar sig 2022."
+              "content": "Du kommer att kunna färdigställa din konfiguration när produktionsstart närmar sig."
             },
             {
               "type": "name",
@@ -1158,7 +1172,35 @@
             }
           ],
           "description": "Batteri och drivlina",
-          "extra_content": []
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "gallery",
+                  "content": [
+                    {
+                      "group": "EXTERIOR_GALLERY"
+                    }
+                  ]
+                },
+                {
+                  "type": "Title",
+                  "props": {
+                    "classes": "coin-title",
+                    "component": "h3"
+                  }
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "order_disclaimer",
+                    "classes": "tds--vertical_padding"
+                  }
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "DELIVERY_TIMING",
@@ -1200,6 +1242,28 @@
           "exclusive": false,
           "default_options": [
             "$APF2"
+          ]
+        },
+        {
+          "code": "EXTERIOR_GALLERY",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Galleri konfiguration",
+          "description": "Galleri konfiguration",
+          "extra_content": [
+            {
+              "type": "asset[0]",
+              "content": [
+                {
+                  "url": "CYBERTRUCK/NVRP_m.png",
+                  "type": "image"
+                }
+              ]
+            }
           ]
         }
       ],
@@ -1999,7 +2063,7 @@
         "$WDD",
         "$SC04"
       ],
-      "options_id": 1917,
+      "options_id": 2300,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -2046,6 +2110,13 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EXTERIOR_GALLERY",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -2054,10 +2125,10 @@
           "message": "'Fees' should be moved to Copy lexicon from Options."
         }
       ],
-      "copy_id": 3268,
+      "copy_id": 3784,
       "language": "sv",
       "pricing_id": 142,
-      "reference_id": 1917
+      "reference_id": 2300
     }
   },
   "edd": []

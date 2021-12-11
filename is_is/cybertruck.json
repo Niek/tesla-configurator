@@ -755,6 +755,7 @@
           "entryPoints",
           "sealsAndTrimDamage"
         ],
+        "showInventoryRangeDisclosure": false,
         "showReturnPolicy": true,
         "product": {
           "isInventory": false,
@@ -944,12 +945,12 @@
       }
     },
     "Lexicon.mp": {
-      "effective_date": "2021-10-15T00:45:00.000Z",
+      "effective_date": "2021-12-10T01:32:00.000Z",
       "market": "IS",
       "product": "mp",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing IS 2021.Oct.15 1919.3265.150 [is]",
+      "name": "Marketing IS 2021.Dec.10 2299.3781.150 [is]",
       "groups": [
         {
           "code": "MODEL",
@@ -1121,13 +1122,24 @@
               "content": "Fæst að fullu endurgreitt."
             }
           ],
-          "groups": [],
-          "options": [
-            "$MTP01",
-            "$MTP02",
-            "$MTP03",
-            "$MTP04"
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "sub_title"
+                  }
+                },
+                {
+                  "type": "Options"
+                }
+              ]
+            }
           ],
+          "groups": [],
+          "options": [],
           "required": true,
           "exclusive": true,
           "default_options": [
@@ -1136,7 +1148,9 @@
         },
         {
           "code": "BATTERY_AND_DRIVE",
-          "groups": [],
+          "groups": [
+            "TRIM"
+          ],
           "context": "configurator",
           "options": [],
           "required": false,
@@ -1146,7 +1160,7 @@
           "extra_copy": [
             {
               "type": "order_disclaimer",
-              "content": "Þú getur klárað að hanna bílinn þinn þegar nær dregur að upphafi framleiðslu árið 2022."
+              "content": "Þú munt geta klárað uppsetninguna þegar líður að framleiðslu."
             },
             {
               "type": "name",
@@ -1154,7 +1168,35 @@
             }
           ],
           "description": "Rafhlaða og Aflrás",
-          "extra_content": []
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "gallery",
+                  "content": [
+                    {
+                      "group": "EXTERIOR_GALLERY"
+                    }
+                  ]
+                },
+                {
+                  "type": "Title",
+                  "props": {
+                    "classes": "coin-title",
+                    "component": "h3"
+                  }
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "order_disclaimer",
+                    "classes": "tds--vertical_padding"
+                  }
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "DELIVERY_TIMING",
@@ -1196,6 +1238,28 @@
           "exclusive": false,
           "default_options": [
             "$APF2"
+          ]
+        },
+        {
+          "code": "EXTERIOR_GALLERY",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Myndasafn með uppsetningum",
+          "description": "Myndasafn með uppsetningum",
+          "extra_content": [
+            {
+              "type": "asset[0]",
+              "content": [
+                {
+                  "url": "CYBERTRUCK/NVRP_m.png",
+                  "type": "image"
+                }
+              ]
+            }
           ]
         }
       ],
@@ -1999,7 +2063,7 @@
         "$WDD",
         "$SC04"
       ],
-      "options_id": 1919,
+      "options_id": 2299,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -2046,6 +2110,13 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EXTERIOR_GALLERY",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -2054,10 +2125,10 @@
           "message": "'Fees' should be moved to Copy lexicon from Options."
         }
       ],
-      "copy_id": 3265,
+      "copy_id": 3781,
       "language": "is",
       "pricing_id": 150,
-      "reference_id": 1919
+      "reference_id": 2299
     }
   },
   "edd": []

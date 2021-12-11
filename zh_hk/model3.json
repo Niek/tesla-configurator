@@ -1203,6 +1203,7 @@
           "entryPoints",
           "sealsAndTrimDamage"
         ],
+        "showInventoryRangeDisclosure": false,
         "showReturnPolicy": true,
         "product": {
           "isInventory": false,
@@ -1778,12 +1779,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-12-03T02:00:00.000Z",
+      "effective_date": "2021-12-10T01:06:00.000Z",
       "market": "HK",
       "product": "m3",
       "factory": "GF03",
       "fees": {},
-      "name": "Marketing HK 2021.Dec.03 2084.3878.4249 [zh]",
+      "name": "Marketing HK 2021.Dec.10 2307.3949.4249 [zh]",
       "groups": [
         {
           "code": "MODEL",
@@ -1827,7 +1828,7 @@
           "exclusive": true,
           "discountable": true,
           "default_options": [
-            "$MT322"
+            "$MT323"
           ]
         },
         {
@@ -1884,7 +1885,7 @@
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$DV2W"
+            "$DV4W"
           ]
         },
         {
@@ -1991,7 +1992,7 @@
           "exclusive": true,
           "discountable": true,
           "default_options": [
-            "$IBB1"
+            "$IPB1"
           ]
         },
         {
@@ -2113,7 +2114,7 @@
           "exclusive": true,
           "discountable": true,
           "default_options": [
-            "$W40B"
+            "$W41B"
           ]
         },
         {
@@ -2156,7 +2157,7 @@
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$PRM30"
+            "$PRM31"
           ]
         },
         {
@@ -2415,7 +2416,7 @@
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MT322"
+            "$MT323"
           ]
         },
         {
@@ -2595,7 +2596,7 @@
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$W40B"
+            "$W41B"
           ]
         },
         {
@@ -3013,7 +3014,18 @@
                       "$MT317"
                     ]
                   },
-                  "delivery_date": "預計交付時間：2022年第一季度"
+                  "delivery_date": "預計交付時間：2022年第二季度"
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MT322",
+                      "$PPSW",
+                      "$W40B",
+                      "$IBB1"
+                    ]
+                  },
+                  "delivery_date": "預計交貨時間：2022年第四季度"
                 },
                 {
                   "selected_by": {
@@ -3702,7 +3714,7 @@
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$IBB1"
+            "$IPB1"
           ]
         },
         {
@@ -6154,6 +6166,23 @@
               ]
             }
           ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Basic Autopilot Features",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Feature Cards"
+            }
+          ]
         }
       ],
       "options": {
@@ -6216,6 +6245,28 @@
             {
               "type": "deselectLabel",
               "content": "已選取選項"
+            },
+            {
+              "type": "disclaimer",
+              "content": "The currently enabled features require active driver supervision and do not make the vehicle autonomous. The activation and use of these features are dependent on achieving reliability far in excess of human drivers as demonstrated by billions of miles of experience, as well as regulatory approval, which may take longer in some jurisdictions. As these self-driving features evolve, your car will be continuously upgraded through over-the-air software updates."
+            },
+            {
+              "type": "compare_features",
+              "content": "Feature Details",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {
+                      "data-should-open": "BASIC_AP_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -6238,6 +6289,46 @@
                   "baseURL": "https://tesla-cdn.thron.com/delivery/public/image/tesla/",
                   "desktop": "ap-light-mode-image/aasvcb/std/0x0/ap-light-mode",
                   "desktop2x": "ap-light-mode-image/aasvcb/std/0x0/ap-light-mode"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "compare_features",
+                        "props": {
+                          "modal": "BASIC_AP_FEATURES"
+                        }
+                      }
+                    ]
+                  }
                 }
               ]
             }
@@ -7407,9 +7498,7 @@
             },
             {
               "action": "set",
-              "target": "$DV2W",
-              "condition_code": "$DV4W",
-              "condition_state": "unset"
+              "target": "$DV4W"
             }
           ],
           "name": "後輪驅動",
@@ -7499,7 +7588,9 @@
             },
             {
               "action": "set",
-              "target": "$DV2W"
+              "target": "$DV4W",
+              "condition_code": "$DV2W",
+              "condition_state": "unset"
             }
           ],
           "name": "雙摩打全輪驅動",
@@ -7778,14 +7869,14 @@
             },
             {
               "action": "set",
-              "target": "$IBB1",
+              "target": "$IPB1",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
                 "$IBW1",
-                "$IPB1",
                 "$IPW1",
                 "$IN3PB",
                 "$IN3BB",
@@ -7872,7 +7963,7 @@
             },
             {
               "action": "set",
-              "target": "$IBB1",
+              "target": "$IPB1",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$IBB0",
@@ -7880,7 +7971,6 @@
                 "$IPB0",
                 "$IPW0",
                 "$IBW1",
-                "$IPB1",
                 "$IPW1",
                 "$IN3PB",
                 "$IN3BB",
@@ -8186,14 +8276,14 @@
             },
             {
               "action": "set",
-              "target": "$IBB1",
+              "target": "$IPB1",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$IBB0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
                 "$IBW1",
-                "$IPB1",
                 "$IPW1",
                 "$IN3PB",
                 "$IN3BB",
@@ -8281,14 +8371,14 @@
             },
             {
               "action": "set",
-              "target": "$IBB1",
+              "target": "$IPB1",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
-                "$IPB1",
+                "$IBB1",
                 "$IPW1",
                 "$IN3PB",
                 "$IN3BB",
@@ -8553,14 +8643,14 @@
             },
             {
               "action": "set",
-              "target": "$IBB1",
+              "target": "$IPB1",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$IBB0",
                 "$IBW0",
                 "$IPW0",
+                "$IBB1",
                 "$IBW1",
-                "$IPB1",
                 "$IPW1",
                 "$IN3PB",
                 "$IN3BB",
@@ -8668,13 +8758,14 @@
             },
             {
               "action": "set",
-              "target": "$IBB1",
+              "target": "$IPB1",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
                 "$IBW1",
                 "$IPW1",
                 "$IN3PB",
@@ -8937,14 +9028,14 @@
             },
             {
               "action": "set",
-              "target": "$IBB1",
+              "target": "$IPB1",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$IBB0",
                 "$IBW0",
                 "$IPB0",
+                "$IBB1",
                 "$IBW1",
-                "$IPB1",
                 "$IPW1",
                 "$IN3PB",
                 "$IN3BB",
@@ -9052,15 +9143,15 @@
             },
             {
               "action": "set",
-              "target": "$IBB1",
+              "target": "$IPB1",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
                 "$IBW1",
-                "$IPB1",
                 "$IN3PB",
                 "$IN3BB",
                 "$IN3PW"
@@ -10293,13 +10384,13 @@
             },
             {
               "action": "set",
-              "target": "$W40B",
+              "target": "$W41B",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$W38B",
                 "$W39B",
                 "$W32P",
-                "$W41B",
+                "$W40B",
                 "$W33D"
               ]
             },
@@ -10426,13 +10517,13 @@
             },
             {
               "action": "set",
-              "target": "$W40B",
+              "target": "$W41B",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$W38B",
                 "$W39B",
                 "$W32D",
-                "$W41B",
+                "$W40B",
                 "$W33D"
               ]
             },
@@ -10587,14 +10678,14 @@
             },
             {
               "action": "set",
-              "target": "$W40B",
+              "target": "$W41B",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$W38B",
                 "$W39B",
                 "$W32P",
                 "$W32D",
-                "$W41B"
+                "$W40B"
               ]
             },
             {
@@ -10732,13 +10823,13 @@
             },
             {
               "action": "set",
-              "target": "$W40B",
+              "target": "$W41B",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$W39B",
                 "$W32P",
                 "$W32D",
-                "$W41B",
+                "$W40B",
                 "$W33D"
               ]
             }
@@ -10872,13 +10963,13 @@
             },
             {
               "action": "set",
-              "target": "$W40B",
+              "target": "$W41B",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$W38B",
                 "$W32P",
                 "$W32D",
-                "$W41B",
+                "$W40B",
                 "$W33D"
               ]
             },
@@ -11037,14 +11128,13 @@
             },
             {
               "action": "set",
-              "target": "$W40B",
+              "target": "$W41B",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$W38B",
                 "$W39B",
                 "$W32P",
                 "$W32D",
-                "$W41B",
                 "$W33D"
               ]
             }
@@ -11154,17 +11244,7 @@
                 "condition_state": "set"
               }
             ],
-            "unset_rules": [
-              {
-                "action": "set",
-                "target": "$W33D",
-                "condition_state": "unset",
-                "condition_any_code": [
-                  "$W32P",
-                  "$W40B"
-                ]
-              }
-            ]
+            "unset_rules": []
           },
           "set_rules": [
             {
@@ -11216,23 +11296,15 @@
             },
             {
               "action": "set",
-              "target": "$W40B",
+              "target": "$W41B",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$W38B",
                 "$W39B",
                 "$W32P",
                 "$W32D",
+                "$W40B",
                 "$W33D"
-              ]
-            },
-            {
-              "action": "set",
-              "target": "$W33D",
-              "condition_state": "unset",
-              "condition_any_code": [
-                "$W32P",
-                "$W40B"
               ]
             }
           ],
@@ -11345,15 +11417,15 @@
             },
             {
               "action": "set",
-              "target": "$IBB1",
+              "target": "$IPB1",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
                 "$IBW1",
-                "$IPB1",
                 "$IPW1",
                 "$IN3PB",
                 "$IN3PW"
@@ -11561,15 +11633,15 @@
             },
             {
               "action": "set",
-              "target": "$IBB1",
+              "target": "$IPB1",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
                 "$IBW1",
-                "$IPB1",
                 "$IPW1",
                 "$IN3BB",
                 "$IN3PW"
@@ -11792,15 +11864,15 @@
             },
             {
               "action": "set",
-              "target": "$IBB1",
+              "target": "$IPB1",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$IBB0",
                 "$IBW0",
                 "$IPB0",
                 "$IPW0",
+                "$IBB1",
                 "$IBW1",
-                "$IPB1",
                 "$IPW1",
                 "$IN3PB",
                 "$IN3BB"
@@ -12104,7 +12176,7 @@
             },
             {
               "action": "set",
-              "target": "$MT322",
+              "target": "$MT323",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT303",
@@ -12119,7 +12191,7 @@
                 "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT323",
+                "$MT322",
                 "$MT337"
               ]
             }
@@ -12311,7 +12383,7 @@
             },
             {
               "action": "set",
-              "target": "$MT322",
+              "target": "$MT323",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -12326,7 +12398,7 @@
                 "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT323",
+                "$MT322",
                 "$MT337"
               ]
             },
@@ -12446,7 +12518,7 @@
             },
             {
               "action": "set",
-              "target": "$MT322",
+              "target": "$MT323",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -12461,7 +12533,7 @@
                 "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT323",
+                "$MT322",
                 "$MT337"
               ]
             },
@@ -12596,7 +12668,7 @@
             },
             {
               "action": "set",
-              "target": "$MT322",
+              "target": "$MT323",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -12611,7 +12683,7 @@
                 "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT323",
+                "$MT322",
                 "$MT337"
               ]
             }
@@ -12726,7 +12798,7 @@
             },
             {
               "action": "set",
-              "target": "$MT322",
+              "target": "$MT323",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -12741,7 +12813,7 @@
                 "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT323",
+                "$MT322",
                 "$MT337"
               ]
             }
@@ -12879,7 +12951,7 @@
             },
             {
               "action": "set",
-              "target": "$MT322",
+              "target": "$MT323",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -12894,7 +12966,7 @@
                 "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT323",
+                "$MT322",
                 "$MT337"
               ]
             }
@@ -13006,7 +13078,7 @@
             },
             {
               "action": "set",
-              "target": "$MT322",
+              "target": "$MT323",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -13021,7 +13093,7 @@
                 "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT323",
+                "$MT322",
                 "$MT337"
               ]
             },
@@ -13215,7 +13287,7 @@
             },
             {
               "action": "set",
-              "target": "$MT322",
+              "target": "$MT323",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -13230,7 +13302,7 @@
                 "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT323",
+                "$MT322",
                 "$MT337"
               ]
             },
@@ -13380,7 +13452,7 @@
             },
             {
               "action": "set",
-              "target": "$MT322",
+              "target": "$MT323",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -13395,7 +13467,7 @@
                 "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT323",
+                "$MT322",
                 "$MT337"
               ]
             }
@@ -13529,7 +13601,7 @@
             },
             {
               "action": "set",
-              "target": "$MT322",
+              "target": "$MT323",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -13544,7 +13616,7 @@
                 "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT323",
+                "$MT322",
                 "$MT337"
               ]
             },
@@ -13760,7 +13832,7 @@
             },
             {
               "action": "set",
-              "target": "$MT322",
+              "target": "$MT323",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -13775,7 +13847,7 @@
                 "$MT315",
                 "$MT317",
                 "$MT320",
-                "$MT323",
+                "$MT322",
                 "$MT337"
               ]
             },
@@ -14019,7 +14091,7 @@
             },
             {
               "action": "set",
-              "target": "$MT322",
+              "target": "$MT323",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -14034,7 +14106,7 @@
                 "$MT315",
                 "$MT316",
                 "$MT320",
-                "$MT323",
+                "$MT322",
                 "$MT337"
               ]
             },
@@ -14232,7 +14304,7 @@
             },
             {
               "action": "set",
-              "target": "$MT322",
+              "target": "$MT323",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -14247,7 +14319,7 @@
                 "$MT315",
                 "$MT316",
                 "$MT317",
-                "$MT323",
+                "$MT322",
                 "$MT337"
               ]
             }
@@ -14480,7 +14552,7 @@
             },
             {
               "action": "set",
-              "target": "$MT322",
+              "target": "$MT323",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -14496,7 +14568,6 @@
                 "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT323",
                 "$MT337"
               ]
             }
@@ -14734,7 +14805,7 @@
             },
             {
               "action": "set",
-              "target": "$MT322",
+              "target": "$MT323",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -14750,6 +14821,7 @@
                 "$MT316",
                 "$MT317",
                 "$MT320",
+                "$MT322",
                 "$MT337"
               ]
             },
@@ -14992,7 +15064,7 @@
             },
             {
               "action": "set",
-              "target": "$MT322",
+              "target": "$MT323",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MT301",
@@ -15008,7 +15080,7 @@
                 "$MT316",
                 "$MT317",
                 "$MT320",
-                "$MT323"
+                "$MT322"
               ]
             }
           ],
@@ -15232,12 +15304,9 @@
             },
             {
               "action": "set",
-              "target": "$PRM30",
-              "condition_state": "unset",
-              "condition_all_codes": [
-                "$PRM31",
-                "$PRM3S"
-              ]
+              "target": "$PRM31",
+              "condition_code": "$PRM3S",
+              "condition_state": "unset"
             }
           ],
           "name": "部分豪華內飾",
@@ -15431,9 +15500,12 @@
             },
             {
               "action": "set",
-              "target": "$PRM30",
-              "condition_code": "$PRM3S",
-              "condition_state": "unset"
+              "target": "$PRM31",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$PRM30",
+                "$PRM3S"
+              ]
             }
           ],
           "name": "豪華內飾",
@@ -15566,8 +15638,8 @@
             },
             {
               "action": "set",
-              "target": "$PRM30",
-              "condition_code": "$PRM31",
+              "target": "$PRM31",
+              "condition_code": "$PRM30",
               "condition_state": "unset"
             }
           ],
@@ -20845,16 +20917,16 @@
         "$APBS",
         "$CPF0",
         "$DRRH",
-        "$DV2W",
-        "$IBB1",
+        "$DV4W",
+        "$IPB1",
         "$MDL3",
-        "$MT322",
+        "$MT323",
         "$PPSW",
-        "$PRM30",
+        "$PRM31",
         "$SC04",
-        "$W40B"
+        "$W41B"
       ],
-      "options_id": 2084,
+      "options_id": 2307,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -21253,6 +21325,13 @@
             },
             {
               "code": "FSD_GALLERY",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "BASIC_AP_FEATURES",
               "context": [
                 "configurator"
               ],
@@ -22168,10 +22247,10 @@
           }
         }
       ],
-      "copy_id": 3878,
+      "copy_id": 3949,
       "language": "zh",
       "pricing_id": 4249,
-      "reference_id": 2084
+      "reference_id": 2307
     }
   },
   "edd": []
