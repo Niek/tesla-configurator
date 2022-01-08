@@ -181,7 +181,8 @@
         "isCollapsedFlow": true,
         "isApplePayInPayX": true,
         "hideSectionsOnFooter": [],
-        "showMinMaxRangeValues": false
+        "showMinMaxRangeValues": false,
+        "showRangeLinkInventory": false
       },
       "Compositor": {
         "available_views": {
@@ -1078,10 +1079,7 @@
           "source": true,
           "target": true
         },
-        "showEvSubsidyDisclaimer": {
-          "source": false,
-          "target": false
-        },
+        "showTaxAndFeeDisclaimerForUsed": false,
         "isOldVersionOrderAgreement": {
           "source": false,
           "target": false
@@ -1213,6 +1211,7 @@
         "showQtyInput": false,
         "VehicleDetail": {},
         "showInventoryOrderFirstPaymentPolicy": false,
+        "showRecall": true,
         "showThirdPartyHistoryUrl": false,
         "showDOCandOMVICfees": true,
         "showVATBreakdown": false,
@@ -1293,6 +1292,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": false,
+        "showNonBrandNewLabel": false,
         "hideIncentivesOrderPage": false,
         "showAvailableInState": false,
         "showElectronicPayment": false,
@@ -1726,12 +1726,12 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2021-12-10T00:45:00.000Z",
+      "effective_date": "2022-01-07T04:35:00.000Z",
       "market": "KR",
       "product": "mx",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing KR 2021.Dec.10 1716.3673.5479 [ko]",
+      "name": "Marketing KR 2022.Jan.07 2422.4284.5479 [ko]",
       "groups": [
         {
           "code": "MODEL",
@@ -3948,8 +3948,12 @@
               "content": " "
             },
             {
-              "type": "description",
+              "type": "description[0]",
               "content": "Model X는 5인승, 6인승, 7인승 구성으로 옵션을 제공하며 각각 기능적이고 편안한 실내 환경을 제공합니다."
+            },
+            {
+              "type": "description[1]",
+              "content": "Model X Plaid는 6인승 구성으로만 제공됩니다."
             }
           ],
           "extra_content": [
@@ -4124,7 +4128,7 @@
             },
             {
               "type": "description",
-              "content": "22-스피커의 960W 오디오 시스템은 집 또는 도로 주행 중 최상의 청취 환경을 제공하며, 신형 마이크를 통해 액티브 노이즈 캔슬링 기능을 지원합니다."
+              "content": "22-스피커와 960-와트 오디오 시스템은 어디서든 운전자에게 최상의 청취 경험을 구현하며, 신형 마이크는 능동형 도로 소음 저감 기술을 지원합니다."
             }
           ],
           "extra_content": [
@@ -5401,7 +5405,7 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "액티브 노이즈 캔슬링이 적용된 프리미엄 22-스피커 오디오"
+              "content": "능동형 도로 소음 저감 기술을 적용한 프리미엄 22-스피커"
             },
             {
               "type": "feature_list.default[0].items[1]",
@@ -6950,6 +6954,17 @@
         },
         "$CC01": {
           "code": "$CC01",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -6962,6 +6977,12 @@
                 "$CC04",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -6999,6 +7020,17 @@
               "content": [
                 {
                   "type": "circle"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
                 }
               ]
             }
@@ -7073,6 +7105,17 @@
         },
         "$CC04": {
           "code": "$CC04",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7085,6 +7128,12 @@
                 "$CC02",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -7119,6 +7168,17 @@
                   "type": "circle"
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
           "price": 0,
@@ -7132,6 +7192,14 @@
         },
         "$CC12": {
           "code": "$CC12",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$CC12"
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7144,6 +7212,10 @@
                 "$CC02",
                 "$CC04"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$CC12"
             }
           ],
           "unset_rules": [
@@ -13576,6 +13648,10 @@
                 "target": "$WX20",
                 "condition_code": "$WTUT",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$CC02"
               }
             ]
           },
@@ -13630,6 +13706,10 @@
               "target": "$WX20",
               "condition_code": "$WTUT",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$CC02"
             }
           ],
           "unset_rules": [
@@ -14425,6 +14505,9 @@
                   "range": {
                     "units": "kilometers"
                   },
+                  "monthly": {
+                    "units": "per-month"
+                  },
                   "topspeed": {
                     "units": "kilometers-per-hour"
                   },
@@ -14447,6 +14530,10 @@
                   "seconds": {
                     "label": "초",
                     "short_label": "초"
+                  },
+                  "per-month": {
+                    "label": " /월",
+                    "short_label": " /월"
                   },
                   "kilometers": {
                     "label": "km",
@@ -18275,7 +18362,7 @@
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 1716,
+      "options_id": 2422,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -19699,10 +19786,10 @@
           }
         }
       ],
-      "copy_id": 3673,
+      "copy_id": 4284,
       "language": "ko",
       "pricing_id": 5479,
-      "reference_id": 1716
+      "reference_id": 2422
     }
   },
   "edd": []

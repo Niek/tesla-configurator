@@ -181,7 +181,8 @@
         "isCollapsedFlow": true,
         "isApplePayInPayX": true,
         "hideSectionsOnFooter": [],
-        "showMinMaxRangeValues": false
+        "showMinMaxRangeValues": false,
+        "showRangeLinkInventory": false
       },
       "Compositor": {
         "available_views": {
@@ -1095,10 +1096,7 @@
           "source": true,
           "target": true
         },
-        "showEvSubsidyDisclaimer": {
-          "source": false,
-          "target": false
-        },
+        "showTaxAndFeeDisclaimerForUsed": false,
         "isOldVersionOrderAgreement": {
           "source": false,
           "target": false
@@ -1231,6 +1229,7 @@
         "showQtyInput": false,
         "VehicleDetail": {},
         "showInventoryOrderFirstPaymentPolicy": false,
+        "showRecall": true,
         "showThirdPartyHistoryUrl": false,
         "showDOCandOMVICfees": true,
         "showVATBreakdown": false,
@@ -1317,6 +1316,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": true,
+        "showNonBrandNewLabel": false,
         "hideIncentivesOrderPage": false,
         "showAvailableInState": false,
         "showElectronicPayment": false,
@@ -1979,12 +1979,12 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2021-12-10T00:45:00.000Z",
+      "effective_date": "2022-01-07T04:35:00.000Z",
       "market": "DK",
       "product": "mx",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing DK 2021.Dec.10 1824.3685.5462 [da]",
+      "name": "Marketing DK 2022.Jan.07 2409.4255.5462 [da]",
       "groups": [
         {
           "code": "MODEL",
@@ -4231,7 +4231,7 @@
             },
             {
               "type": "description",
-              "content": "En unik beskyttelse for Teslaer overvåger kontinuerligt bilens omgivelser, når bilen forlades uden opsyn. Når systemet aktiveres går Sentry Mode i en standby tilstand, ligesom hjemmealarmssytemer og benytter bilens eksterne kamerarer til at hjælpe med at opdage og advare mod potentielle trusler."
+              "content": "<p>En eksklusiv beskyttelsesfunktion kaldet Sentry-tilstand overvåger køretøjets omgivelser, når du efterlader din Tesla uden opsyn. Når Sentry-tilstand er aktiveret, aktiveres og anvendes køretøjets eksterne kameraer for at registrere trusler og hjælpe med til at beskytte dit køretøj mod potentielle trusler på samme måde som alarmsystemer til dit hjem.</p><p>Livekamera, der er tilgængelig med Premium Connectivity, giver dig mulighed for at fjernovervåge dit køretøjs omgivelser, mens det er parkeret, og du kan også aktivere hornet, blinke med lygterne og tale gennem bilens højttaler. Livekamera er krypteret fra start til slut, og Tesla har ikke adgang til det.</p><p>Se <a href=\"https://www.tesla.com/ownersmanual/index-model-x.html\" target=\"_blank\">Manualen</a> for yderligere oplysninger.</p>"
             }
           ],
           "extra_content": [
@@ -4265,8 +4265,12 @@
               "content": " "
             },
             {
-              "type": "description",
+              "type": "description[0]",
               "content": "Model X tilbyder konfigurationer med fem, seks og syv sæder – hver enkelt konfiguration muliggør en funktionel og behagelig kabineoplevelse."
+            },
+            {
+              "type": "description[1]",
+              "content": "Model X Plaid fås kun i en version med 6 sæder."
             }
           ],
           "extra_content": [
@@ -7841,6 +7845,17 @@
         },
         "$CC01": {
           "code": "$CC01",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7853,6 +7868,12 @@
                 "$CC04",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -7890,6 +7911,17 @@
               "content": [
                 {
                   "type": "circle"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
                 }
               ]
             }
@@ -7964,6 +7996,17 @@
         },
         "$CC04": {
           "code": "$CC04",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7976,6 +8019,12 @@
                 "$CC02",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -8010,6 +8059,17 @@
                   "type": "circle"
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
           "price": 0,
@@ -8023,6 +8083,14 @@
         },
         "$CC12": {
           "code": "$CC12",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$CC12"
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -8035,6 +8103,10 @@
                 "$CC02",
                 "$CC04"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$CC12"
             }
           ],
           "unset_rules": [
@@ -9517,9 +9589,9 @@
               ]
             }
           ],
-          "name": "22\" sorte Onyx fælge",
-          "description": "22\" sorte Onyx fælge",
-          "long_name": "22\" sorte Onyx fælge",
+          "name": "22\" sorte Onyx-fælge",
+          "description": "22\" sorte Onyx-fælge",
+          "long_name": "22\" sorte Onyx-fælge",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -14577,6 +14649,10 @@
                 "target": "$WX20",
                 "condition_code": "$WTUT",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$CC02"
               }
             ]
           },
@@ -14631,6 +14707,10 @@
               "target": "$WX20",
               "condition_code": "$WTUT",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$CC02"
             }
           ],
           "unset_rules": [
@@ -15457,6 +15537,9 @@
                     "units": "kilometers",
                     "source": "WLTP"
                   },
+                  "monthly": {
+                    "units": "per-month"
+                  },
                   "topspeed": {
                     "units": "kilometers-per-hour"
                   },
@@ -15479,6 +15562,10 @@
                   "seconds": {
                     "label": "sekunder",
                     "short_label": "s"
+                  },
+                  "per-month": {
+                    "label": " /måned",
+                    "short_label": " /md."
                   },
                   "kilometers": {
                     "label": "kilometer",
@@ -19275,7 +19362,7 @@
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 1824,
+      "options_id": 2409,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -20762,10 +20849,10 @@
           }
         }
       ],
-      "copy_id": 3685,
+      "copy_id": 4255,
       "language": "da",
       "pricing_id": 5462,
-      "reference_id": 1824
+      "reference_id": 2409
     }
   },
   "edd": []

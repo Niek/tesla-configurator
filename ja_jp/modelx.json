@@ -181,7 +181,8 @@
         "isCollapsedFlow": true,
         "isApplePayInPayX": true,
         "hideSectionsOnFooter": [],
-        "showMinMaxRangeValues": false
+        "showMinMaxRangeValues": false,
+        "showRangeLinkInventory": false
       },
       "Compositor": {
         "available_views": {
@@ -1082,10 +1083,7 @@
           "source": true,
           "target": true
         },
-        "showEvSubsidyDisclaimer": {
-          "source": false,
-          "target": false
-        },
+        "showTaxAndFeeDisclaimerForUsed": false,
         "isOldVersionOrderAgreement": {
           "source": false,
           "target": false
@@ -1216,6 +1214,7 @@
         "showQtyInput": false,
         "VehicleDetail": {},
         "showInventoryOrderFirstPaymentPolicy": false,
+        "showRecall": true,
         "showThirdPartyHistoryUrl": false,
         "showDOCandOMVICfees": true,
         "showVATBreakdown": false,
@@ -1297,6 +1296,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": true,
+        "showNonBrandNewLabel": false,
         "hideIncentivesOrderPage": true,
         "showAvailableInState": false,
         "showElectronicPayment": false
@@ -1911,12 +1911,12 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2021-12-10T01:15:00.000Z",
+      "effective_date": "2022-01-07T04:35:00.000Z",
       "market": "JP",
       "product": "mx",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing JP 2021.Dec.10 2280.3953.5481 [ja]",
+      "name": "Marketing JP 2022.Jan.07 2367.4278.5481 [ja]",
       "groups": [
         {
           "code": "MODEL",
@@ -3804,7 +3804,7 @@
           "extra_copy": [
             {
               "type": "federalTax.description",
-              "content": "Model Xの現行モデルは、令和3年度クリーンエネルギー自動車導入事業補助金の対象となります。詳細は<a href='https://www.tesla.com/jp/support/incentives?redirect=no' target=_blank>こちら</a>"
+              "content": "Model Xの現行モデルは令和3年度補正予算案「クリーンエネルギー自動車導入促進補助金」の対象となります。詳細は<a href='https://www.tesla.com/jp/support/incentives?redirect=no' target=_blank>こちら</a>"
             }
           ]
         },
@@ -4264,8 +4264,12 @@
               "content": " "
             },
             {
-              "type": "description",
+              "type": "description[0]",
               "content": "Model Xには、5人乗り、6人乗り、7人乗りのオプションが用意され、機能的で快適なキャビン体験を提供します。"
+            },
+            {
+              "type": "description[1]",
+              "content": "Model X Plaidのシート構成は6人乗りのみとなります。"
             }
           ],
           "extra_content": [
@@ -7325,6 +7329,17 @@
         },
         "$CC01": {
           "code": "$CC01",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7337,6 +7352,12 @@
                 "$CC04",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -7374,6 +7395,17 @@
               "content": [
                 {
                   "type": "circle"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
                 }
               ]
             }
@@ -7448,6 +7480,17 @@
         },
         "$CC04": {
           "code": "$CC04",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7460,6 +7503,12 @@
                 "$CC02",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -7494,6 +7543,17 @@
                   "type": "circle"
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
           "price": 0,
@@ -7507,6 +7567,14 @@
         },
         "$CC12": {
           "code": "$CC12",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$CC12"
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7519,6 +7587,10 @@
                 "$CC02",
                 "$CC04"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$CC12"
             }
           ],
           "unset_rules": [
@@ -13946,6 +14018,10 @@
                 "target": "$WX20",
                 "condition_code": "$WTUT",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$CC02"
               }
             ]
           },
@@ -14000,6 +14076,10 @@
               "target": "$WX20",
               "condition_code": "$WTUT",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$CC02"
             }
           ],
           "unset_rules": [
@@ -14789,6 +14869,9 @@
                     "units": "kilometers",
                     "source": "WLTP"
                   },
+                  "monthly": {
+                    "units": "per-month"
+                  },
                   "topspeed": {
                     "units": "kilometers-per-hour"
                   },
@@ -14811,6 +14894,10 @@
                   "seconds": {
                     "label": "秒",
                     "short_label": "秒"
+                  },
+                  "per-month": {
+                    "label": "月々 ",
+                    "short_label": "月々 "
                   },
                   "kilometers": {
                     "label": "km",
@@ -18596,7 +18683,7 @@
         "$DRRH",
         "$CPF0"
       ],
-      "options_id": 2280,
+      "options_id": 2367,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -20027,10 +20114,10 @@
           }
         }
       ],
-      "copy_id": 3953,
+      "copy_id": 4278,
       "language": "ja",
       "pricing_id": 5481,
-      "reference_id": 2280
+      "reference_id": 2367
     }
   },
   "edd": []

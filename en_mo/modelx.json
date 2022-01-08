@@ -181,7 +181,8 @@
         "isCollapsedFlow": true,
         "isApplePayInPayX": true,
         "hideSectionsOnFooter": [],
-        "showMinMaxRangeValues": false
+        "showMinMaxRangeValues": false,
+        "showRangeLinkInventory": false
       },
       "Compositor": {
         "available_views": {
@@ -1070,10 +1071,7 @@
           "source": true,
           "target": true
         },
-        "showEvSubsidyDisclaimer": {
-          "source": false,
-          "target": false
-        },
+        "showTaxAndFeeDisclaimerForUsed": false,
         "isOldVersionOrderAgreement": {
           "source": false,
           "target": false
@@ -1206,6 +1204,7 @@
         "showQtyInput": false,
         "VehicleDetail": {},
         "showInventoryOrderFirstPaymentPolicy": false,
+        "showRecall": true,
         "showThirdPartyHistoryUrl": false,
         "showDOCandOMVICfees": true,
         "showVATBreakdown": false,
@@ -1285,6 +1284,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": true,
+        "showNonBrandNewLabel": false,
         "hideIncentivesOrderPage": false,
         "showAvailableInState": false,
         "showElectronicPayment": false
@@ -1709,12 +1709,12 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2021-12-23T01:10:00.000Z",
+      "effective_date": "2022-01-07T04:35:00.000Z",
       "market": "MO",
       "product": "mx",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing MO 2021.Dec.23 2291.3978.5905 [en]",
+      "name": "Marketing MO 2022.Jan.07 2360.4277.5905 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -3952,8 +3952,12 @@
               "content": " "
             },
             {
-              "type": "description",
+              "type": "description[0]",
               "content": "Model X offers five, six and seven-seat configuration options – each enabling a functional and comfortable cabin experience."
+            },
+            {
+              "type": "description[1]",
+              "content": "Model X Plaid is available only in six seat configuration."
             }
           ],
           "extra_content": [
@@ -7114,6 +7118,17 @@
         },
         "$CC01": {
           "code": "$CC01",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7126,6 +7141,12 @@
                 "$CC04",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -7163,6 +7184,17 @@
               "content": [
                 {
                   "type": "circle"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
                 }
               ]
             }
@@ -7247,6 +7279,17 @@
         },
         "$CC04": {
           "code": "$CC04",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7259,6 +7302,12 @@
                 "$CC02",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -7293,6 +7342,17 @@
                   "type": "circle"
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
           "price": 0,
@@ -7311,6 +7371,14 @@
         },
         "$CC12": {
           "code": "$CC12",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$CC12"
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7323,6 +7391,10 @@
                 "$CC02",
                 "$CC04"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$CC12"
             }
           ],
           "unset_rules": [
@@ -14173,6 +14245,10 @@
                 "target": "$WX20",
                 "condition_code": "$WTUT",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$CC02"
               }
             ]
           },
@@ -14227,6 +14303,10 @@
               "target": "$WX20",
               "condition_code": "$WTUT",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$CC02"
             }
           ],
           "unset_rules": [
@@ -15058,6 +15138,9 @@
                     "units": "kilometers",
                     "source": "WLTP"
                   },
+                  "monthly": {
+                    "units": "per-month"
+                  },
                   "topspeed": {
                     "units": "kilometers-per-hour"
                   },
@@ -15080,6 +15163,10 @@
                   "seconds": {
                     "label": "seconds",
                     "short_label": "sec"
+                  },
+                  "per-month": {
+                    "label": " /mo",
+                    "short_label": " /mo"
                   },
                   "kilometers": {
                     "label": "kilometers",
@@ -18866,7 +18953,7 @@
         "$DRRH",
         "$CPF0"
       ],
-      "options_id": 2291,
+      "options_id": 2360,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -20290,10 +20377,10 @@
           }
         }
       ],
-      "copy_id": 3978,
+      "copy_id": 4277,
       "language": "en",
       "pricing_id": 5905,
-      "reference_id": 2291
+      "reference_id": 2360
     }
   },
   "edd": []

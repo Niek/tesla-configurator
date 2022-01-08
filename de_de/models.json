@@ -181,7 +181,8 @@
         "isCollapsedFlow": true,
         "isApplePayInPayX": true,
         "hideSectionsOnFooter": [],
-        "showMinMaxRangeValues": false
+        "showMinMaxRangeValues": false,
+        "showRangeLinkInventory": false
       },
       "Compositor": {
         "available_views": {
@@ -808,6 +809,7 @@
             "type": "business",
             "financeOptions": [
               "cash",
+              "operational_lease",
               "business_lease",
               "loan"
             ],
@@ -982,7 +984,7 @@
         "showOptinDisclaimer": "always_no_disclaimer",
         "billingAddressDetailsPayX": "full",
         "calculatePriceOnOrder": false,
-        "alwaysShowOrderDisclaimerAbove": false,
+        "alwaysShowOrderDisclaimerAbove": true,
         "hideWireTransferForPreOrder": true
       },
       "ReviewDetails": {
@@ -1060,10 +1062,7 @@
           "source": true,
           "target": true
         },
-        "showEvSubsidyDisclaimer": {
-          "source": false,
-          "target": false
-        },
+        "showTaxAndFeeDisclaimerForUsed": false,
         "isOldVersionOrderAgreement": {
           "source": false,
           "target": false
@@ -1193,6 +1192,7 @@
         "showQtyInput": false,
         "VehicleDetail": {},
         "showInventoryOrderFirstPaymentPolicy": false,
+        "showRecall": true,
         "showThirdPartyHistoryUrl": false,
         "showDOCandOMVICfees": true,
         "showVATBreakdown": false,
@@ -1280,6 +1280,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": true,
+        "showNonBrandNewLabel": false,
         "hideIncentivesOrderPage": false,
         "showAvailableInState": false,
         "showElectronicPayment": false,
@@ -1800,6 +1801,52 @@
         },
         {
           "market": "DE",
+          "id": "operational_lease",
+          "incomplete": true,
+          "variant": [
+            "m3",
+            "ms",
+            "mx",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "leaseTerm": 48,
+            "leaseDistance": 10000
+          },
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "distance",
+                  "term"
+                ],
+                [
+                  "includeServiceFee"
+                ]
+              ],
+              "standardFeaturesList": true
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm",
+                "leaseDistance"
+              ]
+            },
+            "pdf": {
+              "leaseFields": [
+                "downPayment",
+                "distance",
+                "term"
+              ]
+            }
+          }
+        },
+        {
+          "market": "DE",
           "id": "business_lease",
           "variant": [
             "ms",
@@ -1901,52 +1948,6 @@
                 [
                   "term"
                 ]
-              ]
-            },
-            "pdf": {
-              "leaseFields": [
-                "downPayment",
-                "distance",
-                "term"
-              ]
-            }
-          }
-        },
-        {
-          "market": "DE",
-          "id": "operational_lease",
-          "incomplete": true,
-          "variant": [
-            "m3",
-            "ms",
-            "mx",
-            "my"
-          ],
-          "inventory": [
-            "new"
-          ],
-          "variables": {
-            "leaseTerm": 48,
-            "leaseDistance": 10000
-          },
-          "uiSettings": {
-            "forms": {
-              "showLeaseFields": [
-                [
-                  "distance",
-                  "term"
-                ],
-                [
-                  "includeServiceFee"
-                ]
-              ],
-              "standardFeaturesList": true
-            },
-            "reviewDetails": {
-              "showLeaseSummaryFields": [
-                "downPayment",
-                "leaseTerm",
-                "leaseDistance"
               ]
             },
             "pdf": {
@@ -2067,7 +2068,7 @@
       ]
     },
     "Lexicon.ms": {
-      "effective_date": "2021-12-10T00:45:00.000Z",
+      "effective_date": "2022-01-07T02:00:00.000Z",
       "market": "DE",
       "product": "ms",
       "factory": "GF00",
@@ -2076,7 +2077,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2021.Dec.10 1835.3826.5415 [de]",
+      "name": "Marketing DE 2022.Jan.07 1835.4154.5415 [de]",
       "groups": [
         {
           "code": "TRIM",
@@ -4834,7 +4835,7 @@
             },
             {
               "type": "description",
-              "content": "Eine exklusive Schutzfunktion namens Wächter-Modus überwacht kontinuierlich die Umgebung des Fahrzeugs, wenn Sie Ihren Tesla unbeaufsichtigt zurücklassen. Bei Aktivierung stellt sich der Wächter-Modus scharf und nutzt ähnlich wie bei Hausalarmanlagen die externen Kameras des Fahrzeugs zur Erkennung und zum Schutz vor potenziellen Bedrohungen."
+              "content": "<p>Eine exklusive Schutzfunktion namens \"Wächter-Modus\" überwacht kontinuierlich die Fahrzeugumgebung, wenn Sie es unbeaufsichtigt lassen. Wenn aktiviert, verwendet der \"Wächter-Modus\" die Umfeldkameras des Fahrzeugs, um potenzielle Bedrohungen zu erkennen und vor ihnen zu schützen, ähnlich wie bei Hausalarmanlagen.</p><p>\"Live-Kamera\" wird mit Premium-Konnektivität verfügbar, um die Umgebung Ihres geparkten Autos aus der Ferne zu überwachen. Zudem können Sie die Hupe und Blinker ansteuern und sogar über den Lautsprecher des Fahrzeugs sprechen. \"Live-Kamera\" ist verschlüsselt und für Tesla nicht zugänglich.</p><p>Weitere Informationen finden Sie im <a href=\"https://www.tesla.com/ownersmanual/index-model-s.html\" target=\"_blank\">Benutzerhandbuch</a>.</p>"
             }
           ],
           "extra_content": [
@@ -5442,7 +5443,7 @@
             },
             {
               "type": "description",
-              "content": "Bei Ansteuerung mit der Tesla App findet Ihr geparktes Auto Sie und kommt zu Ihnen. Besonders praktisch auf engen Stellplätzen: Ihr Auto kann sogar ganz von allein ein- und ausparken. Die Funktion \"Smart-Herbeirufen\" meistert auch komplexe Parkbedingungen. Sie hält sich an Spurmarkierungen oder Stoppschilder und vermeidet Fußgänger oder Hindernisse wie Verkehrskegel, Abfallkörbe oder abgestellte Einkaufswagen."
+              "content": "Bei Ansteuerung mit der Tesla App findet Ihr geparktes Auto Sie und kommt zu Ihnen. Besonders praktisch auf engen Stellplätzen: Ihr Auto kann sogar ganz von allein ein- und ausparken. Die Funktion Smart-Herbeirufen meistert auch komplexe Parkbedingungen. Sie hält sich an Spurmarkierungen oder Stoppschilder und vermeidet Fußgänger oder Hindernisse wie Verkehrskegel, Abfallkörbe oder abgestellte Einkaufswagen."
             },
             {
               "type": "add_options",
@@ -6685,7 +6686,7 @@
             },
             {
               "type": "description",
-              "content": "Bei Ansteuerung mit der Tesla App findet Ihr geparktes Auto Sie und kommt zu Ihnen. Besonders praktisch auf engen Stellplätzen: Ihr Auto kann sogar ganz von allein ein- und ausparken. Die Funktion \"Smart-Herbeirufen\" meistert auch komplexe Parkbedingungen. Sie hält sich an Spurmarkierungen oder Stoppschilder und vermeidet Fußgänger oder Hindernisse wie Verkehrskegel, Abfallkörbe oder abgestellte Einkaufswagen."
+              "content": "Bei Ansteuerung mit der Tesla App findet Ihr geparktes Auto Sie und kommt zu Ihnen. Besonders praktisch auf engen Stellplätzen: Ihr Auto kann sogar ganz von allein ein- und ausparken. Die Funktion Smart-Herbeirufen meistert auch komplexe Parkbedingungen. Sie hält sich an Spurmarkierungen oder Stoppschilder und vermeidet Fußgänger oder Hindernisse wie Verkehrskegel, Abfallkörbe oder abgestellte Einkaufswagen."
             },
             {
               "type": "add_options",
@@ -16492,6 +16493,9 @@
                     "units": "kilometers",
                     "source": "WLTP"
                   },
+                  "monthly": {
+                    "units": "per-month"
+                  },
                   "topspeed": {
                     "units": "kilometers-per-hour"
                   },
@@ -16514,6 +16518,10 @@
                   "seconds": {
                     "label": "Sekunden",
                     "short_label": "Sek."
+                  },
+                  "per-month": {
+                    "label": " /Monat",
+                    "short_label": " /Monat"
                   },
                   "kilometers": {
                     "label": "Kilometer",
@@ -24809,7 +24817,7 @@
           }
         }
       ],
-      "copy_id": 3826,
+      "copy_id": 4154,
       "language": "de",
       "pricing_id": 5415,
       "reference_id": 1835

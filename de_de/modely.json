@@ -181,7 +181,8 @@
         "isCollapsedFlow": true,
         "isApplePayInPayX": true,
         "hideSectionsOnFooter": [],
-        "showMinMaxRangeValues": false
+        "showMinMaxRangeValues": false,
+        "showRangeLinkInventory": false
       },
       "Compositor": {
         "available_views": {
@@ -1027,7 +1028,7 @@
         "showOptinDisclaimer": "always_no_disclaimer",
         "billingAddressDetailsPayX": "full",
         "calculatePriceOnOrder": false,
-        "alwaysShowOrderDisclaimerAbove": false,
+        "alwaysShowOrderDisclaimerAbove": true,
         "hideWireTransferForPreOrder": true
       },
       "ReviewDetails": {
@@ -1105,10 +1106,7 @@
           "source": true,
           "target": true
         },
-        "showEvSubsidyDisclaimer": {
-          "source": false,
-          "target": false
-        },
+        "showTaxAndFeeDisclaimerForUsed": false,
         "isOldVersionOrderAgreement": {
           "source": false,
           "target": false
@@ -1242,6 +1240,7 @@
         "showQtyInput": false,
         "VehicleDetail": {},
         "showInventoryOrderFirstPaymentPolicy": false,
+        "showRecall": true,
         "showThirdPartyHistoryUrl": false,
         "showDOCandOMVICfees": true,
         "showVATBreakdown": false,
@@ -1329,6 +1328,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": true,
+        "showNonBrandNewLabel": false,
         "hideIncentivesOrderPage": false,
         "showAvailableInState": false,
         "showElectronicPayment": false,
@@ -1808,6 +1808,52 @@
         },
         {
           "market": "DE",
+          "id": "operational_lease",
+          "incomplete": true,
+          "variant": [
+            "m3",
+            "ms",
+            "mx",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "leaseTerm": 48,
+            "leaseDistance": 10000
+          },
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "distance",
+                  "term"
+                ],
+                [
+                  "includeServiceFee"
+                ]
+              ],
+              "standardFeaturesList": true
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm",
+                "leaseDistance"
+              ]
+            },
+            "pdf": {
+              "leaseFields": [
+                "downPayment",
+                "distance",
+                "term"
+              ]
+            }
+          }
+        },
+        {
+          "market": "DE",
           "id": "business_lease",
           "variant": [
             "my"
@@ -1909,52 +1955,6 @@
                 [
                   "term"
                 ]
-              ]
-            },
-            "pdf": {
-              "leaseFields": [
-                "downPayment",
-                "distance",
-                "term"
-              ]
-            }
-          }
-        },
-        {
-          "market": "DE",
-          "id": "operational_lease",
-          "incomplete": true,
-          "variant": [
-            "m3",
-            "ms",
-            "mx",
-            "my"
-          ],
-          "inventory": [
-            "new"
-          ],
-          "variables": {
-            "leaseTerm": 48,
-            "leaseDistance": 10000
-          },
-          "uiSettings": {
-            "forms": {
-              "showLeaseFields": [
-                [
-                  "distance",
-                  "term"
-                ],
-                [
-                  "includeServiceFee"
-                ]
-              ],
-              "standardFeaturesList": true
-            },
-            "reviewDetails": {
-              "showLeaseSummaryFields": [
-                "downPayment",
-                "leaseTerm",
-                "leaseDistance"
               ]
             },
             "pdf": {
@@ -2071,7 +2071,7 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2021-12-31T14:00:00.000Z",
+      "effective_date": "2022-01-07T02:00:00.000Z",
       "market": "DE",
       "product": "my",
       "factory": "GF00",
@@ -2080,7 +2080,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2021.Dec.31 2327.4248.5953 [de]",
+      "name": "Marketing DE 2022.Jan.07 2327.4132.5953 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -4071,7 +4071,7 @@
             },
             {
               "type": "description",
-              "content": "Eine exklusive Schutzfunktion namens Wächter-Modus überwacht kontinuierlich die Umgebung des Fahrzeugs, wenn Sie Ihren Tesla unbeaufsichtigt zurücklassen. Bei Aktivierung stellt sich der Wächter-Modus scharf und nutzt ähnlich wie bei Hausalarmanlagen die externen Kameras des Fahrzeugs zur Erkennung und zum Schutz vor potenziellen Bedrohungen."
+              "content": "<p>Eine exklusive Schutzfunktion namens \"Wächter-Modus\" überwacht kontinuierlich die Fahrzeugumgebung, wenn Sie es unbeaufsichtigt lassen. Wenn aktiviert, verwendet der \"Wächter-Modus\" die Umfeldkameras des Fahrzeugs, um potenzielle Bedrohungen zu erkennen und vor ihnen zu schützen, ähnlich wie bei Hausalarmanlagen.</p><p>\"Live-Kamera\" wird mit Premium-Konnektivität verfügbar, um die Umgebung Ihres geparkten Autos aus der Ferne zu überwachen. Zudem können Sie die Hupe und Blinker ansteuern und sogar über den Lautsprecher des Fahrzeugs sprechen. \"Live-Kamera\" ist verschlüsselt und für Tesla nicht zugänglich.</p><p>Weitere Informationen finden Sie im <a href=\"https://www.tesla.com/ownersmanual/index-model-y.html\" target=\"_blank\">Benutzerhandbuch</a>.</p>"
             }
           ],
           "extra_content": [
@@ -5034,7 +5034,7 @@
             },
             {
               "type": "description",
-              "content": "Bei Ansteuerung mit der Tesla App findet Ihr geparktes Auto Sie und kommt zu Ihnen. Besonders praktisch auf engen Stellplätzen: Ihr Auto kann sogar ganz von allein ein- und ausparken. Die Funktion \"Smart-Herbeirufen\" meistert auch komplexe Parkbedingungen. Sie hält sich an Spurmarkierungen oder Stoppschilder und vermeidet Fußgänger oder Hindernisse wie Verkehrskegel, Abfallkörbe oder abgestellte Einkaufswagen."
+              "content": "Bei Ansteuerung mit der Tesla App findet Ihr geparktes Auto Sie und kommt zu Ihnen. Besonders praktisch auf engen Stellplätzen: Ihr Auto kann sogar ganz von allein ein- und ausparken. Die Funktion Smart-Herbeirufen meistert auch komplexe Parkbedingungen. Sie hält sich an Spurmarkierungen oder Stoppschilder und vermeidet Fußgänger oder Hindernisse wie Verkehrskegel, Abfallkörbe oder abgestellte Einkaufswagen."
             },
             {
               "type": "add_options",
@@ -5213,11 +5213,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Basis-Autopilot",
+          "name": "Basic Autopilot",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Basis-Autopilot"
+              "content": "Basic Autopilot"
             },
             {
               "type": "eyebrow",
@@ -5705,7 +5705,7 @@
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Premium-Audiosystem mit 13 Lautsprechern, 1 Subwoofer, 2 Verstärkern und Klangfeldprozessor"
+              "content": "Premium-Audiosystem mit 13 Lautsprechern, 1 Subwoofer, 2 Verstärkern plus Klangfeldprozessor"
             },
             {
               "type": "feature_list.default[0].items[2]",
@@ -5900,7 +5900,7 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Premium-Audiosystem – 13 Lautsprecher, 1 Subwoofer, 2 Verstärker und Klangfeldprozessor"
+              "content": "Premium-Audiosystem – 13 Lautsprecher, 1 Subwoofer, 2 Verstärker plus Klangfeldprozessor"
             },
             {
               "type": "feature_list.default[0].items[1]",
@@ -6171,7 +6171,7 @@
           "extra_copy": [
             {
               "type": "aria_label",
-              "content": "Verbesserte Autopilot-Funktionalität"
+              "content": "Enhanced Autopilot-Funktionalität"
             }
           ]
         },
@@ -6514,7 +6514,7 @@
             },
             {
               "type": "description",
-              "content": "Bei Ansteuerung mit der Tesla App findet Ihr geparktes Auto Sie und kommt zu Ihnen. Besonders praktisch auf engen Stellplätzen: Ihr Auto kann sogar ganz von allein ein- und ausparken. Die Funktion \"Smart-Herbeirufen\" meistert auch komplexe Parkbedingungen. Sie hält sich an Spurmarkierungen oder Stoppschilder und vermeidet Fußgänger oder Hindernisse wie Verkehrskegel, Abfallkörbe oder abgestellte Einkaufswagen."
+              "content": "Bei Ansteuerung mit der Tesla App findet Ihr geparktes Auto Sie und kommt zu Ihnen. Besonders praktisch auf engen Stellplätzen: Ihr Auto kann sogar ganz von allein ein- und ausparken. Die Funktion Smart-Herbeirufen meistert auch komplexe Parkbedingungen. Sie hält sich an Spurmarkierungen oder Stoppschilder und vermeidet Fußgänger oder Hindernisse wie Verkehrskegel, Abfallkörbe oder abgestellte Einkaufswagen."
             },
             {
               "type": "add_options",
@@ -7007,7 +7007,7 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Grundlegende Autopilot-Funktionen",
+          "name": "Basic Autopilot-Funktionen",
           "extra_copy": [
             {
               "type": "aria_label",
@@ -7326,7 +7326,7 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Alle Funktionen von Basic Autopilot und Enhanced Autopilot (verbesserter Autopilot)"
+              "content": "Alle Funktionen von Basic Autopilot und Enhanced Autopilot"
             },
             {
               "type": "feature_list.default[0].items[1]",
@@ -9887,7 +9887,7 @@
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Premium-Audiosystem – 13 Lautsprecher, 1 Subwoofer, 2 Verstärker und Klangfeldprozessor"
+              "content": "Premium-Audiosystem – 13 Lautsprecher, 1 Subwoofer, 2 Verstärker plus Klangfeldprozessor"
             },
             {
               "type": "feature_list.default[1].items[0].main_title",
@@ -10109,7 +10109,7 @@
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Premium-Audiosystem – 13 Lautsprecher, 1 Subwoofer, 2 Verstärker und Klangfeldprozessor"
+              "content": "Premium-Audiosystem – 13 Lautsprecher, 1 Subwoofer, 2 Verstärker plus Klangfeldprozessor"
             },
             {
               "type": "feature_list.default[1].items[0].main_title",
@@ -12235,6 +12235,9 @@
                     "units": "kilometers",
                     "source": "EPA est."
                   },
+                  "monthly": {
+                    "units": "per-month"
+                  },
                   "topspeed": {
                     "units": "kilometers-per-hour"
                   },
@@ -12257,6 +12260,10 @@
                   "seconds": {
                     "label": "Sekunden",
                     "short_label": "Sek."
+                  },
+                  "per-month": {
+                    "label": " /Monat",
+                    "short_label": " /Monat"
                   },
                   "kilometers": {
                     "label": "Kilometer",
@@ -13729,7 +13736,7 @@
           }
         }
       ],
-      "copy_id": 4248,
+      "copy_id": 4132,
       "language": "de",
       "pricing_id": 5953,
       "reference_id": 2327

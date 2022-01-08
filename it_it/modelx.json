@@ -181,7 +181,8 @@
         "isCollapsedFlow": true,
         "isApplePayInPayX": true,
         "hideSectionsOnFooter": [],
-        "showMinMaxRangeValues": false
+        "showMinMaxRangeValues": false,
+        "showRangeLinkInventory": false
       },
       "Compositor": {
         "available_views": {
@@ -1082,10 +1083,7 @@
           "source": true,
           "target": true
         },
-        "showEvSubsidyDisclaimer": {
-          "source": false,
-          "target": false
-        },
+        "showTaxAndFeeDisclaimerForUsed": false,
         "isOldVersionOrderAgreement": {
           "source": false,
           "target": false
@@ -1218,6 +1216,7 @@
         "showQtyInput": false,
         "VehicleDetail": {},
         "showInventoryOrderFirstPaymentPolicy": false,
+        "showRecall": true,
         "showThirdPartyHistoryUrl": false,
         "showDOCandOMVICfees": true,
         "showVATBreakdown": false,
@@ -1304,6 +1303,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": true,
+        "showNonBrandNewLabel": false,
         "hideIncentivesOrderPage": false,
         "showAvailableInState": false,
         "showElectronicPayment": false,
@@ -1819,14 +1819,14 @@
       "loan": []
     },
     "Lexicon.mx": {
-      "effective_date": "2021-12-10T00:45:00.000Z",
+      "effective_date": "2022-01-07T04:35:00.000Z",
       "market": "IT",
       "product": "mx",
       "factory": "GF00",
       "fees": {
         "tax_credit": 3750
       },
-      "name": "Marketing IT 2021.Dec.10 1874.3689.5452 [it]",
+      "name": "Marketing IT 2022.Jan.07 2416.4266.5452 [it]",
       "groups": [
         {
           "code": "MODEL",
@@ -4073,7 +4073,7 @@
             },
             {
               "type": "description",
-              "content": "L'esclusivo sistema di protezione che caratterizza i veicoli Tesla e che monitora continuamente l'ambiente circostante quando il veicolo viene lasciato incustodito. Se attivata, la Modalità sentinella entra in uno stato di \"Standby\", come molti sistemi di allarme, e utilizza le telecamere esterne per rilevare eventuali minacce potenziali e fornire protezione."
+              "content": "<p>Un'esclusiva funzione di protezione denominata Modalità sentinella monitora continuamente l'area circostante al veicolo quando si lascia la Tesla incustodita. Quando inserita, la Modalità sentinella si attiva e utilizza le telecamere esterne del veicolo per rilevare e proteggere da potenziali minacce, analogamente ai sistemi antifurto domestici.</p><p>La Webcam live, disponibile con Premium Connectivity, consente di visualizzare a distanza l'area circostante al veicolo mentre è parcheggiato, nonché di suonare il clacson, di lampeggiare e di parlare attraverso l'altoparlante. La Webcam live è crittografata end-to-end e Tesla non può accedervi.</p><p>Consulta il <a href=\"https://www.tesla.com/ownersmanual/index-model-x.html\" target=\"_blank\">Manuale d'uso e manutenzione</a> per ulteriori informazioni.</p>"
             }
           ],
           "extra_content": [
@@ -4107,8 +4107,12 @@
               "content": " "
             },
             {
-              "type": "description",
+              "type": "description[0]",
               "content": "Model X offre opzioni di configurazione a cinque, sei e sette posti, ognuna delle quali offre un'esperienza dell'abitacolo funzionale e confortevole."
+            },
+            {
+              "type": "description[1]",
+              "content": "Model X Plaid è disponibile solo nella configurazione a sei posti."
             }
           ],
           "extra_content": [
@@ -7701,6 +7705,17 @@
         },
         "$CC01": {
           "code": "$CC01",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7713,6 +7728,12 @@
                 "$CC04",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -7750,6 +7771,17 @@
               "content": [
                 {
                   "type": "circle"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
                 }
               ]
             }
@@ -7824,6 +7856,17 @@
         },
         "$CC04": {
           "code": "$CC04",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7836,6 +7879,12 @@
                 "$CC02",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -7870,6 +7919,17 @@
                   "type": "circle"
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
           "price": 0,
@@ -7883,6 +7943,14 @@
         },
         "$CC12": {
           "code": "$CC12",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$CC12"
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7895,6 +7963,10 @@
                 "$CC02",
                 "$CC04"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$CC12"
             }
           ],
           "unset_rules": [
@@ -14458,6 +14530,10 @@
                 "target": "$WX20",
                 "condition_code": "$WTUT",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$CC02"
               }
             ]
           },
@@ -14512,6 +14588,10 @@
               "target": "$WX20",
               "condition_code": "$WTUT",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$CC02"
             }
           ],
           "unset_rules": [
@@ -15359,6 +15439,9 @@
                     "units": "kilometers",
                     "source": "WLTP"
                   },
+                  "monthly": {
+                    "units": "per-month"
+                  },
                   "topspeed": {
                     "units": "kilometers-per-hour"
                   },
@@ -15381,6 +15464,10 @@
                   "seconds": {
                     "label": "secondi",
                     "short_label": "s"
+                  },
+                  "per-month": {
+                    "label": " /mese",
+                    "short_label": " /mese"
                   },
                   "kilometers": {
                     "label": "chilometri",
@@ -19165,7 +19252,7 @@
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 1874,
+      "options_id": 2416,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -20652,10 +20739,10 @@
           }
         }
       ],
-      "copy_id": 3689,
+      "copy_id": 4266,
       "language": "it",
       "pricing_id": 5452,
-      "reference_id": 1874
+      "reference_id": 2416
     }
   },
   "edd": []

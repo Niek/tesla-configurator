@@ -181,7 +181,8 @@
         "isCollapsedFlow": true,
         "isApplePayInPayX": true,
         "hideSectionsOnFooter": [],
-        "showMinMaxRangeValues": true
+        "showMinMaxRangeValues": true,
+        "showRangeLinkInventory": false
       },
       "Compositor": {
         "available_views": {
@@ -1067,10 +1068,7 @@
           "source": true,
           "target": true
         },
-        "showEvSubsidyDisclaimer": {
-          "source": false,
-          "target": false
-        },
+        "showTaxAndFeeDisclaimerForUsed": false,
         "isOldVersionOrderAgreement": {
           "source": false,
           "target": false
@@ -1202,6 +1200,7 @@
         "showQtyInput": false,
         "VehicleDetail": {},
         "showInventoryOrderFirstPaymentPolicy": false,
+        "showRecall": true,
         "showThirdPartyHistoryUrl": false,
         "showDOCandOMVICfees": true,
         "showVATBreakdown": false,
@@ -1282,6 +1281,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": true,
+        "showNonBrandNewLabel": false,
         "hideIncentivesOrderPage": false,
         "showAvailableInState": false,
         "showElectronicPayment": false
@@ -1735,14 +1735,14 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2021-11-12T02:06:00.000Z",
+      "effective_date": "2022-01-07T04:35:00.000Z",
       "market": "MX",
       "product": "mx",
       "factory": "GF00",
       "fees": {
         "tax_credit": 3750
       },
-      "name": "Marketing MX 2021.Nov.12 2123.3680.2309 [es]",
+      "name": "Marketing MX 2022.Jan.07 2371.3680.2309 [es]",
       "groups": [
         {
           "code": "MODEL",
@@ -6826,6 +6826,17 @@
         },
         "$CC01": {
           "code": "$CC01",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -6838,6 +6849,12 @@
                 "$CC04",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -6949,6 +6966,17 @@
         },
         "$CC04": {
           "code": "$CC04",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -6961,6 +6989,12 @@
                 "$CC02",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -7008,6 +7042,14 @@
         },
         "$CC12": {
           "code": "$CC12",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$CC12"
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7020,6 +7062,10 @@
                 "$CC02",
                 "$CC04"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$CC12"
             }
           ],
           "unset_rules": [
@@ -13513,6 +13559,10 @@
                 "target": "$WX20",
                 "condition_code": "$WTUT",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$CC02"
               }
             ]
           },
@@ -13568,6 +13618,10 @@
               "target": "$WX20",
               "condition_code": "$WTUT",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$CC02"
             }
           ],
           "unset_rules": [
@@ -18628,7 +18682,7 @@
         "$ST0Y",
         "$CPF1"
       ],
-      "options_id": 2123,
+      "options_id": 2371,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -20040,7 +20094,7 @@
       "copy_id": 3680,
       "language": "es",
       "pricing_id": 2309,
-      "reference_id": 2123
+      "reference_id": 2371
     }
   },
   "edd": [

@@ -181,7 +181,8 @@
         "isCollapsedFlow": true,
         "isApplePayInPayX": true,
         "hideSectionsOnFooter": [],
-        "showMinMaxRangeValues": false
+        "showMinMaxRangeValues": false,
+        "showRangeLinkInventory": false
       },
       "Compositor": {
         "available_views": {
@@ -1064,10 +1065,7 @@
           "source": true,
           "target": true
         },
-        "showEvSubsidyDisclaimer": {
-          "source": false,
-          "target": false
-        },
+        "showTaxAndFeeDisclaimerForUsed": false,
         "isOldVersionOrderAgreement": {
           "source": false,
           "target": false
@@ -1192,6 +1190,7 @@
         "showQtyInput": false,
         "VehicleDetail": {},
         "showInventoryOrderFirstPaymentPolicy": false,
+        "showRecall": true,
         "showThirdPartyHistoryUrl": false,
         "showDOCandOMVICfees": true,
         "showVATBreakdown": false,
@@ -1276,6 +1275,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": true,
+        "showNonBrandNewLabel": false,
         "hideIncentivesOrderPage": false,
         "showAvailableInState": false,
         "showElectronicPayment": false,
@@ -1650,12 +1650,12 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2021-12-13T15:10:35.505Z",
+      "effective_date": "2022-01-07T04:35:00.000Z",
       "market": "CZ",
       "product": "mx",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CZ 2021.Dec.13 2098.3993.5461 [cs]",
+      "name": "Marketing CZ 2022.Jan.07 2381.4273.5461 [cs]",
       "groups": [
         {
           "code": "MODEL",
@@ -3883,7 +3883,7 @@
             },
             {
               "type": "description",
-              "content": "Jedinečná ochrana vozidel Tesla nepřetržitě sleduje prostředí kolem vozu, když je ponecháno bez dozoru. Pokud zapnete funkci Sentry Mode, přejde do stavu „Pohotovostního režimu“ podobně jako mnohá domácí poplachová zařízení a začne využívat externí kamery vozu k detekci potenciálních hrozeb a k ochraně proti nim."
+              "content": "<p>Exkluzivní bezpečnostní funkce Sentry Mode nepřetržitě monitoruje okolí vozu Tesla, když jej ponecháte bez dozoru. Když ji zapnete, aktivuje funkce Sentry Mode externí kamery vozidla a použije je k detekci potenciálních hrozeb a ochraně před nimi, podobně jako to dělají domácí alarmy.</p><p>Živá kamera, dostupná v rámci prémiové konektivity, vám umožní na dálku sledovat okolí zaparkovaného vozu a také ovládat klakson, světla nebo mluvit přes reproduktor vozu. Živý obraz z kamery je chráněn koncovým šifrováním a společnost Tesla k němu nemá přístup.</p><p>Další informace najdete v <a href=\"https://www.tesla.com/ownersmanual/index-model-x.html\" target=\"_blank\">návodu k obsluze</a>.</p>"
             }
           ],
           "extra_content": [
@@ -3917,8 +3917,12 @@
               "content": " "
             },
             {
-              "type": "description",
+              "type": "description[0]",
               "content": "Model X nabízí pěti-, šesti- nebo sedmimístné varianty sedadel – každá z nich umožňuje maximálně využít funkčnost a prostornost vozu."
+            },
+            {
+              "type": "description[1]",
+              "content": "Model X Plaid je dostupný pouze v konfiguraci se šesti sedadly."
             }
           ],
           "extra_content": [
@@ -7511,6 +7515,17 @@
         },
         "$CC01": {
           "code": "$CC01",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7523,6 +7538,12 @@
                 "$CC04",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -7560,6 +7581,17 @@
               "content": [
                 {
                   "type": "circle"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
                 }
               ]
             }
@@ -7634,6 +7666,17 @@
         },
         "$CC04": {
           "code": "$CC04",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7646,6 +7689,12 @@
                 "$CC02",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -7680,6 +7729,17 @@
                   "type": "circle"
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
           "price": 0,
@@ -7693,6 +7753,14 @@
         },
         "$CC12": {
           "code": "$CC12",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$CC12"
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7705,6 +7773,10 @@
                 "$CC02",
                 "$CC04"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$CC12"
             }
           ],
           "unset_rules": [
@@ -14182,6 +14254,10 @@
                 "target": "$WX20",
                 "condition_code": "$WTUT",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$CC02"
               }
             ]
           },
@@ -14236,6 +14312,10 @@
               "target": "$WX20",
               "condition_code": "$WTUT",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$CC02"
             }
           ],
           "unset_rules": [
@@ -15012,6 +15092,9 @@
                     "units": "kilometers",
                     "source": "WLTP"
                   },
+                  "monthly": {
+                    "units": "per-month"
+                  },
                   "topspeed": {
                     "units": "kilometers-per-hour"
                   },
@@ -15034,6 +15117,10 @@
                   "seconds": {
                     "label": "sekundy",
                     "short_label": "s"
+                  },
+                  "per-month": {
+                    "label": "/měsíc",
+                    "short_label": "/měs"
                   },
                   "kilometers": {
                     "label": "kilometrů",
@@ -18830,7 +18917,7 @@
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 2098,
+      "options_id": 2381,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -20296,10 +20383,10 @@
           }
         }
       ],
-      "copy_id": 3993,
+      "copy_id": 4273,
       "language": "cs",
       "pricing_id": 5461,
-      "reference_id": 2098
+      "reference_id": 2381
     }
   },
   "edd": []

@@ -181,7 +181,8 @@
         "isCollapsedFlow": true,
         "isApplePayInPayX": true,
         "hideSectionsOnFooter": [],
-        "showMinMaxRangeValues": false
+        "showMinMaxRangeValues": false,
+        "showRangeLinkInventory": false
       },
       "Compositor": {
         "available_views": {
@@ -1074,10 +1075,7 @@
           "source": true,
           "target": true
         },
-        "showEvSubsidyDisclaimer": {
-          "source": false,
-          "target": false
-        },
+        "showTaxAndFeeDisclaimerForUsed": false,
         "isOldVersionOrderAgreement": {
           "source": false,
           "target": false
@@ -1205,6 +1203,7 @@
         "showQtyInput": false,
         "VehicleDetail": {},
         "showInventoryOrderFirstPaymentPolicy": false,
+        "showRecall": true,
         "showThirdPartyHistoryUrl": false,
         "showDOCandOMVICfees": true,
         "showVATBreakdown": false,
@@ -1292,6 +1291,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": true,
+        "showNonBrandNewLabel": false,
         "hideIncentivesOrderPage": false,
         "showAvailableInState": false,
         "showElectronicPayment": false,
@@ -2037,12 +2037,12 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2021-12-10T00:45:00.000Z",
+      "effective_date": "2022-01-07T04:35:00.000Z",
       "market": "BE",
       "product": "mx",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing BE 2021.Dec.10 1871.3683.5459 [nl]",
+      "name": "Marketing BE 2022.Jan.07 2419.4256.5459 [nl]",
       "groups": [
         {
           "code": "MODEL",
@@ -4273,7 +4273,7 @@
             },
             {
               "type": "description",
-              "content": "Een unieke beschermingslaag voor Tesla-voertuigen controleert continu de omgeving rond de auto wanneer deze onbeheerd wordt achtergelaten. Als het systeem is ingeschakeld, gaat de bewakingsmodus over op een \"Stand-by\"-toestand, net als bij veel alarminstallaties voor woningen. Met behulp van de externe camera's van de auto helpt het systeem vervolgens potentiële bedreigingen te detecteren en de auto ertegen te beschermen."
+              "content": "<p>De unieke functie Bewakingsmodus controleert continu de omgeving van uw Tesla wanneer deze onbeheerd wordt achtergelaten. Als het systeem is ingeschakeld, activeert Bewakingsmodus de externe camera's van uw auto om potentiële bedreigingen te detecteren en helpt het uw auto hiertegen te beschermen, vergelijkbaar met een alarmsysteem voor een woning.</p><p>Met Live Camera, beschikbaar bij Premium Connectivity, kunt u op afstand de omgeving van uw geparkeerde auto bekijken en desgewenst de claxon bedienen, een lichtsignaal geven en via de speaker van de auto praten. Live Camera is end-to-end versleuteld en niet toegankelijk voor medewerkers van Tesla.</p><p>Bekijk de <a href=\"https://www.tesla.com/ownersmanual/index-model-x.html\" target=\"_blank\">gebruikershandleiding</a> voor meer informatie.</p>"
             }
           ],
           "extra_content": [
@@ -4307,8 +4307,12 @@
               "content": " "
             },
             {
-              "type": "description",
+              "type": "description[0]",
               "content": "Model X is leverbaar in een configuratie met vijf, zes en zeven stoelen – alle configuraties bieden een functionele en comfortabele interieurervaring."
+            },
+            {
+              "type": "description[1]",
+              "content": "Model X Plaid is alleen leverbaar in een configuratie met zes stoelen."
             }
           ],
           "extra_content": [
@@ -5281,7 +5285,7 @@
             },
             {
               "type": "description",
-              "content": "Laad uw auto overal op waar elektriciteit is. Om het bereik dat u nodig heeft voor uw dagelijkse ritten aan te vullen, kunt u gebruikmaken van het meegeleverde Mobile Connector-pakket in combinatie met uw gewone stopcontact, of u kunt upgraden naar een Tesla Wall Connector voor de beste thuislaadervaring. Bij een lange rit kunt u uw Model X in slechts 15 minuten voor 282 kilometer extra bereik bijladen met behulp van het Tesla Supercharger-netwerk, zodat u sneller weer op weg kunt."
+              "content": "Laad uw auto overal op waar elektriciteit is. Om het bereik dat u nodig heeft voor uw dagelijkse ritten aan te vullen, kunt u gebruikmaken van het meegeleverde Mobile Connector-pakket in combinatie met uw gewone stopcontact, of u kunt upgraden naar een Tesla Wall Connector voor de beste thuislaadervaring. Bij een lange rit kunt u uw Model X in slechts 15 minuten 282 kilometer bijladen met behulp van het Tesla Supercharger-netwerk, zodat u snel weer op weg kunt."
             }
           ],
           "extra_content": [
@@ -7901,6 +7905,17 @@
         },
         "$CC01": {
           "code": "$CC01",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7913,6 +7928,12 @@
                 "$CC04",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -7950,6 +7971,17 @@
               "content": [
                 {
                   "type": "circle"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
                 }
               ]
             }
@@ -8024,6 +8056,17 @@
         },
         "$CC04": {
           "code": "$CC04",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -8036,6 +8079,12 @@
                 "$CC02",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -8070,6 +8119,17 @@
                   "type": "circle"
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
           "price": 0,
@@ -8083,6 +8143,14 @@
         },
         "$CC12": {
           "code": "$CC12",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$CC12"
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -8095,6 +8163,10 @@
                 "$CC02",
                 "$CC04"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$CC12"
             }
           ],
           "unset_rules": [
@@ -14662,6 +14734,10 @@
                 "target": "$WX20",
                 "condition_code": "$WTUT",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$CC02"
               }
             ]
           },
@@ -14716,6 +14792,10 @@
               "target": "$WX20",
               "condition_code": "$WTUT",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$CC02"
             }
           ],
           "unset_rules": [
@@ -15567,6 +15647,9 @@
                     "units": "kilometers",
                     "source": "WLTP"
                   },
+                  "monthly": {
+                    "units": "per-month"
+                  },
                   "topspeed": {
                     "units": "kilometers-per-hour"
                   },
@@ -15589,6 +15672,10 @@
                   "seconds": {
                     "label": "seconden",
                     "short_label": "s"
+                  },
+                  "per-month": {
+                    "label": " per maand",
+                    "short_label": " p/mnd"
                   },
                   "kilometers": {
                     "label": "kilometers",
@@ -19373,7 +19460,7 @@
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 1871,
+      "options_id": 2419,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -20853,10 +20940,10 @@
           }
         }
       ],
-      "copy_id": 3683,
+      "copy_id": 4256,
       "language": "nl",
       "pricing_id": 5459,
-      "reference_id": 1871
+      "reference_id": 2419
     }
   },
   "edd": []

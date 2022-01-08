@@ -181,7 +181,8 @@
         "isCollapsedFlow": true,
         "isApplePayInPayX": true,
         "hideSectionsOnFooter": [],
-        "showMinMaxRangeValues": false
+        "showMinMaxRangeValues": false,
+        "showRangeLinkInventory": false
       },
       "Compositor": {
         "available_views": {
@@ -1078,10 +1079,7 @@
           "source": true,
           "target": true
         },
-        "showEvSubsidyDisclaimer": {
-          "source": false,
-          "target": false
-        },
+        "showTaxAndFeeDisclaimerForUsed": false,
         "isOldVersionOrderAgreement": {
           "source": false,
           "target": false
@@ -1210,6 +1208,7 @@
         "showQtyInput": false,
         "VehicleDetail": {},
         "showInventoryOrderFirstPaymentPolicy": false,
+        "showRecall": true,
         "showThirdPartyHistoryUrl": false,
         "showDOCandOMVICfees": true,
         "showVATBreakdown": false,
@@ -1296,6 +1295,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": true,
+        "showNonBrandNewLabel": false,
         "hideIncentivesOrderPage": false,
         "showAvailableInState": false,
         "showElectronicPayment": false,
@@ -1909,12 +1909,12 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2021-12-10T00:45:00.000Z",
+      "effective_date": "2022-01-07T04:35:00.000Z",
       "market": "PT",
       "product": "mx",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing PT 2021.Dec.10 1872.3684.5442 [pt]",
+      "name": "Marketing PT 2022.Jan.07 2417.4270.5442 [pt]",
       "groups": [
         {
           "code": "MODEL",
@@ -4091,7 +4091,7 @@
             },
             {
               "type": "description",
-              "content": "As portas da frente abrem automaticamente quando se aproxima com o seu telemóvel. Feche facilmente a porta do condutor com um toque no pedal do travão e controle as Portas Wing Falcon, o porta-bagagens dianteiro e o porta-bagagens traseiro a partir do ecrã central ou da aplicação para telemóvel da Tesla."
+              "content": "As portas da frente abrem automaticamente quando se aproxima com o seu telemóvel. Feche facilmente a porta do condutor com um toque no pedal do travão e controle as portas Falcon Wing o porta-bagagens dianteiro e o porta-bagagens traseiro a partir do ecrã central ou da aplicação para telemóvel da Tesla."
             }
           ],
           "extra_content": [
@@ -4126,7 +4126,7 @@
             },
             {
               "type": "description",
-              "content": "A camada exclusiva de proteção dos veículos Tesla monitoriza continuamente o ambiente em redor do automóvel quando este não está sob a sua vigilância. Quando ativado, o Modo Sentinela ativa o estado \"em espera\", como muitos outros sistemas de alarme domésticos, que utiliza as câmaras externas do automóvel para ajudar a detetar e a proteger contra potenciais ameaças."
+              "content": "<p>Uma funcionalidade de proteção exclusiva denominada Modo Sentinela monitoriza continuamente as imediações do veículo quando deixa o seu Tesla sem supervisão. Quando ativado, o Modo Sentinela aciona e utiliza as câmaras externas do veículo para detetar e ajudar a proteger contra potenciais ameaças, de forma semelhante aos sistemas de alarme domésticos.</p><p>A Câmara em Direto, disponível com o pacote Conectividade Premium, permite-lhe ver remotamente as imediações do veículo enquanto está estacionado, além de buzinar, piscar as luzes e falar através do altifalante do veículo. A Câmara em Direto é completamente encriptada e não pode ser acedida pela Tesla.</p><p>Consulte o <a href=\"https://www.tesla.com/ownersmanual/index-model-x.html\" target=\"_blank\">manual do proprietário</a> para obter informações adicionais.</p>"
             }
           ],
           "extra_content": [
@@ -4160,8 +4160,12 @@
               "content": " "
             },
             {
-              "type": "description",
+              "type": "description[0]",
               "content": "O Model X dispõe de opções de configuração de cinco, seis e sete lugares — cada uma possibilitando uma experiência de habitáculo funcional e confortável."
+            },
+            {
+              "type": "description[1]",
+              "content": "O Model X Plaid está disponível apenas na configuração de seis lugares."
             }
           ],
           "extra_content": [
@@ -7754,6 +7758,17 @@
         },
         "$CC01": {
           "code": "$CC01",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7766,6 +7781,12 @@
                 "$CC04",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -7803,6 +7824,17 @@
               "content": [
                 {
                   "type": "circle"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
                 }
               ]
             }
@@ -7877,6 +7909,17 @@
         },
         "$CC04": {
           "code": "$CC04",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7889,6 +7932,12 @@
                 "$CC02",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -7923,6 +7972,17 @@
                   "type": "circle"
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
           "price": 0,
@@ -7936,6 +7996,14 @@
         },
         "$CC12": {
           "code": "$CC12",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$CC12"
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7948,6 +8016,10 @@
                 "$CC02",
                 "$CC04"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$CC12"
             }
           ],
           "unset_rules": [
@@ -14394,6 +14466,10 @@
                 "target": "$WX20",
                 "condition_code": "$WTUT",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$CC02"
               }
             ]
           },
@@ -14448,6 +14524,10 @@
               "target": "$WX20",
               "condition_code": "$WTUT",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$CC02"
             }
           ],
           "unset_rules": [
@@ -15244,6 +15324,9 @@
                     "units": "kilometers",
                     "source": "WLTP"
                   },
+                  "monthly": {
+                    "units": "per-month"
+                  },
                   "topspeed": {
                     "units": "kilometers-per-hour"
                   },
@@ -15266,6 +15349,10 @@
                   "seconds": {
                     "label": "segundos",
                     "short_label": "s"
+                  },
+                  "per-month": {
+                    "label": " /mês",
+                    "short_label": " /mês"
                   },
                   "kilometers": {
                     "label": "quilómetros",
@@ -19050,7 +19137,7 @@
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 1872,
+      "options_id": 2417,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -20523,10 +20610,10 @@
           }
         }
       ],
-      "copy_id": 3684,
+      "copy_id": 4270,
       "language": "pt",
       "pricing_id": 5442,
-      "reference_id": 1872
+      "reference_id": 2417
     }
   },
   "edd": []

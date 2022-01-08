@@ -181,7 +181,8 @@
         "isCollapsedFlow": true,
         "isApplePayInPayX": true,
         "hideSectionsOnFooter": [],
-        "showMinMaxRangeValues": false
+        "showMinMaxRangeValues": false,
+        "showRangeLinkInventory": true
       },
       "Compositor": {
         "available_views": {
@@ -1127,10 +1128,7 @@
           "source": true,
           "target": true
         },
-        "showEvSubsidyDisclaimer": {
-          "source": false,
-          "target": false
-        },
+        "showTaxAndFeeDisclaimerForUsed": false,
         "isOldVersionOrderAgreement": {
           "source": false,
           "target": false
@@ -1261,6 +1259,7 @@
         "showQtyInput": false,
         "VehicleDetail": {},
         "showInventoryOrderFirstPaymentPolicy": false,
+        "showRecall": true,
         "showThirdPartyHistoryUrl": false,
         "showDOCandOMVICfees": true,
         "showVATBreakdown": false,
@@ -1342,6 +1341,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": true,
+        "showNonBrandNewLabel": false,
         "hideIncentivesOrderPage": true,
         "showAvailableInState": false,
         "showElectronicPayment": false
@@ -1870,12 +1870,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2021-12-17T01:10:00.000Z",
+      "effective_date": "2022-01-07T04:35:00.000Z",
       "market": "JP",
       "product": "m3",
       "factory": "GF03",
       "fees": {},
-      "name": "Marketing JP 2021.Dec.17 2282.4010.5718 [ja]",
+      "name": "Marketing JP 2022.Jan.07 2282.4214.5718 [ja]",
       "groups": [
         {
           "code": "MODEL",
@@ -3389,7 +3389,7 @@
             },
             {
               "type": "range_info_disclaimer",
-              "content": "WLTPに基づいた航続距離です。実際の航続距離はお客様の車両設定、バッテリーの使用年数および車両状態、運転スタイル、および使用環境 (気象、渋滞) に応じて異なります。WLTPによる値は、電気自動車間で航続距離を比較する際に役立ちます。"
+              "content": "航続距離は定められた試験条件 欧州WLTP、およびWLTCモード国土交通省審査値です。実際の走行時にはお客様の車両設定、バッテリーの状態、運転スタイル、および使用環境、気象条件によって異なります。<a href='https://www.tesla.com/jp/support/range-calculator-ref?redirect=no' target=_blank>詳しくはこちら</a>"
             }
           ],
           "description": "バッテリーとドライブトレイン",
@@ -3914,7 +3914,7 @@
             },
             {
               "type": "dynamic_grid_title[1]",
-              "content": "航続距離（WLTP）"
+              "content": "航続距離"
             },
             {
               "type": "dynamic_grid_title[2]",
@@ -14518,14 +14518,14 @@
               "target": "$SPT31"
             }
           ],
-          "name": "ロングレンジ AWD パフォーマンス",
+          "name": "Model 3 パフォーマンス",
           "description": "Model 3 Performance AWD",
-          "long_name": "Model 3 ロングレンジ AWD Performance",
+          "long_name": "Model 3 パフォーマンス デュアルモーター AWD",
           "long_description": "Model 3 Performance AWD",
           "extra_copy": [
             {
               "type": "name",
-              "content": "パフォーマンス"
+              "content": "Model 3 パフォーマンス"
             },
             {
               "type": "price_indicator",
@@ -14549,7 +14549,7 @@
             },
             {
               "type": "long_name",
-              "content": "Model 3 Performance デュアルモーター AWD"
+              "content": "Model 3 パフォーマンス デュアルモーター AWD"
             },
             {
               "type": "drive_mode",
@@ -15046,14 +15046,14 @@
               ]
             }
           ],
-          "name": "スタンダードレンジ プラス RWD",
-          "description": "スタンダードレンジ プラス RWD",
-          "long_name": "Model 3 スタンダードレンジ プラスRWD",
-          "long_description": "スタンダードレンジ プラスRWD",
+          "name": "Model 3 RWD",
+          "description": "Model 3 RWD",
+          "long_name": "Model 3 RWD",
+          "long_description": "Model 3 RWD",
           "extra_copy": [
             {
               "type": "name",
-              "content": "スタンダードレンジ プラス"
+              "content": "Model 3"
             },
             {
               "type": "compare_matrix.block[0].label",
@@ -15073,7 +15073,7 @@
             },
             {
               "type": "long_name",
-              "content": "Model 3 スタンダード プラス RWD"
+              "content": "Model 3 RWD"
             },
             {
               "type": "drive_mode",
@@ -15335,12 +15335,12 @@
           ],
           "name": "ロングレンジ AWD",
           "description": "Model 3 ロングレンジ AWD",
-          "long_name": "Model 3 ロングレンジ AWD",
+          "long_name": "Model 3 ロングレンジ デュアルモーター AWD",
           "long_description": "Model 3 ロングレンジ AWD",
           "extra_copy": [
             {
               "type": "name",
-              "content": "ロングレンジ"
+              "content": "Model 3 ロングレンジ"
             },
             {
               "type": "long_name",
@@ -16895,6 +16895,9 @@
                     "units": "kilometers",
                     "source": "WLTP"
                   },
+                  "monthly": {
+                    "units": "per-month"
+                  },
                   "topspeed": {
                     "units": "kilometers-per-hour"
                   },
@@ -16918,6 +16921,10 @@
                     "label": "秒",
                     "short_label": "秒"
                   },
+                  "per-month": {
+                    "label": "月々 ",
+                    "short_label": "月々 "
+                  },
                   "kilometers": {
                     "label": "km",
                     "short_label": "km"
@@ -16925,11 +16932,22 @@
                   "range_units": {
                     "label": "航続距離"
                   },
+                  "kilometers_tds": {
+                    "label": "km (国土交通省審査値)",
+                    "short_label": "km"
+                  },
+                  "kilometers_wltp": {
+                    "label": "km (WLTP推定)​"
+                  },
                   "range_units_epa": {
                     "label": "航続距離（WLTP推定）"
                   },
                   "range_units_est": {
                     "label": "航続距離（推定）"
+                  },
+                  "range_units_tds": {
+                    "label": "航続距離 (国土交通省審査値)",
+                    "content": "航続距離 (国土交通省審査値)"
                   },
                   "top_speed_units": {
                     "label": "最高時速",
@@ -16942,6 +16960,36 @@
                   "kilometers-per-hour": {
                     "label": "km/h",
                     "short_label": "km/h"
+                  },
+                  "range_units_epa_link": {
+                    "label": "航続距離",
+                    "content": "(WLTP推定)",
+                    "behavior": [
+                      {
+                        "type": "ACTION",
+                        "content": {
+                          "type": "SHOW_RANGE_MODAL",
+                          "classNames": [
+                            "top-speed-disclaimer-link"
+                          ]
+                        }
+                      }
+                    ]
+                  },
+                  "range_units_tds_link": {
+                    "label": "航続距離",
+                    "content": "(国土交通省審査値)",
+                    "behavior": [
+                      {
+                        "type": "ACTION",
+                        "content": {
+                          "type": "SHOW_RANGE_MODAL",
+                          "classNames": [
+                            "top-speed-disclaimer-link"
+                          ]
+                        }
+                      }
+                    ]
                   }
                 }
               },
@@ -17099,10 +17147,11 @@
                 "$MT317": {
                   "name": "Long Range All-Wheel Drive Performance",
                   "range": 567,
+                  "source": "wltp",
                   "postfix": "*",
                   "topspeed": 261,
                   "acceleration": 3.3,
-                  "range_units_override": "range_units_epa"
+                  "range_units_override": "range_units_epa_link"
                 },
                 "$MT320": {
                   "name": "Standard Range Plus Rear-Wheel Drive",
@@ -17112,14 +17161,16 @@
                 },
                 "$MT322": {
                   "name": "Standard Range Plus Rear-Wheel Drive",
-                  "range": 448,
+                  "range": 565,
+                  "source": "tds",
                   "topspeed": 225,
-                  "acceleration": 5.6,
-                  "range_units_override": "range_units_epa"
+                  "acceleration": 6.1,
+                  "range_units_override": "range_units_tds_link"
                 },
                 "$MT323": {
                   "name": "Long Range All-Wheel Drive",
                   "range": 614,
+                  "source": "wltp",
                   "topspeed": 233,
                   "overrides": [
                     {
@@ -17136,7 +17187,7 @@
                     }
                   ],
                   "acceleration": 4.4,
-                  "range_units_override": "range_units_epa"
+                  "range_units_override": "range_units_epa_link"
                 },
                 "$MT337": {
                   "name": "Standard Range Plus Rear-Wheel Drive",
@@ -22878,7 +22929,7 @@
           }
         }
       ],
-      "copy_id": 4010,
+      "copy_id": 4214,
       "language": "ja",
       "pricing_id": 5718,
       "reference_id": 2282

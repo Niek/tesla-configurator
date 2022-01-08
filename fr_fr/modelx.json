@@ -181,7 +181,8 @@
         "isCollapsedFlow": true,
         "isApplePayInPayX": true,
         "hideSectionsOnFooter": [],
-        "showMinMaxRangeValues": false
+        "showMinMaxRangeValues": false,
+        "showRangeLinkInventory": false
       },
       "Compositor": {
         "available_views": {
@@ -1001,7 +1002,7 @@
         "showOptinDisclaimer": "always_no_disclaimer",
         "billingAddressDetailsPayX": "full",
         "calculatePriceOnOrder": false,
-        "alwaysShowOrderDisclaimerAbove": false,
+        "alwaysShowOrderDisclaimerAbove": true,
         "hideWireTransferForPreOrder": true
       },
       "ReviewDetails": {
@@ -1075,10 +1076,7 @@
           "source": true,
           "target": true
         },
-        "showEvSubsidyDisclaimer": {
-          "source": false,
-          "target": false
-        },
+        "showTaxAndFeeDisclaimerForUsed": false,
         "isOldVersionOrderAgreement": {
           "source": false,
           "target": false
@@ -1206,6 +1204,7 @@
         "showQtyInput": false,
         "VehicleDetail": {},
         "showInventoryOrderFirstPaymentPolicy": false,
+        "showRecall": true,
         "showThirdPartyHistoryUrl": false,
         "showDOCandOMVICfees": true,
         "showVATBreakdown": false,
@@ -1294,6 +1293,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": true,
+        "showNonBrandNewLabel": false,
         "hideIncentivesOrderPage": false,
         "showAvailableInState": false,
         "showElectronicPayment": false,
@@ -1698,13 +1698,14 @@
           "variant": [
             "ms",
             "m3",
-            "mx"
+            "mx",
+            "my"
           ],
           "inventory": [
             "new"
           ],
           "variables": {
-            "downPayment": 11900,
+            "downPayment": 0,
             "interestRate": 3.6,
             "leaseTerm": 60,
             "leaseDistance": 10000,
@@ -1730,6 +1731,17 @@
               60000
             ]
           },
+          "downPaymentMatrix": [
+            {
+              "options": [
+                "$MDLY"
+              ],
+              "downPayment": 9900
+            },
+            {
+              "downPayment": 11900
+            }
+          ],
           "residualRateMatrix": [
             {
               "leaseTerm": 12,
@@ -2040,7 +2052,7 @@
       "loan": []
     },
     "Lexicon.mx": {
-      "effective_date": "2021-12-10T00:45:00.000Z",
+      "effective_date": "2022-01-07T04:35:00.000Z",
       "market": "FR",
       "product": "mx",
       "factory": "GF00",
@@ -2052,7 +2064,7 @@
           "period": "includedInPurchasePrice"
         }
       },
-      "name": "Marketing FR 2021.Dec.10 1873.3686.5454 [fr]",
+      "name": "Marketing FR 2022.Jan.07 2418.4269.5454 [fr]",
       "groups": [
         {
           "code": "MODEL",
@@ -4323,7 +4335,7 @@
             },
             {
               "type": "description",
-              "content": "La protection unique des véhicules Tesla surveille en permanence l'environnement du véhicule lorsqu'il est laissé sans surveillance. Lorsqu'il est activé, le Mode Sentinelle se met en veille, comme de nombreux systèmes d'alarmes domestiques, et utilise les caméras externes du véhicule pour aider à détecter les menaces potentielles et vous en protéger."
+              "content": "<p>Une fonction de protection exclusive, le mode Sentinelle, surveille en permanence les alentours du véhicule lorsque vous laissez votre Tesla sans surveillance. Lorsqu'il est activé, le mode Sentinelle arme et utilise les caméras externes du véhicule pour détecter et aider à le protéger contre les menaces potentielles, comme avec les systèmes d'alarme domestique.</p><p>La Caméra en direct, disponible avec la Connexion Premium, vous permet de voir à distance les alentours de votre véhicule lorsque vous êtes en stationnement, mais aussi de klaxonner, de clignoter et de parler via le haut-parleur du véhicule. La Caméra en direct est chiffrée de bout en bout et Tesla ne peut pas y accéder.</p><p>Pour plus d'informations, consultez le <a href=\"https://www.tesla.com/ownersmanual/index-model-x.html\" target=\"_blank\">Manuel du propriétaire</a>.</p>"
             }
           ],
           "extra_content": [
@@ -4357,8 +4369,12 @@
               "content": " "
             },
             {
-              "type": "description",
+              "type": "description[0]",
               "content": "Le Model X est disponible selon des configurations à cinq, six ou sept places, permettant chacune une utilisation fonctionnelle et confortable dans l'habitacle."
+            },
+            {
+              "type": "description[1]",
+              "content": "Le Model X Plaid est disponible uniquement en configuration six sièges."
             }
           ],
           "extra_content": [
@@ -7951,6 +7967,17 @@
         },
         "$CC01": {
           "code": "$CC01",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7963,6 +7990,12 @@
                 "$CC04",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -8000,6 +8033,17 @@
               "content": [
                 {
                   "type": "circle"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
                 }
               ]
             }
@@ -8074,6 +8118,17 @@
         },
         "$CC04": {
           "code": "$CC04",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -8086,6 +8141,12 @@
                 "$CC02",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -8120,6 +8181,17 @@
                   "type": "circle"
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
           "price": 0,
@@ -8133,6 +8205,14 @@
         },
         "$CC12": {
           "code": "$CC12",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$CC12"
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -8145,6 +8225,10 @@
                 "$CC02",
                 "$CC04"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$CC12"
             }
           ],
           "unset_rules": [
@@ -14739,6 +14823,10 @@
                 "target": "$WX20",
                 "condition_code": "$WTUT",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$CC02"
               }
             ]
           },
@@ -14793,6 +14881,10 @@
               "target": "$WX20",
               "condition_code": "$WTUT",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$CC02"
             }
           ],
           "unset_rules": [
@@ -15640,6 +15732,9 @@
                     "units": "kilometers",
                     "source": "WLTP"
                   },
+                  "monthly": {
+                    "units": "per-month"
+                  },
                   "topspeed": {
                     "units": "kilometers-per-hour"
                   },
@@ -15662,6 +15757,10 @@
                   "seconds": {
                     "label": "secondes",
                     "short_label": "s"
+                  },
+                  "per-month": {
+                    "label": " /mois",
+                    "short_label": " /mois"
                   },
                   "kilometers": {
                     "label": "kilomètres",
@@ -19446,7 +19545,7 @@
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 1873,
+      "options_id": 2418,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -20933,10 +21032,10 @@
           }
         }
       ],
-      "copy_id": 3686,
+      "copy_id": 4269,
       "language": "fr",
       "pricing_id": 5454,
-      "reference_id": 1873
+      "reference_id": 2418
     }
   },
   "edd": []

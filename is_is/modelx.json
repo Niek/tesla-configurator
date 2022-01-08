@@ -181,7 +181,8 @@
         "isCollapsedFlow": true,
         "isApplePayInPayX": true,
         "hideSectionsOnFooter": [],
-        "showMinMaxRangeValues": false
+        "showMinMaxRangeValues": false,
+        "showRangeLinkInventory": false
       },
       "Compositor": {
         "available_views": {
@@ -1065,10 +1066,7 @@
           "source": true,
           "target": true
         },
-        "showEvSubsidyDisclaimer": {
-          "source": false,
-          "target": false
-        },
+        "showTaxAndFeeDisclaimerForUsed": false,
         "isOldVersionOrderAgreement": {
           "source": false,
           "target": false
@@ -1193,6 +1191,7 @@
         "showQtyInput": false,
         "VehicleDetail": {},
         "showInventoryOrderFirstPaymentPolicy": false,
+        "showRecall": true,
         "showThirdPartyHistoryUrl": false,
         "showDOCandOMVICfees": true,
         "showVATBreakdown": true,
@@ -1277,6 +1276,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": true,
+        "showNonBrandNewLabel": false,
         "hideIncentivesOrderPage": false,
         "showAvailableInState": false,
         "showElectronicPayment": false,
@@ -1732,12 +1732,12 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2021-12-13T15:23:02.189Z",
+      "effective_date": "2022-01-07T04:35:00.000Z",
       "market": "IS",
       "product": "mx",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing IS 2021.Dec.13 1823.4005.5449 [is]",
+      "name": "Marketing IS 2022.Jan.07 2407.4274.5449 [is]",
       "groups": [
         {
           "code": "MODEL",
@@ -4003,7 +4003,7 @@
             },
             {
               "type": "description",
-              "content": "Einstakt verndarlag fyrir Tesla ökutæki sívaktar umhverfið kringum bílinn þegar engin er í bílnum og honum er lagt. Þegar kveikt er á Sentry Mode fer stillingin í „biðstöðu“ eins og mörg heimaviðvörunarkerfi og notar ytri myndavélar bílsins til greina og vernda gegn ytri hættu."
+              "content": "<p>Einstök vörn sem kallast Sentry Mode fylgist stöðugt með umhverfi ökutækisins þegar þú skilur Tesla bifreiðina þína eftir án eftirlits. Þegar kveikt er á vörninni notar Sentry Mode ytri myndavélar ökutækisins til að greina og vernda gegn mögulegum ógnum, svipað og heimaviðvörunarkerfi.</p><p>Live Camera, sem er fáanleg með Premium-tengingu, gerir þér kleift að fjarskoða umhverfi bílsins meðan honum er lagt og getur líka flautað, blikkað og talað í gegnum hátalara bílsins. Live Camera er dulkóðuð enda á milli og Tesla getur ekki skoðað hana.</p><p>Skoðaðu <a href=\"https://www.tesla.com/ownersmanual/index-model-x.html\" target=\"_blank\">eigendahandbókina</a> til að fá frekari upplýsingar.</p>"
             }
           ],
           "extra_content": [
@@ -4037,8 +4037,12 @@
               "content": " "
             },
             {
-              "type": "description",
+              "type": "description[0]",
               "content": "Hægt er að fá Model X með fimm, sex eða jafnvel sjö sætum og allir geta notið þess að sitja í bílnum óháð sætafjölda."
+            },
+            {
+              "type": "description[1]",
+              "content": "Model X Plaid er aðeins fáanlegur í sex sæta uppsetningu."
             }
           ],
           "extra_content": [
@@ -7613,6 +7617,17 @@
         },
         "$CC01": {
           "code": "$CC01",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7625,6 +7640,12 @@
                 "$CC04",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -7662,6 +7683,17 @@
               "content": [
                 {
                   "type": "circle"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
                 }
               ]
             }
@@ -7736,6 +7768,17 @@
         },
         "$CC04": {
           "code": "$CC04",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$CC02",
+                "condition_code": "$MTX11",
+                "condition_state": "set"
+              }
+            ],
+            "unset_rules": []
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7748,6 +7791,12 @@
                 "$CC02",
                 "$CC12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$CC02",
+              "condition_code": "$MTX11",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -7782,6 +7831,17 @@
                   "type": "circle"
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MTX11"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
             }
           ],
           "price": 0,
@@ -7795,6 +7855,14 @@
         },
         "$CC12": {
           "code": "$CC12",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$CC12"
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7807,6 +7875,10 @@
                 "$CC02",
                 "$CC04"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$CC12"
             }
           ],
           "unset_rules": [
@@ -14417,6 +14489,10 @@
                 "target": "$WX20",
                 "condition_code": "$WTUT",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$CC02"
               }
             ]
           },
@@ -14471,6 +14547,10 @@
               "target": "$WX20",
               "condition_code": "$WTUT",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$CC02"
             }
           ],
           "unset_rules": [
@@ -15346,6 +15426,9 @@
                     "units": "kilometers",
                     "source": "WLTP"
                   },
+                  "monthly": {
+                    "units": "per-month"
+                  },
                   "topspeed": {
                     "units": "kilometers-per-hour"
                   },
@@ -15368,6 +15451,10 @@
                   "seconds": {
                     "label": "sekúndur",
                     "short_label": "s"
+                  },
+                  "per-month": {
+                    "label": " á mán.",
+                    "short_label": " á mánuði"
                   },
                   "kilometers": {
                     "label": "kílómetrar",
@@ -19152,7 +19239,7 @@
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 1823,
+      "options_id": 2407,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -20632,10 +20719,10 @@
           }
         }
       ],
-      "copy_id": 4005,
+      "copy_id": 4274,
       "language": "is",
       "pricing_id": 5449,
-      "reference_id": 1823
+      "reference_id": 2407
     }
   },
   "edd": []
