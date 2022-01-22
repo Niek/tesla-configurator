@@ -2126,12 +2126,12 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2022-01-14T14:02:10.749Z",
+      "effective_date": "2022-01-21T01:10:00.000Z",
       "market": "FI",
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing FI 2022.Jan.14 2513.4402.8141 [fi]",
+      "name": "Marketing FI 2022.Jan.21 2571.4570.9710 [fi]",
       "groups": [
         {
           "code": "MODEL",
@@ -2444,7 +2444,7 @@
           "exclusive": true,
           "discountable": false,
           "default_options": [
-            "$CPF1"
+            "$CPF0"
           ]
         },
         {
@@ -2467,7 +2467,9 @@
           "groups": [],
           "options": [
             "$WWY01",
-            "$WWY02"
+            "$WWY02",
+            "$WWY04",
+            "$WWY05"
           ],
           "required": false,
           "exclusive": false,
@@ -2526,6 +2528,8 @@
             "$WY20P",
             "$WWY01",
             "$WWY02",
+            "$WWY04",
+            "$WWY05",
             "$APBS",
             "$APF2"
           ],
@@ -6708,7 +6712,9 @@
           "code": "WINTER_WHEELS_FEATURES",
           "groups": [
             "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
-            "19_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD"
+            "19_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD",
+            "21_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+            "21_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD"
           ],
           "context": "configurator",
           "options": [],
@@ -6924,7 +6930,9 @@
           "context": "configurator",
           "options": [
             "$WWY01",
-            "$WWY02"
+            "$WWY02",
+            "$WWY04",
+            "$WWY05"
           ],
           "required": false,
           "exclusive": false,
@@ -6957,6 +6965,18 @@
                         "selected_by": {
                           "and": [
                             "$MTY09"
+                          ]
+                        }
+                      },
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY04"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY12"
                           ]
                         }
                       }
@@ -7002,6 +7022,30 @@
                             "$WWY02"
                           ]
                         }
+                      },
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY04"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$WWY04"
+                          ]
+                        }
+                      },
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY05"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$WWY05"
+                          ]
+                        }
                       }
                     ],
                     "actionClass": [
@@ -7038,18 +7082,6 @@
                 {
                   "type": "hero-update",
                   "view": "STUD_SEAT"
-                }
-              ]
-            },
-            {
-              "type": "hidden",
-              "content": [
-                {
-                  "selected_by": {
-                    "and": [
-                      "$MTY12"
-                    ]
-                  }
                 }
               ]
             },
@@ -7130,7 +7162,9 @@
           "groups": [],
           "options": [
             "$WWY01",
-            "$WWY02"
+            "$WWY02",
+            "$WWY04",
+            "$WWY05"
           ],
           "required": false,
           "exclusive": true,
@@ -7150,6 +7184,203 @@
             {
               "type": "aria_label",
               "content": "Tietokortit"
+            }
+          ]
+        },
+        {
+          "code": "21_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY04"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "21'' Nokian kitkarengassarja",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "21'' Nokian kitkarengassarja"
+            },
+            {
+              "type": "eyebrow",
+              "content": "Sisältyy"
+            },
+            {
+              "type": "description",
+              "content": "Nokian Hakkapeliitta R3 -kitkarenkaat on suunniteltu erityisesti pohjoisiin talviolosuhteisiin. Kumiin on upotettu pieniä, ympäristöystävällisiä kiteitä, jotka parantavat pitoa lumisilla teillä. Tähän sarjaan kuuluu 21\" Performance-vanteet, joihin on asennettu renkaat."
+            },
+            {
+              "type": "add_options",
+              "content": "Lisää paketti",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY04"
+                      ]
+                    },
+                    "panelName": "21_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-21-winter-wheels"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Poista",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY04"
+                      ]
+                    },
+                    "panelName": "21_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-21-winter-wheels"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELY/UI/Nokian_WinterWheels_NoStuds.jpg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY09"
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "21_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY05"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "21'' Nokian nastarengassarja",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "21'' Nokian nastarengassarja"
+            },
+            {
+              "type": "eyebrow",
+              "content": "Sisältyy"
+            },
+            {
+              "type": "description",
+              "content": "Nokian Hakkapeliitta 10 -nastarenkaat on suunniteltu erityisesti pohjoisen talvisiin ajo-olosuhteisiin. Niissä on sisäänrakennetut iskunvaimentimet, jotka keventävät nastojen iskua tienpintaan. Tämä vähentää sekä ohjaamoon kantautuvaa melua että renkaiden kulumista."
+            },
+            {
+              "type": "add_options",
+              "content": "Lisää paketti",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY05"
+                      ]
+                    },
+                    "panelName": "21_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-21-studded-winter-wheels"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Poista",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY05"
+                      ]
+                    },
+                    "panelName": "21_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-21-studded-winter-wheels"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELY/UI/Nokian_WinterWheels_Studs.jpg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MTY09",
+                      "$MTY12"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -8061,7 +8292,9 @@
             },
             {
               "action": "set",
-              "target": "$CPF1"
+              "target": "$CPF0",
+              "condition_code": "$CPF1",
+              "condition_state": "unset"
             }
           ],
           "name": "Standard Connectivity",
@@ -8093,6 +8326,14 @@
         },
         "$CPF1": {
           "code": "$CPF1",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$CPF1"
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -8101,6 +8342,10 @@
             {
               "action": "unset",
               "target": "$CPF0"
+            },
+            {
+              "action": "unset",
+              "target": "$CPF1"
             }
           ],
           "unset_rules": [
@@ -8110,9 +8355,7 @@
             },
             {
               "action": "set",
-              "target": "$CPF1",
-              "condition_code": "$CPF0",
-              "condition_state": "unset"
+              "target": "$CPF0"
             }
           ],
           "name": "Premium Connectivity",
@@ -10892,6 +11135,19 @@
         },
         "$MTY09": {
           "code": "$MTY09",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$WWY01",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WWY04",
+                  "$WWY05"
+                ]
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -10905,6 +11161,15 @@
                 "$MTY05",
                 "$MTY07",
                 "$MTY12"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WWY01",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WWY04",
+                "$WWY05"
               ]
             }
           ],
@@ -11030,8 +11295,10 @@
                 ]
               },
               {
-                "action": "unset",
-                "targets": [
+                "action": "set",
+                "target": "$WWY04",
+                "condition_state": "set",
+                "condition_any_code": [
                   "$WWY01",
                   "$WWY02"
                 ]
@@ -11080,8 +11347,10 @@
               ]
             },
             {
-              "action": "unset",
-              "targets": [
+              "action": "set",
+              "target": "$WWY04",
+              "condition_state": "set",
+              "condition_any_code": [
                 "$WWY01",
                 "$WWY02"
               ]
@@ -11632,12 +11901,16 @@
               {
                 "action": "unset",
                 "target": "$WWY01",
-                "condition_code": "$MTY05",
+                "condition_code": "$MTY12",
                 "condition_state": "set"
               },
               {
                 "action": "unset",
-                "target": "$WWY02"
+                "targets": [
+                  "$WWY02",
+                  "$WWY04",
+                  "$WWY05"
+                ]
               }
             ],
             "unset_rules": []
@@ -11650,12 +11923,16 @@
             {
               "action": "unset",
               "target": "$WWY01",
-              "condition_code": "$MTY05",
+              "condition_code": "$MTY12",
               "condition_state": "set"
             },
             {
               "action": "unset",
-              "target": "$WWY02"
+              "targets": [
+                "$WWY02",
+                "$WWY04",
+                "$WWY05"
+              ]
             }
           ],
           "unset_rules": [
@@ -11732,12 +12009,16 @@
               {
                 "action": "unset",
                 "target": "$WWY02",
-                "condition_code": "$MTY05",
+                "condition_code": "$MTY12",
                 "condition_state": "set"
               },
               {
                 "action": "unset",
-                "target": "$WWY01"
+                "targets": [
+                  "$WWY01",
+                  "$WWY04",
+                  "$WWY05"
+                ]
               }
             ],
             "unset_rules": []
@@ -11750,12 +12031,16 @@
             {
               "action": "unset",
               "target": "$WWY02",
-              "condition_code": "$MTY05",
+              "condition_code": "$MTY12",
               "condition_state": "set"
             },
             {
               "action": "unset",
-              "target": "$WWY01"
+              "targets": [
+                "$WWY01",
+                "$WWY04",
+                "$WWY05"
+              ]
             }
           ],
           "unset_rules": [
@@ -11821,6 +12106,231 @@
             {
               "type": "base",
               "value": 3000,
+              "context": "EUR"
+            }
+          ]
+        },
+        "$WWY04": {
+          "code": "$WWY04",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WWY04",
+                "condition_code": "$MTY09",
+                "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "targets": [
+                  "$WWY02",
+                  "$WWY01",
+                  "$WWY05"
+                ]
+              }
+            ],
+            "unset_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WWY04"
+            },
+            {
+              "action": "unset",
+              "target": "$WWY04",
+              "condition_code": "$MTY09",
+              "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$WWY02",
+                "$WWY01",
+                "$WWY05"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WWY04"
+            }
+          ],
+          "name": "21'' Nokian kitkarengassarja",
+          "description": "Nokian Hakkapeliitta R3 -kitkarenkaat on suunniteltu erityisesti pohjoisiin talviolosuhteisiin. Kumiin on upotettu pieniä, ympäristöystävällisiä kiteitä, jotka parantavat pitoa lumisilla teillä. Tähän sarjaan kuuluu 21\" Performance-vanteet, joihin on asennettu renkaat.",
+          "long_name": "21'' Nokian kitkarengassarja",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Nokian Hakkapeliitta R3 -kitkarenkaat on suunniteltu erityisesti pohjoisiin talviolosuhteisiin. Kumiin on upotettu pieniä, ympäristöystävällisiä kiteitä, jotka parantavat pitoa lumisilla teillä. Tähän sarjaan kuuluu 21\" Performance-vanteet, joihin on asennettu renkaat."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WWY04"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Swatch_Nokian_NoStuds.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY09"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "price": 3990,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 3990,
+              "context": "EUR"
+            }
+          ]
+        },
+        "$WWY05": {
+          "code": "$WWY05",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WWY05",
+                "condition_code": "$MTY09",
+                "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "targets": [
+                  "$WWY02",
+                  "$WWY04",
+                  "$WWY01"
+                ]
+              },
+              {
+                "action": "unset",
+                "target": "$WWY05"
+              }
+            ],
+            "unset_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WWY05"
+            },
+            {
+              "action": "unset",
+              "target": "$WWY05",
+              "condition_code": "$MTY09",
+              "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$WWY02",
+                "$WWY04",
+                "$WWY01"
+              ]
+            },
+            {
+              "action": "unset",
+              "target": "$WWY05"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WWY05"
+            }
+          ],
+          "name": "21'' Nokian nastarengassarja",
+          "description": "Nokian Hakkapeliitta 10 -nastarenkaat on suunniteltu erityisesti pohjoisen talvisiin ajo-olosuhteisiin. Niissä on sisäänrakennetut iskunvaimentimet, jotka keventävät nastojen iskua tienpintaan. Tämä vähentää sekä ohjaamoon kantautuvaa melua että renkaiden kulumista.  ",
+          "long_name": "21'' Nokian nastarengassarja",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Nokian Hakkapeliitta 10 -nastarenkaat on suunniteltu erityisesti pohjoisen talvisiin ajo-olosuhteisiin. Niissä on sisäänrakennetut iskunvaimentimet, jotka keventävät nastojen iskua tienpintaan. Tämä vähentää sekä ohjaamoon kantautuvaa melua että renkaiden kulumista.  "
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WWY05"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Swatch_Nokian_Studs.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$MTY09",
+                      "$MTY12"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "price": 3990,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 3990,
               "context": "EUR"
             }
           ]
@@ -12139,13 +12649,14 @@
                 "condition_state": "set",
                 "condition_any_code": [
                   "$MTY03",
-                  "$MTY07"
+                  "$MTY07",
+                  "$MTY09"
                 ]
               }
             ],
             "context": "new",
             "category": "WINTER_WHEELS_OPTIONS",
-            "comments": "Add $WWY01 19\" Nokians (Non-studded) Winter Wheels Model Y"
+            "comments": "Add 19\" Nokians (Non-studded) Winter Wheels Model Y"
           },
           "add_WWY02": {
             "type": "service_center",
@@ -12156,13 +12667,28 @@
                 "condition_state": "set",
                 "condition_any_code": [
                   "$MTY03",
-                  "$MTY07"
+                  "$MTY07",
+                  "$MTY09"
                 ]
               }
             ],
             "context": "new",
             "category": "WINTER_WHEELS_OPTIONS",
-            "comments": "Add $WWY02 19\" Nokians (Studded) Winter Wheels Model Y"
+            "comments": "Add 19\" Nokians (Studded) Winter Wheels Model Y"
+          },
+          "add_WWY04": {
+            "type": "service_center",
+            "rules": [
+              {
+                "action": "set",
+                "target": "$WWY04",
+                "condition_code": "$MTY12",
+                "condition_state": "set"
+              }
+            ],
+            "context": "new",
+            "category": "WINTER_WHEELS_OPTIONS",
+            "comments": "Add 21\" Nokian Winter Tire Set (studless)"
           }
         },
         "migrations": [
@@ -12413,8 +12939,8 @@
                     "short_label": "s"
                   },
                   "per-month": {
-                    "label": " /kk.",
-                    "short_label": " /kk."
+                    "label": " /kk",
+                    "short_label": " /kk"
                   },
                   "kilometers": {
                     "label": "kilometrit",
@@ -12844,6 +13370,32 @@
                 "coverage_odometer_miles": 50000,
                 "coverage_odometer_kilometers": 80000
               }
+            },
+            {
+              "type": "bodyrust_coverage",
+              "content": {
+                "code": "$BRW00",
+                "content": "",
+                "plan_name": "Body Rust Limited Warranty",
+                "coverage_age": 144,
+                "coverage_start_date": "",
+                "new_warranty_remainder": true,
+                "coverage_odometer_miles": 999999,
+                "coverage_odometer_kilometers": 999999
+              }
+            },
+            {
+              "type": "srs_coverage",
+              "content": {
+                "code": "$SRS00",
+                "content": "",
+                "plan_name": "Supplemental Restraint System Limited Warranty",
+                "coverage_age": 60,
+                "coverage_start_date": "",
+                "new_warranty_remainder": true,
+                "coverage_odometer_miles": 60000,
+                "coverage_odometer_kilometers": 100000
+              }
             }
           ]
         },
@@ -12918,6 +13470,32 @@
                 "new_warranty_remainder": true,
                 "coverage_odometer_miles": 50000,
                 "coverage_odometer_kilometers": 80000
+              }
+            },
+            {
+              "type": "bodyrust_coverage",
+              "content": {
+                "code": "$BRW00",
+                "content": "",
+                "plan_name": "Body Rust Limited Warranty",
+                "coverage_age": 144,
+                "coverage_start_date": "",
+                "new_warranty_remainder": true,
+                "coverage_odometer_miles": 999999,
+                "coverage_odometer_kilometers": 999999
+              }
+            },
+            {
+              "type": "srs_coverage",
+              "content": {
+                "code": "$SRS00",
+                "content": "",
+                "plan_name": "Supplemental Restraint System Limited Warranty",
+                "coverage_age": 60,
+                "coverage_start_date": "",
+                "new_warranty_remainder": true,
+                "coverage_odometer_miles": 60000,
+                "coverage_odometer_kilometers": 100000
               }
             }
           ]
@@ -13090,7 +13668,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 2513,
+      "options_id": 2571,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -13525,6 +14103,20 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "21_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "21_IN_STUDDED_WINTER_WHEEL_FEATURES_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -13878,12 +14470,38 @@
             "coverage_odometer_miles": 50000,
             "coverage_odometer_kilometers": 80000
           }
+        },
+        {
+          "type": "#$BRW00",
+          "content": {
+            "code": "$BRW00",
+            "content": "",
+            "plan_name": "Body Rust Limited Warranty",
+            "coverage_age": 144,
+            "coverage_start_date": "",
+            "new_warranty_remainder": true,
+            "coverage_odometer_miles": 999999,
+            "coverage_odometer_kilometers": 999999
+          }
+        },
+        {
+          "type": "#$SRS00",
+          "content": {
+            "code": "$SRS00",
+            "content": "",
+            "plan_name": "Supplemental Restraint System Limited Warranty",
+            "coverage_age": 60,
+            "coverage_start_date": "",
+            "new_warranty_remainder": true,
+            "coverage_odometer_miles": 60000,
+            "coverage_odometer_kilometers": 100000
+          }
         }
       ],
-      "copy_id": 4402,
+      "copy_id": 4570,
       "language": "fi",
-      "pricing_id": 8141,
-      "reference_id": 2513
+      "pricing_id": 9710,
+      "reference_id": 2571
     }
   },
   "edd": [

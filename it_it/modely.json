@@ -2112,12 +2112,12 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2022-01-14T01:10:00.000Z",
+      "effective_date": "2022-01-21T01:10:00.000Z",
       "market": "IT",
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing IT 2022.Jan.14 2514.4362.8133 [it]",
+      "name": "Marketing IT 2022.Jan.21 2564.4567.9696 [it]",
       "groups": [
         {
           "code": "MODEL",
@@ -2430,7 +2430,7 @@
           "exclusive": true,
           "discountable": false,
           "default_options": [
-            "$CPF1"
+            "$CPF0"
           ]
         },
         {
@@ -2452,7 +2452,8 @@
           "context": "default",
           "groups": [],
           "options": [
-            "$WWY00"
+            "$WWY00",
+            "$WWY03"
           ],
           "required": false,
           "exclusive": false,
@@ -2510,6 +2511,7 @@
             "$WY21P",
             "$WY20P",
             "$WWY00",
+            "$WWY03",
             "$APBS",
             "$APF2"
           ],
@@ -6642,7 +6644,8 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$WWY00"
+            "$WWY00",
+            "$WWY03"
           ],
           "required": false,
           "exclusive": false,
@@ -6677,6 +6680,18 @@
                             "$MTY09"
                           ]
                         }
+                      },
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY03"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY12"
+                          ]
+                        }
                       }
                     ],
                     "actionClass": [
@@ -6706,6 +6721,18 @@
                         "selected_by": {
                           "and": [
                             "$MTY09"
+                          ]
+                        }
+                      },
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY03"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY12"
                           ]
                         }
                       }
@@ -6794,25 +6821,14 @@
                   "classes": "tds-flex tds-flex--justify-center"
                 }
               ]
-            },
-            {
-              "type": "hidden",
-              "content": [
-                {
-                  "selected_by": {
-                    "and": [
-                      "$MTY12"
-                    ]
-                  }
-                }
-              ]
             }
           ]
         },
         {
           "code": "WINTER_WHEELS_FEATURES",
           "groups": [
-            "19_IN_WINTER_WHEEL_FEATURES_CARD"
+            "19_IN_WINTER_WHEEL_FEATURES_CARD",
+            "21_IN_WINTER_WHEEL_FEATURES_CARD"
           ],
           "context": "configurator",
           "options": [],
@@ -6928,7 +6944,8 @@
           "extra_content": [],
           "groups": [],
           "options": [
-            "$WWY00"
+            "$WWY00",
+            "$WWY03"
           ],
           "required": false,
           "exclusive": false,
@@ -6963,6 +6980,100 @@
             {
               "type": "federalTax.description",
               "content": "Incentivo statale fino a € 6.000 <a href='https://www.tesla.com/it_IT/support/incentives?redirect=no' target='_blank'>Scopri di più</a>"
+            }
+          ]
+        },
+        {
+          "code": "21_IN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY03"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Set di pneumatici invernali Pirelli da 21\"",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Set di pneumatici invernali Pirelli da 21\""
+            },
+            {
+              "type": "eyebrow",
+              "content": "Di serie"
+            },
+            {
+              "type": "description",
+              "content": "Gli pneumatici invernali Pirelli Sottozero 3 combinano la bassa resistenza al rotolamento all'elevata aderenza su strade innevate. Questo set include quattro cerchi Performance da 21\" con pneumatici montati."
+            },
+            {
+              "type": "add_options",
+              "content": "Aggiungi",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY03"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--blue",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Rimuovi",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WWY03"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--light",
+                      "tds-btn--full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELY/UI/WinterWheels_PirelliTires.jpg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY09"
+                    ]
+                  }
+                }
+              ]
             }
           ]
         }
@@ -7874,7 +7985,9 @@
             },
             {
               "action": "set",
-              "target": "$CPF1"
+              "target": "$CPF0",
+              "condition_code": "$CPF1",
+              "condition_state": "unset"
             }
           ],
           "name": "Connessione Standard",
@@ -7906,6 +8019,14 @@
         },
         "$CPF1": {
           "code": "$CPF1",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$CPF1"
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -7914,6 +8035,10 @@
             {
               "action": "unset",
               "target": "$CPF0"
+            },
+            {
+              "action": "unset",
+              "target": "$CPF1"
             }
           ],
           "unset_rules": [
@@ -7923,9 +8048,7 @@
             },
             {
               "action": "set",
-              "target": "$CPF1",
-              "condition_code": "$CPF0",
-              "condition_state": "unset"
+              "target": "$CPF0"
             }
           ],
           "name": "Premium Connectivity",
@@ -10699,6 +10822,16 @@
         },
         "$MTY09": {
           "code": "$MTY09",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$WWY00",
+                "condition_code": "$WWY03",
+                "condition_state": "set"
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -10713,6 +10846,12 @@
                 "$MTY07",
                 "$MTY12"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$WWY00",
+              "condition_code": "$WWY03",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -10838,11 +10977,13 @@
               },
               {
                 "action": "unset",
-                "target": "$WWY00"
+                "target": "$TW01"
               },
               {
-                "action": "unset",
-                "target": "$TW01"
+                "action": "set",
+                "target": "$WWY03",
+                "condition_code": "$WWY00",
+                "condition_state": "set"
               }
             ],
             "unset_rules": [
@@ -10889,11 +11030,13 @@
             },
             {
               "action": "unset",
-              "target": "$WWY00"
+              "target": "$TW01"
             },
             {
-              "action": "unset",
-              "target": "$TW01"
+              "action": "set",
+              "target": "$WWY03",
+              "condition_code": "$WWY00",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -11442,10 +11585,14 @@
                 "action": "unset",
                 "target": "$WWY00",
                 "condition_state": "set",
-                "condition_all_codes": [
+                "condition_any_code": [
                   "$MTY05",
                   "$MTY12"
                 ]
+              },
+              {
+                "action": "unset",
+                "target": "$WWY03"
               }
             ],
             "unset_rules": []
@@ -11459,10 +11606,14 @@
               "action": "unset",
               "target": "$WWY00",
               "condition_state": "set",
-              "condition_all_codes": [
+              "condition_any_code": [
                 "$MTY05",
                 "$MTY12"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$WWY03"
             }
           ],
           "unset_rules": [
@@ -11528,6 +11679,114 @@
             {
               "type": "base",
               "value": 3000,
+              "context": "EUR"
+            }
+          ]
+        },
+        "$WWY03": {
+          "code": "$WWY03",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WWY03",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTY09",
+                  "$MTY03",
+                  "$MTY07"
+                ]
+              },
+              {
+                "action": "unset",
+                "target": "$WWY00"
+              }
+            ],
+            "unset_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WWY03"
+            },
+            {
+              "action": "unset",
+              "target": "$WWY03",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTY09",
+                "$MTY03",
+                "$MTY07"
+              ]
+            },
+            {
+              "action": "unset",
+              "target": "$WWY00"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WWY03"
+            }
+          ],
+          "name": "Set di pneumatici invernali Pirelli da 21\"",
+          "description": "Gli pneumatici invernali Pirelli Sottozero 3 combinano la bassa resistenza al rotolamento all'elevata aderenza su strade innevate. Questo set include quattro cerchi Performance da 21\" con pneumatici montati.",
+          "long_name": "Set di pneumatici invernali Pirelli da 21\"",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Gli pneumatici invernali Pirelli Sottozero 3 combinano la bassa resistenza al rotolamento all'elevata aderenza su strade innevate. Questo set include quattro cerchi Sport da 19\" con pneumatici montati."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WWY03"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Swatch_TH_Pirelli.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY09"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "price": 3990,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 3990,
               "context": "EUR"
             }
           ]
@@ -11846,13 +12105,28 @@
                 "condition_state": "set",
                 "condition_any_code": [
                   "$MTY03",
-                  "$MTY07"
+                  "$MTY07",
+                  "$MTY09"
                 ]
               }
             ],
             "context": "new",
             "category": "WINTER_WHEELS_OPTIONS",
-            "comments": "Add $WWY00 19\" Pirelli Winter Wheels Model Y"
+            "comments": "Add 19\" Pirelli Winter Wheels Model Y"
+          },
+          "add_WWY03": {
+            "type": "service_center",
+            "rules": [
+              {
+                "action": "set",
+                "target": "$WWY03",
+                "condition_code": "$MTY12",
+                "condition_state": "set"
+              }
+            ],
+            "context": "new",
+            "category": "WINTER_WHEELS_OPTIONS",
+            "comments": "Add 21\" Pirelli Winter Tire Set Model Y"
           }
         },
         "migrations": [
@@ -12534,6 +12808,32 @@
                 "coverage_odometer_miles": 50000,
                 "coverage_odometer_kilometers": 80000
               }
+            },
+            {
+              "type": "bodyrust_coverage",
+              "content": {
+                "code": "$BRW00",
+                "content": "",
+                "plan_name": "Body Rust Limited Warranty",
+                "coverage_age": 144,
+                "coverage_start_date": "",
+                "new_warranty_remainder": true,
+                "coverage_odometer_miles": 999999,
+                "coverage_odometer_kilometers": 999999
+              }
+            },
+            {
+              "type": "srs_coverage",
+              "content": {
+                "code": "$SRS00",
+                "content": "",
+                "plan_name": "Supplemental Restraint System Limited Warranty",
+                "coverage_age": 60,
+                "coverage_start_date": "",
+                "new_warranty_remainder": true,
+                "coverage_odometer_miles": 60000,
+                "coverage_odometer_kilometers": 100000
+              }
             }
           ]
         },
@@ -12608,6 +12908,32 @@
                 "new_warranty_remainder": true,
                 "coverage_odometer_miles": 50000,
                 "coverage_odometer_kilometers": 80000
+              }
+            },
+            {
+              "type": "bodyrust_coverage",
+              "content": {
+                "code": "$BRW00",
+                "content": "",
+                "plan_name": "Body Rust Limited Warranty",
+                "coverage_age": 144,
+                "coverage_start_date": "",
+                "new_warranty_remainder": true,
+                "coverage_odometer_miles": 999999,
+                "coverage_odometer_kilometers": 999999
+              }
+            },
+            {
+              "type": "srs_coverage",
+              "content": {
+                "code": "$SRS00",
+                "content": "",
+                "plan_name": "Supplemental Restraint System Limited Warranty",
+                "coverage_age": 60,
+                "coverage_start_date": "",
+                "new_warranty_remainder": true,
+                "coverage_odometer_miles": 60000,
+                "coverage_odometer_kilometers": 100000
               }
             }
           ]
@@ -12780,7 +13106,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 2514,
+      "options_id": 2564,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -13199,6 +13525,13 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "21_IN_WINTER_WHEEL_FEATURES_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -13552,12 +13885,38 @@
             "coverage_odometer_miles": 50000,
             "coverage_odometer_kilometers": 80000
           }
+        },
+        {
+          "type": "#$BRW00",
+          "content": {
+            "code": "$BRW00",
+            "content": "",
+            "plan_name": "Body Rust Limited Warranty",
+            "coverage_age": 144,
+            "coverage_start_date": "",
+            "new_warranty_remainder": true,
+            "coverage_odometer_miles": 999999,
+            "coverage_odometer_kilometers": 999999
+          }
+        },
+        {
+          "type": "#$SRS00",
+          "content": {
+            "code": "$SRS00",
+            "content": "",
+            "plan_name": "Supplemental Restraint System Limited Warranty",
+            "coverage_age": 60,
+            "coverage_start_date": "",
+            "new_warranty_remainder": true,
+            "coverage_odometer_miles": 60000,
+            "coverage_odometer_kilometers": 100000
+          }
         }
       ],
-      "copy_id": 4362,
+      "copy_id": 4567,
       "language": "it",
-      "pricing_id": 8133,
-      "reference_id": 2514
+      "pricing_id": 9696,
+      "reference_id": 2564
     }
   },
   "edd": [
