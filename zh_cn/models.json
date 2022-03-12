@@ -1321,7 +1321,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": false,
-        "showNonBrandNewLabel": false,
+        "hideVehicleTypeLabel": false,
         "hideIncentivesOrderPage": false,
         "showAvailableInState": false,
         "showElectronicPayment": false,
@@ -2149,13 +2149,13 @@
       ]
     },
     "Lexicon.ms": {
-      "id": 2805,
-      "effective_date": "2022-03-04T01:20:00.000Z",
+      "id": 2922,
+      "effective_date": "2022-03-11T01:20:00.000Z",
       "market": "CN",
       "product": "ms",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CN 2022.Mar.04 2805.4732.5660",
+      "name": "Marketing CN 2022.Mar.11 2922.4732.5660",
       "groups": [
         {
           "code": "MODEL",
@@ -6802,6 +6802,137 @@
               ]
             }
           ]
+        },
+        {
+          "code": "BASIC_AP_FEATURES",
+          "groups": [
+            "AUTOPILOT_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Basic Autopilot Features",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "查看详情"
+            }
+          ]
+        },
+        {
+          "code": "AUTOPILOT_CONVIENCE_FEATURE",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APD2",
+            "$APD3",
+            "$APPC"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "Autopilot with convenience features",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "包括"
+            },
+            {
+              "type": "feature_list.default[0].items[0]",
+              "content": "Automatic steering, acceleration and braking on highways"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "自动辅助变道"
+            },
+            {
+              "type": "feature_list.default[0].items[2]",
+              "content": "自动泊车"
+            },
+            {
+              "type": "disclaimer[0]",
+              "content": "Vehicle cannot be upgraded to Full Self-Driving Capability"
+            },
+            {
+              "type": "disclaimer[1]",
+              "content": "目前可用的功能需要驾驶员主动进行监控，车辆尚未实现完全自动驾驶。上述功能的激活与使用将需要数十亿英里的行驶里程的论证，以达到远超人类驾驶员的可靠性；同时还有赖于行政审批（某些司法管辖区可能会需要更长的时间）。随着上述自动驾驶功能的进化与完善，您的车辆将通过 OTA 空中软件更新而持续升级。  "
+            },
+            {
+              "type": "fsd_features",
+              "content": "了解更多",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "FSD_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--light",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "legacy_options",
+              "content": [
+                {
+                  "selected_by": {
+                    "or": [
+                      "$APD2",
+                      "$APD3",
+                      "$APPC"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer",
+                    "classes": "features-copy--disclaimer"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "fsd_features",
+                        "props": {
+                          "modal": "FSD_FEATURES"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -7077,6 +7208,46 @@
               "context": "CNY"
             }
           ]
+        },
+        "$APD2": {
+          "code": "$APD2",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD2"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD2"
+            }
+          ],
+          "name": "Autopilot with convenience features",
+          "description": "Autopilot with convenience features",
+          "long_name": "Autopilot with convenience features",
+          "extra_copy": [],
+          "extra_content": []
+        },
+        "$APD3": {
+          "code": "$APD3",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APD3"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APD3"
+            }
+          ],
+          "name": "Autopilot with convenience features",
+          "description": "Autopilot with convenience features",
+          "long_name": "Autopilot with convenience features",
+          "extra_copy": [],
+          "extra_content": []
         },
         "$APF2": {
           "code": "$APF2",
@@ -7555,6 +7726,26 @@
               "context": "CNY"
             }
           ]
+        },
+        "$APPC": {
+          "code": "$APPC",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$APPC"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$APPC"
+            }
+          ],
+          "name": "Autopilot with convenience features",
+          "description": "Autopilot with convenience features",
+          "long_name": "Autopilot with convenience features",
+          "extra_copy": [],
+          "extra_content": []
         },
         "$CPF0": {
           "code": "$CPF0",
@@ -22736,7 +22927,7 @@
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 2805,
+      "options_id": 2922,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -23136,6 +23327,20 @@
             },
             {
               "code": "ADAPTIVE_SUSPENSION_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "BASIC_AP_FEATURES",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "AUTOPILOT_CONVIENCE_FEATURE",
               "context": [
                 "configurator"
               ],
@@ -24364,7 +24569,7 @@
       "pricing_id": 5660,
       "source": "cache"
     },
-    "responseTime": "53ms"
+    "responseTime": "169ms"
   },
   "edd": []
 }

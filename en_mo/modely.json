@@ -1313,7 +1313,7 @@
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
         "showNonTransferrable": true,
-        "showNonBrandNewLabel": false,
+        "hideVehicleTypeLabel": false,
         "hideIncentivesOrderPage": false,
         "showAvailableInState": false,
         "showElectronicPayment": false,
@@ -1586,12 +1586,12 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2022-02-11T01:15:00.000Z",
+      "effective_date": "2022-03-11T01:20:00.000Z",
       "market": "MO",
       "product": "my",
       "factory": "GF03",
       "fees": {},
-      "name": "Marketing MO 2022.Feb.11 2799.4620.5904 [en]",
+      "name": "Marketing MO 2022.Mar.11 3070.4620.12204 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -1746,7 +1746,7 @@
           "exclusive": true,
           "discountable": true,
           "default_options": [
-            "$PPSW"
+            "$PBSB"
           ]
         },
         {
@@ -2134,8 +2134,8 @@
           ],
           "groups": [],
           "options": [
-            "$PPSW",
             "$PBSB",
+            "$PPSW",
             "$PMNG",
             "$PPSB",
             "$PPMR"
@@ -2143,7 +2143,7 @@
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$PPSW"
+            "$PBSB"
           ]
         },
         {
@@ -5924,7 +5924,7 @@
             },
             {
               "type": "upgrade",
-              "value": 0,
+              "value": 24000,
               "context": "HKD"
             },
             {
@@ -5939,7 +5939,7 @@
             },
             {
               "type": "upgrade",
-              "value": 4000,
+              "value": 24000,
               "context": "MOP"
             }
           ]
@@ -6375,7 +6375,7 @@
             },
             {
               "type": "upgrade",
-              "value": 8000,
+              "value": 55600,
               "context": "MOP",
               "set_rules": [
                 {
@@ -6514,7 +6514,7 @@
             },
             {
               "type": "upgrade",
-              "value": 4000,
+              "value": 0,
               "context": "MOP"
             }
           ]
@@ -7254,7 +7254,7 @@
               "context": "HKD"
             },
             {
-              "type": "order_payment_$MTY13",
+              "type": "order_payment",
               "value": 0,
               "context": "MOP"
             },
@@ -7264,8 +7264,8 @@
               "context": "MOP"
             },
             {
-              "type": "non_refundable_order_payment_used",
-              "value": 0,
+              "type": "order_fee",
+              "value": 2060,
               "context": "MOP"
             },
             {
@@ -7284,13 +7284,13 @@
               "context": "MOP"
             },
             {
-              "type": "order_payment",
+              "type": "order_payment_$MTY13",
               "value": 0,
               "context": "MOP"
             },
             {
-              "type": "order_fee",
-              "value": 2060,
+              "type": "non_refundable_order_payment_used",
+              "value": 0,
               "context": "MOP"
             },
             {
@@ -7324,11 +7324,12 @@
             },
             {
               "action": "set",
-              "target": "$PPSW",
+              "target": "$PBSB",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$PMNG",
                 "$PPSB",
+                "$PPSW",
                 "$PPMR"
               ]
             }
@@ -7361,16 +7362,16 @@
               ]
             }
           ],
-          "price": 9600,
+          "price": 0,
           "pricing": [
             {
               "type": "base",
-              "value": 9600,
+              "value": 0,
               "context": "HKD"
             },
             {
               "type": "base",
-              "value": 9900,
+              "value": 0,
               "context": "MOP"
             }
           ]
@@ -7490,11 +7491,11 @@
             },
             {
               "action": "set",
-              "target": "$PPSW",
+              "target": "$PBSB",
               "condition_state": "unset",
               "condition_all_codes": [
-                "$PBSB",
                 "$PPSB",
+                "$PPSW",
                 "$PPMR"
               ]
             }
@@ -7565,12 +7566,12 @@
             },
             {
               "action": "set",
-              "target": "$PPSW",
+              "target": "$PBSB",
               "condition_state": "unset",
               "condition_all_codes": [
-                "$PBSB",
                 "$PMNG",
-                "$PPSB"
+                "$PPSB",
+                "$PPSW"
               ]
             }
           ],
@@ -7640,11 +7641,11 @@
             },
             {
               "action": "set",
-              "target": "$PPSW",
+              "target": "$PBSB",
               "condition_state": "unset",
               "condition_all_codes": [
-                "$PBSB",
                 "$PMNG",
+                "$PPSW",
                 "$PPMR"
               ]
             }
@@ -7715,10 +7716,9 @@
             },
             {
               "action": "set",
-              "target": "$PPSW",
+              "target": "$PBSB",
               "condition_state": "unset",
               "condition_all_codes": [
-                "$PBSB",
                 "$PMNG",
                 "$PPSB",
                 "$PPMR"
@@ -7753,16 +7753,16 @@
               ]
             }
           ],
-          "price": 0,
+          "price": 9600,
           "pricing": [
             {
               "type": "base",
-              "value": 0,
+              "value": 9600,
               "context": "HKD"
             },
             {
               "type": "base",
-              "value": 0,
+              "value": 9900,
               "context": "MOP"
             }
           ]
@@ -9346,16 +9346,49 @@
                   "action": "set",
                   "target": "$WY20P",
                   "target_value": 0,
+                  "condition_code": "$MTY04",
                   "condition_state": "set",
-                  "target_property": "price",
-                  "condition_any_code": [
-                    "$MTY04",
-                    "$MTY05",
-                    "$MTY03",
-                    "$MTY06",
-                    "$MTY09",
-                    "$MTY10"
-                  ]
+                  "target_property": "price"
+                },
+                {
+                  "action": "set",
+                  "target": "$WY20P",
+                  "target_value": 0,
+                  "condition_code": "$MTY05",
+                  "condition_state": "set",
+                  "target_property": "price"
+                },
+                {
+                  "action": "set",
+                  "target": "$WY20P",
+                  "target_value": 0,
+                  "condition_code": "$MTY03",
+                  "condition_state": "set",
+                  "target_property": "price"
+                },
+                {
+                  "action": "set",
+                  "target": "$WY20P",
+                  "target_value": 0,
+                  "condition_code": "$MTY06",
+                  "condition_state": "set",
+                  "target_property": "price"
+                },
+                {
+                  "action": "set",
+                  "target": "$WY20P",
+                  "target_value": 0,
+                  "condition_code": "$MTY09",
+                  "condition_state": "set",
+                  "target_property": "price"
+                },
+                {
+                  "action": "set",
+                  "target": "$WY20P",
+                  "target_value": 0,
+                  "condition_code": "$MTY10",
+                  "condition_state": "set",
+                  "target_property": "price"
                 }
               ]
             },
@@ -9368,16 +9401,49 @@
                   "action": "set",
                   "target": "$WY20P",
                   "target_value": 0,
+                  "condition_code": "$MTY04",
                   "condition_state": "set",
-                  "target_property": "price",
-                  "condition_any_code": [
-                    "$MTY04",
-                    "$MTY05",
-                    "$MTY03",
-                    "$MTY06",
-                    "$MTY09",
-                    "$MTY10"
-                  ]
+                  "target_property": "price"
+                },
+                {
+                  "action": "set",
+                  "target": "$WY20P",
+                  "target_value": 0,
+                  "condition_code": "$MTY05",
+                  "condition_state": "set",
+                  "target_property": "price"
+                },
+                {
+                  "action": "set",
+                  "target": "$WY20P",
+                  "target_value": 0,
+                  "condition_code": "$MTY03",
+                  "condition_state": "set",
+                  "target_property": "price"
+                },
+                {
+                  "action": "set",
+                  "target": "$WY20P",
+                  "target_value": 0,
+                  "condition_code": "$MTY06",
+                  "condition_state": "set",
+                  "target_property": "price"
+                },
+                {
+                  "action": "set",
+                  "target": "$WY20P",
+                  "target_value": 0,
+                  "condition_code": "$MTY09",
+                  "condition_state": "set",
+                  "target_property": "price"
+                },
+                {
+                  "action": "set",
+                  "target": "$WY20P",
+                  "target_value": 0,
+                  "condition_code": "$MTY10",
+                  "condition_state": "set",
+                  "target_property": "price"
                 }
               ]
             }
@@ -9731,13 +9797,13 @@
         "$INPB0",
         "$MDLY",
         "$MTY09",
-        "$PPSW",
+        "$PBSB",
         "$PRMY1",
         "$SC04",
         "$STY5S",
         "$WY20P"
       ],
-      "options_id": 2799,
+      "options_id": 3070,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -10175,11 +10241,11 @@
       "extra_content": [],
       "copy_id": 4620,
       "language": "en",
-      "pricing_id": 5904,
-      "reference_id": 2799,
+      "pricing_id": 12204,
+      "reference_id": 3070,
       "source": "cache"
     },
-    "responseTime": "35ms"
+    "responseTime": "45ms"
   },
   "edd": []
 }
