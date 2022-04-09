@@ -826,7 +826,10 @@
           }
         ],
         "hideDynamicIncentive": true,
-        "showMonthlyPaymentExVAT": false,
+        "showMonthlyPaymentExVAT": [
+          "lease.business_lease",
+          "lease.km_business_lease"
+        ],
         "hideAfterSavingsPrice": true,
         "hideAfterSavingsModal": false,
         "showSavingsAmount": [],
@@ -892,6 +895,7 @@
             "financeOptions": [
               "cash",
               "business_lease",
+              "km_business_lease",
               "loan"
             ],
             "defaultOption": "cash"
@@ -1345,7 +1349,8 @@
           "SUMMARY_PANEL_DISTANCE_CHANGE",
           "SUMMARY_PANEL_FINANCE_DISTANCE_CHANGE",
           "ACCOUNT_DETAILS_CHANGED",
-          "SET_FINANCE_MODAL_DRIVER_TYPE"
+          "SET_FINANCE_MODAL_DRIVER_TYPE",
+          "SUMMARY_PANEL_INCLUDE_SERVICE_FEE_CHANGE"
         ],
         "showVehicleSubtotal": false,
         "hidePostfixOnUI": false,
@@ -1441,7 +1446,7 @@
         "leaseRateMatrix": null,
         "balloonPayment": null,
         "downPayment": null,
-        "includeServiceFee": false,
+        "includeServiceFee": [],
         "residualAmount": null,
         "DisclaimerTitlei18nKey": "Review.Gas_Savings",
         "region_code": ""
@@ -1653,6 +1658,20 @@
           "market": "DE"
         },
         {
+          "feeType": "booking_fee",
+          "financeType": "lease",
+          "description": "Booking fee for km_lease and km_business_lease",
+          "period": "monthly",
+          "variant": [
+            "m3",
+            "my",
+            "mx",
+            "ms"
+          ],
+          "amount": 250,
+          "market": "DE"
+        },
+        {
           "feeType": "vat_percent",
           "financeType": "any",
           "period": "included",
@@ -1697,6 +1716,7 @@
           "market": "DE",
           "id": "km_lease",
           "variant": [
+            "m3",
             "my"
           ],
           "inventory": [
@@ -1708,8 +1728,7 @@
             "minimumDownPayment": 0,
             "interestRate": 2.99,
             "leaseTerm": 48,
-            "leaseDistance": 10000,
-            "umweltbonus": 2975
+            "leaseDistance": 10000
           },
           "leaseTermsOffered": {
             "leaseTerm": [
@@ -1836,6 +1855,7 @@
           "market": "DE",
           "id": "business_lease",
           "variant": [
+            "m3",
             "my"
           ],
           "inventory": [
@@ -1967,7 +1987,7 @@
             "loanTerm": 48,
             "loanDistance": 10000,
             "umweltbonus": {
-              "m3": 3570,
+              "m3": 2975,
               "my": 2975
             }
           },
@@ -2054,7 +2074,7 @@
       "tcc": []
     },
     "Lexicon.my": {
-      "effective_date": "2022-03-24T01:53:00.000Z",
+      "effective_date": "2022-04-08T23:33:00.000Z",
       "market": "DE",
       "product": "my",
       "factory": "GF00",
@@ -2063,7 +2083,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2022.Mar.24 3078.5065.13702 [de]",
+      "name": "Marketing DE 2022.Apr.08 3078.5184.14138 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -5300,7 +5320,7 @@
             },
             {
               "type": "description",
-              "content": "Laden überall dort, wo Strom vorhanden ist. Die Reichweite, die für tägliche Fahrten benötigt wird, lässt sich gewöhnlich mit dem mitgelieferten Mobile Connector-Ladekabel und einer Haushaltssteckdose bequem laden. Alternativ können Sie einen Tesla-Wall Connector installieren, der eine erhöhte Laderate bietet. Auf Langstreckenfahrten ist Ihr Model Y an Tesla Supercharger-Ladestationen in nur 15 Minuten für bis zu weitere 241 km Reichweite aufgeladen, damit Sie schnell wieder unterwegs sind."
+              "content": "Laden überall dort, wo Strom vorhanden ist. Die Reichweite, die für tägliche Fahrten benötigt wird, lässt sich gewöhnlich mit dem Mobile Connector-Ladekabel und einer Haushaltssteckdose bequem laden. Alternativ können Sie einen Tesla-Wall Connector installieren, der eine erhöhte Laderate bietet. Auf Langstreckenfahrten ist Ihr Model Y an Tesla Supercharger-Ladestationen in nur 15 Minuten für bis zu weitere 241 km Reichweite aufgeladen, damit Sie schnell wieder unterwegs sind."
             }
           ],
           "extra_content": [
@@ -6378,7 +6398,7 @@
             },
             {
               "type": "description",
-              "content": "Mühelos parallel oder quer einparken — auf Tastendruck am Touchscreen. Das Model Y weist Sie auf verfügbare Parklücken hin, da es das Fahrzeugumfeld kontinuierlich scannt."
+              "content": "Mühelos parallel oder quer einparken — auf Tastendruck am Touchscreen. Model Y weist Sie auf verfügbare Parklücken hin, da es das Fahrzeugumfeld kontinuierlich scannt."
             },
             {
               "type": "add_options",
@@ -10159,7 +10179,7 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Höchstgeschwindigkeit: bis zu 250 km/h"
+              "content": "Maximale Geschwindigkeit: bis zu 250 km/h"
             },
             {
               "type": "feature_list.default[0].items[1]",
@@ -11632,9 +11652,9 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 5065,
+      "copy_id": 5184,
       "language": "de",
-      "pricing_id": 13702,
+      "pricing_id": 14138,
       "reference_id": 3078,
       "source": "cache"
     }

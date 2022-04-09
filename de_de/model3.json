@@ -863,7 +863,10 @@
           }
         ],
         "hideDynamicIncentive": true,
-        "showMonthlyPaymentExVAT": false,
+        "showMonthlyPaymentExVAT": [
+          "lease.business_lease",
+          "lease.km_business_lease"
+        ],
         "hideAfterSavingsPrice": true,
         "hideAfterSavingsModal": false,
         "showSavingsAmount": [],
@@ -1381,7 +1384,8 @@
           "SUMMARY_PANEL_DISTANCE_CHANGE",
           "SUMMARY_PANEL_FINANCE_DISTANCE_CHANGE",
           "ACCOUNT_DETAILS_CHANGED",
-          "SET_FINANCE_MODAL_DRIVER_TYPE"
+          "SET_FINANCE_MODAL_DRIVER_TYPE",
+          "SUMMARY_PANEL_INCLUDE_SERVICE_FEE_CHANGE"
         ],
         "showVehicleSubtotal": false,
         "hidePostfixOnUI": false,
@@ -1512,7 +1516,7 @@
         "leaseRateMatrix": null,
         "balloonPayment": null,
         "downPayment": null,
-        "includeServiceFee": false,
+        "includeServiceFee": [],
         "residualAmount": null,
         "DisclaimerTitlei18nKey": "SummaryPanel.disclaimers.incentivesAndGasSavingsDisclaimer",
         "region_code": ""
@@ -1748,6 +1752,20 @@
           "market": "DE"
         },
         {
+          "feeType": "booking_fee",
+          "financeType": "lease",
+          "description": "Booking fee for km_lease and km_business_lease",
+          "period": "monthly",
+          "variant": [
+            "m3",
+            "my",
+            "mx",
+            "ms"
+          ],
+          "amount": 250,
+          "market": "DE"
+        },
+        {
           "feeType": "vat_percent",
           "financeType": "any",
           "period": "included",
@@ -1792,7 +1810,8 @@
           "market": "DE",
           "id": "km_lease",
           "variant": [
-            "m3"
+            "m3",
+            "my"
           ],
           "inventory": [
             "new"
@@ -1803,8 +1822,7 @@
             "minimumDownPayment": 0,
             "interestRate": 2.99,
             "leaseTerm": 48,
-            "leaseDistance": 10000,
-            "umweltbonus": 2975
+            "leaseDistance": 10000
           },
           "leaseTermsOffered": {
             "leaseTerm": [
@@ -1931,7 +1949,8 @@
           "market": "DE",
           "id": "business_lease",
           "variant": [
-            "m3"
+            "m3",
+            "my"
           ],
           "inventory": [
             "new"
@@ -2062,7 +2081,7 @@
             "loanTerm": 48,
             "loanDistance": 10000,
             "umweltbonus": {
-              "m3": 3570,
+              "m3": 2975,
               "my": 2975
             }
           },
@@ -2367,7 +2386,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2022.Apr.01 3097.5064.14119 [de]",
+      "name": "Marketing DE 2022.Apr.01 3097.5062.14119 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -3429,7 +3448,7 @@
                       "data-should-open": "INTERIOR_FEATURES"
                     },
                     "classNames": [
-                      "tds-btn tds-btn--light",
+                      "tds-btn tds-btn--tertiary",
                       "tds-btn--small"
                     ]
                   }
@@ -3949,7 +3968,7 @@
                       "data-should-open": "STD_FEATURES"
                     },
                     "classNames": [
-                      "tds-btn tds-btn--light",
+                      "tds-btn tds-btn--tertiary",
                       "tds-btn--small"
                     ]
                   }
@@ -4366,7 +4385,7 @@
                     ],
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
+                      "tds-btn--primary",
                       "tds-btn--small"
                     ]
                   }
@@ -4420,7 +4439,7 @@
                       }
                     ],
                     "actionClass": [
-                      "tds-btn tds-btn--outline tds-btn--small"
+                      "tds-btn tds-btn--secondary tds-btn--small"
                     ]
                   }
                 }
@@ -4438,7 +4457,7 @@
                       "data-should-open": "WINTER_WHEELS_FEATURES"
                     },
                     "classNames": [
-                      "tds-btn tds-btn--light",
+                      "tds-btn tds-btn--tertiary",
                       "tds-btn--small "
                     ]
                   }
@@ -5109,8 +5128,8 @@
                     "panelName": "FSD_TRAFFIC_LIGHT_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "add-fsd-traffic-light"
@@ -5134,8 +5153,8 @@
                     "panelName": "FSD_TRAFFIC_LIGHT_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--light",
-                      "tds-btn--full",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "remove-fsd-traffic-light"
@@ -5182,8 +5201,9 @@
                     "type": "NAVIGATION_SELECT_KEY",
                     "classNames": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full"
+                      "tds-btn--width-full",
+                      "tds-btn--secondary",
+                      "tds-btn--large"
                     ]
                   }
                 }
@@ -5272,7 +5292,7 @@
             },
             {
               "type": "description",
-              "content": "Laden überall dort, wo Strom vorhanden ist. Die Reichweite, die für tägliche Fahrten benötigt wird, lässt sich gewöhnlich mit dem mitgelieferten Mobile Connector-Ladekabel und einer geprüften Haushaltssteckdose problemlos laden. Alternativ können Sie einen Tesla-Wall Connector installieren, der eine erhöhte Laderate bietet. Auf Langstreckenfahrten ist Ihr Model 3 an Tesla Supercharger-Ladestationen in nur 15 Minuten für bis zu weitere 275 km aufgeladen, damit Sie schnell wieder unterwegs sind."
+              "content": "Laden überall dort, wo Strom vorhanden ist. Die Reichweite, die für tägliche Fahrten benötigt wird, lässt sich gewöhnlich mit dem Mobile Connector-Ladekabel an einer zulässigen Haushaltssteckdose problemlos laden oder für das beste Ladeerlebnis zu Hause an einem Tesla Wall Connector. Auf Langstreckenfahrten ist Ihr Model 3 an Tesla Supercharger-Ladestationen in nur 15 Minuten für bis zu weitere 275 km aufgeladen, damit Sie schnell wieder unterwegs sind."
             }
           ],
           "extra_content": [
@@ -5619,8 +5639,8 @@
                     "panelName": "20_IN_PERFORMANCE_WHEELS_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "add-perf-upgrade-20-perf-wheels"
@@ -5687,8 +5707,8 @@
                     "panelName": "PERFORMANCE_BRAKES_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "add-perf-upgrade-perf-brakes"
@@ -5749,8 +5769,8 @@
                     "panelName": "PERFORMANCE_PEDALS_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "add-perf-upgrade-perf-pedals"
@@ -5811,8 +5831,8 @@
                     "panelName": "CARBON_FIBER_SPOILER_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "add-perf-upgrade-carbon-fiber"
@@ -5873,8 +5893,8 @@
                     "panelName": "TRACK_MODE_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "add-perf-upgrade-track-mode"
@@ -5935,8 +5955,8 @@
                     "panelName": "FSD_NAVIGATE_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "add-fsd-navigate-on-autopilot"
@@ -5960,8 +5980,8 @@
                     "panelName": "FSD_NAVIGATE_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--light",
-                      "tds-btn--full",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "remove-fsd-navigate-on-autopilot"
@@ -6041,8 +6061,8 @@
                     "panelName": "FSD_LANE_CHANGE_FEATURE",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "add-fsd-auto-lane-change"
@@ -6066,8 +6086,8 @@
                     "panelName": "FSD_LANE_CHANGE_FEATURE",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--light",
-                      "tds-btn--full",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "remove-fsd-auto-lane-change"
@@ -6147,8 +6167,8 @@
                     "panelName": "FSD_AUTOPARK_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "add-fsd-autopark"
@@ -6172,8 +6192,8 @@
                     "panelName": "FSD_AUTOPARK_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--light",
-                      "tds-btn--full",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "remove-fsd-autopark"
@@ -6253,8 +6273,8 @@
                     "panelName": "FSD_SUMMON_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "add-fsd-summon"
@@ -6278,8 +6298,8 @@
                     "panelName": "FSD_SUMMON_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--light",
-                      "tds-btn--full",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "remove-fsd-summon"
@@ -6359,8 +6379,8 @@
                     "panelName": "FSD_COMPUTER_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "add-fsd-computer"
@@ -6384,8 +6404,8 @@
                     "panelName": "FSD_COMPUTER_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--light",
-                      "tds-btn--full",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "remove-fsd-computer"
@@ -7246,8 +7266,8 @@
                     },
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ]
                   }
@@ -7269,8 +7289,8 @@
                     },
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--light",
-                      "tds-btn--full",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ]
                   }
@@ -7340,8 +7360,8 @@
                     },
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ]
                   }
@@ -7363,8 +7383,8 @@
                     },
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--light",
-                      "tds-btn--full",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ]
                   }
@@ -7434,8 +7454,8 @@
                     },
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ]
                   }
@@ -7457,8 +7477,8 @@
                     },
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--light",
-                      "tds-btn--full",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ]
                   }
@@ -7552,8 +7572,8 @@
                     "panelName": "FSD_NAVIGATE_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "add-fsd-navigate-on-autopilot"
@@ -7577,8 +7597,8 @@
                     "panelName": "FSD_NAVIGATE_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--light",
-                      "tds-btn--full",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "remove-fsd-navigate-on-autopilot"
@@ -7658,8 +7678,8 @@
                     "panelName": "FSD_LANE_CHANGE_FEATURE",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "add-fsd-auto-lane-change"
@@ -7683,8 +7703,8 @@
                     "panelName": "FSD_LANE_CHANGE_FEATURE",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--light",
-                      "tds-btn--full",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "remove-fsd-auto-lane-change"
@@ -7764,8 +7784,8 @@
                     "panelName": "FSD_AUTOPARK_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "add-fsd-autopark"
@@ -7789,8 +7809,8 @@
                     "panelName": "FSD_AUTOPARK_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--light",
-                      "tds-btn--full",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "remove-fsd-autopark"
@@ -7870,8 +7890,8 @@
                     "panelName": "FSD_SUMMON_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
-                      "tds-btn--full",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "add-fsd-summon"
@@ -7895,8 +7915,8 @@
                     "panelName": "FSD_SUMMON_CARD",
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--light",
-                      "tds-btn--full",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
                       "tds-o-remove-margins"
                     ],
                     "interaction": "remove-fsd-summon"
@@ -8138,7 +8158,7 @@
                       "data-should-open": "BASIC_AP_FEATURES"
                     },
                     "classNames": [
-                      "tds-btn tds-btn--light",
+                      "tds-btn tds-btn--tertiary",
                       "tds-btn--small"
                     ]
                   }
@@ -8303,7 +8323,7 @@
                       "data-should-open": "FSD_FEATURES"
                     },
                     "classNames": [
-                      "tds-btn tds-btn--light",
+                      "tds-btn tds-btn--tertiary",
                       "tds-btn--small"
                     ]
                   }
@@ -8325,7 +8345,7 @@
                     },
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
+                      "tds-btn--primary",
                       "tds-btn--small"
                     ]
                   }
@@ -8355,7 +8375,7 @@
                     },
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--light",
+                      "tds-btn--tertiary",
                       "tds-btn--small"
                     ]
                   }
@@ -8714,7 +8734,7 @@
                       "data-should-open": "EAP_FEATURES"
                     },
                     "classNames": [
-                      "tds-btn tds-btn--light",
+                      "tds-btn tds-btn--tertiary",
                       "tds-btn--small"
                     ]
                   }
@@ -8736,7 +8756,7 @@
                     },
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
+                      "tds-btn--primary",
                       "tds-btn--small"
                     ]
                   }
@@ -8759,7 +8779,7 @@
                       "data-should-open": "EAP_FEATURES"
                     },
                     "classNames": [
-                      "tds-btn tds-btn--light",
+                      "tds-btn tds-btn--tertiary",
                       "tds-btn--small"
                     ]
                   }
@@ -8785,7 +8805,7 @@
                     },
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--light",
+                      "tds-btn--tertiary",
                       "tds-btn--small"
                     ]
                   }
@@ -8813,7 +8833,10 @@
                   }
                 },
                 {
-                  "type": "FormattedPrice"
+                  "type": "FormattedPrice",
+                  "props": {
+                    "classes": "tds-width-full"
+                  }
                 },
                 {
                   "type": "Copy",
@@ -10576,9 +10599,9 @@
               "target": "$MDL3"
             }
           ],
-          "name": "Model 3 2022 Europe",
+          "name": "Model 3 2022 Europa",
           "description": "Die Auslieferung beginnt in den USA und richtet sich nach Bestelldatum und gewählten Optionen.",
-          "long_name": "Model 3 2022 Europe",
+          "long_name": "Model 3 2022 Europa",
           "extra_copy": [
             {
               "type": "learn_more",
@@ -11421,7 +11444,7 @@
                     },
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--blue",
+                      "tds-btn--primary",
                       "tds-btn--small"
                     ]
                   }
@@ -11443,7 +11466,7 @@
                     },
                     "actionClass": [
                       "tds-btn",
-                      "tds-btn--light",
+                      "tds-btn--tertiary",
                       "tds-btn--small"
                     ]
                   }
@@ -13396,7 +13419,7 @@
                       "data-should-open": "PERFORMANCE_UPGRADE_FEATURES"
                     },
                     "classNames": [
-                      "tds-btn tds-btn--light",
+                      "tds-btn tds-btn--tertiary",
                       "tds-btn--small"
                     ]
                   }
@@ -14738,7 +14761,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 5064,
+      "copy_id": 5062,
       "language": "de",
       "pricing_id": 14119,
       "reference_id": 3097,
