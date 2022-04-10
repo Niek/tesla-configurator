@@ -7,8 +7,8 @@
             "key": "Lexicon.mp",
             "query": {
               "available_configurations": "mp:mp",
-              "language": "fr",
-              "market": "CH",
+              "language": "en",
+              "market": "IE",
               "app": "find-my-tesla",
               "isTcoEnabled": "0",
               "date": "",
@@ -27,8 +27,8 @@
             "key": "InitialConfig.mp.mp",
             "query": {
               "available_configurations": "mp:mp",
-              "language": "fr",
-              "market": "CH",
+              "language": "en",
+              "market": "IE",
               "app": "find-my-tesla",
               "isTcoEnabled": "0",
               "date": "",
@@ -45,8 +45,8 @@
       },
       "query": {
         "available_configurations": "mp:mp",
-        "language": "fr",
-        "market": "CH",
+        "language": "en",
+        "market": "IE",
         "app": "find-my-tesla",
         "isTcoEnabled": "0",
         "date": "",
@@ -420,8 +420,12 @@
           }
         ],
         "hideDynamicIncentive": true,
-        "showMonthlyPaymentExVAT": false,
-        "hideAfterSavingsPrice": false,
+        "showMonthlyPaymentExVAT": [
+          "lease.operational_lease_commercial"
+        ],
+        "hideAfterSavingsPrice": [
+          "lease.operational_lease"
+        ],
         "hideAfterSavingsModal": false,
         "showSavingsAmount": [],
         "showSavingAmountInModal": true,
@@ -472,7 +476,7 @@
         "showTotalPaymentFooter": false,
         "showMonthlyPaymentQuote": false,
         "showFinanceProductsByDriverType": [],
-        "driverType": "personal",
+        "driverType": null,
         "leaseDescriptionwithModelCode": false,
         "taxesAndFeesExcludedIfApplicable": false,
         "showFooterFinanceLink": false,
@@ -521,16 +525,13 @@
       "Forms": {
         "selectedForm": "FinancingOptions",
         "showOtherLeaseTerms": false,
-        "showLoanFields": [],
-        "showLeaseFields": [
+        "showLoanFields": [
           [
-            "downPayment",
-            "distance"
-          ],
-          [
+            "loanDownPayment",
             "term"
           ]
         ],
+        "showLeaseFields": [],
         "leaseReadOnlyFields": [],
         "loanReadOnlyFields": [],
         "loanFieldsFormat": null,
@@ -538,7 +539,9 @@
         "extraDisclaimers": [],
         "disclaimerDateFormat": "",
         "showIncentivesDisclaimers": true,
-        "extraLeaseDescriptions": [],
+        "extraLeaseDescriptions": [
+          "includeServiceFee"
+        ],
         "extraLoanDescriptions": [],
         "useResidualAmount": false,
         "isResidualAmountEditable": false,
@@ -582,7 +585,7 @@
             "CompanyName": null,
             "VatId": null,
             "PickupLocation": 0,
-            "RegistrationType": "business",
+            "RegistrationType": "private",
             "PrivateVatId": null,
             "IsFromSavedProfile": false,
             "StateProvince": false
@@ -596,7 +599,7 @@
         "registration": {
           "showBusinessFields": true,
           "showPrivateFields": false,
-          "vatIdRequired": true,
+          "vatIdRequired": false,
           "companyNumberRequired": false,
           "showVatID": true,
           "privateVatIdRequired": false,
@@ -605,7 +608,7 @@
         "configs": {},
         "time": null,
         "encryptor": "Adyen",
-        "defaultEncryptor": "Adyen",
+        "defaultEncryptor": "Stripe",
         "hideAllBillingInfo": false,
         "splitPayment": [],
         "displayPaymentDisclaimer": false,
@@ -617,7 +620,7 @@
         "showOptinDisclaimer": "always",
         "billingAddressDetailsPayX": "full",
         "calculatePriceOnOrder": false,
-        "alwaysShowOrderDisclaimerAbove": true,
+        "alwaysShowOrderDisclaimerAbove": false,
         "hideWireTransferForPreOrder": true
       },
       "ReviewDetails": {
@@ -686,8 +689,7 @@
         "showLeaseSummaryFields": [
           "downPayment",
           "leaseTerm",
-          "leaseDistance",
-          "residualAmount"
+          "leaseDistance"
         ],
         "showLeaseSummaryDisclaimer": false,
         "showSecondDepositDisclaimer": {
@@ -704,7 +706,9 @@
           "state"
         ],
         "isFixedPickupLocation": false,
-        "optionalFields": [],
+        "optionalFields": [
+          "zipCode"
+        ],
         "showZeroRegistrationTax": false,
         "showLoanSummaryFields": [
           "downPayment",
@@ -803,7 +807,7 @@
         "showLegalDataTable": false,
         "showSavingsDisclaimer": true,
         "showAfterSavingsPriceForTrims": false,
-        "includePurchasePriceIncentivesInTrims": true,
+        "includePurchasePriceIncentivesInTrims": false,
         "includePurchasePriceIncentivesPreVAT": false,
         "includeDocFeeInSummary": false,
         "showOrderPlacementDisclaimerCash": false,
@@ -895,8 +899,8 @@
         ],
         "actionsToUpdatePrices": [
           "SUMMARY_PANEL_INCLUDE_SERVICE_FEE_CHANGE",
-          "SUMMARY_PANEL_DISTANCE_CHANGE",
-          "ACCOUNT_DETAILS_CHANGED"
+          "ACCOUNT_DETAILS_CHANGED",
+          "SUMMARY_PANEL_DISTANCE_CHANGE"
         ],
         "showVehicleSubtotal": false,
         "hidePostfixOnUI": false,
@@ -974,13 +978,28 @@
       }
     },
     "Lexicon.mp": {
+      "id": 2474,
       "effective_date": "2022-01-28T01:07:00.000Z",
-      "market": "CH",
+      "market": "IE",
       "product": "mp",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CH 2022.Jan.28 2488.4226.132 [fr]",
+      "name": "Marketing IE 2022.Jan.28 2474.4223.53",
       "groups": [
+        {
+          "code": "DRIVE",
+          "name": "DRIVE",
+          "context": "default",
+          "groups": [],
+          "options": [
+            "$DRRH"
+          ],
+          "required": true,
+          "exclusive": true,
+          "default_options": [
+            "$DRRH"
+          ]
+        },
         {
           "code": "MODEL",
           "name": "MODEL",
@@ -1011,7 +1030,7 @@
         },
         {
           "code": "DRIVE_MODE",
-          "name": "Mode conduite",
+          "name": "Drive Mode",
           "context": "default",
           "extra_copy": [],
           "groups": [],
@@ -1027,7 +1046,7 @@
         },
         {
           "code": "INTERIOR",
-          "name": "Intérieur",
+          "name": "Interior",
           "context": "default",
           "extra_copy": [],
           "groups": [],
@@ -1042,7 +1061,7 @@
         },
         {
           "code": "PAINT",
-          "name": "Couleur",
+          "name": "Color",
           "context": "default",
           "groups": [],
           "options": [
@@ -1056,7 +1075,7 @@
         },
         {
           "code": "WHEELS",
-          "name": "Jantes",
+          "name": "Wheels",
           "context": "default",
           "groups": [],
           "options": [
@@ -1110,7 +1129,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Règlement"
+          "name": "Payment"
         },
         {
           "code": "OPTIONS",
@@ -1145,7 +1164,7 @@
             },
             {
               "type": "order_disclaimer",
-              "content": "Entièrement remboursable."
+              "content": "Fully refundable."
             }
           ],
           "extra_content": [
@@ -1184,18 +1203,18 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Batterie et groupe motopropulseur",
+          "name": "Battery & Drivetrain",
           "extra_copy": [
             {
-              "type": "order_disclaimer",
-              "content": "Vous pourrez finaliser votre configuration à l'approche du lancement de la production."
+              "type": "name",
+              "content": "Preorder Cybertruck"
             },
             {
-              "type": "name",
-              "content": "Commander Cybertruck"
+              "type": "order_disclaimer",
+              "content": "You will be able to complete your configuration as production nears."
             }
           ],
-          "description": "Batterie et groupe motopropulseur",
+          "description": "Battery and Drivetrain",
           "extra_content": [
             {
               "type": "components",
@@ -1235,9 +1254,9 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Délais de livraison",
+          "name": "Delivery timings",
           "extra_copy": [],
-          "description": "Délais de livraison"
+          "description": "Delivery timings"
         },
         {
           "code": "CORE_CONFIGURATOR",
@@ -1251,7 +1270,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Règlement"
+          "name": "Payment"
         },
         {
           "code": "AUTOPILOT",
@@ -1275,8 +1294,8 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Galerie de configuration",
-          "description": "Galerie de configuration",
+          "name": "Configuration Gallery",
+          "description": "Configuration Gallery",
           "extra_content": [
             {
               "type": "asset[0]",
@@ -1309,9 +1328,9 @@
               "target": "$IDD"
             }
           ],
-          "name": "Configuration de l'intérieur par défaut",
-          "description": "Configuration de l'intérieur par défaut",
-          "long_name": "Configuration de l'intérieur par défaut",
+          "name": "Default Interior Configuration",
+          "description": "Default Interior Configuration",
+          "long_name": "Default Interior Configuration",
           "extra_copy": [],
           "extra_content": [
             {
@@ -1351,13 +1370,13 @@
               "target": "$PDD"
             }
           ],
-          "name": "Configuration de peinture par défaut",
-          "description": "Configuration de peinture par défaut",
-          "long_name": "Configuration de peinture par défaut",
+          "name": "Default Paint Configuration",
+          "description": "Default Paint Configuration",
+          "long_name": "Default Paint Configuration",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "Included"
             }
           ]
         },
@@ -1379,14 +1398,14 @@
               "target": "$WDD"
             }
           ],
-          "name": "Configuration des roues par défaut",
-          "description": "Configuration des roues par défaut",
-          "long_name": "Configuration des roues par défaut",
-          "long_description": "Configuration des roues par défaut",
+          "name": "Default Wheel Configuration",
+          "description": "Default Wheel Configuration",
+          "long_name": "Default Wheel Configuration",
+          "long_description": "Default Wheel Configuration",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "De série"
+              "content": "Included"
             }
           ],
           "extra_content": [
@@ -1426,13 +1445,13 @@
               "target": "$APBS"
             }
           ],
-          "name": "Autopilot Standard",
-          "description": "Autopilot Standard",
-          "long_name": "Autopilot Standard",
+          "name": "Base Autopilot",
+          "description": "Base Autopilot",
+          "long_name": "Base Autopilot",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Incluse"
+              "content": "included"
             }
           ],
           "extra_content": [
@@ -1460,9 +1479,9 @@
               "target": "$APF2"
             }
           ],
-          "name": "Capacité de conduite entièrement autonome",
-          "description": "Capacité de conduite entièrement autonome",
-          "long_name": "Capacité de conduite entièrement autonome",
+          "name": "Full Self-Driving Capability",
+          "description": "Full Self-Driving Capability",
+          "long_name": "Full Self-Driving Capability",
           "extra_copy": [
             {
               "type": "name",
@@ -1474,7 +1493,7 @@
             },
             {
               "type": "disclaimer[0]",
-              "content": "En choisissant la Conduite entièrement autonome dès aujourd'hui, vous sécurisez le prix d'achat final au regard de la future évolution des tarifs.",
+              "content": "Selecting Full-Self Driving today will secure your price as it increases in the future.",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -1491,11 +1510,11 @@
             },
             {
               "type": "selectLabel",
-              "content": "Conduite entièrement autonome"
+              "content": "Full Self-Driving"
             },
             {
               "type": "disclaimer[1]",
-              "content": "En savoir plus",
+              "content": "Learn more",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -1519,11 +1538,11 @@
             },
             {
               "type": "recommended_content",
-              "content": "Les fonctionnalités actuelles exigent une surveillance active de la part du conducteur et ne rendent pas le véhicule autonome. L'activation et l'utilisation future de ces fonctionnalités sans surveillance dépendent d'une fiabilité prouvée par des milliards de kilomètres de test pour être significativement supérieure à celle des conducteurs humains, ainsi que de l'approbation réglementaire, dont l'obtention peut être plus longue dans certains pays. Au fur et à mesure de l'évolution de ces fonctionnalités de conduite autonome, votre véhicule sera en permanence mis à niveau par le biais de mises à jour logicielles à distance."
+              "content": "The currently enabled features require active driver supervision and do not make the vehicle autonomous. The activation and use of these features are dependent on achieving reliability far in excess of human drivers as demonstrated by billions of miles of experience, as well as regulatory approval, which may take longer in some jurisdictions. As these self-driving features evolve, your car will be continuously upgraded through over-the-air software updates."
             },
             {
               "type": "deselectLabel",
-              "content": "Ajout de la Capacité de Conduite entièrement autonome"
+              "content": "Full Self-Driving Selected"
             }
           ],
           "extra_content": [
@@ -1536,24 +1555,51 @@
               ]
             }
           ],
-          "price": 7300,
+          "price": 7500,
           "pricing": [
             {
               "type": "base",
-              "value": 7300,
+              "value": 7500,
               "context": "default"
             },
             {
               "type": "upgrade",
-              "value": 7300,
+              "value": 7500,
               "context": "default"
             },
             {
               "type": "trial",
-              "value": 7300,
+              "value": 7500,
               "context": "default"
             }
           ]
+        },
+        "$DRRH": {
+          "code": "$DRRH",
+          "user_defined_rules": {
+            "set_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$DRRH"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$DRRH"
+            },
+            {
+              "action": "set",
+              "target": "$DRRH"
+            }
+          ],
+          "name": "Right Hand Drive",
+          "description": "Right Hand Drive",
+          "long_name": "Right Hand Drive",
+          "extra_copy": [],
+          "extra_content": []
         },
         "$DV2W": {
           "code": "$DV2W",
@@ -1595,9 +1641,9 @@
               "condition_state": "unset"
             }
           ],
-          "name": "Propulsion",
-          "description": "Propulsion",
-          "long_name": "Propulsion",
+          "name": "Rear-Wheel Drive",
+          "description": "Rear-Wheel Drive",
+          "long_name": "Rear-Wheel Drive",
           "extra_copy": [],
           "extra_content": [
             {
@@ -1658,9 +1704,9 @@
               "target": "$DV2W"
             }
           ],
-          "name": "Transmission intégrale Dual Motor",
-          "description": "Transmission intégrale Dual Motor",
-          "long_name": "Transmission intégrale Dual Motor",
+          "name": "Dual Motor All-Wheel Drive",
+          "description": "Dual Motor All-Wheel Drive",
+          "long_name": "Dual Motor All-Wheel Drive",
           "extra_copy": [],
           "extra_content": [
             {
@@ -1727,13 +1773,13 @@
               "target": "$SC04"
             }
           ],
-          "name": "Accès au réseau Superchargeur - Paiement à la demande",
-          "description": "Accès au réseau Superchargeur - Paiement à la demande",
-          "long_name": "Accès au réseau Superchargeur - Paiement à la demande",
+          "name": "Supercharger Network Access + Pay-as-you-go",
+          "description": "Supercharger Network Access + Pay-as-you-go",
+          "long_name": "Supercharger Network Access + Pay-as-you-go",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "en option"
+              "content": "optional"
             }
           ]
         },
@@ -1836,8 +1882,8 @@
             }
           }
         },
-        "currency_code": "CHF",
-        "currency_symbol": "CHF"
+        "currency_code": "EUR",
+        "currency_symbol": "€"
       },
       "base_configuration": [
         "$APBS",
@@ -1847,9 +1893,10 @@
         "$MTP04",
         "$PDD",
         "$WDD",
+        "$DRRH",
         "$SC04"
       ],
-      "options_id": 2488,
+      "options_id": 2474,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -1911,10 +1958,9 @@
           "message": "'Fees' should be moved to Copy lexicon from Options."
         }
       ],
-      "copy_id": 4226,
-      "language": "fr",
-      "pricing_id": 132,
-      "reference_id": 2488,
+      "copy_id": 4223,
+      "language": "en",
+      "pricing_id": 53,
       "source": "cache"
     }
   },
