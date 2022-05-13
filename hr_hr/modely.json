@@ -1393,16 +1393,21 @@
         {
           "incentiveType": "fuel",
           "description": "Fuel economy inputs for HR my",
-          "amount": 33100,
+          "amount": 78500,
           "period": "fuel",
           "variables": {
             "months": 60,
             "distance": 100000,
-            "fuel_efficiency_metric": 5.7142857143,
-            "kwh_consumption": 0.167,
+            "distance_year": 20000,
+            "fuel_efficiency_metric": 7.63,
+            "kwh_consumption_100": 16.9,
             "supercharger_kwh_price": 0.25,
-            "fuel_price": 8.81,
-            "kwh_price": 1.027
+            "fuel_price": 10.75,
+            "kwh_price": 1.041,
+            "electricity_last_updated": "2022-07",
+            "petrol_last_updated": "2022-05-02",
+            "last_updated": "2022-05-08",
+            "kwh_consumption": 0.169
           },
           "variant": "my",
           "market": "HR"
@@ -1624,7 +1629,7 @@
           "percent": 25
         }
       },
-      "name": "Marketing HR 2022.May.06 3217.5344.13696 [hr]",
+      "name": "Marketing HR 2022.May.06 3217.5390.13696 [hr]",
       "groups": [
         {
           "code": "MODEL",
@@ -7738,10 +7743,6 @@
               "content": "Iznimno čvrsta kuka za vuču, od čelika klase II omogućuje vuču do 1.600 kg"
             },
             {
-              "type": "after_purchase",
-              "content": "Dostupno za kupovinu nakon isporuke."
-            },
-            {
               "type": "add_tow_hitch",
               "content": "Dodaj",
               "behavior": [
@@ -7797,6 +7798,9 @@
                   }
                 },
                 {
+                  "type": "FormattedPrice"
+                },
+                {
                   "type": "Copy",
                   "props": {
                     "field": "description",
@@ -7804,10 +7808,26 @@
                   }
                 },
                 {
-                  "type": "Copy",
+                  "type": "ActionTarget",
                   "props": {
-                    "field": "after_purchase",
-                    "classes": "tds--vertical_padding tds-text--center tds-text--500"
+                    "fields": [
+                      {
+                        "field": "add_tow_hitch",
+                        "selected_by": {
+                          "not": [
+                            "$TW01"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "remove_tow_hitch",
+                        "selected_by": {
+                          "and": [
+                            "$TW01"
+                          ]
+                        }
+                      }
+                    ]
                   }
                 }
               ]
@@ -10047,7 +10067,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 5344,
+      "copy_id": 5390,
       "language": "hr",
       "pricing_id": 13696,
       "reference_id": 3217,

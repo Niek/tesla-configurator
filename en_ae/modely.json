@@ -1401,15 +1401,20 @@
         {
           "incentiveType": "fuel",
           "description": "Fuel economy inputs for AE my",
-          "amount": 8000,
+          "amount": 19000,
           "period": "fuel",
           "variables": {
             "months": 60,
             "distance": 100000,
-            "fuel_efficiency_metric": 5.7142857143,
-            "kwh_consumption": 0.167,
-            "fuel_price": 2.27,
-            "kwh_price": 0.296
+            "distance_year": 20000,
+            "fuel_efficiency_metric": 7.63,
+            "kwh_consumption_100": 16.9,
+            "fuel_price": 3.55,
+            "kwh_price": 0.296,
+            "electricity_last_updated": "2022-07",
+            "petrol_last_updated": "2022-05-02",
+            "last_updated": "2022-05-08",
+            "kwh_consumption": 0.169
           },
           "variant": "my",
           "market": "AE"
@@ -1614,12 +1619,12 @@
       "loan": []
     },
     "Lexicon.my": {
-      "effective_date": "2022-05-06T00:10:00.000Z",
+      "effective_date": "2022-05-13T00:15:00.000Z",
       "market": "AE",
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing AE 2022.May.06 3203.5342.14078 [en]",
+      "name": "Marketing AE 2022.May.13 3203.5388.18039 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -7790,14 +7795,6 @@
               "content": "High strength, Class II steel tow bar capable of towing up to 1,600 kg"
             },
             {
-              "type": "after_purchase",
-              "content": "Available for purchase after delivery."
-            },
-            {
-              "type": "after_purchase",
-              "content": "Available for purchase after delivery."
-            },
-            {
               "type": "add_tow_hitch",
               "content": "Add",
               "behavior": [
@@ -7853,6 +7850,9 @@
                   }
                 },
                 {
+                  "type": "FormattedPrice"
+                },
+                {
                   "type": "Copy",
                   "props": {
                     "field": "description",
@@ -7860,13 +7860,37 @@
                   }
                 },
                 {
-                  "type": "Copy",
+                  "type": "ActionTarget",
                   "props": {
-                    "field": "after_purchase",
-                    "classes": "tds--vertical_padding tds-text--center tds-text--500 tds-text--contrast-high"
+                    "fields": [
+                      {
+                        "field": "add_tow_hitch",
+                        "selected_by": {
+                          "not": [
+                            "$TW01"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "remove_tow_hitch",
+                        "selected_by": {
+                          "and": [
+                            "$TW01"
+                          ]
+                        }
+                      }
+                    ]
                   }
                 }
               ]
+            }
+          ],
+          "price": 5000,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 5000,
+              "context": "AED"
             }
           ]
         },
@@ -9673,10 +9697,6 @@
           "message": "The discountable group's, option '$INPW1' is not defined in the pricing lexicon."
         },
         {
-          "type": "MISSING_PRICE",
-          "message": "The discountable group's, option '$TW01' is not defined in the pricing lexicon."
-        },
-        {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
           "message": "These groups should be moved to Copy lexicon from Options.",
           "groups": [
@@ -10073,9 +10093,9 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 5342,
+      "copy_id": 5388,
       "language": "en",
-      "pricing_id": 14078,
+      "pricing_id": 18039,
       "reference_id": 3203,
       "source": "cache"
     }

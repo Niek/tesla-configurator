@@ -1462,16 +1462,18 @@
         {
           "incentiveType": "fuel",
           "description": "Fuel economy inputs for NL my",
-          "amount": 4900,
+          "amount": 15000,
           "period": "fuel",
           "variables": {
             "months": 60,
             "distance": 100000,
-            "fuel_efficiency_metric": 5.7142857143,
-            "kwh_consumption": 0.167,
+            "distance_year": 20000,
+            "fuel_efficiency_metric": 7.63,
+            "kwh_consumption_100": 16.9,
             "supercharger_kwh_price": 0.25,
-            "fuel_price": 1.512,
-            "kwh_price": 0.22
+            "fuel_price": 2.345,
+            "kwh_price": 0.165,
+            "kwh_consumption": 0.169
           },
           "variant": "my",
           "market": "NL"
@@ -1963,7 +1965,7 @@
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing NL 2022.May.06 3208.5352.13710 [nl]",
+      "name": "Marketing NL 2022.May.06 3208.5395.13710 [nl]",
       "groups": [
         {
           "code": "MODEL",
@@ -9024,10 +9026,6 @@
                   }
                 }
               ]
-            },
-            {
-              "type": "after_purchase",
-              "content": "Beschikbaar voor aankoop na levering."
             }
           ],
           "extra_content": [
@@ -9041,6 +9039,9 @@
                   }
                 },
                 {
+                  "type": "FormattedPrice"
+                },
+                {
                   "type": "Copy",
                   "props": {
                     "field": "description",
@@ -9048,10 +9049,26 @@
                   }
                 },
                 {
-                  "type": "Copy",
+                  "type": "ActionTarget",
                   "props": {
-                    "field": "after_purchase",
-                    "classes": "tds--vertical_padding tds-text--center tds-text--500"
+                    "fields": [
+                      {
+                        "field": "add_tow_hitch",
+                        "selected_by": {
+                          "not": [
+                            "$TW01"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "remove_tow_hitch",
+                        "selected_by": {
+                          "and": [
+                            "$TW01"
+                          ]
+                        }
+                      }
+                    ]
                   }
                 }
               ]
@@ -11285,7 +11302,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 5352,
+      "copy_id": 5395,
       "language": "nl",
       "pricing_id": 13710,
       "reference_id": 3208,

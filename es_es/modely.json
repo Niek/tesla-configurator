@@ -1412,16 +1412,21 @@
         {
           "incentiveType": "fuel",
           "description": "Fuel economy inputs for ES my",
-          "amount": 2800,
+          "amount": 10000,
           "period": "fuel",
           "variables": {
             "months": 60,
             "distance": 100000,
-            "fuel_efficiency_metric": 5.7142857143,
-            "kwh_consumption": 0.167,
+            "distance_year": 20000,
+            "fuel_efficiency_metric": 7.63,
+            "kwh_consumption_100": 16.9,
             "supercharger_kwh_price": 0.29,
-            "fuel_price": 1.115,
-            "kwh_price": 0.213
+            "fuel_price": 1.852,
+            "kwh_price": 0.242,
+            "electricity_last_updated": "2022-07",
+            "petrol_last_updated": "2022-05-02",
+            "last_updated": "2022-05-08",
+            "kwh_consumption": 0.169
           },
           "variant": "my",
           "market": "ES"
@@ -1786,7 +1791,7 @@
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing ES 2022.May.06 3222.5346.13716 [es]",
+      "name": "Marketing ES 2022.May.06 3222.5392.13716 [es]",
       "groups": [
         {
           "code": "MODEL",
@@ -8466,10 +8471,6 @@
                   }
                 }
               ]
-            },
-            {
-              "type": "after_purchase",
-              "content": "Disponible para su compra después de la entrega."
             }
           ],
           "extra_content": [
@@ -8483,6 +8484,9 @@
                   }
                 },
                 {
+                  "type": "FormattedPrice"
+                },
+                {
                   "type": "Copy",
                   "props": {
                     "field": "description",
@@ -8490,10 +8494,26 @@
                   }
                 },
                 {
-                  "type": "Copy",
+                  "type": "ActionTarget",
                   "props": {
-                    "field": "after_purchase",
-                    "classes": "tds--vertical_padding tds-text--center tds-text--500"
+                    "fields": [
+                      {
+                        "field": "add_tow_hitch",
+                        "selected_by": {
+                          "not": [
+                            "$TW01"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "remove_tow_hitch",
+                        "selected_by": {
+                          "and": [
+                            "$TW01"
+                          ]
+                        }
+                      }
+                    ]
                   }
                 }
               ]
@@ -10512,7 +10532,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 5346,
+      "copy_id": 5392,
       "language": "es",
       "pricing_id": 13716,
       "reference_id": 3222,
