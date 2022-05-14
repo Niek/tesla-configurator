@@ -1459,16 +1459,21 @@
         {
           "incentiveType": "fuel",
           "description": "Fuel economy inputs for DE my",
-          "amount": 1600,
+          "amount": 12000,
           "period": "fuel",
           "variables": {
             "months": 60,
             "distance": 100000,
-            "fuel_efficiency_metric": 5.7142857143,
-            "kwh_consumption": 0.167,
+            "distance_year": 20000,
+            "fuel_efficiency_metric": 7.63,
+            "kwh_consumption_100": 16.9,
             "supercharger_kwh_price": 0.33,
-            "fuel_price": 1.225,
-            "kwh_price": 0.319
+            "fuel_price": 2.004,
+            "kwh_price": 0.317,
+            "electricity_last_updated": "2022-07",
+            "petrol_last_updated": "2022-05-02",
+            "last_updated": "2022-05-08",
+            "kwh_consumption": 0.169
           },
           "variant": "my",
           "market": "DE"
@@ -1728,7 +1733,7 @@
             "downPayment": 6500,
             "maximumDownPayment": 0.3,
             "minimumDownPayment": 0,
-            "interestRate": 2.99,
+            "interestRate": 3.63,
             "leaseTerm": 48,
             "leaseDistance": 10000
           },
@@ -1866,7 +1871,7 @@
             "downPayment": 5000,
             "maximumDownPayment": 0.3,
             "minimumDownPayment": 0,
-            "interestRate": 3.39,
+            "interestRate": 3.63,
             "leaseTerm": 36,
             "leaseDistance": 10000,
             "localeSpecific": {
@@ -2085,7 +2090,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2022.May.06 3199.5371.14143 [de]",
+      "name": "Marketing DE 2022.May.06 3199.5376.14143 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -9369,10 +9374,6 @@
                   }
                 }
               ]
-            },
-            {
-              "type": "after_purchase",
-              "content": "Nach Auslieferung zum Kauf verfügbar."
             }
           ],
           "extra_content": [
@@ -9395,6 +9396,9 @@
                   }
                 },
                 {
+                  "type": "FormattedPrice"
+                },
+                {
                   "type": "Copy",
                   "props": {
                     "field": "description",
@@ -9402,10 +9406,26 @@
                   }
                 },
                 {
-                  "type": "Copy",
+                  "type": "ActionTarget",
                   "props": {
-                    "field": "after_purchase",
-                    "classes": "tds--vertical_padding tds-text--center tds-text--500"
+                    "fields": [
+                      {
+                        "field": "add_tow_hitch",
+                        "selected_by": {
+                          "not": [
+                            "$TW01"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "remove_tow_hitch",
+                        "selected_by": {
+                          "and": [
+                            "$TW01"
+                          ]
+                        }
+                      }
+                    ]
                   }
                 }
               ]
@@ -11685,7 +11705,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 5371,
+      "copy_id": 5376,
       "language": "de",
       "pricing_id": 14143,
       "reference_id": 3199,
