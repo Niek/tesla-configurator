@@ -2187,7 +2187,7 @@
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing NL 2022.Mar.24 3093.4846.13738 [nl]",
+      "name": "Marketing NL 2022.Mar.24 3093.5431.13738 [nl]",
       "groups": [
         {
           "code": "MODEL",
@@ -2888,8 +2888,17 @@
               "type": "components",
               "content": [
                 {
+                  "hide": "enterprise",
                   "type": "Title",
                   "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "show": "enterprise",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h4 tds-text--center",
                     "component": "h2"
                   }
                 },
@@ -2969,8 +2978,17 @@
               "type": "components",
               "content": [
                 {
+                  "hide": "enterprise",
                   "type": "Title",
                   "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "show": "enterprise",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h4 tds-text--center",
                     "component": "h2"
                   }
                 },
@@ -3273,8 +3291,17 @@
               "type": "components",
               "content": [
                 {
+                  "hide": "enterprise",
                   "type": "Title",
                   "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "show": "enterprise",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h4 tds-text--center",
                     "component": "h2"
                   }
                 },
@@ -3888,7 +3915,15 @@
               "type": "components",
               "content": [
                 {
+                  "hide": "enterprise",
                   "type": "Title"
+                },
+                {
+                  "show": "enterprise",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h4 tds-text--center"
+                  }
                 },
                 {
                   "type": "Disclaimer"
@@ -4124,48 +4159,11 @@
                 {
                   "type": "ACTION",
                   "content": {
-                    "type": "UPDATE_CONFIG_BY_RULES",
-                    "rules": [
-                      {
-                        "option": {
-                          "set": [
-                            "$WW300"
-                          ]
-                        },
-                        "selected_by": {
-                          "and": [
-                            "$MT325"
-                          ]
-                        }
-                      },
-                      {
-                        "option": {
-                          "set": [
-                            "$W3WE8"
-                          ]
-                        },
-                        "selected_by": {
-                          "and": [
-                            "$W3WE8"
-                          ]
-                        }
-                      },
-                      {
-                        "option": {
-                          "set": [
-                            "$W3WE9"
-                          ]
-                        },
-                        "selected_by": {
-                          "and": [
-                            "$W3WE9"
-                          ]
-                        }
-                      }
-                    ],
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
                     "actionClass": [
                       "tds-btn tds-btn--secondary tds-btn--small tds-o-margin-top"
-                    ]
+                    ],
+                    "content_path": "CustomGroups.WINTER_WHEELS_OPTIONS.currentSelected[0].code"
                   }
                 }
               ]
@@ -4211,41 +4209,68 @@
                   }
                 },
                 {
-                  "type": "SubOptionComponent",
+                  "type": "ActionTarget",
                   "props": {
-                    "fields": [
+                    "content": [
                       {
-                        "field": "feature_description",
-                        "classes": "tds-text--center"
-                      },
-                      {
-                        "field": "add_component",
-                        "component": "button"
-                      }
-                    ]
-                  },
-                  "classes": "tds-flex tds-flex--justify-center"
-                },
-                {
-                  "type": "SubOptionComponent",
-                  "props": {
-                    "fields": [
-                      {
-                        "field": "SelectedPrice"
-                      },
-                      {
-                        "field": "remove_component",
-                        "component": "button"
-                      },
-                      {
-                        "field": "view_features",
                         "props": {
-                          "modal": "WINTER_WHEELS_FEATURES"
+                          "containerCss": "tds-text--center tds-o-vertical_padding--1x"
+                        },
+                        "fields": [
+                          {
+                            "field": "feature_description"
+                          },
+                          {
+                            "field": "add_component",
+                            "component": "button"
+                          }
+                        ],
+                        "parentClasses": "child--group-container tds-o-animate--slide_in tds--no_vertical_padding",
+                        "group_selected_by": {
+                          "not": [
+                            "WINTER_WHEELS_OPTIONS"
+                          ]
+                        }
+                      },
+                      {
+                        "props": {
+                          "containerCss": "tds--vertical_padding"
+                        },
+                        "fields": [
+                          {
+                            "type": "components",
+                            "content": [
+                              {
+                                "type": "Options",
+                                "props": {
+                                  "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--justify-center"
+                                }
+                              },
+                              {
+                                "type": "SelectedPrice"
+                              }
+                            ]
+                          },
+                          {
+                            "field": "remove_component",
+                            "component": "button"
+                          },
+                          {
+                            "field": "view_features",
+                            "props": {
+                              "modal": "WINTER_WHEELS_FEATURES"
+                            }
+                          }
+                        ],
+                        "parentClasses": "child--group-container tds-o-animate--slide_in tds--no_vertical_padding",
+                        "group_selected_by": {
+                          "and": [
+                            "WINTER_WHEELS_OPTIONS"
+                          ]
                         }
                       }
                     ]
-                  },
-                  "classes": "tds-flex tds-flex--justify-center"
+                  }
                 }
               ]
             }
@@ -8072,8 +8097,17 @@
               "type": "components",
               "content": [
                 {
+                  "hide": "enterprise",
                   "type": "Title",
                   "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "show": "enterprise",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h4 tds-text--center",
                     "component": "h2"
                   }
                 },
@@ -8306,8 +8340,17 @@
               "type": "components",
               "content": [
                 {
+                  "hide": "enterprise",
                   "type": "Title",
                   "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "show": "enterprise",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h4 tds-text--center",
                     "component": "h2"
                   }
                 },
@@ -10951,8 +10994,17 @@
               "type": "components",
               "content": [
                 {
+                  "hide": "enterprise",
                   "type": "Title",
                   "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "show": "enterprise",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h4 tds-text--center",
                     "component": "h2"
                   }
                 },
@@ -12898,8 +12950,17 @@
               "type": "components",
               "content": [
                 {
+                  "hide": "enterprise",
                   "type": "Title",
                   "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "show": "enterprise",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h4 tds-text--center",
                     "component": "h2"
                   }
                 },
@@ -14144,7 +14205,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 4846,
+      "copy_id": 5431,
       "language": "nl",
       "pricing_id": 13738,
       "reference_id": 3093,

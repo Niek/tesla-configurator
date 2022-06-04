@@ -2095,7 +2095,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2022.May.06 3199.5376.14143 [de]",
+      "name": "Marketing DE 2022.May.06 3199.5458.14143 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -6782,36 +6782,11 @@
                 {
                   "type": "ACTION",
                   "content": {
-                    "type": "UPDATE_CONFIG_BY_RULES",
-                    "rules": [
-                      {
-                        "option": {
-                          "set": [
-                            "$WWY00"
-                          ]
-                        },
-                        "selected_by": {
-                          "and": [
-                            "$MTY09"
-                          ]
-                        }
-                      },
-                      {
-                        "option": {
-                          "set": [
-                            "$WWY03"
-                          ]
-                        },
-                        "selected_by": {
-                          "and": [
-                            "$MTY12"
-                          ]
-                        }
-                      }
-                    ],
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
                     "actionClass": [
-                      "tds-btn tds-btn--secondary tds-btn--small"
-                    ]
+                      "tds-btn tds-btn--secondary tds-btn--small tds-o-margin-top"
+                    ],
+                    "content_path": "CustomGroups.WINTER_WHEELS_OPTIONS.currentSelected[0].code"
                   }
                 }
               ]
@@ -6849,41 +6824,75 @@
                   }
                 },
                 {
-                  "type": "SubOptionComponent",
+                  "hide": "cfg",
+                  "type": "Title",
                   "props": {
-                    "fields": [
-                      {
-                        "field": "feature_description",
-                        "classes": "tds-text--center"
-                      },
-                      {
-                        "field": "add_component",
-                        "component": "button"
-                      }
-                    ]
-                  },
-                  "classes": "tds-flex tds-flex--justify-center"
+                    "component": "h2"
+                  }
                 },
                 {
-                  "type": "SubOptionComponent",
+                  "type": "ActionTarget",
                   "props": {
-                    "fields": [
+                    "content": [
                       {
-                        "field": "SelectedPrice"
-                      },
-                      {
-                        "field": "remove_component",
-                        "component": "button"
-                      },
-                      {
-                        "field": "view_features",
                         "props": {
-                          "modal": "WINTER_WHEELS_FEATURES"
+                          "containerCss": "tds-text--center tds-o-vertical_padding--1x"
+                        },
+                        "fields": [
+                          {
+                            "field": "feature_description"
+                          },
+                          {
+                            "field": "add_component",
+                            "component": "button"
+                          }
+                        ],
+                        "parentClasses": "child--group-container tds-o-animate--slide_in",
+                        "group_selected_by": {
+                          "not": [
+                            "WINTER_WHEELS_OPTIONS"
+                          ]
+                        }
+                      },
+                      {
+                        "props": {
+                          "containerCss": "tds--vertical_padding"
+                        },
+                        "fields": [
+                          {
+                            "type": "components",
+                            "content": [
+                              {
+                                "type": "Options",
+                                "props": {
+                                  "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--justify-center"
+                                }
+                              },
+                              {
+                                "type": "SelectedPrice"
+                              }
+                            ]
+                          },
+                          {
+                            "field": "remove_component",
+                            "component": "button"
+                          },
+                          {
+                            "field": "view_features",
+                            "props": {
+                              "modal": "WINTER_WHEELS_FEATURES"
+                            }
+                          }
+                        ],
+                        "parentClasses": "child--group-container tds-o-animate--slide_in",
+                        "group_selected_by": {
+                          "and": [
+                            "WINTER_WHEELS_OPTIONS"
+                          ]
                         }
                       }
                     ]
-                  },
-                  "classes": "tds-flex tds-flex--justify-center"
+                  }
                 }
               ]
             }
@@ -11710,7 +11719,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 5376,
+      "copy_id": 5458,
       "language": "de",
       "pricing_id": 14143,
       "reference_id": 3199,

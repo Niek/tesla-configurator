@@ -1716,7 +1716,7 @@
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing SI 2022.May.13 3103.4855.18106 [sl]",
+      "name": "Marketing SI 2022.May.13 3103.5442.18106 [sl]",
       "groups": [
         {
           "code": "MODEL",
@@ -1773,7 +1773,7 @@
             },
             {
               "type": "feature_list.default[0].items[1]&&feature_list.summary[0].items[1]",
-              "content": "Pogon na zadnja kolesa ali štirikolesni pogon"
+              "content": "Rear-Wheel ali All-Wheel Drive"
             },
             {
               "type": "feature_list.default[0].items[2]&&feature_list.summary[0].items[2]",
@@ -3651,48 +3651,11 @@
                 {
                   "type": "ACTION",
                   "content": {
-                    "type": "UPDATE_CONFIG_BY_RULES",
-                    "rules": [
-                      {
-                        "option": {
-                          "set": [
-                            "$WW300"
-                          ]
-                        },
-                        "selected_by": {
-                          "and": [
-                            "$MT325"
-                          ]
-                        }
-                      },
-                      {
-                        "option": {
-                          "set": [
-                            "$W3WE8"
-                          ]
-                        },
-                        "selected_by": {
-                          "and": [
-                            "$W3WE8"
-                          ]
-                        }
-                      },
-                      {
-                        "option": {
-                          "set": [
-                            "$W3WE9"
-                          ]
-                        },
-                        "selected_by": {
-                          "and": [
-                            "$W3WE9"
-                          ]
-                        }
-                      }
-                    ],
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
                     "actionClass": [
                       "tds-btn tds-btn--secondary tds-btn--small tds-o-margin-top"
-                    ]
+                    ],
+                    "content_path": "CustomGroups.WINTER_WHEELS_OPTIONS.currentSelected[0].code"
                   }
                 }
               ]
@@ -3738,41 +3701,68 @@
                   }
                 },
                 {
-                  "type": "SubOptionComponent",
+                  "type": "ActionTarget",
                   "props": {
-                    "fields": [
+                    "content": [
                       {
-                        "field": "feature_description",
-                        "classes": "tds-text--center"
-                      },
-                      {
-                        "field": "add_component",
-                        "component": "button"
-                      }
-                    ]
-                  },
-                  "classes": "tds-flex tds-flex--justify-center"
-                },
-                {
-                  "type": "SubOptionComponent",
-                  "props": {
-                    "fields": [
-                      {
-                        "field": "SelectedPrice"
-                      },
-                      {
-                        "field": "remove_component",
-                        "component": "button"
-                      },
-                      {
-                        "field": "view_features",
                         "props": {
-                          "modal": "WINTER_WHEELS_FEATURES"
+                          "containerCss": "tds-text--center tds-o-vertical_padding--1x"
+                        },
+                        "fields": [
+                          {
+                            "field": "feature_description"
+                          },
+                          {
+                            "field": "add_component",
+                            "component": "button"
+                          }
+                        ],
+                        "parentClasses": "child--group-container tds-o-animate--slide_in tds--no_vertical_padding",
+                        "group_selected_by": {
+                          "not": [
+                            "WINTER_WHEELS_OPTIONS"
+                          ]
+                        }
+                      },
+                      {
+                        "props": {
+                          "containerCss": "tds--vertical_padding"
+                        },
+                        "fields": [
+                          {
+                            "type": "components",
+                            "content": [
+                              {
+                                "type": "Options",
+                                "props": {
+                                  "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--justify-center"
+                                }
+                              },
+                              {
+                                "type": "SelectedPrice"
+                              }
+                            ]
+                          },
+                          {
+                            "field": "remove_component",
+                            "component": "button"
+                          },
+                          {
+                            "field": "view_features",
+                            "props": {
+                              "modal": "WINTER_WHEELS_FEATURES"
+                            }
+                          }
+                        ],
+                        "parentClasses": "child--group-container tds-o-animate--slide_in tds--no_vertical_padding",
+                        "group_selected_by": {
+                          "and": [
+                            "WINTER_WHEELS_OPTIONS"
+                          ]
                         }
                       }
                     ]
-                  },
-                  "classes": "tds-flex tds-flex--justify-center"
+                  }
                 }
               ]
             }
@@ -8446,14 +8436,14 @@
               ]
             }
           ],
-          "name": "Vsa notranjost v črni barvi",
-          "description": "Vsa notranjost v črni barvi",
-          "long_name": "Povsem črna delna Premium notranjost",
-          "long_description": "Vsa notranjost v črni barvi",
+          "name": "Črna notranjost",
+          "description": "Črna notranjost",
+          "long_name": "Črna delna Premium notranjost",
+          "long_description": "Črna notranjost",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Vse črno"
+              "content": "Črna"
             },
             {
               "type": "price_indicator",
@@ -8704,7 +8694,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Črno in belo"
+              "content": "Črna in bela"
             },
             {
               "type": "price_indicator",
@@ -8917,13 +8907,13 @@
               ]
             }
           ],
-          "name": "Povsem črna Premium notranjost",
-          "description": "Povsem črna Premium notranjost",
-          "long_name": "Povsem črna Premium notranjost",
+          "name": "Črna Premium notranjost",
+          "description": "Črna Premium notranjost",
+          "long_name": "Črna Premium notranjost",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Vse črno"
+              "content": "Črna"
             },
             {
               "type": "price_indicator",
@@ -9146,7 +9136,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Črno in belo"
+              "content": "Črna in bela"
             },
             {
               "type": "price_indicator",
@@ -9454,9 +9444,9 @@
               ]
             }
           ],
-          "name": "Trda črna",
-          "description": "Trda črna",
-          "long_name": "Trdna črna barva",
+          "name": "Črna nekovinska",
+          "description": "Črna nekovinska",
+          "long_name": "Črna nekovinska barva",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -9615,8 +9605,8 @@
               ]
             }
           ],
-          "name": "Polnočno Srebrna Kovinska",
-          "description": "Polnočno Srebrna Kovinska",
+          "name": "Polnočno srebrna kovinska",
+          "description": "Polnočno srebrna kovinska",
           "long_name": "Polnočno srebrna kovinska barva",
           "extra_copy": [
             {
@@ -9837,7 +9827,7 @@
               ]
             }
           ],
-          "name": "Večplastna biserno bela",
+          "name": "Večslojna biserno bela",
           "description": "Biserno bela",
           "long_name": "Biserno bela barva",
           "extra_copy": [
@@ -11500,7 +11490,7 @@
               "target": "$FM3U"
             }
           ],
-          "name": "Long Range s štirikolesnim pogonom",
+          "name": "Long Range All-Wheel Drive",
           "description": "Model 3 Long Range s štirikolesnim pogonom",
           "long_name": "Model 3 Long Range Dual Motor All-Wheel Drive",
           "long_description": "Model 3 Long Range s štirikolesnim pogonom",
@@ -13407,7 +13397,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 4855,
+      "copy_id": 5442,
       "language": "sl",
       "pricing_id": 18106,
       "reference_id": 3103,

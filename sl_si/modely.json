@@ -1622,7 +1622,7 @@
       "product": "my",
       "factory": "GF03",
       "fees": {},
-      "name": "Marketing SI 2022.May.06 3212.5384.13715 [sl]",
+      "name": "Marketing SI 2022.May.06 3212.5445.13715 [sl]",
       "groups": [
         {
           "code": "MODEL",
@@ -6135,36 +6135,11 @@
                 {
                   "type": "ACTION",
                   "content": {
-                    "type": "UPDATE_CONFIG_BY_RULES",
-                    "rules": [
-                      {
-                        "option": {
-                          "set": [
-                            "$WWY00"
-                          ]
-                        },
-                        "selected_by": {
-                          "and": [
-                            "$MTY09"
-                          ]
-                        }
-                      },
-                      {
-                        "option": {
-                          "set": [
-                            "$WWY03"
-                          ]
-                        },
-                        "selected_by": {
-                          "and": [
-                            "$MTY12"
-                          ]
-                        }
-                      }
-                    ],
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
                     "actionClass": [
-                      "tds-btn tds-btn--secondary tds-btn--small"
-                    ]
+                      "tds-btn tds-btn--secondary tds-btn--small tds-o-margin-top"
+                    ],
+                    "content_path": "CustomGroups.WINTER_WHEELS_OPTIONS.currentSelected[0].code"
                   }
                 }
               ]
@@ -6201,41 +6176,68 @@
                   }
                 },
                 {
-                  "type": "SubOptionComponent",
+                  "type": "ActionTarget",
                   "props": {
-                    "fields": [
+                    "content": [
                       {
-                        "field": "feature_description",
-                        "classes": "tds-text--center"
-                      },
-                      {
-                        "field": "add_component",
-                        "component": "button"
-                      }
-                    ]
-                  },
-                  "classes": "tds-flex tds-flex--justify-center"
-                },
-                {
-                  "type": "SubOptionComponent",
-                  "props": {
-                    "fields": [
-                      {
-                        "field": "SelectedPrice"
-                      },
-                      {
-                        "field": "remove_component",
-                        "component": "button"
-                      },
-                      {
-                        "field": "view_features",
                         "props": {
-                          "modal": "WINTER_WHEELS_FEATURES"
+                          "containerCss": "tds-text--center tds-o-vertical_padding--1x"
+                        },
+                        "fields": [
+                          {
+                            "field": "feature_description"
+                          },
+                          {
+                            "field": "add_component",
+                            "component": "button"
+                          }
+                        ],
+                        "parentClasses": "child--group-container tds-o-animate--slide_in tds--no_vertical_padding",
+                        "group_selected_by": {
+                          "not": [
+                            "WINTER_WHEELS_OPTIONS"
+                          ]
+                        }
+                      },
+                      {
+                        "props": {
+                          "containerCss": "tds--vertical_padding"
+                        },
+                        "fields": [
+                          {
+                            "type": "components",
+                            "content": [
+                              {
+                                "type": "Options",
+                                "props": {
+                                  "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--justify-center"
+                                }
+                              },
+                              {
+                                "type": "SelectedPrice"
+                              }
+                            ]
+                          },
+                          {
+                            "field": "remove_component",
+                            "component": "button"
+                          },
+                          {
+                            "field": "view_features",
+                            "props": {
+                              "modal": "WINTER_WHEELS_FEATURES"
+                            }
+                          }
+                        ],
+                        "parentClasses": "child--group-container tds-o-animate--slide_in tds--no_vertical_padding",
+                        "group_selected_by": {
+                          "and": [
+                            "WINTER_WHEELS_OPTIONS"
+                          ]
                         }
                       }
                     ]
-                  },
-                  "classes": "tds-flex tds-flex--justify-center"
+                  }
                 }
               ]
             }
@@ -7471,9 +7473,9 @@
               ]
             }
           ],
-          "name": "Trda črna",
-          "description": "Trda črna",
-          "long_name": "Trdna črna barva",
+          "name": "Črna nekovinska",
+          "description": "Črna nekovinska",
+          "long_name": "Črna nekovinska barva",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -7627,8 +7629,8 @@
               ]
             }
           ],
-          "name": "Polnočno Srebrna Kovinska",
-          "description": "Polnočno Srebrna Kovinska",
+          "name": "Polnočno srebrna kovinska",
+          "description": "Polnočno srebrna kovinska",
           "long_name": "Polnočno srebrna kovinska barva",
           "extra_copy": [
             {
@@ -7838,7 +7840,7 @@
               ]
             }
           ],
-          "name": "Večplastna biserno bela",
+          "name": "Večslojna biserno bela",
           "description": "Biserno bela",
           "long_name": "Biserno bela barva",
           "extra_copy": [
@@ -8227,13 +8229,13 @@
               ]
             }
           ],
-          "name": "Povsem črna Premium notranjost",
-          "description": "Povsem črna Premium notranjost",
-          "long_name": "Povsem črna Premium notranjost",
+          "name": "Črna Premium notranjost",
+          "description": "Črna Premium notranjost",
+          "long_name": "Črna Premium notranjost",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Vse črno"
+              "content": "Črna"
             },
             {
               "type": "price_indicator",
@@ -8433,7 +8435,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Črno in belo"
+              "content": "Črna in bela"
             },
             {
               "type": "price_indicator",
@@ -8671,7 +8673,7 @@
               ]
             }
           ],
-          "name": "Long Range s štirikolesnim pogonom",
+          "name": "Long Range All-Wheel Drive",
           "description": "Model Y Long Range s štirikolesnim pogonom",
           "long_name": "Model Y Long Range Dual Motor All-Wheel Drive",
           "long_description": "Model Y Long Range s štirikolesnim pogonom",
@@ -8682,7 +8684,7 @@
             },
             {
               "type": "disclaimer_details",
-              "content": "Štirikolesni pogon družbe Tesla ima dva neodvisna motorja za boljšo redundanco. Vsak motor ima samo en premični del, zato potrebuje minimalno količino vzdrževanja in nudi maksimalno vzdržljivost. Za razliko od običajnih sistemov štirikolesnih pogonov digitalno uravnavata navor sprednjih in zadnjih koles, kar omogoča veliko boljšo vodljivost in oprijem koles."
+              "content": "Tesla All-Wheel Drive ima dva neodvisna motorja za boljšo redundanco. Vsak motor ima samo en premični del, zato potrebuje minimalno količino vzdrževanja in nudi maksimalno vzdržljivost. Za razliko od običajnih sistemov štirikolesnih pogonov digitalno uravnavata navor sprednjih in zadnjih koles, kar omogoča veliko boljšo vodljivost in oprijem koles."
             },
             {
               "type": "long_name",
@@ -8862,7 +8864,7 @@
               ]
             }
           ],
-          "name": "Performance s štirikolesnim pogonom",
+          "name": "Performance All-Wheel Drive",
           "description": "Model Y Performance s štirikolesnim pogonom",
           "long_name": "Model Y Performance Dual Motor All-Wheel Drive",
           "long_description": "Model Y Performance s štirikolesnim pogonom",
@@ -8893,7 +8895,7 @@
             },
             {
               "type": "disclaimer_details",
-              "content": "Štirikolesni pogon družbe Tesla ima dva neodvisna motorja za boljšo redundanco. Vsak motor ima samo en premični del, zato potrebuje minimalno količino vzdrževanja in nudi maksimalno vzdržljivost. Za razliko od običajnih sistemov štirikolesnih pogonov digitalno uravnavata navor sprednjih in zadnjih koles, kar omogoča veliko boljšo vodljivost in oprijem koles."
+              "content": "Tesla All-Wheel Drive ima dva neodvisna motorja za boljšo redundanco. Vsak motor ima samo en premični del, zato potrebuje minimalno količino vzdrževanja in nudi maksimalno vzdržljivost. Za razliko od običajnih sistemov štirikolesnih pogonov digitalno uravnavata navor sprednjih in zadnjih koles, kar omogoča veliko boljšo vodljivost in oprijem koles."
             },
             {
               "type": "long_name",
@@ -10642,7 +10644,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 5384,
+      "copy_id": 5445,
       "language": "sl",
       "pricing_id": 13715,
       "reference_id": 3212,
