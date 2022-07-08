@@ -1731,12 +1731,12 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2022-06-24T03:30:00.000Z",
+      "effective_date": "2022-07-08T00:08:00.000Z",
       "market": "TW",
       "product": "m3",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing TW 2022.Jun.24 3428.5581.19227 [zh]",
+      "name": "Marketing TW 2022.Jul.08 3488.5581.19227 [zh]",
       "groups": [
         {
           "code": "MODEL",
@@ -2024,8 +2024,8 @@
           "groups": [],
           "options": [
             "$APBS",
-            "$APF2",
-            "$APPB"
+            "$APPB",
+            "$APF2"
           ],
           "required": false,
           "exclusive": false,
@@ -2224,6 +2224,7 @@
             "$PMNG",
             "$PPSB",
             "$PPSW",
+            "$APPB",
             "$APBS",
             "$W40B",
             "$W41B",
@@ -2251,7 +2252,8 @@
           "context": "order_summary",
           "options": [
             "$APBS",
-            "$APF2"
+            "$APF2",
+            "$APPB"
           ],
           "required": false,
           "exclusive": false
@@ -2634,6 +2636,7 @@
           ],
           "groups": [],
           "options": [
+            "$APPB",
             "$APF2"
           ],
           "required": false,
@@ -2647,7 +2650,9 @@
           "extra_content": [],
           "groups": [],
           "options": [
-            "$APBS"
+            "$APBS",
+            "$APPB",
+            "$APF2"
           ],
           "required": false,
           "exclusive": false
@@ -3991,8 +3996,8 @@
         {
           "code": "FSD_FEATURES",
           "groups": [
-            "FSD_LANE_CHANGE_CARD",
             "FSD_NAVIGATE_CARD",
+            "FSD_LANE_CHANGE_CARD",
             "FSD_AUTOPARK_CARD",
             "FSD_SUMMON_CARD",
             "FSD_TRAFFIC_LIGHT_CARD",
@@ -6113,6 +6118,450 @@
             {
               "type": "aria_label",
               "content": "功能卡"
+            }
+          ]
+        },
+        {
+          "code": "EAP_FEATURES",
+          "groups": [
+            "EAP_NAVIGATE_CARD",
+            "EAP_LANE_CHANGE_CARD",
+            "EAP_AUTOPARK_CARD",
+            "EAP_SUMMON_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "增強版 Autopilot 自動輔助駕駛",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "升級版 Autopilot 自動輔助駕駛功能"
+            }
+          ]
+        },
+        {
+          "code": "EAP_SUMMON_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APPB"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "增強召喚",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "增強召喚"
+            },
+            {
+              "type": "panelName",
+              "content": "增強版 Autopilot 自動輔助駕駛"
+            },
+            {
+              "type": "description",
+              "content": "透過 Tesla 應用程式啟動後，您停放的車輛可從停車場的任一個位置找到您，即使是停入或離開狹窄的空間也是如此。「增強召喚」可在複雜的停車情況下導航，同時遵守車道標誌和停車標誌，以避開行人和障礙物，例如交通錐、垃圾桶和隨意放置的購物車。"
+            },
+            {
+              "type": "add_options",
+              "content": "添加套件",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_SUMMON_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-summon"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "刪除",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_SUMMON_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-summon"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "https://tesla-cdn.thron.com/static/VHVGBL_summon_v2_OSYOWQ.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://tesla-cdn.thron.com/static/VHVGBL_summon_v2_OSYOWQ.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "EAP_AUTOPARK_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APPB"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "自動停車",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "自動停車"
+            },
+            {
+              "type": "panelName",
+              "content": "增強版 Autopilot 自動輔助駕駛"
+            },
+            {
+              "type": "description",
+              "content": "只需在「中央顯示器」上的輕按一個按鈕，即可在平行和垂直停車位輕鬆停車。Model 3 會連續監控您周圍的空間並提醒您可用的停車位。"
+            },
+            {
+              "type": "add_options",
+              "content": "添加套件",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_AUTOPARK_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-autopark"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "刪除",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_AUTOPARK_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-autopark"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "EAP_NAVIGATE_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APPB"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "自動輔助導航駕駛",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "自動輔助導航駕駛"
+            },
+            {
+              "type": "panelName",
+              "content": "增強版 Autopilot 自動輔助駕駛"
+            },
+            {
+              "type": "description",
+              "content": "從進入匝道到離開匝道的自動輔助駕駛包括自動變換車道輔助、完全停止和重新啟用「主動巡航定速」、自動輔助轉向，以及對在您的車道上慢速行駛車輛進行超車。"
+            },
+            {
+              "type": "add_options",
+              "content": "添加套件",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_NAVIGATE_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-navigate-on-autopilot"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "刪除",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_NAVIGATE_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-navigate-on-autopilot"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "EAP_LANE_CHANGE_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APPB"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "自動變換車道",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "自動變換車道"
+            },
+            {
+              "type": "panelName",
+              "content": "增強版 Autopilot 自動輔助駕駛"
+            },
+            {
+              "type": "description",
+              "content": "在高速公路上行駛時，「自動變換車道輔助」可將車輛定位在最適合的車道上，以便為在對慢速車輛進行超車對駛入和駛離的車輛做好準備。駕駛人可以清楚了解即將進行的車道變更以及自訂「自動變換車道輔助」功能。"
+            },
+            {
+              "type": "add_options",
+              "content": "添加套件",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_LANE_CHANGE_FEATURE",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-auto-lane-change"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "刪除",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_LANE_CHANGE_FEATURE",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-auto-lane-change"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
             }
           ]
         }
@@ -11453,7 +11902,7 @@
         "$APBS",
         "$SC04"
       ],
-      "options_id": 3428,
+      "options_id": 3488,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -11880,6 +12329,41 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EAP_FEATURES",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EAP_SUMMON_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EAP_AUTOPARK_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EAP_NAVIGATE_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EAP_LANE_CHANGE_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -11905,7 +12389,7 @@
       "copy_id": 5581,
       "language": "zh",
       "pricing_id": 19227,
-      "reference_id": 3428,
+      "reference_id": 3488,
       "source": "cache"
     }
   },
