@@ -176,6 +176,7 @@
         "showMonthlySavingsInPurchasePriceDisclaimer": false,
         "isRegistrationTypeEnabled": false,
         "isPickupLocationsEnabled": false,
+        "isRequestCallbackLocationsEnabled": false,
         "isOptionModificationDisabled": false,
         "showSummaryPanelFooter": true,
         "showAssetGallery": true,
@@ -1133,13 +1134,8 @@
         "showZeroRegistrationTax": false,
         "showLoanSummaryFields": [
           "downPayment",
-          "financedAmount",
           "loanTerm",
-          "costOfCredit",
-          "interestRate",
-          "effectiveRate",
-          "residualAmount",
-          "vatIncluded"
+          "interestRate"
         ],
         "showLoanSummaryDisclaimer": false,
         "showWithoutAdjustments": false,
@@ -1341,6 +1337,7 @@
         "featureHighlightGroups": [],
         "showPremiumConnectivity": true,
         "showInventoryPremiumConnectivityFromLexicon": false,
+        "showCCSFeature": false,
         "showBusinessInformation": false,
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
@@ -1659,21 +1656,11 @@
           "period": "included",
           "variant": [
             "m3",
-            "my"
+            "my",
+            "ms",
+            "mx"
           ],
-          "amount": 400,
-          "market": "IT"
-        },
-        {
-          "feeType": "monthly_fee",
-          "financeType": "loan",
-          "description": "Monthly fee for Loan",
-          "period": "included",
-          "variant": [
-            "m3",
-            "my"
-          ],
-          "amount": 1,
+          "amount": 16,
           "market": "IT"
         },
         {
@@ -2147,46 +2134,38 @@
           "market": "IT",
           "variant": [
             "m3",
-            "my"
+            "my",
+            "ms",
+            "mx"
           ],
           "inventory": [
             "new"
           ],
           "variables": {
             "minimumDownPayment": 0,
-            "downPayment": 12100,
-            "maximumDownPayment": 0.35,
-            "interestRate": 4.25,
+            "downPayment": 0.2,
+            "maximumDownPayment": 0.4,
+            "interestRate": 3.75,
             "loanTerm": 48,
             "localeSpecific": {
-              "refinancingRate": 6.25,
-              "documentationFee": 4.5,
-              "monthlyCommission": 1,
-              "totalTerm": 96
+              "totalTerm": 96,
+              "taxStampAmount": 16,
+              "initialCommission": 2,
+              "miniRate": 0.012,
+              "delta": 0.12
             }
           },
           "loanTermsOffered": {
             "loanTerm": [
               36,
-              48,
-              60
+              48
             ]
           },
-          "interestRateMatrix": [],
-          "residualRateMatrix": [
-            {
-              "loanTerm": 36,
-              "value": 0.6
-            },
-            {
-              "loanTerm": 48,
-              "value": 0.5
-            },
-            {
-              "loanTerm": 60,
-              "value": 0.4
+          "uiSettings": {
+            "forms": {
+              "disclaimerPrecision": 2
             }
-          ]
+          }
         }
       ]
     },
@@ -2196,7 +2175,7 @@
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing IT 2022.Jul.20 3569.5829.19226 [it]",
+      "name": "Marketing IT 2022.Jul.20 3569.6040.19226 [it]",
       "groups": [
         {
           "code": "MODEL",
@@ -2745,17 +2724,8 @@
               "type": "components",
               "content": [
                 {
-                  "hide": "enterprise",
                   "type": "Title",
                   "props": {
-                    "component": "h2"
-                  }
-                },
-                {
-                  "show": "enterprise",
-                  "type": "Title",
-                  "props": {
-                    "classes": "tds-text--h4 tds-text--center",
                     "component": "h2"
                   }
                 },
@@ -2864,17 +2834,8 @@
               "type": "components",
               "content": [
                 {
-                  "hide": "enterprise",
                   "type": "Title",
                   "props": {
-                    "component": "h2"
-                  }
-                },
-                {
-                  "show": "enterprise",
-                  "type": "Title",
-                  "props": {
-                    "classes": "tds-text--h4 tds-text--center",
                     "component": "h2"
                   }
                 },
@@ -2984,10 +2945,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/route.mp4",
+                  "url": "MODEL3/UI/route.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/route.mp4",
+                  "urlDesktop": "MODEL3/UI/route.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -3008,27 +2968,23 @@
                   },
                   "video_content": [
                     {
-                      "url": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
-                      "relative": true,
-                      "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                      "url": "MODEL3/UI/navigate-on-autopilot.mp4",
+                      "urlDesktop": "MODEL3/UI/navigate-on-autopilot.mp4",
                       "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[0]"
                     },
                     {
-                      "url": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
-                      "relative": true,
-                      "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                      "url": "MODEL3/UI/lane_change.mp4",
+                      "urlDesktop": "MODEL3/UI/lane_change.mp4",
                       "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[1]"
                     },
                     {
-                      "url": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
-                      "relative": true,
-                      "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                      "url": "MODEL3/UI/autopark.mp4",
+                      "urlDesktop": "MODEL3/UI/autopark.mp4",
                       "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[2]"
                     },
                     {
-                      "url": "https://tesla-cdn.thron.com/delivery/public/video/tesla/77961b78-8823-4492-b490-2110d1ea165d/nja0fy/WEBHD/summon_v2_emea",
-                      "relative": true,
-                      "urlDesktop": "https://tesla-cdn.thron.com/delivery/public/video/tesla/77961b78-8823-4492-b490-2110d1ea165d/nja0fy/WEBHD/summon_v2_emea",
+                      "url": "MODEL3/UI/summon_v2_emea.mp4",
+                      "urlDesktop": "MODEL3/UI/summon_v2_emea.mp4",
                       "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[3]"
                     }
                   ]
@@ -3208,17 +3164,8 @@
               "type": "components",
               "content": [
                 {
-                  "hide": "enterprise",
                   "type": "Title",
                   "props": {
-                    "component": "h2"
-                  }
-                },
-                {
-                  "show": "enterprise",
-                  "type": "Title",
-                  "props": {
-                    "classes": "tds-text--h4 tds-text--center",
                     "component": "h2"
                   }
                 },
@@ -3705,15 +3652,7 @@
               "type": "components",
               "content": [
                 {
-                  "hide": "enterprise",
                   "type": "Title"
-                },
-                {
-                  "show": "enterprise",
-                  "type": "Title",
-                  "props": {
-                    "classes": "tds-text--h4 tds-text--center"
-                  }
                 },
                 {
                   "type": "Disclaimer"
@@ -4001,10 +3940,9 @@
               "type": "asset[0]",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "url": "MODEL3/UI/navigate-on-autopilot.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "urlDesktop": "MODEL3/UI/navigate-on-autopilot.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -4029,10 +3967,9 @@
               "type": "asset[1]",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "url": "MODEL3/UI/lane_change.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "urlDesktop": "MODEL3/UI/lane_change.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -4057,10 +3994,9 @@
               "type": "asset[2]",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "url": "MODEL3/UI/autopark.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "urlDesktop": "MODEL3/UI/autopark.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -4085,10 +4021,9 @@
               "type": "asset[3]",
               "content": [
                 {
-                  "url": "https://tesla-cdn.thron.com/delivery/public/video/tesla/77961b78-8823-4492-b490-2110d1ea165d/nja0fy/WEBHD/summon_v2_emea",
+                  "url": "MODEL3/UI/summon_v2_emea.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://tesla-cdn.thron.com/delivery/public/video/tesla/77961b78-8823-4492-b490-2110d1ea165d/nja0fy/WEBHD/summon_v2_emea",
+                  "urlDesktop": "MODEL3/UI/summon_v2_emea.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -4874,10 +4809,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "url": "MODEL3/UI/navigate-on-autopilot.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "urlDesktop": "MODEL3/UI/navigate-on-autopilot.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -4980,10 +4914,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "url": "MODEL3/UI/lane_change.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "urlDesktop": "MODEL3/UI/lane_change.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -5086,10 +5019,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "url": "MODEL3/UI/autopark.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "urlDesktop": "MODEL3/UI/autopark.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -5192,10 +5124,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://tesla-cdn.thron.com/delivery/public/video/tesla/77961b78-8823-4492-b490-2110d1ea165d/nja0fy/WEBHD/summon_v2_emea",
+                  "url": "MODEL3/UI/summon_v2_emea.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://tesla-cdn.thron.com/delivery/public/video/tesla/77961b78-8823-4492-b490-2110d1ea165d/nja0fy/WEBHD/summon_v2_emea",
+                  "urlDesktop": "MODEL3/UI/summon_v2_emea.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -6278,10 +6209,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "url": "MODEL3/UI/navigate-on-autopilot.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "urlDesktop": "MODEL3/UI/navigate-on-autopilot.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -6384,10 +6314,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "url": "MODEL3/UI/lane_change.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "urlDesktop": "MODEL3/UI/lane_change.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -6490,10 +6419,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "url": "MODEL3/UI/autopark.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "urlDesktop": "MODEL3/UI/autopark.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -6596,10 +6524,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://tesla-cdn.thron.com/delivery/public/video/tesla/77961b78-8823-4492-b490-2110d1ea165d/nja0fy/WEBHD/summon_v2_emea",
+                  "url": "MODEL3/UI/summon_v2_emea.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://tesla-cdn.thron.com/delivery/public/video/tesla/77961b78-8823-4492-b490-2110d1ea165d/nja0fy/WEBHD/summon_v2_emea",
+                  "urlDesktop": "MODEL3/UI/summon_v2_emea.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -7810,17 +7737,8 @@
               "type": "components",
               "content": [
                 {
-                  "hide": "enterprise",
                   "type": "Title",
                   "props": {
-                    "component": "h2"
-                  }
-                },
-                {
-                  "show": "enterprise",
-                  "type": "Title",
-                  "props": {
-                    "classes": "tds-text--h4 tds-text--center",
                     "component": "h2"
                   }
                 },
@@ -8077,17 +7995,8 @@
               "type": "components",
               "content": [
                 {
-                  "hide": "enterprise",
                   "type": "Title",
                   "props": {
-                    "component": "h2"
-                  }
-                },
-                {
-                  "show": "enterprise",
-                  "type": "Title",
-                  "props": {
-                    "classes": "tds-text--h4 tds-text--center",
                     "component": "h2"
                   }
                 },
@@ -9490,17 +9399,8 @@
               "type": "components",
               "content": [
                 {
-                  "hide": "enterprise",
                   "type": "Title",
                   "props": {
-                    "component": "h2"
-                  }
-                },
-                {
-                  "show": "enterprise",
-                  "type": "Title",
-                  "props": {
-                    "classes": "tds-text--h4 tds-text--center",
                     "component": "h2"
                   }
                 },
@@ -11789,7 +11689,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 5829,
+      "copy_id": 6040,
       "language": "it",
       "pricing_id": 19226,
       "reference_id": 3569,
