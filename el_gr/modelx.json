@@ -183,6 +183,7 @@
         "showMonthlySavingsInPurchasePriceDisclaimer": false,
         "isRegistrationTypeEnabled": false,
         "isPickupLocationsEnabled": false,
+        "isRequestCallbackLocationsEnabled": false,
         "isOptionModificationDisabled": false,
         "showSummaryPanelFooter": true,
         "showAssetGallery": true,
@@ -1314,6 +1315,7 @@
         "featureHighlightGroups": [],
         "showPremiumConnectivity": true,
         "showInventoryPremiumConnectivityFromLexicon": false,
+        "showCCSFeature": false,
         "showBusinessInformation": false,
         "showVehicleDetailsBlock": false,
         "showVehicleInspection": false,
@@ -1642,20 +1644,6 @@
           "market": "GR"
         },
         {
-          "feeType": "start_fee",
-          "financeType": "loan",
-          "description": "Start fee for Loan",
-          "period": "included",
-          "variant": [
-            "m3",
-            "my",
-            "ms",
-            "mx"
-          ],
-          "amount": 50,
-          "market": "GR"
-        },
-        {
           "feeType": "vat_percent",
           "financeType": "any",
           "period": "included",
@@ -1711,15 +1699,18 @@
           "variables": {
             "maximumDownPayment": 0.8,
             "minimumDownPayment": 0,
-            "downPayment": 10400,
-            "downPayments": {
-              "model": {
-                "ms": 0.2,
-                "mx": 0.2
-              }
-            },
+            "downPayment": 0.2,
             "interestRate": 5.5,
-            "loanTerm": 72
+            "loanTerm": 72,
+            "localeSpecific": {
+              "costOfCreditDeltas": {
+                "24": 284,
+                "36": 426,
+                "48": 569,
+                "60": 715,
+                "72": 864
+              }
+            }
           },
           "loanTermsOffered": {
             "loanTerm": [
@@ -1734,12 +1725,12 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2022-08-03T05:05:00.000Z",
+      "effective_date": "2022-08-05T00:10:00.000Z",
       "market": "GR",
       "product": "mx",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing GR 2022.Aug.03 3709.5908.20313 [el]",
+      "name": "Marketing GR 2022.Aug.05 3744.6133.20313 [el]",
       "groups": [
         {
           "code": "MODEL",
@@ -2806,10 +2797,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/route.mp4",
+                  "url": "MODEL3/UI/route.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/route.mp4",
+                  "urlDesktop": "MODEL3/UI/route.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -2831,27 +2821,23 @@
                   },
                   "video_content": [
                     {
-                      "url": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
-                      "relative": true,
-                      "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                      "url": "MODEL3/UI/navigate-on-autopilot.mp4",
+                      "urlDesktop": "MODEL3/UI/navigate-on-autopilot.mp4",
                       "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[0]"
                     },
                     {
-                      "url": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
-                      "relative": true,
-                      "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                      "url": "MODEL3/UI/lane_change.mp4",
+                      "urlDesktop": "MODEL3/UI/lane_change.mp4",
                       "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[1]"
                     },
                     {
-                      "url": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
-                      "relative": true,
-                      "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                      "url": "MODEL3/UI/autopark.mp4",
+                      "urlDesktop": "MODEL3/UI/autopark.mp4",
                       "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[2]"
                     },
                     {
-                      "url": "https://tesla-cdn.thron.com/delivery/public/video/tesla/77961b78-8823-4492-b490-2110d1ea165d/nja0fy/WEBHD/summon_v2_emea",
-                      "relative": true,
-                      "urlDesktop": "https://tesla-cdn.thron.com/delivery/public/video/tesla/77961b78-8823-4492-b490-2110d1ea165d/nja0fy/WEBHD/summon_v2_emea",
+                      "url": "MODEL3/UI/summon_v2_emea.mp4",
+                      "urlDesktop": "MODEL3/UI/summon_v2_emea.mp4",
                       "content_path": "OMS.lexicon.groups_dictionary.configurator.AUTOPILOT_PACKAGE.video_list.default[3]"
                     }
                   ]
@@ -2927,10 +2913,9 @@
                   }
                 },
                 {
-                  "url": "https://www.tesla.com/ns_videos/models/autonomy/hero-mobile.mp4",
+                  "url": "MODEL3/UI/hero-mobile.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/models/autonomy/hero.mp4",
+                  "urlDesktop": "MODEL3/UI/hero.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -3723,7 +3708,7 @@
             },
             {
               "type": "description",
-              "content": "Το Model X προσφέρει έως και 2.577 λίτρα χώρου φορτίου, συμπεριλαμβανομένου ενός ασφαλούς μπροστινού χώρου αποθήκευσης, και μπορεί να χωρέσει έως και 7 ενήλικες. Ο μπροστινός χώρος αποθήκευσης χωράει μια βαλίτσα πλήρους μεγέθους και τα πίσω καθίσματα μπορούν να αναδιπλωθούν με το πάτημα ενός κουμπιού, ανοίγοντας τον πίσω χώρο φορτίου και τον υποδαπέδιο αποθηκευτικό χώρο για μέγιστη ευελιξία που ανταποκρίνεται σε κάθε lifestyle."
+              "content": "Το Model X προσφέρει έως και 2.614 λίτρα χώρου φορτίου, συμπεριλαμβανομένου ενός ασφαλούς μπροστινού χώρου αποθήκευσης, και μπορεί να χωρέσει έως και 7 ενήλικες. Ο μπροστινός χώρος αποθήκευσης χωράει μια βαλίτσα πλήρους μεγέθους και τα πίσω καθίσματα μπορούν να αναδιπλωθούν με το πάτημα ενός κουμπιού, ανοίγοντας τον πίσω χώρο φορτίου και τον υποδαπέδιο αποθηκευτικό χώρο για μέγιστη ευελιξία που ανταποκρίνεται σε κάθε lifestyle."
             }
           ],
           "extra_content": [
@@ -4157,10 +4142,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "url": "MODEL3/UI/navigate-on-autopilot.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "urlDesktop": "MODEL3/UI/navigate-on-autopilot.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -4314,10 +4298,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "url": "MODEL3/UI/lane_change.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "urlDesktop": "MODEL3/UI/lane_change.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -4448,10 +4431,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "url": "MODEL3/UI/autopark.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "urlDesktop": "MODEL3/UI/autopark.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -4582,10 +4564,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://tesla-cdn.thron.com/delivery/public/video/tesla/77961b78-8823-4492-b490-2110d1ea165d/nja0fy/WEBHD/summon_v2_emea",
+                  "url": "MODEL3/UI/summon_v2_emea.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://tesla-cdn.thron.com/delivery/public/video/tesla/77961b78-8823-4492-b490-2110d1ea165d/nja0fy/WEBHD/summon_v2_emea",
+                  "urlDesktop": "MODEL3/UI/summon_v2_emea.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -5227,7 +5208,7 @@
             },
             {
               "type": "feature_list.default[0].items[10]",
-              "content": "2.577 λίτρα χώρου φορτίου, συμπεριλαμβανομένου ενός ασφαλούς μπροστινού χώρου αποθήκευσης"
+              "content": "2.614 λίτρα χώρου φορτίου, συμπεριλαμβανομένου ενός ασφαλούς μπροστινού χώρου αποθήκευσης"
             }
           ],
           "extra_content": [
@@ -5458,7 +5439,7 @@
             },
             {
               "type": "feature_list.default[2].items[4]",
-              "content": "2.577 λίτρα χώρου φορτίου, συμπεριλαμβανομένου ενός ασφαλούς μπροστινού χώρου αποθήκευσης "
+              "content": "2.614 λίτρα χώρου φορτίου, συμπεριλαμβανομένου ενός ασφαλούς μπροστινού χώρου αποθήκευσης "
             },
             {
               "type": "feature_list.default[2].items[5]",
@@ -5659,10 +5640,9 @@
               "type": "asset[0]",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "url": "MODEL3/UI/navigate-on-autopilot.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "urlDesktop": "MODEL3/UI/navigate-on-autopilot.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -5687,10 +5667,9 @@
               "type": "asset[1]",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "url": "MODEL3/UI/lane_change.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "urlDesktop": "MODEL3/UI/lane_change.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -5715,10 +5694,9 @@
               "type": "asset[2]",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "url": "MODEL3/UI/autopark.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "urlDesktop": "MODEL3/UI/autopark.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -5743,10 +5721,9 @@
               "type": "asset[3]",
               "content": [
                 {
-                  "url": "https://tesla-cdn.thron.com/delivery/public/video/tesla/77961b78-8823-4492-b490-2110d1ea165d/nja0fy/WEBHD/summon_v2_emea",
+                  "url": "MODEL3/UI/summon_v2_emea.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://tesla-cdn.thron.com/delivery/public/video/tesla/77961b78-8823-4492-b490-2110d1ea165d/nja0fy/WEBHD/summon_v2_emea",
+                  "urlDesktop": "MODEL3/UI/summon_v2_emea.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -5861,10 +5838,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "url": "MODEL3/UI/navigate-on-autopilot.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/navigate-on-autopilot.mp4",
+                  "urlDesktop": "MODEL3/UI/navigate-on-autopilot.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -5967,10 +5943,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "url": "MODEL3/UI/lane_change.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/lane_change.mp4",
+                  "urlDesktop": "MODEL3/UI/lane_change.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -6073,10 +6048,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "url": "MODEL3/UI/autopark.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://www.tesla.com/ns_videos/model3/autopilot/autopark.mp4",
+                  "urlDesktop": "MODEL3/UI/autopark.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -6179,10 +6153,9 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "https://tesla-cdn.thron.com/delivery/public/video/tesla/77961b78-8823-4492-b490-2110d1ea165d/nja0fy/WEBHD/summon_v2_emea",
+                  "url": "MODEL3/UI/summon_v2_emea.mp4",
                   "type": "video-inline",
-                  "relative": true,
-                  "urlDesktop": "https://tesla-cdn.thron.com/delivery/public/video/tesla/77961b78-8823-4492-b490-2110d1ea165d/nja0fy/WEBHD/summon_v2_emea",
+                  "urlDesktop": "MODEL3/UI/summon_v2_emea.mp4",
                   "selected_by": {
                     "or": [
                       {
@@ -8999,7 +8972,8 @@
                 "$WT20",
                 "$WTSC",
                 "$WTUT",
-                "$WTSD"
+                "$WTSD",
+                "$WT22"
               ]
             },
             {
@@ -9026,7 +9000,8 @@
                 "$WT20",
                 "$WTSC",
                 "$WTUT",
-                "$WTSD"
+                "$WTSD",
+                "$WT22"
               ]
             }
           ],
@@ -9094,7 +9069,8 @@
                 "$WT20",
                 "$WTSC",
                 "$WTUT",
-                "$WTSD"
+                "$WTSD",
+                "$WT22"
               ]
             },
             {
@@ -9120,7 +9096,8 @@
                 "$WT20",
                 "$WTSC",
                 "$WTUT",
-                "$WTSD"
+                "$WTSD",
+                "$WT22"
               ]
             }
           ],
@@ -13141,11 +13118,15 @@
         "$CPF0",
         "$TW01"
       ],
-      "options_id": 3709,
+      "options_id": 3744,
       "warnings": [
         {
           "type": "MISSING_PRICE",
           "message": "The discountable group's, option '$MTX13' is not defined in the pricing lexicon."
+        },
+        {
+          "type": "MISSING_PRICE",
+          "message": "The discountable group's, option '$WT22' is not defined in the pricing lexicon."
         },
         {
           "type": "MISSING_PRICE",
@@ -13596,10 +13577,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 5908,
+      "copy_id": 6133,
       "language": "el",
       "pricing_id": 20313,
-      "reference_id": 3709,
+      "reference_id": 3744,
       "source": "cache"
     }
   },
