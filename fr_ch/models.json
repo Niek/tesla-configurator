@@ -697,6 +697,10 @@
             "context": "configurator"
           },
           {
+            "code": "WINTER_WHEELS_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "REVIEW_ORDER_CONNECTIVITY",
             "context": "configurator"
           },
@@ -1272,7 +1276,7 @@
           "SUMMARY_PANEL_DISTANCE_CHANGE",
           "ACCOUNT_DETAILS_CHANGED"
         ],
-        "showVehicleSubtotal": false,
+        "showVehicleSubtotal": true,
         "hidePostfixOnUI": false,
         "hideSavingsAfterPurchaseDiscl": false,
         "activeRegistrationTypes": [
@@ -1680,12 +1684,12 @@
       ]
     },
     "Lexicon.ms": {
-      "effective_date": "2022-08-12T00:08:00.000Z",
+      "effective_date": "2022-08-19T00:08:00.000Z",
       "market": "CH",
       "product": "ms",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing CH 2022.Aug.12 3852.6202.20276 [fr]",
+      "name": "Marketing CH 2022.Aug.19 3808.6287.20842 [fr]",
       "groups": [
         {
           "code": "MODEL",
@@ -1976,7 +1980,7 @@
         },
         {
           "code": "WINTER_TIRES",
-          "name": "WINTER_TIRES",
+          "name": "Roues hiver",
           "context": "default",
           "groups": [],
           "options": [
@@ -1989,10 +1993,12 @@
             "$WW07",
             "$WW08",
             "$WW09",
-            "$WW10"
+            "$WW10",
+            "$WW20",
+            "$WW21"
           ],
           "required": false,
-          "exclusive": true,
+          "exclusive": false,
           "discountable": false,
           "default_options": []
         },
@@ -2109,6 +2115,7 @@
             "BATTERY_SETTING_ACCELERATION",
             "PAINT",
             "WHEELS",
+            "WINTER_WHEELS_OPTIONS",
             "WINTER_TIRES",
             "INTERIOR_PACKAGE",
             "REGULAR_DECOR",
@@ -2178,7 +2185,9 @@
             "$PPSB",
             "$PPSW",
             "$APBS",
-            "$APF2"
+            "$APF2",
+            "$WW20",
+            "$WW21"
           ],
           "required": false,
           "exclusive": false,
@@ -2349,6 +2358,9 @@
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
                   }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             },
@@ -2361,7 +2373,9 @@
               ]
             }
           ],
-          "groups": [],
+          "groups": [
+            "WINTER_WHEELS_OPTIONS"
+          ],
           "options": [
             "$WS90",
             "$WS10"
@@ -3338,6 +3352,7 @@
             "PAINT",
             "WHEELS",
             "WINTER_TIRES",
+            "WINTER_WHEELS_OPTIONS",
             "INTERIOR_PACKAGE",
             "REGULAR_DECOR",
             "CARBON_FILBER_DECOR",
@@ -3378,27 +3393,180 @@
           "exclusive": false
         },
         {
-          "code": "WINTER_WHEELS",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$WIN31",
-            "$WW05"
-          ],
-          "required": false,
-          "exclusive": true,
-          "default_options": []
-        },
-        {
           "code": "WINTER_WHEELS_OPTIONS",
           "groups": [],
           "context": "configurator",
           "options": [
-            "$WW05"
+            "$WW20"
           ],
           "required": false,
           "exclusive": false,
-          "default_options": []
+          "default_options": [],
+          "name": "Roues hiver",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Roues hiver"
+            },
+            {
+              "type": "feature_description",
+              "content": "Ajoutez un jeu de jantes et de pneus hiver pour une conduite optimale sur neige et en conditions hivernales."
+            },
+            {
+              "type": "add_component",
+              "content": "Choisir un jeu",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WW20"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTS14"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--small",
+                      "tds-o-margin-top"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_component",
+              "content": "Supprimer",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "actionClass": [
+                      "tds-btn tds-btn--secondary tds-btn--small tds-o-margin-top"
+                    ],
+                    "content_path": "CustomGroups.WINTER_WHEELS_OPTIONS.currentSelected[0].code"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_features",
+              "content": "inclus",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "WINTER_WHEELS_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--tertiary",
+                      "tds-btn--small ",
+                      "tds-o-margin-top"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "hide": "inventory",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h5 tds-text--center",
+                    "component": "h3"
+                  }
+                },
+                {
+                  "show": "inventory",
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "content": [
+                      {
+                        "props": {
+                          "containerCss": "tds-text--center tds-o-vertical_padding--1x"
+                        },
+                        "fields": [
+                          {
+                            "field": "feature_description"
+                          },
+                          {
+                            "field": "add_component",
+                            "component": "button"
+                          }
+                        ],
+                        "parentClasses": "child--group-container tds-o-animate--slide_in tds--no_vertical_padding",
+                        "group_selected_by": {
+                          "not": [
+                            "WINTER_WHEELS_OPTIONS"
+                          ]
+                        }
+                      },
+                      {
+                        "props": {
+                          "containerCss": "tds--vertical_padding"
+                        },
+                        "fields": [
+                          {
+                            "type": "components",
+                            "content": [
+                              {
+                                "type": "Options",
+                                "props": {
+                                  "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--justify-center"
+                                }
+                              },
+                              {
+                                "type": "SelectedPrice"
+                              }
+                            ]
+                          },
+                          {
+                            "field": "remove_component",
+                            "component": "button"
+                          },
+                          {
+                            "field": "view_features",
+                            "props": {
+                              "modal": "WINTER_WHEELS_FEATURES"
+                            }
+                          }
+                        ],
+                        "parentClasses": "child--group-container tds-o-animate--slide_in tds--no_vertical_padding",
+                        "group_selected_by": {
+                          "and": [
+                            "WINTER_WHEELS_OPTIONS"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "ALL_WHEEL_DRIVE_ONE",
@@ -6466,6 +6634,202 @@
           "exclusive": false,
           "discountable": true,
           "default_options": []
+        },
+        {
+          "code": "WINTER_TIRES",
+          "name": "Pneus hiver",
+          "context": "configurator",
+          "extra_copy": [],
+          "extra_content": [],
+          "groups": [],
+          "options": [
+            "$WW20"
+          ],
+          "required": false,
+          "exclusive": false,
+          "discountable": false,
+          "default_options": []
+        },
+        {
+          "code": "19_IN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WW20"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Pack de pneus hiver Pirelli 19\"",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Pack de pneus hiver Pirelli 19\""
+            },
+            {
+              "type": "eyebrow",
+              "content": "De série"
+            },
+            {
+              "type": "description",
+              "content": "Pneus hiver Pirelli P Zero présentant une faible résistance au roulement et une forte adhérence sur les routes enneigées. Ce pack comprend quatre jantes Tempest de 19\" et leurs pneumatiques montés, ainsi que des enjoliveurs Tempest dark."
+            },
+            {
+              "type": "add_options",
+              "content": "Ajouter",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WW20"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Supprimer",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WW20"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELS/UI/S_Pirelli_1.png",
+                "type": "image",
+                "ratio": "slice"
+              }
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS_FEATURES",
+          "groups": [
+            "19_IN_WINTER_WHEEL_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Les roues hiver incluent",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Comparer les modèles"
+            }
+          ]
+        },
+        {
+          "code": "20_IN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WW20"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Pack de pneus hiver Pirelli 20\"",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Pack de pneus hiver Pirelli 20\""
+            },
+            {
+              "type": "eyebrow",
+              "content": "De série"
+            },
+            {
+              "type": "description",
+              "content": "Pneus hiver Pirelli Sottozero 3 présentant une faible resistance au roulement et une forte adhérence sur les routes enneigées. Ce jeu comprend quatre jantes Performance 20\" et leurs pneumatiques montés."
+            },
+            {
+              "type": "add_options",
+              "content": "Ajouter",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WW20"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Supprimer",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WW20"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODEL3/UI/wheels-pirelli-20-uberturbine.jpg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            }
+          ]
         }
       ],
       "options": {
@@ -8970,20 +9334,6 @@
             {
               "action": "set",
               "target": "$WW01"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW02",
-                "$WW03",
-                "$WW04",
-                "$WW05",
-                "$WW06",
-                "$WW07",
-                "$WW08",
-                "$WW09",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9020,20 +9370,6 @@
             {
               "action": "set",
               "target": "$WW02"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW03",
-                "$WW04",
-                "$WW05",
-                "$WW06",
-                "$WW07",
-                "$WW08",
-                "$WW09",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9070,20 +9406,6 @@
             {
               "action": "set",
               "target": "$WW03"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW02",
-                "$WW04",
-                "$WW05",
-                "$WW06",
-                "$WW07",
-                "$WW08",
-                "$WW09",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9120,20 +9442,6 @@
             {
               "action": "set",
               "target": "$WW04"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW02",
-                "$WW03",
-                "$WW05",
-                "$WW06",
-                "$WW07",
-                "$WW08",
-                "$WW09",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9170,20 +9478,6 @@
             {
               "action": "set",
               "target": "$WW05"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW02",
-                "$WW03",
-                "$WW04",
-                "$WW06",
-                "$WW07",
-                "$WW08",
-                "$WW09",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9220,20 +9514,6 @@
             {
               "action": "set",
               "target": "$WW06"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW02",
-                "$WW03",
-                "$WW04",
-                "$WW05",
-                "$WW07",
-                "$WW08",
-                "$WW09",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9270,20 +9550,6 @@
             {
               "action": "set",
               "target": "$WW07"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW02",
-                "$WW03",
-                "$WW04",
-                "$WW05",
-                "$WW06",
-                "$WW08",
-                "$WW09",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9320,20 +9586,6 @@
             {
               "action": "set",
               "target": "$WW08"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW02",
-                "$WW03",
-                "$WW04",
-                "$WW05",
-                "$WW06",
-                "$WW07",
-                "$WW09",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9370,20 +9622,6 @@
             {
               "action": "set",
               "target": "$WW09"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW02",
-                "$WW03",
-                "$WW04",
-                "$WW05",
-                "$WW06",
-                "$WW07",
-                "$WW08",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9420,20 +9658,6 @@
             {
               "action": "set",
               "target": "$WW10"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW02",
-                "$WW03",
-                "$WW04",
-                "$WW05",
-                "$WW06",
-                "$WW07",
-                "$WW08",
-                "$WW09"
-              ]
             }
           ],
           "unset_rules": [
@@ -9458,6 +9682,126 @@
               "type": "base",
               "value": 7100,
               "context": "CHF"
+            }
+          ]
+        },
+        "$WW20": {
+          "code": "$WW20",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW20",
+                "condition_code": "$WW21",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WW20"
+            },
+            {
+              "action": "unset",
+              "target": "$WW20",
+              "condition_code": "$WW21",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WW20"
+            }
+          ],
+          "name": "Pack de pneus hiver Pirelli 19\"",
+          "description": "19'' Tempest Wheels and Pirelli Winter Tire Package",
+          "long_name": "Pack de jantes Tempest 19'' et de pneus hiver Pirelli",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Pirelli P zero winter tires allow performance to enter the winter season with a lot of grip on snowy roads. This set contains four 19\" Tempest rims with mounted tires and dark wheel center caps."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WW20"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELS/UI/S_Pirelli_Surface.png",
+                  "type": "image"
+                }
+              ]
+            }
+          ],
+          "price": 3990,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 3990,
+              "context": "CHF"
+            }
+          ]
+        },
+        "$WW21": {
+          "code": "$WW21",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW21",
+                "condition_code": "$WW20",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WW21"
+            },
+            {
+              "action": "unset",
+              "target": "$WW21",
+              "condition_code": "$WW20",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WW21"
+            }
+          ],
+          "name": "Pack de jantes Arachnid V3 21'' et de pneus hiver Pirelli",
+          "description": "Pack de jantes Arachnid V3 21'' et de pneus hiver Pirelli",
+          "long_name": "Pack de jantes Arachnid V3 21'' et de pneus hiver Pirelli",
+          "extra_copy": [],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": []
             }
           ]
         },
@@ -14379,7 +14723,7 @@
         "$CPF0",
         "$TW01"
       ],
-      "options_id": 3852,
+      "options_id": 3808,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -14392,6 +14736,10 @@
         {
           "type": "MISSING_PRICE",
           "message": "The discountable group's, option '$INWCB' is not defined in the pricing lexicon."
+        },
+        {
+          "type": "MISSING_PRICE",
+          "message": "The discountable group's, option '$WW21' is not defined in the pricing lexicon."
         },
         {
           "type": "MISSING_PRICE",
@@ -14492,18 +14840,11 @@
               "msg": "Present in only Options lexicons"
             },
             {
-              "code": "WINTER_WHEELS",
-              "context": [
-                "configurator"
-              ],
-              "msg": "Present in only Options lexicons"
-            },
-            {
               "code": "WINTER_WHEELS_OPTIONS",
               "context": [
                 "configurator"
               ],
-              "msg": "Present in only Options lexicons"
+              "msg": "Present in both Copy and Options lexicons"
             },
             {
               "code": "ALL_WHEEL_DRIVE_ONE",
@@ -14819,6 +15160,27 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "19_IN_WINTER_WHEEL_FEATURES_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "WINTER_WHEELS_FEATURES",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "20_IN_WINTER_WHEEL_FEATURES_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -14828,10 +15190,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 6202,
+      "copy_id": 6287,
       "language": "fr",
-      "pricing_id": 20276,
-      "reference_id": 3852,
+      "pricing_id": 20842,
+      "reference_id": 3808,
       "source": "cache"
     }
   },

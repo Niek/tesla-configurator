@@ -745,6 +745,10 @@
             "context": "configurator"
           },
           {
+            "code": "WINTER_WHEELS_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "FSD_FEATURES",
             "context": "configurator"
           },
@@ -849,7 +853,7 @@
         "showMaxDownPaymentAmount": false,
         "showChargerDisclaimer": false,
         "includeTeslaInsurance": false,
-        "showOtherFeesinSummary": true,
+        "showOtherFeesinSummary": false,
         "showModalonFinanceSelector": false,
         "loanPaymentLabelMobile": "",
         "showOrderPageSummaryOtherFees": false,
@@ -1135,7 +1139,7 @@
         "showWithoutAdjustments": false,
         "hideFinanceSummary": false,
         "displayFinanceDisclaimerEverywhere": false,
-        "hideDestinationDocFee": true,
+        "hideDestinationDocFee": false,
         "showDisclaimerLink": true,
         "showTraderLicense": false,
         "disclaimerModalContent": [
@@ -1221,7 +1225,7 @@
         "showAfterSavingsPriceForTrims": false,
         "includePurchasePriceIncentivesInTrims": false,
         "includePurchasePriceIncentivesPreVAT": true,
-        "includeDocFeeInSummary": true,
+        "includeDocFeeInSummary": false,
         "showOrderPlacementDisclaimerCash": false,
         "showRegistrationTypeSelector": false,
         "showFeesDisclaimer": false,
@@ -1314,7 +1318,7 @@
           "SUMMARY_PANEL_DISTANCE_CHANGE",
           "ACCOUNT_DETAILS_CHANGED"
         ],
-        "showVehicleSubtotal": false,
+        "showVehicleSubtotal": true,
         "hidePostfixOnUI": false,
         "hideSavingsAfterPurchaseDiscl": false,
         "activeRegistrationTypes": [
@@ -2210,14 +2214,14 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2022-08-12T00:08:00.000Z",
+      "effective_date": "2022-08-19T00:08:00.000Z",
       "market": "IT",
       "product": "mx",
       "factory": "GF00",
       "fees": {
         "tax_credit": 3750
       },
-      "name": "Marketing IT 2022.Aug.12 3882.6210.20312 [it]",
+      "name": "Marketing IT 2022.Aug.19 3822.6307.20796 [it]",
       "groups": [
         {
           "code": "MODEL",
@@ -2509,7 +2513,7 @@
         },
         {
           "code": "WINTER_TIRES",
-          "name": "WINTER_TIRES",
+          "name": "Cerchi invernali",
           "context": "default",
           "groups": [],
           "options": [
@@ -2521,10 +2525,11 @@
             "$WW16",
             "$WW17",
             "$WW18",
-            "$WW19"
+            "$WW19",
+            "$WW26"
           ],
           "required": false,
-          "exclusive": true,
+          "exclusive": false,
           "discountable": false,
           "default_options": []
         },
@@ -2676,7 +2681,8 @@
             "$PBSB",
             "$PMNG",
             "$PPSB",
-            "$PPSW"
+            "$PPSW",
+            "$WW26"
           ],
           "required": false,
           "exclusive": false,
@@ -2700,6 +2706,7 @@
             "BATTERY_SETTING_ACCELERATION",
             "PAINT",
             "WHEELS",
+            "WINTER_WHEELS_OPTIONS",
             "WINTER_TIRES",
             "INTERIOR_PACKAGE",
             "REAR_SEATS",
@@ -3838,6 +3845,9 @@
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
                   }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             },
@@ -3850,7 +3860,9 @@
               ]
             }
           ],
-          "groups": [],
+          "groups": [
+            "WINTER_WHEELS_OPTIONS"
+          ],
           "options": [
             "$WX00",
             "$WX20"
@@ -3867,6 +3879,7 @@
             "PAINT",
             "WHEELS",
             "WINTER_TIRES",
+            "WINTER_WHEELS_OPTIONS",
             "INTERIOR_PACKAGE",
             "REAR_SEATS",
             "STEERING_WHEEL",
@@ -3898,27 +3911,180 @@
           ]
         },
         {
-          "code": "WINTER_WHEELS",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$WIN31",
-            "$WW18"
-          ],
-          "required": false,
-          "exclusive": true,
-          "default_options": []
-        },
-        {
           "code": "WINTER_WHEELS_OPTIONS",
           "groups": [],
           "context": "configurator",
           "options": [
-            "$WW18"
+            "$WW26"
           ],
           "required": false,
           "exclusive": false,
-          "default_options": []
+          "default_options": [],
+          "name": "Cerchi invernali",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Cerchi invernali"
+            },
+            {
+              "type": "feature_description",
+              "content": "Aggiungi un set di pneumatici invernali e cerchi per una guida ottimale in condizioni di neve e ghiaccio"
+            },
+            {
+              "type": "add_component",
+              "content": "Scegli il set",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WW26"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTX14"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--small",
+                      "tds-o-margin-top"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_component",
+              "content": "Rimuovi",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "actionClass": [
+                      "tds-btn tds-btn--secondary tds-btn--small tds-o-margin-top"
+                    ],
+                    "content_path": "CustomGroups.WINTER_WHEELS_OPTIONS.currentSelected[0].code"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_features",
+              "content": "Caratteristiche",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "WINTER_WHEELS_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--tertiary",
+                      "tds-btn--small ",
+                      "tds-o-margin-top"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "hide": "inventory",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h5 tds-text--center",
+                    "component": "h3"
+                  }
+                },
+                {
+                  "show": "inventory",
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "content": [
+                      {
+                        "props": {
+                          "containerCss": "tds-text--center tds-o-vertical_padding--1x"
+                        },
+                        "fields": [
+                          {
+                            "field": "feature_description"
+                          },
+                          {
+                            "field": "add_component",
+                            "component": "button"
+                          }
+                        ],
+                        "parentClasses": "child--group-container tds-o-animate--slide_in tds--no_vertical_padding",
+                        "group_selected_by": {
+                          "not": [
+                            "WINTER_WHEELS_OPTIONS"
+                          ]
+                        }
+                      },
+                      {
+                        "props": {
+                          "containerCss": "tds--vertical_padding"
+                        },
+                        "fields": [
+                          {
+                            "type": "components",
+                            "content": [
+                              {
+                                "type": "Options",
+                                "props": {
+                                  "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--justify-center"
+                                }
+                              },
+                              {
+                                "type": "SelectedPrice"
+                              }
+                            ]
+                          },
+                          {
+                            "field": "remove_component",
+                            "component": "button"
+                          },
+                          {
+                            "field": "view_features",
+                            "props": {
+                              "modal": "WINTER_WHEELS_FEATURES"
+                            }
+                          }
+                        ],
+                        "parentClasses": "child--group-container tds-o-animate--slide_in tds--no_vertical_padding",
+                        "group_selected_by": {
+                          "and": [
+                            "WINTER_WHEELS_OPTIONS"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "FEDERAL_TAX_CREDIT",
@@ -7110,6 +7276,120 @@
           "required": false,
           "exclusive": false,
           "name": "REVIEW_ORDER_CONNECTIVITY"
+        },
+        {
+          "code": "WINTER_TIRES",
+          "name": "Pneumatici invernali",
+          "context": "configurator",
+          "extra_copy": [],
+          "extra_content": [],
+          "groups": [],
+          "options": [
+            "$WW26"
+          ],
+          "required": false,
+          "exclusive": false,
+          "discountable": false,
+          "default_options": []
+        },
+        {
+          "code": "20_IN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WW26"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "Set di pneumatici Pirelli Winter da 20\"",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Set di pneumatici Pirelli Winter da 20\""
+            },
+            {
+              "type": "eyebrow",
+              "content": "Di serie"
+            },
+            {
+              "type": "description",
+              "content": "Gli pneumatici invernali Pirelli Scorpion combinano la bassa resistenza al rotolamento all'elevata aderenza su strade innevate. Questo set include quattro cerchi Cyberstream da 20\" con pneumatici montati e coprimozzo Arachnid."
+            },
+            {
+              "type": "add_options",
+              "content": "Aggiungi",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WW26"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Rimuovi",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WW26"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELX/UI/X_Pirelli.png",
+                "type": "image",
+                "ratio": "slice"
+              }
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS_FEATURES",
+          "groups": [
+            "20_IN_WINTER_WHEEL_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Caratteristiche delle ruote invernali",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Confronta i modelli"
+            }
+          ]
         }
       ],
       "options": {
@@ -9518,7 +9798,24 @@
         "$WW11": {
           "code": "$WW11",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW11",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW26",
+                  "$WW12",
+                  "$WW13",
+                  "$WW14",
+                  "$WW15",
+                  "$WW16",
+                  "$WW17",
+                  "$WW18",
+                  "$WW19"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9527,7 +9824,10 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW11",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WW26",
                 "$WW12",
                 "$WW13",
                 "$WW14",
@@ -9567,7 +9867,24 @@
         "$WW12": {
           "code": "$WW12",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW12",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW11",
+                  "$WW26",
+                  "$WW13",
+                  "$WW14",
+                  "$WW15",
+                  "$WW16",
+                  "$WW17",
+                  "$WW18",
+                  "$WW19"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9576,8 +9893,11 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW12",
+              "condition_state": "set",
+              "condition_any_code": [
                 "$WW11",
+                "$WW26",
                 "$WW13",
                 "$WW14",
                 "$WW15",
@@ -9616,7 +9936,24 @@
         "$WW13": {
           "code": "$WW13",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW13",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW11",
+                  "$WW12",
+                  "$WW26",
+                  "$WW14",
+                  "$WW15",
+                  "$WW16",
+                  "$WW17",
+                  "$WW18",
+                  "$WW19"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9625,9 +9962,12 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW13",
+              "condition_state": "set",
+              "condition_any_code": [
                 "$WW11",
                 "$WW12",
+                "$WW26",
                 "$WW14",
                 "$WW15",
                 "$WW16",
@@ -9665,7 +10005,24 @@
         "$WW14": {
           "code": "$WW14",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW14",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW11",
+                  "$WW12",
+                  "$WW13",
+                  "$WW26",
+                  "$WW15",
+                  "$WW16",
+                  "$WW17",
+                  "$WW18",
+                  "$WW19"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9674,10 +10031,13 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW14",
+              "condition_state": "set",
+              "condition_any_code": [
                 "$WW11",
                 "$WW12",
                 "$WW13",
+                "$WW26",
                 "$WW15",
                 "$WW16",
                 "$WW17",
@@ -9714,7 +10074,24 @@
         "$WW15": {
           "code": "$WW15",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW15",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW11",
+                  "$WW12",
+                  "$WW13",
+                  "$WW14",
+                  "$WW26",
+                  "$WW16",
+                  "$WW17",
+                  "$WW18",
+                  "$WW19"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9723,11 +10100,14 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW15",
+              "condition_state": "set",
+              "condition_any_code": [
                 "$WW11",
                 "$WW12",
                 "$WW13",
                 "$WW14",
+                "$WW26",
                 "$WW16",
                 "$WW17",
                 "$WW18",
@@ -9763,7 +10143,24 @@
         "$WW16": {
           "code": "$WW16",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW16",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW11",
+                  "$WW12",
+                  "$WW13",
+                  "$WW14",
+                  "$WW15",
+                  "$WW26",
+                  "$WW17",
+                  "$WW18",
+                  "$WW19"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9772,12 +10169,15 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW16",
+              "condition_state": "set",
+              "condition_any_code": [
                 "$WW11",
                 "$WW12",
                 "$WW13",
                 "$WW14",
                 "$WW15",
+                "$WW26",
                 "$WW17",
                 "$WW18",
                 "$WW19"
@@ -9812,7 +10212,24 @@
         "$WW17": {
           "code": "$WW17",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW17",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW11",
+                  "$WW12",
+                  "$WW13",
+                  "$WW14",
+                  "$WW15",
+                  "$WW16",
+                  "$WW26",
+                  "$WW18",
+                  "$WW19"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9821,13 +10238,16 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW17",
+              "condition_state": "set",
+              "condition_any_code": [
                 "$WW11",
                 "$WW12",
                 "$WW13",
                 "$WW14",
                 "$WW15",
                 "$WW16",
+                "$WW26",
                 "$WW18",
                 "$WW19"
               ]
@@ -9861,7 +10281,24 @@
         "$WW18": {
           "code": "$WW18",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW18",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW11",
+                  "$WW12",
+                  "$WW13",
+                  "$WW14",
+                  "$WW15",
+                  "$WW16",
+                  "$WW17",
+                  "$WW26",
+                  "$WW19"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9870,7 +10307,9 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW18",
+              "condition_state": "set",
+              "condition_any_code": [
                 "$WW11",
                 "$WW12",
                 "$WW13",
@@ -9878,6 +10317,7 @@
                 "$WW15",
                 "$WW16",
                 "$WW17",
+                "$WW26",
                 "$WW19"
               ]
             }
@@ -9910,7 +10350,24 @@
         "$WW19": {
           "code": "$WW19",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW19",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW11",
+                  "$WW12",
+                  "$WW13",
+                  "$WW14",
+                  "$WW15",
+                  "$WW16",
+                  "$WW17",
+                  "$WW18",
+                  "$WW26"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9919,7 +10376,9 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW19",
+              "condition_state": "set",
+              "condition_any_code": [
                 "$WW11",
                 "$WW12",
                 "$WW13",
@@ -9927,7 +10386,8 @@
                 "$WW15",
                 "$WW16",
                 "$WW17",
-                "$WW18"
+                "$WW18",
+                "$WW26"
               ]
             }
           ],
@@ -9952,6 +10412,105 @@
             {
               "type": "base",
               "value": 5500,
+              "context": "EUR"
+            }
+          ]
+        },
+        "$WW26": {
+          "code": "$WW26",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW26",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW11",
+                  "$WW12",
+                  "$WW13",
+                  "$WW14",
+                  "$WW15",
+                  "$WW16",
+                  "$WW17",
+                  "$WW18",
+                  "$WW19"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WW26"
+            },
+            {
+              "action": "unset",
+              "target": "$WW26",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WW11",
+                "$WW12",
+                "$WW13",
+                "$WW14",
+                "$WW15",
+                "$WW16",
+                "$WW17",
+                "$WW18",
+                "$WW19"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WW26"
+            }
+          ],
+          "name": "Set di pneumatici invernali Pirelli da 20\"",
+          "description": "Pirelli Scorpion winter tires combine low rolling resistance with a lot of grip on snowy roads. This set contains four 20\" Cyberstream rims with mounted tires and Arachnid wheel center caps.",
+          "long_name": "Pacchetto cerchi Cyberstream da 20\" e pneumatici invernali Pirelli Scorpion",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Pirelli Scorpion winter tires combine low rolling resistance with a lot of grip on snowy roads. This set contains four 20\" Cyberstream rims with mounted tires and Arachnid wheel center caps."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WW26"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELX/UI/X_Pirelli_Surface.png",
+                  "type": "image"
+                }
+              ]
+            }
+          ],
+          "price": 4500,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 4500,
               "context": "EUR"
             }
           ]
@@ -14740,7 +15299,7 @@
         "$CPF0",
         "$TW01"
       ],
-      "options_id": 3882,
+      "options_id": 3822,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -14842,18 +15401,11 @@
               "msg": "Present in both Copy and Options lexicons"
             },
             {
-              "code": "WINTER_WHEELS",
-              "context": [
-                "configurator"
-              ],
-              "msg": "Present in only Options lexicons"
-            },
-            {
               "code": "WINTER_WHEELS_OPTIONS",
               "context": [
                 "configurator"
               ],
-              "msg": "Present in only Options lexicons"
+              "msg": "Present in both Copy and Options lexicons"
             },
             {
               "code": "FEDERAL_TAX_CREDIT",
@@ -15204,6 +15756,20 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "20_IN_WINTER_WHEEL_FEATURES_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "WINTER_WHEELS_FEATURES",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -15213,10 +15779,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 6210,
+      "copy_id": 6307,
       "language": "it",
-      "pricing_id": 20312,
-      "reference_id": 3882,
+      "pricing_id": 20796,
+      "reference_id": 3822,
       "source": "cache"
     }
   },
