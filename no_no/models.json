@@ -704,6 +704,10 @@
             "context": "configurator"
           },
           {
+            "code": "WINTER_WHEELS_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "REVIEW_ORDER_CONNECTIVITY",
             "context": "configurator"
           },
@@ -1266,7 +1270,7 @@
           "SUMMARY_PANEL_DISTANCE_CHANGE",
           "ACCOUNT_DETAILS_CHANGED"
         ],
-        "showVehicleSubtotal": false,
+        "showVehicleSubtotal": true,
         "hidePostfixOnUI": false,
         "hideSavingsAfterPurchaseDiscl": false,
         "activeRegistrationTypes": [
@@ -1861,12 +1865,12 @@
       ]
     },
     "Lexicon.ms": {
-      "effective_date": "2022-08-12T00:08:00.000Z",
+      "effective_date": "2022-08-19T00:08:00.000Z",
       "market": "NO",
       "product": "ms",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing NO 2022.Aug.12 3850.6192.20277 [no]",
+      "name": "Marketing NO 2022.Aug.19 3806.6292.20827 [no]",
       "groups": [
         {
           "code": "MODEL",
@@ -2159,7 +2163,7 @@
         },
         {
           "code": "WINTER_TIRES",
-          "name": "WINTER_TIRES",
+          "name": "Vinterhjul",
           "context": "default",
           "groups": [],
           "options": [
@@ -2172,10 +2176,14 @@
             "$WW07",
             "$WW08",
             "$WW09",
-            "$WW10"
+            "$WW10",
+            "$WW22",
+            "$WW23",
+            "$WW24",
+            "$WW25"
           ],
           "required": false,
-          "exclusive": true,
+          "exclusive": false,
           "discountable": false,
           "default_options": []
         },
@@ -2292,6 +2300,7 @@
             "BATTERY_SETTING_ACCELERATION",
             "PAINT",
             "WHEELS",
+            "WINTER_WHEELS_OPTIONS",
             "WINTER_TIRES",
             "INTERIOR_PACKAGE",
             "REGULAR_DECOR",
@@ -2361,7 +2370,11 @@
             "$PPSB",
             "$PPSW",
             "$APBS",
-            "$APF2"
+            "$APF2",
+            "$WW22",
+            "$WW23",
+            "$WW24",
+            "$WW25"
           ],
           "required": false,
           "exclusive": false,
@@ -2532,6 +2545,9 @@
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
                   }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             },
@@ -2544,7 +2560,9 @@
               ]
             }
           ],
-          "groups": [],
+          "groups": [
+            "WINTER_WHEELS_OPTIONS"
+          ],
           "options": [
             "$WS90",
             "$WS10"
@@ -3535,6 +3553,7 @@
             "PAINT",
             "WHEELS",
             "WINTER_TIRES",
+            "WINTER_WHEELS_OPTIONS",
             "INTERIOR_PACKAGE",
             "REGULAR_DECOR",
             "CARBON_FILBER_DECOR",
@@ -3575,29 +3594,180 @@
           "exclusive": false
         },
         {
-          "code": "WINTER_WHEELS",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$WIN31",
-            "$WW03",
-            "$WW01"
-          ],
-          "required": false,
-          "exclusive": true,
-          "default_options": []
-        },
-        {
           "code": "WINTER_WHEELS_OPTIONS",
           "groups": [],
           "context": "configurator",
           "options": [
-            "$WW03",
-            "$WW01"
+            "$WW23"
           ],
           "required": false,
           "exclusive": false,
-          "default_options": []
+          "default_options": [],
+          "name": "Vinterhjul",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Vinterhjul"
+            },
+            {
+              "type": "feature_description",
+              "content": "Legg til et sett med vinterdekk og felg for optimal kjøring på snø og isete forhold"
+            },
+            {
+              "type": "add_component",
+              "content": "Velg sett",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WW23"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTS14"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--small",
+                      "tds-o-margin-top"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_component",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "actionClass": [
+                      "tds-btn tds-btn--secondary tds-btn--small tds-o-margin-top"
+                    ],
+                    "content_path": "CustomGroups.WINTER_WHEELS_OPTIONS.currentSelected[0].code"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_features",
+              "content": "spesifikasjoner",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "WINTER_WHEELS_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--tertiary",
+                      "tds-btn--small ",
+                      "tds-o-margin-top"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "hide": "inventory",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h5 tds-text--center",
+                    "component": "h3"
+                  }
+                },
+                {
+                  "show": "inventory",
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "content": [
+                      {
+                        "props": {
+                          "containerCss": "tds-text--center tds-o-vertical_padding--1x"
+                        },
+                        "fields": [
+                          {
+                            "field": "feature_description"
+                          },
+                          {
+                            "field": "add_component",
+                            "component": "button"
+                          }
+                        ],
+                        "parentClasses": "child--group-container tds-o-animate--slide_in tds--no_vertical_padding",
+                        "group_selected_by": {
+                          "not": [
+                            "WINTER_WHEELS_OPTIONS"
+                          ]
+                        }
+                      },
+                      {
+                        "props": {
+                          "containerCss": "tds--vertical_padding"
+                        },
+                        "fields": [
+                          {
+                            "type": "components",
+                            "content": [
+                              {
+                                "type": "Options",
+                                "props": {
+                                  "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--justify-center"
+                                }
+                              },
+                              {
+                                "type": "SelectedPrice"
+                              }
+                            ]
+                          },
+                          {
+                            "field": "remove_component",
+                            "component": "button"
+                          },
+                          {
+                            "field": "view_features",
+                            "props": {
+                              "modal": "WINTER_WHEELS_FEATURES"
+                            }
+                          }
+                        ],
+                        "parentClasses": "child--group-container tds-o-animate--slide_in tds--no_vertical_padding",
+                        "group_selected_by": {
+                          "and": [
+                            "WINTER_WHEELS_OPTIONS"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "ALL_WHEEL_DRIVE_ONE",
@@ -6671,6 +6841,124 @@
           "exclusive": false,
           "discountable": true,
           "default_options": []
+        },
+        {
+          "code": "WINTER_TIRES",
+          "name": "Vinterdekk",
+          "context": "configurator",
+          "extra_copy": [],
+          "extra_content": [],
+          "groups": [],
+          "options": [
+            "$WW23"
+          ],
+          "required": false,
+          "exclusive": false,
+          "discountable": false,
+          "default_options": []
+        },
+        {
+          "code": "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WW23"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "19'' Nokian-vinterdekksett (piggfrie)",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "19'' Nokian-vinterdekksett (piggfrie)"
+            },
+            {
+              "type": "eyebrow",
+              "content": "Inkludert"
+            },
+            {
+              "type": "description",
+              "content": "Nokian R5 Silentdrive piggfrie vinterdekk, spesielt utviklet for nordiske vinterforhold, har små, miljøvennlige krystaller i gummien som forbedrer grepet på snødekte veier. Dette settet inneholder fire 19\" Tempest-felger med monterte dekk og Tempest mørke navkapsler."
+            },
+            {
+              "type": "add_options",
+              "content": "Legg til pakke",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WW23"
+                      ]
+                    },
+                    "panelName": "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-19-winter-wheels"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Fjern",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WW23"
+                      ]
+                    },
+                    "panelName": "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-19-winter-wheels"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELS/UI/S_Nokian.png",
+                "type": "image",
+                "ratio": "slice"
+              }
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS_FEATURES",
+          "groups": [
+            "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Vinterhjuldetaljer",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Sammenlign modeller"
+            }
+          ]
         }
       ],
       "options": {
@@ -9175,20 +9463,6 @@
             {
               "action": "set",
               "target": "$WW01"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW02",
-                "$WW03",
-                "$WW04",
-                "$WW05",
-                "$WW06",
-                "$WW07",
-                "$WW08",
-                "$WW09",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9225,20 +9499,6 @@
             {
               "action": "set",
               "target": "$WW02"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW03",
-                "$WW04",
-                "$WW05",
-                "$WW06",
-                "$WW07",
-                "$WW08",
-                "$WW09",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9275,20 +9535,6 @@
             {
               "action": "set",
               "target": "$WW03"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW02",
-                "$WW04",
-                "$WW05",
-                "$WW06",
-                "$WW07",
-                "$WW08",
-                "$WW09",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9325,20 +9571,6 @@
             {
               "action": "set",
               "target": "$WW04"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW02",
-                "$WW03",
-                "$WW05",
-                "$WW06",
-                "$WW07",
-                "$WW08",
-                "$WW09",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9375,20 +9607,6 @@
             {
               "action": "set",
               "target": "$WW05"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW02",
-                "$WW03",
-                "$WW04",
-                "$WW06",
-                "$WW07",
-                "$WW08",
-                "$WW09",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9425,20 +9643,6 @@
             {
               "action": "set",
               "target": "$WW06"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW02",
-                "$WW03",
-                "$WW04",
-                "$WW05",
-                "$WW07",
-                "$WW08",
-                "$WW09",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9475,20 +9679,6 @@
             {
               "action": "set",
               "target": "$WW07"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW02",
-                "$WW03",
-                "$WW04",
-                "$WW05",
-                "$WW06",
-                "$WW08",
-                "$WW09",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9525,20 +9715,6 @@
             {
               "action": "set",
               "target": "$WW08"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW02",
-                "$WW03",
-                "$WW04",
-                "$WW05",
-                "$WW06",
-                "$WW07",
-                "$WW09",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9575,20 +9751,6 @@
             {
               "action": "set",
               "target": "$WW09"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW02",
-                "$WW03",
-                "$WW04",
-                "$WW05",
-                "$WW06",
-                "$WW07",
-                "$WW08",
-                "$WW10"
-              ]
             }
           ],
           "unset_rules": [
@@ -9625,20 +9787,6 @@
             {
               "action": "set",
               "target": "$WW10"
-            },
-            {
-              "action": "unset",
-              "targets": [
-                "$WW01",
-                "$WW02",
-                "$WW03",
-                "$WW04",
-                "$WW05",
-                "$WW06",
-                "$WW07",
-                "$WW08",
-                "$WW09"
-              ]
             }
           ],
           "unset_rules": [
@@ -9663,6 +9811,264 @@
               "type": "base",
               "value": 52300,
               "context": "NOK"
+            }
+          ]
+        },
+        "$WW22": {
+          "code": "$WW22",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW22",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW23",
+                  "$WW24",
+                  "$WW25"
+                ]
+              },
+              {
+                "action": "unset",
+                "target": "$WW22"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WW22"
+            },
+            {
+              "action": "unset",
+              "target": "$WW22",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WW23",
+                "$WW24",
+                "$WW25"
+              ]
+            },
+            {
+              "action": "unset",
+              "target": "$WW22"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WW22"
+            }
+          ],
+          "name": "19'' Cardenio-felger og Nokian piggdekkpakke",
+          "description": "19'' Cardenio-felger og Nokian piggdekkpakke",
+          "long_name": "19'' Cardenio-felger og Nokian piggdekkpakke",
+          "extra_copy": [],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": []
+            }
+          ]
+        },
+        "$WW23": {
+          "code": "$WW23",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW23",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW22",
+                  "$WW24",
+                  "$WW25"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WW23"
+            },
+            {
+              "action": "unset",
+              "target": "$WW23",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WW22",
+                "$WW24",
+                "$WW25"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WW23"
+            }
+          ],
+          "name": "19'' Nokian-vinterdekksett (piggfrie)",
+          "description": "19'' Tempest Wheels and Nokian Non-Studded Winter Tire Package",
+          "long_name": "19'' Tempest-felger og Nokian piggfrie vinterdekkpakke",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Nokian Hakkapeliitta R5 studless winter tires, specially developed for Nordic winter conditions, have small environmentally friendly crystals in the rubber that improve wall grip on snow-covered roads. This set includes four 19\" Tempest rims with mounted tires and dark center caps."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WW23"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELS/UI/S_Nokian_Surface.png",
+                  "type": "image"
+                }
+              ]
+            }
+          ],
+          "price": 33070,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 33070,
+              "context": "NOK"
+            }
+          ]
+        },
+        "$WW24": {
+          "code": "$WW24",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW24",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW22",
+                  "$WW23",
+                  "$WW25"
+                ]
+              },
+              {
+                "action": "unset",
+                "target": "$WW24"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WW24"
+            },
+            {
+              "action": "unset",
+              "target": "$WW24",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WW22",
+                "$WW23",
+                "$WW25"
+              ]
+            },
+            {
+              "action": "unset",
+              "target": "$WW24"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WW24"
+            }
+          ],
+          "name": "21'' Arachnid V3-felger og Nokian piggdekkpakke (BLE TPMS)",
+          "description": "21'' Arachnid V3-felger og Nokian piggdekkpakke (BLE TPMS)",
+          "long_name": "21'' Arachnid V3-felger og Nokian piggdekkpakke (BLE TPMS)",
+          "extra_copy": [],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": []
+            }
+          ]
+        },
+        "$WW25": {
+          "code": "$WW25",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW25",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW22",
+                  "$WW24",
+                  "$WW23"
+                ]
+              },
+              {
+                "action": "unset",
+                "target": "$WW25"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WW25"
+            },
+            {
+              "action": "unset",
+              "target": "$WW25",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WW22",
+                "$WW24",
+                "$WW23"
+              ]
+            },
+            {
+              "action": "unset",
+              "target": "$WW25"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WW25"
+            }
+          ],
+          "name": "21'' Arachnid V3-felger og Nokian piggfrie vinterdekkpakke",
+          "description": "21'' Arachnid V3-felger og Nokian piggfrie vinterdekkpakke",
+          "long_name": "21'' Arachnid V3-felger og Nokian piggfrie vinterdekkpakke",
+          "extra_copy": [],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": []
             }
           ]
         },
@@ -14588,7 +14994,7 @@
         "$CPF0",
         "$TW01"
       ],
-      "options_id": 3850,
+      "options_id": 3806,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -14601,6 +15007,18 @@
         {
           "type": "MISSING_PRICE",
           "message": "The discountable group's, option '$INWCB' is not defined in the pricing lexicon."
+        },
+        {
+          "type": "MISSING_PRICE",
+          "message": "The discountable group's, option '$WW22' is not defined in the pricing lexicon."
+        },
+        {
+          "type": "MISSING_PRICE",
+          "message": "The discountable group's, option '$WW24' is not defined in the pricing lexicon."
+        },
+        {
+          "type": "MISSING_PRICE",
+          "message": "The discountable group's, option '$WW25' is not defined in the pricing lexicon."
         },
         {
           "type": "MISSING_PRICE",
@@ -14701,18 +15119,11 @@
               "msg": "Present in only Options lexicons"
             },
             {
-              "code": "WINTER_WHEELS",
-              "context": [
-                "configurator"
-              ],
-              "msg": "Present in only Options lexicons"
-            },
-            {
               "code": "WINTER_WHEELS_OPTIONS",
               "context": [
                 "configurator"
               ],
-              "msg": "Present in only Options lexicons"
+              "msg": "Present in both Copy and Options lexicons"
             },
             {
               "code": "ALL_WHEEL_DRIVE_ONE",
@@ -15028,6 +15439,20 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "19_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "WINTER_WHEELS_FEATURES",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -15037,10 +15462,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 6192,
+      "copy_id": 6292,
       "language": "no",
-      "pricing_id": 20277,
-      "reference_id": 3850,
+      "pricing_id": 20827,
+      "reference_id": 3806,
       "source": "cache"
     }
   },

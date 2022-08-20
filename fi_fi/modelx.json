@@ -752,6 +752,10 @@
             "context": "configurator"
           },
           {
+            "code": "WINTER_WHEELS_FEATURES",
+            "context": "configurator"
+          },
+          {
             "code": "FSD_FEATURES",
             "context": "configurator"
           },
@@ -1311,7 +1315,7 @@
           "SUMMARY_PANEL_FINANCE_DISTANCE_CHANGE",
           "ACCOUNT_DETAILS_CHANGED"
         ],
-        "showVehicleSubtotal": false,
+        "showVehicleSubtotal": true,
         "hidePostfixOnUI": false,
         "hideSavingsAfterPurchaseDiscl": false,
         "activeRegistrationTypes": [
@@ -2009,12 +2013,12 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2022-08-12T00:08:00.000Z",
+      "effective_date": "2022-08-19T00:08:00.000Z",
       "market": "FI",
       "product": "mx",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing FI 2022.Aug.12 3878.6226.20301 [fi]",
+      "name": "Marketing FI 2022.Aug.19 3815.6304.20801 [fi]",
       "groups": [
         {
           "code": "MODEL",
@@ -2306,7 +2310,7 @@
         },
         {
           "code": "WINTER_TIRES",
-          "name": "WINTER_TIRES",
+          "name": "Talvivanteet",
           "context": "default",
           "groups": [],
           "options": [
@@ -2318,10 +2322,12 @@
             "$WW16",
             "$WW17",
             "$WW18",
-            "$WW19"
+            "$WW19",
+            "$WW27",
+            "$WW28"
           ],
           "required": false,
-          "exclusive": true,
+          "exclusive": false,
           "discountable": false,
           "default_options": []
         },
@@ -2473,7 +2479,9 @@
             "$PBSB",
             "$PMNG",
             "$PPSB",
-            "$PPSW"
+            "$PPSW",
+            "$WW27",
+            "$WW28"
           ],
           "required": false,
           "exclusive": false,
@@ -2497,6 +2505,7 @@
             "BATTERY_SETTING_ACCELERATION",
             "PAINT",
             "WHEELS",
+            "WINTER_WHEELS_OPTIONS",
             "WINTER_TIRES",
             "INTERIOR_PACKAGE",
             "REAR_SEATS",
@@ -3635,6 +3644,9 @@
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
                   }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             },
@@ -3647,7 +3659,9 @@
               ]
             }
           ],
-          "groups": [],
+          "groups": [
+            "WINTER_WHEELS_OPTIONS"
+          ],
           "options": [
             "$WX00",
             "$WX20"
@@ -3664,6 +3678,7 @@
             "PAINT",
             "WHEELS",
             "WINTER_TIRES",
+            "WINTER_WHEELS_OPTIONS",
             "INTERIOR_PACKAGE",
             "REAR_SEATS",
             "STEERING_WHEEL",
@@ -3695,29 +3710,180 @@
           ]
         },
         {
-          "code": "WINTER_WHEELS",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$WIN31",
-            "$WW14",
-            "$WW17"
-          ],
-          "required": false,
-          "exclusive": true,
-          "default_options": []
-        },
-        {
           "code": "WINTER_WHEELS_OPTIONS",
           "groups": [],
           "context": "configurator",
           "options": [
-            "$WW14",
-            "$WW17"
+            "$WW27"
           ],
           "required": false,
           "exclusive": false,
-          "default_options": []
+          "default_options": [],
+          "name": "Talvivanteet",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Talvivanteet"
+            },
+            {
+              "type": "feature_description",
+              "content": "Hankkimalla talvirenkaiden ja -vanteiden sarjan voit taata optimaalisen ajokokemuksen talvisissa olosuhteissa"
+            },
+            {
+              "type": "add_component",
+              "content": "Valitse sarja",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WW27"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTX14"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--small",
+                      "tds-o-margin-top"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_component",
+              "content": "Poista",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "actionClass": [
+                      "tds-btn tds-btn--secondary tds-btn--small tds-o-margin-top"
+                    ],
+                    "content_path": "CustomGroups.WINTER_WHEELS_OPTIONS.currentSelected[0].code"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_features",
+              "content": "ominaisuudet",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "WINTER_WHEELS_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--tertiary",
+                      "tds-btn--small ",
+                      "tds-o-margin-top"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "hide": "inventory",
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h5 tds-text--center",
+                    "component": "h3"
+                  }
+                },
+                {
+                  "show": "inventory",
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "content": [
+                      {
+                        "props": {
+                          "containerCss": "tds-text--center tds-o-vertical_padding--1x"
+                        },
+                        "fields": [
+                          {
+                            "field": "feature_description"
+                          },
+                          {
+                            "field": "add_component",
+                            "component": "button"
+                          }
+                        ],
+                        "parentClasses": "child--group-container tds-o-animate--slide_in tds--no_vertical_padding",
+                        "group_selected_by": {
+                          "not": [
+                            "WINTER_WHEELS_OPTIONS"
+                          ]
+                        }
+                      },
+                      {
+                        "props": {
+                          "containerCss": "tds--vertical_padding"
+                        },
+                        "fields": [
+                          {
+                            "type": "components",
+                            "content": [
+                              {
+                                "type": "Options",
+                                "props": {
+                                  "classes": "tds--vertical_padding tds-flex tds-flex--row-nowrap tds-flex--justify-center"
+                                }
+                              },
+                              {
+                                "type": "SelectedPrice"
+                              }
+                            ]
+                          },
+                          {
+                            "field": "remove_component",
+                            "component": "button"
+                          },
+                          {
+                            "field": "view_features",
+                            "props": {
+                              "modal": "WINTER_WHEELS_FEATURES"
+                            }
+                          }
+                        ],
+                        "parentClasses": "child--group-container tds-o-animate--slide_in tds--no_vertical_padding",
+                        "group_selected_by": {
+                          "and": [
+                            "WINTER_WHEELS_OPTIONS"
+                          ]
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "FEDERAL_TAX_CREDIT",
@@ -6898,6 +7064,124 @@
           "required": false,
           "exclusive": false,
           "name": "REVIEW_ORDER_CONNECTIVITY"
+        },
+        {
+          "code": "WINTER_TIRES",
+          "name": "Talvirenkaat",
+          "context": "configurator",
+          "extra_copy": [],
+          "extra_content": [],
+          "groups": [],
+          "options": [
+            "$WW27"
+          ],
+          "required": false,
+          "exclusive": false,
+          "discountable": false,
+          "default_options": []
+        },
+        {
+          "code": "20_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WW27"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "20'' Nokian kitkarengassarja ",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "20'' Nokian kitkarengassarja"
+            },
+            {
+              "type": "eyebrow",
+              "content": "Sisältyy"
+            },
+            {
+              "type": "description",
+              "content": "Nokian Hakkapeliitta R5 EV -kitkarenkaat on suunniteltu erityisesti pohjoisiin talviolosuhteisiin. Kumiin on upotettu pieniä ympäristöystävällisiä kiteitä, jotka parantavat pitoa lumisilla teillä. Tämä sarja sisältää 20\" Cyberstream-vanteet, joihin on asennettu renkaat ja Arachnid-keskikupit."
+            },
+            {
+              "type": "add_options",
+              "content": "Lisää paketti",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WW27"
+                      ]
+                    },
+                    "panelName": "20_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-20-winter-wheels"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Poista",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$WW27"
+                      ]
+                    },
+                    "panelName": "20_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-nokian-20-winter-wheels"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": {
+                "url": "MODELX/UI/X_Nokian.png",
+                "type": "image",
+                "ratio": "slice"
+              }
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS_FEATURES",
+          "groups": [
+            "20_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Talvirenkaiden ja -vanteiden ominaisuudet",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Vertaile malleja"
+            }
+          ]
         }
       ],
       "options": {
@@ -9306,7 +9590,25 @@
         "$WW11": {
           "code": "$WW11",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW11",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW27",
+                  "$WW28",
+                  "$WW12",
+                  "$WW13",
+                  "$WW14",
+                  "$WW15",
+                  "$WW16",
+                  "$WW17",
+                  "$WW18",
+                  "$WW19"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9315,7 +9617,11 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW11",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WW27",
+                "$WW28",
                 "$WW12",
                 "$WW13",
                 "$WW14",
@@ -9355,7 +9661,25 @@
         "$WW12": {
           "code": "$WW12",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW12",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW27",
+                  "$WW11",
+                  "$WW28",
+                  "$WW13",
+                  "$WW14",
+                  "$WW15",
+                  "$WW16",
+                  "$WW17",
+                  "$WW18",
+                  "$WW19"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9364,8 +9688,12 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW12",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WW27",
                 "$WW11",
+                "$WW28",
                 "$WW13",
                 "$WW14",
                 "$WW15",
@@ -9404,7 +9732,25 @@
         "$WW13": {
           "code": "$WW13",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW13",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW27",
+                  "$WW11",
+                  "$WW12",
+                  "$WW28",
+                  "$WW14",
+                  "$WW15",
+                  "$WW16",
+                  "$WW17",
+                  "$WW18",
+                  "$WW19"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9413,9 +9759,13 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW13",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WW27",
                 "$WW11",
                 "$WW12",
+                "$WW28",
                 "$WW14",
                 "$WW15",
                 "$WW16",
@@ -9453,7 +9803,25 @@
         "$WW14": {
           "code": "$WW14",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW14",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW27",
+                  "$WW11",
+                  "$WW12",
+                  "$WW13",
+                  "$WW28",
+                  "$WW15",
+                  "$WW16",
+                  "$WW17",
+                  "$WW18",
+                  "$WW19"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9462,10 +9830,14 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW14",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WW27",
                 "$WW11",
                 "$WW12",
                 "$WW13",
+                "$WW28",
                 "$WW15",
                 "$WW16",
                 "$WW17",
@@ -9502,7 +9874,25 @@
         "$WW15": {
           "code": "$WW15",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW15",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW27",
+                  "$WW11",
+                  "$WW12",
+                  "$WW13",
+                  "$WW14",
+                  "$WW28",
+                  "$WW16",
+                  "$WW17",
+                  "$WW18",
+                  "$WW19"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9511,11 +9901,15 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW15",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WW27",
                 "$WW11",
                 "$WW12",
                 "$WW13",
                 "$WW14",
+                "$WW28",
                 "$WW16",
                 "$WW17",
                 "$WW18",
@@ -9551,7 +9945,25 @@
         "$WW16": {
           "code": "$WW16",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW16",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW27",
+                  "$WW11",
+                  "$WW12",
+                  "$WW13",
+                  "$WW14",
+                  "$WW15",
+                  "$WW28",
+                  "$WW17",
+                  "$WW18",
+                  "$WW19"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9560,12 +9972,16 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW16",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WW27",
                 "$WW11",
                 "$WW12",
                 "$WW13",
                 "$WW14",
                 "$WW15",
+                "$WW28",
                 "$WW17",
                 "$WW18",
                 "$WW19"
@@ -9600,7 +10016,25 @@
         "$WW17": {
           "code": "$WW17",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW17",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW27",
+                  "$WW11",
+                  "$WW12",
+                  "$WW13",
+                  "$WW14",
+                  "$WW15",
+                  "$WW16",
+                  "$WW28",
+                  "$WW18",
+                  "$WW19"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9609,13 +10043,17 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW17",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WW27",
                 "$WW11",
                 "$WW12",
                 "$WW13",
                 "$WW14",
                 "$WW15",
                 "$WW16",
+                "$WW28",
                 "$WW18",
                 "$WW19"
               ]
@@ -9649,7 +10087,25 @@
         "$WW18": {
           "code": "$WW18",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW18",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW27",
+                  "$WW11",
+                  "$WW12",
+                  "$WW13",
+                  "$WW14",
+                  "$WW15",
+                  "$WW16",
+                  "$WW17",
+                  "$WW28",
+                  "$WW19"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9658,7 +10114,10 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW18",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WW27",
                 "$WW11",
                 "$WW12",
                 "$WW13",
@@ -9666,6 +10125,7 @@
                 "$WW15",
                 "$WW16",
                 "$WW17",
+                "$WW28",
                 "$WW19"
               ]
             }
@@ -9698,7 +10158,25 @@
         "$WW19": {
           "code": "$WW19",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW19",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW27",
+                  "$WW11",
+                  "$WW12",
+                  "$WW13",
+                  "$WW14",
+                  "$WW15",
+                  "$WW16",
+                  "$WW17",
+                  "$WW18",
+                  "$WW28"
+                ]
+              }
+            ]
           },
           "set_rules": [
             {
@@ -9707,7 +10185,10 @@
             },
             {
               "action": "unset",
-              "targets": [
+              "target": "$WW19",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WW27",
                 "$WW11",
                 "$WW12",
                 "$WW13",
@@ -9715,7 +10196,8 @@
                 "$WW15",
                 "$WW16",
                 "$WW17",
-                "$WW18"
+                "$WW18",
+                "$WW28"
               ]
             }
           ],
@@ -9741,6 +10223,170 @@
               "type": "base",
               "value": 5500,
               "context": "EUR"
+            }
+          ]
+        },
+        "$WW27": {
+          "code": "$WW27",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW27",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW28",
+                  "$WW11",
+                  "$WW12",
+                  "$WW13",
+                  "$WW14",
+                  "$WW15",
+                  "$WW16",
+                  "$WW17",
+                  "$WW18",
+                  "$WW19"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WW27"
+            },
+            {
+              "action": "unset",
+              "target": "$WW27",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WW28",
+                "$WW11",
+                "$WW12",
+                "$WW13",
+                "$WW14",
+                "$WW15",
+                "$WW16",
+                "$WW17",
+                "$WW18",
+                "$WW19"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WW27"
+            }
+          ],
+          "name": "20'' Nokian kitkarengassarja",
+          "description": "Nokian Hakkapeliitta R5 EV studless winter tires, specially developed for Nordic winter conditions, have small environmentally friendly crystals in the rubber that improve wall grip on snow-covered roads. This set includes four 20\" Cyberstream rims with mounted tires and Arachnid center caps.",
+          "long_name": "20'' Cyberstream-vanteet ja Nokian kitkarengaspaketti (BLE TPMS)",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "Nokian Hakkapeliitta R5 EV studless winter tires, specially developed for Nordic winter conditions, have small environmentally friendly crystals in the rubber that improve wall grip on snow-covered roads. This set includes four 20\" Cyberstream rims with mounted tires and Arachnid center caps."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$WW27"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELX/UI/X_Nokian_Surface.png",
+                  "type": "image"
+                }
+              ]
+            }
+          ],
+          "price": 4500,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 4500,
+              "context": "EUR"
+            }
+          ]
+        },
+        "$WW28": {
+          "code": "$WW28",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "unset",
+                "target": "$WW28",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WW27",
+                  "$WW11",
+                  "$WW12",
+                  "$WW13",
+                  "$WW14",
+                  "$WW15",
+                  "$WW16",
+                  "$WW17",
+                  "$WW18",
+                  "$WW19"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WW28"
+            },
+            {
+              "action": "unset",
+              "target": "$WW28",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WW27",
+                "$WW11",
+                "$WW12",
+                "$WW13",
+                "$WW14",
+                "$WW15",
+                "$WW16",
+                "$WW17",
+                "$WW18",
+                "$WW19"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WW28"
+            }
+          ],
+          "name": "20'' Cyberstream-vanteet ja Nokian nastarengaspaketti (BLE TPMS)",
+          "description": "20'' Cyberstream-vanteet ja Nokian nastarengaspaketti (BLE TPMS)",
+          "long_name": "20'' Cyberstream-vanteet ja Nokian nastarengaspaketti (BLE TPMS)",
+          "extra_copy": [],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": []
             }
           ]
         },
@@ -14552,7 +15198,7 @@
         "$CPF0",
         "$TW01"
       ],
-      "options_id": 3878,
+      "options_id": 3815,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -14569,6 +15215,10 @@
         {
           "type": "MISSING_PRICE",
           "message": "The discountable group's, option '$INWCB' is not defined in the pricing lexicon."
+        },
+        {
+          "type": "MISSING_PRICE",
+          "message": "The discountable group's, option '$WW28' is not defined in the pricing lexicon."
         },
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -14654,18 +15304,11 @@
               "msg": "Present in both Copy and Options lexicons"
             },
             {
-              "code": "WINTER_WHEELS",
-              "context": [
-                "configurator"
-              ],
-              "msg": "Present in only Options lexicons"
-            },
-            {
               "code": "WINTER_WHEELS_OPTIONS",
               "context": [
                 "configurator"
               ],
-              "msg": "Present in only Options lexicons"
+              "msg": "Present in both Copy and Options lexicons"
             },
             {
               "code": "FEDERAL_TAX_CREDIT",
@@ -15016,6 +15659,20 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "20_IN_NOKIAN_WINTER_WHEEL_FEATURES_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "WINTER_WHEELS_FEATURES",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -15025,10 +15682,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 6226,
+      "copy_id": 6304,
       "language": "fi",
-      "pricing_id": 20301,
-      "reference_id": 3878,
+      "pricing_id": 20801,
+      "reference_id": 3815,
       "source": "cache"
     }
   },
