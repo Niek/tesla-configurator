@@ -871,7 +871,7 @@
           "loan",
           "finplat.AUTO_LOAN"
         ],
-        "hideAfterSavingsModal": false,
+        "hideAfterSavingsModal": true,
         "showSavingsAmount": [
           "cash",
           "loan",
@@ -880,7 +880,7 @@
         "showSavingAmountInModal": true,
         "showSavingAmtWithoutMinus": true,
         "showAmountIncludingFees": true,
-        "showAmountIncludingFeesSummary": true,
+        "showAmountIncludingFeesSummary": false,
         "loanAfterSavingsLabel": "netPrice__after_savings",
         "showSecondDepositDisclaimer": false,
         "useModelYContent": false,
@@ -946,7 +946,7 @@
         "showIncentivesTotal": true,
         "showFuelMonthlySavings": false,
         "financeSelectionDislaimer": null,
-        "showAmountIncludingFeesInModal": false,
+        "showAmountIncludingFeesInModal": true,
         "hideFinanceOnPrintPdf": false,
         "reversePricingOrder": true,
         "hideTaxesAndFeesExcluded": true
@@ -1399,9 +1399,10 @@
         "showEvSubsidyDisclaimer": false,
         "showDemoVehicleBlock": true,
         "isSinglePage": false,
-        "includeOrderFeeInVehicleTotal": true,
+        "includeOrderFeeInVehicleTotal": false,
         "showLeaseDisclaimer": false,
-        "useUsedInventoryDisclaimerCopy": false
+        "useUsedInventoryDisclaimerCopy": false,
+        "showTaxAndFeesDisclaimer": true
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -1764,9 +1765,7 @@
         },
         {
           "feeType": "OMVIC_fee",
-          "financeType": [
-            "cash"
-          ],
+          "financeType": "any",
           "description": "OMVIC fee",
           "period": "once",
           "variant": [
@@ -1782,11 +1781,24 @@
           "market": "CA"
         },
         {
-          "feeType": "acquisition_fee",
-          "financeType": [
-            "cash",
-            "lease"
+          "feeType": "luxury_tax",
+          "financeType": "any",
+          "description": "Luxury tax",
+          "period": "once",
+          "variant": [
+            "m3",
+            "my",
+            "ms",
+            "mx"
           ],
+          "inventory": [
+            "new"
+          ],
+          "market": "CA"
+        },
+        {
+          "feeType": "acquisition_fee",
+          "financeType": "any",
           "description": "Air Condition fee",
           "period": "once",
           "variant": [
