@@ -1688,12 +1688,12 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2022-07-20T23:20:00.000Z",
+      "effective_date": "2022-08-26T00:52:00.000Z",
       "market": "GR",
       "product": "my",
       "factory": "GF03",
       "fees": {},
-      "name": "Marketing GR 2022.Jul.20 3563.6253.13703 [el]",
+      "name": "Marketing GR 2022.Aug.26 4127.6686.21683 [el]",
       "groups": [
         {
           "code": "MODEL",
@@ -1717,13 +1717,14 @@
           "groups": [],
           "options": [
             "$MTY09",
-            "$MTY12"
+            "$MTY12",
+            "$MTY13"
           ],
           "required": true,
           "exclusive": true,
           "discountable": true,
           "default_options": [
-            "$MTY09"
+            "$MTY13"
           ]
         },
         {
@@ -1738,12 +1739,13 @@
           ],
           "groups": [],
           "options": [
+            "$DV2W",
             "$DV4W"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$DV4W"
+            "$DV2W"
           ]
         },
         {
@@ -2035,7 +2037,8 @@
             "$MTY05",
             "$MTY07",
             "$MTY12",
-            "$MTY09"
+            "$MTY09",
+            "$MTY13"
           ],
           "required": false,
           "exclusive": false,
@@ -2119,13 +2122,14 @@
           ],
           "groups": [],
           "options": [
+            "$MTY13",
             "$MTY09",
             "$MTY12"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTY09"
+            "$MTY13"
           ]
         },
         {
@@ -2399,6 +2403,26 @@
                     "and": [
                       "$WY21P",
                       "$MTY12"
+                    ]
+                  }
+                },
+                {
+                  "value": 455,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WY19B",
+                      "$MTY13"
+                    ]
+                  }
+                },
+                {
+                  "value": 430,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WY20P",
+                      "$MTY13"
                     ]
                   }
                 }
@@ -2994,6 +3018,7 @@
         {
           "code": "BATTERY_AND_DRIVE",
           "groups": [
+            "REAR_WHEEL_PREMIUM",
             "DUAL_MOTOR_PREMIUM",
             "SPORT_PACKAGE"
           ],
@@ -3200,7 +3225,8 @@
             "$MTY05",
             "$MTY07",
             "$MTY12",
-            "$MTY09"
+            "$MTY09",
+            "$MTY13"
           ],
           "required": false,
           "exclusive": false,
@@ -5232,10 +5258,6 @@
               "content": "Θερμαινόμενα καθίσματα και για τις 5 θέσεις με ατομικά χειριστήρια"
             },
             {
-              "type": "feature_list.default[0].items[4]",
-              "content": "Φώτα ομίχλης LED"
-            },
-            {
               "type": "feature_list.default[0].items[6]",
               "content": "Ηλεκτρικά αναδιπλούμενοι, θερμαινόμενοι πλευρικοί καθρέφτες με αυτόματη εξασθένιση φωτεινότητας ανακλάσεων"
             },
@@ -5457,10 +5479,6 @@
             {
               "type": "feature_list.default[2].main_title",
               "content": "Ευκολία"
-            },
-            {
-              "type": "feature_list.default[2].items[0]",
-              "content": "Φώτα ομίχλης LED"
             },
             {
               "type": "feature_list.default[2].items[1]",
@@ -6291,6 +6309,48 @@
           "required": false,
           "exclusive": false,
           "name": "REVIEW_ORDER_CONNECTIVITY"
+        },
+        {
+          "code": "REAR_WHEEL_PREMIUM",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$MTY13"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [
+            "$MTY13"
+          ],
+          "name": "REAR_WHEEL_PREMIUM",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            },
+            {
+              "type": "sub_title",
+              "content": "Πίσω κίνηση"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "sub_title",
+                    "classes": "tds-text--h6 tds-text--start text-loader--subtitle tds-text--500 tds-text_color--30 tds--vertical_padding-10",
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "Options"
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -6846,17 +6906,17 @@
           "price": 3800,
           "pricing": [
             {
-              "type": "trial",
-              "value": 3800,
-              "context": "EUR"
-            },
-            {
               "type": "base",
               "value": 3800,
               "context": "EUR"
             },
             {
               "type": "upgrade",
+              "value": 3800,
+              "context": "EUR"
+            },
+            {
+              "type": "trial",
               "value": 3800,
               "context": "EUR"
             }
@@ -7073,15 +7133,124 @@
             }
           ]
         },
+        "$DV2W": {
+          "code": "$DV2W",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$DV4W",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTY09",
+                  "$MTY12",
+                  "$MTY15"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$DV2W"
+            },
+            {
+              "action": "unset",
+              "target": "$DV4W"
+            },
+            {
+              "action": "set",
+              "target": "$DV4W",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTY09",
+                "$MTY12",
+                "$MTY15"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$DV2W"
+            },
+            {
+              "action": "set",
+              "target": "$DV2W",
+              "condition_code": "$DV4W",
+              "condition_state": "unset"
+            }
+          ],
+          "name": "Πίσω κίνηση",
+          "description": "Πίσω κίνηση",
+          "long_name": "Πίσω κίνηση",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Standard"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": " ",
+                  "configuration": [
+                    "$MTY02"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "disable_override",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$MTY02"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ]
+        },
         "$DV4W": {
           "code": "$DV4W",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$DV2W",
+                "condition_code": "$MTY13",
+                "condition_state": "set"
+              }
+            ]
           },
           "set_rules": [
             {
               "action": "set",
               "target": "$DV4W"
+            },
+            {
+              "action": "unset",
+              "target": "$DV2W"
+            },
+            {
+              "action": "set",
+              "target": "$DV2W",
+              "condition_code": "$MTY13",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -7091,7 +7260,7 @@
             },
             {
               "action": "set",
-              "target": "$DV4W"
+              "target": "$DV2W"
             }
           ],
           "name": "Διπλός κινητήρας-Τετρακίνηση",
@@ -8110,10 +8279,6 @@
               "content": "Μουσική και πολυμέσα μέσω Bluetooth®"
             },
             {
-              "type": "feature_list.default[2].items[1]",
-              "content": "Φώτα ομίχλης LED"
-            },
-            {
               "type": "feature_list.default[2].items[2]",
               "content": "Φιμέ γυάλινη οροφή με προστασία από την υπεριώδη και την υπέρυθρη ακτινοβολία"
             },
@@ -8332,10 +8497,6 @@
               "content": "Μουσική και πολυμέσα μέσω Bluetooth®"
             },
             {
-              "type": "feature_list.default[2].items[1]",
-              "content": "Φώτα ομίχλης LED"
-            },
-            {
               "type": "feature_list.default[2].items[2]",
               "content": "Φιμέ γυάλινη οροφή με προστασία από την υπεριώδη και την υπέρυθρη ακτινοβολία"
             },
@@ -8443,6 +8604,21 @@
         },
         "$MTY09": {
           "code": "$MTY09",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "targets": [
+                  "$DV4W",
+                  "$PRMY1"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$TW01"
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -8455,8 +8631,20 @@
                 "$MTY04",
                 "$MTY05",
                 "$MTY07",
-                "$MTY12"
+                "$MTY12",
+                "$MTY13"
               ]
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$DV4W",
+                "$PRMY1"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$TW01"
             }
           ],
           "unset_rules": [
@@ -8466,7 +8654,7 @@
             },
             {
               "action": "set",
-              "target": "$MTY09",
+              "target": "$MTY13",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY03",
@@ -8579,6 +8767,10 @@
                   "$SLR1",
                   "$WY21P"
                 ]
+              },
+              {
+                "action": "unset",
+                "target": "$TW01"
               }
             ],
             "unset_rules": [
@@ -8603,7 +8795,8 @@
                 "$MTY04",
                 "$MTY05",
                 "$MTY07",
-                "$MTY09"
+                "$MTY09",
+                "$MTY13"
               ]
             },
             {
@@ -8622,6 +8815,10 @@
                 "$SLR1",
                 "$WY21P"
               ]
+            },
+            {
+              "action": "unset",
+              "target": "$TW01"
             }
           ],
           "unset_rules": [
@@ -8631,13 +8828,14 @@
             },
             {
               "action": "set",
-              "target": "$MTY09",
+              "target": "$MTY13",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY03",
                 "$MTY04",
                 "$MTY05",
-                "$MTY07"
+                "$MTY07",
+                "$MTY09"
               ]
             },
             {
@@ -8757,6 +8955,140 @@
             {
               "type": "base_plus_trim",
               "value": 66990,
+              "context": "EUR"
+            }
+          ]
+        },
+        "$MTY13": {
+          "code": "$MTY13",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "targets": [
+                  "$DV2W",
+                  "$PRMY1"
+                ]
+              },
+              {
+                "action": "unset",
+                "target": "$TW01"
+              }
+            ],
+            "unset_rules": [
+              {
+                "action": "unset",
+                "targets": [
+                  "$SLR1",
+                  "$SPTY1"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTY13"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTY03",
+                "$MTY04",
+                "$MTY05",
+                "$MTY07",
+                "$MTY09",
+                "$MTY12"
+              ]
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$DV2W",
+                "$PRMY1"
+              ]
+            },
+            {
+              "action": "unset",
+              "target": "$TW01"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTY13"
+            },
+            {
+              "action": "set",
+              "target": "$MTY13",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTY03",
+                "$MTY04",
+                "$MTY05",
+                "$MTY07",
+                "$MTY09",
+                "$MTY12"
+              ]
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$SLR1",
+                "$SPTY1"
+              ]
+            }
+          ],
+          "name": "Model Y με πίσω κίνηση",
+          "description": "Model Y με πίσω κίνηση",
+          "long_name": "Model Y με πίσω κίνηση",
+          "long_description": "Model Y με πίσω κίνηση",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Model Y"
+            },
+            {
+              "type": "long_name",
+              "content": "Model Y με πίσω κίνηση"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Πίσω κίνηση"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
+          "price": 990,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 990,
+              "context": "EUR"
+            },
+            {
+              "type": "base_plus_trim",
+              "value": 53990,
               "context": "EUR"
             }
           ]
@@ -9606,7 +9938,7 @@
                     "label": "Αυτονομία (WLTP)"
                   },
                   "range_units_est": {
-                    "label": "Αυτονομία (εκτ.)"
+                    "label": "Αυτονομία (εκτ. WLTP)"
                   },
                   "top_speed_units": {
                     "label": "Μέγιστη ταχύτητα",
@@ -9763,6 +10095,25 @@
                   ],
                   "acceleration": 3.7,
                   "range_units_override": "range_units_epa_link"
+                },
+                "$MTY13": {
+                  "name": "Model Y Rear-Wheel Drive",
+                  "range": 430,
+                  "topspeed": 217,
+                  "overrides": [
+                    {
+                      "content": {
+                        "range": 455
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$WY19B"
+                        ]
+                      }
+                    }
+                  ],
+                  "acceleration": 6.9,
+                  "range_units_override": "range_units_est"
                 }
               },
               "curb_weight": {
@@ -9809,17 +10160,17 @@
       "base_configuration": [
         "$INPB0",
         "$PPSW",
-        "$WY20P",
-        "$DV4W",
+        "$WY19B",
+        "$DV2W",
         "$MDLY",
         "$STY5S",
         "$PRMY1",
-        "$MTY09",
+        "$MTY13",
         "$APBS",
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 3563,
+      "options_id": 4127,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -10240,6 +10591,13 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "REAR_WHEEL_PREMIUM",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -10249,10 +10607,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 6253,
+      "copy_id": 6686,
       "language": "el",
-      "pricing_id": 13703,
-      "reference_id": 3563,
+      "pricing_id": 21683,
+      "reference_id": 4127,
       "source": "cache"
     }
   },

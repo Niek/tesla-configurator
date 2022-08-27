@@ -2769,12 +2769,12 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2022-07-20T23:20:00.000Z",
+      "effective_date": "2022-08-26T00:52:00.000Z",
       "market": "NO",
       "product": "my",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing NO 2022.Jul.20 3550.6241.19526 [no]",
+      "name": "Marketing NO 2022.Aug.26 4115.6691.21689 [no]",
       "groups": [
         {
           "code": "MODEL",
@@ -2798,13 +2798,14 @@
           "groups": [],
           "options": [
             "$MTY09",
-            "$MTY12"
+            "$MTY12",
+            "$MTY13"
           ],
           "required": true,
           "exclusive": true,
           "discountable": true,
           "default_options": [
-            "$MTY09"
+            "$MTY13"
           ]
         },
         {
@@ -2819,12 +2820,13 @@
           ],
           "groups": [],
           "options": [
+            "$DV2W",
             "$DV4W"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$DV4W"
+            "$DV2W"
           ]
         },
         {
@@ -3131,7 +3133,8 @@
             "$MTY05",
             "$MTY07",
             "$MTY12",
-            "$MTY09"
+            "$MTY09",
+            "$MTY13"
           ],
           "required": false,
           "exclusive": false,
@@ -3218,13 +3221,14 @@
           ],
           "groups": [],
           "options": [
+            "$MTY13",
             "$MTY09",
             "$MTY12"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTY09"
+            "$MTY13"
           ]
         },
         {
@@ -3501,6 +3505,26 @@
                     "and": [
                       "$WY21P",
                       "$MTY12"
+                    ]
+                  }
+                },
+                {
+                  "value": 455,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WY19B",
+                      "$MTY13"
+                    ]
+                  }
+                },
+                {
+                  "value": 430,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WY20P",
+                      "$MTY13"
                     ]
                   }
                 }
@@ -4099,6 +4123,7 @@
         {
           "code": "BATTERY_AND_DRIVE",
           "groups": [
+            "REAR_WHEEL_PREMIUM",
             "DUAL_MOTOR_PREMIUM",
             "SPORT_PACKAGE"
           ],
@@ -4305,7 +4330,8 @@
             "$MTY05",
             "$MTY07",
             "$MTY12",
-            "$MTY09"
+            "$MTY09",
+            "$MTY13"
           ],
           "required": false,
           "exclusive": false,
@@ -6339,10 +6365,6 @@
               "content": "Alle de fem setene kan varmes opp individuelt"
             },
             {
-              "type": "feature_list.default[0].items[4]",
-              "content": "LED-tåkelys"
-            },
-            {
               "type": "feature_list.default[0].items[6]",
               "content": "Autodimmende, innfellbare, oppvarmede sidespeil"
             },
@@ -6564,10 +6586,6 @@
             {
               "type": "feature_list.default[2].main_title",
               "content": "Bekvemmelighet"
-            },
-            {
-              "type": "feature_list.default[2].items[0]",
-              "content": "LED-tåkelys"
             },
             {
               "type": "feature_list.default[2].items[1]",
@@ -7552,8 +7570,9 @@
                           ]
                         },
                         "selected_by": {
-                          "and": [
-                            "$MTY09"
+                          "or": [
+                            "$MTY09",
+                            "$MTY13"
                           ]
                         }
                       },
@@ -7844,8 +7863,9 @@
               "content": [
                 {
                   "selected_by": {
-                    "and": [
-                      "$MTY09"
+                    "or": [
+                      "$MTY09",
+                      "$MTY13"
                     ]
                   }
                 }
@@ -7944,6 +7964,7 @@
                   "selected_by": {
                     "or": [
                       "$MTY09",
+                      "$MTY13",
                       "$MTY12"
                     ]
                   }
@@ -8143,6 +8164,48 @@
           "required": false,
           "exclusive": false,
           "name": "REVIEW_ORDER_CONNECTIVITY"
+        },
+        {
+          "code": "REAR_WHEEL_PREMIUM",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$MTY13"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [
+            "$MTY13"
+          ],
+          "name": "REAR_WHEEL_PREMIUM",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            },
+            {
+              "type": "sub_title",
+              "content": "Bakhjulsdrift"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "sub_title",
+                    "classes": "tds-text--h6 tds-text--start text-loader--subtitle tds-text--500 tds-text_color--30 tds--vertical_padding-10",
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "Options"
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -9350,15 +9413,124 @@
             }
           ]
         },
+        "$DV2W": {
+          "code": "$DV2W",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$DV4W",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTY09",
+                  "$MTY12",
+                  "$MTY15"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$DV2W"
+            },
+            {
+              "action": "unset",
+              "target": "$DV4W"
+            },
+            {
+              "action": "set",
+              "target": "$DV4W",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTY09",
+                "$MTY12",
+                "$MTY15"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$DV2W"
+            },
+            {
+              "action": "set",
+              "target": "$DV2W",
+              "condition_code": "$DV4W",
+              "condition_state": "unset"
+            }
+          ],
+          "name": "Bakhjulsdrift",
+          "description": "Bakhjulsdrift",
+          "long_name": "Bakhjulsdrift",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Standard"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": " ",
+                  "configuration": [
+                    "$MTY02"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "disable_override",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$MTY02"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ]
+        },
         "$DV4W": {
           "code": "$DV4W",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$DV2W",
+                "condition_code": "$MTY13",
+                "condition_state": "set"
+              }
+            ]
           },
           "set_rules": [
             {
               "action": "set",
               "target": "$DV4W"
+            },
+            {
+              "action": "unset",
+              "target": "$DV2W"
+            },
+            {
+              "action": "set",
+              "target": "$DV2W",
+              "condition_code": "$MTY13",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -9368,7 +9540,7 @@
             },
             {
               "action": "set",
-              "target": "$DV4W"
+              "target": "$DV2W"
             }
           ],
           "name": "Dual Motor firehjulsdrift",
@@ -10562,6 +10734,13 @@
                   "$WWY04",
                   "$WWY05"
                 ]
+              },
+              {
+                "action": "set",
+                "targets": [
+                  "$DV4W",
+                  "$PRMY1"
+                ]
               }
             ]
           },
@@ -10577,7 +10756,8 @@
                 "$MTY04",
                 "$MTY05",
                 "$MTY07",
-                "$MTY12"
+                "$MTY12",
+                "$MTY13"
               ]
             },
             {
@@ -10588,6 +10768,13 @@
                 "$WWY04",
                 "$WWY05"
               ]
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$DV4W",
+                "$PRMY1"
+              ]
             }
           ],
           "unset_rules": [
@@ -10597,7 +10784,7 @@
             },
             {
               "action": "set",
-              "target": "$MTY09",
+              "target": "$MTY13",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY03",
@@ -10763,7 +10950,8 @@
                 "$MTY04",
                 "$MTY05",
                 "$MTY07",
-                "$MTY09"
+                "$MTY09",
+                "$MTY13"
               ]
             },
             {
@@ -10800,13 +10988,14 @@
             },
             {
               "action": "set",
-              "target": "$MTY09",
+              "target": "$MTY13",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY03",
                 "$MTY04",
                 "$MTY05",
-                "$MTY07"
+                "$MTY07",
+                "$MTY09"
               ]
             },
             {
@@ -10947,6 +11136,150 @@
                   "target_property": "price"
                 }
               ]
+            }
+          ]
+        },
+        "$MTY13": {
+          "code": "$MTY13",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "targets": [
+                  "$DV2W",
+                  "$PRMY1"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$WWY01",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$WWY04",
+                  "$WWY05"
+                ]
+              }
+            ],
+            "unset_rules": [
+              {
+                "action": "unset",
+                "targets": [
+                  "$SLR1",
+                  "$SPTY1"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTY13"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTY03",
+                "$MTY04",
+                "$MTY05",
+                "$MTY07",
+                "$MTY09",
+                "$MTY12"
+              ]
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$DV2W",
+                "$PRMY1"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WWY01",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$WWY04",
+                "$WWY05"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTY13"
+            },
+            {
+              "action": "set",
+              "target": "$MTY13",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTY03",
+                "$MTY04",
+                "$MTY05",
+                "$MTY07",
+                "$MTY09",
+                "$MTY12"
+              ]
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$SLR1",
+                "$SPTY1"
+              ]
+            }
+          ],
+          "name": "Model Y Bakhjulsdrift",
+          "description": "Model Y Bakhjulsdrift",
+          "long_name": "Model Y Bakhjulsdrift",
+          "long_description": "Model Y Bakhjulsdrift",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Model Y"
+            },
+            {
+              "type": "long_name",
+              "content": "Model Y Bakhjulsdrift"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Bakhjulsdrift"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
+          "price": 152190,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 152190,
+              "context": "NOK"
+            },
+            {
+              "type": "base_plus_trim",
+              "value": 519990,
+              "context": "NOK"
             }
           ]
         },
@@ -11586,8 +11919,11 @@
               {
                 "action": "unset",
                 "target": "$WWY04",
-                "condition_code": "$MTY09",
-                "condition_state": "set"
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTY09",
+                  "$MTY13"
+                ]
               },
               {
                 "action": "unset",
@@ -11608,8 +11944,11 @@
             {
               "action": "unset",
               "target": "$WWY04",
-              "condition_code": "$MTY09",
-              "condition_state": "set"
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTY09",
+                "$MTY13"
+              ]
             },
             {
               "action": "unset",
@@ -11670,8 +12009,9 @@
               "content": [
                 {
                   "selected_by": {
-                    "and": [
-                      "$MTY09"
+                    "or": [
+                      "$MTY09",
+                      "$MTY13"
                     ]
                   }
                 }
@@ -11788,6 +12128,7 @@
                   "selected_by": {
                     "or": [
                       "$MTY09",
+                      "$MTY13",
                       "$MTY12"
                     ]
                   }
@@ -12179,7 +12520,7 @@
                     "label": "Rekkevidde (EPA est.)"
                   },
                   "range_units_est": {
-                    "label": "Rekkevidde (est.)"
+                    "label": "Rekkevidde (WLTP-est.)"
                   },
                   "top_speed_units": {
                     "label": "Topphastighet",
@@ -12336,6 +12677,25 @@
                   ],
                   "acceleration": 3.7,
                   "range_units_override": "range_units_epa_link"
+                },
+                "$MTY13": {
+                  "name": "Model Y Rear-Wheel Drive",
+                  "range": 430,
+                  "topspeed": 217,
+                  "overrides": [
+                    {
+                      "content": {
+                        "range": 455
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$WY19B"
+                        ]
+                      }
+                    }
+                  ],
+                  "acceleration": 6.9,
+                  "range_units_override": "range_units_est"
                 }
               },
               "curb_weight": {
@@ -12392,9 +12752,10 @@
         "$APBS",
         "$CPF0",
         "$SC04",
+        "$TW01",
         "$TW01"
       ],
-      "options_id": 3550,
+      "options_id": 4115,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -12857,6 +13218,13 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "REAR_WHEEL_PREMIUM",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -12866,10 +13234,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 6241,
+      "copy_id": 6691,
       "language": "no",
-      "pricing_id": 19526,
-      "reference_id": 3550,
+      "pricing_id": 21689,
+      "reference_id": 4115,
       "source": "cache"
     }
   },

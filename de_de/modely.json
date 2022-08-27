@@ -2119,7 +2119,7 @@
       "tcc": []
     },
     "Lexicon.my": {
-      "effective_date": "2022-08-19T00:09:00.000Z",
+      "effective_date": "2022-08-26T00:52:00.000Z",
       "market": "DE",
       "product": "my",
       "factory": "GF00",
@@ -2128,7 +2128,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2022.Aug.19 4147.6282.19221 [de]",
+      "name": "Marketing DE 2022.Aug.26 4120.6696.21685 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -2152,13 +2152,14 @@
           "groups": [],
           "options": [
             "$MTY09",
-            "$MTY12"
+            "$MTY12",
+            "$MTY13"
           ],
           "required": true,
           "exclusive": true,
           "discountable": true,
           "default_options": [
-            "$MTY09"
+            "$MTY13"
           ]
         },
         {
@@ -2173,12 +2174,13 @@
           ],
           "groups": [],
           "options": [
+            "$DV2W",
             "$DV4W"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$DV4W"
+            "$DV2W"
           ]
         },
         {
@@ -2483,7 +2485,8 @@
             "$MTY05",
             "$MTY07",
             "$MTY12",
-            "$MTY09"
+            "$MTY09",
+            "$MTY13"
           ],
           "required": false,
           "exclusive": false,
@@ -2568,13 +2571,14 @@
           ],
           "groups": [],
           "options": [
+            "$MTY13",
             "$MTY09",
             "$MTY12"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTY09"
+            "$MTY13"
           ]
         },
         {
@@ -2851,6 +2855,26 @@
                     "and": [
                       "$WY21P",
                       "$MTY12"
+                    ]
+                  }
+                },
+                {
+                  "value": 455,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WY19B",
+                      "$MTY13"
+                    ]
+                  }
+                },
+                {
+                  "value": 430,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WY20P",
+                      "$MTY13"
                     ]
                   }
                 }
@@ -3448,6 +3472,7 @@
         {
           "code": "BATTERY_AND_DRIVE",
           "groups": [
+            "REAR_WHEEL_PREMIUM",
             "DUAL_MOTOR_PREMIUM",
             "SPORT_PACKAGE"
           ],
@@ -3464,7 +3489,7 @@
             },
             {
               "type": "zero_to_road_limit_units",
-              "content": "0-100 km/h"
+              "content": "0 - 100km/h"
             },
             {
               "type": "range_units",
@@ -3661,7 +3686,8 @@
             "$MTY05",
             "$MTY07",
             "$MTY12",
-            "$MTY09"
+            "$MTY09",
+            "$MTY13"
           ],
           "required": false,
           "exclusive": false,
@@ -5695,10 +5721,6 @@
               "content": "Individuell steuerbare Sitzheizung an allen 5 Sitzen"
             },
             {
-              "type": "feature_list.default[0].items[4]",
-              "content": "LED-Nebelscheinwerfer"
-            },
-            {
               "type": "feature_list.default[0].items[6]",
               "content": "Elektrisch einklappbare, beheizte Seitenspiegel mit Abblendautomatik"
             },
@@ -5920,10 +5942,6 @@
             {
               "type": "feature_list.default[2].main_title",
               "content": "Extras"
-            },
-            {
-              "type": "feature_list.default[2].items[0]",
-              "content": "LED-Nebelscheinwerfer"
             },
             {
               "type": "feature_list.default[2].items[1]",
@@ -6700,8 +6718,9 @@
                           ]
                         },
                         "selected_by": {
-                          "and": [
-                            "$MTY09"
+                          "or": [
+                            "$MTY09",
+                            "$MTY13"
                           ]
                         }
                       },
@@ -7172,8 +7191,9 @@
               "content": [
                 {
                   "selected_by": {
-                    "and": [
-                      "$MTY09"
+                    "or": [
+                      "$MTY09",
+                      "$MTY13"
                     ]
                   }
                 }
@@ -7312,7 +7332,7 @@
             },
             {
               "type": "inventory-description3",
-              "content": "2. Die Premium-Konnektivität ist 30 Tage lang kostenlos und dann als Abonnement erhältlich"
+              "content": "2. Die Premium-Konnektivität ist 30 Tage lang kostenlos und dann als Abonnement erhältlich."
             }
           ],
           "extra_content": [
@@ -7372,6 +7392,48 @@
           "required": false,
           "exclusive": false,
           "name": "REVIEW_ORDER_CONNECTIVITY"
+        },
+        {
+          "code": "REAR_WHEEL_PREMIUM",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$MTY13"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [
+            "$MTY13"
+          ],
+          "name": "REAR_WHEEL_PREMIUM",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            },
+            {
+              "type": "sub_title",
+              "content": "Hinterradantrieb"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "sub_title",
+                    "classes": "tds-text--h6 tds-text--start text-loader--subtitle tds-text--500 tds-text_color--30 tds--vertical_padding-10",
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "Options"
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -8579,15 +8641,124 @@
             }
           ]
         },
+        "$DV2W": {
+          "code": "$DV2W",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$DV4W",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTY09",
+                  "$MTY12",
+                  "$MTY15"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$DV2W"
+            },
+            {
+              "action": "unset",
+              "target": "$DV4W"
+            },
+            {
+              "action": "set",
+              "target": "$DV4W",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTY09",
+                "$MTY12",
+                "$MTY15"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$DV2W"
+            },
+            {
+              "action": "set",
+              "target": "$DV2W",
+              "condition_code": "$DV4W",
+              "condition_state": "unset"
+            }
+          ],
+          "name": "Hinterradantrieb",
+          "description": "Hinterradantrieb",
+          "long_name": "Hinterradantrieb",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "Standard"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "price_indicator_override",
+              "content": [
+                {
+                  "content": " ",
+                  "configuration": [
+                    "$MTY02"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "disable_override",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$MTY02"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ]
+        },
         "$DV4W": {
           "code": "$DV4W",
           "user_defined_rules": {
-            "set_rules": []
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$DV2W",
+                "condition_code": "$MTY13",
+                "condition_state": "set"
+              }
+            ]
           },
           "set_rules": [
             {
               "action": "set",
               "target": "$DV4W"
+            },
+            {
+              "action": "unset",
+              "target": "$DV2W"
+            },
+            {
+              "action": "set",
+              "target": "$DV2W",
+              "condition_code": "$MTY13",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -8597,7 +8768,7 @@
             },
             {
               "action": "set",
-              "target": "$DV4W"
+              "target": "$DV2W"
             }
           ],
           "name": "Allradantrieb mit Dualmotor",
@@ -8757,9 +8928,9 @@
               "target": "$MDLY"
             }
           ],
-          "name": "Model Y 2022",
+          "name": "Model Y 2023",
           "description": "Die Auslieferung beginnt in den USA und richtet sich nach Bestelldatum und gewählten Optionen.",
-          "long_name": "Model Y 2022",
+          "long_name": "Model Y 2023",
           "extra_copy": [
             {
               "type": "learn_more",
@@ -8805,7 +8976,7 @@
               ]
             }
           ],
-          "price": 56990,
+          "price": 53990,
           "pricing": [
             {
               "type": "order_payment",
@@ -8829,7 +9000,7 @@
             },
             {
               "type": "base",
-              "value": 56990,
+              "value": 53990,
               "context": "EUR"
             },
             {
@@ -9813,6 +9984,17 @@
                 "target": "$WWY00",
                 "condition_code": "$WWY03",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "targets": [
+                  "$DV4W",
+                  "$PRMY1"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$TW01"
               }
             ]
           },
@@ -9828,7 +10010,8 @@
                 "$MTY04",
                 "$MTY05",
                 "$MTY07",
-                "$MTY12"
+                "$MTY12",
+                "$MTY13"
               ]
             },
             {
@@ -9836,6 +10019,17 @@
               "target": "$WWY00",
               "condition_code": "$WWY03",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$DV4W",
+                "$PRMY1"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$TW01"
             }
           ],
           "unset_rules": [
@@ -9845,7 +10039,7 @@
             },
             {
               "action": "set",
-              "target": "$MTY09",
+              "target": "$MTY13",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY03",
@@ -9912,11 +10106,11 @@
               ]
             }
           ],
-          "price": 0,
+          "price": 3000,
           "pricing": [
             {
               "type": "base",
-              "value": 0,
+              "value": 3000,
               "context": "EUR"
             },
             {
@@ -9980,7 +10174,8 @@
                 "$MTY04",
                 "$MTY05",
                 "$MTY07",
-                "$MTY09"
+                "$MTY09",
+                "$MTY13"
               ]
             },
             {
@@ -10018,13 +10213,14 @@
             },
             {
               "action": "set",
-              "target": "$MTY09",
+              "target": "$MTY13",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY03",
                 "$MTY04",
                 "$MTY05",
-                "$MTY07"
+                "$MTY07",
+                "$MTY09"
               ]
             },
             {
@@ -10146,16 +10342,177 @@
               ]
             }
           ],
-          "price": 8500,
+          "price": 11500,
           "pricing": [
             {
               "type": "base",
-              "value": 8500,
+              "value": 11500,
               "context": "EUR"
             },
             {
               "type": "base_plus_trim",
               "value": 65490,
+              "context": "EUR"
+            }
+          ]
+        },
+        "$MTY13": {
+          "code": "$MTY13",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "targets": [
+                  "$DV2W",
+                  "$PRMY1"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$WWY00",
+                "condition_code": "$WWY03",
+                "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$TW01"
+              }
+            ],
+            "unset_rules": [
+              {
+                "action": "unset",
+                "targets": [
+                  "$SLR1",
+                  "$SPTY1"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTY13"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTY03",
+                "$MTY04",
+                "$MTY05",
+                "$MTY07",
+                "$MTY09",
+                "$MTY12"
+              ]
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$DV2W",
+                "$PRMY1"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WWY00",
+              "condition_code": "$WWY03",
+              "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$TW01"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTY13"
+            },
+            {
+              "action": "set",
+              "target": "$MTY13",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTY03",
+                "$MTY04",
+                "$MTY05",
+                "$MTY07",
+                "$MTY09",
+                "$MTY12"
+              ]
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$SLR1",
+                "$SPTY1"
+              ]
+            }
+          ],
+          "name": "Model Y Hinterradantrieb",
+          "description": "Model Y Hinterradantrieb",
+          "long_name": "Model Y Hinterradantrieb",
+          "long_description": "Model Y Hinterradantrieb",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Model Y"
+            },
+            {
+              "type": "long_name",
+              "content": "Model Y Hinterradantrieb"
+            },
+            {
+              "type": "drive_mode",
+              "content": "Hinterradantrieb"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing_payment",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "optionPriceKey": "base",
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "incentive": [
+                    "total.includedInPurchasePrice"
+                  ],
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "EUR"
+            },
+            {
+              "type": "base_plus_trim",
+              "value": 53990,
               "context": "EUR"
             }
           ]
@@ -10684,7 +11041,8 @@
                 "condition_any_code": [
                   "$MTY09",
                   "$MTY03",
-                  "$MTY07"
+                  "$MTY07",
+                  "$MTY13"
                 ]
               },
               {
@@ -10706,7 +11064,8 @@
               "condition_any_code": [
                 "$MTY09",
                 "$MTY03",
-                "$MTY07"
+                "$MTY07",
+                "$MTY13"
               ]
             },
             {
@@ -10764,8 +11123,9 @@
               "content": [
                 {
                   "selected_by": {
-                    "and": [
-                      "$MTY09"
+                    "or": [
+                      "$MTY09",
+                      "$MTY13"
                     ]
                   }
                 }
@@ -11156,15 +11516,15 @@
                     "label": "Reichweite (EPA geschätzt)"
                   },
                   "range_units_est": {
-                    "label": "Reichweite (geschätzt)"
+                    "label": "Reichweite (WLTP geschätzt)"
                   },
                   "top_speed_units": {
                     "label": "Maximale Geschwindigkeit",
                     "short_label": "km/h"
                   },
                   "zero_to_road_limit": {
-                    "label": "0-100 km/h",
-                    "short_label": "0-100 km/h"
+                    "label": "0 - 100km/h",
+                    "short_label": "0 - 100km/h"
                   },
                   "kilometers-per-hour": {
                     "label": "Kilometer pro Stunde",
@@ -11337,6 +11697,31 @@
                   "efficiency_class": "A+",
                   "energy_consumption": 17.1,
                   "range_units_override": "range_units_epa_link"
+                },
+                "$MTY13": {
+                  "mass": 1909,
+                  "name": "Model Y Rear-Wheel Drive",
+                  "power": [
+                    255
+                  ],
+                  "range": 430,
+                  "topspeed": 217,
+                  "overrides": [
+                    {
+                      "content": {
+                        "range": 455
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$WY19B"
+                        ]
+                      }
+                    }
+                  ],
+                  "acceleration": 6.9,
+                  "efficiency_class": "A+",
+                  "energy_consumption": 15.7,
+                  "range_units_override": "range_units_est"
                 }
               },
               "curb_weight": {
@@ -11395,7 +11780,7 @@
         "$SC04",
         "$TW01"
       ],
-      "options_id": 4147,
+      "options_id": 4120,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -11856,6 +12241,13 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "REAR_WHEEL_PREMIUM",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -11865,10 +12257,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 6282,
+      "copy_id": 6696,
       "language": "de",
-      "pricing_id": 19221,
-      "reference_id": 4147,
+      "pricing_id": 21685,
+      "reference_id": 4120,
       "source": "cache"
     }
   },
