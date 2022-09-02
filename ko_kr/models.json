@@ -185,7 +185,9 @@
         "hideSectionsOnFooter": [],
         "showMinMaxRangeValues": false,
         "showRangeLinkInventory": false,
-        "showRegistrationAndDeliveryDisclaimer": false
+        "showRegistrationAndDeliveryDisclaimer": false,
+        "defaultPricingContext": "configurator",
+        "displayDoubleCurrency": false
       },
       "Compositor": {
         "available_views": {
@@ -1217,6 +1219,7 @@
         },
         "nonRefundPolicyDisclaimer": false,
         "showOrderRefundDisclaimer": true,
+        "showExtraCurrencyInOrderRefundDisclaimer": false,
         "doSessionStartOnMount": true,
         "showModelYearOverviewPage": true,
         "showModelYearPaymentPage": true,
@@ -1642,12 +1645,12 @@
       ]
     },
     "Lexicon.ms": {
-      "effective_date": "2022-08-12T00:08:00.000Z",
+      "effective_date": "2022-09-02T00:00:00.000Z",
       "market": "KR",
       "product": "ms",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing KR 2022.Aug.12 3836.6073.18825 [ko]",
+      "name": "Marketing KR 2022.Sep.02 4108.6643.21992 [ko]",
       "groups": [
         {
           "code": "MODEL",
@@ -1809,12 +1812,14 @@
             "$WTDS",
             "$WTMS",
             "$WTSD",
-            "$WTTC"
+            "$WTTC",
+            "$WS11",
+            "$WS91"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$WS90"
+            "$WS91"
           ]
         },
         {
@@ -2335,13 +2340,13 @@
           ],
           "groups": [],
           "options": [
-            "$WS90",
-            "$WS10"
+            "$WS91",
+            "$WS11"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$WS90"
+            "$WS91"
           ]
         },
         {
@@ -2487,6 +2492,59 @@
             {
               "type": "specs_disclaimer",
               "content": "한국 정부 승인 완료"
+            },
+            {
+              "type": "topspeed_content[0]",
+              "content": "표시된 Plaid 최고 속도는 유료 하드웨어 업그레이드가 필요합니다.",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {},
+                    "classNames": [
+                      "tds-text--center",
+                      "tds-o-vertical_padding-top--3x"
+                    ]
+                  }
+                },
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "or": [
+                        "$MTS11",
+                        "$MTS14"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "topspeed_content[1]",
+              "content": "표시된 Plaid 최고 속도는 유료 하드웨어 업그레이드가 필요합니다. Model S는 향상된 주행 가능 거리와 편안함을 제공하며 가장 다양한 조건에서 작동하도록 설계된 사계절 타이어로 전환하고 있습니다. 최고 속도가 250km/h에서 240km/h로 약간 감소했습니다.",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {},
+                    "classNames": [
+                      "tds-text--center",
+                      "tds-o-vertical_padding-top--3x"
+                    ]
+                  }
+                },
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$MTS13"
+                      ]
+                    }
+                  }
+                }
+              ]
             }
           ],
           "description": "배터리 및 구동 장치",
@@ -2677,7 +2735,7 @@
             },
             {
               "type": "feature_list.detail[0].items[15]",
-              "content": "전 좌석 무선 USB-C 타입 고속 충전과 다중 장치 Bluetooth는 한층 높은 커넥티비티와 편의성 제공"
+              "content": "전 좌석 무선 USB-C 타입 급속 충전과 다중 장치 Bluetooth는 한층 높은 커넥티비티와 편의성 제공"
             },
             {
               "type": "feature_list.detail[0].items[16]",
@@ -5142,7 +5200,7 @@
             },
             {
               "type": "feature_list.default[2].items[5]",
-              "content": "전 좌석 무선 USB-C 타입 고속 충전"
+              "content": "전 좌석 무선 USB-C 타입 급속 충전"
             },
             {
               "type": "feature_list.default[2].items[6]",
@@ -8764,7 +8822,9 @@
                 "$WTDS",
                 "$WTMS",
                 "$WTSD",
-                "$WTTC"
+                "$WTTC",
+                "$WS11",
+                "$WS91"
               ]
             },
             {
@@ -8784,9 +8844,115 @@
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS91",
               "condition_state": "unset",
               "condition_all_codes": [
+                "$WS90",
+                "$WTAB",
+                "$WTAS",
+                "$WTD2",
+                "$WTDS",
+                "$WTMS",
+                "$WTSD",
+                "$WTTC",
+                "$WS11"
+              ]
+            }
+          ],
+          "name": "21인치 아라크니드 휠",
+          "description": "21인치 아라크니드 휠",
+          "long_name": "21인치 아라크니드 휠",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "포함"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELS/UI/21Arachnid.png",
+                  "type": "image"
+                }
+              ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "KRW"
+            }
+          ]
+        },
+        "$WS11": {
+          "code": "$WS11",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$WTTC",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTS07",
+                  "$MTS08"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WS11"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$WS10",
+                "$WS90",
+                "$WTAB",
+                "$WTAS",
+                "$WTD2",
+                "$WTDS",
+                "$WTMS",
+                "$WTSD",
+                "$WTTC",
+                "$WS91"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WTTC",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTS07",
+                "$MTS08"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WS11"
+            },
+            {
+              "action": "set",
+              "target": "$WS91",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$WS10",
+                "$WS90",
                 "$WTAB",
                 "$WTAS",
                 "$WTD2",
@@ -8864,7 +9030,9 @@
                 "$WTDS",
                 "$WTMS",
                 "$WTSD",
-                "$WTTC"
+                "$WTTC",
+                "$WS11",
+                "$WS91"
               ]
             },
             {
@@ -8884,7 +9052,7 @@
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS91",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$WS10",
@@ -8894,7 +9062,113 @@
                 "$WTDS",
                 "$WTMS",
                 "$WTSD",
-                "$WTTC"
+                "$WTTC",
+                "$WS11"
+              ]
+            }
+          ],
+          "name": "19인치 템페스트 휠",
+          "description": "19인치 템페스트 휠",
+          "long_name": "19인치 템페스트 휠",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "포함"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELS/UI/ui_swat_whl_tempest.png",
+                  "type": "image"
+                }
+              ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "KRW"
+            }
+          ]
+        },
+        "$WS91": {
+          "code": "$WS91",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$WTMS",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTS07",
+                  "$MTS08"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$WS91"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$WS10",
+                "$WS90",
+                "$WTAB",
+                "$WTAS",
+                "$WTD2",
+                "$WTDS",
+                "$WTMS",
+                "$WTSD",
+                "$WTTC",
+                "$WS11"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$WTMS",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTS07",
+                "$MTS08"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$WS91"
+            },
+            {
+              "action": "set",
+              "target": "$WS91",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$WS10",
+                "$WS90",
+                "$WTAB",
+                "$WTAS",
+                "$WTD2",
+                "$WTDS",
+                "$WTMS",
+                "$WTSD",
+                "$WTTC",
+                "$WS11"
               ]
             }
           ],
@@ -8949,7 +9223,7 @@
               },
               {
                 "action": "set",
-                "target": "$WS10",
+                "target": "$WS11",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$MTS10",
@@ -8975,7 +9249,9 @@
                 "$WTDS",
                 "$WTMS",
                 "$WTSD",
-                "$WTTC"
+                "$WTTC",
+                "$WS11",
+                "$WS91"
               ]
             },
             {
@@ -8988,7 +9264,7 @@
             },
             {
               "action": "set",
-              "target": "$WS10",
+              "target": "$WS11",
               "condition_state": "set",
               "condition_any_code": [
                 "$MTS10",
@@ -9005,16 +9281,18 @@
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS91",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$WS10",
+                "$WS90",
                 "$WTAS",
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
                 "$WTSD",
-                "$WTTC"
+                "$WTTC",
+                "$WS11"
               ]
             }
           ],
@@ -9061,7 +9339,7 @@
             "set_rules": [
               {
                 "action": "set",
-                "target": "$WS90",
+                "target": "$WS91",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$MTS10",
@@ -9087,12 +9365,14 @@
                 "$WTDS",
                 "$WTMS",
                 "$WTSD",
-                "$WTTC"
+                "$WTTC",
+                "$WS11",
+                "$WS91"
               ]
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS91",
               "condition_state": "set",
               "condition_any_code": [
                 "$MTS10",
@@ -9109,16 +9389,18 @@
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS91",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$WS10",
+                "$WS90",
                 "$WTAB",
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
                 "$WTSD",
-                "$WTTC"
+                "$WTTC",
+                "$WS11"
               ]
             }
           ],
@@ -9165,7 +9447,7 @@
             "set_rules": [
               {
                 "action": "set",
-                "target": "$WS90",
+                "target": "$WS91",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$MTS10",
@@ -9191,12 +9473,14 @@
                 "$WTDS",
                 "$WTMS",
                 "$WTSD",
-                "$WTTC"
+                "$WTTC",
+                "$WS11",
+                "$WS91"
               ]
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS91",
               "condition_state": "set",
               "condition_any_code": [
                 "$MTS10",
@@ -9213,16 +9497,18 @@
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS91",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$WS10",
+                "$WS90",
                 "$WTAB",
                 "$WTAS",
                 "$WTDS",
                 "$WTMS",
                 "$WTSD",
-                "$WTTC"
+                "$WTTC",
+                "$WS11"
               ]
             }
           ],
@@ -9269,7 +9555,7 @@
             "set_rules": [
               {
                 "action": "set",
-                "target": "$WS90",
+                "target": "$WS91",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$MTS10",
@@ -9295,12 +9581,14 @@
                 "$WTD2",
                 "$WTMS",
                 "$WTSD",
-                "$WTTC"
+                "$WTTC",
+                "$WS11",
+                "$WS91"
               ]
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS91",
               "condition_state": "set",
               "condition_any_code": [
                 "$MTS10",
@@ -9317,16 +9605,18 @@
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS91",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$WS10",
+                "$WS90",
                 "$WTAB",
                 "$WTAS",
                 "$WTD2",
                 "$WTMS",
                 "$WTSD",
-                "$WTTC"
+                "$WTTC",
+                "$WS11"
               ]
             }
           ],
@@ -9373,7 +9663,7 @@
             "set_rules": [
               {
                 "action": "set",
-                "target": "$WS90",
+                "target": "$WS91",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$MTS10",
@@ -9399,12 +9689,14 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTSD",
-                "$WTTC"
+                "$WTTC",
+                "$WS11",
+                "$WS91"
               ]
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS91",
               "condition_state": "set",
               "condition_any_code": [
                 "$MTS10",
@@ -9421,16 +9713,18 @@
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS91",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$WS10",
+                "$WS90",
                 "$WTAB",
                 "$WTAS",
                 "$WTD2",
                 "$WTDS",
                 "$WTSD",
-                "$WTTC"
+                "$WTTC",
+                "$WS11"
               ]
             }
           ],
@@ -9488,7 +9782,9 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
-                "$WTTC"
+                "$WTTC",
+                "$WS11",
+                "$WS91"
               ]
             }
           ],
@@ -9499,16 +9795,18 @@
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS91",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$WS10",
+                "$WS90",
                 "$WTAB",
                 "$WTAS",
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
-                "$WTTC"
+                "$WTTC",
+                "$WS11"
               ]
             }
           ],
@@ -9529,7 +9827,7 @@
             "set_rules": [
               {
                 "action": "set",
-                "target": "$WS10",
+                "target": "$WS11",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$MTS10",
@@ -9555,12 +9853,14 @@
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
-                "$WTSD"
+                "$WTSD",
+                "$WS11",
+                "$WS91"
               ]
             },
             {
               "action": "set",
-              "target": "$WS10",
+              "target": "$WS11",
               "condition_state": "set",
               "condition_any_code": [
                 "$MTS10",
@@ -9577,16 +9877,18 @@
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS91",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$WS10",
+                "$WS90",
                 "$WTAB",
                 "$WTAS",
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
-                "$WTSD"
+                "$WTSD",
+                "$WS11"
               ]
             }
           ],
@@ -14856,13 +15158,13 @@
               {
                 "action": "set",
                 "target": "$WTMS",
-                "condition_code": "$WS90",
+                "condition_code": "$WS91",
                 "condition_state": "set"
               },
               {
                 "action": "set",
                 "target": "$WTTC",
-                "condition_code": "$WS10",
+                "condition_code": "$WS11",
                 "condition_state": "set"
               },
               {
@@ -14929,13 +15231,13 @@
             {
               "action": "set",
               "target": "$WTMS",
-              "condition_code": "$WS90",
+              "condition_code": "$WS91",
               "condition_state": "set"
             },
             {
               "action": "set",
               "target": "$WTTC",
-              "condition_code": "$WS10",
+              "condition_code": "$WS11",
               "condition_state": "set"
             },
             {
@@ -15154,13 +15456,13 @@
               {
                 "action": "set",
                 "target": "$WTMS",
-                "condition_code": "$WS90",
+                "condition_code": "$WS91",
                 "condition_state": "set"
               },
               {
                 "action": "set",
                 "target": "$WTTC",
-                "condition_code": "$WS10",
+                "condition_code": "$WS11",
                 "condition_state": "set"
               },
               {
@@ -15222,13 +15524,13 @@
             {
               "action": "set",
               "target": "$WTMS",
-              "condition_code": "$WS90",
+              "condition_code": "$WS91",
               "condition_state": "set"
             },
             {
               "action": "set",
               "target": "$WTTC",
-              "condition_code": "$WS10",
+              "condition_code": "$WS11",
               "condition_state": "set"
             },
             {
@@ -15761,7 +16063,7 @@
               },
               {
                 "action": "set",
-                "target": "$WS90",
+                "target": "$WS91",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$WTMS",
@@ -15772,7 +16074,7 @@
               },
               {
                 "action": "set",
-                "target": "$WS10",
+                "target": "$WS11",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$WTTC",
@@ -15840,7 +16142,7 @@
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS91",
               "condition_state": "set",
               "condition_any_code": [
                 "$WTMS",
@@ -15851,7 +16153,7 @@
             },
             {
               "action": "set",
-              "target": "$WS10",
+              "target": "$WS11",
               "condition_state": "set",
               "condition_any_code": [
                 "$WTTC",
@@ -16032,7 +16334,7 @@
               },
               {
                 "action": "set",
-                "target": "$WS90",
+                "target": "$WS91",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$WTMS",
@@ -16043,7 +16345,7 @@
               },
               {
                 "action": "set",
-                "target": "$WS10",
+                "target": "$WS11",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$WTTC",
@@ -16111,7 +16413,7 @@
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS91",
               "condition_state": "set",
               "condition_any_code": [
                 "$WTMS",
@@ -16122,7 +16424,7 @@
             },
             {
               "action": "set",
-              "target": "$WS10",
+              "target": "$WS11",
               "condition_state": "set",
               "condition_any_code": [
                 "$WTTC",
@@ -16346,7 +16648,7 @@
               },
               {
                 "action": "set",
-                "target": "$WS90",
+                "target": "$WS91",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$WTMS",
@@ -16357,7 +16659,7 @@
               },
               {
                 "action": "set",
-                "target": "$WS10",
+                "target": "$WS11",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$WTTC",
@@ -16425,7 +16727,7 @@
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS91",
               "condition_state": "set",
               "condition_any_code": [
                 "$WTMS",
@@ -16436,7 +16738,7 @@
             },
             {
               "action": "set",
-              "target": "$WS10",
+              "target": "$WS11",
               "condition_state": "set",
               "condition_any_code": [
                 "$WTTC",
@@ -16605,7 +16907,7 @@
               },
               {
                 "action": "set",
-                "target": "$WS90",
+                "target": "$WS91",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$WTMS",
@@ -16616,7 +16918,7 @@
               },
               {
                 "action": "set",
-                "target": "$WS10",
+                "target": "$WS11",
                 "condition_state": "set",
                 "condition_any_code": [
                   "$WTTC",
@@ -16684,7 +16986,7 @@
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS91",
               "condition_state": "set",
               "condition_any_code": [
                 "$WTMS",
@@ -16695,7 +16997,7 @@
             },
             {
               "action": "set",
-              "target": "$WS10",
+              "target": "$WS11",
               "condition_state": "set",
               "condition_any_code": [
                 "$WTTC",
@@ -17670,6 +17972,25 @@
                   "kilometers-per-hour": {
                     "label": "시간당 킬로미터",
                     "short_label": "km/h"
+                  },
+                  "top_speed_units_override": {
+                    "label": "최고 속도",
+                    "content": "최고 속도",
+                    "behavior": [
+                      {
+                        "type": "ACTION",
+                        "content": {
+                          "type": "SHOW_ACCELERATION_MODAL",
+                          "props": {
+                            "content_path": "CustomGroups.BATTERY_AND_DRIVE.topspeed_content"
+                          },
+                          "classNames": [
+                            "top-speed-disclaimer-link"
+                          ]
+                        }
+                      }
+                    ],
+                    "short_label": "km/h"
                   }
                 }
               },
@@ -17776,7 +18097,21 @@
                   "group": "TRIM",
                   "range": 526,
                   "topspeed": 250,
-                  "acceleration": 3.2
+                  "overrides": [
+                    {
+                      "content": {
+                        "topspeed": 240
+                      },
+                      "selected_by": {
+                        "or": [
+                          "$WS11",
+                          "$WS91"
+                        ]
+                      }
+                    }
+                  ],
+                  "acceleration": 3.2,
+                  "use_top_speed_override": true
                 },
                 "$MTS14": {
                   "name": "Model S Plaid",
@@ -17796,7 +18131,8 @@
                       }
                     }
                   ],
-                  "acceleration": 2.1
+                  "acceleration": 2.1,
+                  "use_top_speed_override": true
                 }
               }
             }
@@ -24729,13 +25065,13 @@
         "$MDLS",
         "$MTS13",
         "$PPSW",
-        "$WS90",
+        "$WS91",
         "$IBE00",
         "$SC04",
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 3836,
+      "options_id": 4108,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -26243,10 +26579,10 @@
           }
         }
       ],
-      "copy_id": 6073,
+      "copy_id": 6643,
       "language": "ko",
-      "pricing_id": 18825,
-      "reference_id": 3836,
+      "pricing_id": 21992,
+      "reference_id": 4108,
       "source": "cache"
     }
   },
