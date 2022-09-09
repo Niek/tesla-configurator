@@ -707,6 +707,10 @@
             "context": "configurator"
           },
           {
+            "code": "TIRE_EDUCATION",
+            "context": "configurator"
+          },
+          {
             "code": "FSD_FEATURES",
             "context": "configurator"
           },
@@ -3136,8 +3140,8 @@
       }
     },
     "Lexicon.ms": {
-      "id": 4106,
-      "effective_date": "2022-09-05T06:59:00.000Z",
+      "id": 4247,
+      "effective_date": "2022-09-09T00:04:00.000Z",
       "market": "US",
       "product": "ms",
       "factory": "GF00",
@@ -3159,7 +3163,7 @@
           }
         }
       },
-      "name": "Marketing US 2022.Sep.05 4106.6642.22056",
+      "name": "Marketing US 2022.Sep.09 4247.6775.22056",
       "groups": [
         {
           "code": "MODEL",
@@ -3852,6 +3856,92 @@
             {
               "type": "certified_range_est",
               "content": "Range (est.) : {VALUE}mi"
+            },
+            {
+              "type": "tire_type[0]",
+              "content": "All-Season Tires",
+              "behavior": [
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WS91",
+                        "$MTS13"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "tire_type[1]",
+              "content": "All-Season Tires",
+              "behavior": [
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WS11",
+                        "$MTS13"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "tire_type[2]",
+              "content": "Summer Tires",
+              "behavior": [
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WS91",
+                        "$MTS14"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "tire_type[3]",
+              "content": "Summer Tires",
+              "behavior": [
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WS11",
+                        "$MTS14"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "tire_education",
+              "content": "Learn More",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {
+                      "data-should-open": "TIRE_EDUCATION"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--tertiary",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -4141,6 +4231,14 @@
                   "type": "SelectedPrice"
                 },
                 {
+                  "type": "Copy",
+                  "props": {
+                    "field": "tire_type",
+                    "classes": "tds-text--center tds-text--caption",
+                    "isEnabledForEditDesign": false
+                  }
+                },
+                {
                   "type": "DisclaimerSpecial",
                   "props": {
                     "field": "certified_disclaimer",
@@ -4151,6 +4249,20 @@
                   "type": "Disclaimer",
                   "props": {
                     "classes": "tds-text--center tds-text--caption"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "tire_education",
+                        "props": {
+                          "modal": "TIRE_EDUCATION",
+                          "isEnabledForEditDesign": false
+                        }
+                      }
+                    ]
                   }
                 }
               ]
@@ -4324,7 +4436,7 @@
             },
             {
               "type": "topspeed_content[1]",
-              "content": "Model S is transitioning to all-season tires, which offer improved range and comfort, and are designed to work across the widest range of conditions. Top speed has been slightly reduced from 155mph to 149mph.",
+              "content": "Model S is transitioning to All-Season tires, which offer improved range and comfort, and are designed to work across the widest range of conditions. Top speed has been slightly reduced from 155mph to 149mph.",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -8610,6 +8722,66 @@
           "required": false,
           "exclusive": false,
           "name": "REVIEW_ORDER_CONNECTIVITY"
+        },
+        {
+          "code": "TIRE_EDUCATION",
+          "groups": [
+            "TIRE_EDUCATION_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "TIRE_EDUCATION"
+        },
+        {
+          "code": "TIRE_EDUCATION_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Tire Education",
+          "extra_copy": [
+            {
+              "type": "table.row[1].column[0]",
+              "content": "All-Season Tires"
+            },
+            {
+              "type": "table.row[1].column[1]",
+              "content": "All-Season tires are designed to work across the widest range of conditions and offer good traction and comfort in moderate climates"
+            },
+            {
+              "type": "table.row[2].column[0]",
+              "content": "Summer Tires"
+            },
+            {
+              "type": "table.row[2].column[1]",
+              "content": "Summer tires offer the best traction in warmer weather, especially for performance vehicles at higher speeds. Summer tires have reduced traction and increased noise below 40˚F, and for safety reasons, should not be driven on snow or ice."
+            },
+            {
+              "type": "table.row[3].column[0]",
+              "content": "Winter Tires"
+            },
+            {
+              "type": "table.row[3].column[1]",
+              "content": "Winter tires offer the best traction in conditions below 40˚F. For the optimal winter driving experience, we recommend fitting winter wheels and tires just before the season’s first snowfall. Winter wheel and tire packages are available on the Tesla Shop."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Table",
+                  "props": {
+                    "field": "table.row",
+                    "isCollapsedOnMobile": true
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -16992,7 +17164,7 @@
         "$ST0Y",
         "$CPF0"
       ],
-      "options_id": 4106,
+      "options_id": 4247,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -17410,6 +17582,20 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "TIRE_EDUCATION",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "TIRE_EDUCATION_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -17419,7 +17605,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 6642,
+      "copy_id": 6775,
       "language": "en",
       "pricing_id": 22056,
       "source": "cache"
