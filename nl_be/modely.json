@@ -10,13 +10,14 @@
               "language": "nl",
               "market": "BE",
               "app": "find-my-tesla",
-              "isTcoEnabled": "0",
-              "date": "",
-              "seekret": "",
+              "isTcoEnabled": false,
               "tags": "",
               "context": "",
-              "isFinplatEnabled": "0",
               "version": "redesign",
+              "seekret": "",
+              "isFinplatEnabled": "0",
+              "isWechatMiniProgramEnv": "0",
+              "isWechatBrowserEnv": "0",
               "model": "my",
               "variant": "my"
             }
@@ -30,13 +31,14 @@
               "language": "nl",
               "market": "BE",
               "app": "find-my-tesla",
-              "isTcoEnabled": "0",
-              "date": "",
-              "seekret": "",
+              "isTcoEnabled": false,
               "tags": "",
               "context": "",
-              "isFinplatEnabled": "0",
               "version": "redesign",
+              "seekret": "",
+              "isFinplatEnabled": "0",
+              "isWechatMiniProgramEnv": "0",
+              "isWechatBrowserEnv": "0",
               "model": "my",
               "variant": "my"
             }
@@ -50,13 +52,14 @@
               "language": "nl",
               "market": "BE",
               "app": "find-my-tesla",
-              "isTcoEnabled": "0",
-              "date": "",
-              "seekret": "",
+              "isTcoEnabled": false,
               "tags": "",
               "context": "",
-              "isFinplatEnabled": "0",
               "version": "redesign",
+              "seekret": "",
+              "isFinplatEnabled": "0",
+              "isWechatMiniProgramEnv": "0",
+              "isWechatBrowserEnv": "0",
               "model": "my",
               "variant": "my"
             }
@@ -70,13 +73,14 @@
               "language": "nl",
               "market": "BE",
               "app": "find-my-tesla",
-              "isTcoEnabled": "0",
-              "date": "",
-              "seekret": "",
+              "isTcoEnabled": false,
               "tags": "",
               "context": "",
-              "isFinplatEnabled": "0",
               "version": "redesign",
+              "seekret": "",
+              "isFinplatEnabled": "0",
+              "isWechatMiniProgramEnv": "0",
+              "isWechatBrowserEnv": "0",
               "model": "my",
               "variant": "my"
             }
@@ -90,13 +94,14 @@
               "language": "nl",
               "market": "BE",
               "app": "find-my-tesla",
-              "isTcoEnabled": "0",
-              "date": "",
-              "seekret": "",
+              "isTcoEnabled": false,
               "tags": "",
               "context": "",
-              "isFinplatEnabled": "0",
               "version": "redesign",
+              "seekret": "",
+              "isFinplatEnabled": "0",
+              "isWechatMiniProgramEnv": "0",
+              "isWechatBrowserEnv": "0",
               "model": "my",
               "variant": "my"
             }
@@ -110,13 +115,14 @@
               "language": "nl",
               "market": "BE",
               "app": "find-my-tesla",
-              "isTcoEnabled": "0",
-              "date": "",
-              "seekret": "",
+              "isTcoEnabled": false,
               "tags": "",
               "context": "",
-              "isFinplatEnabled": "0",
               "version": "redesign",
+              "seekret": "",
+              "isFinplatEnabled": "0",
+              "isWechatMiniProgramEnv": "0",
+              "isWechatBrowserEnv": "0",
               "model": "my",
               "variant": "my"
             }
@@ -128,13 +134,14 @@
         "language": "nl",
         "market": "BE",
         "app": "find-my-tesla",
-        "isTcoEnabled": "0",
-        "date": "",
-        "seekret": "",
+        "isTcoEnabled": false,
         "tags": "",
         "context": "",
+        "version": "redesign",
+        "seekret": "",
         "isFinplatEnabled": "0",
-        "version": "redesign"
+        "isWechatMiniProgramEnv": "0",
+        "isWechatBrowserEnv": "0"
       }
     },
     "InitialConfig.my.my": {
@@ -873,8 +880,27 @@
         "isEstimatedPrice": false,
         "showTotalPaymentFooter": false,
         "showMonthlyPaymentQuote": false,
-        "showFinanceProductsByDriverType": [],
-        "driverType": null,
+        "showFinanceProductsByDriverType": [
+          {
+            "type": "personal",
+            "financeOptions": [
+              "cash",
+              "linear_loan",
+              "balloon_loan"
+            ],
+            "defaultOption": "linear_loan"
+          },
+          {
+            "type": "business",
+            "financeOptions": [
+              "cash",
+              "kbc_lease",
+              "operational_lease"
+            ],
+            "defaultOption": "kbc_lease"
+          }
+        ],
+        "driverType": "business",
         "leaseDescriptionwithModelCode": false,
         "taxesAndFeesExcludedIfApplicable": false,
         "showFooterFinanceLink": false,
@@ -1049,16 +1075,7 @@
         },
         "accountDetailsValid": false,
         "AccountDetail": {
-          "FirstName": "",
-          "LastName": "",
-          "Email": "",
-          "PhoneNumber": "",
-          "Password": "",
-          "AccountType": "private",
-          "CompanyName": "",
-          "VatId": "",
-          "PrivateVatId": "",
-          "CompanyNumber": ""
+          "AccountType": "business"
         },
         "isSaveDesignEnabled": false,
         "showLocalName": false,
@@ -1400,7 +1417,7 @@
         ]
       },
       "SummaryPanel": {
-        "selected_tab": "loan",
+        "selected_tab": "lease",
         "tabs": [],
         "loanDistance": null,
         "leaseDistance": null,
@@ -1771,10 +1788,44 @@
       "loan": [
         {
           "market": "BE",
+          "id": "linear_loan",
+          "variant": [
+            "m3",
+            "my",
+            "ms",
+            "mx"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "downPayment": 0.2,
+            "downPayments": {
+              "trim": {
+                "$MTY13": 11000
+              }
+            },
+            "interestRate": 2.5598,
+            "loanTerm": 72,
+            "maximumFinancedAmount": 150000
+          },
+          "loanTermsOffered": {
+            "loanTerm": [
+              24,
+              36,
+              48,
+              60,
+              72
+            ]
+          }
+        },
+        {
+          "market": "BE",
           "variant": [
             "m3",
             "my"
           ],
+          "id": "balloon_loan",
           "inventory": [
             "new"
           ],
@@ -1787,7 +1838,7 @@
                 "my": 5000
               }
             },
-            "interestRate": 3.99,
+            "interestRate": 4.49,
             "loanTerm": 60,
             "loanDistance": 15000
           },
@@ -12019,6 +12070,7 @@
       "id": 358976,
       "createDatetime": "2022-08-25T21:57:40",
       "lastUpdateDatetime": "0001-01-01T00:00:00",
+      "lastUpdatedBy": null,
       "deliveryWindowDisplay": null,
       "children": [
         {
@@ -12035,6 +12087,7 @@
           "inType": "month_year"
         }
       ],
+      "createdBy": "aoom",
       "childIds": [
         1255
       ],
@@ -12054,6 +12107,7 @@
       "id": 357485,
       "createDatetime": "2022-08-19T17:10:05",
       "lastUpdateDatetime": "0001-01-01T00:00:00",
+      "lastUpdatedBy": null,
       "deliveryWindowDisplay": null,
       "children": [
         {
@@ -12135,6 +12189,7 @@
           "inType": "month_year"
         }
       ],
+      "createdBy": "aoom",
       "childIds": [
         555,
         583,
@@ -12160,6 +12215,7 @@
       "id": 357324,
       "createDatetime": "2022-08-18T14:24:04",
       "lastUpdateDatetime": "0001-01-01T00:00:00",
+      "lastUpdatedBy": null,
       "deliveryWindowDisplay": null,
       "children": [
         {
@@ -12228,6 +12284,7 @@
           "inType": "month_year"
         }
       ],
+      "createdBy": "aoom",
       "childIds": [
         541,
         597,

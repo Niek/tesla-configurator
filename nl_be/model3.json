@@ -10,13 +10,14 @@
               "language": "nl",
               "market": "BE",
               "app": "find-my-tesla",
-              "isTcoEnabled": "0",
-              "date": "",
-              "seekret": "",
+              "isTcoEnabled": false,
               "tags": "",
               "context": "",
-              "isFinplatEnabled": "0",
               "version": "redesign",
+              "seekret": "",
+              "isFinplatEnabled": "0",
+              "isWechatMiniProgramEnv": "0",
+              "isWechatBrowserEnv": "0",
               "model": "m3",
               "variant": "m3"
             }
@@ -30,13 +31,14 @@
               "language": "nl",
               "market": "BE",
               "app": "find-my-tesla",
-              "isTcoEnabled": "0",
-              "date": "",
-              "seekret": "",
+              "isTcoEnabled": false,
               "tags": "",
               "context": "",
-              "isFinplatEnabled": "0",
               "version": "redesign",
+              "seekret": "",
+              "isFinplatEnabled": "0",
+              "isWechatMiniProgramEnv": "0",
+              "isWechatBrowserEnv": "0",
               "model": "m3",
               "variant": "m3"
             }
@@ -50,13 +52,14 @@
               "language": "nl",
               "market": "BE",
               "app": "find-my-tesla",
-              "isTcoEnabled": "0",
-              "date": "",
-              "seekret": "",
+              "isTcoEnabled": false,
               "tags": "",
               "context": "",
-              "isFinplatEnabled": "0",
               "version": "redesign",
+              "seekret": "",
+              "isFinplatEnabled": "0",
+              "isWechatMiniProgramEnv": "0",
+              "isWechatBrowserEnv": "0",
               "model": "m3",
               "variant": "m3"
             }
@@ -70,13 +73,14 @@
               "language": "nl",
               "market": "BE",
               "app": "find-my-tesla",
-              "isTcoEnabled": "0",
-              "date": "",
-              "seekret": "",
+              "isTcoEnabled": false,
               "tags": "",
               "context": "",
-              "isFinplatEnabled": "0",
               "version": "redesign",
+              "seekret": "",
+              "isFinplatEnabled": "0",
+              "isWechatMiniProgramEnv": "0",
+              "isWechatBrowserEnv": "0",
               "model": "m3",
               "variant": "m3"
             }
@@ -90,13 +94,14 @@
               "language": "nl",
               "market": "BE",
               "app": "find-my-tesla",
-              "isTcoEnabled": "0",
-              "date": "",
-              "seekret": "",
+              "isTcoEnabled": false,
               "tags": "",
               "context": "",
-              "isFinplatEnabled": "0",
               "version": "redesign",
+              "seekret": "",
+              "isFinplatEnabled": "0",
+              "isWechatMiniProgramEnv": "0",
+              "isWechatBrowserEnv": "0",
               "model": "m3",
               "variant": "m3"
             }
@@ -110,13 +115,14 @@
               "language": "nl",
               "market": "BE",
               "app": "find-my-tesla",
-              "isTcoEnabled": "0",
-              "date": "",
-              "seekret": "",
+              "isTcoEnabled": false,
               "tags": "",
               "context": "",
-              "isFinplatEnabled": "0",
               "version": "redesign",
+              "seekret": "",
+              "isFinplatEnabled": "0",
+              "isWechatMiniProgramEnv": "0",
+              "isWechatBrowserEnv": "0",
               "model": "m3",
               "variant": "m3"
             }
@@ -128,13 +134,14 @@
         "language": "nl",
         "market": "BE",
         "app": "find-my-tesla",
-        "isTcoEnabled": "0",
-        "date": "",
-        "seekret": "",
+        "isTcoEnabled": false,
         "tags": "",
         "context": "",
+        "version": "redesign",
+        "seekret": "",
         "isFinplatEnabled": "0",
-        "version": "redesign"
+        "isWechatMiniProgramEnv": "0",
+        "isWechatBrowserEnv": "0"
       }
     },
     "InitialConfig.m3.m3": {
@@ -915,8 +922,27 @@
         "isEstimatedPrice": false,
         "showTotalPaymentFooter": false,
         "showMonthlyPaymentQuote": false,
-        "showFinanceProductsByDriverType": [],
-        "driverType": null,
+        "showFinanceProductsByDriverType": [
+          {
+            "type": "personal",
+            "financeOptions": [
+              "cash",
+              "linear_loan",
+              "balloon_loan"
+            ],
+            "defaultOption": "linear_loan"
+          },
+          {
+            "type": "business",
+            "financeOptions": [
+              "cash",
+              "kbc_lease",
+              "operational_lease"
+            ],
+            "defaultOption": "kbc_lease"
+          }
+        ],
+        "driverType": "business",
         "leaseDescriptionwithModelCode": false,
         "taxesAndFeesExcludedIfApplicable": false,
         "showFooterFinanceLink": false,
@@ -1092,16 +1118,7 @@
         },
         "accountDetailsValid": false,
         "AccountDetail": {
-          "FirstName": "",
-          "LastName": "",
-          "Email": "",
-          "PhoneNumber": "",
-          "Password": "",
-          "AccountType": "private",
-          "CompanyName": "",
-          "VatId": "",
-          "PrivateVatId": "",
-          "CompanyNumber": ""
+          "AccountType": "business"
         },
         "isSaveDesignEnabled": false,
         "showLocalName": false,
@@ -2059,10 +2076,44 @@
       "loan": [
         {
           "market": "BE",
+          "id": "linear_loan",
+          "variant": [
+            "m3",
+            "my",
+            "ms",
+            "mx"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "downPayment": 0.2,
+            "downPayments": {
+              "trim": {
+                "$MTY13": 11000
+              }
+            },
+            "interestRate": 2.5598,
+            "loanTerm": 72,
+            "maximumFinancedAmount": 150000
+          },
+          "loanTermsOffered": {
+            "loanTerm": [
+              24,
+              36,
+              48,
+              60,
+              72
+            ]
+          }
+        },
+        {
+          "market": "BE",
           "variant": [
             "m3",
             "my"
           ],
+          "id": "balloon_loan",
           "inventory": [
             "new"
           ],
@@ -2075,7 +2126,7 @@
                 "my": 5000
               }
             },
-            "interestRate": 3.99,
+            "interestRate": 4.49,
             "loanTerm": 60,
             "loanDistance": 15000
           },
@@ -14385,8 +14436,10 @@
       "id": 361454,
       "createDatetime": "2022-09-13T17:28:20",
       "lastUpdateDatetime": "0001-01-01T00:00:00",
+      "lastUpdatedBy": null,
       "deliveryWindowDisplay": null,
       "children": [],
+      "createdBy": "aoom",
       "childIds": [],
       "countryCode": "BE",
       "region": null,
@@ -14406,6 +14459,7 @@
       "id": 296312,
       "createDatetime": "2022-05-10T10:49:59",
       "lastUpdateDatetime": "0001-01-01T00:00:00",
+      "lastUpdatedBy": null,
       "deliveryWindowDisplay": null,
       "children": [
         {
@@ -14487,6 +14541,7 @@
           "inType": "month_year"
         }
       ],
+      "createdBy": "aoom",
       "childIds": [
         359,
         366,
@@ -14513,6 +14568,7 @@
       "id": 296102,
       "createDatetime": "2022-05-10T10:46:39",
       "lastUpdateDatetime": "0001-01-01T00:00:00",
+      "lastUpdatedBy": null,
       "deliveryWindowDisplay": null,
       "children": [
         {
@@ -14594,6 +14650,7 @@
           "inType": "month_year"
         }
       ],
+      "createdBy": "aoom",
       "childIds": [
         359,
         366,
@@ -14619,6 +14676,7 @@
       "id": 212081,
       "createDatetime": "2022-01-13T15:35:45",
       "lastUpdateDatetime": "2022-07-07T20:35:46",
+      "lastUpdatedBy": "WCS-26222",
       "deliveryWindowDisplay": null,
       "children": [
         {
@@ -14700,6 +14758,7 @@
           "inType": "month_year"
         }
       ],
+      "createdBy": "aoom",
       "childIds": [
         457,
         464,
@@ -14724,8 +14783,10 @@
       "id": 186230,
       "createDatetime": "2021-10-29T08:10:51",
       "lastUpdateDatetime": "2022-07-07T20:35:46",
+      "lastUpdatedBy": "WCS-26222",
       "deliveryWindowDisplay": null,
       "children": [],
+      "createdBy": "aoom",
       "childIds": [],
       "countryCode": "BE",
       "region": null,
@@ -14744,8 +14805,10 @@
       "id": 141206,
       "createDatetime": "2021-06-07T16:57:08",
       "lastUpdateDatetime": "2022-07-07T20:35:46",
+      "lastUpdatedBy": "WCS-26222",
       "deliveryWindowDisplay": null,
       "children": [],
+      "createdBy": "aoom",
       "childIds": [],
       "countryCode": "BE",
       "region": null,
@@ -14763,8 +14826,10 @@
       "id": 124007,
       "createDatetime": "2021-05-09T19:44:38",
       "lastUpdateDatetime": "2022-07-07T20:35:46",
+      "lastUpdatedBy": "WCS-26222",
       "deliveryWindowDisplay": null,
       "children": [],
+      "createdBy": "aoom",
       "childIds": [],
       "countryCode": "BE",
       "region": null,
@@ -14782,8 +14847,10 @@
       "id": 58221,
       "createDatetime": "2020-11-09T19:57:16",
       "lastUpdateDatetime": "2022-07-07T20:35:46",
+      "lastUpdatedBy": "WCS-26222",
       "deliveryWindowDisplay": null,
       "children": [],
+      "createdBy": "aoom",
       "childIds": [],
       "countryCode": "BE",
       "region": null,
@@ -14801,8 +14868,10 @@
       "id": 44956,
       "createDatetime": "2020-09-17T16:55:17",
       "lastUpdateDatetime": "2022-07-07T20:35:46",
+      "lastUpdatedBy": "WCS-26222",
       "deliveryWindowDisplay": null,
       "children": [],
+      "createdBy": "aoom",
       "childIds": [],
       "countryCode": "BE",
       "region": null,
