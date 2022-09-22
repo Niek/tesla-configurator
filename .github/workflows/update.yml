@@ -16,7 +16,7 @@ jobs:
       run: |
         models=(models model3 modelx modely cybertruck)
         countries=(en_us en_ca es_mx en_pr nl_be cs_cz da_dk de_de el_gr es_es fr_fr hr_hr hu_hu en_ie is_is it_it fr_lu nl_nl no_no de_at pl_pl pt_pt ro_ro sl_si fr_ch sv_se fi_fi en_gb he_il en_ae en_jo zh_cn zh_hk en_mo zh_tw ja_jp en_sg ko_kr en_au en_nz)
-        for cnt in ${countries[@]}; do for m in ${models[@]}; do mkdir -p ${cnt}; curl -sf "https://www.tesla.com/${cnt}/${m}/design" | grep 'window.tesla =' | sed 's/.$//;s/window\.tesla \= //' | jq '{info: .DSServices | fromjson | del(.date) | del(.responseTime), edd: .eddData}' >| ${cnt}/${m}.json; done; done
+        for cnt in ${countries[@]}; do for m in ${models[@]}; do mkdir -p ${cnt}; echo "Downloading ${cnt} ${m}"; curl -sf "https://www.tesla.com/${cnt}/${m}/design" | grep 'window.tesla =' | sed 's/.$//;s/window\.tesla \= //' | jq '{info: .DSServices | fromjson | del(.date) | del(.responseTime), edd: .eddData}' >| ${cnt}/${m}.json; done; sleep 3; done
         find . -name '*.json' -empty -type f -delete
     - name: Commit changes
       uses: EndBug/add-and-commit@v7
