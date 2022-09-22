@@ -21,7 +21,7 @@ jobs:
             mkdir -p ${cnt}; \
             echo "Downloading ${cnt} ${m}"; \
             curl -sf "https://www.tesla.com/${cnt}/${m}/design" | grep 'window.tesla =' | sed 's/.$//;s/window\.tesla \= //' | jq '{info: .DSServices | fromjson | del(.date) | del(.responseTime), edd: .eddData}' >| ${cnt}/${m}.json; \
-            sleep 2; \
+            sleep 3; \
           done; \
           sleep 5; \
         done 
