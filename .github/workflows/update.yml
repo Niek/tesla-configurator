@@ -20,10 +20,10 @@ jobs:
           for m in ${models[@]}; do \
             mkdir -p ${cnt}; \
             echo "Downloading ${cnt} ${m}"; \
-            curl -sf "https://www.tesla.com/${cnt}/${m}/design" | grep 'window.tesla =' | sed 's/.$//;s/window\.tesla \= //' | jq '{info: .DSServices | fromjson | del(.date) | del(.responseTime), edd: .eddData}' >| ${cnt}/${m}.json; \
-            sleep 3; \
+            curl -s --connect-timeout 5 --max-time 10 --retry 5 --retry-delay 0 --retry-max-time 40 "https://www.tesla.com/${cnt}/${m}/design" | grep 'window.tesla =' | sed 's/.$//;s/window\.tesla \= //' | jq '{info: .DSServices | fromjson | del(.date) | del(.responseTime), edd: .eddData}' >| ${cnt}/${m}.json; \
+            sleep 1; \
           done; \
-          sleep 5; \
+          sleep 2; \
         done 
         find . -name '*.json' -empty -type f -delete
     - name: Commit changes
