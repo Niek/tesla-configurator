@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-# Exit on error
-set -e
+echo "Starting updater..."
 
 # Function to check if command is installed
 command_exists() {
