@@ -1042,7 +1042,8 @@
         "calculatePriceOnOrder": false,
         "alwaysShowOrderDisclaimerAbove": false,
         "hideWireTransferForPreOrder": true,
-        "showFiscalCode": false
+        "showFiscalCode": false,
+        "displayBillingBeforeShipping": false
       },
       "ReviewDetails": {
         "group": "configurator.REVIEW_ORDER",
@@ -1898,12 +1899,12 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2022-08-19T00:10:00.000Z",
+      "effective_date": "2022-10-07T00:08:00.000Z",
       "market": "JP",
       "product": "mx",
       "factory": "GF00",
       "fees": {},
-      "name": "Marketing JP 2022.Aug.19 3903.6260.20325 [ja]",
+      "name": "Marketing JP 2022.Oct.07 4313.6853.20325 [ja]",
       "groups": [
         {
           "code": "MODEL",
@@ -2205,8 +2206,8 @@
           "groups": [],
           "options": [
             "$APBS",
-            "$APF2",
-            "$APPB"
+            "$APPB",
+            "$APF2"
           ],
           "required": false,
           "exclusive": false,
@@ -2333,6 +2334,7 @@
           "context": "order_summary",
           "options": [
             "$APBS",
+            "$APPB",
             "$APF2",
             "$CC01",
             "$CC02",
@@ -2392,6 +2394,7 @@
             "WHEELS",
             "WINTER_TIRES",
             "INTERIOR_PACKAGE",
+            "INTERIOR_COLORWAY",
             "REAR_SEATS",
             "STEERING_WHEEL",
             "AUTOPILOT",
@@ -3115,6 +3118,7 @@
           ],
           "groups": [],
           "options": [
+            "$APPB",
             "$APF2"
           ],
           "required": false,
@@ -3187,7 +3191,9 @@
           ],
           "groups": [],
           "options": [
-            "$APBS"
+            "$APBS",
+            "$APPB",
+            "$APF2"
           ],
           "required": false,
           "exclusive": false
@@ -3980,6 +3986,438 @@
           ]
         },
         {
+          "code": "EAP_FEATURES",
+          "groups": [
+            "EAP_AUTOPARK_CARD",
+            "EAP_LANE_CHANGE_CARD",
+            "EAP_SUMMON_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false
+        },
+        {
+          "code": "EAP_SUMMON_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APPB"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "エンハンスト サモン",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "エンハンスト サモン"
+            },
+            {
+              "type": "panelName",
+              "content": "エンハンスト オートパイロット"
+            },
+            {
+              "type": "description",
+              "content": "Tesla アプリから車両を起動させ、駐車場のどこに駐車しても自分のいるところまで迎えに来てくれます。さらに狭い駐車スペースでも車両の出し入れを自動で行います。エンハンスト サモンは、車線標示や停止標識を遵守しながら、歩行者やロードコーン、ゴミ箱、置き去りにされたショッピングカートなどの障害物を回避します。"
+            },
+            {
+              "type": "add_options",
+              "content": "追加パッケージ",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_SUMMON_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-summon"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "削除する",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_SUMMON_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-summon"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/summon_v2_emea.mp4",
+                  "type": "video-inline",
+                  "urlDesktop": "MODEL3/UI/summon_v2_emea.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "EAP_AUTOPARK_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APPB"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "オートパーキング",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "オートパーキング"
+            },
+            {
+              "type": "panelName",
+              "content": "エンハンスト オートパイロット"
+            },
+            {
+              "type": "description",
+              "content": "センターディスプレイのボタンをタップするだけで、並列および縦列の両方の駐車スペースに簡単に駐車させることが可能です。Model Xは、周囲のスペースを継続的に監視しているため、駐車可能なスペースがあればそれを通知します。"
+            },
+            {
+              "type": "add_options",
+              "content": "追加パッケージ",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_AUTOPARK_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-autopark"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "削除する",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_AUTOPARK_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-autopark"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/autopark.mp4",
+                  "type": "video-inline",
+                  "urlDesktop": "MODEL3/UI/autopark.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "EAP_NAVIGATE_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APPB"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "ナビゲート オン オートパイロット",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "ナビゲート オン オートパイロット"
+            },
+            {
+              "type": "panelName",
+              "content": "エンハンスト オートパイロット"
+            },
+            {
+              "type": "description",
+              "content": "高速道路のオンランプからオフランプ間にオートパイロットは、オートレーンチェンジ、完全停車と再発進機能を備えたトラフィックアウェア クルーズコントロール、オートステアリング、および低速車両の追い越し支援機能が含まれます。"
+            },
+            {
+              "type": "add_options",
+              "content": "追加パッケージ",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_NAVIGATE_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-navigate-on-autopilot"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "削除する",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_NAVIGATE_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-navigate-on-autopilot"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/navigate-on-autopilot.mp4",
+                  "type": "video-inline",
+                  "urlDesktop": "MODEL3/UI/navigate-on-autopilot.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "EAP_LANE_CHANGE_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$APPB"
+          ],
+          "required": false,
+          "exclusive": false,
+          "name": "オートレーンチェンジ",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "オートレーンチェンジ"
+            },
+            {
+              "type": "panelName",
+              "content": "エンハンスト オートパイロット"
+            },
+            {
+              "type": "description",
+              "content": "オートレーンチェンジは、高速道路を走行している間、低速車を追い越しながら合流や出口に備えるために常に最適な車線を走行します。ドライバーに、次の車線変更をわかりやすく伝えるとともに、オートレーンチェンジ機能をカスタマイズすることができます。"
+            },
+            {
+              "type": "add_options",
+              "content": "追加パッケージ",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_LANE_CHANGE_FEATURE",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-auto-lane-change"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "削除する",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_LANE_CHANGE_FEATURE",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-auto-lane-change"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/lane_change.mp4",
+                  "type": "video-inline",
+                  "urlDesktop": "MODEL3/UI/lane_change.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
+        },
+        {
           "code": "AUTOMATIC_DOORS_CARD",
           "groups": [],
           "context": "configurator",
@@ -4291,8 +4729,9 @@
         {
           "code": "FSD_FEATURES",
           "groups": [
-            "FSD_LANE_CHANGE_CARD",
             "FSD_AUTOPARK_CARD",
+            "FSD_LANE_CHANGE_CARD",
+            "FSD_SUMMON_CARD",
             "FSD_COMPUTER_CARD"
           ],
           "context": "configurator",
@@ -4795,9 +5234,9 @@
             {
               "type": "asset",
               "content": {
-                "url": "MODEL3/UI/summon.mp4",
+                "url": "MODEL3/UI/summon_v2_emea.mp4",
                 "type": "video-inline",
-                "urlDesktop": "MODEL3/UI/summon.mp4",
+                "urlDesktop": "MODEL3/UI/summon_v2_emea.mp4",
                 "selected_by": {
                   "or": [
                     {
@@ -5903,6 +6342,33 @@
                   "content_path": "CustomGroups.FSD_AUTOPARK_CARD.name"
                 }
               ]
+            },
+            {
+              "type": "asset[2]",
+              "content": [
+                {
+                  "url": "MODEL3/UI/summon_v2_emea.mp4",
+                  "type": "video-inline",
+                  "urlDesktop": "MODEL3/UI/summon_v2_emea.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": 0,
+                    "muted": true,
+                    "autoPlay": false,
+                    "fullWidth": true
+                  },
+                  "content_path": "CustomGroups.FSD_SUMMON_CARD.name"
+                }
+              ]
             }
           ]
         },
@@ -6605,20 +7071,12 @@
               "content": "標準"
             },
             {
-              "type": "feature_list.default[0].items[1]",
-              "content": "オートレーンチェンジ"
-            },
-            {
-              "type": "feature_list.default[0].items[2]",
-              "content": "サモン"
-            },
-            {
               "type": "feature_list.default[0].items[0]",
-              "content": "オートパーキング"
+              "content": "ベーシック オートパイロットおよびエンハンスト オートパイロットのすべての機能"
             },
             {
-              "type": "feature_list.default[1].items[0]",
-              "content": "ナビゲート オン オートパイロット"
+              "type": "feature_list.default[1].title",
+              "content": "Upcoming:"
             },
             {
               "type": "feature_list.default[1].items[2]",
@@ -6627,14 +7085,6 @@
             {
               "type": "feature_list.default[1].items[3]",
               "content": "市街地でのオートステアリング"
-            },
-            {
-              "type": "feature_list.default[1].items[1]",
-              "content": "スマート サモン"
-            },
-            {
-              "type": "feature_list.default[1].title",
-              "content": "Upcoming:"
             },
             {
               "type": "disclaimer",
@@ -7071,20 +7521,20 @@
               "content": "標準"
             },
             {
-              "type": "feature_list.default[0].items[0]",
-              "content": "ナビゲート オン オートパイロット"
-            },
-            {
               "type": "feature_list.default[0].items[1]",
-              "content": "オートレーンチェンジ"
-            },
-            {
-              "type": "description",
-              "content": " "
+              "content": "オートパーキング"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "オートパーキング"
+              "content": "オートレーンチェンジ"
+            },
+            {
+              "type": "feature_list.default[0].items[3]",
+              "content": "サモン"
+            },
+            {
+              "type": "feature_list.default[0].items[4]",
+              "content": "エンハンスト サモン"
             },
             {
               "type": "feature_list.default[1].title",
@@ -7092,11 +7542,7 @@
             },
             {
               "type": "feature_list.default[1].items[0]",
-              "content": "エンハンスト サモン"
-            },
-            {
-              "type": "feature_list.default[0].items[3]",
-              "content": "サモン"
+              "content": "ナビゲート オン オートパイロット"
             },
             {
               "type": "selectLabel",
@@ -20776,7 +21222,7 @@
         "$DRRH",
         "$CPF0"
       ],
-      "options_id": 3903,
+      "options_id": 4313,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -20925,6 +21371,41 @@
             },
             {
               "code": "EXPANSIVE_STORAGE_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EAP_FEATURES",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in only Options lexicons"
+            },
+            {
+              "code": "EAP_SUMMON_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EAP_AUTOPARK_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EAP_NAVIGATE_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EAP_LANE_CHANGE_CARD",
               "context": [
                 "configurator"
               ],
@@ -22307,10 +22788,10 @@
           }
         }
       ],
-      "copy_id": 6260,
+      "copy_id": 6853,
       "language": "ja",
       "pricing_id": 20325,
-      "reference_id": 3903,
+      "reference_id": 4313,
       "source": "cache"
     }
   },

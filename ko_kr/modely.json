@@ -1037,7 +1037,8 @@
         "calculatePriceOnOrder": false,
         "alwaysShowOrderDisclaimerAbove": false,
         "hideWireTransferForPreOrder": true,
-        "showFiscalCode": false
+        "showFiscalCode": false,
+        "displayBillingBeforeShipping": false
       },
       "ReviewDetails": {
         "group": "order_summary.REVIEW_ORDER",
@@ -1666,7 +1667,7 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2022-07-20T23:20:00.000Z",
+      "effective_date": "2022-10-07T00:08:00.000Z",
       "market": "KR",
       "product": "my",
       "factory": "GF00",
@@ -1688,7 +1689,7 @@
           }
         }
       },
-      "name": "Marketing KR 2022.Jul.20 3580.6034.19606 [ko]",
+      "name": "Marketing KR 2022.Oct.07 4309.6839.19606 [ko]",
       "groups": [
         {
           "code": "MODEL",
@@ -2011,8 +2012,8 @@
           "extra_copy": [],
           "groups": [],
           "options": [
-            "$INPB1",
-            "$INPW1"
+            "$INPB0",
+            "$INPW0"
           ],
           "required": true,
           "exclusive": true,
@@ -3217,13 +3218,13 @@
           ],
           "groups": [],
           "options": [
-            "$INPB1",
-            "$INPW1"
+            "$INPB0",
+            "$INPW0"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$INPB1"
+            "$INPB0"
           ]
         },
         {
@@ -5629,7 +5630,7 @@
                   "ratio": "slice",
                   "selected_by": {
                     "and": [
-                      "$INPB1"
+                      "$INPB0"
                     ]
                   }
                 },
@@ -5639,7 +5640,7 @@
                   "ratio": "slice",
                   "selected_by": {
                     "and": [
-                      "$INPW1"
+                      "$INPW0"
                     ]
                   }
                 }
@@ -8635,29 +8636,31 @@
             }
           ]
         },
-        "$INPB1": {
-          "code": "$INPB1",
+        "$INPB0": {
+          "code": "$INPB0",
           "user_defined_rules": {
             "set_rules": []
           },
           "set_rules": [
             {
               "action": "set",
-              "target": "$INPB1"
+              "target": "$INPB0"
             },
             {
               "action": "unset",
               "targets": [
                 "$INYPB",
                 "$INYPW",
-                "$INPW1"
+                "$INPB1",
+                "$INPW1",
+                "$INPW0"
               ]
             }
           ],
           "unset_rules": [
             {
               "action": "unset",
-              "target": "$INPB1"
+              "target": "$INPB0"
             },
             {
               "action": "set",
@@ -8665,7 +8668,9 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$INYPW",
-                "$INPW1"
+                "$INPB1",
+                "$INPW1",
+                "$INPW0"
               ]
             }
           ],
@@ -8768,7 +8773,7 @@
                     "type": "FEATURES_LIST_EXPAND",
                     "props": {
                       "options": [
-                        "$INPB1"
+                        "$INPB0"
                       ]
                     },
                     "classNames": [
@@ -8789,7 +8794,7 @@
                     "type": "FEATURES_LIST_COLLAPSE",
                     "props": {
                       "options": [
-                        "$INPB1"
+                        "$INPB0"
                       ]
                     },
                     "classNames": [
@@ -8830,39 +8835,33 @@
                 }
               ]
             }
-          ],
-          "price": 0,
-          "pricing": [
-            {
-              "type": "base",
-              "value": 0,
-              "context": "KRW"
-            }
           ]
         },
-        "$INPW1": {
-          "code": "$INPW1",
+        "$INPW0": {
+          "code": "$INPW0",
           "user_defined_rules": {
             "set_rules": []
           },
           "set_rules": [
             {
               "action": "set",
-              "target": "$INPW1"
+              "target": "$INPW0"
             },
             {
               "action": "unset",
               "targets": [
                 "$INYPB",
                 "$INYPW",
-                "$INPB1"
+                "$INPB1",
+                "$INPW1",
+                "$INPB0"
               ]
             }
           ],
           "unset_rules": [
             {
               "action": "unset",
-              "target": "$INPW1"
+              "target": "$INPW0"
             },
             {
               "action": "set",
@@ -8870,7 +8869,9 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$INYPW",
-                "$INPB1"
+                "$INPB1",
+                "$INPW1",
+                "$INPB0"
               ]
             }
           ],
@@ -8895,7 +8896,7 @@
                   "content": {
                     "type": "SHOW_INTERIOR_MODAL",
                     "props": {
-                      "content_path": "OMS.lexicon.options.$INPW1.recommended_NA_content"
+                      "content_path": "OMS.lexicon.options.$INPW0.recommended_NA_content"
                     },
                     "classNames": [
                       "tsla-recommended_NA"
@@ -8995,7 +8996,7 @@
                     "type": "FEATURES_LIST_EXPAND",
                     "props": {
                       "options": [
-                        "$INPW1"
+                        "$INPW0"
                       ]
                     },
                     "classNames": [
@@ -9016,7 +9017,7 @@
                     "type": "FEATURES_LIST_COLLAPSE",
                     "props": {
                       "options": [
-                        "$INPW1"
+                        "$INPW0"
                       ]
                     },
                     "classNames": [
@@ -9064,14 +9065,6 @@
                   "condition_state": "not"
                 }
               ]
-            }
-          ],
-          "price": 1286000,
-          "pricing": [
-            {
-              "type": "base",
-              "value": 1286000,
-              "context": "KRW"
             }
           ]
         },
@@ -10361,7 +10354,7 @@
         "$APBS",
         "$CPF0",
         "$DV4W",
-        "$INPB1",
+        "$INPB0",
         "$MDLY",
         "$MTY06",
         "$PPSW",
@@ -10370,7 +10363,7 @@
         "$STY5S",
         "$WY19B"
       ],
-      "options_id": 3580,
+      "options_id": 4309,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -10387,6 +10380,14 @@
         {
           "type": "MISSING_PRICE",
           "message": "The discountable group's, option '$FM3U' is not defined in the pricing lexicon."
+        },
+        {
+          "type": "MISSING_PRICE",
+          "message": "The discountable group's, option '$INPB0' is not defined in the pricing lexicon."
+        },
+        {
+          "type": "MISSING_PRICE",
+          "message": "The discountable group's, option '$INPW0' is not defined in the pricing lexicon."
         },
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -10849,10 +10850,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 6034,
+      "copy_id": 6839,
       "language": "ko",
       "pricing_id": 19606,
-      "reference_id": 3580,
+      "reference_id": 4309,
       "source": "cache"
     }
   },
