@@ -16,7 +16,7 @@ command_exists jq
 command_exists parallel
 
 # Get rid of the annoying parallel citation warning
-echo 'will cite' | parallel --citation 1> /dev/null 2> /dev/null
+echo 'will cite' | parallel --citation 1>/dev/null 2>/dev/null
 
 # Define the car models
 models=(models model3 modelx modely cybertruck)
@@ -28,17 +28,15 @@ countries=(en_us en_ca es_mx en_pr nl_be cs_cz da_dk de_de el_gr es_es fr_fr hr_
 tmpfile=$(mktemp)
 
 # Loop over models/countries and fetch the data
-for cnt in "${countries[@]}"
-do
-    for m in "${models[@]}"
-    do
+for cnt in "${countries[@]}"; do
+    for m in "${models[@]}"; do
         mkdir -p "${cnt}"
-        echo "curl -sf 'https://www.tesla.com/${cnt}/${m}/design' | grep 'window.tesla =' | sed 's/.$//;s/window\.tesla \= //' | jq '{info: .DSServices | fromjson | del(.date) | del(.responseTime), edd: .eddData}' >| ${cnt}/${m}.json" >> "${tmpfile}"
+        echo "curl -sf 'https://www.tesla.com/${cnt}/${m}/design' | grep '\"DSServices\"' | sed 's/^/{/; s/.$//; s/$/}/' | jq '{info: .DSServices | del(.date) | del(.responseTime)}' >| ${cnt}/${m}.json" >>"${tmpfile}"
     done
 done
 
 # Run the commands in parallel
-parallel --retries 3 --jobs 2 --delay 2 < "${tmpfile}"
+parallel --retries 3 --jobs 2 --delay 2 <"${tmpfile}"
 
 # Delete empty files
 find . -name '*.json' -empty -type f -delete
