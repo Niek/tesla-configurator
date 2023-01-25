@@ -906,7 +906,7 @@
         "showNetMonthlyPayment": false,
         "hideRegistrationTypeToggle": false,
         "showSavingsColumn": false,
-        "showIncentivesTotal": true,
+        "showIncentivesTotal": false,
         "showFuelMonthlySavings": false,
         "financeSelectionDislaimer": "FinancingOptions.selection__disclaimer",
         "showAmountIncludingFeesInModal": false,
@@ -917,7 +917,8 @@
         "hideFinanceProduct": {
           "trim": [],
           "financeType": []
-        }
+        },
+        "showIncentivesBreakdown": true
       },
       "FindMyTesla": {
         "selected_view": "exterior",
@@ -1336,7 +1337,8 @@
         "actionsToUpdatePrices": [
           "SUMMARY_PANEL_DELIVERY_INCENTIVE_CHANGE",
           "SUMMARY_PANEL_FINANCE_APR_CHANGE",
-          "SUMMARY_PANEL_DISTANCE_CHANGE"
+          "SUMMARY_PANEL_DISTANCE_CHANGE",
+          "TOGGLE_DYNAMIC_INCENTIVE"
         ],
         "showVehicleSubtotal": false,
         "hidePostfixOnUI": false,
@@ -1519,6 +1521,61 @@
             "kwh_consumption": 0.28
           },
           "variant": "my",
+          "market": "US"
+        },
+        {
+          "description": "Federal Incentive for US my",
+          "financeType": [
+            "loan",
+            "cash"
+          ],
+          "period": "taxCredit",
+          "amount": 0,
+          "incentiveType": "taxCredit",
+          "toggle_amount": {
+            "if": [
+              {
+                "conditions": {
+                  "optionsPrice": {
+                    "<=": 55000
+                  },
+                  "selected_by": {
+                    "and": [
+                      "$STY5S"
+                    ]
+                  },
+                  "excludedGroups": [
+                    "AUTOPILOT",
+                    "AUTOPILOT_PACKAGE"
+                  ]
+                },
+                "amount": 7500
+              },
+              {
+                "conditions": {
+                  "optionsPrice": {
+                    "<=": 80000
+                  },
+                  "selected_by": {
+                    "and": [
+                      "$STY7S"
+                    ]
+                  },
+                  "excludedGroups": [
+                    "AUTOPILOT",
+                    "AUTOPILOT_PACKAGE"
+                  ]
+                },
+                "amount": 7500
+              }
+            ]
+          },
+          "variant": [
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
           "market": "US"
         },
         {
@@ -2179,6 +2236,7 @@
       "AUTO_LEASE:OPERATIONAL_LEASE:CT_PRIVATE:FP_TESLA_FINANCE_LEASING_V3": {
         "products": [
           {
+            "name": "Configurator.Q121V2.YSR NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": true,
             "displayCategoryCode": "PREFERRED",
             "productID": 29550,
@@ -2202,6 +2260,14 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY01"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -2242,18 +2308,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY01"
-                ]
-              }
-            ],
-            "name": "Configurator.Q121V2.YSR NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q121V2.YSR NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 29551,
@@ -2277,6 +2335,14 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY01"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -2317,18 +2383,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY01"
-                ]
-              }
-            ],
-            "name": "Configurator.Q121V2.YSR NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q121V2.YSR NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 29552,
@@ -2352,6 +2410,14 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY01"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -2392,18 +2458,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY01"
-                ]
-              }
-            ],
-            "name": "Configurator.Q121V2.YSR NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39923,
@@ -2435,6 +2493,14 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY14"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -2475,18 +2541,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY14"
-                ]
-              }
-            ],
-            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39924,
@@ -2518,6 +2576,14 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY14"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -2558,18 +2624,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY14"
-                ]
-              }
-            ],
-            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39925,
@@ -2601,6 +2659,14 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY14"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -2641,18 +2707,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY14"
-                ]
-              }
-            ],
-            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": true,
             "displayCategoryCode": "PREFERRED",
             "productID": 39926,
@@ -2684,6 +2742,14 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY14"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -2724,18 +2790,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY14"
-                ]
-              }
-            ],
-            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39927,
@@ -2767,6 +2825,14 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY14"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -2807,18 +2873,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY14"
-                ]
-              }
-            ],
-            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39928,
@@ -2850,47 +2908,6 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -2899,210 +2916,6 @@
                 ]
               }
             ],
-            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01"
-          },
-          {
-            "isDefault": false,
-            "displayCategoryCode": "PREFERRED",
-            "productID": 39941,
-            "productType": "AUTO_LEASE",
-            "productSubType": "OPERATIONAL_LEASE",
-            "localName": "Lease",
-            "localeInformation": [
-              {
-                "localeCode": "en_US",
-                "localName": "Lease",
-                "isDefault": true
-              }
-            ],
-            "customerType": "CT_PRIVATE",
-            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_V3",
-            "selfServeStatus": false,
-            "defaultDownPayment": 4500,
-            "defaultDownPaymentType": "C",
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.25,
-            "term": 24,
-            "moneyFactor": 0.002453,
-            "residualValueUplift": 0,
-            "interestRate": 0.058872,
-            "distanceAllowed": 10000,
-            "distanceAllowedType": "MI",
-            "residualRate": 0.74,
-            "minimumFinancedAmount": 0,
-            "maxLTVRatio": 1.15,
-            "overageCharge": 0.25,
-            "overageChargeCurrency": "USD",
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY03",
-                  "$MTY06",
-                  "$MTY11"
-                ]
-              }
-            ],
-            "name": "Configurator.Q123.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01"
-          },
-          {
-            "isDefault": false,
-            "displayCategoryCode": "PREFERRED",
-            "productID": 39942,
-            "productType": "AUTO_LEASE",
-            "productSubType": "OPERATIONAL_LEASE",
-            "localName": "Lease",
-            "localeInformation": [
-              {
-                "localeCode": "en_US",
-                "localName": "Lease",
-                "isDefault": true
-              }
-            ],
-            "customerType": "CT_PRIVATE",
-            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_V3",
-            "selfServeStatus": false,
-            "defaultDownPayment": 4500,
-            "defaultDownPaymentType": "C",
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.25,
-            "term": 24,
-            "moneyFactor": 0.002453,
-            "residualValueUplift": 0,
-            "interestRate": 0.058872,
-            "distanceAllowed": 12000,
-            "distanceAllowedType": "MI",
-            "residualRate": 0.72,
-            "minimumFinancedAmount": 0,
-            "maxLTVRatio": 1.15,
-            "overageCharge": 0.25,
-            "overageChargeCurrency": "USD",
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY03",
-                  "$MTY06",
-                  "$MTY11"
-                ]
-              }
-            ],
-            "name": "Configurator.Q123.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01"
-          },
-          {
-            "isDefault": false,
-            "displayCategoryCode": "PREFERRED",
-            "productID": 39943,
-            "productType": "AUTO_LEASE",
-            "productSubType": "OPERATIONAL_LEASE",
-            "localName": "Lease",
-            "localeInformation": [
-              {
-                "localeCode": "en_US",
-                "localName": "Lease",
-                "isDefault": true
-              }
-            ],
-            "customerType": "CT_PRIVATE",
-            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_V3",
-            "selfServeStatus": false,
-            "defaultDownPayment": 4500,
-            "defaultDownPaymentType": "C",
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.25,
-            "term": 24,
-            "moneyFactor": 0.002453,
-            "residualValueUplift": 0,
-            "interestRate": 0.058872,
-            "distanceAllowed": 15000,
-            "distanceAllowedType": "MI",
-            "residualRate": 0.71,
-            "minimumFinancedAmount": 0,
-            "maxLTVRatio": 1.15,
-            "overageCharge": 0.25,
-            "overageChargeCurrency": "USD",
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -3143,275 +2956,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY03",
-                  "$MTY06",
-                  "$MTY11"
-                ]
-              }
-            ],
-            "name": "Configurator.Q123.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
-            "isDefault": true,
-            "displayCategoryCode": "PREFERRED",
-            "productID": 39944,
-            "productType": "AUTO_LEASE",
-            "productSubType": "OPERATIONAL_LEASE",
-            "localName": "Lease",
-            "localeInformation": [
-              {
-                "localeCode": "en_US",
-                "localName": "Lease",
-                "isDefault": true
-              }
-            ],
-            "customerType": "CT_PRIVATE",
-            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_V3",
-            "selfServeStatus": true,
-            "defaultDownPayment": 4500,
-            "defaultDownPaymentType": "C",
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.25,
-            "term": 36,
-            "moneyFactor": 0.002453,
-            "residualValueUplift": 0,
-            "interestRate": 0.058872,
-            "distanceAllowed": 10000,
-            "distanceAllowedType": "MI",
-            "residualRate": 0.66,
-            "minimumFinancedAmount": 0,
-            "maxLTVRatio": 1.15,
-            "overageCharge": 0.25,
-            "overageChargeCurrency": "USD",
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY03",
-                  "$MTY06",
-                  "$MTY11"
-                ]
-              }
-            ],
-            "name": "Configurator.Q123.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01"
-          },
-          {
-            "isDefault": false,
-            "displayCategoryCode": "PREFERRED",
-            "productID": 39945,
-            "productType": "AUTO_LEASE",
-            "productSubType": "OPERATIONAL_LEASE",
-            "localName": "Lease",
-            "localeInformation": [
-              {
-                "localeCode": "en_US",
-                "localName": "Lease",
-                "isDefault": true
-              }
-            ],
-            "customerType": "CT_PRIVATE",
-            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_V3",
-            "selfServeStatus": true,
-            "defaultDownPayment": 4500,
-            "defaultDownPaymentType": "C",
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.25,
-            "term": 36,
-            "moneyFactor": 0.002453,
-            "residualValueUplift": 0,
-            "interestRate": 0.058872,
-            "distanceAllowed": 12000,
-            "distanceAllowedType": "MI",
-            "residualRate": 0.64,
-            "minimumFinancedAmount": 0,
-            "maxLTVRatio": 1.15,
-            "overageCharge": 0.25,
-            "overageChargeCurrency": "USD",
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY03",
-                  "$MTY06",
-                  "$MTY11"
-                ]
-              }
-            ],
-            "name": "Configurator.Q123.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01"
-          },
-          {
-            "isDefault": false,
-            "displayCategoryCode": "PREFERRED",
-            "productID": 39946,
-            "productType": "AUTO_LEASE",
-            "productSubType": "OPERATIONAL_LEASE",
-            "localName": "Lease",
-            "localeInformation": [
-              {
-                "localeCode": "en_US",
-                "localName": "Lease",
-                "isDefault": true
-              }
-            ],
-            "customerType": "CT_PRIVATE",
-            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_V3",
-            "selfServeStatus": true,
-            "defaultDownPayment": 4500,
-            "defaultDownPaymentType": "C",
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.25,
-            "term": 36,
-            "moneyFactor": 0.002453,
-            "residualValueUplift": 0,
-            "interestRate": 0.058872,
-            "distanceAllowed": 15000,
-            "distanceAllowedType": "MI",
-            "residualRate": 0.62,
-            "minimumFinancedAmount": 0,
-            "maxLTVRatio": 1.15,
-            "overageCharge": 0.25,
-            "overageChargeCurrency": "USD",
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY03",
-                  "$MTY06",
-                  "$MTY11"
-                ]
-              }
-            ],
-            "name": "Configurator.Q123.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01"
-          },
-          {
+            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39959,
@@ -3443,6 +2991,15 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY04",
+                  "$MTY05"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -3483,19 +3040,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY04",
-                  "$MTY05"
-                ]
-              }
-            ],
-            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39960,
@@ -3527,6 +3075,15 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY04",
+                  "$MTY05"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -3567,19 +3124,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY04",
-                  "$MTY05"
-                ]
-              }
-            ],
-            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39961,
@@ -3611,6 +3159,15 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY04",
+                  "$MTY05"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -3651,19 +3208,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY04",
-                  "$MTY05"
-                ]
-              }
-            ],
-            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": true,
             "displayCategoryCode": "PREFERRED",
             "productID": 39962,
@@ -3695,6 +3243,15 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY04",
+                  "$MTY05"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -3735,19 +3292,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY04",
-                  "$MTY05"
-                ]
-              }
-            ],
-            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39963,
@@ -3779,6 +3327,15 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY04",
+                  "$MTY05"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -3819,19 +3376,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDLY",
-                "trimCodes": [
-                  "$MTY04",
-                  "$MTY05"
-                ]
-              }
-            ],
-            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39964,
@@ -3863,6 +3411,15 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY04",
+                  "$MTY05"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -3903,17 +3460,517 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
+            "excludeTaxInVehiclePrice": false
+          },
+          {
+            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "isDefault": false,
+            "displayCategoryCode": "PREFERRED",
+            "productID": 40328,
+            "productType": "AUTO_LEASE",
+            "productSubType": "OPERATIONAL_LEASE",
+            "localName": "Lease",
+            "localeInformation": [
+              {
+                "localeCode": "en_US",
+                "localName": "Lease",
+                "isDefault": true
+              }
+            ],
+            "customerType": "CT_PRIVATE",
+            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_V3",
+            "selfServeStatus": false,
+            "defaultDownPayment": 4500,
+            "defaultDownPaymentType": "C",
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.25,
+            "term": 24,
+            "moneyFactor": 0.002491,
+            "residualValueUplift": 0,
+            "interestRate": 0.059784,
+            "distanceAllowed": 10000,
+            "distanceAllowedType": "MI",
+            "residualRate": 0.74,
+            "minimumFinancedAmount": 0,
+            "maxLTVRatio": 1.15,
+            "overageCharge": 0.25,
+            "overageChargeCurrency": "USD",
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
                 "trimCodes": [
-                  "$MTY04",
-                  "$MTY05"
+                  "$MTY03",
+                  "$MTY06",
+                  "$MTY11"
                 ]
               }
             ],
-            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01"
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
+          },
+          {
+            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "isDefault": false,
+            "displayCategoryCode": "PREFERRED",
+            "productID": 40329,
+            "productType": "AUTO_LEASE",
+            "productSubType": "OPERATIONAL_LEASE",
+            "localName": "Lease",
+            "localeInformation": [
+              {
+                "localeCode": "en_US",
+                "localName": "Lease",
+                "isDefault": true
+              }
+            ],
+            "customerType": "CT_PRIVATE",
+            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_V3",
+            "selfServeStatus": false,
+            "defaultDownPayment": 4500,
+            "defaultDownPaymentType": "C",
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.25,
+            "term": 24,
+            "moneyFactor": 0.002491,
+            "residualValueUplift": 0,
+            "interestRate": 0.059784,
+            "distanceAllowed": 12000,
+            "distanceAllowedType": "MI",
+            "residualRate": 0.72,
+            "minimumFinancedAmount": 0,
+            "maxLTVRatio": 1.15,
+            "overageCharge": 0.25,
+            "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY03",
+                  "$MTY06",
+                  "$MTY11"
+                ]
+              }
+            ],
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
+          },
+          {
+            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "isDefault": false,
+            "displayCategoryCode": "PREFERRED",
+            "productID": 40330,
+            "productType": "AUTO_LEASE",
+            "productSubType": "OPERATIONAL_LEASE",
+            "localName": "Lease",
+            "localeInformation": [
+              {
+                "localeCode": "en_US",
+                "localName": "Lease",
+                "isDefault": true
+              }
+            ],
+            "customerType": "CT_PRIVATE",
+            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_V3",
+            "selfServeStatus": false,
+            "defaultDownPayment": 4500,
+            "defaultDownPaymentType": "C",
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.25,
+            "term": 24,
+            "moneyFactor": 0.002491,
+            "residualValueUplift": 0,
+            "interestRate": 0.059784,
+            "distanceAllowed": 15000,
+            "distanceAllowedType": "MI",
+            "residualRate": 0.71,
+            "minimumFinancedAmount": 0,
+            "maxLTVRatio": 1.15,
+            "overageCharge": 0.25,
+            "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY03",
+                  "$MTY06",
+                  "$MTY11"
+                ]
+              }
+            ],
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": -0.01
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
+          },
+          {
+            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "isDefault": true,
+            "displayCategoryCode": "PREFERRED",
+            "productID": 40331,
+            "productType": "AUTO_LEASE",
+            "productSubType": "OPERATIONAL_LEASE",
+            "localName": "Lease",
+            "localeInformation": [
+              {
+                "localeCode": "en_US",
+                "localName": "Lease",
+                "isDefault": true
+              }
+            ],
+            "customerType": "CT_PRIVATE",
+            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_V3",
+            "selfServeStatus": true,
+            "defaultDownPayment": 4500,
+            "defaultDownPaymentType": "C",
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.25,
+            "term": 36,
+            "moneyFactor": 0.002491,
+            "residualValueUplift": 0,
+            "interestRate": 0.059784,
+            "distanceAllowed": 10000,
+            "distanceAllowedType": "MI",
+            "residualRate": 0.66,
+            "minimumFinancedAmount": 0,
+            "maxLTVRatio": 1.15,
+            "overageCharge": 0.25,
+            "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY03",
+                  "$MTY06",
+                  "$MTY11"
+                ]
+              }
+            ],
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
+          },
+          {
+            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "isDefault": false,
+            "displayCategoryCode": "PREFERRED",
+            "productID": 40332,
+            "productType": "AUTO_LEASE",
+            "productSubType": "OPERATIONAL_LEASE",
+            "localName": "Lease",
+            "localeInformation": [
+              {
+                "localeCode": "en_US",
+                "localName": "Lease",
+                "isDefault": true
+              }
+            ],
+            "customerType": "CT_PRIVATE",
+            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_V3",
+            "selfServeStatus": true,
+            "defaultDownPayment": 4500,
+            "defaultDownPaymentType": "C",
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.25,
+            "term": 36,
+            "moneyFactor": 0.002491,
+            "residualValueUplift": 0,
+            "interestRate": 0.059784,
+            "distanceAllowed": 12000,
+            "distanceAllowedType": "MI",
+            "residualRate": 0.64,
+            "minimumFinancedAmount": 0,
+            "maxLTVRatio": 1.15,
+            "overageCharge": 0.25,
+            "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY03",
+                  "$MTY06",
+                  "$MTY11"
+                ]
+              }
+            ],
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
+          },
+          {
+            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "isDefault": false,
+            "displayCategoryCode": "PREFERRED",
+            "productID": 40333,
+            "productType": "AUTO_LEASE",
+            "productSubType": "OPERATIONAL_LEASE",
+            "localName": "Lease",
+            "localeInformation": [
+              {
+                "localeCode": "en_US",
+                "localName": "Lease",
+                "isDefault": true
+              }
+            ],
+            "customerType": "CT_PRIVATE",
+            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_V3",
+            "selfServeStatus": true,
+            "defaultDownPayment": 4500,
+            "defaultDownPaymentType": "C",
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.25,
+            "term": 36,
+            "moneyFactor": 0.002491,
+            "residualValueUplift": 0,
+            "interestRate": 0.059784,
+            "distanceAllowed": 15000,
+            "distanceAllowedType": "MI",
+            "residualRate": 0.62,
+            "minimumFinancedAmount": 0,
+            "maxLTVRatio": 1.15,
+            "overageCharge": 0.25,
+            "overageChargeCurrency": "USD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDLY",
+                "trimCodes": [
+                  "$MTY03",
+                  "$MTY06",
+                  "$MTY11"
+                ]
+              }
+            ],
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": -0.01
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
           }
         ],
         "parameters": {
@@ -3935,6 +3992,7 @@
       "AUTO_LOAN:LOAN:CT_PRIVATE:FP_WELLS_FARGO_NA": {
         "products": [
           {
+            "name": "Configurator.NA.US-LOAN-N-3Y.Q422-DEC-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 38290,
@@ -3952,10 +4010,6 @@
             "interestRate": 0.0534,
             "minimumFinancedAmount": 10000,
             "maxLTVRatio": 1.15,
-            "calculationType": "LOAN",
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDL3",
@@ -3997,9 +4051,13 @@
                 ]
               }
             ],
-            "name": "Configurator.NA.US-LOAN-N-3Y.Q422-DEC-BP-2025-10-01"
+            "calculationType": "LOAN",
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.NA.US-LOAN-N-3Y.Q422-DEC-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 38291,
@@ -4017,10 +4075,6 @@
             "interestRate": 0.0534,
             "minimumFinancedAmount": 10000,
             "maxLTVRatio": 1.15,
-            "calculationType": "LOAN",
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDL3",
@@ -4062,9 +4116,13 @@
                 ]
               }
             ],
-            "name": "Configurator.NA.US-LOAN-N-3Y.Q422-DEC-BP-2025-10-01"
+            "calculationType": "LOAN",
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.NA.US-LOAN-N-3Y.Q422-DEC-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 38292,
@@ -4082,10 +4140,6 @@
             "interestRate": 0.0534,
             "minimumFinancedAmount": 10000,
             "maxLTVRatio": 1.15,
-            "calculationType": "LOAN",
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDL3",
@@ -4127,9 +4181,13 @@
                 ]
               }
             ],
-            "name": "Configurator.NA.US-LOAN-N-3Y.Q422-DEC-BP-2025-10-01"
+            "calculationType": "LOAN",
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.NA.US-LOAN-N-3Y.Q422-DEC-BP-2025-10-01",
             "isDefault": true,
             "displayCategoryCode": "PREFERRED",
             "productID": 38293,
@@ -4147,10 +4205,6 @@
             "interestRate": 0.0534,
             "minimumFinancedAmount": 10000,
             "maxLTVRatio": 1.15,
-            "calculationType": "LOAN",
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDL3",
@@ -4192,7 +4246,10 @@
                 ]
               }
             ],
-            "name": "Configurator.NA.US-LOAN-N-3Y.Q422-DEC-BP-2025-10-01"
+            "calculationType": "LOAN",
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
           }
         ],
         "parameters": {
@@ -4212,7 +4269,7 @@
     },
     "Lexicon.my": {
       "id": 5424,
-      "effective_date": "2023-01-20T19:43:46.729Z",
+      "effective_date": "2023-01-24T04:05:00.000Z",
       "market": "US",
       "product": "my",
       "factory": "GF00",
@@ -4802,7 +4859,7 @@
           }
         }
       },
-      "name": "Marketing US 2023.Jan.20 5424.7612.30209",
+      "name": "Marketing US 2023.Jan.24 5424.7612.30398",
       "groups": [
         {
           "code": "MODEL",
@@ -12907,16 +12964,16 @@
               ]
             }
           ],
-          "price": 13000,
+          "price": 13500,
           "pricing": [
             {
               "type": "base",
-              "value": 13000,
+              "value": 13500,
               "context": "USD"
             },
             {
               "type": "base_plus_trim",
-              "value": 52990,
+              "value": 53490,
               "context": "USD"
             }
           ]
@@ -14442,7 +14499,7 @@
       "extra_content": [],
       "copy_id": 7612,
       "language": "en",
-      "pricing_id": 30209,
+      "pricing_id": 30398,
       "source": "cache"
     }
   }
