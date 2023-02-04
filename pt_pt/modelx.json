@@ -922,6 +922,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "showFinancingSteps": true
       },
@@ -1475,51 +1477,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "mx"
-                    ],
-                    "options": [
-                      "$MDLX"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          },
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MTX08",
-                      "$MTX06"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$ACL1"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "lease",
@@ -3079,7 +3037,7 @@
         "default_trim": "$MTX13"
       },
       "fees": {},
-      "name": "Marketing PT 2023.Jan.20 5549.7707.27724 [pt]",
+      "name": "Marketing PT 2023.Jan.20 5549.7959.27724 [pt]",
       "groups": [
         {
           "code": "MODEL",
@@ -4635,6 +4593,14 @@
             {
               "type": "name",
               "content": "Jantes"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "Estim. de autonomia consoante configuração: {VALUE} km"
+            },
+            {
+              "type": "certified_range",
+              "content": "Autonomia certificada (WLTP): {VALUE} km"
             }
           ],
           "extra_content": [
@@ -4706,6 +4672,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 625,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX00",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 576,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX20",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 585,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX01",
+                      "$MTX14"
+                    ]
+                  }
+                },
+                {
+                  "value": 543,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX21",
+                      "$MTX14"
+                    ]
+                  }
                 }
               ]
             }
@@ -14886,7 +14897,7 @@
             },
             {
               "type": "feature_list.default[0].items[6]",
-              "content": "Pinças de travão com maior capacidade térmica"
+              "content": "Pastilhas de travão com maior capacidade térmica"
             },
             {
               "type": "feature_list.default[0].items[5]",
@@ -16220,7 +16231,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7707,
+      "copy_id": 7959,
       "language": "pt",
       "pricing_id": 27724,
       "reference_id": 5549,

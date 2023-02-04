@@ -922,6 +922,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "hideApplyFinancingLink": [
           "lease.linear_loan_dib"
@@ -1468,51 +1470,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "mx"
-                    ],
-                    "options": [
-                      "$MDLX"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          },
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MTX08",
-                      "$MTX06"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$ACL1"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "lease.linear_loan_dib",
@@ -2990,7 +2948,7 @@
         "default_trim": "$MTX13"
       },
       "fees": {},
-      "name": "Marketing AE 2023.Jan.20 5571.7696.30127 [en]",
+      "name": "Marketing AE 2023.Jan.20 5571.7948.30127 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -4600,6 +4558,14 @@
             {
               "type": "name",
               "content": "Wheels"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "Est. range as configured: {VALUE} km"
+            },
+            {
+              "type": "certified_range",
+              "content": "Certified Range (WLTP): {VALUE} km"
             }
           ],
           "extra_content": [
@@ -4671,6 +4637,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 625,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX00",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 576,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX20",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 585,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX01",
+                      "$MTX14"
+                    ]
+                  }
+                },
+                {
+                  "value": 543,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX21",
+                      "$MTX14"
+                    ]
+                  }
                 }
               ]
             }
@@ -14615,7 +14626,7 @@
             },
             {
               "type": "feature_list.default[0].items[6]",
-              "content": "Higher thermal capability brake calipers"
+              "content": "Higher thermal capability brake pads"
             },
             {
               "type": "feature_list.default[0].items[5]",
@@ -15975,7 +15986,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7696,
+      "copy_id": 7948,
       "language": "en",
       "pricing_id": 30127,
       "reference_id": 5571,

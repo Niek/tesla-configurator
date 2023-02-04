@@ -944,6 +944,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "showFinancingSteps": true
       },
@@ -1497,51 +1499,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "mx"
-                    ],
-                    "options": [
-                      "$MDLX"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          },
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MTX08",
-                      "$MTX06"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$ACL1"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "cash",
@@ -3236,7 +3194,7 @@
         "default_trim": "$MTX13"
       },
       "fees": {},
-      "name": "Marketing DK 2023.Jan.20 5555.7708.27735 [da]",
+      "name": "Marketing DK 2023.Jan.20 5555.7960.27735 [da]",
       "groups": [
         {
           "code": "MODEL",
@@ -4807,6 +4765,14 @@
             {
               "type": "name",
               "content": "Fælge"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "Est. rækkevidde som konfigureret: {VALUE} km"
+            },
+            {
+              "type": "certified_range",
+              "content": "Certificeret rækkevidde (WLTP): {VALUE} km"
             }
           ],
           "extra_content": [
@@ -4881,6 +4847,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 625,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX00",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 576,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX20",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 585,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX01",
+                      "$MTX14"
+                    ]
+                  }
+                },
+                {
+                  "value": 543,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX21",
+                      "$MTX14"
+                    ]
+                  }
                 }
               ]
             }
@@ -15710,7 +15721,7 @@
             },
             {
               "type": "feature_list.default[0].items[6]",
-              "content": "Bremsekalibre med højere termisk kapacitet"
+              "content": "Bremseklodser med højere termisk kapacitet"
             },
             {
               "type": "feature_list.default[0].items[5]",
@@ -17089,7 +17100,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7708,
+      "copy_id": 7960,
       "language": "da",
       "pricing_id": 27735,
       "reference_id": 5555,

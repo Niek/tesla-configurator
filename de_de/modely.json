@@ -963,6 +963,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "showMaintenanceCost": true,
         "showFinancingSteps": true,
@@ -1492,6 +1494,7 @@
           "CHAMBER_OF_COMMERCE",
           "Vat"
         ],
+        "allowCrossBorderRegistration": true,
         "extraIncentives": [
           "umweltBonus"
         ],
@@ -1525,12 +1528,15 @@
         "rules": [
           {
             "target": "Configuration.option_codes",
+            "id": "TowingMy",
+            "onInitialLoad": false,
+            "onOptionOnly": true,
             "selected_by": {
               "or": [
                 {
                   "configuration": {
                     "options": [
-                      "$MTY04"
+                      "$MTY09"
                     ]
                   }
                 }
@@ -1538,7 +1544,7 @@
             },
             "consequence": {
               "set": [
-                "$SPTY1"
+                "$TW01"
               ]
             }
           }
@@ -2368,7 +2374,7 @@
       "tcc": []
     },
     "Lexicon.my": {
-      "effective_date": "2023-01-26T01:13:00.000Z",
+      "effective_date": "2023-02-03T01:23:00.000Z",
       "market": "DE",
       "product": "my",
       "factory": "GF00",
@@ -2965,7 +2971,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2023.Jan.26 5583.7916.30466 [de]",
+      "name": "Marketing DE 2023.Feb.03 5658.8007.30466 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -2996,7 +3002,7 @@
           "exclusive": true,
           "discountable": true,
           "default_options": [
-            "$MTY13"
+            "$MTY09"
           ]
         },
         {
@@ -3417,7 +3423,7 @@
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTY13"
+            "$MTY09"
           ]
         },
         {
@@ -11239,10 +11245,6 @@
               },
               {
                 "action": "set",
-                "target": "$TW01"
-              },
-              {
-                "action": "set",
                 "target": "$PR00",
                 "condition_code": "$PPMR",
                 "condition_state": "set"
@@ -11286,10 +11288,6 @@
             },
             {
               "action": "set",
-              "target": "$TW01"
-            },
-            {
-              "action": "set",
               "target": "$PR00",
               "condition_code": "$PPMR",
               "condition_state": "set"
@@ -11308,14 +11306,15 @@
             },
             {
               "action": "set",
-              "target": "$MTY13",
+              "target": "$MTY09",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY03",
                 "$MTY04",
                 "$MTY05",
                 "$MTY07",
-                "$MTY12"
+                "$MTY12",
+                "$MTY13"
               ]
             }
           ],
@@ -11506,14 +11505,14 @@
             },
             {
               "action": "set",
-              "target": "$MTY13",
+              "target": "$MTY09",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY03",
                 "$MTY04",
                 "$MTY05",
                 "$MTY07",
-                "$MTY09"
+                "$MTY13"
               ]
             },
             {
@@ -11760,14 +11759,13 @@
             },
             {
               "action": "set",
-              "target": "$MTY13",
+              "target": "$MTY09",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY03",
                 "$MTY04",
                 "$MTY05",
                 "$MTY07",
-                "$MTY09",
                 "$MTY12"
               ]
             },
@@ -13070,7 +13068,7 @@
                   "acceleration": 6.9,
                   "efficiency_class": "A+",
                   "energy_consumption": 15.7,
-                  "range_units_override": "range_units_est_link"
+                  "range_units_override": "range_units_epa_link"
                 }
               },
               "curb_weight": {
@@ -13129,7 +13127,7 @@
         "$SC04",
         "$TW01"
       ],
-      "options_id": 5583,
+      "options_id": 5658,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -13606,10 +13604,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7916,
+      "copy_id": 8007,
       "language": "de",
       "pricing_id": 30466,
-      "reference_id": 5583,
+      "reference_id": 5658,
       "source": "cache"
     }
   }

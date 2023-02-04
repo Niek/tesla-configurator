@@ -925,6 +925,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "showBeforeSavingsPostfix": true
       },
@@ -1474,51 +1476,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "mx"
-                    ],
-                    "options": [
-                      "$MDLX"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          },
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MTX08",
-                      "$MTX06"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$ACL1"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "lease",
@@ -1855,8 +1813,8 @@
             "new"
           ],
           "variables": {
-            "downPayment": 12000,
-            "interestRate": 3.6,
+            "downPayment": 16500,
+            "interestRate": 4.35,
             "leaseTerm": 60,
             "leaseDistance": 10000,
             "minimumFinancedAmount": 2000,
@@ -3396,7 +3354,7 @@
           "period": "includedInPurchasePrice"
         }
       },
-      "name": "Marketing FR 2023.Jan.20 5551.7709.27733 [fr]",
+      "name": "Marketing FR 2023.Jan.20 5551.7961.27733 [fr]",
       "groups": [
         {
           "code": "MODEL",
@@ -4979,6 +4937,14 @@
             {
               "type": "name",
               "content": "Jantes"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "Autonomie est. selon la configuration : {VALUE} km"
+            },
+            {
+              "type": "certified_range",
+              "content": "Autonomie certifiée (WLTP) : {VALUE} km"
             }
           ],
           "extra_content": [
@@ -5053,6 +5019,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 625,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX00",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 576,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX20",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 585,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX01",
+                      "$MTX14"
+                    ]
+                  }
+                },
+                {
+                  "value": 543,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX21",
+                      "$MTX14"
+                    ]
+                  }
                 }
               ]
             }
@@ -10364,7 +10375,7 @@
               "target": "$MDLX"
             }
           ],
-          "name": "Batterie Model X",
+          "name": "Batterie Model X",
           "description": "Model X",
           "long_name": "Model X",
           "extra_copy": [
@@ -15973,7 +15984,7 @@
             },
             {
               "type": "feature_list.default[0].items[6]",
-              "content": "Étriers de frein à capacité thermique supérieure"
+              "content": "Plaquettes de frein à capacité thermique supérieure"
             },
             {
               "type": "feature_list.default[0].items[5]",
@@ -17373,7 +17384,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7709,
+      "copy_id": 7961,
       "language": "fr",
       "pricing_id": 27733,
       "reference_id": 5551,

@@ -924,6 +924,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "showIncludesVATinFooter": true,
         "showFinancingSteps": true
@@ -1470,51 +1472,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "mx"
-                    ],
-                    "options": [
-                      "$MDLX"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          },
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MTX08",
-                      "$MTX06"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$ACL1"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "cash",
@@ -3291,7 +3249,7 @@
           "exemptAmount": 500000
         }
       },
-      "name": "Marketing NO 2023.Jan.20 5561.7710.27794 [no]",
+      "name": "Marketing NO 2023.Jan.20 5561.7963.27794 [no]",
       "groups": [
         {
           "code": "MODEL",
@@ -4864,6 +4822,14 @@
             {
               "type": "name",
               "content": "Hjul"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "Estimert rekkevidde som konfigurert: {VALUE} km"
+            },
+            {
+              "type": "certified_range",
+              "content": "Sertifisert rekkevidde (WLTP): {VALUE} km"
             }
           ],
           "extra_content": [
@@ -4938,6 +4904,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 625,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX00",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 576,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX20",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 585,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX01",
+                      "$MTX14"
+                    ]
+                  }
+                },
+                {
+                  "value": 543,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX21",
+                      "$MTX14"
+                    ]
+                  }
                 }
               ]
             }
@@ -15893,7 +15904,7 @@
             },
             {
               "type": "feature_list.default[0].items[6]",
-              "content": "Bremsekalipere med høyere termisk kapasitet"
+              "content": "Bremseklosser med høyere termisk kapasitet"
             },
             {
               "type": "feature_list.default[0].items[5]",
@@ -17321,7 +17332,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7710,
+      "copy_id": 7963,
       "language": "no",
       "pricing_id": 27794,
       "reference_id": 5561,

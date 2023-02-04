@@ -880,6 +880,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "reversePricingOrder": true,
         "hideTaxesAndFeesExcluded": true,
         "excludeDefaultDownpaymentVAT": [
@@ -1417,31 +1419,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "ms"
-                    ],
-                    "options": [
-                      "$MDLS"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "cash",
@@ -3051,7 +3029,7 @@
         "default_trim": "$MTS13"
       },
       "fees": {},
-      "name": "Marketing RO 2023.Jan.20 5535.7669.27760 [ro]",
+      "name": "Marketing RO 2023.Jan.20 5535.7933.27760 [ro]",
       "groups": [
         {
           "code": "MODEL",
@@ -3675,6 +3653,14 @@
             {
               "type": "name",
               "content": "Jante"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "Autonomie estimată conform configurației: {VALUE} km"
+            },
+            {
+              "type": "certified_range",
+              "content": "Autonomie certificată (WLTP): {VALUE} km"
             }
           ],
           "extra_content": [
@@ -3729,6 +3715,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 723,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WS90",
+                      "$MTS13"
+                    ]
+                  }
+                },
+                {
+                  "value": 634,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WS10",
+                      "$MTS13"
+                    ]
+                  }
+                },
+                {
+                  "value": 695,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WS92",
+                      "$MTS14"
+                    ]
+                  }
+                },
+                {
+                  "value": 600,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WS12",
+                      "$MTS14"
+                    ]
+                  }
                 }
               ]
             }
@@ -14644,7 +14675,7 @@
             },
             {
               "type": "feature_list.default[0].items[5]",
-              "content": "Etriere de frână cu capacitate termică mai mare"
+              "content": "Plăcuțe de frână cu capacitate termică mai mare"
             },
             {
               "type": "feature_list.default[0].items[6]",
@@ -16156,7 +16187,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7669,
+      "copy_id": 7933,
       "language": "ro",
       "pricing_id": 27760,
       "reference_id": 5535,

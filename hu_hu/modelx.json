@@ -943,6 +943,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "reversePricingOrder": true,
         "hideTaxesAndFeesExcluded": true
       },
@@ -1480,51 +1482,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "mx"
-                    ],
-                    "options": [
-                      "$MDLX"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          },
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MTX08",
-                      "$MTX06"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$ACL1"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "cash",
@@ -3088,7 +3046,7 @@
         "default_trim": "$MTX13"
       },
       "fees": {},
-      "name": "Marketing HU 2023.Jan.20 5559.7711.27722 [hu]",
+      "name": "Marketing HU 2023.Jan.20 5559.7962.27722 [hu]",
       "groups": [
         {
           "code": "MODEL",
@@ -4533,6 +4491,14 @@
             {
               "type": "name",
               "content": "Felnik"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "Konfiguráció szerinti becsült hatótáv: {VALUE} km"
+            },
+            {
+              "type": "certified_range",
+              "content": "Tanúsított hatótávolság (WLTP): {VALUE} km"
             }
           ],
           "extra_content": [
@@ -4604,6 +4570,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 625,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX00",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 576,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX20",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 585,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX01",
+                      "$MTX14"
+                    ]
+                  }
+                },
+                {
+                  "value": 543,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX21",
+                      "$MTX14"
+                    ]
+                  }
                 }
               ]
             }
@@ -14408,7 +14419,7 @@
             },
             {
               "type": "feature_list.default[0].items[6]",
-              "content": "Nagyobb hőkapacitású féknyergek"
+              "content": "Nagyobb hőkapacitású fékbetétek"
             },
             {
               "type": "feature_list.default[0].items[5]",
@@ -15923,7 +15934,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7711,
+      "copy_id": 7962,
       "language": "hu",
       "pricing_id": 27722,
       "reference_id": 5559,

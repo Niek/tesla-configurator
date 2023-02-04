@@ -940,6 +940,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "showBeforeSavingsPostfix": true
       },
@@ -1490,12 +1492,15 @@
         "rules": [
           {
             "target": "Configuration.option_codes",
+            "id": "TowingMy",
+            "onInitialLoad": false,
+            "onOptionOnly": true,
             "selected_by": {
               "or": [
                 {
                   "configuration": {
                     "options": [
-                      "$MTY04"
+                      "$MTY09"
                     ]
                   }
                 }
@@ -1503,7 +1508,7 @@
             },
             "consequence": {
               "set": [
-                "$SPTY1"
+                "$TW01"
               ]
             }
           }
@@ -1823,10 +1828,11 @@
             "downPayment": 11900,
             "downPayments": {
               "model": {
-                "my": 0.15
+                "my": 8500,
+                "m3": 8250
               }
             },
-            "interestRate": 3.6,
+            "interestRate": 4.35,
             "leaseTerm": 60,
             "leaseDistance": 10000,
             "maximumDownPayment": 0.3,
@@ -2246,7 +2252,7 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2023-01-26T01:13:00.000Z",
+      "effective_date": "2023-02-03T01:23:00.000Z",
       "market": "FR",
       "product": "my",
       "factory": "GF00",
@@ -2844,7 +2850,7 @@
           "period": "includedInPurchasePrice"
         }
       },
-      "name": "Marketing FR 2023.Jan.26 5449.7631.30478 [fr]",
+      "name": "Marketing FR 2023.Feb.03 5674.8026.30478 [fr]",
       "groups": [
         {
           "code": "MODEL",
@@ -10770,10 +10776,6 @@
               },
               {
                 "action": "set",
-                "target": "$TW01"
-              },
-              {
-                "action": "set",
                 "target": "$PR00",
                 "condition_code": "$PPMR",
                 "condition_state": "set"
@@ -10814,10 +10816,6 @@
                 "$DV4W",
                 "$PRMY1"
               ]
-            },
-            {
-              "action": "set",
-              "target": "$TW01"
             },
             {
               "action": "set",
@@ -12392,7 +12390,7 @@
                     }
                   ],
                   "acceleration": 6.9,
-                  "range_units_override": "range_units_est_link"
+                  "range_units_override": "range_units_epa_link"
                 }
               },
               "curb_weight": {
@@ -12450,7 +12448,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 5449,
+      "options_id": 5674,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -12885,10 +12883,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7631,
+      "copy_id": 8026,
       "language": "fr",
       "pricing_id": 30478,
-      "reference_id": 5449,
+      "reference_id": 5674,
       "source": "cache"
     }
   }

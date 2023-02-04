@@ -959,6 +959,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "hideApplyFinancingLink": [
           "lease.linear_loan_dib"
@@ -1506,63 +1508,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MT304",
-                      "$MT311",
-                      "$MT335",
-                      "$MT317"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$SPT31"
-              ]
-            }
-          },
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MT300",
-                      "$MT301",
-                      "$MT302",
-                      "$MT303",
-                      "$MT304",
-                      "$MT305",
-                      "$MT308",
-                      "$MT310",
-                      "$MT311",
-                      "$MT332",
-                      "$MT333",
-                      "$MT334",
-                      "$MT335",
-                      "$MT317"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "lease.linear_loan_dib",
@@ -1923,7 +1869,7 @@
       "loan": []
     },
     "Lexicon.m3": {
-      "effective_date": "2023-01-20T19:51:31.023Z",
+      "effective_date": "2023-02-03T01:05:00.000Z",
       "market": "AE",
       "product": "m3",
       "factory": "GF00",
@@ -3700,7 +3646,7 @@
         "default_trim": "$MT322"
       },
       "fees": {},
-      "name": "Marketing AE 2023.Jan.20 5458.7836.30192 [en]",
+      "name": "Marketing AE 2023.Feb.03 5458.7917.30819 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -5362,6 +5308,64 @@
             {
               "type": "group_disclaimer",
               "content": "All cars have a power trunk, glass roof, and Autopilot."
+            },
+            {
+              "type": "inventory_link_disclaimer[0]",
+              "content": "The selected trim is only available for purchase from inventory.",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "i",
+                    "classNames": [
+                      "tds-icon",
+                      "tds-o-icon-status-info"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "inventory_link_disclaimer[1]",
+              "content": "The selected trim is only available for purchase from inventory.",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "span",
+                    "classNames": [
+                      "tds-text--caption"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_inventory",
+              "content": "See Existing Inventory",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-id": "continue-to-inventory"
+                    }
+                  }
+                },
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "NAVIGATE_INVENTORY_LINK",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--large",
+                      "tds-btn--width-full"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "description": "Battery and Drivetrain",
@@ -5427,6 +5431,32 @@
                   "type": "DynamicDisclaimer",
                   "props": {
                     "group": "DUAL_MOTOR_ALL_WHEEL_DRIVE"
+                  }
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "inventory_link_disclaimer",
+                    "classes": "tds-status_msg",
+                    "inheritClasses": false
+                  },
+                  "selected_by": {
+                    "or": [
+                      "$MT325",
+                      "$MT328"
+                    ]
+                  }
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "view_inventory"
+                  },
+                  "selected_by": {
+                    "or": [
+                      "$MT325",
+                      "$MT328"
+                    ]
                   }
                 }
               ]
@@ -12517,10 +12547,6 @@
             {
               "type": "interior_heated_steering_wheel",
               "content": "-"
-            },
-            {
-              "type": "delivery_date",
-              "content": "Est. Delivery: February 2022"
             }
           ],
           "extra_content": [
@@ -12842,10 +12868,6 @@
             {
               "type": "interior_heated_steering_wheel",
               "content": "Included"
-            },
-            {
-              "type": "delivery_date",
-              "content": "Est. Delivery: February 2022"
             }
           ],
           "extra_content": [
@@ -12917,16 +12939,16 @@
               ]
             }
           ],
-          "price": 117000,
+          "price": 104000,
           "pricing": [
             {
               "type": "base",
-              "value": 117000,
+              "value": 104000,
               "context": "AED"
             },
             {
               "type": "base_plus_trim",
-              "value": 216990,
+              "value": 203990,
               "context": "AED"
             }
           ]
@@ -13164,10 +13186,6 @@
             {
               "type": "interior_heated_steering_wheel",
               "content": "Included"
-            },
-            {
-              "type": "delivery_date",
-              "content": "Est. Delivery: February 2022"
             }
           ],
           "extra_content": [
@@ -13218,16 +13236,16 @@
               ]
             }
           ],
-          "price": 110000,
+          "price": 98000,
           "pricing": [
             {
               "type": "base",
-              "value": 110000,
+              "value": 98000,
               "context": "AED"
             },
             {
               "type": "base_plus_trim",
-              "value": 209990,
+              "value": 197990,
               "context": "AED"
             }
           ]
@@ -15240,9 +15258,9 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7836,
+      "copy_id": 7917,
       "language": "en",
-      "pricing_id": 30192,
+      "pricing_id": 30819,
       "reference_id": 5458,
       "source": "cache"
     }

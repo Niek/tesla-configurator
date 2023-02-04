@@ -971,6 +971,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": true,
+        "showPurchasePriceIncentiveInModal": true,
         "reversePricingOrder": true,
         "hideTaxesAndFeesExcluded": true
       },
@@ -1515,63 +1517,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MT304",
-                      "$MT311",
-                      "$MT335",
-                      "$MT317"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$SPT31"
-              ]
-            }
-          },
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MT300",
-                      "$MT301",
-                      "$MT302",
-                      "$MT303",
-                      "$MT304",
-                      "$MT305",
-                      "$MT308",
-                      "$MT310",
-                      "$MT311",
-                      "$MT332",
-                      "$MT333",
-                      "$MT334",
-                      "$MT335",
-                      "$MT317"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "cash",
@@ -1617,6 +1563,263 @@
           },
           "variant": [
             "m3"
+          ],
+          "market": "CA"
+        },
+        {
+          "description": "State Incentive for CA m3",
+          "incentiveType": "government",
+          "financeType": [
+            "cash",
+            "loan"
+          ],
+          "period": "includedInPurchasePrice",
+          "amount": 0,
+          "toggle_amount": {
+            "if": {
+              "trim_price": {
+                "conditions": {
+                  "<=": 65000
+                },
+                "trims": [
+                  "$MT300",
+                  "$MT301",
+                  "$MT302",
+                  "$MT303",
+                  "$MT304",
+                  "$MT308",
+                  "$MT314",
+                  "$MT322",
+                  "$MT336",
+                  "$MT337",
+                  "$MT309",
+                  "$MT310",
+                  "$MT315",
+                  "$MT316",
+                  "$MT311",
+                  "$MT317",
+                  "$MT325",
+                  "$MT321",
+                  "$MT324",
+                  "$SPT31"
+                ],
+                "modelOption": "$MDL3",
+                "amount": 5000
+              }
+            }
+          },
+          "variant": [
+            "m3"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "excludeInMonthlyPayment": {
+            "financeType": [
+              "loan"
+            ]
+          },
+          "market": "CA"
+        },
+        {
+          "description": "State Incentive for CA m3",
+          "incentiveType": "government",
+          "financeType": "lease",
+          "period": "includedInDownPayment",
+          "amount": 0,
+          "toggle_amount": {
+            "if": {
+              "trim_price": {
+                "conditions": {
+                  "<=": 65000
+                },
+                "trims": [
+                  "$MT300",
+                  "$MT301",
+                  "$MT302",
+                  "$MT303",
+                  "$MT304",
+                  "$MT308",
+                  "$MT314",
+                  "$MT322",
+                  "$MT336",
+                  "$MT337",
+                  "$MT309",
+                  "$MT310",
+                  "$MT315",
+                  "$MT316",
+                  "$MT311",
+                  "$MT317",
+                  "$MT325",
+                  "$MT321",
+                  "$MT324",
+                  "$SPT31"
+                ],
+                "modelOption": "$MDL3",
+                "amount": [
+                  {
+                    "term": 48,
+                    "value": 5000
+                  },
+                  {
+                    "term": 36,
+                    "value": 3750
+                  },
+                  {
+                    "term": 24,
+                    "value": 2500
+                  }
+                ]
+              }
+            }
+          },
+          "variant": [
+            "m3"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "market": "CA"
+        },
+        {
+          "description": "State Incentive for NS m3",
+          "regionCode": "NS",
+          "incentiveType": "regional",
+          "financeType": [
+            "cash",
+            "loan"
+          ],
+          "period": "includedInPurchasePrice",
+          "amount": 0,
+          "toggle_amount": {
+            "if": {
+              "trim_price": {
+                "conditions": {
+                  "<=": 65000
+                },
+                "trims": [
+                  "$MT300",
+                  "$MT301",
+                  "$MT302",
+                  "$MT303",
+                  "$MT304",
+                  "$MT308",
+                  "$MT314",
+                  "$MT322",
+                  "$MT336",
+                  "$MT337",
+                  "$MT309",
+                  "$MT310",
+                  "$MT315",
+                  "$MT316",
+                  "$MT311",
+                  "$MT317",
+                  "$MT325",
+                  "$MT321",
+                  "$MT324",
+                  "$SPT31"
+                ],
+                "modelOption": "$MDL3",
+                "amount": 3000
+              }
+            }
+          },
+          "variant": [
+            "m3"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "excludeInMonthlyPayment": {
+            "financeType": [
+              "loan"
+            ]
+          },
+          "market": "CA"
+        },
+        {
+          "description": "State Incentive for CA m3",
+          "regionCode": "NS",
+          "incentiveType": "regional",
+          "financeType": "lease",
+          "period": "includedInDownPayment",
+          "amount": 0,
+          "toggle_amount": {
+            "if": {
+              "trim_price": {
+                "conditions": {
+                  "<=": 65000
+                },
+                "trims": [
+                  "$MT300",
+                  "$MT301",
+                  "$MT302",
+                  "$MT303",
+                  "$MT304",
+                  "$MT308",
+                  "$MT314",
+                  "$MT322",
+                  "$MT336",
+                  "$MT337",
+                  "$MT309",
+                  "$MT310",
+                  "$MT315",
+                  "$MT316",
+                  "$MT311",
+                  "$MT317",
+                  "$MT325",
+                  "$MT321",
+                  "$MT324",
+                  "$SPT31"
+                ],
+                "modelOption": "$MDL3",
+                "amount": [
+                  {
+                    "term": 48,
+                    "value": 3000
+                  },
+                  {
+                    "term": 36,
+                    "value": 2250
+                  },
+                  {
+                    "term": 24,
+                    "value": 1500
+                  }
+                ]
+              }
+            }
+          },
+          "variant": [
+            "m3"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "market": "CA"
+        },
+        {
+          "description": [
+            "State Incentive for CA all models"
+          ],
+          "regionCode": "BC",
+          "incentiveType": "regional",
+          "financeType": [
+            "loan",
+            "cash",
+            "lease"
+          ],
+          "period": "incentiveAfterDelivery",
+          "amount": 4000,
+          "hasConditions": true,
+          "variant": [
+            "my",
+            "m3",
+            "ms",
+            "mx"
+          ],
+          "inventory": [
+            "new"
           ],
           "market": "CA"
         },
@@ -2198,834 +2401,7 @@
       "AUTO_LEASE:OPERATIONAL_LEASE:CT_PRIVATE:FP_TESLA_FINANCE_LEASING_CA_V2": {
         "products": [
           {
-            "isDefault": false,
-            "displayCategoryCode": "PREFERRED",
-            "productID": 40181,
-            "productType": "AUTO_LEASE",
-            "productSubType": "OPERATIONAL_LEASE",
-            "localName": "Lease",
-            "localeInformation": [
-              {
-                "localeCode": "en_CA",
-                "localName": "Lease",
-                "isDefault": true
-              },
-              {
-                "localeCode": "fr_CA",
-                "localName": "Location",
-                "isDefault": false
-              }
-            ],
-            "customerType": "CT_PRIVATE",
-            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
-            "selfServeStatus": true,
-            "defaultDownPayment": 5250,
-            "defaultDownPaymentType": "C",
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.25,
-            "term": 24,
-            "moneyFactor": 0.002394,
-            "residualValueUplift": 0,
-            "interestRate": 0.057456,
-            "distanceAllowed": 16000,
-            "distanceAllowedType": "KM",
-            "residualRate": 0.63,
-            "minimumFinancedAmount": 0,
-            "maxLTVRatio": 1.15,
-            "overageCharge": 0.15,
-            "overageChargeCurrency": "CAD",
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 801,
-                "end": 4800,
-                "residualRate": 0
-              },
-              {
-                "start": 4801,
-                "end": 9700,
-                "residualRate": -0.01
-              },
-              {
-                "start": 9701,
-                "end": 19300,
-                "residualRate": -0.02
-              },
-              {
-                "start": 19301,
-                "end": 29000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 29001,
-                "end": 38000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 38001,
-                "end": 48000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 48001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT301",
-                  "$MT308",
-                  "$MT314",
-                  "$MT337",
-                  "$MT322"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23 SR+ NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
-          },
-          {
-            "isDefault": false,
-            "displayCategoryCode": "PREFERRED",
-            "productID": 40182,
-            "productType": "AUTO_LEASE",
-            "productSubType": "OPERATIONAL_LEASE",
-            "localName": "Lease",
-            "localeInformation": [
-              {
-                "localeCode": "en_CA",
-                "localName": "Lease",
-                "isDefault": true
-              },
-              {
-                "localeCode": "fr_CA",
-                "localName": "Location",
-                "isDefault": false
-              }
-            ],
-            "customerType": "CT_PRIVATE",
-            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
-            "selfServeStatus": true,
-            "defaultDownPayment": 5250,
-            "defaultDownPaymentType": "C",
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.25,
-            "term": 24,
-            "moneyFactor": 0.002394,
-            "residualValueUplift": 0,
-            "interestRate": 0.057456,
-            "distanceAllowed": 20000,
-            "distanceAllowedType": "KM",
-            "residualRate": 0.61,
-            "minimumFinancedAmount": 0,
-            "maxLTVRatio": 1.15,
-            "overageCharge": 0.15,
-            "overageChargeCurrency": "CAD",
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 801,
-                "end": 4800,
-                "residualRate": 0
-              },
-              {
-                "start": 4801,
-                "end": 9700,
-                "residualRate": -0.01
-              },
-              {
-                "start": 9701,
-                "end": 19300,
-                "residualRate": -0.02
-              },
-              {
-                "start": 19301,
-                "end": 29000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 29001,
-                "end": 38000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 38001,
-                "end": 48000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 48001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT301",
-                  "$MT308",
-                  "$MT314",
-                  "$MT337",
-                  "$MT322"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23 SR+ NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
-          },
-          {
-            "isDefault": false,
-            "displayCategoryCode": "PREFERRED",
-            "productID": 40183,
-            "productType": "AUTO_LEASE",
-            "productSubType": "OPERATIONAL_LEASE",
-            "localName": "Lease",
-            "localeInformation": [
-              {
-                "localeCode": "en_CA",
-                "localName": "Lease",
-                "isDefault": true
-              },
-              {
-                "localeCode": "fr_CA",
-                "localName": "Location",
-                "isDefault": false
-              }
-            ],
-            "customerType": "CT_PRIVATE",
-            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
-            "selfServeStatus": true,
-            "defaultDownPayment": 5250,
-            "defaultDownPaymentType": "C",
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.25,
-            "term": 24,
-            "moneyFactor": 0.002394,
-            "residualValueUplift": 0,
-            "interestRate": 0.057456,
-            "distanceAllowed": 25000,
-            "distanceAllowedType": "KM",
-            "residualRate": 0.59,
-            "minimumFinancedAmount": 0,
-            "maxLTVRatio": 1.15,
-            "overageCharge": 0.15,
-            "overageChargeCurrency": "CAD",
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 801,
-                "end": 4800,
-                "residualRate": -0.01
-              },
-              {
-                "start": 4801,
-                "end": 9700,
-                "residualRate": -0.01
-              },
-              {
-                "start": 9701,
-                "end": 19300,
-                "residualRate": -0.02
-              },
-              {
-                "start": 19301,
-                "end": 29000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 29001,
-                "end": 38000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 38001,
-                "end": 48000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 48001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT301",
-                  "$MT308",
-                  "$MT314",
-                  "$MT337",
-                  "$MT322"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23 SR+ NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
-          },
-          {
-            "isDefault": false,
-            "displayCategoryCode": "PREFERRED",
-            "productID": 40184,
-            "productType": "AUTO_LEASE",
-            "productSubType": "OPERATIONAL_LEASE",
-            "localName": "Lease",
-            "localeInformation": [
-              {
-                "localeCode": "en_CA",
-                "localName": "Lease",
-                "isDefault": true
-              },
-              {
-                "localeCode": "fr_CA",
-                "localName": "Location",
-                "isDefault": false
-              }
-            ],
-            "customerType": "CT_PRIVATE",
-            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
-            "selfServeStatus": true,
-            "defaultDownPayment": 5250,
-            "defaultDownPaymentType": "C",
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.25,
-            "term": 36,
-            "moneyFactor": 0.002394,
-            "residualValueUplift": 0,
-            "interestRate": 0.057456,
-            "distanceAllowed": 16000,
-            "distanceAllowedType": "KM",
-            "residualRate": 0.56,
-            "minimumFinancedAmount": 0,
-            "maxLTVRatio": 1.15,
-            "overageCharge": 0.15,
-            "overageChargeCurrency": "CAD",
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 801,
-                "end": 4800,
-                "residualRate": 0
-              },
-              {
-                "start": 4801,
-                "end": 9700,
-                "residualRate": -0.01
-              },
-              {
-                "start": 9701,
-                "end": 19300,
-                "residualRate": -0.02
-              },
-              {
-                "start": 19301,
-                "end": 29000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 29001,
-                "end": 38000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 38001,
-                "end": 48000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 48001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT301",
-                  "$MT308",
-                  "$MT314",
-                  "$MT337",
-                  "$MT322"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23 SR+ NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
-          },
-          {
-            "isDefault": false,
-            "displayCategoryCode": "PREFERRED",
-            "productID": 40185,
-            "productType": "AUTO_LEASE",
-            "productSubType": "OPERATIONAL_LEASE",
-            "localName": "Lease",
-            "localeInformation": [
-              {
-                "localeCode": "en_CA",
-                "localName": "Lease",
-                "isDefault": true
-              },
-              {
-                "localeCode": "fr_CA",
-                "localName": "Location",
-                "isDefault": false
-              }
-            ],
-            "customerType": "CT_PRIVATE",
-            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
-            "selfServeStatus": true,
-            "defaultDownPayment": 5250,
-            "defaultDownPaymentType": "C",
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.25,
-            "term": 36,
-            "moneyFactor": 0.002394,
-            "residualValueUplift": 0,
-            "interestRate": 0.057456,
-            "distanceAllowed": 20000,
-            "distanceAllowedType": "KM",
-            "residualRate": 0.54,
-            "minimumFinancedAmount": 0,
-            "maxLTVRatio": 1.15,
-            "overageCharge": 0.15,
-            "overageChargeCurrency": "CAD",
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 801,
-                "end": 4800,
-                "residualRate": 0
-              },
-              {
-                "start": 4801,
-                "end": 9700,
-                "residualRate": -0.01
-              },
-              {
-                "start": 9701,
-                "end": 19300,
-                "residualRate": -0.02
-              },
-              {
-                "start": 19301,
-                "end": 29000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 29001,
-                "end": 38000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 38001,
-                "end": 48000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 48001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT301",
-                  "$MT308",
-                  "$MT314",
-                  "$MT337",
-                  "$MT322"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23 SR+ NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
-          },
-          {
-            "isDefault": false,
-            "displayCategoryCode": "PREFERRED",
-            "productID": 40186,
-            "productType": "AUTO_LEASE",
-            "productSubType": "OPERATIONAL_LEASE",
-            "localName": "Lease",
-            "localeInformation": [
-              {
-                "localeCode": "en_CA",
-                "localName": "Lease",
-                "isDefault": true
-              },
-              {
-                "localeCode": "fr_CA",
-                "localName": "Location",
-                "isDefault": false
-              }
-            ],
-            "customerType": "CT_PRIVATE",
-            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
-            "selfServeStatus": true,
-            "defaultDownPayment": 5250,
-            "defaultDownPaymentType": "C",
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.25,
-            "term": 36,
-            "moneyFactor": 0.002394,
-            "residualValueUplift": 0,
-            "interestRate": 0.057456,
-            "distanceAllowed": 25000,
-            "distanceAllowedType": "KM",
-            "residualRate": 0.52,
-            "minimumFinancedAmount": 0,
-            "maxLTVRatio": 1.15,
-            "overageCharge": 0.15,
-            "overageChargeCurrency": "CAD",
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 801,
-                "end": 4800,
-                "residualRate": -0.01
-              },
-              {
-                "start": 4801,
-                "end": 9700,
-                "residualRate": -0.01
-              },
-              {
-                "start": 9701,
-                "end": 19300,
-                "residualRate": -0.02
-              },
-              {
-                "start": 19301,
-                "end": 29000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 29001,
-                "end": 38000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 38001,
-                "end": 48000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 48001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT301",
-                  "$MT308",
-                  "$MT314",
-                  "$MT337",
-                  "$MT322"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23 SR+ NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
-          },
-          {
-            "isDefault": true,
-            "displayCategoryCode": "PREFERRED",
-            "productID": 40187,
-            "productType": "AUTO_LEASE",
-            "productSubType": "OPERATIONAL_LEASE",
-            "localName": "Lease",
-            "localeInformation": [
-              {
-                "localeCode": "en_CA",
-                "localName": "Lease",
-                "isDefault": true
-              },
-              {
-                "localeCode": "fr_CA",
-                "localName": "Location",
-                "isDefault": false
-              }
-            ],
-            "customerType": "CT_PRIVATE",
-            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
-            "selfServeStatus": true,
-            "defaultDownPayment": 5250,
-            "defaultDownPaymentType": "C",
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.25,
-            "term": 48,
-            "moneyFactor": 0.002394,
-            "residualValueUplift": 0,
-            "interestRate": 0.057456,
-            "distanceAllowed": 16000,
-            "distanceAllowedType": "KM",
-            "residualRate": 0.49,
-            "minimumFinancedAmount": 0,
-            "maxLTVRatio": 1.15,
-            "overageCharge": 0.15,
-            "overageChargeCurrency": "CAD",
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 801,
-                "end": 4800,
-                "residualRate": 0
-              },
-              {
-                "start": 4801,
-                "end": 9700,
-                "residualRate": -0.01
-              },
-              {
-                "start": 9701,
-                "end": 19300,
-                "residualRate": -0.02
-              },
-              {
-                "start": 19301,
-                "end": 29000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 29001,
-                "end": 38000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 38001,
-                "end": 48000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 48001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT301",
-                  "$MT308",
-                  "$MT314",
-                  "$MT337",
-                  "$MT322"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23 SR+ NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
-          },
-          {
-            "isDefault": false,
-            "displayCategoryCode": "PREFERRED",
-            "productID": 40188,
-            "productType": "AUTO_LEASE",
-            "productSubType": "OPERATIONAL_LEASE",
-            "localName": "Lease",
-            "localeInformation": [
-              {
-                "localeCode": "en_CA",
-                "localName": "Lease",
-                "isDefault": true
-              },
-              {
-                "localeCode": "fr_CA",
-                "localName": "Location",
-                "isDefault": false
-              }
-            ],
-            "customerType": "CT_PRIVATE",
-            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
-            "selfServeStatus": true,
-            "defaultDownPayment": 5250,
-            "defaultDownPaymentType": "C",
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.25,
-            "term": 48,
-            "moneyFactor": 0.002394,
-            "residualValueUplift": 0,
-            "interestRate": 0.057456,
-            "distanceAllowed": 20000,
-            "distanceAllowedType": "KM",
-            "residualRate": 0.47,
-            "minimumFinancedAmount": 0,
-            "maxLTVRatio": 1.15,
-            "overageCharge": 0.15,
-            "overageChargeCurrency": "CAD",
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 801,
-                "end": 4800,
-                "residualRate": 0
-              },
-              {
-                "start": 4801,
-                "end": 9700,
-                "residualRate": -0.01
-              },
-              {
-                "start": 9701,
-                "end": 19300,
-                "residualRate": -0.02
-              },
-              {
-                "start": 19301,
-                "end": 29000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 29001,
-                "end": 38000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 38001,
-                "end": 48000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 48001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT301",
-                  "$MT308",
-                  "$MT314",
-                  "$MT337",
-                  "$MT322"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23 SR+ NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
-          },
-          {
-            "isDefault": false,
-            "displayCategoryCode": "PREFERRED",
-            "productID": 40189,
-            "productType": "AUTO_LEASE",
-            "productSubType": "OPERATIONAL_LEASE",
-            "localName": "Lease",
-            "localeInformation": [
-              {
-                "localeCode": "en_CA",
-                "localName": "Lease",
-                "isDefault": true
-              },
-              {
-                "localeCode": "fr_CA",
-                "localName": "Location",
-                "isDefault": false
-              }
-            ],
-            "customerType": "CT_PRIVATE",
-            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
-            "selfServeStatus": true,
-            "defaultDownPayment": 5250,
-            "defaultDownPaymentType": "C",
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.25,
-            "term": 48,
-            "moneyFactor": 0.002394,
-            "residualValueUplift": 0,
-            "interestRate": 0.057456,
-            "distanceAllowed": 25000,
-            "distanceAllowedType": "KM",
-            "residualRate": 0.45,
-            "minimumFinancedAmount": 0,
-            "maxLTVRatio": 1.15,
-            "overageCharge": 0.15,
-            "overageChargeCurrency": "CAD",
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 801,
-                "end": 4800,
-                "residualRate": -0.01
-              },
-              {
-                "start": 4801,
-                "end": 9700,
-                "residualRate": -0.01
-              },
-              {
-                "start": 9701,
-                "end": 19300,
-                "residualRate": -0.02
-              },
-              {
-                "start": 19301,
-                "end": 29000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 29001,
-                "end": 38000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 38001,
-                "end": 48000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 48001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT301",
-                  "$MT308",
-                  "$MT314",
-                  "$MT337",
-                  "$MT322"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23 SR+ NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
-          },
-          {
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40226,
@@ -3062,6 +2438,16 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT304",
+                  "$MT311",
+                  "$MT317"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -3102,20 +2488,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT304",
-                  "$MT311",
-                  "$MT317"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40227,
@@ -3152,6 +2528,16 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT304",
+                  "$MT311",
+                  "$MT317"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -3192,20 +2578,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT304",
-                  "$MT311",
-                  "$MT317"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40228,
@@ -3242,6 +2618,16 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT304",
+                  "$MT311",
+                  "$MT317"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -3282,20 +2668,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT304",
-                  "$MT311",
-                  "$MT317"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40229,
@@ -3332,6 +2708,16 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT304",
+                  "$MT311",
+                  "$MT317"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -3372,20 +2758,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT304",
-                  "$MT311",
-                  "$MT317"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40230,
@@ -3422,6 +2798,16 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT304",
+                  "$MT311",
+                  "$MT317"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -3462,20 +2848,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT304",
-                  "$MT311",
-                  "$MT317"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40231,
@@ -3512,6 +2888,16 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT304",
+                  "$MT311",
+                  "$MT317"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -3552,20 +2938,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT304",
-                  "$MT311",
-                  "$MT317"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": true,
             "displayCategoryCode": "PREFERRED",
             "productID": 40232,
@@ -3602,6 +2978,16 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT304",
+                  "$MT311",
+                  "$MT317"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -3642,20 +3028,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT304",
-                  "$MT311",
-                  "$MT317"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40233,
@@ -3692,6 +3068,16 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT304",
+                  "$MT311",
+                  "$MT317"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -3732,20 +3118,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT304",
-                  "$MT311",
-                  "$MT317"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40234,
@@ -3782,6 +3158,16 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT304",
+                  "$MT311",
+                  "$MT317"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -3822,20 +3208,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT304",
-                  "$MT311",
-                  "$MT317"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40271,
@@ -3872,6 +3248,22 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT302",
+                  "$MT303",
+                  "$MT305",
+                  "$MT309",
+                  "$MT310",
+                  "$MT312",
+                  "$MT315",
+                  "$MT321",
+                  "$MT324"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -3912,26 +3304,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT302",
-                  "$MT303",
-                  "$MT305",
-                  "$MT309",
-                  "$MT310",
-                  "$MT312",
-                  "$MT315",
-                  "$MT321",
-                  "$MT324"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40272,
@@ -3968,6 +3344,22 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT302",
+                  "$MT303",
+                  "$MT305",
+                  "$MT309",
+                  "$MT310",
+                  "$MT312",
+                  "$MT315",
+                  "$MT321",
+                  "$MT324"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -4008,26 +3400,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT302",
-                  "$MT303",
-                  "$MT305",
-                  "$MT309",
-                  "$MT310",
-                  "$MT312",
-                  "$MT315",
-                  "$MT321",
-                  "$MT324"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40273,
@@ -4064,6 +3440,22 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT302",
+                  "$MT303",
+                  "$MT305",
+                  "$MT309",
+                  "$MT310",
+                  "$MT312",
+                  "$MT315",
+                  "$MT321",
+                  "$MT324"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -4104,26 +3496,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT302",
-                  "$MT303",
-                  "$MT305",
-                  "$MT309",
-                  "$MT310",
-                  "$MT312",
-                  "$MT315",
-                  "$MT321",
-                  "$MT324"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40274,
@@ -4160,6 +3536,22 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT302",
+                  "$MT303",
+                  "$MT305",
+                  "$MT309",
+                  "$MT310",
+                  "$MT312",
+                  "$MT315",
+                  "$MT321",
+                  "$MT324"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -4200,26 +3592,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT302",
-                  "$MT303",
-                  "$MT305",
-                  "$MT309",
-                  "$MT310",
-                  "$MT312",
-                  "$MT315",
-                  "$MT321",
-                  "$MT324"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40275,
@@ -4256,6 +3632,22 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT302",
+                  "$MT303",
+                  "$MT305",
+                  "$MT309",
+                  "$MT310",
+                  "$MT312",
+                  "$MT315",
+                  "$MT321",
+                  "$MT324"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -4296,26 +3688,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT302",
-                  "$MT303",
-                  "$MT305",
-                  "$MT309",
-                  "$MT310",
-                  "$MT312",
-                  "$MT315",
-                  "$MT321",
-                  "$MT324"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40276,
@@ -4352,6 +3728,22 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT302",
+                  "$MT303",
+                  "$MT305",
+                  "$MT309",
+                  "$MT310",
+                  "$MT312",
+                  "$MT315",
+                  "$MT321",
+                  "$MT324"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -4392,26 +3784,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT302",
-                  "$MT303",
-                  "$MT305",
-                  "$MT309",
-                  "$MT310",
-                  "$MT312",
-                  "$MT315",
-                  "$MT321",
-                  "$MT324"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": true,
             "displayCategoryCode": "PREFERRED",
             "productID": 40277,
@@ -4448,6 +3824,22 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT302",
+                  "$MT303",
+                  "$MT305",
+                  "$MT309",
+                  "$MT310",
+                  "$MT312",
+                  "$MT315",
+                  "$MT321",
+                  "$MT324"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -4488,26 +3880,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT302",
-                  "$MT303",
-                  "$MT305",
-                  "$MT309",
-                  "$MT310",
-                  "$MT312",
-                  "$MT315",
-                  "$MT321",
-                  "$MT324"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40278,
@@ -4544,6 +3920,22 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT302",
+                  "$MT303",
+                  "$MT305",
+                  "$MT309",
+                  "$MT310",
+                  "$MT312",
+                  "$MT315",
+                  "$MT321",
+                  "$MT324"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -4584,26 +3976,10 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
-            "modelCodeTrimMappings": [
-              {
-                "modelCode": "MDL3",
-                "trimCodes": [
-                  "$MT302",
-                  "$MT303",
-                  "$MT305",
-                  "$MT309",
-                  "$MT310",
-                  "$MT312",
-                  "$MT315",
-                  "$MT321",
-                  "$MT324"
-                ]
-              }
-            ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40279,
@@ -4640,6 +4016,22 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.15,
             "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT302",
+                  "$MT303",
+                  "$MT305",
+                  "$MT309",
+                  "$MT310",
+                  "$MT312",
+                  "$MT315",
+                  "$MT321",
+                  "$MT324"
+                ]
+              }
+            ],
             "calculationType": "OPERATIONAL_LEASE",
             "odometerMatrix": [
               {
@@ -4680,24 +4072,835 @@
             ],
             "plateType": "PT_NONE",
             "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
+            "excludeTaxInVehiclePrice": false
+          },
+          {
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "isDefault": false,
+            "displayCategoryCode": "PREFERRED",
+            "productID": 40547,
+            "productType": "AUTO_LEASE",
+            "productSubType": "OPERATIONAL_LEASE",
+            "localName": "Lease",
+            "localeInformation": [
+              {
+                "localeCode": "en_CA",
+                "localName": "Lease",
+                "isDefault": true
+              },
+              {
+                "localeCode": "fr_CA",
+                "localName": "Location",
+                "isDefault": false
+              }
+            ],
+            "customerType": "CT_PRIVATE",
+            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
+            "selfServeStatus": true,
+            "defaultDownPayment": 10250,
+            "defaultDownPaymentType": "C",
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.25,
+            "term": 24,
+            "moneyFactor": 0.002394,
+            "residualValueUplift": 0,
+            "interestRate": 0.057456,
+            "distanceAllowed": 16000,
+            "distanceAllowedType": "KM",
+            "residualRate": 0.63,
+            "minimumFinancedAmount": 0,
+            "maxLTVRatio": 1.15,
+            "overageCharge": 0.15,
+            "overageChargeCurrency": "CAD",
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDL3",
                 "trimCodes": [
-                  "$MT302",
-                  "$MT303",
-                  "$MT305",
-                  "$MT309",
-                  "$MT310",
-                  "$MT312",
-                  "$MT315",
-                  "$MT321",
-                  "$MT324"
+                  "$MT301",
+                  "$MT308",
+                  "$MT314",
+                  "$MT337",
+                  "$MT322"
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 801,
+                "end": 4800,
+                "residualRate": 0
+              },
+              {
+                "start": 4801,
+                "end": 9700,
+                "residualRate": -0.01
+              },
+              {
+                "start": 9701,
+                "end": 19300,
+                "residualRate": -0.02
+              },
+              {
+                "start": 19301,
+                "end": 29000,
+                "residualRate": -0.03
+              },
+              {
+                "start": 29001,
+                "end": 38000,
+                "residualRate": -0.04
+              },
+              {
+                "start": 38001,
+                "end": 48000,
+                "residualRate": -0.05
+              },
+              {
+                "start": 48001,
+                "end": 99999,
+                "residualRate": -0.06
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
+          },
+          {
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "isDefault": false,
+            "displayCategoryCode": "PREFERRED",
+            "productID": 40548,
+            "productType": "AUTO_LEASE",
+            "productSubType": "OPERATIONAL_LEASE",
+            "localName": "Lease",
+            "localeInformation": [
+              {
+                "localeCode": "en_CA",
+                "localName": "Lease",
+                "isDefault": true
+              },
+              {
+                "localeCode": "fr_CA",
+                "localName": "Location",
+                "isDefault": false
+              }
+            ],
+            "customerType": "CT_PRIVATE",
+            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
+            "selfServeStatus": true,
+            "defaultDownPayment": 10250,
+            "defaultDownPaymentType": "C",
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.25,
+            "term": 24,
+            "moneyFactor": 0.002394,
+            "residualValueUplift": 0,
+            "interestRate": 0.057456,
+            "distanceAllowed": 20000,
+            "distanceAllowedType": "KM",
+            "residualRate": 0.61,
+            "minimumFinancedAmount": 0,
+            "maxLTVRatio": 1.15,
+            "overageCharge": 0.15,
+            "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT301",
+                  "$MT308",
+                  "$MT314",
+                  "$MT337",
+                  "$MT322"
+                ]
+              }
+            ],
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 801,
+                "end": 4800,
+                "residualRate": 0
+              },
+              {
+                "start": 4801,
+                "end": 9700,
+                "residualRate": -0.01
+              },
+              {
+                "start": 9701,
+                "end": 19300,
+                "residualRate": -0.02
+              },
+              {
+                "start": 19301,
+                "end": 29000,
+                "residualRate": -0.03
+              },
+              {
+                "start": 29001,
+                "end": 38000,
+                "residualRate": -0.04
+              },
+              {
+                "start": 38001,
+                "end": 48000,
+                "residualRate": -0.05
+              },
+              {
+                "start": 48001,
+                "end": 99999,
+                "residualRate": -0.06
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
+          },
+          {
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "isDefault": false,
+            "displayCategoryCode": "PREFERRED",
+            "productID": 40549,
+            "productType": "AUTO_LEASE",
+            "productSubType": "OPERATIONAL_LEASE",
+            "localName": "Lease",
+            "localeInformation": [
+              {
+                "localeCode": "en_CA",
+                "localName": "Lease",
+                "isDefault": true
+              },
+              {
+                "localeCode": "fr_CA",
+                "localName": "Location",
+                "isDefault": false
+              }
+            ],
+            "customerType": "CT_PRIVATE",
+            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
+            "selfServeStatus": true,
+            "defaultDownPayment": 10250,
+            "defaultDownPaymentType": "C",
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.25,
+            "term": 24,
+            "moneyFactor": 0.002394,
+            "residualValueUplift": 0,
+            "interestRate": 0.057456,
+            "distanceAllowed": 25000,
+            "distanceAllowedType": "KM",
+            "residualRate": 0.59,
+            "minimumFinancedAmount": 0,
+            "maxLTVRatio": 1.15,
+            "overageCharge": 0.15,
+            "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT301",
+                  "$MT308",
+                  "$MT314",
+                  "$MT337",
+                  "$MT322"
+                ]
+              }
+            ],
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 801,
+                "end": 4800,
+                "residualRate": -0.01
+              },
+              {
+                "start": 4801,
+                "end": 9700,
+                "residualRate": -0.01
+              },
+              {
+                "start": 9701,
+                "end": 19300,
+                "residualRate": -0.02
+              },
+              {
+                "start": 19301,
+                "end": 29000,
+                "residualRate": -0.03
+              },
+              {
+                "start": 29001,
+                "end": 38000,
+                "residualRate": -0.04
+              },
+              {
+                "start": 38001,
+                "end": 48000,
+                "residualRate": -0.05
+              },
+              {
+                "start": 48001,
+                "end": 99999,
+                "residualRate": -0.06
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
+          },
+          {
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "isDefault": false,
+            "displayCategoryCode": "PREFERRED",
+            "productID": 40550,
+            "productType": "AUTO_LEASE",
+            "productSubType": "OPERATIONAL_LEASE",
+            "localName": "Lease",
+            "localeInformation": [
+              {
+                "localeCode": "en_CA",
+                "localName": "Lease",
+                "isDefault": true
+              },
+              {
+                "localeCode": "fr_CA",
+                "localName": "Location",
+                "isDefault": false
+              }
+            ],
+            "customerType": "CT_PRIVATE",
+            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
+            "selfServeStatus": true,
+            "defaultDownPayment": 10250,
+            "defaultDownPaymentType": "C",
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.25,
+            "term": 36,
+            "moneyFactor": 0.002394,
+            "residualValueUplift": 0,
+            "interestRate": 0.057456,
+            "distanceAllowed": 16000,
+            "distanceAllowedType": "KM",
+            "residualRate": 0.56,
+            "minimumFinancedAmount": 0,
+            "maxLTVRatio": 1.15,
+            "overageCharge": 0.15,
+            "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT301",
+                  "$MT308",
+                  "$MT314",
+                  "$MT337",
+                  "$MT322"
+                ]
+              }
+            ],
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 801,
+                "end": 4800,
+                "residualRate": 0
+              },
+              {
+                "start": 4801,
+                "end": 9700,
+                "residualRate": -0.01
+              },
+              {
+                "start": 9701,
+                "end": 19300,
+                "residualRate": -0.02
+              },
+              {
+                "start": 19301,
+                "end": 29000,
+                "residualRate": -0.03
+              },
+              {
+                "start": 29001,
+                "end": 38000,
+                "residualRate": -0.04
+              },
+              {
+                "start": 38001,
+                "end": 48000,
+                "residualRate": -0.05
+              },
+              {
+                "start": 48001,
+                "end": 99999,
+                "residualRate": -0.06
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
+          },
+          {
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "isDefault": false,
+            "displayCategoryCode": "PREFERRED",
+            "productID": 40551,
+            "productType": "AUTO_LEASE",
+            "productSubType": "OPERATIONAL_LEASE",
+            "localName": "Lease",
+            "localeInformation": [
+              {
+                "localeCode": "en_CA",
+                "localName": "Lease",
+                "isDefault": true
+              },
+              {
+                "localeCode": "fr_CA",
+                "localName": "Location",
+                "isDefault": false
+              }
+            ],
+            "customerType": "CT_PRIVATE",
+            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
+            "selfServeStatus": true,
+            "defaultDownPayment": 10250,
+            "defaultDownPaymentType": "C",
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.25,
+            "term": 36,
+            "moneyFactor": 0.002394,
+            "residualValueUplift": 0,
+            "interestRate": 0.057456,
+            "distanceAllowed": 20000,
+            "distanceAllowedType": "KM",
+            "residualRate": 0.54,
+            "minimumFinancedAmount": 0,
+            "maxLTVRatio": 1.15,
+            "overageCharge": 0.15,
+            "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT301",
+                  "$MT308",
+                  "$MT314",
+                  "$MT337",
+                  "$MT322"
+                ]
+              }
+            ],
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 801,
+                "end": 4800,
+                "residualRate": 0
+              },
+              {
+                "start": 4801,
+                "end": 9700,
+                "residualRate": -0.01
+              },
+              {
+                "start": 9701,
+                "end": 19300,
+                "residualRate": -0.02
+              },
+              {
+                "start": 19301,
+                "end": 29000,
+                "residualRate": -0.03
+              },
+              {
+                "start": 29001,
+                "end": 38000,
+                "residualRate": -0.04
+              },
+              {
+                "start": 38001,
+                "end": 48000,
+                "residualRate": -0.05
+              },
+              {
+                "start": 48001,
+                "end": 99999,
+                "residualRate": -0.06
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
+          },
+          {
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "isDefault": false,
+            "displayCategoryCode": "PREFERRED",
+            "productID": 40552,
+            "productType": "AUTO_LEASE",
+            "productSubType": "OPERATIONAL_LEASE",
+            "localName": "Lease",
+            "localeInformation": [
+              {
+                "localeCode": "en_CA",
+                "localName": "Lease",
+                "isDefault": true
+              },
+              {
+                "localeCode": "fr_CA",
+                "localName": "Location",
+                "isDefault": false
+              }
+            ],
+            "customerType": "CT_PRIVATE",
+            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
+            "selfServeStatus": true,
+            "defaultDownPayment": 10250,
+            "defaultDownPaymentType": "C",
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.25,
+            "term": 36,
+            "moneyFactor": 0.002394,
+            "residualValueUplift": 0,
+            "interestRate": 0.057456,
+            "distanceAllowed": 25000,
+            "distanceAllowedType": "KM",
+            "residualRate": 0.52,
+            "minimumFinancedAmount": 0,
+            "maxLTVRatio": 1.15,
+            "overageCharge": 0.15,
+            "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT301",
+                  "$MT308",
+                  "$MT314",
+                  "$MT337",
+                  "$MT322"
+                ]
+              }
+            ],
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 801,
+                "end": 4800,
+                "residualRate": -0.01
+              },
+              {
+                "start": 4801,
+                "end": 9700,
+                "residualRate": -0.01
+              },
+              {
+                "start": 9701,
+                "end": 19300,
+                "residualRate": -0.02
+              },
+              {
+                "start": 19301,
+                "end": 29000,
+                "residualRate": -0.03
+              },
+              {
+                "start": 29001,
+                "end": 38000,
+                "residualRate": -0.04
+              },
+              {
+                "start": 38001,
+                "end": 48000,
+                "residualRate": -0.05
+              },
+              {
+                "start": 48001,
+                "end": 99999,
+                "residualRate": -0.06
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
+          },
+          {
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "isDefault": true,
+            "displayCategoryCode": "PREFERRED",
+            "productID": 40553,
+            "productType": "AUTO_LEASE",
+            "productSubType": "OPERATIONAL_LEASE",
+            "localName": "Lease",
+            "localeInformation": [
+              {
+                "localeCode": "en_CA",
+                "localName": "Lease",
+                "isDefault": true
+              },
+              {
+                "localeCode": "fr_CA",
+                "localName": "Location",
+                "isDefault": false
+              }
+            ],
+            "customerType": "CT_PRIVATE",
+            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
+            "selfServeStatus": true,
+            "defaultDownPayment": 10250,
+            "defaultDownPaymentType": "C",
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.25,
+            "term": 48,
+            "moneyFactor": 0.002394,
+            "residualValueUplift": 0,
+            "interestRate": 0.057456,
+            "distanceAllowed": 16000,
+            "distanceAllowedType": "KM",
+            "residualRate": 0.49,
+            "minimumFinancedAmount": 0,
+            "maxLTVRatio": 1.15,
+            "overageCharge": 0.15,
+            "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT301",
+                  "$MT308",
+                  "$MT314",
+                  "$MT337",
+                  "$MT322"
+                ]
+              }
+            ],
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 801,
+                "end": 4800,
+                "residualRate": 0
+              },
+              {
+                "start": 4801,
+                "end": 9700,
+                "residualRate": -0.01
+              },
+              {
+                "start": 9701,
+                "end": 19300,
+                "residualRate": -0.02
+              },
+              {
+                "start": 19301,
+                "end": 29000,
+                "residualRate": -0.03
+              },
+              {
+                "start": 29001,
+                "end": 38000,
+                "residualRate": -0.04
+              },
+              {
+                "start": 38001,
+                "end": 48000,
+                "residualRate": -0.05
+              },
+              {
+                "start": 48001,
+                "end": 99999,
+                "residualRate": -0.06
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
+          },
+          {
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "isDefault": false,
+            "displayCategoryCode": "PREFERRED",
+            "productID": 40554,
+            "productType": "AUTO_LEASE",
+            "productSubType": "OPERATIONAL_LEASE",
+            "localName": "Lease",
+            "localeInformation": [
+              {
+                "localeCode": "en_CA",
+                "localName": "Lease",
+                "isDefault": true
+              },
+              {
+                "localeCode": "fr_CA",
+                "localName": "Location",
+                "isDefault": false
+              }
+            ],
+            "customerType": "CT_PRIVATE",
+            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
+            "selfServeStatus": true,
+            "defaultDownPayment": 10250,
+            "defaultDownPaymentType": "C",
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.25,
+            "term": 48,
+            "moneyFactor": 0.002394,
+            "residualValueUplift": 0,
+            "interestRate": 0.057456,
+            "distanceAllowed": 20000,
+            "distanceAllowedType": "KM",
+            "residualRate": 0.47,
+            "minimumFinancedAmount": 0,
+            "maxLTVRatio": 1.15,
+            "overageCharge": 0.15,
+            "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT301",
+                  "$MT308",
+                  "$MT314",
+                  "$MT337",
+                  "$MT322"
+                ]
+              }
+            ],
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 801,
+                "end": 4800,
+                "residualRate": 0
+              },
+              {
+                "start": 4801,
+                "end": 9700,
+                "residualRate": -0.01
+              },
+              {
+                "start": 9701,
+                "end": 19300,
+                "residualRate": -0.02
+              },
+              {
+                "start": 19301,
+                "end": 29000,
+                "residualRate": -0.03
+              },
+              {
+                "start": 29001,
+                "end": 38000,
+                "residualRate": -0.04
+              },
+              {
+                "start": 38001,
+                "end": 48000,
+                "residualRate": -0.05
+              },
+              {
+                "start": 48001,
+                "end": 99999,
+                "residualRate": -0.06
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
+          },
+          {
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "isDefault": false,
+            "displayCategoryCode": "PREFERRED",
+            "productID": 40555,
+            "productType": "AUTO_LEASE",
+            "productSubType": "OPERATIONAL_LEASE",
+            "localName": "Lease",
+            "localeInformation": [
+              {
+                "localeCode": "en_CA",
+                "localName": "Lease",
+                "isDefault": true
+              },
+              {
+                "localeCode": "fr_CA",
+                "localName": "Location",
+                "isDefault": false
+              }
+            ],
+            "customerType": "CT_PRIVATE",
+            "partnerProfileCode": "FP_TESLA_FINANCE_LEASING_CA_V2",
+            "selfServeStatus": true,
+            "defaultDownPayment": 10250,
+            "defaultDownPaymentType": "C",
+            "minimumDownPayment": 0,
+            "maximumDownPayment": 0.25,
+            "term": 48,
+            "moneyFactor": 0.002394,
+            "residualValueUplift": 0,
+            "interestRate": 0.057456,
+            "distanceAllowed": 25000,
+            "distanceAllowedType": "KM",
+            "residualRate": 0.45,
+            "minimumFinancedAmount": 0,
+            "maxLTVRatio": 1.15,
+            "overageCharge": 0.15,
+            "overageChargeCurrency": "CAD",
+            "modelCodeTrimMappings": [
+              {
+                "modelCode": "MDL3",
+                "trimCodes": [
+                  "$MT301",
+                  "$MT308",
+                  "$MT314",
+                  "$MT337",
+                  "$MT322"
+                ]
+              }
+            ],
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 801,
+                "end": 4800,
+                "residualRate": -0.01
+              },
+              {
+                "start": 4801,
+                "end": 9700,
+                "residualRate": -0.01
+              },
+              {
+                "start": 9701,
+                "end": 19300,
+                "residualRate": -0.02
+              },
+              {
+                "start": 19301,
+                "end": 29000,
+                "residualRate": -0.03
+              },
+              {
+                "start": 29001,
+                "end": 38000,
+                "residualRate": -0.04
+              },
+              {
+                "start": 38001,
+                "end": 48000,
+                "residualRate": -0.05
+              },
+              {
+                "start": 48001,
+                "end": 99999,
+                "residualRate": -0.06
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
           }
         ],
         "parameters": {
@@ -4720,6 +4923,7 @@
       "AUTO_LOAN:LOAN:CT_PRIVATE:FP_ADVERTISED_RATE_CA": {
         "products": [
           {
+            "name": "Configurator.AdvertisedRateNew.Q123-Feb-NA.CA-LOAN-N-3SXY-PB-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40442,
@@ -4750,10 +4954,6 @@
             "interestRate": 0.0625,
             "minimumFinancedAmount": 10000,
             "maxLTVRatio": 2,
-            "calculationType": "LOAN",
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLS",
@@ -4866,9 +5066,13 @@
                 ]
               }
             ],
-            "name": "Configurator.AdvertisedRateNew.Q123-Feb-NA.CA-LOAN-N-3SXY-PB-2025-10-01"
+            "calculationType": "LOAN",
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.AdvertisedRateNew.Q123-Feb-NA.CA-LOAN-N-3SXY-PB-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40443,
@@ -4899,10 +5103,6 @@
             "interestRate": 0.0625,
             "minimumFinancedAmount": 10000,
             "maxLTVRatio": 2,
-            "calculationType": "LOAN",
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLS",
@@ -5015,9 +5215,13 @@
                 ]
               }
             ],
-            "name": "Configurator.AdvertisedRateNew.Q123-Feb-NA.CA-LOAN-N-3SXY-PB-2025-10-01"
+            "calculationType": "LOAN",
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.AdvertisedRateNew.Q123-Feb-NA.CA-LOAN-N-3SXY-PB-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40444,
@@ -5048,10 +5252,6 @@
             "interestRate": 0.0625,
             "minimumFinancedAmount": 10000,
             "maxLTVRatio": 2,
-            "calculationType": "LOAN",
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLS",
@@ -5164,9 +5364,13 @@
                 ]
               }
             ],
-            "name": "Configurator.AdvertisedRateNew.Q123-Feb-NA.CA-LOAN-N-3SXY-PB-2025-10-01"
+            "calculationType": "LOAN",
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.AdvertisedRateNew.Q123-Feb-NA.CA-LOAN-N-3SXY-PB-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40445,
@@ -5197,10 +5401,6 @@
             "interestRate": 0.0625,
             "minimumFinancedAmount": 10000,
             "maxLTVRatio": 2,
-            "calculationType": "LOAN",
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLS",
@@ -5313,9 +5513,13 @@
                 ]
               }
             ],
-            "name": "Configurator.AdvertisedRateNew.Q123-Feb-NA.CA-LOAN-N-3SXY-PB-2025-10-01"
+            "calculationType": "LOAN",
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.AdvertisedRateNew.Q123-Feb-NA.CA-LOAN-N-3SXY-PB-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40446,
@@ -5346,10 +5550,6 @@
             "interestRate": 0.0625,
             "minimumFinancedAmount": 10000,
             "maxLTVRatio": 2,
-            "calculationType": "LOAN",
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLS",
@@ -5462,9 +5662,13 @@
                 ]
               }
             ],
-            "name": "Configurator.AdvertisedRateNew.Q123-Feb-NA.CA-LOAN-N-3SXY-PB-2025-10-01"
+            "calculationType": "LOAN",
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
           },
           {
+            "name": "Configurator.AdvertisedRateNew.Q123-Feb-NA.CA-LOAN-N-3SXY-PB-2025-10-01",
             "isDefault": true,
             "displayCategoryCode": "PREFERRED",
             "productID": 40447,
@@ -5495,10 +5699,6 @@
             "interestRate": 0.0625,
             "minimumFinancedAmount": 10000,
             "maxLTVRatio": 2,
-            "calculationType": "LOAN",
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLS",
@@ -5611,7 +5811,10 @@
                 ]
               }
             ],
-            "name": "Configurator.AdvertisedRateNew.Q123-Feb-NA.CA-LOAN-N-3SXY-PB-2025-10-01"
+            "calculationType": "LOAN",
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false
           }
         ],
         "parameters": {
@@ -7391,7 +7594,7 @@
         "default_trim": "$MT322"
       },
       "fees": {},
-      "name": "Marketing CA 2023.Jan.20 5492.7801.30204 [en]",
+      "name": "Marketing CA 2023.Jan.20 5492.7910.30204 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -9442,48 +9645,16 @@
           "name": "federalTax",
           "extra_copy": [
             {
+              "type": "federalTax.title",
+              "content": "$5,000 Federal Incentive"
+            },
+            {
               "type": "federalTax.description",
-              "content": "Take delivery of a new Model 3 or Model Y between December 21 and 31, 2022 for a $5,000 credit and 10,000 kilometers of free Supercharging."
+              "content": "All new Model 3 RWD vehicle purchases qualify for a federal iZEV incentive. Eligible buyers may claim one iZEV incentive per year, subject to availability. Additional provincial incentives may also be available. <a href='/{LOCALE}/support/incentives?redirect=no' target='_blank' className='tds-link'>Learn More</a>"
             },
             {
-              "type": "federalTax.link[0]",
-              "content": "Learn More",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "SHOW_BANNER_MODAL"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "federalTax.link[1]",
-              "content": "See Available Inventory",
-              "behavior": [
-                {
-                  "type": "CONTAINER",
-                  "content": {
-                    "tag": "p",
-                    "props": {
-                      "style": {
-                        "display": "table",
-                        "marginTop": "10px"
-                      }
-                    }
-                  }
-                },
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "NAVIGATE_INVENTORY_LINK"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "federalTax.banner_description",
-              "content": "Tesla is offering free Supercharging credits* — up to 10,000 kilometers of driving—for customers who take delivery of a new Tesla vehicle between December 15 and December 31, 2022. Free Supercharging will be credited to your Tesla Account in the month of January 2023 and will remain valid for a period of two years from your delivery date. <br /><br />*Supercharging credits are tied to your Tesla account and cannot be transferred to another vehicle or person in case of an ownership transfer. Tesla shall not be liable if delivery of your vehicle does not happen before December 31, 2022. Used vehicles are excluded from this promotion."
+              "type": "federalTax.type",
+              "content": "coin-prominent--currency"
             }
           ]
         },
@@ -17074,6 +17245,7 @@
                   ],
                   "incentive": [
                     "total.once",
+                    "total.incentiveAfterDelivery",
                     "total.fuel"
                   ],
                   "configuration": [
@@ -17324,6 +17496,8 @@
                 {
                   "incentive": [
                     "total.once",
+                    "total.includedInPurchasePrice",
+                    "total.incentiveAfterDelivery",
                     "total.fuel"
                   ],
                   "configuration": [
@@ -17547,6 +17721,7 @@
                 {
                   "incentive": [
                     "total.once",
+                    "total.incentiveAfterDelivery",
                     "total.fuel"
                   ],
                   "configuration": [
@@ -19352,7 +19527,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7801,
+      "copy_id": 7910,
       "language": "en",
       "pricing_id": 30204,
       "reference_id": 5492,

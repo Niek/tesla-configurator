@@ -923,6 +923,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "showFinancingSteps": true,
         "useTrimTabsForEmissions": true
@@ -1476,12 +1478,15 @@
         "rules": [
           {
             "target": "Configuration.option_codes",
+            "id": "TowingMy",
+            "onInitialLoad": false,
+            "onOptionOnly": true,
             "selected_by": {
               "or": [
                 {
                   "configuration": {
                     "options": [
-                      "$MTY04"
+                      "$MTY09"
                     ]
                   }
                 }
@@ -1489,7 +1494,7 @@
             },
             "consequence": {
               "set": [
-                "$SPTY1"
+                "$TW01"
               ]
             }
           }
@@ -2357,7 +2362,7 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2023-01-26T01:13:00.000Z",
+      "effective_date": "2023-02-03T01:23:00.000Z",
       "market": "IT",
       "product": "my",
       "factory": "GF00",
@@ -2950,7 +2955,7 @@
         "default_trim": "$MTY13"
       },
       "fees": {},
-      "name": "Marketing IT 2023.Jan.26 5425.7827.30473 [it]",
+      "name": "Marketing IT 2023.Feb.03 5664.8045.30473 [it]",
       "groups": [
         {
           "code": "MODEL",
@@ -7852,7 +7857,27 @@
           "extra_copy": [
             {
               "type": "federalTax.description",
-              "content": "Per opzioni di consegna più rapida, consulta i nostri <a href='/it_IT/inventory/new/my?redirect=no' target='_blank'>veicoli in pronta consegna</a>"
+              "content": "Tassi validi per consegne entro il 31 marzo."
+            },
+            {
+              "type": "federalTax.link",
+              "content": "Scopri di più",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "SHOW_BANNER_MODAL"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "federalTax.banner_title",
+              "content": "<h4>Tassi validi per consegne entro il 31 marzo.</h4>"
+            },
+            {
+              "type": "federalTax.banner_description",
+              "content": "Il tasso di interesse al 1,95% e TAEG 1,99% è valido solo per ordini e richieste di finanziamento effettuati tra il 27 gennaio ed il 24 marzo 2023 su Model Y a trazione posteriore e Model 3 a trazione posteriore con consegna entro il 31 Marzo 2023. Offerta soggetta a disponibilità di vetture."
             }
           ]
         },
@@ -11098,10 +11123,6 @@
               },
               {
                 "action": "set",
-                "target": "$TW01"
-              },
-              {
-                "action": "set",
                 "target": "$PR00",
                 "condition_code": "$PPMR",
                 "condition_state": "set"
@@ -11142,10 +11163,6 @@
                 "$DV4W",
                 "$PRMY1"
               ]
-            },
-            {
-              "action": "set",
-              "target": "$TW01"
             },
             {
               "action": "set",
@@ -12897,7 +12914,7 @@
                   ],
                   "acceleration": 6.9,
                   "energy_consumption": 15.7,
-                  "range_units_override": "range_units_est_link"
+                  "range_units_override": "range_units_epa_link"
                 }
               },
               "curb_weight": {
@@ -12955,7 +12972,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 5425,
+      "options_id": 5664,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -13418,10 +13435,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7827,
+      "copy_id": 8045,
       "language": "it",
       "pricing_id": 30473,
-      "reference_id": 5425,
+      "reference_id": 5664,
       "source": "cache"
     }
   }

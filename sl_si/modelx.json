@@ -922,6 +922,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "showFinancingSteps": true
       },
@@ -1455,51 +1457,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "mx"
-                    ],
-                    "options": [
-                      "$MDLX"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          },
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MTX08",
-                      "$MTX06"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$ACL1"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "lease",
@@ -2907,7 +2865,7 @@
         "default_trim": "$MTX13"
       },
       "fees": {},
-      "name": "Marketing SI 2023.Jan.20 5564.7706.27714 [sl]",
+      "name": "Marketing SI 2023.Jan.20 5564.7958.27714 [sl]",
       "groups": [
         {
           "code": "MODEL",
@@ -4012,7 +3970,7 @@
           "extra_copy": [
             {
               "type": "video_list.default[0].title",
-              "content": "Navigacija z avtopilotom"
+              "content": "Navigacija z Avtopilotom"
             },
             {
               "type": "video_list.default[1].title",
@@ -4127,7 +4085,7 @@
             },
             {
               "type": "feature_list.default[0].description",
-              "content": "Napredne varnostne in praktične funkcije Avtopilot vam pomagajo pri najtežavnejših delih vožnje. Vsi novi avtomobili Tesla so serijsko opremljeni s funkcijami za pomoč vozniku, kot so zaviranje v sili, opozorilo pred trkom in nadzor mrtvih kotov."
+              "content": "Napredne varnostne in praktične funkcije Avtopilot vam pomagajo pri najtežavnejših delih vožnje. Vsi novi avtomobili Tesla so serijsko opremljeni z asistenčnimi sistemi, kot so zaviranje v sili, opozorilo pred trkom in nadzor mrtvih kotov."
             }
           ],
           "extra_content": [
@@ -4473,6 +4431,14 @@
             {
               "type": "name",
               "content": "Platišča"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "Predv. doseg glede na konf.: {VALUE} km"
+            },
+            {
+              "type": "certified_range",
+              "content": "Potrjeni doseg (WLTP): {VALUE} km"
             }
           ],
           "extra_content": [
@@ -4544,6 +4510,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 625,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX00",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 576,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX20",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 585,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX01",
+                      "$MTX14"
+                    ]
+                  }
+                },
+                {
+                  "value": 543,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX21",
+                      "$MTX14"
+                    ]
+                  }
                 }
               ]
             }
@@ -5379,15 +5390,15 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Navigacija z avtopilotom",
+          "name": "Navigacija z Avtopilotom",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Navigacija z avtopilotom"
+              "content": "Navigacija z Avtopilotom"
             },
             {
               "type": "panelName",
-              "content": "Popolna sposobnost samodejne vožnje"
+              "content": "Sposobnost Avtonomne vožnje"
             },
             {
               "type": "description",
@@ -5515,7 +5526,7 @@
             },
             {
               "type": "panelName",
-              "content": "Popolna sposobnost samodejne vožnje",
+              "content": "Sposobnost Avtonomne vožnje",
               "behavior": [
                 {
                   "type": "CONTENT_SELECTED",
@@ -5648,7 +5659,7 @@
             },
             {
               "type": "panelName",
-              "content": "Popolna sposobnost samodejne vožnje",
+              "content": "Sposobnost Avtonomne vožnje",
               "behavior": [
                 {
                   "type": "CONTENT_SELECTED",
@@ -5781,7 +5792,7 @@
             },
             {
               "type": "panelName",
-              "content": "Popolna sposobnost samodejne vožnje",
+              "content": "Sposobnost Avtonomne vožnje",
               "behavior": [
                 {
                   "type": "CONTENT_SELECTED",
@@ -5914,11 +5925,11 @@
             },
             {
               "type": "panelName",
-              "content": "Popolna sposobnost samodejne vožnje"
+              "content": "Sposobnost Avtonomne vožnje"
             },
             {
               "type": "description",
-              "content": "Silicijevo integrirano vezje, ki ga je zasnovala družba Tesla in je optimizirano za računalniški pogled, omogoča podrobno vizualizacijo okolice na zaslonu in bo z brezžičnimi posodobitvami programske opreme sčasoma omogočalo tudi popolno sposobnost samodejne vožnje."
+              "content": "Silicijevo integrirano vezje, ki ga je zasnovala družba Tesla in je optimizirano za računalniški pogled, omogoča podrobno vizualizacijo okolice na zaslonu in bo z brezžičnimi posodobitvami programske opreme sčasoma omogočalo tudi popolno sposobnost avtonomne vožnje."
             },
             {
               "type": "add_options",
@@ -6014,11 +6025,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Osnovni avtopilot",
+          "name": "Osnovni Avtopilot",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Osnovni avtopilot"
+              "content": "Osnovni Avtopilot"
             },
             {
               "type": "eyebrow",
@@ -6026,7 +6037,7 @@
             },
             {
               "type": "description",
-              "content": "Avtopilot, ki je vključen v vsako vozilo Tesla, omogoča samodejno krmiljenje, pospeševanje in zaviranje glede na druga vozila in pešce na voznem pasu. Napredne varnostne in praktične funkcije vam skupaj s funkcijami za pomoč vozniku, kot so zaviranje v sili, opozorilo pred trkom in nadzor mrtvih kotov, pomagajo pri najtežavnejših delih vožnje."
+              "content": "Avtopilot, ki je vključen v vsako vozilo Tesla, omogoča samodejno krmiljenje, pospeševanje in zaviranje glede na druga vozila in pešce na voznem pasu. Napredne varnostne in praktične funkcije vam skupaj z asistenčnimi sistemi, kot so zaviranje v sili, opozorilo pred trkom in nadzor mrtvih kotov, pomagajo pri najtežavnejših delih vožnje."
             }
           ],
           "extra_content": [
@@ -6373,7 +6384,7 @@
             },
             {
               "type": "dynamic_grid_title[0]",
-              "content": "Pospešek 0–100 km/h"
+              "content": "Pospeševanje 0–100 km/h"
             },
             {
               "type": "dynamic_grid_title[1]",
@@ -6940,8 +6951,8 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Galerija popolne sposobnosti samodejne vožnje",
-          "description": "Galerija popolne sposobnosti samodejne vožnje",
+          "name": "Galerija avtonomne vožnje",
+          "description": "Galerija avtonomne vožnje",
           "extra_content": [
             {
               "type": "asset[0]",
@@ -7075,15 +7086,15 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Navigacija z avtopilotom",
+          "name": "Navigacija z Avtopilotom",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Navigacija z avtopilotom"
+              "content": "Navigacija z Avtopilotom"
             },
             {
               "type": "panelName",
-              "content": "Nadgrajen Avtopilot"
+              "content": "Nadgrajeni Avtopilot"
             },
             {
               "type": "description",
@@ -7188,7 +7199,7 @@
             },
             {
               "type": "panelName",
-              "content": "Nadgrajen Avtopilot"
+              "content": "Nadgrajeni Avtopilot"
             },
             {
               "type": "description",
@@ -7293,7 +7304,7 @@
             },
             {
               "type": "panelName",
-              "content": "Nadgrajen Avtopilot"
+              "content": "Nadgrajeni Avtopilot"
             },
             {
               "type": "description",
@@ -7398,7 +7409,7 @@
             },
             {
               "type": "panelName",
-              "content": "Nadgrajen Avtopilot"
+              "content": "Nadgrajeni Avtopilot"
             },
             {
               "type": "description",
@@ -7567,7 +7578,7 @@
             },
             {
               "type": "disclaimer[0]",
-              "content": "Vozila ni mogoče nadgraditi na Popolno sposobnost samodejne vožnje"
+              "content": "Vozila ni mogoče nadgraditi na Popolno sposobnost avtonomne vožnje"
             },
             {
               "type": "disclaimer[1]",
@@ -7935,7 +7946,7 @@
             },
             {
               "type": "more_info",
-              "content": "20 % hitrejši pospeški"
+              "content": "20 % hitrejše pospeševanje"
             },
             {
               "type": "price_indicator",
@@ -8207,9 +8218,9 @@
               "target": "$APF2"
             }
           ],
-          "name": "Popolna sposobnost samodejne vožnje",
-          "description": "Popolna sposobnost samodejne vožnje",
-          "long_name": "Popolna sposobnost samodejne vožnje",
+          "name": "Sposobnost Avtonomne vožnje",
+          "description": "Sposobnost Avtonomne vožnje",
+          "long_name": "Sposobnost Avtonomne vožnje",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -8217,7 +8228,7 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Vse funkcije osnovnega avtopilota in nadgrajenega avtopilota"
+              "content": "Vse funkcije osnovnega Avtopilota in nadgrajenega Avtopilota"
             },
             {
               "type": "feature_list.default[0].items[1]",
@@ -8475,9 +8486,9 @@
               "target": "$APPB"
             }
           ],
-          "name": "Nadgrajen Avtopilot",
-          "description": "Nadgrajen Avtopilot",
-          "long_name": "Nadgrajen Avtopilot",
+          "name": "Nadgrajeni Avtopilot",
+          "description": "Nadgrajeni Avtopilot",
+          "long_name": "Nadgrajeni Avtopilot",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -8485,7 +8496,7 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Navigacija z avtopilotom"
+              "content": "Navigacija z Avtopilotom"
             },
             {
               "type": "feature_list.default[0].items[1]",
@@ -15855,7 +15866,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7706,
+      "copy_id": 7958,
       "language": "sl",
       "pricing_id": 27714,
       "reference_id": 5564,

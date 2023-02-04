@@ -967,6 +967,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "showFinancingSteps": true
       },
@@ -1522,51 +1524,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "mx"
-                    ],
-                    "options": [
-                      "$MDLX"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          },
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MTX08",
-                      "$MTX06"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$ACL1"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "lease",
@@ -3261,7 +3219,7 @@
         "default_trim": "$MTX13"
       },
       "fees": {},
-      "name": "Marketing NL 2023.Jan.20 5563.7717.27732 [nl]",
+      "name": "Marketing NL 2023.Jan.20 5563.7967.27732 [nl]",
       "groups": [
         {
           "code": "MODEL",
@@ -4836,6 +4794,14 @@
             {
               "type": "name",
               "content": "Velgen"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "Schatting van het bereik zoals geconfigureerd: {VALUE} km"
+            },
+            {
+              "type": "certified_range",
+              "content": "Gecertificeerd bereik (WLTP): {VALUE} km"
             }
           ],
           "extra_content": [
@@ -4910,6 +4876,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 625,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX00",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 576,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX20",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 585,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX01",
+                      "$MTX14"
+                    ]
+                  }
+                },
+                {
+                  "value": 543,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX21",
+                      "$MTX14"
+                    ]
+                  }
                 }
               ]
             }
@@ -17389,7 +17400,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7717,
+      "copy_id": 7967,
       "language": "nl",
       "pricing_id": 27732,
       "reference_id": 5563,

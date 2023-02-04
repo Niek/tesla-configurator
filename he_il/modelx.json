@@ -923,6 +923,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "reversePricingOrder": true,
         "showFinancingSteps": true
@@ -1465,51 +1467,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "mx"
-                    ],
-                    "options": [
-                      "$MDLX"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          },
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MTX08",
-                      "$MTX06"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$ACL1"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "cash",
@@ -1855,7 +1813,7 @@
                 "mx": 0.2
               }
             },
-            "interestRate": 4.99,
+            "interestRate": 5.9,
             "loanTerm": 72
           },
           "loanTermsOffered": {
@@ -1912,7 +1870,7 @@
                 "mx": 0.2
               }
             },
-            "interestRate": 4.99,
+            "interestRate": 5.9,
             "loanTerm": 36
           },
           "loanTermsOffered": {
@@ -3032,7 +2990,7 @@
         "default_trim": "$MTX13"
       },
       "fees": {},
-      "name": "Marketing IL 2023.Jan.20 5553.7715.27716 [he]",
+      "name": "Marketing IL 2023.Jan.20 5553.7966.27716 [he]",
       "groups": [
         {
           "code": "MODEL",
@@ -4664,6 +4622,14 @@
             {
               "type": "disclaimer_copy",
               "content": "* המחירים לא כוללים מיסי ייבוא (כגון מס קנייה, מס יוקרה וכו')"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "הטווח משוער לפי התצורה: {VALUE} ק\"מ"
+            },
+            {
+              "type": "certified_range",
+              "content": "טווח מאושר (WLTP): {VALUE} ק\"מ"
             }
           ],
           "extra_content": [
@@ -4742,6 +4708,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 625,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX00",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 576,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX20",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 585,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX01",
+                      "$MTX14"
+                    ]
+                  }
+                },
+                {
+                  "value": 543,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX21",
+                      "$MTX14"
+                    ]
+                  }
                 }
               ]
             }
@@ -5589,7 +5600,7 @@
             },
             {
               "type": "description",
-              "content": "נהיגה אוטומטית מעלייה על כביש מהיר ועד ליציאה ממנו כוללת החלפות נתיב אוטומטיות, בקרת שיוט מודעת לתנועה עם עצירה והפעלה מחדש מלאות, היגוי אוטומטי ועקיפת רכבים איטיים במסלול שלכם."
+              "content": "נהיגה אוטומטית מעלייה על כביש מהיר ועד ליציאה ממנו כוללת החלפות נתיב אוטומטיות, בקרת שיוט מודעת לתנועה עם עצירה והפעלה מחדש מלאות, Autosteer ועקיפת רכבים איטיים במסלול שלכם."
             },
             {
               "type": "add_options",
@@ -7155,7 +7166,7 @@
             },
             {
               "type": "description",
-              "content": "נהיגה אוטומטית מעלייה על כביש מהיר ועד ליציאה ממנו כוללת החלפות נתיב אוטומטיות, בקרת שיוט מודעת לתנועה עם עצירה והפעלה מחדש מלאות, היגוי אוטומטי ועקיפת רכבים איטיים במסלול שלכם."
+              "content": "נהיגה אוטומטית מעלייה על כביש מהיר ועד ליציאה ממנו כוללת החלפות נתיב אוטומטיות, בקרת שיוט מודעת לתנועה עם עצירה והפעלה מחדש מלאות, Autosteer ועקיפת רכבים איטיים במסלול שלכם."
             },
             {
               "type": "add_options",
@@ -14381,7 +14392,7 @@
             },
             {
               "type": "feature_list.default[0].items[6]",
-              "content": "קליפרים בלמים בעלי יכולת תרמית גבוהה יותר"
+              "content": "רפידות בלמים עם יכולת תרמית גבוהה יותר"
             },
             {
               "type": "feature_list.default[0].items[5]",
@@ -15727,7 +15738,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7715,
+      "copy_id": 7966,
       "language": "he",
       "pricing_id": 27716,
       "reference_id": 5553,

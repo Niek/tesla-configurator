@@ -879,6 +879,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "showFinancingSteps": true
       },
@@ -1410,31 +1412,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "ms"
-                    ],
-                    "options": [
-                      "$MDLS"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "loan",
@@ -2955,7 +2933,7 @@
         "default_trim": "$MTS13"
       },
       "fees": {},
-      "name": "Marketing CZ 2023.Jan.20 5514.7668.27752 [cs]",
+      "name": "Marketing CZ 2023.Jan.20 5514.7934.27752 [cs]",
       "groups": [
         {
           "code": "MODEL",
@@ -3579,6 +3557,14 @@
             {
               "type": "name",
               "content": "Kola"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "Odhad. dojezd podle konfigurace: {VALUE} km"
+            },
+            {
+              "type": "certified_range",
+              "content": "Certifikovaný dojezd (WLTP): {VALUE} km"
             }
           ],
           "extra_content": [
@@ -3633,6 +3619,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 723,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WS90",
+                      "$MTS13"
+                    ]
+                  }
+                },
+                {
+                  "value": 634,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WS10",
+                      "$MTS13"
+                    ]
+                  }
+                },
+                {
+                  "value": 695,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WS92",
+                      "$MTS14"
+                    ]
+                  }
+                },
+                {
+                  "value": 600,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WS12",
+                      "$MTS14"
+                    ]
+                  }
                 }
               ]
             }
@@ -14844,7 +14875,7 @@
             },
             {
               "type": "feature_list.default[0].items[5]",
-              "content": "Brzdové třmeny s vyšší tepelnou odolností"
+              "content": "Brzdové destičky s vyšší tepelnou odolností"
             },
             {
               "type": "feature_list.default[0].items[6]",
@@ -16202,7 +16233,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7668,
+      "copy_id": 7934,
       "language": "cs",
       "pricing_id": 27752,
       "reference_id": 5514,

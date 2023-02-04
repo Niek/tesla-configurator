@@ -966,6 +966,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "showMaintenanceCost": true,
         "excludeDefaultDownpaymentVAT": [
@@ -1499,7 +1501,8 @@
           "CompanyName",
           "CHAMBER_OF_COMMERCE",
           "Vat"
-        ]
+        ],
+        "allowCrossBorderRegistration": true
       },
       "PrintPdf": {
         "vatAmountPrecision": 2,
@@ -1522,51 +1525,7 @@
         "dateFormat": "DD/MM/YYYY"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "mx"
-                    ],
-                    "options": [
-                      "$MDLX"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          },
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MTX08",
-                      "$MTX06"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$ACL1"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "loan",
@@ -3452,7 +3411,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2023.Jan.20 5578.7698.27730 [de]",
+      "name": "Marketing DE 2023.Jan.20 5578.7951.27730 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -5034,6 +4993,14 @@
             {
               "type": "name",
               "content": "Räder"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "Geschätzte Reichweite der Konfiguration: {VALUE} km"
+            },
+            {
+              "type": "certified_range",
+              "content": "Zertifizierte Reichweite (WLTP): {VALUE} km"
             }
           ],
           "extra_content": [
@@ -5108,6 +5075,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 625,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX00",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 576,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX20",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 585,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX01",
+                      "$MTX14"
+                    ]
+                  }
+                },
+                {
+                  "value": 543,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX21",
+                      "$MTX14"
+                    ]
+                  }
                 }
               ]
             }
@@ -15991,7 +16003,7 @@
             },
             {
               "type": "feature_list.default[0].items[6]",
-              "content": "Bremssättel mit höherer Wärmekapazität"
+              "content": "Bremsbeläge mit höherer Wärmekapazität"
             },
             {
               "type": "feature_list.default[0].items[5]",
@@ -17391,7 +17403,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7698,
+      "copy_id": 7951,
       "language": "de",
       "pricing_id": 27730,
       "reference_id": 5578,

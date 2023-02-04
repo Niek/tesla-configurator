@@ -878,6 +878,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "showFinancingSteps": true
       },
@@ -1413,31 +1415,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "ms"
-                    ],
-                    "options": [
-                      "$MDLS"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "lease",
@@ -3015,7 +2993,7 @@
           "percent": 16
         }
       },
-      "name": "Marketing LU 2023.Jan.20 5515.7663.27738 [fr]",
+      "name": "Marketing LU 2023.Jan.20 5515.7929.27738 [fr]",
       "groups": [
         {
           "code": "MODEL",
@@ -3654,6 +3632,14 @@
             {
               "type": "name",
               "content": "Jantes"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "Autonomie est. selon la configuration : {VALUE} km"
+            },
+            {
+              "type": "certified_range",
+              "content": "Autonomie certifiée (WLTP) : {VALUE} km"
             }
           ],
           "extra_content": [
@@ -3711,6 +3697,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 723,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WS90",
+                      "$MTS13"
+                    ]
+                  }
+                },
+                {
+                  "value": 634,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WS10",
+                      "$MTS13"
+                    ]
+                  }
+                },
+                {
+                  "value": 695,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WS92",
+                      "$MTS14"
+                    ]
+                  }
+                },
+                {
+                  "value": 600,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WS12",
+                      "$MTS14"
+                    ]
+                  }
                 }
               ]
             }
@@ -15348,7 +15379,7 @@
             },
             {
               "type": "feature_list.default[0].items[5]",
-              "content": "Étriers de frein à capacité thermique supérieure"
+              "content": "Plaquettes de frein à capacité thermique supérieure"
             },
             {
               "type": "feature_list.default[0].items[6]",
@@ -16783,7 +16814,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7663,
+      "copy_id": 7929,
       "language": "fr",
       "pricing_id": 27738,
       "reference_id": 5515,

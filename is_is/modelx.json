@@ -923,6 +923,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "showDownPaymentInFooter": true,
         "showFinancingSteps": true
@@ -1458,51 +1460,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "mx"
-                    ],
-                    "options": [
-                      "$MDLX"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          },
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MTX08",
-                      "$MTX06"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$ACL1"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "cash",
@@ -2999,7 +2957,7 @@
           "exemptAmount": 5500000
         }
       },
-      "name": "Marketing IS 2023.Jan.20 5570.7716.27723 [is]",
+      "name": "Marketing IS 2023.Jan.20 5570.7968.27723 [is]",
       "groups": [
         {
           "code": "MODEL",
@@ -4588,6 +4546,14 @@
             {
               "type": "name",
               "content": "Felgur"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "Áætl. drægni miðað við uppsetningu: {VALUE} km"
+            },
+            {
+              "type": "certified_range",
+              "content": "Vottuð drægni (WLTP): {VALUE} km"
             }
           ],
           "extra_content": [
@@ -4662,6 +4628,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 625,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX00",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 576,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX20",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 585,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX01",
+                      "$MTX14"
+                    ]
+                  }
+                },
+                {
+                  "value": 543,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX21",
+                      "$MTX14"
+                    ]
+                  }
                 }
               ]
             }
@@ -15657,7 +15668,7 @@
             },
             {
               "type": "feature_list.default[0].items[6]",
-              "content": "Bremsudælur með mikið hitaþol"
+              "content": "Hemlaklossar með mikið hitaþol"
             },
             {
               "type": "feature_list.default[0].items[5]",
@@ -17089,7 +17100,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7716,
+      "copy_id": 7968,
       "language": "is",
       "pricing_id": 27723,
       "reference_id": 5570,

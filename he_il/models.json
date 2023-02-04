@@ -879,6 +879,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "reversePricingOrder": true,
         "showFinancingSteps": true
@@ -1421,31 +1423,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "ms"
-                    ],
-                    "options": [
-                      "$MDLS"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "cash",
@@ -1791,7 +1769,7 @@
                 "mx": 0.2
               }
             },
-            "interestRate": 4.99,
+            "interestRate": 5.9,
             "loanTerm": 72
           },
           "loanTermsOffered": {
@@ -1848,7 +1826,7 @@
                 "mx": 0.2
               }
             },
-            "interestRate": 4.99,
+            "interestRate": 5.9,
             "loanTerm": 36
           },
           "loanTermsOffered": {
@@ -3084,7 +3062,7 @@
         "default_trim": "$MTS13"
       },
       "fees": {},
-      "name": "Marketing IL 2023.Jan.20 5505.7676.27755 [he]",
+      "name": "Marketing IL 2023.Jan.20 5505.7941.27755 [he]",
       "groups": [
         {
           "code": "MODEL",
@@ -3723,6 +3701,14 @@
             {
               "type": "disclaimer_copy",
               "content": "* המחירים לא כוללים מיסי ייבוא (כגון מס קנייה, מס יוקרה וכו')"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "הטווח משוער לפי התצורה: {VALUE} ק\"מ"
+            },
+            {
+              "type": "certified_range",
+              "content": "טווח מאושר (WLTP): {VALUE} ק\"מ"
             }
           ],
           "extra_content": [
@@ -3784,6 +3770,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 723,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WS90",
+                      "$MTS13"
+                    ]
+                  }
+                },
+                {
+                  "value": 634,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WS10",
+                      "$MTS13"
+                    ]
+                  }
+                },
+                {
+                  "value": 695,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WS92",
+                      "$MTS14"
+                    ]
+                  }
+                },
+                {
+                  "value": 600,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WS12",
+                      "$MTS14"
+                    ]
+                  }
                 }
               ]
             }
@@ -5798,7 +5829,7 @@
             },
             {
               "type": "description",
-              "content": "נהיגה אוטומטית מעלייה על כביש מהיר ועד ליציאה ממנו כוללת החלפות נתיב אוטומטיות, בקרת שיוט מודעת לתנועה עם עצירה והפעלה מחדש מלאות, היגוי אוטומטי ועקיפת רכבים איטיים במסלול שלכם."
+              "content": "נהיגה אוטומטית מעלייה על כביש מהיר ועד ליציאה ממנו כוללת החלפות נתיב אוטומטיות, בקרת שיוט מודעת לתנועה עם עצירה והפעלה מחדש מלאות, Autosteer ועקיפת רכבים איטיים במסלול שלכם."
             },
             {
               "type": "add_options",
@@ -6972,7 +7003,7 @@
             },
             {
               "type": "description",
-              "content": "נהיגה אוטומטית מעלייה על כביש מהיר ועד ליציאה ממנו כוללת החלפות נתיב אוטומטיות, בקרת שיוט מודעת לתנועה עם עצירה והפעלה מחדש מלאות, היגוי אוטומטי ועקיפת רכבים איטיים במסלול שלכם."
+              "content": "נהיגה אוטומטית מעלייה על כביש מהיר ועד ליציאה ממנו כוללת החלפות נתיב אוטומטיות, בקרת שיוט מודעת לתנועה עם עצירה והפעלה מחדש מלאות, Autosteer ועקיפת רכבים איטיים במסלול שלכם."
             },
             {
               "type": "add_options",
@@ -14384,7 +14415,7 @@
             },
             {
               "type": "feature_list.default[0].items[5]",
-              "content": "קליפרים בלמים בעלי יכולת תרמית גבוהה יותר"
+              "content": "רפידות בלמים עם יכולת תרמית גבוהה יותר"
             },
             {
               "type": "feature_list.default[0].items[6]",
@@ -15742,7 +15773,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7676,
+      "copy_id": 7941,
       "language": "he",
       "pricing_id": 27755,
       "reference_id": 5505,

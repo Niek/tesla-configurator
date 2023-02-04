@@ -922,6 +922,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true
       },
       "FindMyTesla": {
@@ -1458,51 +1460,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "mx"
-                    ],
-                    "options": [
-                      "$MDLX"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          },
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MTX08",
-                      "$MTX06"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$ACL1"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "loan",
@@ -2959,7 +2917,7 @@
         "default_trim": "$MTX13"
       },
       "fees": {},
-      "name": "Marketing GR 2023.Jan.20 5562.7702.27721 [el]",
+      "name": "Marketing GR 2023.Jan.20 5562.7954.27721 [el]",
       "groups": [
         {
           "code": "MODEL",
@@ -4525,6 +4483,14 @@
             {
               "type": "name",
               "content": "Ζάντες"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "Εκτ. αυτονομία όπως έχει διαμορφωθεί: {VALUE} χλμ"
+            },
+            {
+              "type": "certified_range",
+              "content": "Πιστοποιημένη αυτονομία (WLTP): {VALUE} km"
             }
           ],
           "extra_content": [
@@ -4596,6 +4562,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 625,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX00",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 576,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX20",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 585,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX01",
+                      "$MTX14"
+                    ]
+                  }
+                },
+                {
+                  "value": 543,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX21",
+                      "$MTX14"
+                    ]
+                  }
                 }
               ]
             }
@@ -14529,7 +14540,7 @@
             },
             {
               "type": "feature_list.default[0].items[6]",
-              "content": "Δαγκάνες φρένου υψηλής θερμικής δυνατότητας"
+              "content": "Τακάκια υψηλής θερμικής δυνατότητας"
             },
             {
               "type": "feature_list.default[0].items[5]",
@@ -15863,7 +15874,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7702,
+      "copy_id": 7954,
       "language": "el",
       "pricing_id": 27721,
       "reference_id": 5562,

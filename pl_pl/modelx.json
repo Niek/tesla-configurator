@@ -923,6 +923,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "showFinancingSteps": true
       },
@@ -1457,51 +1459,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "mx"
-                    ],
-                    "options": [
-                      "$MDLX"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          },
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MTX08",
-                      "$MTX06"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$ACL1"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "lease",
@@ -2973,7 +2931,7 @@
         "default_trim": "$MTX13"
       },
       "fees": {},
-      "name": "Marketing PL 2023.Jan.20 5552.7700.27720 [pl]",
+      "name": "Marketing PL 2023.Jan.20 5552.7952.27720 [pl]",
       "groups": [
         {
           "code": "MODEL",
@@ -4541,6 +4499,14 @@
             {
               "type": "name",
               "content": "Koła"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "Szacowany zasięg zgodnie z konfiguracją: {VALUE} km"
+            },
+            {
+              "type": "certified_range",
+              "content": "Certyfikowany zasięg (WLTP): {VALUE} km"
             }
           ],
           "extra_content": [
@@ -4612,6 +4578,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 625,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX00",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 576,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX20",
+                      "$MTX13"
+                    ]
+                  }
+                },
+                {
+                  "value": 585,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WX01",
+                      "$MTX14"
+                    ]
+                  }
+                },
+                {
+                  "value": 543,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WX21",
+                      "$MTX14"
+                    ]
+                  }
                 }
               ]
             }
@@ -14904,7 +14915,7 @@
             },
             {
               "type": "feature_list.default[0].items[6]",
-              "content": "Zaciski hamulcowe o wyższej zdolności odprowadzania ciepła"
+              "content": "Klocki hamulcowe o wyższej odporności termicznej"
             },
             {
               "type": "feature_list.default[0].items[5]",
@@ -16238,7 +16249,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7700,
+      "copy_id": 7952,
       "language": "pl",
       "pricing_id": 27720,
       "reference_id": 5552,

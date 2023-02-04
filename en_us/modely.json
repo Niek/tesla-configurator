@@ -918,7 +918,9 @@
           "trim": [],
           "financeType": []
         },
-        "showIncentivesBreakdown": true
+        "showIncentivesBreakdown": true,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false
       },
       "FindMyTesla": {
         "selected_view": "exterior",
@@ -1455,28 +1457,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MTY04"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$SPTY1"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "cash",
@@ -1533,42 +1514,18 @@
           "amount": 0,
           "incentiveType": "taxCredit",
           "toggle_amount": {
-            "if": [
-              {
-                "conditions": {
-                  "optionsPrice": {
-                    "<=": 55000
-                  },
-                  "selected_by": {
-                    "and": [
-                      "$STY5S"
-                    ]
-                  },
-                  "excludedGroups": [
-                    "AUTOPILOT",
-                    "AUTOPILOT_PACKAGE"
-                  ]
+            "if": {
+              "conditions": {
+                "optionsPrice": {
+                  "<=": 80000
                 },
-                "amount": 7500
+                "excludedGroups": [
+                  "AUTOPILOT",
+                  "AUTOPILOT_PACKAGE"
+                ]
               },
-              {
-                "conditions": {
-                  "optionsPrice": {
-                    "<=": 80000
-                  },
-                  "selected_by": {
-                    "and": [
-                      "$STY7S"
-                    ]
-                  },
-                  "excludedGroups": [
-                    "AUTOPILOT",
-                    "AUTOPILOT_PACKAGE"
-                  ]
-                },
-                "amount": 7500
-              }
-            ]
+              "amount": 7500
+            }
           },
           "variant": [
             "my"
@@ -2236,7 +2193,6 @@
       "AUTO_LEASE:OPERATIONAL_LEASE:CT_PRIVATE:FP_TESLA_FINANCE_LEASING_V3": {
         "products": [
           {
-            "name": "Configurator.Q121V2.YSR NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": true,
             "displayCategoryCode": "PREFERRED",
             "productID": 29550,
@@ -2260,6 +2216,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -2268,50 +2272,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "7ea27ce8-89b6-4054-b422-21566f436ae6",
+            "name": "Configurator.Q121V2.YSR NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
+            "groupId": "972281ee-7408-11ec-9adb-00505693138f",
+            "correlationId": "7ea27ce8-89b6-4054-b422-21566f436ae6"
           },
           {
-            "name": "Configurator.Q121V2.YSR NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 29551,
@@ -2335,6 +2301,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -2343,50 +2357,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "7ea27ce8-89b6-4054-b422-21566f436ae6",
+            "name": "Configurator.Q121V2.YSR NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
+            "groupId": "972281ee-7408-11ec-9adb-00505693138f",
+            "correlationId": "7ea27ce8-89b6-4054-b422-21566f436ae6"
           },
           {
-            "name": "Configurator.Q121V2.YSR NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 29552,
@@ -2410,6 +2386,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -2418,50 +2442,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "7ea27ce8-89b6-4054-b422-21566f436ae6",
+            "name": "Configurator.Q121V2.YSR NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
+            "groupId": "972281ee-7408-11ec-9adb-00505693138f",
+            "correlationId": "7ea27ce8-89b6-4054-b422-21566f436ae6"
           },
           {
-            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39923,
@@ -2493,6 +2479,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -2501,50 +2535,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "ed990b60-8cae-4da6-ad7c-fe23a4e09a78",
+            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "groupId": "36687c94-54a1-4d8a-905b-b6cf6adbcb65",
+            "correlationId": "ed990b60-8cae-4da6-ad7c-fe23a4e09a78"
           },
           {
-            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39924,
@@ -2576,6 +2572,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -2584,50 +2628,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "ed990b60-8cae-4da6-ad7c-fe23a4e09a78",
+            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "groupId": "36687c94-54a1-4d8a-905b-b6cf6adbcb65",
+            "correlationId": "ed990b60-8cae-4da6-ad7c-fe23a4e09a78"
           },
           {
-            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39925,
@@ -2659,6 +2665,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -2667,50 +2721,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "ed990b60-8cae-4da6-ad7c-fe23a4e09a78",
+            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "groupId": "36687c94-54a1-4d8a-905b-b6cf6adbcb65",
+            "correlationId": "ed990b60-8cae-4da6-ad7c-fe23a4e09a78"
           },
           {
-            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": true,
             "displayCategoryCode": "PREFERRED",
             "productID": 39926,
@@ -2742,6 +2758,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -2750,50 +2814,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "ed990b60-8cae-4da6-ad7c-fe23a4e09a78",
+            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "groupId": "36687c94-54a1-4d8a-905b-b6cf6adbcb65",
+            "correlationId": "ed990b60-8cae-4da6-ad7c-fe23a4e09a78"
           },
           {
-            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39927,
@@ -2825,6 +2851,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -2833,50 +2907,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "ed990b60-8cae-4da6-ad7c-fe23a4e09a78",
+            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "groupId": "36687c94-54a1-4d8a-905b-b6cf6adbcb65",
+            "correlationId": "ed990b60-8cae-4da6-ad7c-fe23a4e09a78"
           },
           {
-            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39928,
@@ -2908,6 +2944,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -2916,50 +3000,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "ed990b60-8cae-4da6-ad7c-fe23a4e09a78",
+            "name": "Configurator.Q123.Y-AWD NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "groupId": "36687c94-54a1-4d8a-905b-b6cf6adbcb65",
+            "correlationId": "ed990b60-8cae-4da6-ad7c-fe23a4e09a78"
           },
           {
-            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39959,
@@ -2991,6 +3037,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -3000,50 +3094,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "c742973e-8b1c-4f32-a370-8e3094cfebdc",
+            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
+            "groupId": "b1d8b27e-8424-415a-a49f-b0c193c3a01e",
+            "correlationId": "c742973e-8b1c-4f32-a370-8e3094cfebdc"
           },
           {
-            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39960,
@@ -3075,6 +3131,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -3084,50 +3188,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "c742973e-8b1c-4f32-a370-8e3094cfebdc",
+            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
+            "groupId": "b1d8b27e-8424-415a-a49f-b0c193c3a01e",
+            "correlationId": "c742973e-8b1c-4f32-a370-8e3094cfebdc"
           },
           {
-            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39961,
@@ -3159,6 +3225,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -3168,50 +3282,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "c742973e-8b1c-4f32-a370-8e3094cfebdc",
+            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
+            "groupId": "b1d8b27e-8424-415a-a49f-b0c193c3a01e",
+            "correlationId": "c742973e-8b1c-4f32-a370-8e3094cfebdc"
           },
           {
-            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": true,
             "displayCategoryCode": "PREFERRED",
             "productID": 39962,
@@ -3243,6 +3319,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -3252,50 +3376,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "c742973e-8b1c-4f32-a370-8e3094cfebdc",
+            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
+            "groupId": "b1d8b27e-8424-415a-a49f-b0c193c3a01e",
+            "correlationId": "c742973e-8b1c-4f32-a370-8e3094cfebdc"
           },
           {
-            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39963,
@@ -3327,6 +3413,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -3336,50 +3470,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "c742973e-8b1c-4f32-a370-8e3094cfebdc",
+            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
+            "groupId": "b1d8b27e-8424-415a-a49f-b0c193c3a01e",
+            "correlationId": "c742973e-8b1c-4f32-a370-8e3094cfebdc"
           },
           {
-            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 39964,
@@ -3411,6 +3507,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -3420,50 +3564,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "c742973e-8b1c-4f32-a370-8e3094cfebdc",
+            "name": "Configurator.Q123.YPF NA.US-OPERATIONAL_LEASE-N-Y-BP-2025-10-01",
+            "groupId": "b1d8b27e-8424-415a-a49f-b0c193c3a01e",
+            "correlationId": "c742973e-8b1c-4f32-a370-8e3094cfebdc"
           },
           {
-            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40328,
@@ -3495,6 +3601,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -3505,50 +3659,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "8d83e945-f287-4324-a5aa-a1a56bfb8f16",
+            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "groupId": "7df5ec97-dfc4-48bf-b9eb-cbb81dcadca0",
+            "correlationId": "8d83e945-f287-4324-a5aa-a1a56bfb8f16"
           },
           {
-            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40329,
@@ -3580,6 +3696,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -3590,50 +3754,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "8d83e945-f287-4324-a5aa-a1a56bfb8f16",
+            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "groupId": "7df5ec97-dfc4-48bf-b9eb-cbb81dcadca0",
+            "correlationId": "8d83e945-f287-4324-a5aa-a1a56bfb8f16"
           },
           {
-            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40330,
@@ -3665,6 +3791,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -3675,50 +3849,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "8d83e945-f287-4324-a5aa-a1a56bfb8f16",
+            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "groupId": "7df5ec97-dfc4-48bf-b9eb-cbb81dcadca0",
+            "correlationId": "8d83e945-f287-4324-a5aa-a1a56bfb8f16"
           },
           {
-            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": true,
             "displayCategoryCode": "PREFERRED",
             "productID": 40331,
@@ -3750,6 +3886,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -3760,50 +3944,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "8d83e945-f287-4324-a5aa-a1a56bfb8f16",
+            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "groupId": "7df5ec97-dfc4-48bf-b9eb-cbb81dcadca0",
+            "correlationId": "8d83e945-f287-4324-a5aa-a1a56bfb8f16"
           },
           {
-            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40332,
@@ -3835,6 +3981,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": 0,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -3845,50 +4039,12 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": 0
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "8d83e945-f287-4324-a5aa-a1a56bfb8f16",
+            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "groupId": "7df5ec97-dfc4-48bf-b9eb-cbb81dcadca0",
+            "correlationId": "8d83e945-f287-4324-a5aa-a1a56bfb8f16"
           },
           {
-            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
             "productID": 40333,
@@ -3920,6 +4076,54 @@
             "maxLTVRatio": 1.15,
             "overageCharge": 0.25,
             "overageChargeCurrency": "USD",
+            "calculationType": "OPERATIONAL_LEASE",
+            "odometerMatrix": [
+              {
+                "start": 501,
+                "end": 3000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 3001,
+                "end": 6000,
+                "residualRate": -0.01,
+                "operation": "PLUS"
+              },
+              {
+                "start": 6001,
+                "end": 12000,
+                "residualRate": -0.02,
+                "operation": "PLUS"
+              },
+              {
+                "start": 12001,
+                "end": 18000,
+                "residualRate": -0.03,
+                "operation": "PLUS"
+              },
+              {
+                "start": 18001,
+                "end": 24000,
+                "residualRate": -0.04,
+                "operation": "PLUS"
+              },
+              {
+                "start": 24001,
+                "end": 30000,
+                "residualRate": -0.05,
+                "operation": "PLUS"
+              },
+              {
+                "start": 30001,
+                "end": 99999,
+                "residualRate": -0.06,
+                "operation": "PLUS"
+              }
+            ],
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDLY",
@@ -3930,47 +4134,10 @@
                 ]
               }
             ],
-            "calculationType": "OPERATIONAL_LEASE",
-            "odometerMatrix": [
-              {
-                "start": 501,
-                "end": 3000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 3001,
-                "end": 6000,
-                "residualRate": -0.01
-              },
-              {
-                "start": 6001,
-                "end": 12000,
-                "residualRate": -0.02
-              },
-              {
-                "start": 12001,
-                "end": 18000,
-                "residualRate": -0.03
-              },
-              {
-                "start": 18001,
-                "end": 24000,
-                "residualRate": -0.04
-              },
-              {
-                "start": 24001,
-                "end": 30000,
-                "residualRate": -0.05
-              },
-              {
-                "start": 30001,
-                "end": 99999,
-                "residualRate": -0.06
-              }
-            ],
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "8d83e945-f287-4324-a5aa-a1a56bfb8f16",
+            "name": "Configurator.Q123.JAN.YLR NA.US-OPERATIONAL_LEASE-N-Y-BP-2023-10-01",
+            "groupId": "7df5ec97-dfc4-48bf-b9eb-cbb81dcadca0",
+            "correlationId": "8d83e945-f287-4324-a5aa-a1a56bfb8f16"
           }
         ],
         "parameters": {
@@ -3992,17 +4159,16 @@
       "AUTO_LOAN:LOAN:CT_PRIVATE:FP_WELLS_FARGO_NA": {
         "products": [
           {
-            "name": "Configurator.NA.US-LOAN-N-3Y.Q123-Feb-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
-            "productID": 40518,
+            "productID": 40603,
             "productType": "AUTO_LOAN",
             "productSubType": "LOAN",
-            "localName": "loan",
+            "localName": "Loan",
             "localeInformation": [
               {
                 "localeCode": "en_US",
-                "localName": "loan",
+                "localName": "Loan",
                 "isDefault": true
               }
             ],
@@ -4018,6 +4184,10 @@
             "interestRate": 0.0544,
             "minimumFinancedAmount": 10000,
             "maxLTVRatio": 1.15,
+            "calculationType": "LOAN",
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDL3",
@@ -4059,23 +4229,22 @@
                 ]
               }
             ],
-            "calculationType": "LOAN",
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "8faf5e2a-e26b-47ae-93b0-d234bf33e145",
+            "name": "Configurator.NA.US-LOAN-N-3Y.Q123-Feb-BP-2025-10-01",
+            "groupId": "681d2873-c38c-4045-81f8-bdcf7a3cb8dc",
+            "correlationId": "8faf5e2a-e26b-47ae-93b0-d234bf33e145"
           },
           {
-            "name": "Configurator.NA.US-LOAN-N-3Y.Q123-Feb-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
-            "productID": 40519,
+            "productID": 40604,
             "productType": "AUTO_LOAN",
             "productSubType": "LOAN",
-            "localName": "loan",
+            "localName": "Loan",
             "localeInformation": [
               {
                 "localeCode": "en_US",
-                "localName": "loan",
+                "localName": "Loan",
                 "isDefault": true
               }
             ],
@@ -4091,6 +4260,10 @@
             "interestRate": 0.0544,
             "minimumFinancedAmount": 10000,
             "maxLTVRatio": 1.15,
+            "calculationType": "LOAN",
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDL3",
@@ -4132,23 +4305,22 @@
                 ]
               }
             ],
-            "calculationType": "LOAN",
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "8faf5e2a-e26b-47ae-93b0-d234bf33e145",
+            "name": "Configurator.NA.US-LOAN-N-3Y.Q123-Feb-BP-2025-10-01",
+            "groupId": "681d2873-c38c-4045-81f8-bdcf7a3cb8dc",
+            "correlationId": "8faf5e2a-e26b-47ae-93b0-d234bf33e145"
           },
           {
-            "name": "Configurator.NA.US-LOAN-N-3Y.Q123-Feb-BP-2025-10-01",
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
-            "productID": 40520,
+            "productID": 40605,
             "productType": "AUTO_LOAN",
             "productSubType": "LOAN",
-            "localName": "loan",
+            "localName": "Loan",
             "localeInformation": [
               {
                 "localeCode": "en_US",
-                "localName": "loan",
+                "localName": "Loan",
                 "isDefault": true
               }
             ],
@@ -4164,6 +4336,10 @@
             "interestRate": 0.0544,
             "minimumFinancedAmount": 10000,
             "maxLTVRatio": 1.15,
+            "calculationType": "LOAN",
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDL3",
@@ -4205,23 +4381,22 @@
                 ]
               }
             ],
-            "calculationType": "LOAN",
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "8faf5e2a-e26b-47ae-93b0-d234bf33e145",
+            "name": "Configurator.NA.US-LOAN-N-3Y.Q123-Feb-BP-2025-10-01",
+            "groupId": "681d2873-c38c-4045-81f8-bdcf7a3cb8dc",
+            "correlationId": "8faf5e2a-e26b-47ae-93b0-d234bf33e145"
           },
           {
-            "name": "Configurator.NA.US-LOAN-N-3Y.Q123-Feb-BP-2025-10-01",
             "isDefault": true,
             "displayCategoryCode": "PREFERRED",
-            "productID": 40521,
+            "productID": 40606,
             "productType": "AUTO_LOAN",
             "productSubType": "LOAN",
-            "localName": "loan",
+            "localName": "Loan",
             "localeInformation": [
               {
                 "localeCode": "en_US",
-                "localName": "loan",
+                "localName": "Loan",
                 "isDefault": true
               }
             ],
@@ -4237,6 +4412,10 @@
             "interestRate": 0.0544,
             "minimumFinancedAmount": 10000,
             "maxLTVRatio": 1.15,
+            "calculationType": "LOAN",
+            "plateType": "PT_NONE",
+            "isDefaultProductSubType": false,
+            "excludeTaxInVehiclePrice": false,
             "modelCodeTrimMappings": [
               {
                 "modelCode": "MDL3",
@@ -4278,10 +4457,10 @@
                 ]
               }
             ],
-            "calculationType": "LOAN",
-            "plateType": "PT_NONE",
-            "isDefaultProductSubType": false,
-            "excludeTaxInVehiclePrice": false
+            "financialProductGroupId": "8faf5e2a-e26b-47ae-93b0-d234bf33e145",
+            "name": "Configurator.NA.US-LOAN-N-3Y.Q123-Feb-BP-2025-10-01",
+            "groupId": "681d2873-c38c-4045-81f8-bdcf7a3cb8dc",
+            "correlationId": "8faf5e2a-e26b-47ae-93b0-d234bf33e145"
           }
         ],
         "parameters": {
@@ -4292,7 +4471,7 @@
             72
           ],
           "availableDistances": [],
-          "name": "loan",
+          "name": "Loan",
           "customerType": "CT_PRIVATE",
           "isDefault": false,
           "exVatMode": false
@@ -4300,8 +4479,8 @@
       }
     },
     "Lexicon.my": {
-      "id": 5424,
-      "effective_date": "2023-01-24T04:05:00.000Z",
+      "id": 5653,
+      "effective_date": "2023-02-03T01:15:00.000Z",
       "market": "US",
       "product": "my",
       "factory": "GF00",
@@ -4891,7 +5070,7 @@
           }
         }
       },
-      "name": "Marketing US 2023.Jan.24 5424.7612.30398",
+      "name": "Marketing US 2023.Feb.03 5653.8047.30398",
       "groups": [
         {
           "code": "MODEL",
@@ -6653,7 +6832,7 @@
             },
             {
               "type": "federalTax.description",
-              "content": "Certain new Model 3 and Model Y vehicles qualify for a federal tax credit for eligible buyers. This credit amount is in effect for deliveries until March 2023."
+              "content": "New Model 3 and Model Y vehicles qualify for a federal tax credit for eligible buyers. This credit amount is in effect for deliveries until March 2023."
             },
             {
               "type": "federalTax.banner_title",
@@ -6696,10 +6875,7 @@
                     "props": {
                       "source": "banner",
                       "bannerType": "ira_modal"
-                    },
-                    "containerClassNames": [
-                      "coin--block-link"
-                    ]
+                    }
                   }
                 }
               ]
@@ -6740,11 +6916,7 @@
             },
             {
               "type": "federalTax.banner_description[2].items[1]",
-              "content": "Model Y with 5 seats: $55,000"
-            },
-            {
-              "type": "federalTax.banner_description[2].items[2]",
-              "content": "Model Y with 7 seats: $80,000"
+              "content": "Model Y: $80,000"
             },
             {
               "type": "federalTax.banner_description[3]",
@@ -14105,7 +14277,7 @@
         "$STY5S",
         "$WY19B"
       ],
-      "options_id": 5424,
+      "options_id": 5653,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -14529,7 +14701,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7612,
+      "copy_id": 8047,
       "language": "en",
       "pricing_id": 30398,
       "source": "cache"

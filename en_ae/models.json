@@ -878,6 +878,8 @@
           "financeType": []
         },
         "showIncentivesBreakdown": false,
+        "showVehiclePriceWithoutSavings": false,
+        "showPurchasePriceIncentiveInModal": false,
         "hideTaxesAndFeesExcluded": true,
         "hideApplyFinancingLink": [
           "lease.linear_loan_dib"
@@ -1429,31 +1431,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "model": [
-                      "ms"
-                    ],
-                    "options": [
-                      "$MDLS"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$APBS"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "lease.linear_loan_dib",
@@ -2967,7 +2945,7 @@
         "default_trim": "$MTS13"
       },
       "fees": {},
-      "name": "Marketing AE 2023.Jan.20 5518.7658.30128 [en]",
+      "name": "Marketing AE 2023.Jan.20 5518.7923.30128 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -3578,6 +3556,14 @@
             {
               "type": "name",
               "content": "Wheels"
+            },
+            {
+              "type": "certified_range_est",
+              "content": "Est. range as configured: {VALUE} km"
+            },
+            {
+              "type": "certified_range",
+              "content": "Certified Range (WLTP): {VALUE} km"
             }
           ],
           "extra_content": [
@@ -3632,6 +3618,51 @@
               "content": [
                 {
                   "group": "EXTERIOR_GALLERY"
+                }
+              ]
+            },
+            {
+              "type": "certified_disclaimer",
+              "content": [
+                {
+                  "value": 723,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WS90",
+                      "$MTS13"
+                    ]
+                  }
+                },
+                {
+                  "value": 634,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WS10",
+                      "$MTS13"
+                    ]
+                  }
+                },
+                {
+                  "value": 695,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$WS92",
+                      "$MTS14"
+                    ]
+                  }
+                },
+                {
+                  "value": 600,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WS12",
+                      "$MTS14"
+                    ]
+                  }
                 }
               ]
             }
@@ -14466,7 +14497,7 @@
             },
             {
               "type": "feature_list.default[0].items[5]",
-              "content": "Higher thermal capability brake calipers"
+              "content": "Higher thermal capability brake pads"
             },
             {
               "type": "feature_list.default[0].items[6]",
@@ -15835,7 +15866,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7658,
+      "copy_id": 7923,
       "language": "en",
       "pricing_id": 30128,
       "reference_id": 5518,
