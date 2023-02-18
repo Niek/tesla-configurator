@@ -1494,6 +1494,8 @@
         ],
         "disableCompanySearch": false,
         "useCGSOrderAgreement": true,
+        "useCGSCoe": false,
+        "showOrderDisclaimerAboveLegalConsent": false,
         "showTaxAndFeesDisclaimer": true,
         "showRegionSelectorOrderPage": true,
         "showHomeChargingDisclaimer": true
@@ -1534,7 +1536,8 @@
         "includeServiceFee": [],
         "residualAmount": null,
         "DisclaimerTitlei18nKey": "SummaryPanel.disclaimers.incentivesAndGasSavingsDisclaimer",
-        "region_code": ""
+        "region_code": "",
+        "showPricesWithForwardCalculatedVat": false
       }
     },
     "Incentives.m3.m3": {
@@ -1569,11 +1572,8 @@
         {
           "description": "State Incentive for CA m3",
           "incentiveType": "government",
-          "financeType": [
-            "cash",
-            "loan"
-          ],
-          "period": "includedInPurchasePrice",
+          "financeType": "any",
+          "period": "once",
           "amount": 0,
           "toggle_amount": {
             "if": {
@@ -1581,95 +1581,7 @@
                 "conditions": {
                   "<=": 65000
                 },
-                "trims": [
-                  "$MT300",
-                  "$MT301",
-                  "$MT302",
-                  "$MT303",
-                  "$MT304",
-                  "$MT308",
-                  "$MT314",
-                  "$MT322",
-                  "$MT336",
-                  "$MT337",
-                  "$MT309",
-                  "$MT310",
-                  "$MT315",
-                  "$MT316",
-                  "$MT311",
-                  "$MT317",
-                  "$MT325",
-                  "$MT321",
-                  "$MT324",
-                  "$SPT31"
-                ],
-                "modelOption": "$MDL3",
                 "amount": 5000
-              }
-            }
-          },
-          "variant": [
-            "m3"
-          ],
-          "inventory": [
-            "new"
-          ],
-          "excludeInMonthlyPayment": {
-            "financeType": [
-              "loan"
-            ]
-          },
-          "market": "CA"
-        },
-        {
-          "description": "State Incentive for CA m3",
-          "incentiveType": "government",
-          "financeType": "lease",
-          "period": "includedInDownPayment",
-          "amount": 0,
-          "toggle_amount": {
-            "if": {
-              "trim_price": {
-                "conditions": {
-                  "<=": 65000
-                },
-                "trims": [
-                  "$MT300",
-                  "$MT301",
-                  "$MT302",
-                  "$MT303",
-                  "$MT304",
-                  "$MT308",
-                  "$MT314",
-                  "$MT322",
-                  "$MT336",
-                  "$MT337",
-                  "$MT309",
-                  "$MT310",
-                  "$MT315",
-                  "$MT316",
-                  "$MT311",
-                  "$MT317",
-                  "$MT325",
-                  "$MT321",
-                  "$MT324",
-                  "$SPT31"
-                ],
-                "modelOption": "$MDL3",
-                "amount": [
-                  {
-                    "term": 48,
-                    "value": 5000
-                  },
-                  {
-                    "term": 36,
-                    "value": 3750
-                  },
-                  {
-                    "term": 24,
-                    "value": 2500
-                  }
-                ]
               }
             }
           },
@@ -1800,7 +1712,7 @@
         },
         {
           "description": [
-            "State Incentive for CA all models"
+            "State Incentive for CA all model 3"
           ],
           "regionCode": "BC",
           "incentiveType": "regional",
@@ -1810,13 +1722,20 @@
             "lease"
           ],
           "period": "incentiveAfterDelivery",
-          "amount": 4000,
+          "amount": 0,
+          "toggle_amount": {
+            "if": {
+              "trim_price": {
+                "conditions": {
+                  "<=": 55000
+                },
+                "amount": 4000
+              }
+            }
+          },
           "hasConditions": true,
           "variant": [
-            "my",
-            "m3",
-            "ms",
-            "mx"
+            "m3"
           ],
           "inventory": [
             "new"
@@ -2388,6 +2307,26 @@
           ],
           "percent": 16,
           "market": "LU",
+          "pricebook_data": {
+            "percent": "fees.vat_percent.percent"
+          }
+        },
+        {
+          "feeType": "vat_percent",
+          "financeType": "any",
+          "description": "VAT calculation",
+          "period": "once",
+          "variant": [
+            "ms",
+            "mx",
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "percent": 18,
+          "market": "TR",
           "pricebook_data": {
             "percent": "fees.vat_percent.percent"
           }
