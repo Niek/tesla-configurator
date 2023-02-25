@@ -496,6 +496,7 @@
               "SUMMARY_PANEL_INTEREST_RATE_TYPE_CHANGE",
               "SUMMARY_PANEL_DISTANCE_CHANGE",
               "SUMMARY_PANEL_LEASE_TERM_CHANGE",
+              "SUMMARY_PANEL_USER_LEASE_AMOUNT_CHANGE",
               "SUMMARY_PANEL_REGION_CHANGE",
               "SUMMARY_PANEL_FUEL_INCENTIVE_CHANGE",
               "FINANCIAL_FORM_STATE_CHANGE",
@@ -1355,6 +1356,7 @@
           "COMPLETE_CONFIGURATION_CHANGED",
           "SUMMARY_PANEL_TAB_CHANGE",
           "SUMMARY_PANEL_LEASE_TERM_CHANGE",
+          "SUMMARY_PANEL_USER_LEASE_AMOUNT_CHANGE",
           "SUMMARY_PANEL_FINANCE_TERM_CHANGE",
           "SUMMARY_PANEL_FUEL_INCENTIVE_CHANGE",
           "ACCESSORY_TOGGLE",
@@ -1465,6 +1467,7 @@
         "useCGSOrderAgreement": false,
         "useCGSCoe": false,
         "showOrderDisclaimerAboveLegalConsent": false,
+        "extraRequiredCompanyFields": [],
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1509,6 +1512,7 @@
         "downPayment": null,
         "includeServiceFee": [],
         "residualAmount": null,
+        "userLeaseAmount": null,
         "DisclaimerTitlei18nKey": "Review.Gas_Savings",
         "region_code": "",
         "showPricesWithForwardCalculatedVat": false
@@ -2694,7 +2698,7 @@
         "default_trim": "$MTY13"
       },
       "fees": {},
-      "name": "Marketing DK 2023.Feb.17 5809.8087.31137 [da]",
+      "name": "Marketing DK 2023.Feb.17 5809.8147.31137 [da]",
       "groups": [
         {
           "code": "MODEL",
@@ -2896,7 +2900,7 @@
           "exclusive": true,
           "discountable": true,
           "default_options": [
-            "$WY20P"
+            "$WY19B"
           ]
         },
         {
@@ -3503,7 +3507,7 @@
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$WY20P"
+            "$WY19B"
           ]
         },
         {
@@ -7856,7 +7860,7 @@
           "extra_copy": [
             {
               "type": "federalTax.description",
-              "content": "<a href='/{LOCALE}/inventory/new/my?redirect=no' target='_blank'>Gennemse vores lager</a> med varer, der er tilgængelig til omgående levering."
+              "content": "<a href='/{LOCALE}/inventory/new/my?redirect=no' target='_blank'>Se vores lager</a> med biler, som er tilgængelig for hurtig levering."
             }
           ]
         }
@@ -12220,9 +12224,12 @@
             },
             {
               "action": "set",
-              "target": "$WY20P",
-              "condition_code": "$WY21P",
-              "condition_state": "unset"
+              "target": "$WY19B",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$WY20P",
+                "$WY21P"
+              ]
             }
           ],
           "name": "19'' Gemini-fælge",
@@ -12312,12 +12319,9 @@
             },
             {
               "action": "set",
-              "target": "$WY20P",
-              "condition_state": "unset",
-              "condition_all_codes": [
-                "$WY19B",
-                "$WY21P"
-              ]
+              "target": "$WY19B",
+              "condition_code": "$WY21P",
+              "condition_state": "unset"
             }
           ],
           "name": "20\" Induction-fælge",
@@ -12425,8 +12429,8 @@
             },
             {
               "action": "set",
-              "target": "$WY20P",
-              "condition_code": "$WY19B",
+              "target": "$WY19B",
+              "condition_code": "$WY20P",
               "condition_state": "unset"
             }
           ],
@@ -12550,8 +12554,8 @@
                     "short_label": "s"
                   },
                   "per-month": {
-                    "label": " /mo",
-                    "short_label": " /mo"
+                    "label": " /md.",
+                    "short_label": " /md."
                   },
                   "kilometers": {
                     "label": "kilometer",
@@ -13270,7 +13274,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 8087,
+      "copy_id": 8147,
       "language": "da",
       "pricing_id": 31137,
       "reference_id": 5809,

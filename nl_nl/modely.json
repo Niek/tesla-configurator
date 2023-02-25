@@ -518,6 +518,7 @@
               "SUMMARY_PANEL_INTEREST_RATE_TYPE_CHANGE",
               "SUMMARY_PANEL_DISTANCE_CHANGE",
               "SUMMARY_PANEL_LEASE_TERM_CHANGE",
+              "SUMMARY_PANEL_USER_LEASE_AMOUNT_CHANGE",
               "SUMMARY_PANEL_REGION_CHANGE",
               "SUMMARY_PANEL_FUEL_INCENTIVE_CHANGE",
               "FINANCIAL_FORM_STATE_CHANGE",
@@ -1386,6 +1387,7 @@
           "COMPLETE_CONFIGURATION_CHANGED",
           "SUMMARY_PANEL_TAB_CHANGE",
           "SUMMARY_PANEL_LEASE_TERM_CHANGE",
+          "SUMMARY_PANEL_USER_LEASE_AMOUNT_CHANGE",
           "SUMMARY_PANEL_FINANCE_TERM_CHANGE",
           "SUMMARY_PANEL_FUEL_INCENTIVE_CHANGE",
           "ACCESSORY_TOGGLE",
@@ -1498,6 +1500,7 @@
         "useCGSOrderAgreement": false,
         "useCGSCoe": false,
         "showOrderDisclaimerAboveLegalConsent": false,
+        "extraRequiredCompanyFields": [],
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1567,6 +1570,7 @@
         "downPayment": null,
         "includeServiceFee": [],
         "residualAmount": null,
+        "userLeaseAmount": null,
         "DisclaimerTitlei18nKey": "Review.Gas_Savings",
         "region_code": "",
         "showPricesWithForwardCalculatedVat": false
@@ -2959,7 +2963,7 @@
           "exclusive": true,
           "discountable": true,
           "default_options": [
-            "$WY20P"
+            "$WY19B"
           ]
         },
         {
@@ -3566,7 +3570,7 @@
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$WY20P"
+            "$WY19B"
           ]
         },
         {
@@ -12194,9 +12198,12 @@
             },
             {
               "action": "set",
-              "target": "$WY20P",
-              "condition_code": "$WY21P",
-              "condition_state": "unset"
+              "target": "$WY19B",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$WY20P",
+                "$WY21P"
+              ]
             }
           ],
           "name": "19\" Gemini-velgen",
@@ -12286,12 +12293,9 @@
             },
             {
               "action": "set",
-              "target": "$WY20P",
-              "condition_state": "unset",
-              "condition_all_codes": [
-                "$WY19B",
-                "$WY21P"
-              ]
+              "target": "$WY19B",
+              "condition_code": "$WY21P",
+              "condition_state": "unset"
             }
           ],
           "name": "20\" Induction-velgen",
@@ -12391,8 +12395,8 @@
             },
             {
               "action": "set",
-              "target": "$WY20P",
-              "condition_code": "$WY19B",
+              "target": "$WY19B",
+              "condition_code": "$WY20P",
               "condition_state": "unset"
             }
           ],

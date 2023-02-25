@@ -476,6 +476,7 @@
               "SUMMARY_PANEL_INTEREST_RATE_TYPE_CHANGE",
               "SUMMARY_PANEL_DISTANCE_CHANGE",
               "SUMMARY_PANEL_LEASE_TERM_CHANGE",
+              "SUMMARY_PANEL_USER_LEASE_AMOUNT_CHANGE",
               "SUMMARY_PANEL_REGION_CHANGE",
               "SUMMARY_PANEL_FUEL_INCENTIVE_CHANGE",
               "FINANCIAL_FORM_STATE_CHANGE",
@@ -1272,6 +1273,7 @@
           "COMPLETE_CONFIGURATION_CHANGED",
           "SUMMARY_PANEL_TAB_CHANGE",
           "SUMMARY_PANEL_LEASE_TERM_CHANGE",
+          "SUMMARY_PANEL_USER_LEASE_AMOUNT_CHANGE",
           "SUMMARY_PANEL_FINANCE_TERM_CHANGE",
           "SUMMARY_PANEL_FUEL_INCENTIVE_CHANGE",
           "ACCESSORY_TOGGLE",
@@ -1378,6 +1380,7 @@
         "useCGSOrderAgreement": true,
         "useCGSCoe": false,
         "showOrderDisclaimerAboveLegalConsent": false,
+        "extraRequiredCompanyFields": [],
         "showHomeChargingDisclaimer": true
       },
       "PrintPdf": {
@@ -1415,6 +1418,7 @@
         "downPayment": null,
         "includeServiceFee": [],
         "residualAmount": null,
+        "userLeaseAmount": null,
         "DisclaimerTitlei18nKey": "SummaryPanel.disclaimers.incentivesAndGasSavingsDisclaimer",
         "region_code": "",
         "showPricesWithForwardCalculatedVat": false,
@@ -2890,7 +2894,9 @@
           "required": true,
           "exclusive": true,
           "discountable": true,
-          "default_options": []
+          "default_options": [
+            "$MTS14"
+          ]
         },
         {
           "code": "MODEL",
@@ -3014,7 +3020,9 @@
           "required": true,
           "exclusive": true,
           "discountable": true,
-          "default_options": []
+          "default_options": [
+            "$WS92"
+          ]
         },
         {
           "code": "INTERIOR_PACKAGE",
@@ -3399,7 +3407,7 @@
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTS11"
+            "$MTS14"
           ]
         },
         {
@@ -10159,18 +10167,18 @@
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS92",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$WS10",
+                "$WS90",
                 "$WTAB",
                 "$WTAS",
                 "$WTD2",
                 "$WTDS",
                 "$WTMS",
                 "$WTSD",
-                "$WTTC",
-                "$WS92"
+                "$WTTC"
               ]
             }
           ],
@@ -10269,10 +10277,11 @@
             },
             {
               "action": "set",
-              "target": "$WS90",
+              "target": "$WS92",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$WS10",
+                "$WS90",
                 "$WTAB",
                 "$WTAS",
                 "$WTD2",
@@ -14342,7 +14351,7 @@
             },
             {
               "action": "set",
-              "target": "$MTS11",
+              "target": "$MTS14",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTS01",
@@ -14354,6 +14363,7 @@
                 "$MTS08",
                 "$MTS09",
                 "$MTS10",
+                "$MTS11",
                 "$MTS12",
                 "$MTS13"
               ]
@@ -16080,26 +16090,6 @@
         {
           "type": "ELIGIBLE_FEES_TO_MOVE",
           "message": "'Fees' should be moved to Copy lexicon from Options."
-        },
-        {
-          "type": "DEFAULT_OPTIONS_NOT_FOUND",
-          "message": "Default options doesnt exist in lexicon",
-          "groups": [
-            {
-              "code": "TRIM",
-              "context": [
-                "default"
-              ],
-              "msg": "Default options $MTS11 doesnt exist in lexicon"
-            },
-            {
-              "code": "WHEELS",
-              "context": [
-                "default"
-              ],
-              "msg": "Default options $WS90 doesnt exist in lexicon"
-            }
-          ]
         }
       ],
       "extra_content": [],
