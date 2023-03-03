@@ -895,8 +895,28 @@
         "isEstimatedPrice": false,
         "showTotalPaymentFooter": false,
         "showMonthlyPaymentQuote": false,
-        "showFinanceProductsByDriverType": [],
-        "driverType": null,
+        "showFinanceProductsByDriverType": [
+          {
+            "type": "personal",
+            "financeOptions": [
+              "cash",
+              "lease",
+              "loan"
+            ],
+            "defaultOption": "lease"
+          },
+          {
+            "type": "business",
+            "financeOptions": [
+              "cash",
+              "lease",
+              "operational_lease",
+              "loan"
+            ],
+            "defaultOption": "lease"
+          }
+        ],
+        "driverType": "personal",
         "leaseDescriptionwithModelCode": false,
         "taxesAndFeesExcludedIfApplicable": false,
         "showFooterFinanceLink": false,
@@ -1352,7 +1372,8 @@
         "actionsToUpdatePrices": [
           "SUMMARY_PANEL_INCLUDE_SERVICE_FEE_CHANGE",
           "SUMMARY_PANEL_DISTANCE_CHANGE",
-          "ACCOUNT_DETAILS_CHANGED"
+          "ACCOUNT_DETAILS_CHANGED",
+          "SET_FINANCE_MODAL_DRIVER_TYPE"
         ],
         "showVehicleSubtotal": true,
         "hidePostfixOnUI": false,
@@ -1450,6 +1471,7 @@
         "useCGSOrderAgreement": false,
         "useCGSCoe": false,
         "showOrderDisclaimerAboveLegalConsent": false,
+        "showReferralZeroCreditDisclaimer": false,
         "extraRequiredCompanyFields": [],
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
@@ -1548,21 +1570,22 @@
         },
         {
           "description": "Ecobonus",
-          "incentiveType": "government",
+          "incentiveType": "government_grant",
           "period": "includedInPurchasePrice",
+          "customerType": "private",
           "amount": 0,
           "toggle_amount": {
             "if": {
               "car_price": {
                 "conditions": {
                   "vehiclePrice": {
-                    "<=": 61000
+                    "<=": 42700
                   },
                   "odometerMileage": {
                     "<=": 50
                   }
                 },
-                "amount": 0
+                "amount": 3000
               }
             }
           },
@@ -1789,7 +1812,7 @@
           "inventory": [
             "new"
           ],
-          "amount": 8.55,
+          "amount": 8.47,
           "market": "IT"
         },
         {
@@ -1973,7 +1996,6 @@
           "interestRateMatrix": [
             {
               "options": [
-                "$MT322",
                 "$MTY13"
               ],
               "value": 1.95
@@ -2361,7 +2383,8 @@
               "totalTerm": 96,
               "taxStampAmount": 16,
               "initialCommission": 2,
-              "miniRate": 0.01,
+              "miniRate": 0.011,
+              "miniRate__$MTY13": 0.01,
               "delta": 0.12
             }
           },
@@ -2374,7 +2397,6 @@
           "interestRateMatrix": [
             {
               "options": [
-                "$MT322",
                 "$MTY13"
               ],
               "value": 1.95

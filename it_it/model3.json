@@ -937,8 +937,28 @@
         "isEstimatedPrice": false,
         "showTotalPaymentFooter": false,
         "showMonthlyPaymentQuote": false,
-        "showFinanceProductsByDriverType": [],
-        "driverType": null,
+        "showFinanceProductsByDriverType": [
+          {
+            "type": "personal",
+            "financeOptions": [
+              "cash",
+              "lease",
+              "loan"
+            ],
+            "defaultOption": "lease"
+          },
+          {
+            "type": "business",
+            "financeOptions": [
+              "cash",
+              "lease",
+              "operational_lease",
+              "loan"
+            ],
+            "defaultOption": "lease"
+          }
+        ],
+        "driverType": "personal",
         "leaseDescriptionwithModelCode": false,
         "taxesAndFeesExcludedIfApplicable": false,
         "showFooterFinanceLink": false,
@@ -1395,7 +1415,8 @@
         "actionsToUpdatePrices": [
           "SUMMARY_PANEL_INCLUDE_SERVICE_FEE_CHANGE",
           "SUMMARY_PANEL_DISTANCE_CHANGE",
-          "ACCOUNT_DETAILS_CHANGED"
+          "ACCOUNT_DETAILS_CHANGED",
+          "SET_FINANCE_MODAL_DRIVER_TYPE"
         ],
         "showVehicleSubtotal": true,
         "hidePostfixOnUI": false,
@@ -1493,6 +1514,7 @@
         "useCGSOrderAgreement": false,
         "useCGSCoe": false,
         "showOrderDisclaimerAboveLegalConsent": false,
+        "showReferralZeroCreditDisclaimer": false,
         "extraRequiredCompanyFields": [],
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
@@ -1500,7 +1522,11 @@
           "Vat"
         ],
         "extraIncentives": [
-          "recyclingFeeIncluded"
+          "recyclingFeeIncluded",
+          {
+            "registrationType": "private",
+            "key": "governmentGrant"
+          }
         ]
       },
       "PrintPdf": {
@@ -1567,21 +1593,22 @@
         },
         {
           "description": "Ecobonus",
-          "incentiveType": "government",
+          "incentiveType": "government_grant",
           "period": "includedInPurchasePrice",
+          "customerType": "private",
           "amount": 0,
           "toggle_amount": {
             "if": {
               "car_price": {
                 "conditions": {
                   "vehiclePrice": {
-                    "<=": 61000
+                    "<=": 42700
                   },
                   "odometerMileage": {
                     "<=": 50
                   }
                 },
-                "amount": 0
+                "amount": 3000
               }
             }
           },
@@ -1832,7 +1859,7 @@
           "inventory": [
             "new"
           ],
-          "amount": 8.55,
+          "amount": 8.47,
           "market": "IT"
         },
         {
@@ -2016,7 +2043,6 @@
           "interestRateMatrix": [
             {
               "options": [
-                "$MT322",
                 "$MTY13"
               ],
               "value": 1.95
@@ -2406,7 +2432,8 @@
               "totalTerm": 96,
               "taxStampAmount": 16,
               "initialCommission": 2,
-              "miniRate": 0.01,
+              "miniRate": 0.011,
+              "miniRate__$MTY13": 0.01,
               "delta": 0.12
             }
           },
@@ -2419,7 +2446,6 @@
           "interestRateMatrix": [
             {
               "options": [
-                "$MT322",
                 "$MTY13"
               ],
               "value": 1.95
@@ -2434,7 +2460,7 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2023-03-01T00:10:19.683Z",
+      "effective_date": "2023-03-03T01:05:00.000Z",
       "market": "IT",
       "product": "m3",
       "factory": "GF00",
@@ -4387,7 +4413,7 @@
         "default_trim": "$MT322"
       },
       "fees": {},
-      "name": "Marketing IT 2023.Mar.01 5976.8137.30184 [it]",
+      "name": "Marketing IT 2023.Mar.03 5976.8250.31454 [it]",
       "groups": [
         {
           "code": "MODEL",
@@ -6058,6 +6084,64 @@
             {
               "type": "group_disclaimer",
               "content": "Tutti i veicoli sono dotati di bagagliaio elettrico, tetto in vetro e Autopilot."
+            },
+            {
+              "type": "inventory_link_disclaimer[0]",
+              "content": "L'allestimento selezionato è disponibile solo per l'acquisto dall'inventario.",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "i",
+                    "classNames": [
+                      "tds-icon",
+                      "tds-o-icon-status-info"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "inventory_link_disclaimer[1]",
+              "content": "L'allestimento selezionato è disponibile solo per l'acquisto dall'inventario.",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "span",
+                    "classNames": [
+                      "tds-text--caption"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_inventory",
+              "content": "Vedi i veicoli in pronta consegna",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-id": "continue-to-inventory"
+                    }
+                  }
+                },
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "NAVIGATE_INVENTORY_LINK",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--large",
+                      "tds-btn--width-full"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "description": "Batteria e trasmissione",
@@ -6123,6 +6207,30 @@
                   "type": "DynamicDisclaimer",
                   "props": {
                     "group": "DUAL_MOTOR_ALL_WHEEL_DRIVE"
+                  }
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "inventory_link_disclaimer",
+                    "classes": "tds-status_msg",
+                    "inheritClasses": false
+                  },
+                  "selected_by": {
+                    "or": [
+                      "$MT322"
+                    ]
+                  }
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "view_inventory"
+                  },
+                  "selected_by": {
+                    "or": [
+                      "$MT322"
+                    ]
                   }
                 }
               ]
@@ -6603,27 +6711,7 @@
           "extra_copy": [
             {
               "type": "federalTax.description",
-              "content": "Tassi validi per consegne entro il 31 marzo."
-            },
-            {
-              "type": "federalTax.link",
-              "content": "Scopri di più",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "SHOW_BANNER_MODAL"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "federalTax.banner_title",
-              "content": "<h4>Tassi validi per consegne entro il 31 marzo.</h4>"
-            },
-            {
-              "type": "federalTax.banner_description",
-              "content": "Il tasso di interesse al 1,95% e TAEG 1,99% è valido solo per ordini e richieste di finanziamento effettuati tra il 27 gennaio ed il 24 marzo 2023 su Model Y a trazione posteriore e Model 3 a trazione posteriore con consegna entro il 31 Marzo 2023. Offerta soggetta a disponibilità di vetture."
+              "content": "<a href='/{LOCALE}/inventory/new/m3?redirect=no' target='_blank'>Esplora auto in pronta consegna</a>"
             }
           ]
         },
@@ -10269,13 +10357,13 @@
           "price": 0,
           "pricing": [
             {
-              "type": "trial",
-              "value": 3200,
+              "type": "base",
+              "value": 0,
               "context": "EUR"
             },
             {
-              "type": "base",
-              "value": 0,
+              "type": "trial",
+              "value": 3200,
               "context": "EUR"
             },
             {
@@ -10661,12 +10749,12 @@
           "price": 7500,
           "pricing": [
             {
-              "type": "trial",
+              "type": "base",
               "value": 7500,
               "context": "EUR"
             },
             {
-              "type": "base",
+              "type": "trial",
               "value": 7500,
               "context": "EUR"
             },
@@ -10889,12 +10977,12 @@
           "price": 3800,
           "pricing": [
             {
-              "type": "trial",
+              "type": "base",
               "value": 3800,
               "context": "EUR"
             },
             {
-              "type": "base",
+              "type": "trial",
               "value": 3800,
               "context": "EUR"
             },
@@ -12675,6 +12763,11 @@
           "price": 34990,
           "pricing": [
             {
+              "type": "base",
+              "value": 34990,
+              "context": "EUR"
+            },
+            {
               "type": "order_fee",
               "value": 0,
               "context": "EUR"
@@ -12682,11 +12775,6 @@
             {
               "type": "reservation_deposit",
               "value": 1000,
-              "context": "EUR"
-            },
-            {
-              "type": "base",
-              "value": 34990,
               "context": "EUR"
             },
             {
@@ -14190,16 +14278,16 @@
               ]
             }
           ],
-          "price": 10000,
+          "price": 6500,
           "pricing": [
             {
               "type": "base",
-              "value": 10000,
+              "value": 6500,
               "context": "EUR"
             },
             {
               "type": "base_plus_trim",
-              "value": 44990,
+              "value": 41490,
               "context": "EUR"
             }
           ]
@@ -16719,9 +16807,9 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 8137,
+      "copy_id": 8250,
       "language": "it",
-      "pricing_id": 30184,
+      "pricing_id": 31454,
       "reference_id": 5976,
       "source": "cache"
     }

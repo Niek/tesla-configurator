@@ -899,8 +899,28 @@
         "isEstimatedPrice": false,
         "showTotalPaymentFooter": false,
         "showMonthlyPaymentQuote": false,
-        "showFinanceProductsByDriverType": [],
-        "driverType": null,
+        "showFinanceProductsByDriverType": [
+          {
+            "type": "personal",
+            "financeOptions": [
+              "cash",
+              "lease",
+              "loan"
+            ],
+            "defaultOption": "lease"
+          },
+          {
+            "type": "business",
+            "financeOptions": [
+              "cash",
+              "lease",
+              "operational_lease",
+              "loan"
+            ],
+            "defaultOption": "lease"
+          }
+        ],
+        "driverType": "personal",
         "leaseDescriptionwithModelCode": false,
         "taxesAndFeesExcludedIfApplicable": false,
         "showFooterFinanceLink": false,
@@ -1358,7 +1378,8 @@
         "actionsToUpdatePrices": [
           "SUMMARY_PANEL_INCLUDE_SERVICE_FEE_CHANGE",
           "SUMMARY_PANEL_DISTANCE_CHANGE",
-          "ACCOUNT_DETAILS_CHANGED"
+          "ACCOUNT_DETAILS_CHANGED",
+          "SET_FINANCE_MODAL_DRIVER_TYPE"
         ],
         "showVehicleSubtotal": true,
         "hidePostfixOnUI": false,
@@ -1456,6 +1477,7 @@
         "useCGSOrderAgreement": false,
         "useCGSCoe": false,
         "showOrderDisclaimerAboveLegalConsent": false,
+        "showReferralZeroCreditDisclaimer": false,
         "extraRequiredCompanyFields": [],
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
@@ -1463,7 +1485,11 @@
           "Vat"
         ],
         "extraIncentives": [
-          "recyclingFeeIncluded"
+          "recyclingFeeIncluded",
+          {
+            "registrationType": "private",
+            "key": "governmentGrant"
+          }
         ]
       },
       "PrintPdf": {
@@ -1530,21 +1556,22 @@
         },
         {
           "description": "Ecobonus",
-          "incentiveType": "government",
+          "incentiveType": "government_grant",
           "period": "includedInPurchasePrice",
+          "customerType": "private",
           "amount": 0,
           "toggle_amount": {
             "if": {
               "car_price": {
                 "conditions": {
                   "vehiclePrice": {
-                    "<=": 61000
+                    "<=": 42700
                   },
                   "odometerMileage": {
                     "<=": 50
                   }
                 },
-                "amount": 0
+                "amount": 3000
               }
             }
           },
@@ -1795,7 +1822,7 @@
           "inventory": [
             "new"
           ],
-          "amount": 8.55,
+          "amount": 8.47,
           "market": "IT"
         },
         {
@@ -1979,7 +2006,6 @@
           "interestRateMatrix": [
             {
               "options": [
-                "$MT322",
                 "$MTY13"
               ],
               "value": 1.95
@@ -2369,7 +2395,8 @@
               "totalTerm": 96,
               "taxStampAmount": 16,
               "initialCommission": 2,
-              "miniRate": 0.01,
+              "miniRate": 0.011,
+              "miniRate__$MTY13": 0.01,
               "delta": 0.12
             }
           },
@@ -2382,7 +2409,6 @@
           "interestRateMatrix": [
             {
               "options": [
-                "$MT322",
                 "$MTY13"
               ],
               "value": 1.95
@@ -2397,7 +2423,7 @@
       ]
     },
     "Lexicon.mx": {
-      "effective_date": "2023-03-01T00:25:32.141Z",
+      "effective_date": "2023-03-02T01:05:00.000Z",
       "market": "IT",
       "product": "mx",
       "factory": "GF00",
@@ -3450,7 +3476,7 @@
       "fees": {
         "tax_credit": 3750
       },
-      "name": "Marketing IT 2023.Mar.01 6116.7953.27729 [it]",
+      "name": "Marketing IT 2023.Mar.02 6212.7953.31413 [it]",
       "groups": [
         {
           "code": "MODEL",
@@ -9029,13 +9055,13 @@
           "price": 0,
           "pricing": [
             {
-              "type": "trial",
-              "value": 3200,
+              "type": "base",
+              "value": 0,
               "context": "EUR"
             },
             {
-              "type": "base",
-              "value": 0,
+              "type": "trial",
+              "value": 3200,
               "context": "EUR"
             },
             {
@@ -9490,12 +9516,12 @@
           "price": 7500,
           "pricing": [
             {
-              "type": "trial",
+              "type": "base",
               "value": 7500,
               "context": "EUR"
             },
             {
-              "type": "base",
+              "type": "trial",
               "value": 7500,
               "context": "EUR"
             },
@@ -9747,12 +9773,12 @@
           "price": 3800,
           "pricing": [
             {
-              "type": "trial",
+              "type": "base",
               "value": 3800,
               "context": "EUR"
             },
             {
-              "type": "base",
+              "type": "trial",
               "value": 3800,
               "context": "EUR"
             },
@@ -10429,6 +10455,11 @@
           "price": 78990,
           "pricing": [
             {
+              "type": "base",
+              "value": 78990,
+              "context": "EUR"
+            },
+            {
               "type": "order_fee",
               "value": 0,
               "context": "EUR"
@@ -10454,11 +10485,6 @@
               "context": "EUR"
             },
             {
-              "type": "base",
-              "value": 78990,
-              "context": "EUR"
-            },
-            {
               "type": "non_refundable_order_payment_used",
               "value": 250,
               "context": "EUR"
@@ -10480,7 +10506,8 @@
                 "$PMSS",
                 "$PPMR",
                 "$PPSB",
-                "$PPSW"
+                "$PPSW",
+                "$PR01"
               ]
             }
           ],
@@ -10498,7 +10525,8 @@
                 "$PMNG",
                 "$PMSS",
                 "$PPMR",
-                "$PPSB"
+                "$PPSB",
+                "$PR01"
               ]
             }
           ],
@@ -10594,7 +10622,8 @@
                 "$PMSS",
                 "$PPMR",
                 "$PPSB",
-                "$PPSW"
+                "$PPSW",
+                "$PR01"
               ]
             }
           ],
@@ -10612,7 +10641,8 @@
                 "$PMBL",
                 "$PMSS",
                 "$PPMR",
-                "$PPSB"
+                "$PPSB",
+                "$PR01"
               ]
             }
           ],
@@ -10668,7 +10698,8 @@
                 "$PMNG",
                 "$PMSS",
                 "$PPSB",
-                "$PPSW"
+                "$PPSW",
+                "$PR01"
               ]
             }
           ],
@@ -10686,7 +10717,8 @@
                 "$PMBL",
                 "$PMNG",
                 "$PMSS",
-                "$PPSB"
+                "$PPSB",
+                "$PR01"
               ]
             }
           ],
@@ -10742,7 +10774,8 @@
                 "$PMNG",
                 "$PMSS",
                 "$PPMR",
-                "$PPSW"
+                "$PPSW",
+                "$PR01"
               ]
             }
           ],
@@ -10760,7 +10793,8 @@
                 "$PMBL",
                 "$PMNG",
                 "$PMSS",
-                "$PPMR"
+                "$PPMR",
+                "$PR01"
               ]
             }
           ],
@@ -10816,7 +10850,8 @@
                 "$PMNG",
                 "$PMSS",
                 "$PPMR",
-                "$PPSB"
+                "$PPSB",
+                "$PR01"
               ]
             }
           ],
@@ -10835,7 +10870,8 @@
                 "$PMNG",
                 "$PMSS",
                 "$PPMR",
-                "$PPSB"
+                "$PPSB",
+                "$PR01"
               ]
             }
           ],
@@ -17059,7 +17095,7 @@
         "$CPF0",
         "$TW01"
       ],
-      "options_id": 6116,
+      "options_id": 6212,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -17541,8 +17577,8 @@
       "extra_content": [],
       "copy_id": 7953,
       "language": "it",
-      "pricing_id": 27729,
-      "reference_id": 6116,
+      "pricing_id": 31413,
+      "reference_id": 6212,
       "source": "cache"
     }
   }
