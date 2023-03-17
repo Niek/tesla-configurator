@@ -1044,6 +1044,7 @@
         "showIncentivesRegion": [],
         "showCashDescriptions": false,
         "showEstSavingsLabel": false,
+        "showDeliveryState": true,
         "pricingDetailsVisible": true
       },
       "Payment": {
@@ -1500,7 +1501,8 @@
         "useCGSCoe": false,
         "showOrderDisclaimerAboveLegalConsent": false,
         "showReferralZeroCreditDisclaimer": false,
-        "extraRequiredCompanyFields": [],
+        "optionalCompanyFields": [],
+        "hideDeliveryStandardBlock": false,
         "showTaxAndFeesDisclaimer": true,
         "showRegionSelectorOrderPage": true,
         "showHomeChargingDisclaimer": true
@@ -1608,7 +1610,7 @@
             "cash",
             "loan"
           ],
-          "period": "includedInPurchasePrice",
+          "period": "once",
           "amount": 0,
           "toggle_amount": {
             "if": {
@@ -1616,29 +1618,6 @@
                 "conditions": {
                   "<=": 65000
                 },
-                "trims": [
-                  "$MT300",
-                  "$MT301",
-                  "$MT302",
-                  "$MT303",
-                  "$MT304",
-                  "$MT308",
-                  "$MT314",
-                  "$MT322",
-                  "$MT336",
-                  "$MT337",
-                  "$MT309",
-                  "$MT310",
-                  "$MT315",
-                  "$MT316",
-                  "$MT311",
-                  "$MT317",
-                  "$MT325",
-                  "$MT321",
-                  "$MT324",
-                  "$SPT31"
-                ],
-                "modelOption": "$MDL3",
                 "amount": 3000
               }
             }
@@ -1649,11 +1628,7 @@
           "inventory": [
             "new"
           ],
-          "excludeInMonthlyPayment": {
-            "financeType": [
-              "loan"
-            ]
-          },
+          "showEligibilityCheck": true,
           "market": "CA"
         },
         {
@@ -1661,7 +1636,7 @@
           "regionCode": "NS",
           "incentiveType": "regional",
           "financeType": "lease",
-          "period": "includedInDownPayment",
+          "period": "once",
           "amount": 0,
           "toggle_amount": {
             "if": {
@@ -1715,6 +1690,69 @@
           "inventory": [
             "new"
           ],
+          "showEligibilityCheck": true,
+          "market": "CA"
+        },
+        {
+          "description": [
+            "State Incentive for CA m3"
+          ],
+          "regionCode": "NB",
+          "incentiveType": "regional",
+          "financeType": [
+            "loan",
+            "cash",
+            "lease"
+          ],
+          "period": "incentiveAfterDelivery",
+          "amount": 0,
+          "toggle_amount": {
+            "if": {
+              "trim_price": {
+                "conditions": {
+                  "<=": 55000
+                },
+                "amount": 5000
+              }
+            }
+          },
+          "variant": [
+            "m3"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "market": "CA"
+        },
+        {
+          "description": [
+            "State Incentive for CA m3"
+          ],
+          "regionCode": "PE",
+          "incentiveType": "regional",
+          "financeType": [
+            "loan",
+            "cash",
+            "lease"
+          ],
+          "period": "incentiveAfterDelivery",
+          "amount": 0,
+          "toggle_amount": {
+            "if": {
+              "trim_price": {
+                "conditions": {
+                  "<=": 55000
+                },
+                "amount": 5750
+              }
+            }
+          },
+          "variant": [
+            "m3"
+          ],
+          "inventory": [
+            "new"
+          ],
           "market": "CA"
         },
         {
@@ -1728,7 +1766,7 @@
             "cash",
             "lease"
           ],
-          "period": "incentiveAfterDelivery",
+          "period": "once",
           "amount": 0,
           "toggle_amount": {
             "if": {
