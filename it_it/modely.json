@@ -901,6 +901,7 @@
             "financeOptions": [
               "cash",
               "lease",
+              "operational_lease",
               "loan"
             ],
             "defaultOption": "lease"
@@ -910,7 +911,7 @@
             "financeOptions": [
               "cash",
               "lease",
-              "operational_lease",
+              "operational_lease_commercial",
               "loan"
             ],
             "defaultOption": "lease"
@@ -1947,7 +1948,6 @@
           "market": "IT",
           "id": "lease",
           "variant": [
-            "m3",
             "my",
             "ms",
             "mx"
@@ -2304,8 +2304,10 @@
         {
           "market": "IT",
           "id": "operational_lease",
+          "accountType": "private",
           "incomplete": true,
           "variant": [
+            "m3",
             "my"
           ],
           "inventory": [
@@ -2315,6 +2317,57 @@
             "downPaymentPercent": 20,
             "leaseTerm": 48,
             "leaseDistance": 10000
+          },
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "distance",
+                  "term"
+                ],
+                [
+                  "includeServiceFee"
+                ]
+              ],
+              "standardFeaturesList": true
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm",
+                "leaseDistance"
+              ]
+            },
+            "pdf": {
+              "leaseFields": [
+                "downPaymentPercentage",
+                "distance",
+                "term",
+                "standardFeaturesList",
+                "additionalFeaturesList"
+              ]
+            }
+          }
+        },
+        {
+          "market": "IT",
+          "id": "operational_lease_commercial",
+          "accountType": "business",
+          "incomplete": true,
+          "variant": [
+            "m3",
+            "my",
+            "ms",
+            "mx"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "downPaymentPercent": 20,
+            "leaseTerm": 48,
+            "leaseDistance": 20000,
+            "leaseDistance__my": 10000
           },
           "uiSettings": {
             "forms": {
