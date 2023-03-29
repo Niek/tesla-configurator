@@ -942,21 +942,21 @@
             "type": "personal",
             "financeOptions": [
               "cash",
-              "lease",
+              "santander_lease",
               "operational_lease",
               "loan"
             ],
-            "defaultOption": "lease"
+            "defaultOption": "santander_lease"
           },
           {
             "type": "business",
             "financeOptions": [
               "cash",
-              "lease",
+              "santander_lease",
               "operational_lease_commercial",
               "loan"
             ],
-            "defaultOption": "lease"
+            "defaultOption": "santander_lease"
           }
         ],
         "driverType": "personal",
@@ -1996,6 +1996,216 @@
       "lease": [
         {
           "market": "IT",
+          "id": "santander_lease",
+          "description": "Santander Lease",
+          "variant": [
+            "m3"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "downPayment": 0.2,
+            "minimumDownPayment": 5000,
+            "maximumDownPayment": 0.3,
+            "interestRate": 4.95,
+            "leaseTerm": 48,
+            "leaseDistance": 20000,
+            "localeSpecific": {
+              "preliminaryCost": 400,
+              "advance": 31.6,
+              "stamp": 16,
+              "extraFee": 10,
+              "basePriceForRV": {
+                "$MT322": 42478,
+                "$MT328": 53978,
+                "$MT325": 60978
+              }
+            }
+          },
+          "leaseTermsOffered": {
+            "leaseTerm": [
+              24,
+              36,
+              48,
+              60
+            ],
+            "leaseDistance": [
+              10000,
+              15000,
+              20000,
+              25000,
+              30000,
+              35000,
+              40000
+            ]
+          },
+          "residualRateMatrix": [
+            {
+              "leaseTerm": 24,
+              "leaseDistance": 10000,
+              "value": 0.56
+            },
+            {
+              "leaseTerm": 24,
+              "leaseDistance": 15000,
+              "value": 0.55
+            },
+            {
+              "leaseTerm": 24,
+              "leaseDistance": 20000,
+              "value": 0.54
+            },
+            {
+              "leaseTerm": 24,
+              "leaseDistance": 25000,
+              "value": 0.53
+            },
+            {
+              "leaseTerm": 24,
+              "leaseDistance": 30000,
+              "value": 0.52
+            },
+            {
+              "leaseTerm": 24,
+              "leaseDistance": 35000,
+              "value": 0.51
+            },
+            {
+              "leaseTerm": 24,
+              "leaseDistance": 40000,
+              "value": 0.5
+            },
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 10000,
+              "value": 0.52
+            },
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 15000,
+              "value": 0.5
+            },
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 20000,
+              "value": 0.49
+            },
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 25000,
+              "value": 0.47
+            },
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 30000,
+              "value": 0.46
+            },
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 35000,
+              "value": 0.45
+            },
+            {
+              "leaseTerm": 36,
+              "leaseDistance": 40000,
+              "value": 0.43
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 10000,
+              "value": 0.48
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 15000,
+              "value": 0.46
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 20000,
+              "value": 0.44
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 25000,
+              "value": 0.42
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 30000,
+              "value": 0.41
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 35000,
+              "value": 0.39
+            },
+            {
+              "leaseTerm": 48,
+              "leaseDistance": 40000,
+              "value": 0.38
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 10000,
+              "value": 0.44
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 15000,
+              "value": 0.42
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 20000,
+              "value": 0.4
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 25000,
+              "value": 0.38
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 30000,
+              "value": 0.36
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 35000,
+              "value": 0.34
+            },
+            {
+              "leaseTerm": 60,
+              "leaseDistance": 40000,
+              "value": 0.32
+            }
+          ],
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "downPayment",
+                  "distance",
+                  "term"
+                ]
+              ],
+              "showInterestRateInFooter": true,
+              "showEffectiveRateInFooter": true
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "loanTerm",
+                "interestRate",
+                "effectiveRate"
+              ]
+            }
+          }
+        },
+        {
+          "market": "IT",
           "id": "operational_lease",
           "accountType": "private",
           "incomplete": true,
@@ -2096,51 +2306,7 @@
       ]
     },
     "Loan.m3.m3": {
-      "loan": [
-        {
-          "market": "IT",
-          "variant": [
-            "m3",
-            "my",
-            "ms",
-            "mx"
-          ],
-          "inventory": [
-            "new"
-          ],
-          "variables": {
-            "minimumDownPayment": 0.1,
-            "downPayment": 0.2,
-            "downPayments": {
-              "model": {
-                "my": 10000,
-                "m3": 6100
-              }
-            },
-            "maximumDownPayment": 0.4,
-            "interestRate": 3.95,
-            "loanTerm": 48,
-            "localeSpecific": {
-              "totalTerm": 96,
-              "taxStampAmount": 16,
-              "initialCommission": 2,
-              "miniRate": 0.011,
-              "delta": 0.12
-            }
-          },
-          "loanTermsOffered": {
-            "loanTerm": [
-              36,
-              48
-            ]
-          },
-          "uiSettings": {
-            "forms": {
-              "disclaimerPrecision": 2
-            }
-          }
-        }
-      ]
+      "loan": []
     },
     "Lexicon.m3": {
       "effective_date": "2023-03-14T21:27:25.649Z",
