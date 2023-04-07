@@ -1822,7 +1822,7 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2023-03-14T21:34:42.183Z",
+      "effective_date": "2023-04-07T00:05:00.000Z",
       "market": "TW",
       "product": "my",
       "factory": "GF05",
@@ -1835,6 +1835,7 @@
             },
             "configurator": [
               {
+                "included": [],
                 "optional": [
                   [
                     "$APF2",
@@ -1849,13 +1850,13 @@
                   "$MDLY",
                   "$STY5S",
                   "$APBS",
-                  "$INPB0",
                   "$CPF0"
                 ],
                 "combinations": [
                   [
                     "$PPSW",
-                    "$PBSB"
+                    "$PBSB",
+                    "$PN00"
                   ],
                   [
                     "$WY19B",
@@ -1865,6 +1866,10 @@
                     "$SC04",
                     "$SC05",
                     "$SC06"
+                  ],
+                  [
+                    "$INPB0",
+                    "$INPW0"
                   ]
                 ]
               }
@@ -1877,6 +1882,7 @@
             },
             "configurator": [
               {
+                "included": [],
                 "optional": [
                   [
                     "$APF2",
@@ -1896,18 +1902,22 @@
                   "$MDLY",
                   "$STY5S",
                   "$APBS",
-                  "$INPB0",
                   "$CPF0"
                 ],
                 "combinations": [
                   [
                     "$PPSW",
-                    "$PBSB"
+                    "$PBSB",
+                    "$PN00"
                   ],
                   [
                     "$SC04",
                     "$SC05",
                     "$SC06"
+                  ],
+                  [
+                    "$INPB0",
+                    "$INPW0"
                   ]
                 ]
               }
@@ -1918,7 +1928,7 @@
         "default_trim": "$MTY09"
       },
       "fees": {},
-      "name": "Marketing TW 2023.Mar.14 6698.7653.30821 [zh]",
+      "name": "Marketing TW 2023.Apr.07 6820.8354.32310 [zh]",
       "groups": [
         {
           "code": "MODEL",
@@ -1979,7 +1989,8 @@
           "extra_copy": [],
           "groups": [],
           "options": [
-            "$INPB0"
+            "$INPB0",
+            "$INPW0"
           ],
           "required": true,
           "exclusive": true,
@@ -2063,7 +2074,8 @@
           "groups": [],
           "options": [
             "$PBSB",
-            "$PPSW"
+            "$PPSW",
+            "$PN00"
           ],
           "required": true,
           "exclusive": true,
@@ -2252,10 +2264,12 @@
           "context": "order_summary",
           "options": [
             "$INPB0",
+            "$INPW0",
             "$PBSB",
             "$APPB",
             "$STY5S",
             "$PPSW",
+            "$PN00",
             "$WY19B",
             "$WY20P",
             "$WY21P",
@@ -2467,7 +2481,8 @@
           "groups": [],
           "options": [
             "$PPSW",
-            "$PBSB"
+            "$PBSB",
+            "$PN00"
           ],
           "required": true,
           "exclusive": true,
@@ -2969,7 +2984,8 @@
           ],
           "groups": [],
           "options": [
-            "$INPB0"
+            "$INPB0",
+            "$INPW0"
           ],
           "required": false,
           "exclusive": false
@@ -3360,7 +3376,8 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$INPB0"
+            "$INPB0",
+            "$INPW0"
           ],
           "required": true,
           "exclusive": true,
@@ -6591,17 +6608,17 @@
           "price": 0,
           "pricing": [
             {
-              "type": "trial",
-              "value": 4000,
-              "context": "TWD"
-            },
-            {
               "type": "base",
               "value": 0,
               "context": "TWD"
             },
             {
               "type": "upgrade",
+              "value": 4000,
+              "context": "TWD"
+            },
+            {
+              "type": "trial",
               "value": 4000,
               "context": "TWD"
             }
@@ -7217,11 +7234,6 @@
           "price": 111000,
           "pricing": [
             {
-              "type": "trial",
-              "value": 4000,
-              "context": "TWD"
-            },
-            {
               "type": "base",
               "value": 111000,
               "context": "TWD"
@@ -7229,6 +7241,11 @@
             {
               "type": "upgrade",
               "value": 111000,
+              "context": "TWD"
+            },
+            {
+              "type": "trial",
+              "value": 4000,
               "context": "TWD"
             }
           ]
@@ -7936,13 +7953,18 @@
           "price": 1549900,
           "pricing": [
             {
-              "type": "order_fee",
-              "value": 3000,
+              "type": "base",
+              "value": 1549900,
               "context": "TWD"
             },
             {
               "type": "reservation_deposit",
               "value": 1000,
+              "context": "TWD"
+            },
+            {
+              "type": "order_fee",
+              "value": 3000,
               "context": "TWD"
             },
             {
@@ -7974,11 +7996,6 @@
               "type": "non_refundable_order_payment_used",
               "value": 0,
               "context": "TWD"
-            },
-            {
-              "type": "base",
-              "value": 1549900,
-              "context": "TWD"
             }
           ]
         },
@@ -7991,7 +8008,10 @@
             },
             {
               "action": "unset",
-              "target": "$PPSW"
+              "targets": [
+                "$PPSW",
+                "$PN00"
+              ]
             }
           ],
           "unset_rules": [
@@ -8001,7 +8021,9 @@
             },
             {
               "action": "set",
-              "target": "$PPSW"
+              "target": "$PPSW",
+              "condition_code": "$PN00",
+              "condition_state": "unset"
             }
           ],
           "name": "純黑",
@@ -8127,6 +8149,77 @@
             }
           ]
         },
+        "$PN00": {
+          "code": "$PN00",
+          "sub_group": {
+            "code": "SILVER",
+            "name": "Silver"
+          },
+          "user_defined_rules": {
+            "set_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$PN00"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$PBSB",
+                "$PPSW"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$PN00"
+            },
+            {
+              "action": "set",
+              "target": "$PPSW",
+              "condition_code": "$PBSB",
+              "condition_state": "unset"
+            }
+          ],
+          "name": "閃電銀",
+          "description": "閃電銀",
+          "long_name": "閃電銀車漆",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "包含"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Paint_Silver_R1.png",
+                  "type": "image"
+                }
+              ]
+            }
+          ],
+          "price": 93800,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 93800,
+              "context": "TWD"
+            }
+          ]
+        },
         "$PPSW": {
           "code": "$PPSW",
           "set_rules": [
@@ -8136,7 +8229,10 @@
             },
             {
               "action": "unset",
-              "target": "$PBSB"
+              "targets": [
+                "$PBSB",
+                "$PN00"
+              ]
             }
           ],
           "unset_rules": [
@@ -8147,8 +8243,11 @@
             {
               "action": "set",
               "target": "$PPSW",
-              "condition_code": "$PBSB",
-              "condition_state": "unset"
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$PBSB",
+                "$PN00"
+              ]
             }
           ],
           "name": "珍珠白 (多塗層)",
@@ -8360,6 +8459,10 @@
             {
               "action": "set",
               "target": "$INPB0"
+            },
+            {
+              "action": "unset",
+              "target": "$INPW0"
             }
           ],
           "unset_rules": [
@@ -8369,7 +8472,9 @@
             },
             {
               "action": "set",
-              "target": "$INPB0"
+              "target": "$INPB0",
+              "condition_code": "$INPW0",
+              "condition_state": "unset"
             }
           ],
           "name": "全黑色頂級內裝",
@@ -8424,6 +8529,91 @@
             {
               "type": "base",
               "value": 0,
+              "context": "TWD"
+            }
+          ]
+        },
+        "$INPW0": {
+          "code": "$INPW0",
+          "sub_group": {
+            "code": "BLACK_AND_WHITE",
+            "name": "Black and White"
+          },
+          "user_defined_rules": {
+            "set_rules": []
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$INPW0"
+            },
+            {
+              "action": "unset",
+              "target": "$INPB0"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$INPW0"
+            },
+            {
+              "action": "set",
+              "target": "$INPB0"
+            }
+          ],
+          "name": "黑色與白色頂級內裝",
+          "description": "黑色與白色頂級內裝",
+          "long_name": "黑色與白色頂級內裝",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "黑色與白色"
+            },
+            {
+              "type": "price_indicator",
+              "content": "包含"
+            },
+            {
+              "type": "spec_description",
+              "content": "白色真皮內裝"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Interior_White.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$PRMY1"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            }
+          ],
+          "price": 37500,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 37500,
               "context": "TWD"
             }
           ]
@@ -9745,6 +9935,19 @@
         "pricing": {
           "order_payment": [
             {
+              "channel": "configurator",
+              "pricing": [
+                {
+                  "type": "base",
+                  "value": 3000,
+                  "context": "TWD"
+                }
+              ],
+              "exceptions": [],
+              "is_additive": true,
+              "is_refundable": false
+            },
+            {
               "channel": "used_inventory",
               "pricing": [
                 {
@@ -9759,19 +9962,6 @@
             },
             {
               "channel": "new_inventory",
-              "pricing": [
-                {
-                  "type": "base",
-                  "value": 3000,
-                  "context": "TWD"
-                }
-              ],
-              "exceptions": [],
-              "is_additive": true,
-              "is_refundable": false
-            },
-            {
-              "channel": "configurator",
               "pricing": [
                 {
                   "type": "base",
@@ -9810,7 +10000,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 6698,
+      "options_id": 6820,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -10230,10 +10420,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 7653,
+      "copy_id": 8354,
       "language": "zh",
-      "pricing_id": 30821,
-      "reference_id": 6698,
+      "pricing_id": 32310,
+      "reference_id": 6820,
       "source": "cache"
     }
   }
