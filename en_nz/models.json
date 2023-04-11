@@ -2618,8 +2618,8 @@
               }
             ],
             "variant": {
-              "code": "LR",
-              "name": "LONG RANGE"
+              "code": "AWD",
+              "name": "All-Wheel Drive"
             }
           },
           "$MTS11": {
@@ -9523,6 +9523,19 @@
             "code": "RED",
             "name": "Red"
           },
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$PR01",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTS13",
+                  "$MTS14"
+                ]
+              }
+            ]
+          },
           "set_rules": [
             {
               "action": "set",
@@ -9538,6 +9551,15 @@
                 "$PPSB",
                 "$PPSW",
                 "$PR01"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$PR01",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTS13",
+                "$MTS14"
               ]
             }
           ],
@@ -10464,6 +10486,12 @@
                   "$MTS07",
                   "$MTS08"
                 ]
+              },
+              {
+                "action": "set",
+                "target": "$WS12",
+                "condition_code": "$MTS14",
+                "condition_state": "set"
               }
             ]
           },
@@ -10495,6 +10523,12 @@
                 "$MTS07",
                 "$MTS08"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$WS12",
+              "condition_code": "$MTS14",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -10698,6 +10732,12 @@
                   "$MTS07",
                   "$MTS08"
                 ]
+              },
+              {
+                "action": "set",
+                "target": "$WS92",
+                "condition_code": "$MTS14",
+                "condition_state": "set"
               }
             ]
           },
@@ -10729,6 +10769,12 @@
                 "$MTS07",
                 "$MTS08"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$WS92",
+              "condition_code": "$MTS14",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
