@@ -1538,11 +1538,11 @@
             "fuel_efficiency_metric": 7.84,
             "kwh_consumption_100": 15.8,
             "supercharger_kwh_price": 0,
-            "fuel_price": 23.93,
-            "kwh_price": 1.77,
-            "electricity_last_updated": "2023-01-16",
-            "petrol_last_updated": "2023-01-16",
-            "last_updated": "2023-01-16",
+            "fuel_price": 24.09,
+            "kwh_price": 1.79,
+            "electricity_last_updated": "2023-04-05",
+            "petrol_last_updated": "2023-04-05",
+            "last_updated": "2023-04-05",
             "kwh_consumption": 0.158
           },
           "variant": "m3",
@@ -1918,7 +1918,7 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2023-03-29T17:13:24.381Z",
+      "effective_date": "2023-04-21T22:35:00.000Z",
       "market": "MX",
       "product": "m3",
       "factory": "GF00",
@@ -2074,7 +2074,7 @@
         "default_trim": "$MT322"
       },
       "fees": {},
-      "name": "Marketing MX 2023.Mar.29 6852.8357.30850 [es]",
+      "name": "Marketing MX 2023.Apr.21 7493.8574.34196 [es]",
       "groups": [
         {
           "code": "MODEL",
@@ -5873,7 +5873,9 @@
                       "$MT339",
                       "$MT316",
                       "$MT321",
-                      "$MT324"
+                      "$MT324",
+                      "$MT328",
+                      "$MT329"
                     ]
                   }
                 }
@@ -7439,13 +7441,13 @@
           "price": 0,
           "pricing": [
             {
-              "type": "trial",
-              "value": 65000,
+              "type": "base",
+              "value": 0,
               "context": "MXN"
             },
             {
-              "type": "base",
-              "value": 0,
+              "type": "trial",
+              "value": 65000,
               "context": "MXN"
             },
             {
@@ -7934,12 +7936,12 @@
           "price": 177200,
           "pricing": [
             {
-              "type": "trial",
+              "type": "base",
               "value": 177200,
               "context": "MXN"
             },
             {
-              "type": "base",
+              "type": "trial",
               "value": 177200,
               "context": "MXN"
             },
@@ -8226,13 +8228,13 @@
           "price": 88600,
           "pricing": [
             {
-              "type": "trial",
-              "value": 89000,
+              "type": "base",
+              "value": 88600,
               "context": "MXN"
             },
             {
-              "type": "base",
-              "value": 88600,
+              "type": "trial",
+              "value": 89000,
               "context": "MXN"
             },
             {
@@ -9912,6 +9914,11 @@
           "price": 835000,
           "pricing": [
             {
+              "type": "base",
+              "value": 835000,
+              "context": "MXN"
+            },
+            {
               "type": "order_fee",
               "value": 5000,
               "context": "MXN"
@@ -9919,11 +9926,6 @@
             {
               "type": "reservation_deposit",
               "value": 1000,
-              "context": "MXN"
-            },
-            {
-              "type": "base",
-              "value": 835000,
               "context": "MXN"
             },
             {
@@ -10659,8 +10661,11 @@
               {
                 "action": "set",
                 "target": "$W40B",
-                "condition_code": "$MT317",
-                "condition_state": "set"
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MT329",
+                  "$MT317"
+                ]
               }
             ]
           },
@@ -10707,8 +10712,11 @@
             {
               "action": "set",
               "target": "$W40B",
-              "condition_code": "$MT317",
-              "condition_state": "set"
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MT329",
+                "$MT317"
+              ]
             }
           ],
           "name": "Rines Überturbine de 20\"",
@@ -10751,6 +10759,17 @@
               ]
             },
             {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MT329"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            },
+            {
               "type": "disclaimer_details_override",
               "content": [
                 {
@@ -10786,6 +10805,12 @@
                 "target": "$W33D",
                 "condition_code": "$SPT31",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$W33D",
+                "condition_code": "$MT329",
+                "condition_state": "set"
               }
             ]
           },
@@ -10809,6 +10834,12 @@
               "action": "set",
               "target": "$W33D",
               "condition_code": "$SPT31",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$W33D",
+              "condition_code": "$MT329",
               "condition_state": "set"
             }
           ],
@@ -10889,6 +10920,13 @@
                     "$SPT31"
                   ],
                   "condition_state": "and"
+                },
+                {
+                  "configuration": [
+                    "$MT322",
+                    "$MT328"
+                  ],
+                  "condition_state": "not"
                 }
               ]
             }
@@ -10905,7 +10943,14 @@
         "$W41B": {
           "code": "$W41B",
           "user_defined_rules": {
-            "set_rules": [],
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$W33D",
+                "condition_code": "$MT329",
+                "condition_state": "set"
+              }
+            ],
             "unset_rules": []
           },
           "set_rules": [
@@ -10923,6 +10968,12 @@
                 "$W40B",
                 "$W33D"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$W33D",
+              "condition_code": "$MT329",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -10975,9 +11026,10 @@
               "content": [
                 {
                   "configuration": [
-                    "$MT317"
+                    "$MT317",
+                    "$MT329"
                   ],
-                  "condition_state": "and"
+                  "condition_state": "or"
                 }
               ]
             }
@@ -11241,16 +11293,16 @@
               ]
             }
           ],
-          "price": 424900,
+          "price": 314900,
           "pricing": [
             {
               "type": "base",
-              "value": 424900,
+              "value": 314900,
               "context": "MXN"
             },
             {
               "type": "base_plus_trim",
-              "value": 1259900,
+              "value": 1149900,
               "context": "MXN"
             }
           ]
@@ -11516,16 +11568,16 @@
               ]
             }
           ],
-          "price": 174900,
+          "price": 41900,
           "pricing": [
             {
               "type": "base",
-              "value": 174900,
+              "value": 41900,
               "context": "MXN"
             },
             {
               "type": "base_plus_trim",
-              "value": 1009900,
+              "value": 876900,
               "context": "MXN"
             }
           ]
@@ -11756,16 +11808,16 @@
               ]
             }
           ],
-          "price": 334900,
+          "price": 234900,
           "pricing": [
             {
               "type": "base",
-              "value": 334900,
+              "value": 234900,
               "context": "MXN"
             },
             {
               "type": "base_plus_trim",
-              "value": 1169900,
+              "value": 1069900,
               "context": "MXN"
             }
           ]
@@ -12864,16 +12916,8 @@
         "$SC04",
         "$W40B"
       ],
-      "options_id": 6852,
+      "options_id": 7493,
       "warnings": [
-        {
-          "type": "MISSING_PRICE",
-          "message": "The discountable group's, option '$MT329' is not defined in the pricing lexicon."
-        },
-        {
-          "type": "MISSING_PRICE",
-          "message": "The discountable group's, option '$MT328' is not defined in the pricing lexicon."
-        },
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
           "message": "These groups should be moved to Copy lexicon from Options.",
@@ -13391,10 +13435,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 8357,
+      "copy_id": 8574,
       "language": "es",
-      "pricing_id": 30850,
-      "reference_id": 6852,
+      "pricing_id": 34196,
+      "reference_id": 7493,
       "source": "cache"
     }
   }

@@ -1561,11 +1561,11 @@
             "fuel_efficiency_metric": 7.84,
             "kwh_consumption_100": 15.8,
             "supercharger_kwh_price": 0.26,
-            "fuel_price": 1.658,
-            "kwh_price": 0.153,
-            "electricity_last_updated": "2023-01-16",
-            "petrol_last_updated": "2023-01-16",
-            "last_updated": "2023-01-16",
+            "fuel_price": 1.729,
+            "kwh_price": 0.16,
+            "electricity_last_updated": "2023-04-05",
+            "petrol_last_updated": "2023-04-05",
+            "last_updated": "2023-04-05",
             "kwh_consumption": 0.158
           },
           "variant": [
@@ -1574,7 +1574,7 @@
           "market": "CA"
         },
         {
-          "description": "State Incentive for CA m3",
+          "description": "iZEV Incentive for CA m3",
           "incentiveType": "government",
           "financeType": [
             "cash",
@@ -1602,7 +1602,7 @@
           "market": "CA"
         },
         {
-          "description": "State Incentive for CA m3",
+          "description": "iZEV Incentive for CA m3",
           "incentiveType": "government",
           "financeType": "lease",
           "period": "once",
@@ -1895,6 +1895,67 @@
         },
         {
           "description": [
+            "State Incentive for CA my & m3 cash"
+          ],
+          "regionCode": "NT",
+          "incentiveType": "regional",
+          "financeType": "cash",
+          "period": "incentiveAfterDelivery",
+          "amount": 0,
+          "toggle_amount": {
+            "if": {
+              "trim_price": {
+                "conditions": {
+                  "<=": 65000
+                },
+                "amount": 7500
+              }
+            }
+          },
+          "variant": [
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "market": "CA"
+        },
+        {
+          "description": [
+            "State Incentive for CA my & m3 leaase"
+          ],
+          "regionCode": "NT",
+          "incentiveType": "regional",
+          "financeType": "lease",
+          "period": "once",
+          "amount": 0,
+          "toggle_amount": {
+            "if": {
+              "trim_price": {
+                "conditions": {
+                  "<=": 65000
+                },
+                "amount": [
+                  {
+                    "term": 48,
+                    "value": 7500
+                  }
+                ]
+              }
+            }
+          },
+          "variant": [
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "market": "CA"
+        },
+        {
+          "description": [
             "State Incentive for CA m3"
           ],
           "regionCode": "QC",
@@ -1950,52 +2011,57 @@
         },
         {
           "description": [
-            "State Incentive for CA m3"
+            "State Incentive for CA m3 & my"
           ],
           "regionCode": "YT",
           "incentiveType": "regional",
-          "financeType": [
-            "loan",
-            "cash",
-            "lease"
-          ],
+          "financeType": "cash",
           "period": "incentiveAfterDelivery",
+          "amount": 5000,
+          "variant": [
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "market": "CA"
+        },
+        {
+          "description": [
+            "State Incentive for CA m3 & my lease"
+          ],
+          "regionCode": "YT",
+          "incentiveType": "regional",
+          "financeType": "lease",
+          "period": "once",
           "amount": 0,
           "toggle_amount": {
             "if": {
               "trim_price": {
                 "conditions": {
-                  "<=": 60000
+                  "<=": 80000
                 },
-                "trims": [
-                  "$MT300",
-                  "$MT301",
-                  "$MT302",
-                  "$MT303",
-                  "$MT304",
-                  "$MT308",
-                  "$MT314",
-                  "$MT322",
-                  "$MT336",
-                  "$MT337",
-                  "$MT309",
-                  "$MT310",
-                  "$MT315",
-                  "$MT316",
-                  "$MT311",
-                  "$MT317",
-                  "$MT325",
-                  "$MT321",
-                  "$MT324",
-                  "$SPT31"
-                ],
-                "modelOption": "$MDL3",
-                "amount": 5000
+                "amount": [
+                  {
+                    "term": 48,
+                    "value": 5000
+                  },
+                  {
+                    "term": 36,
+                    "value": 5000
+                  },
+                  {
+                    "term": 24,
+                    "value": 3333
+                  }
+                ]
               }
             }
           },
           "variant": [
-            "m3"
+            "m3",
+            "my"
           ],
           "inventory": [
             "new"
@@ -2506,37 +2572,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -2552,7 +2625,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "d7038f72-cc03-499f-afa6-085e2b99aab0",
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "0517e146-8bdd-493b-8820-083a4ea83e57",
+            "correlationId": "d7038f72-cc03-499f-afa6-085e2b99aab0"
           },
           {
             "isDefault": false,
@@ -2596,37 +2672,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -2642,7 +2725,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "d7038f72-cc03-499f-afa6-085e2b99aab0",
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "0517e146-8bdd-493b-8820-083a4ea83e57",
+            "correlationId": "d7038f72-cc03-499f-afa6-085e2b99aab0"
           },
           {
             "isDefault": false,
@@ -2686,37 +2772,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -2732,7 +2825,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "d7038f72-cc03-499f-afa6-085e2b99aab0",
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "0517e146-8bdd-493b-8820-083a4ea83e57",
+            "correlationId": "d7038f72-cc03-499f-afa6-085e2b99aab0"
           },
           {
             "isDefault": false,
@@ -2776,37 +2872,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -2822,7 +2925,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "d7038f72-cc03-499f-afa6-085e2b99aab0",
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "0517e146-8bdd-493b-8820-083a4ea83e57",
+            "correlationId": "d7038f72-cc03-499f-afa6-085e2b99aab0"
           },
           {
             "isDefault": false,
@@ -2866,37 +2972,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -2912,7 +3025,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "d7038f72-cc03-499f-afa6-085e2b99aab0",
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "0517e146-8bdd-493b-8820-083a4ea83e57",
+            "correlationId": "d7038f72-cc03-499f-afa6-085e2b99aab0"
           },
           {
             "isDefault": false,
@@ -2956,37 +3072,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -3002,7 +3125,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "d7038f72-cc03-499f-afa6-085e2b99aab0",
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "0517e146-8bdd-493b-8820-083a4ea83e57",
+            "correlationId": "d7038f72-cc03-499f-afa6-085e2b99aab0"
           },
           {
             "isDefault": true,
@@ -3046,37 +3172,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -3092,7 +3225,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "d7038f72-cc03-499f-afa6-085e2b99aab0",
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "0517e146-8bdd-493b-8820-083a4ea83e57",
+            "correlationId": "d7038f72-cc03-499f-afa6-085e2b99aab0"
           },
           {
             "isDefault": false,
@@ -3136,37 +3272,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -3182,7 +3325,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "d7038f72-cc03-499f-afa6-085e2b99aab0",
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "0517e146-8bdd-493b-8820-083a4ea83e57",
+            "correlationId": "d7038f72-cc03-499f-afa6-085e2b99aab0"
           },
           {
             "isDefault": false,
@@ -3226,37 +3372,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -3272,7 +3425,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "d7038f72-cc03-499f-afa6-085e2b99aab0",
+            "name": "Configurator.Q1.23.3PF NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "0517e146-8bdd-493b-8820-083a4ea83e57",
+            "correlationId": "d7038f72-cc03-499f-afa6-085e2b99aab0"
           },
           {
             "isDefault": false,
@@ -3316,37 +3472,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -3368,7 +3531,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "196801ef-0341-42f3-806d-73e0d170f36f",
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "f30222b1-1eca-488b-bc7d-357afe72daa2",
+            "correlationId": "196801ef-0341-42f3-806d-73e0d170f36f"
           },
           {
             "isDefault": false,
@@ -3412,37 +3578,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -3464,7 +3637,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "196801ef-0341-42f3-806d-73e0d170f36f",
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "f30222b1-1eca-488b-bc7d-357afe72daa2",
+            "correlationId": "196801ef-0341-42f3-806d-73e0d170f36f"
           },
           {
             "isDefault": false,
@@ -3508,37 +3684,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -3560,7 +3743,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "196801ef-0341-42f3-806d-73e0d170f36f",
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "f30222b1-1eca-488b-bc7d-357afe72daa2",
+            "correlationId": "196801ef-0341-42f3-806d-73e0d170f36f"
           },
           {
             "isDefault": false,
@@ -3604,37 +3790,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -3656,7 +3849,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "196801ef-0341-42f3-806d-73e0d170f36f",
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "f30222b1-1eca-488b-bc7d-357afe72daa2",
+            "correlationId": "196801ef-0341-42f3-806d-73e0d170f36f"
           },
           {
             "isDefault": false,
@@ -3700,37 +3896,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -3752,7 +3955,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "196801ef-0341-42f3-806d-73e0d170f36f",
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "f30222b1-1eca-488b-bc7d-357afe72daa2",
+            "correlationId": "196801ef-0341-42f3-806d-73e0d170f36f"
           },
           {
             "isDefault": false,
@@ -3796,37 +4002,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -3848,7 +4061,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "196801ef-0341-42f3-806d-73e0d170f36f",
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "f30222b1-1eca-488b-bc7d-357afe72daa2",
+            "correlationId": "196801ef-0341-42f3-806d-73e0d170f36f"
           },
           {
             "isDefault": true,
@@ -3892,37 +4108,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -3944,7 +4167,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "196801ef-0341-42f3-806d-73e0d170f36f",
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "f30222b1-1eca-488b-bc7d-357afe72daa2",
+            "correlationId": "196801ef-0341-42f3-806d-73e0d170f36f"
           },
           {
             "isDefault": false,
@@ -3988,37 +4214,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -4040,7 +4273,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "196801ef-0341-42f3-806d-73e0d170f36f",
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "f30222b1-1eca-488b-bc7d-357afe72daa2",
+            "correlationId": "196801ef-0341-42f3-806d-73e0d170f36f"
           },
           {
             "isDefault": false,
@@ -4084,37 +4320,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -4136,7 +4379,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01"
+            "financialProductGroupId": "196801ef-0341-42f3-806d-73e0d170f36f",
+            "name": "Configurator.Q1.23.3LR NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-05-01",
+            "groupId": "f30222b1-1eca-488b-bc7d-357afe72daa2",
+            "correlationId": "196801ef-0341-42f3-806d-73e0d170f36f"
           },
           {
             "isDefault": false,
@@ -4180,37 +4426,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -4228,7 +4481,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
+            "financialProductGroupId": "01602680-97bc-4d87-b00d-6e3ddeea8296",
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "groupId": "44600ee7-0236-439d-8107-a368fda36c61",
+            "correlationId": "01602680-97bc-4d87-b00d-6e3ddeea8296"
           },
           {
             "isDefault": false,
@@ -4272,37 +4528,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -4320,7 +4583,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
+            "financialProductGroupId": "01602680-97bc-4d87-b00d-6e3ddeea8296",
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "groupId": "44600ee7-0236-439d-8107-a368fda36c61",
+            "correlationId": "01602680-97bc-4d87-b00d-6e3ddeea8296"
           },
           {
             "isDefault": false,
@@ -4364,37 +4630,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -4412,7 +4685,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
+            "financialProductGroupId": "01602680-97bc-4d87-b00d-6e3ddeea8296",
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "groupId": "44600ee7-0236-439d-8107-a368fda36c61",
+            "correlationId": "01602680-97bc-4d87-b00d-6e3ddeea8296"
           },
           {
             "isDefault": false,
@@ -4456,37 +4732,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -4504,7 +4787,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
+            "financialProductGroupId": "01602680-97bc-4d87-b00d-6e3ddeea8296",
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "groupId": "44600ee7-0236-439d-8107-a368fda36c61",
+            "correlationId": "01602680-97bc-4d87-b00d-6e3ddeea8296"
           },
           {
             "isDefault": false,
@@ -4548,37 +4834,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -4596,7 +4889,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
+            "financialProductGroupId": "01602680-97bc-4d87-b00d-6e3ddeea8296",
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "groupId": "44600ee7-0236-439d-8107-a368fda36c61",
+            "correlationId": "01602680-97bc-4d87-b00d-6e3ddeea8296"
           },
           {
             "isDefault": false,
@@ -4640,37 +4936,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -4688,7 +4991,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
+            "financialProductGroupId": "01602680-97bc-4d87-b00d-6e3ddeea8296",
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "groupId": "44600ee7-0236-439d-8107-a368fda36c61",
+            "correlationId": "01602680-97bc-4d87-b00d-6e3ddeea8296"
           },
           {
             "isDefault": true,
@@ -4732,37 +5038,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -4780,7 +5093,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
+            "financialProductGroupId": "01602680-97bc-4d87-b00d-6e3ddeea8296",
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "groupId": "44600ee7-0236-439d-8107-a368fda36c61",
+            "correlationId": "01602680-97bc-4d87-b00d-6e3ddeea8296"
           },
           {
             "isDefault": false,
@@ -4824,37 +5140,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": 0
+                "residualRate": 0,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -4872,7 +5195,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
+            "financialProductGroupId": "01602680-97bc-4d87-b00d-6e3ddeea8296",
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "groupId": "44600ee7-0236-439d-8107-a368fda36c61",
+            "correlationId": "01602680-97bc-4d87-b00d-6e3ddeea8296"
           },
           {
             "isDefault": false,
@@ -4916,37 +5242,44 @@
               {
                 "start": 801,
                 "end": 4800,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 4801,
                 "end": 9700,
-                "residualRate": -0.01
+                "residualRate": -0.01,
+                "operation": "PLUS"
               },
               {
                 "start": 9701,
                 "end": 19300,
-                "residualRate": -0.02
+                "residualRate": -0.02,
+                "operation": "PLUS"
               },
               {
                 "start": 19301,
                 "end": 29000,
-                "residualRate": -0.03
+                "residualRate": -0.03,
+                "operation": "PLUS"
               },
               {
                 "start": 29001,
                 "end": 38000,
-                "residualRate": -0.04
+                "residualRate": -0.04,
+                "operation": "PLUS"
               },
               {
                 "start": 38001,
                 "end": 48000,
-                "residualRate": -0.05
+                "residualRate": -0.05,
+                "operation": "PLUS"
               },
               {
                 "start": 48001,
                 "end": 99999,
-                "residualRate": -0.06
+                "residualRate": -0.06,
+                "operation": "PLUS"
               }
             ],
             "plateType": "PT_NONE",
@@ -4964,7 +5297,10 @@
                 ]
               }
             ],
-            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01"
+            "financialProductGroupId": "01602680-97bc-4d87-b00d-6e3ddeea8296",
+            "name": "Configurator.Q1.23 SR+ iZEV.NA.CA-OPERATIONAL_LEASE-N-3-BP-2025-10-01",
+            "groupId": "44600ee7-0236-439d-8107-a368fda36c61",
+            "correlationId": "01602680-97bc-4d87-b00d-6e3ddeea8296"
           }
         ],
         "parameters": {
@@ -4989,7 +5325,7 @@
           {
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
-            "productID": 41902,
+            "productID": 42786,
             "productType": "AUTO_LOAN",
             "productSubType": "LOAN",
             "localName": "Loan",
@@ -5025,120 +5361,124 @@
               {
                 "modelCode": "MDLS",
                 "trimCodes": [
-                  "$MT60R",
-                  "$MT70R",
-                  "$MT75R",
-                  "$MT75A",
-                  "$MT85R",
-                  "$MTS10",
-                  "$MTS12",
                   "$MT10A",
+                  "$MT10B",
+                  "$MT10L",
+                  "$MT10P",
+                  "$MT75A",
+                  "$MTS01",
                   "$MTS03",
+                  "$MTS04",
+                  "$MTS06",
                   "$MTS05",
                   "$MTS07",
-                  "$MTS04",
                   "$MTS08",
-                  "$MT10L",
-                  "$MTS06",
+                  "$MT75R",
+                  "$MT70R",
+                  "$MT85R",
+                  "$MT60R",
+                  "$MTS10",
                   "$MTS11",
-                  "$MTS01",
-                  "$MT70A",
                   "$MT90A",
                   "$MT90P",
-                  "$MT10P",
+                  "$MT70A",
                   "$MTS09",
-                  "$MT10B",
+                  "$MTS12",
                   "$MTS13",
                   "$MTS14"
                 ]
               },
               {
-                "modelCode": "MDLX",
-                "trimCodes": [
-                  "$MT75A",
-                  "$MTX10",
-                  "$MTX12",
-                  "$MT10A",
-                  "$MTX03",
-                  "$MTX05",
-                  "$MTX07",
-                  "$MTX04",
-                  "$MTX08",
-                  "$MT10L",
-                  "$MTX06",
-                  "$MTX11",
-                  "$MTX01",
-                  "$MT70A",
-                  "$MT90A",
-                  "$MT90P",
-                  "$MT10P",
-                  "$MT10B",
-                  "$MTX14",
-                  "$MTX13"
-                ]
-              },
-              {
                 "modelCode": "MDL3",
                 "trimCodes": [
-                  "$MT303",
-                  "$MT310",
-                  "$MT315",
-                  "$MT321",
-                  "$MT323",
-                  "$MT304",
-                  "$MT311",
-                  "$MT317",
-                  "$MT325",
-                  "$MT302",
-                  "$MT309",
-                  "$MT305",
-                  "$MT312",
                   "$MT300",
-                  "$MT307",
-                  "$MT322",
-                  "$MT319",
                   "$MT301",
+                  "$MT302",
+                  "$MT303",
+                  "$MT304",
+                  "$MT305",
+                  "$MT307",
                   "$MT308",
-                  "$MT314",
-                  "$MT337",
-                  "$MT324",
-                  "$MT326",
-                  "$MT316",
-                  "$MT328",
-                  "$MT329",
-                  "$MT340",
+                  "$MT309",
+                  "$MT310",
+                  "$MT311",
+                  "$MT312",
                   "$MT313",
                   "$MT331",
                   "$MT332",
+                  "$MT314",
+                  "$MT315",
+                  "$MT316",
+                  "$MT317",
                   "$MT318",
-                  "$MT327",
+                  "$MT319",
+                  "$MT336",
                   "$MT320",
-                  "$MT336"
+                  "$MT337",
+                  "$MT321",
+                  "$MT322",
+                  "$MT326",
+                  "$MT323",
+                  "$MT324",
+                  "$MT325",
+                  "$MT327",
+                  "$MT328",
+                  "$MT329",
+                  "$MT340"
+                ]
+              },
+              {
+                "modelCode": "MDLX",
+                "trimCodes": [
+                  "$MT10A",
+                  "$MT10B",
+                  "$MT10L",
+                  "$MT10P",
+                  "$MT75A",
+                  "$MTX01",
+                  "$MTX03",
+                  "$MTX04",
+                  "$MTX06",
+                  "$MTX05",
+                  "$MTX07",
+                  "$MTX08",
+                  "$MTX10",
+                  "$MTX11",
+                  "$MT90P",
+                  "$MT90A",
+                  "$MT70A",
+                  "$MTX12",
+                  "$MTX13",
+                  "$MTX14"
                 ]
               },
               {
                 "modelCode": "MDLY",
                 "trimCodes": [
                   "$MTY03",
-                  "$MTY06",
                   "$MTY04",
                   "$MTY05",
                   "$MTY01",
-                  "$MTY11",
+                  "$MTY06",
                   "$MTY07",
-                  "$MTY10",
                   "$MTY09",
+                  "$MTY10",
+                  "$MTY08",
+                  "$MTY11",
                   "$MTY12",
-                  "$MTY08"
+                  "$MTY13"
                 ]
               }
             ],
-            "name": "Configurator.AdvertisedRateNew.Q223-April-NA.CA-LOAN-N-3SXY-PB-2025-10-01"
+            "financialProductGroupId": "f9c0f0d2-7029-4335-9d3f-f18ec913b57c",
+            "name": "Configurator.AdvertisedRateNew.Q223-April-NA.CA-LOAN-N-3SXY-PB-2025-10-01",
+            "groupId": "641d8ada-8696-49f8-a934-d8103654bd9d",
+            "correlationId": "f9c0f0d2-7029-4335-9d3f-f18ec913b57c"
           },
           {
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
-            "productID": 41903,
+            "productID": 42787,
             "productType": "AUTO_LOAN",
             "productSubType": "LOAN",
             "localName": "Loan",
@@ -5174,120 +5514,124 @@
               {
                 "modelCode": "MDLS",
                 "trimCodes": [
-                  "$MT60R",
-                  "$MT70R",
-                  "$MT75R",
-                  "$MT75A",
-                  "$MT85R",
-                  "$MTS10",
-                  "$MTS12",
                   "$MT10A",
+                  "$MT10B",
+                  "$MT10L",
+                  "$MT10P",
+                  "$MT75A",
+                  "$MTS01",
                   "$MTS03",
+                  "$MTS04",
+                  "$MTS06",
                   "$MTS05",
                   "$MTS07",
-                  "$MTS04",
                   "$MTS08",
-                  "$MT10L",
-                  "$MTS06",
+                  "$MT75R",
+                  "$MT70R",
+                  "$MT85R",
+                  "$MT60R",
+                  "$MTS10",
                   "$MTS11",
-                  "$MTS01",
-                  "$MT70A",
                   "$MT90A",
                   "$MT90P",
-                  "$MT10P",
+                  "$MT70A",
                   "$MTS09",
-                  "$MT10B",
+                  "$MTS12",
                   "$MTS13",
                   "$MTS14"
                 ]
               },
               {
-                "modelCode": "MDLX",
-                "trimCodes": [
-                  "$MT75A",
-                  "$MTX10",
-                  "$MTX12",
-                  "$MT10A",
-                  "$MTX03",
-                  "$MTX05",
-                  "$MTX07",
-                  "$MTX04",
-                  "$MTX08",
-                  "$MT10L",
-                  "$MTX06",
-                  "$MTX11",
-                  "$MTX01",
-                  "$MT70A",
-                  "$MT90A",
-                  "$MT90P",
-                  "$MT10P",
-                  "$MT10B",
-                  "$MTX14",
-                  "$MTX13"
-                ]
-              },
-              {
                 "modelCode": "MDL3",
                 "trimCodes": [
-                  "$MT303",
-                  "$MT310",
-                  "$MT315",
-                  "$MT321",
-                  "$MT323",
-                  "$MT304",
-                  "$MT311",
-                  "$MT317",
-                  "$MT325",
-                  "$MT302",
-                  "$MT309",
-                  "$MT305",
-                  "$MT312",
                   "$MT300",
-                  "$MT307",
-                  "$MT322",
-                  "$MT319",
                   "$MT301",
+                  "$MT302",
+                  "$MT303",
+                  "$MT304",
+                  "$MT305",
+                  "$MT307",
                   "$MT308",
-                  "$MT314",
-                  "$MT337",
-                  "$MT324",
-                  "$MT326",
-                  "$MT316",
-                  "$MT328",
-                  "$MT329",
-                  "$MT340",
+                  "$MT309",
+                  "$MT310",
+                  "$MT311",
+                  "$MT312",
                   "$MT313",
                   "$MT331",
                   "$MT332",
+                  "$MT314",
+                  "$MT315",
+                  "$MT316",
+                  "$MT317",
                   "$MT318",
-                  "$MT327",
+                  "$MT319",
+                  "$MT336",
                   "$MT320",
-                  "$MT336"
+                  "$MT337",
+                  "$MT321",
+                  "$MT322",
+                  "$MT326",
+                  "$MT323",
+                  "$MT324",
+                  "$MT325",
+                  "$MT327",
+                  "$MT328",
+                  "$MT329",
+                  "$MT340"
+                ]
+              },
+              {
+                "modelCode": "MDLX",
+                "trimCodes": [
+                  "$MT10A",
+                  "$MT10B",
+                  "$MT10L",
+                  "$MT10P",
+                  "$MT75A",
+                  "$MTX01",
+                  "$MTX03",
+                  "$MTX04",
+                  "$MTX06",
+                  "$MTX05",
+                  "$MTX07",
+                  "$MTX08",
+                  "$MTX10",
+                  "$MTX11",
+                  "$MT90P",
+                  "$MT90A",
+                  "$MT70A",
+                  "$MTX12",
+                  "$MTX13",
+                  "$MTX14"
                 ]
               },
               {
                 "modelCode": "MDLY",
                 "trimCodes": [
                   "$MTY03",
-                  "$MTY06",
                   "$MTY04",
                   "$MTY05",
                   "$MTY01",
-                  "$MTY11",
+                  "$MTY06",
                   "$MTY07",
-                  "$MTY10",
                   "$MTY09",
+                  "$MTY10",
+                  "$MTY08",
+                  "$MTY11",
                   "$MTY12",
-                  "$MTY08"
+                  "$MTY13"
                 ]
               }
             ],
-            "name": "Configurator.AdvertisedRateNew.Q223-April-NA.CA-LOAN-N-3SXY-PB-2025-10-01"
+            "financialProductGroupId": "f9c0f0d2-7029-4335-9d3f-f18ec913b57c",
+            "name": "Configurator.AdvertisedRateNew.Q223-April-NA.CA-LOAN-N-3SXY-PB-2025-10-01",
+            "groupId": "641d8ada-8696-49f8-a934-d8103654bd9d",
+            "correlationId": "f9c0f0d2-7029-4335-9d3f-f18ec913b57c"
           },
           {
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
-            "productID": 41904,
+            "productID": 42788,
             "productType": "AUTO_LOAN",
             "productSubType": "LOAN",
             "localName": "Loan",
@@ -5323,120 +5667,124 @@
               {
                 "modelCode": "MDLS",
                 "trimCodes": [
-                  "$MT60R",
-                  "$MT70R",
-                  "$MT75R",
-                  "$MT75A",
-                  "$MT85R",
-                  "$MTS10",
-                  "$MTS12",
                   "$MT10A",
+                  "$MT10B",
+                  "$MT10L",
+                  "$MT10P",
+                  "$MT75A",
+                  "$MTS01",
                   "$MTS03",
+                  "$MTS04",
+                  "$MTS06",
                   "$MTS05",
                   "$MTS07",
-                  "$MTS04",
                   "$MTS08",
-                  "$MT10L",
-                  "$MTS06",
+                  "$MT75R",
+                  "$MT70R",
+                  "$MT85R",
+                  "$MT60R",
+                  "$MTS10",
                   "$MTS11",
-                  "$MTS01",
-                  "$MT70A",
                   "$MT90A",
                   "$MT90P",
-                  "$MT10P",
+                  "$MT70A",
                   "$MTS09",
-                  "$MT10B",
+                  "$MTS12",
                   "$MTS13",
                   "$MTS14"
                 ]
               },
               {
-                "modelCode": "MDLX",
-                "trimCodes": [
-                  "$MT75A",
-                  "$MTX10",
-                  "$MTX12",
-                  "$MT10A",
-                  "$MTX03",
-                  "$MTX05",
-                  "$MTX07",
-                  "$MTX04",
-                  "$MTX08",
-                  "$MT10L",
-                  "$MTX06",
-                  "$MTX11",
-                  "$MTX01",
-                  "$MT70A",
-                  "$MT90A",
-                  "$MT90P",
-                  "$MT10P",
-                  "$MT10B",
-                  "$MTX14",
-                  "$MTX13"
-                ]
-              },
-              {
                 "modelCode": "MDL3",
                 "trimCodes": [
-                  "$MT303",
-                  "$MT310",
-                  "$MT315",
-                  "$MT321",
-                  "$MT323",
-                  "$MT304",
-                  "$MT311",
-                  "$MT317",
-                  "$MT325",
-                  "$MT302",
-                  "$MT309",
-                  "$MT305",
-                  "$MT312",
                   "$MT300",
-                  "$MT307",
-                  "$MT322",
-                  "$MT319",
                   "$MT301",
+                  "$MT302",
+                  "$MT303",
+                  "$MT304",
+                  "$MT305",
+                  "$MT307",
                   "$MT308",
-                  "$MT314",
-                  "$MT337",
-                  "$MT324",
-                  "$MT326",
-                  "$MT316",
-                  "$MT328",
-                  "$MT329",
-                  "$MT340",
+                  "$MT309",
+                  "$MT310",
+                  "$MT311",
+                  "$MT312",
                   "$MT313",
                   "$MT331",
                   "$MT332",
+                  "$MT314",
+                  "$MT315",
+                  "$MT316",
+                  "$MT317",
                   "$MT318",
-                  "$MT327",
+                  "$MT319",
+                  "$MT336",
                   "$MT320",
-                  "$MT336"
+                  "$MT337",
+                  "$MT321",
+                  "$MT322",
+                  "$MT326",
+                  "$MT323",
+                  "$MT324",
+                  "$MT325",
+                  "$MT327",
+                  "$MT328",
+                  "$MT329",
+                  "$MT340"
+                ]
+              },
+              {
+                "modelCode": "MDLX",
+                "trimCodes": [
+                  "$MT10A",
+                  "$MT10B",
+                  "$MT10L",
+                  "$MT10P",
+                  "$MT75A",
+                  "$MTX01",
+                  "$MTX03",
+                  "$MTX04",
+                  "$MTX06",
+                  "$MTX05",
+                  "$MTX07",
+                  "$MTX08",
+                  "$MTX10",
+                  "$MTX11",
+                  "$MT90P",
+                  "$MT90A",
+                  "$MT70A",
+                  "$MTX12",
+                  "$MTX13",
+                  "$MTX14"
                 ]
               },
               {
                 "modelCode": "MDLY",
                 "trimCodes": [
                   "$MTY03",
-                  "$MTY06",
                   "$MTY04",
                   "$MTY05",
                   "$MTY01",
-                  "$MTY11",
+                  "$MTY06",
                   "$MTY07",
-                  "$MTY10",
                   "$MTY09",
+                  "$MTY10",
+                  "$MTY08",
+                  "$MTY11",
                   "$MTY12",
-                  "$MTY08"
+                  "$MTY13"
                 ]
               }
             ],
-            "name": "Configurator.AdvertisedRateNew.Q223-April-NA.CA-LOAN-N-3SXY-PB-2025-10-01"
+            "financialProductGroupId": "f9c0f0d2-7029-4335-9d3f-f18ec913b57c",
+            "name": "Configurator.AdvertisedRateNew.Q223-April-NA.CA-LOAN-N-3SXY-PB-2025-10-01",
+            "groupId": "641d8ada-8696-49f8-a934-d8103654bd9d",
+            "correlationId": "f9c0f0d2-7029-4335-9d3f-f18ec913b57c"
           },
           {
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
-            "productID": 41905,
+            "productID": 42789,
             "productType": "AUTO_LOAN",
             "productSubType": "LOAN",
             "localName": "Loan",
@@ -5472,120 +5820,124 @@
               {
                 "modelCode": "MDLS",
                 "trimCodes": [
-                  "$MT60R",
-                  "$MT70R",
-                  "$MT75R",
-                  "$MT75A",
-                  "$MT85R",
-                  "$MTS10",
-                  "$MTS12",
                   "$MT10A",
+                  "$MT10B",
+                  "$MT10L",
+                  "$MT10P",
+                  "$MT75A",
+                  "$MTS01",
                   "$MTS03",
+                  "$MTS04",
+                  "$MTS06",
                   "$MTS05",
                   "$MTS07",
-                  "$MTS04",
                   "$MTS08",
-                  "$MT10L",
-                  "$MTS06",
+                  "$MT75R",
+                  "$MT70R",
+                  "$MT85R",
+                  "$MT60R",
+                  "$MTS10",
                   "$MTS11",
-                  "$MTS01",
-                  "$MT70A",
                   "$MT90A",
                   "$MT90P",
-                  "$MT10P",
+                  "$MT70A",
                   "$MTS09",
-                  "$MT10B",
+                  "$MTS12",
                   "$MTS13",
                   "$MTS14"
                 ]
               },
               {
-                "modelCode": "MDLX",
-                "trimCodes": [
-                  "$MT75A",
-                  "$MTX10",
-                  "$MTX12",
-                  "$MT10A",
-                  "$MTX03",
-                  "$MTX05",
-                  "$MTX07",
-                  "$MTX04",
-                  "$MTX08",
-                  "$MT10L",
-                  "$MTX06",
-                  "$MTX11",
-                  "$MTX01",
-                  "$MT70A",
-                  "$MT90A",
-                  "$MT90P",
-                  "$MT10P",
-                  "$MT10B",
-                  "$MTX14",
-                  "$MTX13"
-                ]
-              },
-              {
                 "modelCode": "MDL3",
                 "trimCodes": [
-                  "$MT303",
-                  "$MT310",
-                  "$MT315",
-                  "$MT321",
-                  "$MT323",
-                  "$MT304",
-                  "$MT311",
-                  "$MT317",
-                  "$MT325",
-                  "$MT302",
-                  "$MT309",
-                  "$MT305",
-                  "$MT312",
                   "$MT300",
-                  "$MT307",
-                  "$MT322",
-                  "$MT319",
                   "$MT301",
+                  "$MT302",
+                  "$MT303",
+                  "$MT304",
+                  "$MT305",
+                  "$MT307",
                   "$MT308",
-                  "$MT314",
-                  "$MT337",
-                  "$MT324",
-                  "$MT326",
-                  "$MT316",
-                  "$MT328",
-                  "$MT329",
-                  "$MT340",
+                  "$MT309",
+                  "$MT310",
+                  "$MT311",
+                  "$MT312",
                   "$MT313",
                   "$MT331",
                   "$MT332",
+                  "$MT314",
+                  "$MT315",
+                  "$MT316",
+                  "$MT317",
                   "$MT318",
-                  "$MT327",
+                  "$MT319",
+                  "$MT336",
                   "$MT320",
-                  "$MT336"
+                  "$MT337",
+                  "$MT321",
+                  "$MT322",
+                  "$MT326",
+                  "$MT323",
+                  "$MT324",
+                  "$MT325",
+                  "$MT327",
+                  "$MT328",
+                  "$MT329",
+                  "$MT340"
+                ]
+              },
+              {
+                "modelCode": "MDLX",
+                "trimCodes": [
+                  "$MT10A",
+                  "$MT10B",
+                  "$MT10L",
+                  "$MT10P",
+                  "$MT75A",
+                  "$MTX01",
+                  "$MTX03",
+                  "$MTX04",
+                  "$MTX06",
+                  "$MTX05",
+                  "$MTX07",
+                  "$MTX08",
+                  "$MTX10",
+                  "$MTX11",
+                  "$MT90P",
+                  "$MT90A",
+                  "$MT70A",
+                  "$MTX12",
+                  "$MTX13",
+                  "$MTX14"
                 ]
               },
               {
                 "modelCode": "MDLY",
                 "trimCodes": [
                   "$MTY03",
-                  "$MTY06",
                   "$MTY04",
                   "$MTY05",
                   "$MTY01",
-                  "$MTY11",
+                  "$MTY06",
                   "$MTY07",
-                  "$MTY10",
                   "$MTY09",
+                  "$MTY10",
+                  "$MTY08",
+                  "$MTY11",
                   "$MTY12",
-                  "$MTY08"
+                  "$MTY13"
                 ]
               }
             ],
-            "name": "Configurator.AdvertisedRateNew.Q223-April-NA.CA-LOAN-N-3SXY-PB-2025-10-01"
+            "financialProductGroupId": "f9c0f0d2-7029-4335-9d3f-f18ec913b57c",
+            "name": "Configurator.AdvertisedRateNew.Q223-April-NA.CA-LOAN-N-3SXY-PB-2025-10-01",
+            "groupId": "641d8ada-8696-49f8-a934-d8103654bd9d",
+            "correlationId": "f9c0f0d2-7029-4335-9d3f-f18ec913b57c"
           },
           {
             "isDefault": false,
             "displayCategoryCode": "PREFERRED",
-            "productID": 41906,
+            "productID": 42790,
             "productType": "AUTO_LOAN",
             "productSubType": "LOAN",
             "localName": "Loan",
@@ -5621,120 +5973,124 @@
               {
                 "modelCode": "MDLS",
                 "trimCodes": [
-                  "$MT60R",
-                  "$MT70R",
-                  "$MT75R",
-                  "$MT75A",
-                  "$MT85R",
-                  "$MTS10",
-                  "$MTS12",
                   "$MT10A",
+                  "$MT10B",
+                  "$MT10L",
+                  "$MT10P",
+                  "$MT75A",
+                  "$MTS01",
                   "$MTS03",
+                  "$MTS04",
+                  "$MTS06",
                   "$MTS05",
                   "$MTS07",
-                  "$MTS04",
                   "$MTS08",
-                  "$MT10L",
-                  "$MTS06",
+                  "$MT75R",
+                  "$MT70R",
+                  "$MT85R",
+                  "$MT60R",
+                  "$MTS10",
                   "$MTS11",
-                  "$MTS01",
-                  "$MT70A",
                   "$MT90A",
                   "$MT90P",
-                  "$MT10P",
+                  "$MT70A",
                   "$MTS09",
-                  "$MT10B",
+                  "$MTS12",
                   "$MTS13",
                   "$MTS14"
                 ]
               },
               {
-                "modelCode": "MDLX",
-                "trimCodes": [
-                  "$MT75A",
-                  "$MTX10",
-                  "$MTX12",
-                  "$MT10A",
-                  "$MTX03",
-                  "$MTX05",
-                  "$MTX07",
-                  "$MTX04",
-                  "$MTX08",
-                  "$MT10L",
-                  "$MTX06",
-                  "$MTX11",
-                  "$MTX01",
-                  "$MT70A",
-                  "$MT90A",
-                  "$MT90P",
-                  "$MT10P",
-                  "$MT10B",
-                  "$MTX14",
-                  "$MTX13"
-                ]
-              },
-              {
                 "modelCode": "MDL3",
                 "trimCodes": [
-                  "$MT303",
-                  "$MT310",
-                  "$MT315",
-                  "$MT321",
-                  "$MT323",
-                  "$MT304",
-                  "$MT311",
-                  "$MT317",
-                  "$MT325",
-                  "$MT302",
-                  "$MT309",
-                  "$MT305",
-                  "$MT312",
                   "$MT300",
-                  "$MT307",
-                  "$MT322",
-                  "$MT319",
                   "$MT301",
+                  "$MT302",
+                  "$MT303",
+                  "$MT304",
+                  "$MT305",
+                  "$MT307",
                   "$MT308",
-                  "$MT314",
-                  "$MT337",
-                  "$MT324",
-                  "$MT326",
-                  "$MT316",
-                  "$MT328",
-                  "$MT329",
-                  "$MT340",
+                  "$MT309",
+                  "$MT310",
+                  "$MT311",
+                  "$MT312",
                   "$MT313",
                   "$MT331",
                   "$MT332",
+                  "$MT314",
+                  "$MT315",
+                  "$MT316",
+                  "$MT317",
                   "$MT318",
-                  "$MT327",
+                  "$MT319",
+                  "$MT336",
                   "$MT320",
-                  "$MT336"
+                  "$MT337",
+                  "$MT321",
+                  "$MT322",
+                  "$MT326",
+                  "$MT323",
+                  "$MT324",
+                  "$MT325",
+                  "$MT327",
+                  "$MT328",
+                  "$MT329",
+                  "$MT340"
+                ]
+              },
+              {
+                "modelCode": "MDLX",
+                "trimCodes": [
+                  "$MT10A",
+                  "$MT10B",
+                  "$MT10L",
+                  "$MT10P",
+                  "$MT75A",
+                  "$MTX01",
+                  "$MTX03",
+                  "$MTX04",
+                  "$MTX06",
+                  "$MTX05",
+                  "$MTX07",
+                  "$MTX08",
+                  "$MTX10",
+                  "$MTX11",
+                  "$MT90P",
+                  "$MT90A",
+                  "$MT70A",
+                  "$MTX12",
+                  "$MTX13",
+                  "$MTX14"
                 ]
               },
               {
                 "modelCode": "MDLY",
                 "trimCodes": [
                   "$MTY03",
-                  "$MTY06",
                   "$MTY04",
                   "$MTY05",
                   "$MTY01",
-                  "$MTY11",
+                  "$MTY06",
                   "$MTY07",
-                  "$MTY10",
                   "$MTY09",
+                  "$MTY10",
+                  "$MTY08",
+                  "$MTY11",
                   "$MTY12",
-                  "$MTY08"
+                  "$MTY13"
                 ]
               }
             ],
-            "name": "Configurator.AdvertisedRateNew.Q223-April-NA.CA-LOAN-N-3SXY-PB-2025-10-01"
+            "financialProductGroupId": "f9c0f0d2-7029-4335-9d3f-f18ec913b57c",
+            "name": "Configurator.AdvertisedRateNew.Q223-April-NA.CA-LOAN-N-3SXY-PB-2025-10-01",
+            "groupId": "641d8ada-8696-49f8-a934-d8103654bd9d",
+            "correlationId": "f9c0f0d2-7029-4335-9d3f-f18ec913b57c"
           },
           {
             "isDefault": true,
             "displayCategoryCode": "PREFERRED",
-            "productID": 41907,
+            "productID": 42791,
             "productType": "AUTO_LOAN",
             "productSubType": "LOAN",
             "localName": "Loan",
@@ -5770,115 +6126,119 @@
               {
                 "modelCode": "MDLS",
                 "trimCodes": [
-                  "$MT60R",
-                  "$MT70R",
-                  "$MT75R",
-                  "$MT75A",
-                  "$MT85R",
-                  "$MTS10",
-                  "$MTS12",
                   "$MT10A",
+                  "$MT10B",
+                  "$MT10L",
+                  "$MT10P",
+                  "$MT75A",
+                  "$MTS01",
                   "$MTS03",
+                  "$MTS04",
+                  "$MTS06",
                   "$MTS05",
                   "$MTS07",
-                  "$MTS04",
                   "$MTS08",
-                  "$MT10L",
-                  "$MTS06",
+                  "$MT75R",
+                  "$MT70R",
+                  "$MT85R",
+                  "$MT60R",
+                  "$MTS10",
                   "$MTS11",
-                  "$MTS01",
-                  "$MT70A",
                   "$MT90A",
                   "$MT90P",
-                  "$MT10P",
+                  "$MT70A",
                   "$MTS09",
-                  "$MT10B",
+                  "$MTS12",
                   "$MTS13",
                   "$MTS14"
                 ]
               },
               {
-                "modelCode": "MDLX",
-                "trimCodes": [
-                  "$MT75A",
-                  "$MTX10",
-                  "$MTX12",
-                  "$MT10A",
-                  "$MTX03",
-                  "$MTX05",
-                  "$MTX07",
-                  "$MTX04",
-                  "$MTX08",
-                  "$MT10L",
-                  "$MTX06",
-                  "$MTX11",
-                  "$MTX01",
-                  "$MT70A",
-                  "$MT90A",
-                  "$MT90P",
-                  "$MT10P",
-                  "$MT10B",
-                  "$MTX14",
-                  "$MTX13"
-                ]
-              },
-              {
                 "modelCode": "MDL3",
                 "trimCodes": [
-                  "$MT303",
-                  "$MT310",
-                  "$MT315",
-                  "$MT321",
-                  "$MT323",
-                  "$MT304",
-                  "$MT311",
-                  "$MT317",
-                  "$MT325",
-                  "$MT302",
-                  "$MT309",
-                  "$MT305",
-                  "$MT312",
                   "$MT300",
-                  "$MT307",
-                  "$MT322",
-                  "$MT319",
                   "$MT301",
+                  "$MT302",
+                  "$MT303",
+                  "$MT304",
+                  "$MT305",
+                  "$MT307",
                   "$MT308",
-                  "$MT314",
-                  "$MT337",
-                  "$MT324",
-                  "$MT326",
-                  "$MT316",
-                  "$MT328",
-                  "$MT329",
-                  "$MT340",
+                  "$MT309",
+                  "$MT310",
+                  "$MT311",
+                  "$MT312",
                   "$MT313",
                   "$MT331",
                   "$MT332",
+                  "$MT314",
+                  "$MT315",
+                  "$MT316",
+                  "$MT317",
                   "$MT318",
-                  "$MT327",
+                  "$MT319",
+                  "$MT336",
                   "$MT320",
-                  "$MT336"
+                  "$MT337",
+                  "$MT321",
+                  "$MT322",
+                  "$MT326",
+                  "$MT323",
+                  "$MT324",
+                  "$MT325",
+                  "$MT327",
+                  "$MT328",
+                  "$MT329",
+                  "$MT340"
+                ]
+              },
+              {
+                "modelCode": "MDLX",
+                "trimCodes": [
+                  "$MT10A",
+                  "$MT10B",
+                  "$MT10L",
+                  "$MT10P",
+                  "$MT75A",
+                  "$MTX01",
+                  "$MTX03",
+                  "$MTX04",
+                  "$MTX06",
+                  "$MTX05",
+                  "$MTX07",
+                  "$MTX08",
+                  "$MTX10",
+                  "$MTX11",
+                  "$MT90P",
+                  "$MT90A",
+                  "$MT70A",
+                  "$MTX12",
+                  "$MTX13",
+                  "$MTX14"
                 ]
               },
               {
                 "modelCode": "MDLY",
                 "trimCodes": [
                   "$MTY03",
-                  "$MTY06",
                   "$MTY04",
                   "$MTY05",
                   "$MTY01",
-                  "$MTY11",
+                  "$MTY06",
                   "$MTY07",
-                  "$MTY10",
                   "$MTY09",
+                  "$MTY10",
+                  "$MTY08",
+                  "$MTY11",
                   "$MTY12",
-                  "$MTY08"
+                  "$MTY13"
                 ]
               }
             ],
-            "name": "Configurator.AdvertisedRateNew.Q223-April-NA.CA-LOAN-N-3SXY-PB-2025-10-01"
+            "financialProductGroupId": "f9c0f0d2-7029-4335-9d3f-f18ec913b57c",
+            "name": "Configurator.AdvertisedRateNew.Q223-April-NA.CA-LOAN-N-3SXY-PB-2025-10-01",
+            "groupId": "641d8ada-8696-49f8-a934-d8103654bd9d",
+            "correlationId": "f9c0f0d2-7029-4335-9d3f-f18ec913b57c"
           }
         ],
         "parameters": {
@@ -5899,7 +6259,7 @@
       }
     },
     "Lexicon.m3": {
-      "effective_date": "2023-04-12T17:36:00.000Z",
+      "effective_date": "2023-04-21T22:35:00.000Z",
       "market": "CA",
       "product": "m3",
       "factory": "GF00",
@@ -6055,7 +6415,7 @@
         "default_trim": "$MT322"
       },
       "fees": {},
-      "name": "Marketing CA 2023.Apr.12 7237.8356.30204 [en]",
+      "name": "Marketing CA 2023.Apr.21 7513.8573.34197 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -10082,7 +10442,9 @@
                       "$MT339",
                       "$MT316",
                       "$MT321",
-                      "$MT324"
+                      "$MT324",
+                      "$MT328",
+                      "$MT329"
                     ]
                   }
                 }
@@ -11817,11 +12179,6 @@
           "price": 0,
           "pricing": [
             {
-              "type": "trial",
-              "value": 4000,
-              "context": "CAD"
-            },
-            {
               "type": "base",
               "value": 0,
               "context": "CAD",
@@ -11875,6 +12232,11 @@
                   "target_property": "price"
                 }
               ]
+            },
+            {
+              "type": "trial",
+              "value": 4000,
+              "context": "CAD"
             },
             {
               "type": "upgrade",
@@ -12404,12 +12766,12 @@
           "price": 19500,
           "pricing": [
             {
-              "type": "trial",
+              "type": "base",
               "value": 19500,
               "context": "CAD"
             },
             {
-              "type": "base",
+              "type": "trial",
               "value": 19500,
               "context": "CAD"
             },
@@ -12724,12 +13086,12 @@
           "price": 7800,
           "pricing": [
             {
-              "type": "trial",
+              "type": "base",
               "value": 7800,
               "context": "CAD"
             },
             {
-              "type": "base",
+              "type": "trial",
               "value": 7800,
               "context": "CAD"
             },
@@ -14453,6 +14815,11 @@
           "price": 45000,
           "pricing": [
             {
+              "type": "base",
+              "value": 45000,
+              "context": "CAD"
+            },
+            {
               "type": "order_fee",
               "value": 0,
               "context": "CAD"
@@ -14460,11 +14827,6 @@
             {
               "type": "reservation_deposit",
               "value": 1000,
-              "context": "CAD"
-            },
-            {
-              "type": "base",
-              "value": 45000,
               "context": "CAD"
             },
             {
@@ -15200,8 +15562,11 @@
               {
                 "action": "set",
                 "target": "$W40B",
-                "condition_code": "$MT317",
-                "condition_state": "set"
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MT329",
+                  "$MT317"
+                ]
               }
             ]
           },
@@ -15248,8 +15613,11 @@
             {
               "action": "set",
               "target": "$W40B",
-              "condition_code": "$MT317",
-              "condition_state": "set"
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MT329",
+                "$MT317"
+              ]
             }
           ],
           "name": "20’’ Überturbine Wheels",
@@ -15292,6 +15660,17 @@
               ]
             },
             {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MT329"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
+            },
+            {
               "type": "disclaimer_details_override",
               "content": [
                 {
@@ -15327,6 +15706,12 @@
                 "target": "$W33D",
                 "condition_code": "$SPT31",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$W33D",
+                "condition_code": "$MT329",
+                "condition_state": "set"
               }
             ]
           },
@@ -15350,6 +15735,12 @@
               "action": "set",
               "target": "$W33D",
               "condition_code": "$SPT31",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$W33D",
+              "condition_code": "$MT329",
               "condition_state": "set"
             }
           ],
@@ -15432,6 +15823,18 @@
                   "condition_state": "and"
                 }
               ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MT322",
+                    "$MT328"
+                  ],
+                  "condition_state": "not"
+                }
+              ]
             }
           ],
           "price": 0,
@@ -15446,7 +15849,14 @@
         "$W41B": {
           "code": "$W41B",
           "user_defined_rules": {
-            "set_rules": [],
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$W33D",
+                "condition_code": "$MT329",
+                "condition_state": "set"
+              }
+            ],
             "unset_rules": []
           },
           "set_rules": [
@@ -15464,6 +15874,12 @@
                 "$W40B",
                 "$W33D"
               ]
+            },
+            {
+              "action": "set",
+              "target": "$W33D",
+              "condition_code": "$MT329",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -15516,9 +15932,10 @@
               "content": [
                 {
                   "configuration": [
-                    "$MT317"
+                    "$MT317",
+                    "$MT329"
                   ],
-                  "condition_state": "and"
+                  "condition_state": "or"
                 }
               ]
             }
@@ -17516,16 +17933,8 @@
         "$SC04",
         "$IBB1"
       ],
-      "options_id": 7237,
+      "options_id": 7513,
       "warnings": [
-        {
-          "type": "MISSING_PRICE",
-          "message": "The discountable group's, option '$MT329' is not defined in the pricing lexicon."
-        },
-        {
-          "type": "MISSING_PRICE",
-          "message": "The discountable group's, option '$MT328' is not defined in the pricing lexicon."
-        },
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
           "message": "These groups should be moved to Copy lexicon from Options.",
@@ -18051,10 +18460,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 8356,
+      "copy_id": 8573,
       "language": "en",
-      "pricing_id": 30204,
-      "reference_id": 7237,
+      "pricing_id": 34197,
+      "reference_id": 7513,
       "source": "cache"
     }
   }
