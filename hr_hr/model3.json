@@ -1868,7 +1868,7 @@
       "loan": []
     },
     "Lexicon.m3": {
-      "effective_date": "2023-04-14T00:15:00.000Z",
+      "effective_date": "2023-04-26T18:45:00.000Z",
       "market": "HR",
       "product": "m3",
       "factory": "GF00",
@@ -2041,7 +2041,7 @@
         "default_trim": "$MT322"
       },
       "fees": {},
-      "name": "Marketing HR 2023.Apr.14 6872.8393.33809 [hr]",
+      "name": "Marketing HR 2023.Apr.26 7101.8645.33809 [hr]",
       "groups": [
         {
           "code": "MODEL",
@@ -2381,7 +2381,8 @@
           "groups": [],
           "options": [
             "$PRM30",
-            "$PRM31"
+            "$PRM31",
+            "$PRM32"
           ],
           "required": true,
           "exclusive": true,
@@ -2557,7 +2558,8 @@
             "$MT323",
             "$MT325",
             "$MT328",
-            "$MT340"
+            "$MT340",
+            "$MT341"
           ],
           "required": false,
           "exclusive": false,
@@ -2907,6 +2909,16 @@
                     "and": [
                       "$W33D",
                       "$MT325"
+                    ]
+                  }
+                },
+                {
+                  "value": 644,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$W40B",
+                      "$MT341"
                     ]
                   }
                 }
@@ -3432,15 +3444,8 @@
         },
         {
           "code": "REAR_WHEEL_PARTIAL",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$MT322"
-          ],
-          "required": false,
-          "exclusive": false,
-          "default_options": [],
           "name": "REAR_WHEEL_PARTIAL",
+          "context": "configurator",
           "extra_copy": [
             {
               "type": "name",
@@ -3478,7 +3483,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "groups": [],
+          "options": [
+            "$MT322"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": []
         },
         {
           "code": "DUAL_MOTOR_ALL_WHEEL_DRIVE",
@@ -4013,7 +4025,8 @@
             "$MT325",
             "$MT323",
             "$MT328",
-            "$MT340"
+            "$MT340",
+            "$MT341"
           ],
           "required": false,
           "exclusive": false,
@@ -4169,7 +4182,7 @@
           "extra_copy": [
             {
               "type": "federalTax.description",
-              "content": "Preuzmite vozilo do 31. Ožujka 2023 i iskoristite 5.000 km besplatnog Supercharging punjenja. <a href='/{LOCALE}/inventory/new/m3?redirect=no' target='_blank'>Pogledajte inventar</a>."
+              "content": "Preuzmite vozilo do 31. Ožujka 2023 i iskoristite 5.000 km besplatnog Supercharging punjenja. <a href='/{LOCALE}/inventory/new/m3?redirect=no' target='_blank'>Pogledajte odmah dostupna vozila</a>."
             }
           ]
         },
@@ -6356,7 +6369,8 @@
                       "$MT321",
                       "$MT323",
                       "$MT328",
-                      "$MT325"
+                      "$MT325",
+                      "$MT341"
                     ]
                   }
                 }
@@ -9313,7 +9327,8 @@
               "content": [
                 {
                   "configuration": [
-                    "$PRM30"
+                    "$PRM30",
+                    "$PRM32"
                   ],
                   "condition_state": "not"
                 }
@@ -9576,6 +9591,12 @@
                     "$PRM30"
                   ],
                   "condition_state": "not"
+                },
+                {
+                  "configuration": [
+                    "$MT341"
+                  ],
+                  "condition_state": "or"
                 }
               ]
             }
@@ -10501,6 +10522,23 @@
                 {
                   "url": "MODEL3/UI/Paint_Red.png",
                   "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MT341"
+                  ],
+                  "condition_state": "or"
+                },
+                {
+                  "configuration": [
+                    "$MT341"
+                  ],
+                  "condition_state": "or"
                 }
               ]
             }
@@ -11446,9 +11484,10 @@
               "content": [
                 {
                   "configuration": [
-                    "$MT325"
+                    "$MT325",
+                    "$MT341"
                   ],
-                  "condition_state": "and"
+                  "condition_state": "or"
                 }
               ]
             }
@@ -11562,7 +11601,8 @@
                 "$MT323",
                 "$MT325",
                 "$MT328",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             },
             {
@@ -11656,7 +11696,8 @@
                 "$MT323",
                 "$MT325",
                 "$MT328",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             }
           ],
@@ -11882,7 +11923,8 @@
                 "$MT322",
                 "$MT323",
                 "$MT328",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             },
             {
@@ -11988,7 +12030,8 @@
                 "$MT337",
                 "$MT323",
                 "$MT328",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             },
             {
@@ -12253,7 +12296,8 @@
                 "$MT322",
                 "$MT323",
                 "$MT325",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             },
             {
@@ -12356,7 +12400,8 @@
                 "$MT337",
                 "$MT323",
                 "$MT325",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             },
             {
@@ -12521,6 +12566,12 @@
                 "target": "$IBW1",
                 "condition_code": "$IPW1",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$PRM32",
+                "condition_code": "$MT341",
+                "condition_state": "set"
               }
             ]
           },
@@ -12531,7 +12582,10 @@
             },
             {
               "action": "unset",
-              "target": "$PRM31"
+              "targets": [
+                "$PRM31",
+                "$PRM32"
+              ]
             },
             {
               "action": "set",
@@ -12580,6 +12634,12 @@
               "target": "$IBW1",
               "condition_code": "$IPW1",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$PRM32",
+              "condition_code": "$MT341",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -12590,8 +12650,11 @@
             {
               "action": "set",
               "target": "$PRM30",
-              "condition_code": "$PRM31",
-              "condition_state": "unset"
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$PRM31",
+                "$PRM32"
+              ]
             }
           ],
           "name": "Djelomična premium unutrašnjost",
@@ -12711,6 +12774,12 @@
                 "target": "$IPW1",
                 "condition_code": "$IBW1",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$PRM32",
+                "condition_code": "$MT341",
+                "condition_state": "set"
               }
             ]
           },
@@ -12721,7 +12790,10 @@
             },
             {
               "action": "unset",
-              "target": "$PRM30"
+              "targets": [
+                "$PRM30",
+                "$PRM32"
+              ]
             },
             {
               "action": "set",
@@ -12783,6 +12855,12 @@
               "target": "$IPW1",
               "condition_code": "$IBW1",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$PRM32",
+              "condition_code": "$MT341",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -12792,7 +12870,9 @@
             },
             {
               "action": "set",
-              "target": "$PRM30"
+              "target": "$PRM30",
+              "condition_code": "$PRM32",
+              "condition_state": "unset"
             }
           ],
           "name": "Premium unutrašnjost",
@@ -12845,6 +12925,125 @@
               "type": "base",
               "value": 0,
               "context": "HRK"
+            }
+          ]
+        },
+        "$PRM32": {
+          "code": "$PRM32",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$PRM32",
+                "condition_code": "$MT341",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBB0",
+                "condition_code": "$IPB0",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBW0",
+                "condition_code": "$IPW0",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBB1",
+                "condition_code": "$IPB1",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBW1",
+                "condition_code": "$IPW1",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$PRM32"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$PRM30",
+                "$PRM31"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$PRM32",
+              "condition_code": "$MT341",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBB0",
+              "condition_code": "$IPB0",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBW0",
+              "condition_code": "$IPW0",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBB1",
+              "condition_code": "$IPB1",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBW1",
+              "condition_code": "$IPW1",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$PRM32"
+            },
+            {
+              "action": "set",
+              "target": "$PRM30",
+              "condition_code": "$PRM31",
+              "condition_state": "unset"
+            }
+          ],
+          "name": "Djelomična premium unutrašnjost",
+          "description": "<p>Nadogradite unutrašnjost svog vozila dodatnim značajkama i premium materijalima.</p><ul><li><span>Premium grijana sjedala i materijali u putničkom prostoru, uključujući ukrasno drvo vidljivih pora, stakleni krov i četiri USB priključka</span></li><li><span>Elektronički upravljana prednja sjedala u 12 smjerova, stup upravljača i retrovizori s prilagođenim profilima vozača</span></li><li><span>Premium audio sustav s više snage, visokotoncima, surround zvučnicima i subwooferom</span></li></ul>",
+          "long_name": "Djelomična premium unutrašnjost",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Premium"
+            },
+            {
+              "type": "price_indicator",
+              "content": "Uključeno"
+            },
+            {
+              "type": "short_description",
+              "content": "Naš premium paket dodaje nadograđene značajke vozilu Model 3"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
             }
           ]
         },
@@ -13207,8 +13406,11 @@
               {
                 "action": "unset",
                 "target": "$W3WE9",
-                "condition_code": "$SPT31",
-                "condition_state": "set"
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MT341",
+                  "$SPT31"
+                ]
               },
               {
                 "action": "unset",
@@ -13224,8 +13426,11 @@
             {
               "action": "unset",
               "target": "$W3WE9",
-              "condition_code": "$SPT31",
-              "condition_state": "set"
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MT341",
+                "$SPT31"
+              ]
             },
             {
               "action": "unset",
@@ -13317,7 +13522,8 @@
                   "$MT311",
                   "$MT317",
                   "$MT325",
-                  "$MT340"
+                  "$MT340",
+                  "$MT341"
                 ]
               }
             ]
@@ -13336,7 +13542,8 @@
                 "$MT311",
                 "$MT317",
                 "$MT325",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             }
           ],
@@ -13743,6 +13950,13 @@
                   "topspeed": 261,
                   "acceleration": 3.3,
                   "range_units_override": "range_units_epa_link"
+                },
+                "$MT341": {
+                  "name": "Long Range Rear-Wheel Drive",
+                  "range": 620,
+                  "topspeed": 233,
+                  "acceleration": 5.9,
+                  "range_units_override": "range_units_epa_link"
                 }
               }
             }
@@ -13798,7 +14012,7 @@
         "$CPF0",
         "$SC04"
       ],
-      "options_id": 6872,
+      "options_id": 7101,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -13879,13 +14093,6 @@
             },
             {
               "code": "REAR_WHEEL_DRIVE_GROUP",
-              "context": [
-                "configurator"
-              ],
-              "msg": "Present in both Copy and Options lexicons"
-            },
-            {
-              "code": "REAR_WHEEL_PARTIAL",
               "context": [
                 "configurator"
               ],
@@ -14349,10 +14556,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 8393,
+      "copy_id": 8645,
       "language": "hr",
       "pricing_id": 33809,
-      "reference_id": 6872,
+      "reference_id": 7101,
       "source": "cache"
     }
   }

@@ -2622,7 +2622,7 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2023-04-18T17:37:00.000Z",
+      "effective_date": "2023-04-26T18:45:00.000Z",
       "market": "DE",
       "product": "m3",
       "factory": "GF00",
@@ -2799,7 +2799,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2023.Apr.18 7209.8669.33833 [de]",
+      "name": "Marketing DE 2023.Apr.26 7087.8631.33833 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -3140,7 +3140,8 @@
           "options": [
             "$PRM30",
             "$PRM31",
-            "$PRM3S"
+            "$PRM3S",
+            "$PRM32"
           ],
           "required": true,
           "exclusive": true,
@@ -3316,7 +3317,8 @@
             "$MT323",
             "$MT325",
             "$MT328",
-            "$MT340"
+            "$MT340",
+            "$MT341"
           ],
           "required": false,
           "exclusive": false,
@@ -3666,6 +3668,16 @@
                     "and": [
                       "$W33D",
                       "$MT325"
+                    ]
+                  }
+                },
+                {
+                  "value": 644,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$W40B",
+                      "$MT341"
                     ]
                   }
                 }
@@ -4191,15 +4203,8 @@
         },
         {
           "code": "REAR_WHEEL_PARTIAL",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$MT322"
-          ],
-          "required": false,
-          "exclusive": false,
-          "default_options": [],
           "name": "REAR_WHEEL_PARTIAL",
+          "context": "configurator",
           "extra_copy": [
             {
               "type": "name",
@@ -4237,7 +4242,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "groups": [],
+          "options": [
+            "$MT322"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": []
         },
         {
           "code": "DUAL_MOTOR_ALL_WHEEL_DRIVE",
@@ -4655,7 +4667,8 @@
             "$MT325",
             "$MT323",
             "$MT328",
-            "$MT340"
+            "$MT340",
+            "$MT341"
           ],
           "required": false,
           "exclusive": false,
@@ -4745,7 +4758,8 @@
                             "$MT323",
                             "$MT328",
                             "$MT337",
-                            "$MT322"
+                            "$MT322",
+                            "$MT341"
                           ]
                         }
                       }
@@ -7000,7 +7014,8 @@
                       "$MT321",
                       "$MT323",
                       "$MT328",
-                      "$MT325"
+                      "$MT325",
+                      "$MT341"
                     ]
                   }
                 }
@@ -7688,8 +7703,9 @@
               "content": [
                 {
                   "selected_by": {
-                    "and": [
-                      "$MT325"
+                    "or": [
+                      "$MT325",
+                      "$MT341"
                     ]
                   }
                 }
@@ -7787,7 +7803,8 @@
                       "$MT321",
                       "$MT323",
                       "$MT328",
-                      "$MT322"
+                      "$MT322",
+                      "$MT341"
                     ]
                   }
                 }
@@ -10421,7 +10438,8 @@
               "content": [
                 {
                   "configuration": [
-                    "$PRM30"
+                    "$PRM30",
+                    "$PRM32"
                   ],
                   "condition_state": "not"
                 }
@@ -10679,6 +10697,12 @@
                     "$PRM30"
                   ],
                   "condition_state": "not"
+                },
+                {
+                  "configuration": [
+                    "$MT341"
+                  ],
+                  "condition_state": "or"
                 }
               ]
             }
@@ -11568,6 +11592,23 @@
                 {
                   "url": "MODEL3/UI/Paint_Red.png",
                   "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MT341"
+                  ],
+                  "condition_state": "or"
+                },
+                {
+                  "configuration": [
+                    "$MT341"
+                  ],
+                  "condition_state": "or"
                 }
               ]
             }
@@ -12463,9 +12504,10 @@
               "content": [
                 {
                   "configuration": [
-                    "$MT325"
+                    "$MT325",
+                    "$MT341"
                   ],
-                  "condition_state": "and"
+                  "condition_state": "or"
                 }
               ]
             }
@@ -12574,7 +12616,8 @@
                 "$MT323",
                 "$MT325",
                 "$MT328",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             },
             {
@@ -12668,7 +12711,8 @@
                 "$MT323",
                 "$MT325",
                 "$MT328",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             }
           ],
@@ -12871,7 +12915,8 @@
                 "$MT322",
                 "$MT323",
                 "$MT328",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             },
             {
@@ -12977,7 +13022,8 @@
                 "$MT337",
                 "$MT323",
                 "$MT328",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             },
             {
@@ -13231,7 +13277,8 @@
                 "$MT322",
                 "$MT323",
                 "$MT325",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             },
             {
@@ -13334,7 +13381,8 @@
                 "$MT337",
                 "$MT323",
                 "$MT325",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             },
             {
@@ -13475,6 +13523,12 @@
                 "target": "$IBW1",
                 "condition_code": "$IPW1",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$PRM32",
+                "condition_code": "$MT341",
+                "condition_state": "set"
               }
             ]
           },
@@ -13487,7 +13541,8 @@
               "action": "unset",
               "targets": [
                 "$PRM31",
-                "$PRM3S"
+                "$PRM3S",
+                "$PRM32"
               ]
             },
             {
@@ -13537,6 +13592,12 @@
               "target": "$IBW1",
               "condition_code": "$IPW1",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$PRM32",
+              "condition_code": "$MT341",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -13550,7 +13611,8 @@
               "condition_state": "unset",
               "condition_all_codes": [
                 "$PRM31",
-                "$PRM3S"
+                "$PRM3S",
+                "$PRM32"
               ]
             }
           ],
@@ -13666,6 +13728,12 @@
                 "target": "$IPW1",
                 "condition_code": "$IBW1",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$PRM32",
+                "condition_code": "$MT341",
+                "condition_state": "set"
               }
             ]
           },
@@ -13678,7 +13746,8 @@
               "action": "unset",
               "targets": [
                 "$PRM30",
-                "$PRM3S"
+                "$PRM3S",
+                "$PRM32"
               ]
             },
             {
@@ -13741,6 +13810,12 @@
               "target": "$IPW1",
               "condition_code": "$IBW1",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$PRM32",
+              "condition_code": "$MT341",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -13751,8 +13826,11 @@
             {
               "action": "set",
               "target": "$PRM30",
-              "condition_code": "$PRM3S",
-              "condition_state": "unset"
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$PRM3S",
+                "$PRM32"
+              ]
             }
           ],
           "name": "Premium-Innenraum",
@@ -13803,6 +13881,129 @@
             }
           ]
         },
+        "$PRM32": {
+          "code": "$PRM32",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$PRM32",
+                "condition_code": "$MT341",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBB0",
+                "condition_code": "$IPB0",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBW0",
+                "condition_code": "$IPW0",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBB1",
+                "condition_code": "$IPB1",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBW1",
+                "condition_code": "$IPW1",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$PRM32"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$PRM30",
+                "$PRM31",
+                "$PRM3S"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$PRM32",
+              "condition_code": "$MT341",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBB0",
+              "condition_code": "$IPB0",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBW0",
+              "condition_code": "$IPW0",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBB1",
+              "condition_code": "$IPB1",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBW1",
+              "condition_code": "$IPW1",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$PRM32"
+            },
+            {
+              "action": "set",
+              "target": "$PRM30",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$PRM31",
+                "$PRM3S"
+              ]
+            }
+          ],
+          "name": "Partieller Premium-Innenraum",
+          "description": "<p>Sie können den Innenraum mit Zusatzmerkmalen und Premium-Materialien aufwerten.</p><ul><li><span>Premium-Innenraum mit ausgesuchten Materialien, offenporigem Holzdekor, Glasdach, Premium-Sitzen mit Sitzheizung und vier USB-Anschlüssen</span></li><li><span>Vordersitze mit elektrischer 12-Wegeverstellung, elektrisch verstellbare Lenksäule und Seitenspiegel, Fahrerprofilspeicher für individuelle Einstellung</span></li><li><span>Premium-Audiosystem mit Hochtönern, Surround-Lautsprechern und Subwoofern für ultimativen Power-Sound</span></li></ul>",
+          "long_name": "Partieller Premium-Innenraum",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Premium"
+            },
+            {
+              "type": "price_indicator",
+              "content": "eingeschl."
+            },
+            {
+              "type": "short_description",
+              "content": "Unser Premium-Paket wertet das Model 3 durch zahlreiche Sondermerkmale auf"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            }
+          ]
+        },
         "$PRM3S": {
           "code": "$PRM3S",
           "set_rules": [
@@ -13814,7 +14015,8 @@
               "action": "unset",
               "targets": [
                 "$PRM30",
-                "$PRM31"
+                "$PRM31",
+                "$PRM32"
               ]
             }
           ],
@@ -13826,8 +14028,11 @@
             {
               "action": "set",
               "target": "$PRM30",
-              "condition_code": "$PRM31",
-              "condition_state": "unset"
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$PRM31",
+                "$PRM32"
+              ]
             }
           ],
           "price": 0,
@@ -14187,8 +14392,11 @@
               {
                 "action": "unset",
                 "target": "$W3WE9",
-                "condition_code": "$SPT31",
-                "condition_state": "set"
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MT341",
+                  "$SPT31"
+                ]
               },
               {
                 "action": "unset",
@@ -14204,8 +14412,11 @@
             {
               "action": "unset",
               "target": "$W3WE9",
-              "condition_code": "$SPT31",
-              "condition_state": "set"
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MT341",
+                "$SPT31"
+              ]
             },
             {
               "action": "unset",
@@ -14262,8 +14473,9 @@
               "content": [
                 {
                   "selected_by": {
-                    "and": [
-                      "$MT325"
+                    "or": [
+                      "$MT325",
+                      "$MT341"
                     ]
                   }
                 }
@@ -14292,7 +14504,8 @@
                   "$MT311",
                   "$MT317",
                   "$MT325",
-                  "$MT340"
+                  "$MT340",
+                  "$MT341"
                 ]
               }
             ]
@@ -14311,7 +14524,8 @@
                 "$MT311",
                 "$MT317",
                 "$MT325",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             }
           ],
@@ -14756,6 +14970,19 @@
                   "efficiency_class": "A+",
                   "energy_consumption": 16.5,
                   "range_units_override": "range_units_epa_link"
+                },
+                "$MT341": {
+                  "mass": 1735,
+                  "name": "Long Range Rear-Wheel Drive",
+                  "power": {
+                    "power__back": 220
+                  },
+                  "range": 620,
+                  "topspeed": 233,
+                  "acceleration": 5.9,
+                  "efficiency_class": "A+",
+                  "energy_consumption": 14.7,
+                  "range_units_override": "range_units_epa_link"
                 }
               }
             }
@@ -14806,7 +15033,7 @@
         "$SC04",
         "$IBB1"
       ],
-      "options_id": 7209,
+      "options_id": 7087,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -14863,13 +15090,6 @@
             },
             {
               "code": "REAR_WHEEL_DRIVE_GROUP",
-              "context": [
-                "configurator"
-              ],
-              "msg": "Present in both Copy and Options lexicons"
-            },
-            {
-              "code": "REAR_WHEEL_PARTIAL",
               "context": [
                 "configurator"
               ],
@@ -15347,10 +15567,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 8669,
+      "copy_id": 8631,
       "language": "de",
       "pricing_id": 33833,
-      "reference_id": 7209,
+      "reference_id": 7087,
       "source": "cache"
     }
   }

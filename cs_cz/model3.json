@@ -1842,7 +1842,7 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2023-04-14T00:15:00.000Z",
+      "effective_date": "2023-04-26T18:45:00.000Z",
       "market": "CZ",
       "product": "m3",
       "factory": "GF00",
@@ -2015,7 +2015,7 @@
         "default_trim": "$MT322"
       },
       "fees": {},
-      "name": "Marketing CZ 2023.Apr.14 6844.8378.33814 [cs]",
+      "name": "Marketing CZ 2023.Apr.26 7085.8634.33814 [cs]",
       "groups": [
         {
           "code": "MODEL",
@@ -2355,7 +2355,8 @@
           "groups": [],
           "options": [
             "$PRM30",
-            "$PRM31"
+            "$PRM31",
+            "$PRM32"
           ],
           "required": true,
           "exclusive": true,
@@ -2531,7 +2532,8 @@
             "$MT323",
             "$MT325",
             "$MT328",
-            "$MT340"
+            "$MT340",
+            "$MT341"
           ],
           "required": false,
           "exclusive": false,
@@ -2882,6 +2884,16 @@
                     "and": [
                       "$W33D",
                       "$MT325"
+                    ]
+                  }
+                },
+                {
+                  "value": 644,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$W40B",
+                      "$MT341"
                     ]
                   }
                 }
@@ -3407,15 +3419,8 @@
         },
         {
           "code": "REAR_WHEEL_PARTIAL",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$MT322"
-          ],
-          "required": false,
-          "exclusive": false,
-          "default_options": [],
           "name": "REAR_WHEEL_PARTIAL",
+          "context": "configurator",
           "extra_copy": [
             {
               "type": "name",
@@ -3453,7 +3458,14 @@
                 }
               ]
             }
-          ]
+          ],
+          "groups": [],
+          "options": [
+            "$MT322"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": []
         },
         {
           "code": "DUAL_MOTOR_ALL_WHEEL_DRIVE",
@@ -3851,7 +3863,8 @@
             "$MT325",
             "$MT323",
             "$MT328",
-            "$MT340"
+            "$MT340",
+            "$MT341"
           ],
           "required": false,
           "exclusive": false,
@@ -6170,7 +6183,8 @@
                       "$MT321",
                       "$MT323",
                       "$MT328",
-                      "$MT325"
+                      "$MT325",
+                      "$MT341"
                     ]
                   }
                 }
@@ -9449,7 +9463,8 @@
               "content": [
                 {
                   "configuration": [
-                    "$PRM30"
+                    "$PRM30",
+                    "$PRM32"
                   ],
                   "condition_state": "not"
                 }
@@ -9707,6 +9722,12 @@
                     "$PRM30"
                   ],
                   "condition_state": "not"
+                },
+                {
+                  "configuration": [
+                    "$MT341"
+                  ],
+                  "condition_state": "or"
                 }
               ]
             }
@@ -10592,6 +10613,23 @@
                 {
                   "url": "MODEL3/UI/Paint_Red.png",
                   "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "configuration": [
+                    "$MT341"
+                  ],
+                  "condition_state": "or"
+                },
+                {
+                  "configuration": [
+                    "$MT341"
+                  ],
+                  "condition_state": "or"
                 }
               ]
             }
@@ -11487,9 +11525,10 @@
               "content": [
                 {
                   "configuration": [
-                    "$MT325"
+                    "$MT325",
+                    "$MT341"
                   ],
-                  "condition_state": "and"
+                  "condition_state": "or"
                 }
               ]
             }
@@ -11598,7 +11637,8 @@
                 "$MT323",
                 "$MT325",
                 "$MT328",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             },
             {
@@ -11692,7 +11732,8 @@
                 "$MT323",
                 "$MT325",
                 "$MT328",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             }
           ],
@@ -11908,7 +11949,8 @@
                 "$MT322",
                 "$MT323",
                 "$MT328",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             },
             {
@@ -12014,7 +12056,8 @@
                 "$MT337",
                 "$MT323",
                 "$MT328",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             },
             {
@@ -12269,7 +12312,8 @@
                 "$MT322",
                 "$MT323",
                 "$MT325",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             },
             {
@@ -12372,7 +12416,8 @@
                 "$MT337",
                 "$MT323",
                 "$MT325",
-                "$MT340"
+                "$MT340",
+                "$MT341"
               ]
             },
             {
@@ -12527,6 +12572,12 @@
                 "target": "$IBW1",
                 "condition_code": "$IPW1",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$PRM32",
+                "condition_code": "$MT341",
+                "condition_state": "set"
               }
             ]
           },
@@ -12537,7 +12588,10 @@
             },
             {
               "action": "unset",
-              "target": "$PRM31"
+              "targets": [
+                "$PRM31",
+                "$PRM32"
+              ]
             },
             {
               "action": "set",
@@ -12586,6 +12640,12 @@
               "target": "$IBW1",
               "condition_code": "$IPW1",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$PRM32",
+              "condition_code": "$MT341",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -12596,8 +12656,11 @@
             {
               "action": "set",
               "target": "$PRM30",
-              "condition_code": "$PRM31",
-              "condition_state": "unset"
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$PRM31",
+                "$PRM32"
+              ]
             }
           ],
           "name": "Částečně prémiový interiér",
@@ -12712,6 +12775,12 @@
                 "target": "$IPW1",
                 "condition_code": "$IBW1",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$PRM32",
+                "condition_code": "$MT341",
+                "condition_state": "set"
               }
             ]
           },
@@ -12722,7 +12791,10 @@
             },
             {
               "action": "unset",
-              "target": "$PRM30"
+              "targets": [
+                "$PRM30",
+                "$PRM32"
+              ]
             },
             {
               "action": "set",
@@ -12784,6 +12856,12 @@
               "target": "$IPW1",
               "condition_code": "$IBW1",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$PRM32",
+              "condition_code": "$MT341",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
@@ -12793,7 +12871,9 @@
             },
             {
               "action": "set",
-              "target": "$PRM30"
+              "target": "$PRM30",
+              "condition_code": "$PRM32",
+              "condition_state": "unset"
             }
           ],
           "name": "Prémiový interiér",
@@ -12841,6 +12921,125 @@
               "type": "base",
               "value": 0,
               "context": "CZK"
+            }
+          ]
+        },
+        "$PRM32": {
+          "code": "$PRM32",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "target": "$PRM32",
+                "condition_code": "$MT341",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBB0",
+                "condition_code": "$IPB0",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBW0",
+                "condition_code": "$IPW0",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBB1",
+                "condition_code": "$IPB1",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$IBW1",
+                "condition_code": "$IPW1",
+                "condition_state": "set"
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$PRM32"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$PRM30",
+                "$PRM31"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$PRM32",
+              "condition_code": "$MT341",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBB0",
+              "condition_code": "$IPB0",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBW0",
+              "condition_code": "$IPW0",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBB1",
+              "condition_code": "$IPB1",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$IBW1",
+              "condition_code": "$IPW1",
+              "condition_state": "set"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$PRM32"
+            },
+            {
+              "action": "set",
+              "target": "$PRM30",
+              "condition_code": "$PRM31",
+              "condition_state": "unset"
+            }
+          ],
+          "name": "Částečně prémiový interiér",
+          "description": "<p>Vylepšete svůj interiér doplňkovými prvky a prémiovými materiály.</p><ul><li><span>Prémiové materiály na vyhřívaných sedadlech a v interiéru, včetně dekoru ze dřeva s výraznou texturou, prosklené střechy a čtyř portů USB</span></li><li><span>12polohová elektricky nastavitelná přední sedadla, sloupek řízení a vnější zrcátka, s vlastními profily řidičů</span></li><li><span>Prémiový audiosystém s vyšším výkonem, výškovými reproduktory, prostorovými reproduktory a subwooferem</span></li></ul>",
+          "long_name": "Částečně prémiový interiér",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Prémiový"
+            },
+            {
+              "type": "price_indicator",
+              "content": "v ceně"
+            },
+            {
+              "type": "short_description",
+              "content": "Náš paket prémiových doplňků obohatí Model 3 řadou vylepšených funkcí"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
             }
           ]
         },
@@ -13732,6 +13931,13 @@
                   "topspeed": 261,
                   "acceleration": 3.3,
                   "range_units_override": "range_units_epa_link"
+                },
+                "$MT341": {
+                  "name": "Long Range Rear-Wheel Drive",
+                  "range": 620,
+                  "topspeed": 233,
+                  "acceleration": 5.9,
+                  "range_units_override": "range_units_epa_link"
                 }
               }
             }
@@ -13782,7 +13988,7 @@
         "$APBS",
         "$SC04"
       ],
-      "options_id": 6844,
+      "options_id": 7085,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -13839,13 +14045,6 @@
             },
             {
               "code": "REAR_WHEEL_DRIVE_GROUP",
-              "context": [
-                "configurator"
-              ],
-              "msg": "Present in both Copy and Options lexicons"
-            },
-            {
-              "code": "REAR_WHEEL_PARTIAL",
               "context": [
                 "configurator"
               ],
@@ -14302,10 +14501,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 8378,
+      "copy_id": 8634,
       "language": "cs",
       "pricing_id": 33814,
-      "reference_id": 6844,
+      "reference_id": 7085,
       "source": "cache"
     }
   }
