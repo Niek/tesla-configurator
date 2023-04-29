@@ -4,9 +4,9 @@
       "keys": {
         "Lexicon": [
           {
-            "key": "Lexicon.mp",
+            "key": "Lexicon.ct",
             "query": {
-              "available_configurations": "mp:mp",
+              "available_configurations": "ct:ct",
               "language": "en",
               "market": "US",
               "app": "find-my-tesla",
@@ -19,16 +19,16 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
-              "model": "mp",
-              "variant": "mp"
+              "model": "ct",
+              "variant": "ct"
             }
           }
         ],
         "InitialConfig": [
           {
-            "key": "InitialConfig.mp.mp",
+            "key": "InitialConfig.ct.ct",
             "query": {
-              "available_configurations": "mp:mp",
+              "available_configurations": "ct:ct",
               "language": "en",
               "market": "US",
               "app": "find-my-tesla",
@@ -41,14 +41,14 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
-              "model": "mp",
-              "variant": "mp"
+              "model": "ct",
+              "variant": "ct"
             }
           }
         ]
       },
       "query": {
-        "available_configurations": "mp:mp",
+        "available_configurations": "ct:ct",
         "language": "en",
         "market": "US",
         "app": "find-my-tesla",
@@ -63,7 +63,7 @@
         "isFeeSvcEnabled": "0"
       }
     },
-    "InitialConfig.mp.mp": {
+    "InitialConfig.ct.ct": {
       "App": {
         "enableCyberpunk": true,
         "enableRedesign": false,
@@ -1081,16 +1081,16 @@
         "includeServiceFee": [],
         "residualAmount": null,
         "userLeaseAmount": null,
-        "DisclaimerTitlei18nKey": "Review.Gas_Savings",
+        "DisclaimerTitlei18nKey": "SummaryPanel.disclaimers.incentivesAndGasSavingsDisclaimer",
         "region_code": "",
         "showPricesWithForwardCalculatedVat": false
       }
     },
-    "Lexicon.mp": {
-      "id": 7042,
-      "effective_date": "2023-03-29T17:39:12.545Z",
+    "Lexicon.ct": {
+      "id": 7078,
+      "effective_date": "2023-04-27T17:00:00.000Z",
       "market": "US",
-      "product": "mp",
+      "product": "ct",
       "factory": "GF00",
       "sku": {
         "trims": {
@@ -1106,6 +1106,9 @@
                   "$DV2W",
                   "$MDLP",
                   "$APBS",
+                  "$IDD",
+                  "$PDD",
+                  "$WDD",
                   "$SC04"
                 ],
                 "combinations": []
@@ -1117,7 +1120,7 @@
         "default_trim": "$MTP04"
       },
       "fees": {},
-      "name": "Marketing US 2023.Mar.29 7042.4217.28008",
+      "name": "Marketing US 2023.Apr.27 7078.8515.32557",
       "groups": [
         {
           "code": "MODEL",
@@ -1125,12 +1128,12 @@
           "context": "default",
           "groups": [],
           "options": [
-            "$MDLP"
+            "$CYBR"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MDLP"
+            "$CYBR"
           ]
         },
         {
@@ -1240,7 +1243,7 @@
           "groups": [],
           "context": "order_summary",
           "options": [
-            "$MDLP",
+            "$CYBR",
             "$MTP01",
             "$MTP02",
             "$MTP03",
@@ -1263,7 +1266,11 @@
         },
         {
           "code": "REVIEW_ORDER",
-          "groups": [],
+          "groups": [
+            "AUTOPILOT",
+            "AUTOPILOT_OWNERSHIP",
+            "AUTOPILOT_PACKAGE"
+          ],
           "context": "order_summary",
           "options": [],
           "required": false,
@@ -1693,6 +1700,42 @@
             }
           ]
         },
+        "$CYBR": {
+          "code": "$CYBR",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$CYBR"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$CYBR"
+            },
+            {
+              "action": "set",
+              "target": "$CYBR"
+            }
+          ],
+          "name": "Cybertruck",
+          "description": "Cybertruck",
+          "long_name": "Cybertruck",
+          "extra_copy": [],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "order_payment",
+              "value": 100,
+              "context": "default"
+            },
+            {
+              "type": "base",
+              "value": 0,
+              "context": "default"
+            }
+          ]
+        },
         "$DV2W": {
           "code": "$DV2W",
           "user_defined_rules": {
@@ -1808,42 +1851,6 @@
                   "type": "block"
                 }
               ]
-            }
-          ]
-        },
-        "$MDLP": {
-          "code": "$MDLP",
-          "set_rules": [
-            {
-              "action": "set",
-              "target": "$MDLP"
-            }
-          ],
-          "unset_rules": [
-            {
-              "action": "unset",
-              "target": "$MDLP"
-            },
-            {
-              "action": "set",
-              "target": "$MDLP"
-            }
-          ],
-          "name": "Cybertruck",
-          "description": "Cybertruck",
-          "long_name": "Cybertruck",
-          "extra_copy": [],
-          "price": 0,
-          "pricing": [
-            {
-              "type": "order_payment",
-              "value": 100,
-              "context": "default"
-            },
-            {
-              "type": "base",
-              "value": 0,
-              "context": "default"
             }
           ]
         },
@@ -2060,17 +2067,20 @@
         "currency_code": "USD",
         "currency_symbol": "$"
       },
+      "extra_factories": [
+        "GF04"
+      ],
       "base_configuration": [
         "$APBS",
         "$DV2W",
         "$IDD",
-        "$MDLP",
+        "$CYBR",
         "$MTP04",
         "$PDD",
         "$WDD",
         "$SC04"
       ],
-      "options_id": 7042,
+      "options_id": 7078,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -2132,9 +2142,9 @@
           "message": "'Fees' should be moved to Copy lexicon from Options."
         }
       ],
-      "copy_id": 4217,
+      "copy_id": 8515,
       "language": "en",
-      "pricing_id": 28008,
+      "pricing_id": 32557,
       "source": "cache"
     }
   }
