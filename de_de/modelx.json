@@ -2674,7 +2674,7 @@
       "tcc": []
     },
     "Lexicon.mx": {
-      "effective_date": "2023-04-28T01:10:00.000Z",
+      "effective_date": "2023-05-05T00:20:00.000Z",
       "market": "DE",
       "product": "mx",
       "factory": "GF00",
@@ -2803,7 +2803,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2023.Apr.28 7566.8672.34534 [de]",
+      "name": "Marketing DE 2023.May.05 7687.8758.35269 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -3611,6 +3611,12 @@
                   "type": "DeliveryDate",
                   "props": {
                     "classes": "tds--vertical_padding-bottom"
+                  }
+                },
+                {
+                  "type": "EmissionsBanner",
+                  "props": {
+                    "classes": "emissions-banner"
                   }
                 },
                 {
@@ -4756,7 +4762,27 @@
           "extra_copy": [
             {
               "type": "federalTax.description",
-              "content": "Durchsuchen Sie unseren sofort <a href='/{LOCALE}/inventory/new/mx?redirect=no' target='_blank'>verfügbaren Bestand</a>."
+              "content": "<strong>3 Jahre kostenloses Schnellladen an Superchargern</strong><br/>Sichern Sie sich mit dem Kauf eines neuen Model S oder Model X drei Jahre unbegrenztes, kostenloses Schnellladen an Superchargern."
+            },
+            {
+              "type": "federalTax.link",
+              "content": "Mehr erfahren",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "SHOW_BANNER_MODAL"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "federalTax.banner_title",
+              "content": "<h4>3 Jahre kostenloses Schnellladen an Superchargern</h4>"
+            },
+            {
+              "type": "federalTax.banner_description",
+              "content": "Kunden, die zwischen dem 5. Mai 2023 und dem 30. Juni 2023 ein neues Model S oder Model X bestellen und in Empfang nehmen, haben Anspruch auf drei Jahre unbegrenztes, kostenloses Schnellladen an Superchargern für das neue Fahrzeug. Das kostenlose Schnellladen an Superchargern ist an Ihr Tesla-Konto gebunden und kann im Fall eines Besitzerwechsels nicht auf ein anderes Fahrzeug oder eine andere Person übertragen werden. Tesla übernimmt keine Haftung, falls die Fahrzeugübergabe nicht vor dem 30. Juni 2023 erfolgt. Gebrauchtfahrzeuge, Bestellungen von Unternehmen und/oder juristischen Personen sowie gewerblich genutzte Fahrzeuge sind von dieser Aktion ausgeschlossen. Die Aktion kann jederzeit ohne Vorankündigung geändert und beendet werden."
             }
           ]
         },
@@ -8090,6 +8116,133 @@
             {
               "type": "aria_label",
               "content": "Modelle vergleichen"
+            }
+          ]
+        },
+        {
+          "code": "EMISSIONS_BANNER",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Emissionen-Banner",
+          "extra_copy": [
+            {
+              "type": "emissionsBanner.description",
+              "content": "Offizieller Energieverbrauch: {ENERGY_CONSUMPTION} kWh/100km. CO<sub>2</sub>-Emissionen im kombinierten Testzyklus: 0 g/km. CO<sub>2</sub>-Effizienzklasse: {EFFICIENCY_CLASS}."
+            },
+            {
+              "type": "emissionsBanner.link",
+              "content": "Mehr Informationen",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "SHOW_EMISSIONS_MODAL"
+                  }
+                }
+              ]
+            }
+          ],
+          "description": "Emissionen-Banner",
+          "extra_content": []
+        },
+        {
+          "code": "EMISSIONS",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Emissionen",
+          "extra_copy": [
+            {
+              "type": "title[0]",
+              "content": "Antriebsart"
+            },
+            {
+              "type": "title[1]",
+              "content": "Leistung"
+            },
+            {
+              "type": "title[2]",
+              "content": "Gewicht"
+            },
+            {
+              "type": "title[3]",
+              "content": "Stromverbrauch"
+            },
+            {
+              "type": "title[4]",
+              "content": "CO<sub>2</sub>-<br/>Emission"
+            },
+            {
+              "type": "title[5]",
+              "content": "C<sub>2</sub>-Effizienz"
+            },
+            {
+              "type": "electric",
+              "content": "Elektro"
+            },
+            {
+              "type": "power__front",
+              "content": "Vorne"
+            },
+            {
+              "type": "power__back",
+              "content": "Hinten"
+            },
+            {
+              "type": "or_word",
+              "content": "oder"
+            },
+            {
+              "type": "footer",
+              "content": "Besuchen Sie unsere <a href='/de_DE/support/european-union-energy-label?redirect=no' target='_blank'>Support-Seite</a> für weitere Informationen."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "title_path": "CustomGroups.EMISSIONS.title[0]",
+                  "content_path": {
+                    "value": "CustomGroups.EMISSIONS.electric"
+                  }
+                },
+                {
+                  "title_path": "CustomGroups.EMISSIONS.title[1]",
+                  "content_path": {
+                    "value": "formattedSpecs.rawData.power"
+                  }
+                },
+                {
+                  "postfix": "kg",
+                  "title_path": "CustomGroups.EMISSIONS.title[2]",
+                  "content_path": {
+                    "value": "formattedSpecs.rawData.mass"
+                  }
+                },
+                {
+                  "postfix": "kWh/100km",
+                  "title_path": "CustomGroups.EMISSIONS.title[3]",
+                  "content_path": {
+                    "value": "formattedSpecs.rawData.energy_consumption"
+                  }
+                },
+                {
+                  "content": "0 g/km",
+                  "title_path": "CustomGroups.EMISSIONS.title[4]"
+                },
+                {
+                  "title_path": "CustomGroups.EMISSIONS.title[5]",
+                  "content_path": {
+                    "value": "formattedSpecs.rawData.efficiency_class"
+                  }
+                }
+              ]
             }
           ]
         }
@@ -15328,16 +15481,16 @@
               ]
             }
           ],
-          "price": 33000,
+          "price": 35500,
           "pricing": [
             {
               "type": "base",
-              "value": 33000,
+              "value": 35500,
               "context": "EUR"
             },
             {
               "type": "base_plus_trim",
-              "value": 110990,
+              "value": 113490,
               "context": "EUR"
             }
           ]
@@ -15637,16 +15790,16 @@
               ]
             }
           ],
-          "price": 53000,
+          "price": 55500,
           "pricing": [
             {
               "type": "base",
-              "value": 53000,
+              "value": 55500,
               "context": "EUR"
             },
             {
               "type": "base_plus_trim",
-              "value": 130990,
+              "value": 133490,
               "context": "EUR"
             }
           ]
@@ -16454,20 +16607,34 @@
                   "range_units_override": "range_units_est"
                 },
                 "$MTX13": {
+                  "mass": 2415,
                   "name": "Model X Long Range",
                   "group": "TRIM",
+                  "power": {
+                    "power__back": 252,
+                    "power__front": 252
+                  },
                   "range": 576,
                   "topspeed": 250,
                   "acceleration": 3.9,
+                  "efficiency_class": "A+",
+                  "energy_consumption": 19.1,
                   "range_units_override": "range_units_epa_link"
                 },
                 "$MTX14": {
+                  "mass": 2539,
                   "name": "Model X Plaid",
                   "group": "TRIM",
+                  "power": {
+                    "power__back": "309 x2",
+                    "power__front": 314
+                  },
                   "range": 543,
                   "postfix": "*",
                   "topspeed": 262,
                   "acceleration": 2.6,
+                  "efficiency_class": "A+",
+                  "energy_consumption": 20.8,
                   "range_units_override": "range_units_epa_link"
                 }
               }
@@ -16494,6 +16661,28 @@
           "context_mapping": {
             "default": "EUR"
           },
+          "price_offset_options": {
+            "$MTX10A": {
+              "code": "A",
+              "offset": -2500,
+              "option_code": "$MTX10"
+            },
+            "$MTX11A": {
+              "code": "A",
+              "offset": -2500,
+              "option_code": "$MTX11"
+            },
+            "$MTX13A": {
+              "code": "A",
+              "offset": -2500,
+              "option_code": "$MTX13"
+            },
+            "$MTX14A": {
+              "code": "A",
+              "offset": -2500,
+              "option_code": "$MTX14"
+            }
+          },
           "context_currency_mapping": {
             "default": {
               "currency_code": "EUR",
@@ -16517,7 +16706,7 @@
         "$ST03",
         "$TW01"
       ],
-      "options_id": 7566,
+      "options_id": 7687,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -16988,6 +17177,20 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EMISSIONS_BANNER",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EMISSIONS",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -16997,10 +17200,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 8672,
+      "copy_id": 8758,
       "language": "de",
-      "pricing_id": 34534,
-      "reference_id": 7566,
+      "pricing_id": 35269,
+      "reference_id": 7687,
       "source": "cache"
     }
   }

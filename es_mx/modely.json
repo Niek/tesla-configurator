@@ -1739,13 +1739,13 @@
       "loan": []
     },
     "Lexicon.my": {
-      "effective_date": "2023-05-03T17:48:00.000Z",
+      "effective_date": "2023-05-05T00:20:00.000Z",
       "market": "MX",
       "product": "my",
       "factory": "GF00",
       "sku": {
         "trims": {
-          "$MTY05": {
+          "$MTY10": {
             "variant": {
               "code": "PERF",
               "name": "PERFORMANCE"
@@ -1764,8 +1764,9 @@
                 ],
                 "upgradable": [],
                 "base_options": [
-                  "$MTY05",
+                  "$MTY10",
                   "$DV4W",
+                  "$PRMY1",
                   "$SPTY1",
                   "$BCYR",
                   "$PL31",
@@ -1773,26 +1774,26 @@
                   "$WY21P",
                   "$MDLY",
                   "$APBS",
-                  "$PRMY1",
+                  "$INPB0",
                   "$STY5S",
                   "$CPF0"
                 ],
                 "combinations": [
                   [
-                    "$PPSW",
+                    "$INPB0",
+                    "$INPW0"
+                  ],
+                  [
+                    "$PBSB",
                     "$PMNG",
                     "$PPSB",
-                    "$PBSB",
+                    "$PPSW",
                     "$PPMR"
                   ],
                   [
                     "$SC04",
                     "$SC05",
                     "$SC06"
-                  ],
-                  [
-                    "$INPB0",
-                    "$INPW0"
                   ]
                 ]
               }
@@ -1904,7 +1905,7 @@
         "default_trim": "$MTY13"
       },
       "fees": {},
-      "name": "Marketing MX 2023.May.03 7619.8576.34903 [es]",
+      "name": "Marketing MX 2023.May.05 7689.8788.34903 [es]",
       "groups": [
         {
           "code": "MODEL",
@@ -1927,8 +1928,8 @@
           "context": "default",
           "groups": [],
           "options": [
-            "$MTY05",
             "$MTY11",
+            "$MTY10",
             "$MTY13"
           ],
           "required": true,
@@ -2334,7 +2335,7 @@
           "options": [
             "$MTY13",
             "$MTY11",
-            "$MTY05"
+            "$MTY10"
           ],
           "required": true,
           "exclusive": true,
@@ -2647,6 +2648,16 @@
                     "and": [
                       "$WY19B",
                       "$MTY13"
+                    ]
+                  }
+                },
+                {
+                  "value": 459,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$WY21P",
+                      "$MTY10"
                     ]
                   }
                 }
@@ -3133,7 +3144,7 @@
           "context": "configurator",
           "options": [
             "$MTY11",
-            "$MTY05"
+            "$MTY10"
           ],
           "required": false,
           "exclusive": false,
@@ -9442,9 +9453,10 @@
               "content": [
                 {
                   "configuration": [
-                    "$MTY13"
+                    "$MTY13",
+                    "$MTY10"
                   ],
-                  "condition_state": "and"
+                  "condition_state": "or"
                 }
               ]
             }
@@ -9458,8 +9470,8 @@
             }
           ]
         },
-        "$MTY05": {
-          "code": "$MTY05",
+        "$MTY10": {
+          "code": "$MTY10",
           "user_defined_rules": {
             "set_rules": [
               {
@@ -9481,6 +9493,12 @@
                 "target": "$STY5S",
                 "condition_code": "$STY7S",
                 "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$INPB0",
+                "condition_code": "$INPW0",
+                "condition_state": "set"
               }
             ],
             "unset_rules": [
@@ -9496,7 +9514,7 @@
           "set_rules": [
             {
               "action": "set",
-              "target": "$MTY05"
+              "target": "$MTY10"
             },
             {
               "action": "unset",
@@ -9505,10 +9523,10 @@
                 "$MTY02",
                 "$MTY03",
                 "$MTY04",
+                "$MTY05",
                 "$MTY06",
                 "$MTY11",
                 "$MTY09",
-                "$MTY10",
                 "$MTY13"
               ]
             },
@@ -9531,12 +9549,18 @@
               "target": "$STY5S",
               "condition_code": "$STY7S",
               "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$INPB0",
+              "condition_code": "$INPW0",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
             {
               "action": "unset",
-              "target": "$MTY05"
+              "target": "$MTY10"
             },
             {
               "action": "set",
@@ -9547,10 +9571,10 @@
                 "$MTY02",
                 "$MTY03",
                 "$MTY04",
+                "$MTY05",
                 "$MTY06",
                 "$MTY11",
-                "$MTY09",
-                "$MTY10"
+                "$MTY09"
               ]
             },
             {
@@ -10990,11 +11014,11 @@
                 },
                 "$MTY10": {
                   "name": "Performance: tracción en todas las ruedas",
-                  "range": 514,
+                  "range": 459,
                   "postfix": "*",
                   "topspeed": 250,
                   "acceleration": 3.7,
-                  "range_units_override": "range_units_epa_link"
+                  "range_units_override": "range_units_epa"
                 },
                 "$MTY11": {
                   "name": "Tracción en todas las ruedas de Autonomía Mayor",
@@ -11099,7 +11123,7 @@
         "$PPSW",
         "$SC04"
       ],
-      "options_id": 7619,
+      "options_id": 7689,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -11560,10 +11584,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 8576,
+      "copy_id": 8788,
       "language": "es",
       "pricing_id": 34903,
-      "reference_id": 7619,
+      "reference_id": 7689,
       "source": "cache"
     }
   }
