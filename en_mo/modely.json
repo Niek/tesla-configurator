@@ -1494,7 +1494,7 @@
             "fuel_efficiency_metric": 7.63,
             "kwh_consumption_100": 16.9,
             "fuel_price": 11.66,
-            "kwh_price": 1.27,
+            "kwh_price": 1.22,
             "kwh_consumption": 0.169
           },
           "variant": "my",
@@ -1748,7 +1748,7 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2023-05-03T17:38:00.000Z",
+      "effective_date": "2023-05-12T02:14:00.000Z",
       "market": "MO",
       "product": "my",
       "factory": "GF03",
@@ -1919,7 +1919,7 @@
         "default_trim": "$MTY13"
       },
       "fees": {},
-      "name": "Marketing MO 2023.May.03 7342.8345.34924 [en]",
+      "name": "Marketing MO 2023.May.12 7719.8819.35477 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -2129,8 +2129,8 @@
           "groups": [],
           "options": [
             "$APBS",
-            "$APF2",
-            "$APPB"
+            "$APPB",
+            "$APF2"
           ],
           "required": false,
           "exclusive": false,
@@ -2758,7 +2758,9 @@
           "extra_content": [],
           "groups": [],
           "options": [
-            "$APBS"
+            "$APBS",
+            "$APPB",
+            "$APF2"
           ],
           "required": false,
           "exclusive": false,
@@ -4228,9 +4230,9 @@
           "code": "FSD_FEATURES",
           "groups": [
             "FSD_LANE_CHANGE_CARD",
-            "FSD_NAVIGATE_CARD",
             "FSD_AUTOPARK_CARD",
             "FSD_TRAFFIC_LIGHT_CARD",
+            "FSD_NAVIGATE_CARD",
             "FSD_COMPUTER_CARD"
           ],
           "context": "configurator",
@@ -5007,7 +5009,7 @@
             },
             {
               "type": "description",
-              "content": "Easily charge two phones at once on a non-slip, contoured surface. The integrated center console offers deep storage space with two front and two rear USB charging ports, tiered storage under the armrest, and a folding privacy shield to cover your phones."
+              "content": "Easily charge two phones at once on a non-slip, contoured surface. The integrated center console offers deep storage space with two front and two rear USB-C charging ports, and tiered storage under the armrest. "
             }
           ],
           "extra_content": [
@@ -5685,14 +5687,19 @@
           "code": "EAP_FEATURES",
           "groups": [
             "EAP_LANE_CHANGE_CARD",
-            "EAP_NAVIGATE_CARD",
-            "EAP_AUTOPARK_CARD",
-            "EAP_SUMMON_CARD"
+            "EAP_AUTOPARK_CARD"
           ],
           "context": "configurator",
           "options": [],
           "required": false,
-          "exclusive": false
+          "exclusive": false,
+          "name": "Enhanced Autopilot",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Enhanced Autopilot Features"
+            }
+          ]
         },
         {
           "code": "EAP_NAVIGATE_CARD",
@@ -5702,7 +5709,102 @@
             "$APPB"
           ],
           "required": false,
-          "exclusive": false
+          "exclusive": false,
+          "name": "Navigate on Autopilot",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Navigate on Autopilot"
+            },
+            {
+              "type": "panelName",
+              "content": "Enhanced Autopilot"
+            },
+            {
+              "type": "description",
+              "content": "Automatic driving from highway on-ramp to off-ramp includes automatic lane changes, Traffic-Aware Cruise Control with complete stopping and re-engagement, Autosteer, and overtaking slow cars in your lane."
+            },
+            {
+              "type": "add_options",
+              "content": "Add Package",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_NAVIGATE_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-navigate-on-autopilot"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Remove",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_NAVIGATE_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-navigate-on-autopilot"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/navigate-on-autopilot.mp4",
+                  "type": "video-inline",
+                  "urlDesktop": "MODEL3/UI/navigate-on-autopilot.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "EAP_LANE_CHANGE_CARD",
@@ -5712,7 +5814,102 @@
             "$APPB"
           ],
           "required": false,
-          "exclusive": false
+          "exclusive": false,
+          "name": "Auto Lane Change",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Auto Lane Change"
+            },
+            {
+              "type": "panelName",
+              "content": "Enhanced Autopilot"
+            },
+            {
+              "type": "description",
+              "content": "While driving on the highway, Automatic Lane Change will position your car in the optimal lane to prepare for merges and exits while overtaking slow cars. Drivers are given clear insight to upcoming lane changes as well as customization to Auto Lane Change functionality."
+            },
+            {
+              "type": "add_options",
+              "content": "Add Package",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_LANE_CHANGE_FEATURE",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-auto-lane-change"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Remove",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_LANE_CHANGE_FEATURE",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-auto-lane-change"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/lane_change.mp4",
+                  "type": "video-inline",
+                  "urlDesktop": "MODEL3/UI/lane_change.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "EAP_AUTOPARK_CARD",
@@ -5722,7 +5919,102 @@
             "$APPB"
           ],
           "required": false,
-          "exclusive": false
+          "exclusive": false,
+          "name": "Autopark",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Autopark"
+            },
+            {
+              "type": "panelName",
+              "content": "Enhanced Autopilot"
+            },
+            {
+              "type": "description",
+              "content": "Park with ease in both parallel and perpendicular parking spaces with a single button tap on the Center Display. Model Y will alert you to available parking spots by continuously monitoring the space around you."
+            },
+            {
+              "type": "add_options",
+              "content": "Add Package",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_AUTOPARK_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-autopark"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Remove",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_AUTOPARK_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-autopark"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/autopark.mp4",
+                  "type": "video-inline",
+                  "urlDesktop": "MODEL3/UI/autopark.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "EAP_SUMMON_CARD",
@@ -5732,7 +6024,103 @@
             "$APPB"
           ],
           "required": false,
-          "exclusive": false
+          "exclusive": false,
+          "name": "Enhanced Summon",
+          "extra_copy": [
+            {
+              "type": "title",
+              "content": "Enhanced Summon"
+            },
+            {
+              "type": "panelName",
+              "content": "Enhanced Autopilot"
+            },
+            {
+              "type": "description",
+              "content": "Activated by the Tesla App, your parked car will come find you anywhere in a parking lot, and even park or unpark itself in tight spaces. Enhanced Summon navigates complex parking situations while abiding by lane markings and stop signs, avoiding pedestrians and obstacles like traffic cones, trash bins and rogue shopping carts."
+            },
+            {
+              "type": "add_options",
+              "content": "Add Package",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_SUMMON_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "add-fsd-summon"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_options",
+              "content": "Remove",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "panelName": "FSD_SUMMON_CARD",
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--width-full",
+                      "tds-o-remove-margins"
+                    ],
+                    "interaction": "remove-fsd-summon"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "https://digitalassets.tesla.com/video/upload/prod/coin/STATIC_ASSETS/MODEL3/UI/summon_v2.mp4",
+                  "type": "video-inline",
+                  "relative": true,
+                  "urlDesktop": "https://digitalassets.tesla.com/video/upload/prod/coin/STATIC_ASSETS/MODEL3/UI/summon_v2.mp4",
+                  "selected_by": {
+                    "or": [
+                      {
+                        "on": [
+                          "desktop",
+                          "tablet"
+                        ]
+                      }
+                    ]
+                  },
+                  "video_props": {
+                    "loop": true,
+                    "muted": true,
+                    "autoPlay": true,
+                    "controls": false,
+                    "fullWidth": true,
+                    "playsInline": true
+                  }
+                }
+              ]
+            }
+          ]
         },
         {
           "code": "FSD_TRAFFIC_LIGHT_CARD",
@@ -6328,19 +6716,11 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Auto Lane Change"
+              "content": "All functionality of Basic Autopilot and Enhanced Autopilot"
             },
             {
-              "type": "feature_list.default[0].items[1]",
-              "content": "Navigate on Autopilot"
-            },
-            {
-              "type": "feature_list.default[0].items[2]",
-              "content": "Full Self-Driving Computer"
-            },
-            {
-              "type": "feature_list.default[0].items[3]",
-              "content": "Autopark"
+              "type": "feature_list.default[1].title",
+              "content": "Upcoming:"
             },
             {
               "type": "feature_list.default[1].items[0]",
@@ -6348,11 +6728,11 @@
             },
             {
               "type": "feature_list.default[1].items[1]",
-              "content": "Automatic driving on city streets"
+              "content": "Navigate on Autopilot"
             },
             {
-              "type": "feature_list.default[1].title",
-              "content": "Coming Soon"
+              "type": "feature_list.default[1].items[2]",
+              "content": "Automatic driving on city streets"
             },
             {
               "type": "disclaimer",
@@ -6768,20 +7148,106 @@
           "long_name": "Enhanced Autopilot",
           "extra_copy": [
             {
-              "type": "feature_list.default[0].items[0]",
-              "content": "Navigate on Autopilot"
+              "type": "price_indicator",
+              "content": "optional"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Auto Lane Change"
-            },
-            {
-              "type": "feature_list.default[0].items[2]",
               "content": "Autopark"
             },
             {
-              "type": "feature_list.default[0].items[3]",
-              "content": "Summon"
+              "type": "feature_list.default[0].items[0]",
+              "content": "Auto Lane Change"
+            },
+            {
+              "type": "fsd_features",
+              "content": "Features",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "EAP_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--tertiary",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "add_eap_package",
+              "content": "Add",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "selectLabel",
+              "content": "Select Option"
+            },
+            {
+              "type": "fsd_features",
+              "content": "Feature Details",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "EAP_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--tertiary",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "deselectLabel",
+              "content": "Option Selected"
+            },
+            {
+              "type": "remove_eap_package",
+              "content": "Remove",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "TRIGGER_CONFIGURATION_CHANGE",
+                    "option": {
+                      "set": [
+                        "$APPB"
+                      ]
+                    },
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--tertiary",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             },
             {
               "type": "upgrade.disclaimerOnImage",
@@ -6810,6 +7276,55 @@
           ],
           "extra_content": [
             {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
+                  }
+                },
+                {
+                  "type": "FormattedPrice"
+                },
+                {
+                  "type": "Copy",
+                  "props": {
+                    "field": "feature_list.default"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "add_eap_package",
+                        "selected_by": {
+                          "not": [
+                            "$APPB"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "remove_eap_package",
+                        "selected_by": {
+                          "and": [
+                            "$APPB"
+                          ]
+                        }
+                      },
+                      {
+                        "field": "fsd_features",
+                        "props": {
+                          "modal": "EAP_FEATURES"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            },
+            {
               "type": "asset",
               "content": [
                 {
@@ -6824,11 +7339,11 @@
               ]
             }
           ],
-          "price": 32000,
+          "price": 27000,
           "pricing": [
             {
               "type": "base",
-              "value": 32000,
+              "value": 27000,
               "context": "HKD"
             },
             {
@@ -6843,7 +7358,7 @@
             },
             {
               "type": "base",
-              "value": 33000,
+              "value": 27800,
               "context": "MOP"
             },
             {
@@ -10308,7 +10823,7 @@
         "$INPB0",
         "$DRRH"
       ],
-      "options_id": 7342,
+      "options_id": 7719,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -10664,35 +11179,35 @@
               "context": [
                 "configurator"
               ],
-              "msg": "Present in only Options lexicons"
+              "msg": "Present in both Copy and Options lexicons"
             },
             {
               "code": "EAP_NAVIGATE_CARD",
               "context": [
                 "configurator"
               ],
-              "msg": "Present in only Options lexicons"
+              "msg": "Present in both Copy and Options lexicons"
             },
             {
               "code": "EAP_LANE_CHANGE_CARD",
               "context": [
                 "configurator"
               ],
-              "msg": "Present in only Options lexicons"
+              "msg": "Present in both Copy and Options lexicons"
             },
             {
               "code": "EAP_AUTOPARK_CARD",
               "context": [
                 "configurator"
               ],
-              "msg": "Present in only Options lexicons"
+              "msg": "Present in both Copy and Options lexicons"
             },
             {
               "code": "EAP_SUMMON_CARD",
               "context": [
                 "configurator"
               ],
-              "msg": "Present in only Options lexicons"
+              "msg": "Present in both Copy and Options lexicons"
             },
             {
               "code": "FSD_TRAFFIC_LIGHT_CARD",
@@ -10744,10 +11259,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 8345,
+      "copy_id": 8819,
       "language": "en",
-      "pricing_id": 34924,
-      "reference_id": 7342,
+      "pricing_id": 35477,
+      "reference_id": 7719,
       "source": "cache"
     }
   }
