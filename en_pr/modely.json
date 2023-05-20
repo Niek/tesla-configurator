@@ -669,7 +669,8 @@
               "or": [
                 "$MTY05",
                 "$MTY10",
-                "$MTY12"
+                "$MTY12",
+                "$MTY16"
               ]
             }
           },
@@ -690,7 +691,8 @@
                 "$MTY03",
                 "$MTY05",
                 "$MTY09",
-                "$MTY12"
+                "$MTY12",
+                "$MTY16"
               ]
             }
           },
@@ -725,7 +727,8 @@
               "or": [
                 "$MTY05",
                 "$MTY10",
-                "$MTY12"
+                "$MTY12",
+                "$MTY16"
               ]
             }
           },
@@ -747,6 +750,10 @@
           },
           {
             "code": "INTERIOR_FEATURES",
+            "context": "configurator"
+          },
+          {
+            "code": "TIRE_EDUCATION",
             "context": "configurator"
           },
           {
@@ -1397,7 +1404,8 @@
           "lighting",
           "controls",
           "restraint",
-          "charging"
+          "charging",
+          "keys"
         ],
         "showCompanyFields": [
           "companyName",
@@ -1723,7 +1731,7 @@
       "loan": []
     },
     "Lexicon.my": {
-      "effective_date": "2023-05-12T02:20:00.000Z",
+      "effective_date": "2023-05-19T00:46:00.000Z",
       "market": "PR",
       "product": "my",
       "factory": "GF00",
@@ -1859,7 +1867,7 @@
           }
         }
       },
-      "name": "Marketing PR 2023.May.12 7620.8511.35466 [en]",
+      "name": "Marketing PR 2023.May.19 7724.8821.35466 [en]",
       "groups": [
         {
           "code": "MODEL",
@@ -2489,6 +2497,75 @@
             {
               "type": "certified_range_est",
               "content": "Range (est.) : {VALUE}mi"
+            },
+            {
+              "type": "tire_type[0]",
+              "content": "All-Season Tires",
+              "behavior": [
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WY19B",
+                        "$MTY11"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "tire_type[1]",
+              "content": "All-Season Tires",
+              "behavior": [
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WY20P",
+                        "$MTY11"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "tire_type[4]",
+              "content": "All-Season Tires",
+              "behavior": [
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WY21P",
+                        "$MTY05"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "tire_education",
+              "content": "Learn More",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {
+                      "data-should-open": "TIRE_EDUCATION"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--tertiary",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -2613,10 +2690,32 @@
                   "type": "SelectedPrice"
                 },
                 {
+                  "type": "Copy",
+                  "props": {
+                    "field": "tire_type",
+                    "classes": "tds-text--center tds-text--caption",
+                    "isEnabledForEditDesign": false
+                  }
+                },
+                {
                   "type": "DisclaimerSpecial",
                   "props": {
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center tds-text--caption"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "tire_education",
+                        "props": {
+                          "modal": "TIRE_EDUCATION",
+                          "isEnabledForEditDesign": false
+                        }
+                      }
+                    ]
                   }
                 }
               ]
@@ -5290,7 +5389,7 @@
             },
             {
               "type": "description",
-              "content": "Easily charge two phones at once on a non-slip, silicone surface. The integrated center console offers deep storage space with two front and two rear USB charging ports, tiered storage under the armrest, and a folding privacy shield to cover your phones."
+              "content": "Easily charge two phones at once on a non-slip, contoured surface. The integrated center console offers deep storage space with two front and two rear USB-C charging ports and tiered storage under the armrest."
             }
           ],
           "extra_content": [
@@ -6675,6 +6774,127 @@
           "required": false,
           "exclusive": false,
           "name": "REVIEW_ORDER_CONNECTIVITY"
+        },
+        {
+          "code": "TIRE_EDUCATION",
+          "groups": [
+            "TIRE_EDUCATION_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Tire Education"
+        },
+        {
+          "code": "TIRE_EDUCATION_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Tire Education",
+          "extra_copy": [
+            {
+              "type": "table.row[1].column[0].title",
+              "content": "All-Season Tires"
+            },
+            {
+              "type": "table.row[1].column[0].currentSelection",
+              "content": "Current Selection",
+              "behavior": [
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WY19B",
+                        "$MTY11"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WY20P",
+                        "$MTY11"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WY19B",
+                        "$MTY14"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WY20P",
+                        "$MTY14"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WY21P",
+                        "$MTY05"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "table.row[2].column[0].title",
+              "content": "Summer Tires"
+            },
+            {
+              "type": "table.row[1].column[1]",
+              "content": "All-Season tires are designed to work across the widest range of conditions and offer good traction and comfort in moderate climates"
+            },
+            {
+              "type": "table.row[2].column[1]",
+              "content": "Summer tires offer the best traction in warmer weather, especially for performance vehicles at higher speeds. Summer tires have reduced traction and increased noise below 40˚F, and for safety reasons, should not be driven on snow or ice."
+            },
+            {
+              "type": "table.row[3].column[0]",
+              "content": "Winter Tires"
+            },
+            {
+              "type": "table.row[3].column[1]",
+              "content": "Winter tires offer the best traction in conditions below 40˚F. For the optimal winter driving experience, we recommend fitting winter wheels and tires just before the season’s first snowfall. Winter wheel and tire packages are available on the Tesla Shop."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Table",
+                  "props": {
+                    "field": "table.row",
+                    "isCollapsedOnMobile": true
+                  }
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -10479,7 +10699,7 @@
         "$SC04",
         "$INPB0"
       ],
-      "options_id": 7620,
+      "options_id": 7724,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -10925,6 +11145,20 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "TIRE_EDUCATION",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "TIRE_EDUCATION_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -10934,10 +11168,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 8511,
+      "copy_id": 8821,
       "language": "en",
       "pricing_id": 35466,
-      "reference_id": 7620,
+      "reference_id": 7724,
       "source": "cache"
     }
   }

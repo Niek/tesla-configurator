@@ -1401,7 +1401,8 @@
           "lighting",
           "controls",
           "restraint",
-          "charging"
+          "charging",
+          "keys"
         ],
         "showCompanyFields": [
           "companyName",
@@ -1838,7 +1839,7 @@
         "default_trim": "$MTS13"
       },
       "fees": {},
-      "name": "Marketing KR 2023.May.05 7703.8813.35294 [ko]",
+      "name": "Marketing KR 2023.May.05 7703.8944.35294 [ko]",
       "groups": [
         {
           "code": "MODEL",
@@ -2715,6 +2716,22 @@
                         "$MTS13"
                       ]
                     }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "topspeed_content",
+              "content": "표시된 Plaid 최고 속도는 유료 하드웨어 업그레이드가 필요합니다 (현재 사용 불가). 해당 업그레이드 전까지 최고 속도는 280km/h입니다. 전체 주행 기간 동안 차량의 최고 속도를 사용하지 못할 수도 있습니다.",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {},
+                    "classNames": [
+                      "tds-text--center",
+                      "tds-o-vertical_padding-top--3x"
+                    ]
                   }
                 }
               ]
@@ -4303,7 +4320,7 @@
             },
             {
               "type": "description",
-              "content": "A new, lightweight glass roof allows even more light into the cabin, providing truly unobstructed views of the sky above, day or night. Infrared and UV light is effectively blocked before entering the cabin, reducing heat and glare even when the sun is overhead."
+              "content": "새로운 경량 글래스 루프가 실내 채광량을 늘려 탑승자는 낮이든 밤이든 탁 트인 시야를 즐길 수 있습니다. 내부로 들어오는 적외선과 자외선을 효과적으로 차단하여 햇빛이 수직으로 비출 때도 열과 눈부심이 감소됩니다."
             }
           ],
           "extra_content": [
@@ -6432,7 +6449,7 @@
           "extra_copy": [
             {
               "type": "federalTax.description",
-              "content": "<strong>3 년 무료 수퍼 차징</strong><br/>신차 Model S 또는 Model X를 구매하시면 3년 간 무료 무제한 수퍼차징을 이용할 수 있습니다."
+              "content": "<strong>3 년 무료 수퍼차징</strong><br/>신차 Model S 또는 Model X를 구매하시면 3년 간 무료 무제한 수퍼차징을 이용할 수 있습니다."
             },
             {
               "type": "federalTax.link",
@@ -6452,7 +6469,7 @@
             },
             {
               "type": "federalTax.banner_description",
-              "content": "2023년 5월 5일부터 2023년 6월 30일 사이에 Model S 또는 Model X를 주문하고 차량을 인도받는 고객은 3년 동안 무료 무제한 수퍼차징을 이용할 수 있습니다. 무료 수퍼차징은 Tesla 계정에 연결되어 있어 차량의 소유권이 이전되는 경우 다른 차량이나 사람에게 양도할 수 없습니다. Tesla는 2023년 6월 30일 이전까지 차량 인도가 이루어지지 않는 경우에 대해 책임지지 않습니다. 중고 차량, 기업 및/또는 법인 주문, 상업적 목적으로 사용되는 차량은 본 프로모션에서 제외됩니다. 프로모션은 변경될 수있으며 언제든 사전 통지 없이 종료될 수 있습니다."
+              "content": "2023년 5월 5일부터 2023년 6월 30일 사이에 Model S 또는 Model X를 주문하고 차량을 인도받으면 3년 동안 무료 무제한 수퍼차징을 이용할 수 있습니다. 무료 수퍼차징은 Tesla 계정에 연결되어 있어 차량의 소유권이 이전되는 경우 다른 차량이나 사람에게 양도할 수 없습니다. Tesla는 2023년 6월 30일 이전까지 차량 인도가 이루어지지 않는 경우에 대해 책임지지 않습니다. 중고 차량, 기업 및/또는 법인 주문, 상업적 목적으로 사용되는 차량은 본 프로모션에서 제외됩니다. 프로모션은 변경될 수 있으며 언제든 사전 통지 없이 종료될 수 있습니다."
             }
           ]
         }
@@ -14433,6 +14450,25 @@
                   "kilometers-per-hour": {
                     "label": "시간당 킬로미터",
                     "short_label": "km/h"
+                  },
+                  "top_speed_units_override": {
+                    "label": "최고 속도",
+                    "content": "최고 속도",
+                    "behavior": [
+                      {
+                        "type": "ACTION",
+                        "content": {
+                          "type": "SHOW_ACCELERATION_MODAL",
+                          "props": {
+                            "content_path": "CustomGroups.BATTERY_AND_DRIVE.topspeed_content"
+                          },
+                          "classNames": [
+                            "top-speed-disclaimer-link"
+                          ]
+                        }
+                      }
+                    ],
+                    "short_label": "mph"
                   }
                 }
               },
@@ -14560,7 +14596,8 @@
                   "range": 474,
                   "postfix": "*",
                   "topspeed": 322,
-                  "acceleration": 2.1
+                  "acceleration": 2.1,
+                  "use_top_speed_override": true
                 }
               }
             }
@@ -15060,7 +15097,7 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 8813,
+      "copy_id": 8944,
       "language": "ko",
       "pricing_id": 35294,
       "reference_id": 7703,

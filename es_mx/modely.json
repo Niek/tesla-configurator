@@ -669,7 +669,8 @@
               "or": [
                 "$MTY05",
                 "$MTY10",
-                "$MTY12"
+                "$MTY12",
+                "$MTY16"
               ]
             }
           },
@@ -690,7 +691,8 @@
                 "$MTY03",
                 "$MTY05",
                 "$MTY09",
-                "$MTY12"
+                "$MTY12",
+                "$MTY16"
               ]
             }
           },
@@ -725,7 +727,8 @@
               "or": [
                 "$MTY05",
                 "$MTY10",
-                "$MTY12"
+                "$MTY12",
+                "$MTY16"
               ]
             }
           },
@@ -747,6 +750,10 @@
           },
           {
             "code": "INTERIOR_FEATURES",
+            "context": "configurator"
+          },
+          {
+            "code": "TIRE_EDUCATION",
             "context": "configurator"
           },
           {
@@ -1417,7 +1424,8 @@
           "lighting",
           "controls",
           "restraint",
-          "charging"
+          "charging",
+          "keys"
         ],
         "showCompanyFields": [
           "companyName",
@@ -1739,7 +1747,7 @@
       "loan": []
     },
     "Lexicon.my": {
-      "effective_date": "2023-05-05T00:20:00.000Z",
+      "effective_date": "2023-05-19T00:46:00.000Z",
       "market": "MX",
       "product": "my",
       "factory": "GF00",
@@ -1905,7 +1913,7 @@
         "default_trim": "$MTY13"
       },
       "fees": {},
-      "name": "Marketing MX 2023.May.05 7689.8788.34903 [es]",
+      "name": "Marketing MX 2023.May.19 7726.8834.34903 [es]",
       "groups": [
         {
           "code": "MODEL",
@@ -2537,6 +2545,92 @@
             {
               "type": "certified_range_est",
               "content": "Autonomía (est.) : {VALUE} km"
+            },
+            {
+              "type": "tire_type[0]",
+              "content": "Neumáticos para todas las estaciones",
+              "behavior": [
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WY19B",
+                        "$MTY11"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "tire_type[1]",
+              "content": "Neumáticos para todas las estaciones",
+              "behavior": [
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WY20P",
+                        "$MTY11"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "tire_type[2]",
+              "content": "Neumáticos para todas las estaciones",
+              "behavior": [
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WY19B",
+                        "$MTY13"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "tire_type[3]",
+              "content": "Neumáticos para todas las estaciones",
+              "behavior": [
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WY21P",
+                        "$MTY10"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "tire_education",
+              "content": "Más información",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "props": {
+                      "data-should-open": "TIRE_EDUCATION"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--tertiary",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -2682,10 +2776,32 @@
                   "type": "SelectedPrice"
                 },
                 {
+                  "type": "Copy",
+                  "props": {
+                    "field": "tire_type",
+                    "classes": "tds-text--center tds-text--caption",
+                    "isEnabledForEditDesign": false
+                  }
+                },
+                {
                   "type": "DisclaimerSpecial",
                   "props": {
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center tds-text--caption"
+                  }
+                },
+                {
+                  "type": "ActionTarget",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "tire_education",
+                        "props": {
+                          "modal": "TIRE_EDUCATION",
+                          "isEnabledForEditDesign": false
+                        }
+                      }
+                    ]
                   }
                 }
               ]
@@ -5343,7 +5459,7 @@
             },
             {
               "type": "description",
-              "content": "Cargue fácilmente dos teléfonos a la vez en una superficie de silicona contorneada. La consola central integrada ofrece un profundo espacio de almacenamiento con dos puertos de carga USB delanteros y dos traseros, almacenamiento escalonado bajo el reposabrazos y un escudo de privacidad plegable para cubrir sus teléfonos."
+              "content": "Cargue fácilmente dos teléfonos a la vez en una superficie antideslizante y contorneada. La consola central integrada ofrece un profundo espacio de almacenamiento con dos puertos de carga USB-C delanteros y dos traseros, y un almacenamiento escalonado bajo el reposabrazos."
             }
           ],
           "extra_content": [
@@ -5475,7 +5591,7 @@
             },
             {
               "type": "dynamic_grid_disclaimer[1]",
-              "content": "La autonomía varía con la selección de ruedas y se refleja bajo cada opción"
+              "content": "La autonomía varía con la selección de rines y se refleja bajo cada opción"
             },
             {
               "type": "feature_title",
@@ -6843,6 +6959,116 @@
                 },
                 {
                   "type": "Options"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "TIRE_EDUCATION",
+          "groups": [
+            "TIRE_EDUCATION_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Tire Education"
+        },
+        {
+          "code": "TIRE_EDUCATION_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Educación sobre neumáticos",
+          "extra_copy": [
+            {
+              "type": "table.row[1].column[0].title",
+              "content": "Neumáticos para todas las estaciones"
+            },
+            {
+              "type": "table.row[1].column[0].currentSelection",
+              "content": "Selección actual",
+              "behavior": [
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WY19B",
+                        "$MTY11"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WY20P",
+                        "$MTY11"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WY19B",
+                        "$MTY13"
+                      ]
+                    }
+                  }
+                },
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$WY21P",
+                        "$MTY10"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "table.row[2].column[0].title",
+              "content": "Neumáticos de verano"
+            },
+            {
+              "type": "table.row[1].column[1]",
+              "content": "Los neumáticos para todas las estaciones están diseñados para funcionar en la más amplia gama de condiciones y ofrecen una buena tracción y comodidad en climas moderados"
+            },
+            {
+              "type": "table.row[2].column[1]",
+              "content": "Los neumáticos de verano ofrecen la mejor tracción en climas más cálidos, especialmente para vehículos de alto desempeño a velocidades más altas. Los neumáticos de verano tienen una tracción reducida y un aumento del ruido por debajo de los 5 ˚C y, por razones de seguridad, no deben conducirse sobre nieve o hielo."
+            },
+            {
+              "type": "table.row[3].column[0]",
+              "content": "Llantas de invierno"
+            },
+            {
+              "type": "table.row[3].column[1]",
+              "content": "Los neumáticos de invierno ofrecen la mejor tracción en condiciones por debajo de los 5 ˚C. Para una experiencia óptima de conducción en invierno, recomendamos colocar los rines y neumáticos de invierno justo antes de la primera nevada de la temporada. Los paquetes de rines y llantas de invierno están disponibles en la Tienda Tesla."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Table",
+                  "props": {
+                    "field": "table.row",
+                    "isCollapsedOnMobile": true
+                  }
                 }
               ]
             }
@@ -9978,10 +10204,10 @@
               ]
             }
           ],
-          "name": "Model Y Tracción trasera",
-          "description": "Model Y Tracción trasera",
-          "long_name": "Model Y Tracción trasera",
-          "long_description": "Model Y Tracción trasera",
+          "name": "Model Y con tracción trasera",
+          "description": "Model Y con tracción trasera",
+          "long_name": "Model Y con tracción trasera",
+          "long_description": "Model Y con tracción trasera",
           "extra_copy": [
             {
               "type": "name",
@@ -10005,7 +10231,7 @@
             },
             {
               "type": "long_name",
-              "content": "Model Y Tracción trasera"
+              "content": "Model Y con tracción trasera"
             }
           ],
           "extra_content": [
@@ -11123,7 +11349,7 @@
         "$PPSW",
         "$SC04"
       ],
-      "options_id": 7689,
+      "options_id": 7726,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -11575,6 +11801,20 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "TIRE_EDUCATION",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "TIRE_EDUCATION_CARD",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -11584,10 +11824,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 8788,
+      "copy_id": 8834,
       "language": "es",
       "pricing_id": 34903,
-      "reference_id": 7689,
+      "reference_id": 7726,
       "source": "cache"
     }
   }
