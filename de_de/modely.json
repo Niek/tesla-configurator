@@ -973,6 +973,7 @@
         "showVehiclePriceWithoutSavings": false,
         "showPurchasePriceIncentiveInModal": false,
         "limitProductByPrice": {},
+        "includeReferralCreditInFinance": [],
         "hideTaxesAndFeesExcluded": true,
         "showMaintenanceCost": true,
         "excludeDefaultDownpaymentVAT": [
@@ -1549,31 +1550,7 @@
         "intlDateFormat": {}
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "id": "TowingMy",
-            "onInitialLoad": false,
-            "onOptionOnly": true,
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MTY09"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$TW01"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "loan",
@@ -1957,7 +1934,7 @@
             "downPayment": 0.2,
             "maximumDownPayment": 0.4,
             "minimumDownPayment": 0,
-            "interestRate": 6.29,
+            "interestRate": 6.69,
             "leaseTerm": 48,
             "leaseDistance": 10000
           },
@@ -2281,7 +2258,7 @@
             "downPayment": 0.2,
             "maximumDownPayment": 0.4,
             "minimumDownPayment": 0,
-            "interestRate": 6.29,
+            "interestRate": 6.69,
             "leaseTerm": 48,
             "leaseDistance": 10000,
             "downPaymentExVatMode": true
@@ -2573,7 +2550,7 @@
               }
             },
             "maximumDownPayment": 0.4,
-            "interestRate": 5.44,
+            "interestRate": 5.82,
             "loanTerm": 60,
             "loanDistance": 10000,
             "umweltbonus": {
@@ -2672,7 +2649,7 @@
       "tcc": []
     },
     "Lexicon.my": {
-      "effective_date": "2023-04-18T17:37:00.000Z",
+      "effective_date": "2023-06-03T14:48:00.000Z",
       "market": "DE",
       "product": "my",
       "factory": "GF00",
@@ -2685,11 +2662,7 @@
             },
             "configurator": [
               {
-                "included": [
-                  [
-                    "$TW01"
-                  ]
-                ],
+                "included": [],
                 "optional": [
                   [
                     "$APF2",
@@ -2697,6 +2670,9 @@
                   ],
                   [
                     "$WWY00"
+                  ],
+                  [
+                    "$TW01"
                   ]
                 ],
                 "upgradable": [],
@@ -2854,7 +2830,7 @@
           "percent": 19
         }
       },
-      "name": "Marketing DE 2023.Apr.18 7351.8905.33857 [de]",
+      "name": "Marketing DE 2023.Jun.03 7829.8905.33857 [de]",
       "groups": [
         {
           "code": "MODEL",
@@ -11230,6 +11206,10 @@
                 "target": "$PN00",
                 "condition_code": "$PMNG",
                 "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$TW01"
               }
             ]
           },
@@ -11273,6 +11253,10 @@
               "target": "$PN00",
               "condition_code": "$PMNG",
               "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$TW01"
             }
           ],
           "unset_rules": [
@@ -13101,10 +13085,9 @@
         "$PPSW",
         "$WY19B",
         "$SC04",
-        "$INPB0",
-        "$TW01"
+        "$INPB0"
       ],
-      "options_id": 7351,
+      "options_id": 7829,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -13584,7 +13567,7 @@
       "copy_id": 8905,
       "language": "de",
       "pricing_id": 33857,
-      "reference_id": 7351,
+      "reference_id": 7829,
       "source": "cache"
     }
   }

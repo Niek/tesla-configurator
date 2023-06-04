@@ -928,6 +928,7 @@
         "showVehiclePriceWithoutSavings": false,
         "showPurchasePriceIncentiveInModal": false,
         "limitProductByPrice": {},
+        "includeReferralCreditInFinance": [],
         "hideTaxesAndFeesExcluded": true,
         "reversePricingOrder": true,
         "showFinancingSteps": true
@@ -1477,31 +1478,7 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": [],
-        "rules": [
-          {
-            "target": "Configuration.option_codes",
-            "id": "TowingMy",
-            "onInitialLoad": false,
-            "onOptionOnly": true,
-            "selected_by": {
-              "or": [
-                {
-                  "configuration": {
-                    "options": [
-                      "$MTY09"
-                    ]
-                  }
-                }
-              ]
-            },
-            "consequence": {
-              "set": [
-                "$TW01"
-              ]
-            }
-          }
-        ]
+        "set": []
       },
       "SummaryPanel": {
         "selected_tab": "cash",
@@ -1949,7 +1926,7 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2023-05-19T00:23:00.000Z",
+      "effective_date": "2023-06-03T14:48:00.000Z",
       "market": "IL",
       "product": "my",
       "factory": "GF00",
@@ -1962,15 +1939,14 @@
             },
             "configurator": [
               {
-                "included": [
-                  [
-                    "$TW01"
-                  ]
-                ],
+                "included": [],
                 "optional": [
                   [
                     "$APF2",
                     "$APPB"
+                  ],
+                  [
+                    "$TW01"
                   ]
                 ],
                 "upgradable": [],
@@ -2122,7 +2098,7 @@
         "default_trim": "$MTY09"
       },
       "fees": {},
-      "name": "Marketing IL 2023.May.19 7331.8922.35670 [he]",
+      "name": "Marketing IL 2023.Jun.03 7806.8922.35670 [he]",
       "groups": [
         {
           "code": "MODEL",
@@ -9602,6 +9578,10 @@
                 "target": "$PN00",
                 "condition_code": "$PMNG",
                 "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$TW01"
               }
             ]
           },
@@ -9635,6 +9615,10 @@
               "target": "$PN00",
               "condition_code": "$PMNG",
               "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$TW01"
             }
           ],
           "unset_rules": [
@@ -11167,10 +11151,9 @@
         "$PBSB",
         "$WY19B",
         "$SC04",
-        "$INPB0",
-        "$TW01"
+        "$INPB0"
       ],
-      "options_id": 7331,
+      "options_id": 7806,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -11600,7 +11583,7 @@
       "copy_id": 8922,
       "language": "he",
       "pricing_id": 35670,
-      "reference_id": 7331,
+      "reference_id": 7806,
       "source": "cache"
     }
   }
