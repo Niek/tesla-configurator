@@ -1472,7 +1472,31 @@
         "governmentGrantLabel": "governmentIncentivesTotal"
       },
       "SetRules": {
-        "set": []
+        "set": [],
+        "rules": [
+          {
+            "target": "Configuration.option_codes",
+            "id": "TowingMy",
+            "onInitialLoad": true,
+            "onOptionOnly": true,
+            "selected_by": {
+              "or": [
+                {
+                  "configuration": {
+                    "options": [
+                      "$MTY09"
+                    ]
+                  }
+                }
+              ]
+            },
+            "consequence": {
+              "set": [
+                "$TW01"
+              ]
+            }
+          }
+        ]
       },
       "SummaryPanel": {
         "selected_tab": "cash",
