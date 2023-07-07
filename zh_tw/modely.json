@@ -1832,7 +1832,7 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2023-06-23T00:06:00.000Z",
+      "effective_date": "2023-07-07T00:05:00.000Z",
       "market": "TW",
       "product": "my",
       "factory": "GF05",
@@ -1866,7 +1866,9 @@
                   [
                     "$PPSW",
                     "$PBSB",
-                    "$PN00"
+                    "$PN00",
+                    "$PPSB",
+                    "$PR00"
                   ],
                   [
                     "$WY19B",
@@ -1918,7 +1920,9 @@
                   [
                     "$PPSW",
                     "$PBSB",
-                    "$PN00"
+                    "$PN00",
+                    "$PPSB",
+                    "$PR00"
                   ],
                   [
                     "$INPB0",
@@ -1938,7 +1942,7 @@
         "default_trim": "$MTY09"
       },
       "fees": {},
-      "name": "Marketing TW 2023.Jun.23 8008.8824.36681 [zh]",
+      "name": "Marketing TW 2023.Jul.07 8071.8824.36875 [zh]",
       "groups": [
         {
           "code": "MODEL",
@@ -2085,7 +2089,9 @@
           "options": [
             "$PBSB",
             "$PPSW",
-            "$PN00"
+            "$PN00",
+            "$PPSB",
+            "$PR00"
           ],
           "required": true,
           "exclusive": true,
@@ -2281,6 +2287,8 @@
             "$STY5S",
             "$PPSW",
             "$PN00",
+            "$PPSB",
+            "$PR00",
             "$WY19B",
             "$WY20P",
             "$WY21P",
@@ -2493,7 +2501,9 @@
           "options": [
             "$PPSW",
             "$PBSB",
-            "$PN00"
+            "$PPSB",
+            "$PN00",
+            "$PR00"
           ],
           "required": true,
           "exclusive": true,
@@ -8247,6 +8257,76 @@
             }
           ]
         },
+        "$PPSB": {
+          "code": "$PPSB",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$PPSB"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$PBSB",
+                "$PPSW",
+                "$PN00",
+                "$PR00"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$PPSB"
+            },
+            {
+              "action": "set",
+              "target": "$PPSW",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$PBSB",
+                "$PN00",
+                "$PR00"
+              ]
+            }
+          ],
+          "name": "深藍",
+          "description": "深藍",
+          "long_name": "深藍車漆",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "包含"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Paint_Blue.png",
+                  "type": "image"
+                }
+              ]
+            }
+          ],
+          "price": 48000,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 48000,
+              "context": "TWD"
+            }
+          ]
+        },
         "$PPSW": {
           "code": "$PPSW",
           "set_rules": [
@@ -8314,6 +8394,76 @@
             {
               "type": "base",
               "value": 0,
+              "context": "TWD"
+            }
+          ]
+        },
+        "$PR00": {
+          "code": "$PR00",
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$PR00"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$PBSB",
+                "$PPSW",
+                "$PN00",
+                "$PPSB"
+              ]
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$PR00"
+            },
+            {
+              "action": "set",
+              "target": "$PPSW",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$PBSB",
+                "$PN00",
+                "$PPSB"
+              ]
+            }
+          ],
+          "name": "午夜櫻桃紅",
+          "description": "午夜櫻桃紅",
+          "long_name": "午夜櫻桃紅車漆",
+          "extra_copy": [
+            {
+              "type": "price_indicator",
+              "content": "包含"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODELY/UI/Paint_Red_R1.png",
+                  "type": "image"
+                }
+              ]
+            }
+          ],
+          "price": 98000,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 98000,
               "context": "TWD"
             }
           ]
@@ -10077,7 +10227,7 @@
         "$INPB0",
         "$SC04"
       ],
-      "options_id": 8008,
+      "options_id": 8071,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -10499,8 +10649,8 @@
       "extra_content": [],
       "copy_id": 8824,
       "language": "zh",
-      "pricing_id": 36681,
-      "reference_id": 8008,
+      "pricing_id": 36875,
+      "reference_id": 8071,
       "source": "cache"
     }
   }
