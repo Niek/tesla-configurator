@@ -1931,7 +1931,7 @@
       ]
     },
     "Lexicon.m3": {
-      "effective_date": "2023-07-04T00:06:00.000Z",
+      "effective_date": "2023-07-07T21:34:00.000Z",
       "market": "MX",
       "product": "m3",
       "factory": "GF00",
@@ -2025,7 +2025,7 @@
               }
             ]
           },
-          "$MT324": {
+          "$MT328": {
             "variant": {
               "code": "LR_AWD",
               "name": "LONG RANGE ALL-WHEEL DRIVE"
@@ -2041,21 +2041,24 @@
                 ],
                 "upgradable": [],
                 "base_options": [
-                  "$MT324",
                   "$DV4W",
                   "$PRM31",
+                  "$MT328",
                   "$APBS",
+                  "$W40B",
                   "$MDL3",
-                  "$CPF0",
-                  "$IPB1",
-                  "$W40B"
+                  "$CPF0"
                 ],
                 "combinations": [
                   [
-                    "$PMNG",
-                    "$PPSW",
-                    "$PPSB",
+                    "$IPB1",
+                    "$IPW1"
+                  ],
+                  [
                     "$PBSB",
+                    "$PMNG",
+                    "$PPSB",
+                    "$PPSW",
                     "$PPMR"
                   ],
                   [
@@ -2072,7 +2075,7 @@
         "default_trim": "$MT322"
       },
       "fees": {},
-      "name": "Marketing MX 2023.Jul.04 8011.9604.36862 [es]",
+      "name": "Marketing MX 2023.Jul.07 8069.9608.36916 [es]",
       "groups": [
         {
           "code": "MODEL",
@@ -2097,7 +2100,7 @@
           "options": [
             "$MT317",
             "$MT322",
-            "$MT324"
+            "$MT328"
           ],
           "required": true,
           "exclusive": true,
@@ -2593,8 +2596,8 @@
           "groups": [],
           "options": [
             "$MT322",
-            "$MT317",
-            "$MT324"
+            "$MT328",
+            "$MT317"
           ],
           "required": true,
           "exclusive": true,
@@ -3160,7 +3163,7 @@
           "groups": [],
           "context": "configurator",
           "options": [
-            "$MT324",
+            "$MT328",
             "$MT317"
           ],
           "required": false,
@@ -3738,6 +3741,40 @@
             },
             {
               "type": "tire_type[4]",
+              "content": "Neumáticos para todas las estaciones",
+              "behavior": [
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$W40B",
+                        "$MT328"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "tire_type[5]",
+              "content": "Neumáticos para todas las estaciones",
+              "behavior": [
+                {
+                  "type": "CONTENT_SELECTED",
+                  "content": {
+                    "selected_by": {
+                      "and": [
+                        "$W41B",
+                        "$MT328"
+                      ]
+                    }
+                  }
+                }
+              ]
+            },
+            {
+              "type": "tire_type[6]",
               "content": "Neumáticos de verano",
               "behavior": [
                 {
@@ -3881,6 +3918,26 @@
                     "and": [
                       "$W41B",
                       "$MT324"
+                    ]
+                  }
+                },
+                {
+                  "value": 534,
+                  "subtype": "certified_range",
+                  "selected_by": {
+                    "and": [
+                      "$W40B",
+                      "$MT328"
+                    ]
+                  }
+                },
+                {
+                  "value": 507,
+                  "subtype": "certified_range_est",
+                  "selected_by": {
+                    "and": [
+                      "$W41B",
+                      "$MT328"
                     ]
                   }
                 },
@@ -11041,21 +11098,53 @@
             }
           ]
         },
-        "$MT324": {
-          "code": "$MT324",
+        "$MT328": {
+          "code": "$MT328",
           "user_defined_rules": {
             "set_rules": [
               {
                 "action": "set",
-                "target": "$DV4W"
+                "targets": [
+                  "$DV4W",
+                  "$PRM31",
+                  "$APBS"
+                ]
               },
               {
                 "action": "set",
-                "target": "$PRM31"
+                "target": "$IPW1",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$IBW1",
+                  "$IPW0",
+                  "$IBW0",
+                  "$IN3PW",
+                  "$IN3BW"
+                ]
               },
               {
                 "action": "set",
-                "target": "$APBS"
+                "target": "$IPB1",
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$IBB1",
+                  "$IPB0",
+                  "$IBB0",
+                  "$IN3PB",
+                  "$IN3BB"
+                ]
+              },
+              {
+                "action": "set",
+                "target": "$W40B",
+                "condition_code": "$W38B",
+                "condition_state": "set"
+              },
+              {
+                "action": "set",
+                "target": "$W41B",
+                "condition_code": "$W39B",
+                "condition_state": "set"
               }
             ],
             "unset_rules": [
@@ -11068,7 +11157,7 @@
           "set_rules": [
             {
               "action": "set",
-              "target": "$MT324"
+              "target": "$MT328"
             },
             {
               "action": "unset",
@@ -11089,28 +11178,60 @@
                 "$MT317",
                 "$MT321",
                 "$MT322",
+                "$MT324",
                 "$MT337",
-                "$MT329",
-                "$MT328"
+                "$MT329"
               ]
             },
             {
               "action": "set",
-              "target": "$DV4W"
+              "targets": [
+                "$DV4W",
+                "$PRM31",
+                "$APBS"
+              ]
             },
             {
               "action": "set",
-              "target": "$PRM31"
+              "target": "$IPW1",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$IBW1",
+                "$IPW0",
+                "$IBW0",
+                "$IN3PW",
+                "$IN3BW"
+              ]
             },
             {
               "action": "set",
-              "target": "$APBS"
+              "target": "$IPB1",
+              "condition_state": "set",
+              "condition_any_code": [
+                "$IBB1",
+                "$IPB0",
+                "$IBB0",
+                "$IN3PB",
+                "$IN3BB"
+              ]
+            },
+            {
+              "action": "set",
+              "target": "$W40B",
+              "condition_code": "$W38B",
+              "condition_state": "set"
+            },
+            {
+              "action": "set",
+              "target": "$W41B",
+              "condition_code": "$W39B",
+              "condition_state": "set"
             }
           ],
           "unset_rules": [
             {
               "action": "unset",
-              "target": "$MT324"
+              "target": "$MT328"
             },
             {
               "action": "set",
@@ -11132,9 +11253,9 @@
                 "$MT315",
                 "$MT317",
                 "$MT321",
+                "$MT324",
                 "$MT337",
-                "$MT329",
-                "$MT328"
+                "$MT329"
               ]
             },
             {
@@ -11142,10 +11263,10 @@
               "target": "$FM3U"
             }
           ],
-          "name": "Tracción en todas las ruedas de Autonomía Mayor",
-          "description": "Model 3 Tracción en todas las ruedas de Autonomía Mayor",
-          "long_name": "Model 3 Motor dual de Autonomía Mayor con tracción en todas las ruedas",
-          "long_description": "Model 3 Tracción en todas las ruedas de Autonomía Mayor",
+          "name": "Autonomía extendida y tracción en todas las ruedas",
+          "description": "Model 3 con autonomía extendida y tracción en todas las ruedas",
+          "long_name": "Model 3 con autonomía extendida y motor dual con tracción en todas las ruedas",
+          "long_description": "Model 3 con autonomía extendida y tracción en todas las ruedas",
           "extra_copy": [
             {
               "type": "name",
@@ -11153,7 +11274,7 @@
             },
             {
               "type": "long_name",
-              "content": "Model 3 Motor dual de Autonomía Mayor con tracción en todas las ruedas"
+              "content": "Model 3 Motor dual de Autonomía Mayor con tracción en todas las ruedas"
             },
             {
               "type": "drive_mode",
@@ -11174,10 +11295,6 @@
             {
               "type": "interior_heated_steering_wheel",
               "content": "Incluido"
-            },
-            {
-              "type": "disclaimer_upcoming",
-              "content": "Disponible en 2023"
             }
           ],
           "extra_content": [
@@ -11241,42 +11358,18 @@
                   "condition_state": "and"
                 }
               ]
-            },
-            {
-              "type": "disable_override",
-              "content": [
-                {
-                  "content": true,
-                  "configuration": [
-                    "$MDL3"
-                  ],
-                  "condition_state": "and"
-                }
-              ]
-            },
-            {
-              "type": "components",
-              "content": [
-                {
-                  "type": "Disclaimer",
-                  "props": {
-                    "field": "disclaimer_upcoming",
-                    "classes": "tds--vertical_padding-bottom"
-                  }
-                }
-              ]
             }
           ],
-          "price": 239900,
+          "price": 150900,
           "pricing": [
             {
               "type": "base",
-              "value": 239900,
+              "value": 150900,
               "context": "MXN"
             },
             {
               "type": "base_plus_trim",
-              "value": 1074900,
+              "value": 985900,
               "context": "MXN"
             }
           ]
@@ -12305,17 +12398,6 @@
                           "$W40B"
                         ]
                       }
-                    },
-                    {
-                      "content": {
-                        "range": 507,
-                        "range_units_override": "range_units_est"
-                      },
-                      "selected_by": {
-                        "and": [
-                          "$W41B"
-                        ]
-                      }
                     }
                   ],
                   "acceleration": 4.4,
@@ -12399,7 +12481,7 @@
         "$PMNG",
         "$SC04"
       ],
-      "options_id": 8011,
+      "options_id": 8069,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -12918,10 +13000,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 9604,
+      "copy_id": 9608,
       "language": "es",
-      "pricing_id": 36862,
-      "reference_id": 8011,
+      "pricing_id": 36916,
+      "reference_id": 8069,
       "source": "cache"
     }
   }
