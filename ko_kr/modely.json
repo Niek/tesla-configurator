@@ -1710,10 +1710,46 @@
           "inventory": [
             "new"
           ],
-          "percent": 18,
+          "percent": 20,
           "market": "TR",
           "pricebook_data": {
             "percent": "fees.vat_percent.percent"
+          }
+        },
+        {
+          "feeType": "ev_incentive",
+          "financeType": "lease",
+          "sfdcFieldName": "Electric Vehicle Incentive",
+          "variant": [
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "market": "US",
+          "pricebook_data": {
+            "amount": "fees.federal_incentive.amount"
+          }
+        },
+        {
+          "feeType": "vat_percent",
+          "financeType": "any",
+          "description": "VAT calculation",
+          "period": "vatPerOption",
+          "variant": [
+            "ms",
+            "mx",
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "market": "MY",
+          "pricebook_data": {
+            "percent": "fees.vat_percent.percent",
+            "lexiconOptions": "fees.vat_percent.options"
           }
         }
       ]
@@ -1725,7 +1761,7 @@
       "loan": []
     },
     "Lexicon.my": {
-      "effective_date": "2023-06-30T13:22:00.000Z",
+      "effective_date": "2023-07-13T23:12:00.000Z",
       "market": "KR",
       "product": "my",
       "factory": "GF00",
@@ -1835,10 +1871,65 @@
                 ]
               }
             ]
+          },
+          "$MTY13": {
+            "variant": {
+              "code": "RWD",
+              "name": "STANDARD RANGE REAR-WHEEL DRIVE"
+            },
+            "configurator": [
+              {
+                "included": [],
+                "optional": [
+                  [
+                    "$APF2",
+                    "$APPB"
+                  ],
+                  [
+                    "$TW01"
+                  ]
+                ],
+                "upgradable": [],
+                "base_options": [
+                  "$MTY13",
+                  "$DV2W",
+                  "$PRMY1",
+                  "$MDLY",
+                  "$APBS",
+                  "$CPF0"
+                ],
+                "combinations": [
+                  [
+                    "$INPB0",
+                    "$INPW0"
+                  ],
+                  [
+                    "$STY5S",
+                    "$STY7S"
+                  ],
+                  [
+                    "$PPSW",
+                    "$PBSB",
+                    "$PMNG",
+                    "$PPSB",
+                    "$PPMR"
+                  ],
+                  [
+                    "$WY19B",
+                    "$WY20P"
+                  ],
+                  [
+                    "$SC04",
+                    "$SC05",
+                    "$SC06"
+                  ]
+                ]
+              }
+            ]
           }
         },
         "toggle": [],
-        "default_trim": "$MTY06"
+        "default_trim": "$MTY13"
       },
       "fees": {
         "fuel_reward": {
@@ -1858,7 +1949,7 @@
           }
         }
       },
-      "name": "Marketing KR 2023.Jun.30 8063.8833.34929 [ko]",
+      "name": "Marketing KR 2023.Jul.13 7727.9609.37401 [ko]",
       "groups": [
         {
           "code": "MODEL",
@@ -1882,13 +1973,14 @@
           "groups": [],
           "options": [
             "$MTY05",
-            "$MTY06"
+            "$MTY06",
+            "$MTY13"
           ],
           "required": true,
           "exclusive": true,
           "discountable": true,
           "default_options": [
-            "$MTY06"
+            "$MTY13"
           ]
         },
         {
@@ -2202,7 +2294,8 @@
             "$MTY03",
             "$MTY04",
             "$MTY05",
-            "$MTY06"
+            "$MTY06",
+            "$MTY13"
           ],
           "required": false,
           "exclusive": false,
@@ -2280,13 +2373,14 @@
           ],
           "groups": [],
           "options": [
+            "$MTY13",
             "$MTY06",
             "$MTY05"
           ],
           "required": true,
           "exclusive": true,
           "default_options": [
-            "$MTY06"
+            "$MTY13"
           ]
         },
         {
@@ -2971,6 +3065,14 @@
                     ]
                   },
                   "delivery_date": "예상 인도 시기: 3-6 개월 (사정에 따라 변동 가능)"
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY13"
+                    ]
+                  },
+                  "delivery_date": "예상 인도 시기: 2023년 8~9월 (사정에 따라 변동 가능)"
                 }
               ]
             }
@@ -3104,6 +3206,7 @@
         {
           "code": "BATTERY_AND_DRIVE",
           "groups": [
+            "REAR_WHEEL_PREMIUM",
             "DUAL_MOTOR_PREMIUM",
             "SPORT_PACKAGE"
           ],
@@ -3265,13 +3368,6 @@
                   }
                 },
                 {
-                  "hide": "enterprise",
-                  "type": "InventoryZip",
-                  "props": {
-                    "classes": "tds--vertical_padding-bottom"
-                  }
-                },
-                {
                   "type": "Specs",
                   "props": {
                     "group": "BATTERY_AND_DRIVE"
@@ -3309,7 +3405,8 @@
             "$MTY03",
             "$MTY04",
             "$MTY05",
-            "$MTY06"
+            "$MTY06",
+            "$MTY13"
           ],
           "required": false,
           "exclusive": false,
@@ -4617,7 +4714,7 @@
             },
             {
               "type": "description",
-              "content": "고속도로에서 주행하는 동안 자동 차선 변경은 저속 주행 차량을 추월하면서 차선 합류 및 변경을 준비하여 최적의 차선에서 차량을 주행하도록 도와줄 수 있습니다. 운전자는 진행될 차선 변경에 대해 명확한 안내를 받게 되며 자동 차선 변경 기능을 사용자가 설정할 수 있습니다."
+              "content": "고속도로에서 주행하는 동안 자동 차선 변경은 저속 주행 차량을 추월하면서 차선 합류 및 변경을 준비하여 최적의 차선에서 차량을 주행하도록 도와줄 수 있습니다. 운전자는 진행될 차선 변경에 대해 명확한 안내를 받게 되며 자동 차선 변경 기능을 사용자가 설정할 수 있습니다. (자동차  전용도로에서만 가능)"
             },
             {
               "type": "add_options",
@@ -4827,7 +4924,7 @@
             },
             {
               "type": "description",
-              "content": "Tesla 앱으로 활성화하면 주차된 차량은 주차장에 있는 운전자를 찾아오고 좁은 장소에 주차하거나 주차 공간에서 나올 수도 있습니다. 스마트 차량 호출은 보행자와 안전 고깔, 휴지통 및 어질러진 쇼핑카트 같은 장애물을 피하면서 복잡한 주차장을 주행할 수 있습니다."
+              "content": "Tesla 앱으로 활성화하면 주차된 차량은 주차장에 있는 운전자를 찾아오고 좁은 장소에 주차하거나 주차 공간에서 나올 수도 있습니다. 스마트 차량 호출은 보행자와 안전 고깔, 휴지통 및 어질러진 쇼핑카트 같은 장애물을 피하면서 복잡한 주차장을 주행할 수 있습니다. (6m 이내 거리 유지 필요)"
             },
             {
               "type": "add_options",
@@ -5939,7 +6036,7 @@
             },
             {
               "type": "description",
-              "content": "Tesla 앱으로 활성화하면 주차된 차량은 주차장에 있는 운전자를 찾아오고 좁은 장소에 주차하거나 주차 공간에서 나올 수도 있습니다. 스마트 차량 호출은 보행자와 안전 고깔, 휴지통 및 어질러진 쇼핑카트 같은 장애물을 피하면서 복잡한 주차장을 주행할 수 있습니다."
+              "content": "Tesla 앱으로 활성화하면 주차된 차량은 주차장에 있는 운전자를 찾아오고 좁은 장소에 주차하거나 주차 공간에서 나올 수도 있습니다. 스마트 차량 호출은 보행자와 안전 고깔, 휴지통 및 어질러진 쇼핑카트 같은 장애물을 피하면서 복잡한 주차장을 주행할 수 있습니다. (6m 이내 거리 유지 필요)"
             },
             {
               "type": "add_options",
@@ -6254,7 +6351,7 @@
             },
             {
               "type": "description",
-              "content": "고속도로에서 주행하는 동안 자동 차선 변경은 저속 주행 차량을 추월하면서 차선 합류 및 변경을 준비하여 최적의 차선에서 차량을 주행하도록 도와줄 수 있습니다. 운전자는 진행될 차선 변경에 대해 명확한 안내를 받게 되며 자동 차선 변경 기능을 사용자가 설정할 수 있습니다."
+              "content": "고속도로에서 주행하는 동안 자동 차선 변경은 저속 주행 차량을 추월하면서 차선 합류 및 변경을 준비하여 최적의 차선에서 차량을 주행하도록 도와줄 수 있습니다. 운전자는 진행될 차선 변경에 대해 명확한 안내를 받게 되며 자동 차선 변경 기능을 사용자가 설정할 수 있습니다. (자동차  전용도로에서만 가능)"
             },
             {
               "type": "add_options",
@@ -6517,6 +6614,48 @@
           "required": false,
           "exclusive": false,
           "name": "REVIEW_ORDER_CONNECTIVITY"
+        },
+        {
+          "code": "REAR_WHEEL_PREMIUM",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$MTY13"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [
+            "$MTY13"
+          ],
+          "name": "REAR_WHEEL_PREMIUM",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": " "
+            },
+            {
+              "type": "sub_title",
+              "content": "후륜구동(RWD)"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "field": "sub_title",
+                    "classes": "tds-text--start text-loader--subtitle tds-text--500 tds--vertical_padding-10",
+                    "component": "div"
+                  }
+                },
+                {
+                  "type": "Options"
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -7231,15 +7370,19 @@
               "content": "자동 차선 변경"
             },
             {
-              "type": "feature_list.default[0].items[2]",
+              "type": "feature_list.default[1].title",
+              "content": "출시 예정:"
+            },
+            {
+              "type": "feature_list.default[1].items[0]",
               "content": "자동 주차"
             },
             {
-              "type": "feature_list.default[0].items[3]",
+              "type": "feature_list.default[1].items[1]",
               "content": "차량 호출"
             },
             {
-              "type": "feature_list.default[0].items[4]",
+              "type": "feature_list.default[1].items[2]",
               "content": "스마트 차량 호출"
             },
             {
@@ -7899,8 +8042,11 @@
               {
                 "action": "set",
                 "target": "$DV2W",
-                "condition_code": "$MTY01",
-                "condition_state": "set"
+                "condition_state": "set",
+                "condition_any_code": [
+                  "$MTY13",
+                  "$MTY01"
+                ]
               }
             ]
           },
@@ -7916,8 +8062,11 @@
             {
               "action": "set",
               "target": "$DV2W",
-              "condition_code": "$MTY01",
-              "condition_state": "set"
+              "condition_state": "set",
+              "condition_any_code": [
+                "$MTY13",
+                "$MTY01"
+              ]
             }
           ],
           "unset_rules": [
@@ -8098,11 +8247,11 @@
               ]
             }
           ],
-          "price": 59990000,
+          "price": 50000000,
           "pricing": [
             {
               "type": "base",
-              "value": 59990000,
+              "value": 50000000,
               "context": "KRW"
             },
             {
@@ -9309,7 +9458,8 @@
                 "$MTY02",
                 "$MTY03",
                 "$MTY04",
-                "$MTY06"
+                "$MTY06",
+                "$MTY13"
               ]
             },
             {
@@ -9340,13 +9490,14 @@
             },
             {
               "action": "set",
-              "target": "$MTY06",
+              "target": "$MTY13",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY01",
                 "$MTY02",
                 "$MTY03",
-                "$MTY04"
+                "$MTY04",
+                "$MTY06"
               ]
             },
             {
@@ -9397,6 +9548,10 @@
             {
               "type": "drive_mode",
               "content": "듀얼 모터 상시 사륜구동(AWD)"
+            },
+            {
+              "type": "disclaimer_upcoming",
+              "content": "2024년에 가능"
             }
           ],
           "extra_content": [
@@ -9454,18 +9609,42 @@
                   "condition_state": "and"
                 }
               ]
+            },
+            {
+              "type": "disable_override",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer_upcoming",
+                    "classes": "tds--vertical_padding-bottom"
+                  }
+                }
+              ]
             }
           ],
-          "price": 25357000,
+          "price": 24990000,
           "pricing": [
             {
               "type": "base",
-              "value": 25357000,
+              "value": 24990000,
               "context": "KRW"
             },
             {
               "type": "base_plus_trim",
-              "value": 85347000,
+              "value": 74990000,
               "context": "KRW"
             }
           ]
@@ -9500,7 +9679,8 @@
                 "$MTY02",
                 "$MTY03",
                 "$MTY04",
-                "$MTY05"
+                "$MTY05",
+                "$MTY13"
               ]
             },
             {
@@ -9515,7 +9695,7 @@
             },
             {
               "action": "set",
-              "target": "$MTY06",
+              "target": "$MTY13",
               "condition_state": "unset",
               "condition_all_codes": [
                 "$MTY01",
@@ -9548,6 +9728,10 @@
             {
               "type": "long_name",
               "content": "Model Y Long Range 듀얼 모터 상시 사륜구동(AWD)"
+            },
+            {
+              "type": "disclaimer_upcoming",
+              "content": "2024년에 가능"
             }
           ],
           "extra_content": [
@@ -9611,18 +9795,184 @@
                   "condition_state": "and"
                 }
               ]
+            },
+            {
+              "type": "disable_override",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Disclaimer",
+                  "props": {
+                    "field": "disclaimer_upcoming",
+                    "classes": "tds--vertical_padding-bottom"
+                  }
+                }
+              ]
             }
           ],
-          "price": 18757000,
+          "price": 16990000,
           "pricing": [
             {
               "type": "base",
-              "value": 18757000,
+              "value": 16990000,
               "context": "KRW"
             },
             {
               "type": "base_plus_trim",
-              "value": 78747000,
+              "value": 66990000,
+              "context": "KRW"
+            }
+          ]
+        },
+        "$MTY13": {
+          "code": "$MTY13",
+          "user_defined_rules": {
+            "set_rules": [
+              {
+                "action": "set",
+                "targets": [
+                  "$DV2W",
+                  "$PRMY1"
+                ]
+              },
+              {
+                "action": "unset",
+                "target": "$TW01"
+              },
+              {
+                "action": "unset",
+                "target": "$MTY13"
+              }
+            ],
+            "unset_rules": [
+              {
+                "action": "unset",
+                "targets": [
+                  "$SLR1",
+                  "$SPTY1"
+                ]
+              }
+            ]
+          },
+          "set_rules": [
+            {
+              "action": "set",
+              "target": "$MTY13"
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$MTY01",
+                "$MTY02",
+                "$MTY03",
+                "$MTY04",
+                "$MTY05",
+                "$MTY06"
+              ]
+            },
+            {
+              "action": "set",
+              "targets": [
+                "$DV2W",
+                "$PRMY1"
+              ]
+            },
+            {
+              "action": "unset",
+              "target": "$TW01"
+            },
+            {
+              "action": "unset",
+              "target": "$MTY13"
+            }
+          ],
+          "unset_rules": [
+            {
+              "action": "unset",
+              "target": "$MTY13"
+            },
+            {
+              "action": "set",
+              "target": "$MTY13",
+              "condition_state": "unset",
+              "condition_all_codes": [
+                "$MTY01",
+                "$MTY02",
+                "$MTY03",
+                "$MTY04",
+                "$MTY05",
+                "$MTY06"
+              ]
+            },
+            {
+              "action": "unset",
+              "targets": [
+                "$SLR1",
+                "$SPTY1"
+              ]
+            }
+          ],
+          "name": "Model Y 후륜구동(RWD)",
+          "description": "Model Y 후륜구동(RWD)",
+          "long_name": "Model Y 후륜구동(RWD)",
+          "long_description": "Model Y 후륜구동(RWD)",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Model Y"
+            },
+            {
+              "type": "long_name",
+              "content": "Model Y 후륜구동(RWD)"
+            },
+            {
+              "type": "drive_mode",
+              "content": "후륜구동(RWD)"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "block"
+                }
+              ]
+            },
+            {
+              "type": "base_plus_trim_pricing",
+              "content": [
+                {
+                  "configuration": [
+                    "$MDLY"
+                  ],
+                  "optionPriceKey": "base_plus_trim",
+                  "condition_state": "and"
+                }
+              ]
+            }
+          ],
+          "price": 6990000,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 6990000,
+              "context": "KRW"
+            },
+            {
+              "type": "base_plus_trim",
+              "value": 56990000,
               "context": "KRW"
             }
           ]
@@ -10509,6 +10859,12 @@
                     }
                   ],
                   "acceleration": 5
+                },
+                "$MTY13": {
+                  "name": "Rear-Wheel Drive",
+                  "range": 350,
+                  "topspeed": 217,
+                  "acceleration": 6.9
                 }
               },
               "curb_weight": {
@@ -10553,19 +10909,19 @@
         "GF03"
       ],
       "base_configuration": [
-        "$MTY06",
-        "$DV4W",
-        "$MDLY",
-        "$STY5S",
-        "$APBS",
+        "$MTY13",
+        "$DV2W",
         "$PRMY1",
+        "$MDLY",
+        "$APBS",
         "$CPF0",
+        "$INPB0",
+        "$STY5S",
         "$PPSW",
         "$WY19B",
-        "$SC04",
-        "$INPB0"
+        "$SC04"
       ],
-      "options_id": 8063,
+      "options_id": 7727,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -11026,6 +11382,13 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "REAR_WHEEL_PREMIUM",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -11035,10 +11398,10 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 8833,
+      "copy_id": 9609,
       "language": "ko",
-      "pricing_id": 34929,
-      "reference_id": 8063,
+      "pricing_id": 37401,
+      "reference_id": 7727,
       "source": "cache"
     }
   }
