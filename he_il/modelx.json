@@ -19,6 +19,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "mx",
               "variant": "mx"
             }
@@ -41,6 +42,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "mx",
               "variant": "mx"
             }
@@ -63,6 +65,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "mx",
               "variant": "mx"
             }
@@ -85,6 +88,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "mx",
               "variant": "mx"
             }
@@ -107,6 +111,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "mx",
               "variant": "mx"
             }
@@ -129,6 +134,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "mx",
               "variant": "mx"
             }
@@ -148,7 +154,8 @@
         "isFinplatEnabled": "0",
         "isWechatMiniProgramEnv": "0",
         "isWechatBrowserEnv": "0",
-        "isFeeSvcEnabled": "0"
+        "isFeeSvcEnabled": "0",
+        "isFinCmsAPIEnabled": "1"
       }
     },
     "InitialConfig.mx.mx": {
@@ -1847,137 +1854,6 @@
           "pricebook_data": {
             "percent": "fees.vat_percent.percent",
             "lexiconOptions": "fees.vat_percent.options"
-          }
-        }
-      ]
-    },
-    "Lease.mx.mx": {
-      "lease": []
-    },
-    "Loan.mx.mx": {
-      "loan": [
-        {
-          "market": "IL",
-          "id": "linear_loan",
-          "inventory": [
-            "new"
-          ],
-          "description": "Linear Loan",
-          "variant": [
-            "ms",
-            "mx",
-            "m3",
-            "my"
-          ],
-          "variables": {
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.8,
-            "downPayment": 0.15,
-            "downPayments": {
-              "model": {
-                "ms": 0.2,
-                "mx": 0.2
-              }
-            },
-            "interestRate": 5.8,
-            "loanTerm": 72
-          },
-          "loanTermsOffered": {
-            "loanTerm": [
-              24,
-              36,
-              42,
-              48,
-              54,
-              60,
-              72,
-              84,
-              96
-            ]
-          },
-          "uiSettings": {
-            "forms": {
-              "showLoanFields": [
-                [
-                  "loanDownPayment",
-                  "term"
-                ]
-              ]
-            },
-            "reviewDetails": {
-              "showLoanSummaryFields": [
-                "downPayment",
-                "loanTerm",
-                "interestRate"
-              ]
-            }
-          }
-        },
-        {
-          "market": "IL",
-          "id": "balloon_loan",
-          "inventory": [
-            "new"
-          ],
-          "description": "Balloon Loan",
-          "variant": [
-            "ms",
-            "mx",
-            "m3",
-            "my"
-          ],
-          "variables": {
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.8,
-            "downPayment": 0.15,
-            "downPayments": {
-              "model": {
-                "ms": 0.2,
-                "mx": 0.2
-              }
-            },
-            "interestRate": 5.8,
-            "loanTerm": 36
-          },
-          "loanTermsOffered": {
-            "loanTerm": [
-              36,
-              48,
-              60
-            ]
-          },
-          "balloonPaymentMatrix": [
-            {
-              "loanTerm": 36,
-              "value": 0.5
-            },
-            {
-              "loanTerm": 48,
-              "value": 0.4
-            },
-            {
-              "loanTerm": 60,
-              "value": 0.3
-            }
-          ],
-          "uiSettings": {
-            "forms": {
-              "showLoanFields": [
-                [
-                  "loanDownPayment",
-                  "term",
-                  "balloonPayment"
-                ]
-              ]
-            },
-            "reviewDetails": {
-              "showLoanSummaryFields": [
-                "downPayment",
-                "loanTerm",
-                "interestRate",
-                "balloonPayment"
-              ]
-            }
           }
         }
       ]
@@ -15088,6 +14964,152 @@
       "pricing_id": 37348,
       "reference_id": 8093,
       "source": "cache"
+    },
+    "financeProductsSource": "finCMS",
+    "Lease.mx.mx": {
+      "lease": []
+    },
+    "Loan.mx.mx": {
+      "loan": [
+        {
+          "id": "linear_loan",
+          "market": "IL",
+          "productType": "loan",
+          "accountType": null,
+          "variant": [
+            "ms",
+            "mx",
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "loanTerm": 72,
+            "downPayment": 0.15,
+            "downPayments": {
+              "model": {
+                "ms": 0.2,
+                "mx": 0.2
+              }
+            },
+            "interestRate": 5.8,
+            "maximumDownPayment": 0.8,
+            "minimumDownPayment": 0
+          },
+          "disclaimers": {
+            "he": {
+              "default": "<p>מחשבון ההלוואה מהווה כלי עזר בלבד לצורך מתן אינדיקציה כללית אודות תנאי הלוואה כלשהי. בדוגמא לעיל ההלוואה נושאת ריבית בשיעור שנתי של {RATE}%. תנאי ההלוואה הספציפיים והמחייבים יקבעו על ידי מימון ישיר, בהתאם לשיקול דעתה הבלעדי, מדיניותה ונהליה. נתונים אלו משקפים את ההחזרים נכון למועד זה, במידה ויחולו שינויים במדד המחירים לצרכן ייתכנו שינויים בהחזר החודשי וזאת בהתאם להוראות הסכם ההלוואה. לא תגבנה עמלות במסגרת העמדת ההלוואה. הגורם המלווה הינו מימון ישיר.</p>"
+            }
+          },
+          "enabled": true,
+          "uiSettings": {
+            "forms": {
+              "showLoanFields": [
+                [
+                  "loanDownPayment",
+                  "term"
+                ]
+              ]
+            },
+            "reviewDetails": {
+              "showLoanSummaryFields": [
+                "downPayment",
+                "loanTerm",
+                "interestRate"
+              ]
+            }
+          },
+          "loanTermsOffered": {
+            "loanTerm": [
+              24,
+              36,
+              42,
+              48,
+              54,
+              60,
+              72,
+              84,
+              96
+            ]
+          }
+        },
+        {
+          "id": "balloon_loan",
+          "market": "IL",
+          "productType": "loan",
+          "accountType": null,
+          "variant": [
+            "ms",
+            "mx",
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "loanTerm": 36,
+            "downPayment": 0.15,
+            "downPayments": {
+              "model": {
+                "ms": 0.2,
+                "mx": 0.2
+              }
+            },
+            "interestRate": 5.8,
+            "maximumDownPayment": 0.8,
+            "minimumDownPayment": 0
+          },
+          "disclaimers": {
+            "he": {
+              "default": "<p>מחשבון ההלוואה מהווה כלי עזר בלבד לצורך מתן אינדיקציה כללית אודות תנאי הלוואה כלשהי. בדוגמא לעיל ההלוואה נושאת ריבית בשיעור שנתי של {RATE}%. תנאי ההלוואה הספציפיים והמחייבים יקבעו על ידי מימון ישיר, בהתאם לשיקול דעתה הבלעדי, מדיניותה ונהליה. נתונים אלו משקפים את ההחזרים נכון למועד זה, במידה ויחולו שינויים במדד המחירים לצרכן ייתכנו שינויים בהחזר החודשי וזאת בהתאם להוראות הסכם ההלוואה. לא תגבנה עמלות במסגרת העמדת ההלוואה. הגורם המלווה הינו מימון ישיר.</p>"
+            }
+          },
+          "enabled": true,
+          "uiSettings": {
+            "forms": {
+              "showLoanFields": [
+                [
+                  "loanDownPayment",
+                  "term",
+                  "balloonPayment"
+                ]
+              ]
+            },
+            "reviewDetails": {
+              "showLoanSummaryFields": [
+                "downPayment",
+                "loanTerm",
+                "interestRate",
+                "balloonPayment"
+              ]
+            }
+          },
+          "loanTermsOffered": {
+            "loanTerm": [
+              36,
+              48,
+              60
+            ]
+          },
+          "balloonPaymentMatrix": [
+            {
+              "value": 0.5,
+              "loanTerm": 36
+            },
+            {
+              "value": 0.4,
+              "loanTerm": 48
+            },
+            {
+              "value": 0.3,
+              "loanTerm": 60
+            }
+          ]
+        }
+      ]
     }
   }
 }
