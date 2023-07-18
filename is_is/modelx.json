@@ -19,6 +19,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "mx",
               "variant": "mx"
             }
@@ -41,6 +42,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "mx",
               "variant": "mx"
             }
@@ -63,6 +65,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "mx",
               "variant": "mx"
             }
@@ -85,6 +88,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "mx",
               "variant": "mx"
             }
@@ -107,6 +111,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "mx",
               "variant": "mx"
             }
@@ -129,6 +134,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "mx",
               "variant": "mx"
             }
@@ -148,7 +154,8 @@
         "isFinplatEnabled": "0",
         "isWechatMiniProgramEnv": "0",
         "isWechatBrowserEnv": "0",
-        "isFeeSvcEnabled": "0"
+        "isFeeSvcEnabled": "0",
+        "isFinCmsAPIEnabled": "1"
       }
     },
     "InitialConfig.mx.mx": {
@@ -1811,72 +1818,6 @@
           "pricebook_data": {
             "percent": "fees.vat_percent.percent",
             "lexiconOptions": "fees.vat_percent.options"
-          }
-        }
-      ]
-    },
-    "Lease.mx.mx": {
-      "lease": []
-    },
-    "Loan.mx.mx": {
-      "loan": [
-        {
-          "market": "IS",
-          "description": "In IS, loan is called Capital Lease",
-          "variant": [
-            "ms",
-            "mx",
-            "m3",
-            "my"
-          ],
-          "variables": {
-            "minimumDownPayment": 0.2,
-            "downPayment": 0.2,
-            "downPaymentPercentMatrix": [
-              0.2,
-              0.25,
-              0.3,
-              0.35,
-              0.4,
-              0.45,
-              0.5,
-              0.55,
-              0.6,
-              0.65,
-              0.7
-            ],
-            "interestRate": 5.55,
-            "loanTerm": 96,
-            "localeSpecific": {
-              "residualValue": 1000,
-              "foundingCostMatrix": [
-                {
-                  "value": 0.75
-                }
-              ],
-              "financingRatioMatrix": [
-                {
-                  "value": 0.51,
-                  "rate": 11.25
-                },
-                {
-                  "value": 0.71,
-                  "rate": 11.6
-                },
-                {
-                  "value": 1.01,
-                  "rate": 11.75
-                }
-              ]
-            }
-          },
-          "loanTermsOffered": {
-            "loanTerm": [
-              60,
-              72,
-              84,
-              96
-            ]
           }
         }
       ]
@@ -16379,6 +16320,85 @@
       "pricing_id": 37335,
       "reference_id": 8101,
       "source": "cache"
+    },
+    "financeProductsSource": "finCMS",
+    "Lease.mx.mx": {
+      "lease": []
+    },
+    "Loan.mx.mx": {
+      "loan": [
+        {
+          "id": null,
+          "market": "IS",
+          "productType": "loan",
+          "accountType": null,
+          "variant": [
+            "ms",
+            "mx",
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new",
+            "used"
+          ],
+          "variables": {
+            "loanTerm": 96,
+            "downPayment": 0.2,
+            "interestRate": 5.55,
+            "localeSpecific": {
+              "residualValue": 1000,
+              "foundingCostMatrix": [
+                {
+                  "value": 0.75
+                }
+              ],
+              "financingRatioMatrix": [
+                {
+                  "rate": 11.25,
+                  "value": 0.51
+                },
+                {
+                  "rate": 11.6,
+                  "value": 0.71
+                },
+                {
+                  "rate": 11.75,
+                  "value": 1.01
+                }
+              ]
+            },
+            "minimumDownPayment": 0.2,
+            "downPaymentPercentMatrix": [
+              0.2,
+              0.25,
+              0.3,
+              0.35,
+              0.4,
+              0.45,
+              0.5,
+              0.55,
+              0.6,
+              0.65,
+              0.7
+            ]
+          },
+          "disclaimers": {
+            "is": {
+              "default": "Tesla {SELECTED_TRIM_LONG_NAME}/ Dæmi um fjármögnun með kaupleigu/ {TERM} jafnar mánaðarlegar greiðslur uppá {PAYMENT} / Fyrirfram greidd leiga {DOWNPAYMENT} / Samningsfjárhæð {COST_CREDIT} / Lokagreiðsla {RESIDUAL_VALUE} / Vaxtakostnaður á samningstíma {INTEREST_COST} / Vextir {RATE}% / Samningstími {TERM} mánuðir / Heildarlántökukostnaður {BORROWING_COST} / Stofnkostnaður {FOUNDING_COST} / Greiðslugjald m.v. skuldfærslu og seðillaus viðskipti 130 kr / Heildarfjárhæð til greiðslu {TOTAL_AMOUNT_PAYABLE} / Árleg hlutfallstala kostnaðar er {EFFECTIVE_RATE}% / Fjármögnunaraðili gerir kröfu um að hið fjármagnaða tæki sé vátryggt með ábyrgðar- og kaskótryggingu. <br/><br/> Framangreint dæmi sem byggir á 6. gr. laga nr. 33/2013 um neytendalán er eingöngu til upplýsinga og felur ekki í sér bindandi tilboð um lánveitingu. Upplýsingarnar miðast við gildandi vexti, vísitölur og gjöld á þeim tíma sem þær eru veittar. Vakin er athygli á því að lánveiting er ávallt háð því skilyrði að umsækjandi standist lánshæfismat og, ef við á, greiðslumat. Sú fjárhæð sem er uppgefin í &quot;Greiðsla eftir sparnað&quot; tekur mið af áætluðum eldsneytissparnaði."
+            }
+          },
+          "enabled": true,
+          "loanTermsOffered": {
+            "loanTerm": [
+              60,
+              72,
+              84,
+              96
+            ]
+          }
+        }
+      ]
     }
   }
 }

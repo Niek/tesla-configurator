@@ -19,6 +19,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "m3",
               "variant": "m3"
             }
@@ -41,6 +42,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "m3",
               "variant": "m3"
             }
@@ -63,6 +65,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "m3",
               "variant": "m3"
             }
@@ -85,6 +88,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "m3",
               "variant": "m3"
             }
@@ -107,6 +111,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "m3",
               "variant": "m3"
             }
@@ -129,6 +134,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "m3",
               "variant": "m3"
             }
@@ -148,7 +154,8 @@
         "isFinplatEnabled": "0",
         "isWechatMiniProgramEnv": "0",
         "isWechatBrowserEnv": "0",
-        "isFeeSvcEnabled": "0"
+        "isFeeSvcEnabled": "0",
+        "isFinCmsAPIEnabled": "1"
       }
     },
     "InitialConfig.m3.m3": {
@@ -1874,79 +1881,6 @@
           }
         }
       ]
-    },
-    "Lease.m3.m3": {
-      "lease": [
-        {
-          "id": "linear_loan",
-          "market": "AE",
-          "variant": [
-            "m3",
-            "my",
-            "ms",
-            "mx"
-          ],
-          "inventory": [
-            "new"
-          ],
-          "variables": {
-            "downPayment": 0.2,
-            "minimumDownPayment": 0.2,
-            "maximumDownPayment": 0.8,
-            "interestRate": 2.49,
-            "leaseTerm": 60,
-            "localeSpecific": {
-              "purchaseProtectRate": 0.01,
-              "purchaseProtectMinimum": 1000,
-              "effectiveRateMultiplier": 1.888
-            },
-            "ignoreTermForGas": true
-          },
-          "leaseTermsOffered": {
-            "leaseTerm": [
-              36,
-              48,
-              60
-            ]
-          },
-          "interestRateMatrix": [],
-          "residualRateMatrix": []
-        },
-        {
-          "id": "linear_loan_dib",
-          "market": "AE",
-          "variant": [
-            "m3",
-            "my",
-            "ms",
-            "mx"
-          ],
-          "inventory": [
-            "new"
-          ],
-          "variables": {
-            "downPayment": 0.2,
-            "minimumDownPayment": 0.2,
-            "maximumDownPayment": 0.8,
-            "interestRate": 1.89,
-            "leaseTerm": 60,
-            "localeSpecific": {
-              "upfrontFeeRate": 0.0105
-            },
-            "ignoreTermForGas": true
-          },
-          "leaseTermsOffered": {
-            "leaseTerm": [
-              36,
-              48,
-              60
-            ]
-          }
-        }
-      ]
-    },
-    "Loan.m3.m3": {
-      "loan": []
     },
     "Lexicon.m3": {
       "effective_date": "2023-05-19T00:23:00.000Z",
@@ -13743,6 +13677,94 @@
       "pricing_id": 35666,
       "reference_id": 7206,
       "source": "cache"
+    },
+    "financeProductsSource": "finCMS",
+    "Lease.m3.m3": {
+      "lease": [
+        {
+          "id": "linear_loan",
+          "market": "AE",
+          "productType": "lease",
+          "accountType": null,
+          "variant": [
+            "m3",
+            "my",
+            "ms",
+            "mx"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "leaseTerm": 60,
+            "downPayment": 0.2,
+            "interestRate": 2.49,
+            "localeSpecific": {
+              "purchaseProtectRate": 0.01,
+              "purchaseProtectMinimum": 1000,
+              "effectiveRateMultiplier": 1.888
+            },
+            "ignoreTermForGas": true,
+            "maximumDownPayment": 0.8,
+            "minimumDownPayment": 0.2
+          },
+          "disclaimers": {
+            "ar": []
+          },
+          "enabled": true,
+          "leaseTermsOffered": {
+            "leaseTerm": [
+              36,
+              48,
+              60
+            ]
+          },
+          "interestRateMatrix": [],
+          "residualRateMatrix": []
+        },
+        {
+          "id": "linear_loan_dib",
+          "market": "AE",
+          "productType": "lease",
+          "accountType": null,
+          "variant": [
+            "m3",
+            "my",
+            "ms",
+            "mx"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "leaseTerm": 60,
+            "downPayment": 0.2,
+            "interestRate": 1.89,
+            "localeSpecific": {
+              "upfrontFeeRate": 0.0105
+            },
+            "ignoreTermForGas": true,
+            "maximumDownPayment": 0.8,
+            "minimumDownPayment": 0.2
+          },
+          "disclaimers": {
+            "ar": {
+              "default": "<p>{TERM} شهراً، {DOWNPAYMENT} درهم إماراتي دفعة مقدمة، تمويل مرابحة بمبلغ {FINANCED_AMOUNT} درهم إماراتي بمعدل ربح قدره {RATE}% في السنة ، شامل رسوم دراسة الجدوى و المستندات البالغة {UPFRONT_FEE} درهم إماراتي</p><p>لإتمام عملية الشراء، يجب الالتزام بإرشادات بنك دبي الإسلامي والإجراءات المتبعة لديه. إن الغرض من الطلب ودفع رسوم الطلب هو لتهيئة السيارة. يخضع البيع الفعلي للسيارة بموجب التمويل الإسلامي للشروط والأحكام ذات الصلة لشريك التمويل الإسلامي.</p><p>تم تصميم هذه الآلة الحاسبة لإعطائك مؤشرا ويجب استخدامها كتوجيه فقط. لا ينبغي اعتبار أي نتيجة من استخدام الآلة الحاسبة طلبا للتمويل أو عرضا لتمويل السيارات. الآلة الحاسبة لا تأخذ في الاعتبار ظروفك الشخصية. جميع معدلات الربح المعروضة هي توجيهية فقط. قد تختلف عمليات السداد بناء على ظروفك. يمكن تطبيق افتراضات أخرى.  يوفر بنك دبي الإسلامي تمويلًا متوافقًا مع الشريعة الإسلامية لذلك تخضع جميع الخدمات والتمويل والطلبات لسياسات البنك والشروط والأحكام المعمول بها من وقت لآخر.</p><p>*يطبق على المتعاملين ذوي الرواتب 50,000 درهم واكثر.</p>"
+            }
+          },
+          "enabled": true,
+          "leaseTermsOffered": {
+            "leaseTerm": [
+              36,
+              48,
+              60
+            ]
+          }
+        }
+      ]
+    },
+    "Loan.m3.m3": {
+      "loan": []
     }
   }
 }
