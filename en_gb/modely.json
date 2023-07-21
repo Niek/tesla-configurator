@@ -19,6 +19,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "my",
               "variant": "my"
             }
@@ -41,6 +42,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "my",
               "variant": "my"
             }
@@ -63,6 +65,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "my",
               "variant": "my"
             }
@@ -85,6 +88,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "my",
               "variant": "my"
             }
@@ -107,6 +111,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "my",
               "variant": "my"
             }
@@ -129,6 +134,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "my",
               "variant": "my"
             }
@@ -151,6 +157,7 @@
               "isWechatMiniProgramEnv": "0",
               "isWechatBrowserEnv": "0",
               "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
               "model": "my",
               "variant": "my"
             }
@@ -170,7 +177,8 @@
         "isFinplatEnabled": "0",
         "isWechatMiniProgramEnv": "0",
         "isWechatBrowserEnv": "0",
-        "isFeeSvcEnabled": "0"
+        "isFeeSvcEnabled": "0",
+        "isFinCmsAPIEnabled": "1"
       }
     },
     "InitialConfig.my.my": {
@@ -929,9 +937,9 @@
               "cash",
               "contract_hire",
               "contract_purchase",
-              "tesla_loan"
+              "hire_purchase"
             ],
-            "defaultOption": "contract_hire"
+            "defaultOption": "cash"
           },
           {
             "type": "business",
@@ -944,7 +952,7 @@
             "defaultOption": "operational_lease"
           }
         ],
-        "driverType": "business",
+        "driverType": "personal",
         "leaseDescriptionwithModelCode": false,
         "taxesAndFeesExcludedIfApplicable": false,
         "showFooterFinanceLink": false,
@@ -1506,6 +1514,7 @@
         "optionalCompanyFields": [],
         "hideDeliveryStandardBlock": false,
         "showPurchasePriceOnFooter": false,
+        "showLegalConsentEditDesign": false,
         "showAccountTypeSwitch": true,
         "extraBusinessFields": [
           "CompanyName",
@@ -1538,7 +1547,7 @@
         "set": []
       },
       "SummaryPanel": {
-        "selected_tab": "lease.operational_lease",
+        "selected_tab": "cash",
         "tabs": [],
         "loanDistance": null,
         "leaseDistance": null,
@@ -1572,9 +1581,9 @@
             "convert_mpg_to_litres_per_mile": true,
             "kwh_consumption_100": 27.19,
             "supercharger_kwh_price": 0.26988,
-            "fuel_price": 1.464,
-            "kwh_price": 0.33,
-            "last_updated": "2023-04-05",
+            "fuel_price": 1.434,
+            "kwh_price": 0.387,
+            "last_updated": "2023-07-07",
             "kwh_consumption": 0.2719
           },
           "variant": "my",
@@ -1687,6 +1696,7 @@
           "feeType": "reg_and_doc_fee",
           "financeType": "any",
           "description": "Registration and doc fee",
+          "sfdcFieldName": "Destination and Doc Fee",
           "period": "once",
           "variant": [
             "m3",
@@ -1701,9 +1711,26 @@
           "market": "GB"
         },
         {
+          "description": "Booking Fee",
+          "finplatFeeInput": "orderPayment",
+          "variant": [
+            "m3",
+            "my",
+            "ms",
+            "mx"
+          ],
+          "inventory": [
+            "new",
+            "used"
+          ],
+          "amount": 200,
+          "market": "GB"
+        },
+        {
           "feeType": "registration",
           "financeType": "any",
-          "description": "Firs Registration Fee",
+          "description": "First Registration Fee",
+          "sfdcFieldName": "First Registration Fee",
           "period": "once",
           "variant": [
             "m3",
@@ -1917,1562 +1944,6 @@
             "percent": "fees.vat_percent.percent",
             "lexiconOptions": "fees.vat_percent.options"
           }
-        }
-      ]
-    },
-    "Lease.my.my": {
-      "lease": [
-        {
-          "market": "GB",
-          "id": "contract_hire",
-          "default": true,
-          "description": "GB, lease - Contract Hire",
-          "variant": [
-            "m3",
-            "my"
-          ],
-          "inventory": [
-            "new"
-          ],
-          "inventoryFilters": {
-            "Odometer": {
-              "<=": 50
-            }
-          },
-          "variables": {
-            "downPayment": 4000,
-            "downPayments": {
-              "model": {
-                "m3": 4000,
-                "my": 6000
-              }
-            },
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.3,
-            "interestRate": 7.9,
-            "leaseTerm": 48,
-            "leaseDistance": 10000,
-            "localeSpecific": {
-              "purchaseFee": 10,
-              "discountFactor": 0.89
-            }
-          },
-          "leaseTermsOffered": {
-            "leaseTerm": [
-              36,
-              48
-            ],
-            "leaseDistance": [
-              10000,
-              12000,
-              15000
-            ]
-          },
-          "interestRateMatrix": [],
-          "residualRateMatrix": [
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 10000,
-              "value": 0.53
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 12000,
-              "value": 0.51
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 15000,
-              "value": 0.5
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 10000,
-              "value": 0.49
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 12000,
-              "value": 0.47
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 15000,
-              "value": 0.44
-            }
-          ],
-          "uiSettings": {
-            "forms": {
-              "showLeaseFields": [
-                [
-                  "downPayment",
-                  "distance",
-                  "term"
-                ]
-              ]
-            },
-            "pdf": {
-              "leaseFields": [
-                "downPayment",
-                "distance",
-                "term"
-              ]
-            }
-          }
-        },
-        {
-          "market": "GB",
-          "id": "contract_purchase",
-          "description": "GB, lease - PCP Blackhorse private",
-          "variant": [
-            "m3",
-            "my"
-          ],
-          "inventory": [
-            "new"
-          ],
-          "inventoryFilters": {
-            "Odometer": {
-              "<=": 6000
-            }
-          },
-          "variables": {
-            "downPayment": 7050,
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.3,
-            "interestRate": 0,
-            "leaseTerm": 48,
-            "leaseDistance": 10000,
-            "localeSpecific": {
-              "purchaseFee": 0
-            },
-            "ignoreTermForGas": true
-          },
-          "leaseTermsOffered": {
-            "leaseTerm": [
-              24,
-              36,
-              48
-            ],
-            "leaseTermMileages": {
-              "24": [
-                10000,
-                12000,
-                15000,
-                20000,
-                22000,
-                24000
-              ],
-              "36": [
-                10000,
-                12000,
-                15000,
-                20000,
-                22000,
-                24000
-              ],
-              "48": [
-                10000,
-                12000,
-                15000,
-                20000,
-                22000
-              ]
-            }
-          },
-          "interestRateMatrix": [
-            {
-              "options": [
-                "$MDLY"
-              ],
-              "value": 4.9
-            }
-          ],
-          "residualRateMatrix": [
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 10000,
-              "value": 19414,
-              "options": [
-                "$MT308",
-                "$MT314",
-                "$MT322",
-                "$MT320",
-                "$MT336",
-                "$MT337"
-              ]
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 12000,
-              "value": 19015,
-              "options": [
-                "$MT308",
-                "$MT314",
-                "$MT322",
-                "$MT320",
-                "$MT336",
-                "$MT337"
-              ]
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 15000,
-              "value": 18418,
-              "options": [
-                "$MT308",
-                "$MT314",
-                "$MT322",
-                "$MT320",
-                "$MT336",
-                "$MT337"
-              ]
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 20000,
-              "value": 17303,
-              "options": [
-                "$MT308",
-                "$MT314",
-                "$MT322",
-                "$MT320",
-                "$MT336",
-                "$MT337"
-              ]
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 22000,
-              "value": 16605,
-              "options": [
-                "$MT308",
-                "$MT314",
-                "$MT322",
-                "$MT320",
-                "$MT336",
-                "$MT337"
-              ]
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 24000,
-              "value": 15908,
-              "options": [
-                "$MT308",
-                "$MT314",
-                "$MT322",
-                "$MT320",
-                "$MT336",
-                "$MT337"
-              ]
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 10000,
-              "value": 17290,
-              "options": [
-                "$MT308",
-                "$MT314",
-                "$MT322",
-                "$MT320",
-                "$MT336",
-                "$MT337"
-              ]
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 12000,
-              "value": 16748,
-              "options": [
-                "$MT308",
-                "$MT314",
-                "$MT322",
-                "$MT320",
-                "$MT336",
-                "$MT337"
-              ]
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 15000,
-              "value": 15977,
-              "options": [
-                "$MT308",
-                "$MT314",
-                "$MT322",
-                "$MT320",
-                "$MT336",
-                "$MT337"
-              ]
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 20000,
-              "value": 14734,
-              "options": [
-                "$MT308",
-                "$MT314",
-                "$MT322",
-                "$MT320",
-                "$MT336",
-                "$MT337"
-              ]
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 22000,
-              "value": 14280,
-              "options": [
-                "$MT308",
-                "$MT314",
-                "$MT322",
-                "$MT320",
-                "$MT336",
-                "$MT337"
-              ]
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 24000,
-              "value": 13827,
-              "options": [
-                "$MT308",
-                "$MT314",
-                "$MT322",
-                "$MT320",
-                "$MT336",
-                "$MT337"
-              ]
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 10000,
-              "value": 15128,
-              "options": [
-                "$MT308",
-                "$MT314",
-                "$MT322",
-                "$MT320",
-                "$MT336",
-                "$MT337"
-              ]
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 12000,
-              "value": 14531,
-              "options": [
-                "$MT308",
-                "$MT314",
-                "$MT322",
-                "$MT320",
-                "$MT336",
-                "$MT337"
-              ]
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 15000,
-              "value": 13642,
-              "options": [
-                "$MT308",
-                "$MT314",
-                "$MT322",
-                "$MT320",
-                "$MT336",
-                "$MT337"
-              ]
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 20000,
-              "value": 12277,
-              "options": [
-                "$MT308",
-                "$MT314",
-                "$MT322",
-                "$MT320",
-                "$MT336",
-                "$MT337"
-              ]
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 22000,
-              "value": 11781,
-              "options": [
-                "$MT308",
-                "$MT314",
-                "$MT322",
-                "$MT320",
-                "$MT336",
-                "$MT337"
-              ]
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 10000,
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321",
-                "$MT323",
-                "$MT328"
-              ],
-              "value": 22398
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 12000,
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321",
-                "$MT323",
-                "$MT328"
-              ],
-              "value": 21939
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 15000,
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321",
-                "$MT323",
-                "$MT328"
-              ],
-              "value": 21249
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 20000,
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321",
-                "$MT323",
-                "$MT328"
-              ],
-              "value": 19961
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 22000,
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321",
-                "$MT323",
-                "$MT328"
-              ],
-              "value": 19156
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 24000,
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321",
-                "$MT323",
-                "$MT328"
-              ],
-              "value": 18352
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 10000,
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321",
-                "$MT323",
-                "$MT328"
-              ],
-              "value": 19873
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 12000,
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321",
-                "$MT323",
-                "$MT328"
-              ],
-              "value": 19252
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 15000,
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321",
-                "$MT323",
-                "$MT328"
-              ],
-              "value": 18363
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 20000,
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321",
-                "$MT323",
-                "$MT328"
-              ],
-              "value": 16935
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 22000,
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321",
-                "$MT323",
-                "$MT328"
-              ],
-              "value": 16414
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 24000,
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321",
-                "$MT323",
-                "$MT328"
-              ],
-              "value": 15893
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 10000,
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321",
-                "$MT323",
-                "$MT328"
-              ],
-              "value": 17398
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 12000,
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321",
-                "$MT323",
-                "$MT328"
-              ],
-              "value": 16711
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 15000,
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321",
-                "$MT323",
-                "$MT328"
-              ],
-              "value": 15689
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 20000,
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321",
-                "$MT323",
-                "$MT328"
-              ],
-              "value": 14119
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 22000,
-              "options": [
-                "$MT310",
-                "$MT315",
-                "$MT316",
-                "$MT321",
-                "$MT323",
-                "$MT328"
-              ],
-              "value": 13548
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 10000,
-              "options": [
-                "$MT311",
-                "$MT317",
-                "$MT325",
-                "$MT340"
-              ],
-              "value": 24332
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 12000,
-              "options": [
-                "$MT311",
-                "$MT317",
-                "$MT325",
-                "$MT340"
-              ],
-              "value": 23833
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 15000,
-              "options": [
-                "$MT311",
-                "$MT317",
-                "$MT325",
-                "$MT340"
-              ],
-              "value": 23084
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 20000,
-              "options": [
-                "$MT311",
-                "$MT317",
-                "$MT325",
-                "$MT340"
-              ],
-              "value": 21685
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 22000,
-              "options": [
-                "$MT311",
-                "$MT317",
-                "$MT325",
-                "$MT340"
-              ],
-              "value": 20811
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 24000,
-              "options": [
-                "$MT311",
-                "$MT317",
-                "$MT325",
-                "$MT340"
-              ],
-              "value": 19937
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 10000,
-              "options": [
-                "$MT311",
-                "$MT317",
-                "$MT325",
-                "$MT340"
-              ],
-              "value": 21546
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 12000,
-              "options": [
-                "$MT311",
-                "$MT317",
-                "$MT325",
-                "$MT340"
-              ],
-              "value": 20872
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 15000,
-              "options": [
-                "$MT311",
-                "$MT317",
-                "$MT325",
-                "$MT340"
-              ],
-              "value": 19910
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 20000,
-              "options": [
-                "$MT311",
-                "$MT317",
-                "$MT325",
-                "$MT340"
-              ],
-              "value": 18361
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 22000,
-              "options": [
-                "$MT311",
-                "$MT317",
-                "$MT325",
-                "$MT340"
-              ],
-              "value": 17796
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 24000,
-              "options": [
-                "$MT311",
-                "$MT317",
-                "$MT325",
-                "$MT340"
-              ],
-              "value": 17231
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 10000,
-              "options": [
-                "$MT311",
-                "$MT317",
-                "$MT325",
-                "$MT340"
-              ],
-              "value": 18868
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 12000,
-              "options": [
-                "$MT311",
-                "$MT317",
-                "$MT325",
-                "$MT340"
-              ],
-              "value": 18124
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 15000,
-              "options": [
-                "$MT311",
-                "$MT317",
-                "$MT325",
-                "$MT340"
-              ],
-              "value": 17015
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 20000,
-              "options": [
-                "$MT311",
-                "$MT317",
-                "$MT325",
-                "$MT340"
-              ],
-              "value": 15313
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 22000,
-              "options": [
-                "$MT311",
-                "$MT317",
-                "$MT325",
-                "$MT340"
-              ],
-              "value": 14695
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 10000,
-              "options": [
-                "$MTY13"
-              ],
-              "value": 24140
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 12000,
-              "options": [
-                "$MTY13"
-              ],
-              "value": 23644
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 15000,
-              "options": [
-                "$MTY13"
-              ],
-              "value": 22902
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 20000,
-              "options": [
-                "$MTY13"
-              ],
-              "value": 21514
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 22000,
-              "options": [
-                "$MTY13"
-              ],
-              "value": 20646
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 24000,
-              "options": [
-                "$MTY13"
-              ],
-              "value": 19777
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 10000,
-              "options": [
-                "$MTY13"
-              ],
-              "value": 20493
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 12000,
-              "options": [
-                "$MTY13"
-              ],
-              "value": 19852
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 15000,
-              "options": [
-                "$MTY13"
-              ],
-              "value": 18935
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 20000,
-              "options": [
-                "$MTY13"
-              ],
-              "value": 17463
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 22000,
-              "options": [
-                "$MTY13"
-              ],
-              "value": 16926
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 24000,
-              "options": [
-                "$MTY13"
-              ],
-              "value": 16389
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 10000,
-              "options": [
-                "$MTY13"
-              ],
-              "value": 17432
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 12000,
-              "options": [
-                "$MTY13"
-              ],
-              "value": 16743
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 15000,
-              "options": [
-                "$MTY13"
-              ],
-              "value": 15720
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 20000,
-              "options": [
-                "$MTY13"
-              ],
-              "value": 14147
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 22000,
-              "options": [
-                "$MTY13"
-              ],
-              "value": 13575
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 10000,
-              "options": [
-                "$MTY09",
-                "$MTY15"
-              ],
-              "value": 27798
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 12000,
-              "options": [
-                "$MTY09",
-                "$MTY15"
-              ],
-              "value": 27227
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 15000,
-              "options": [
-                "$MTY09",
-                "$MTY15"
-              ],
-              "value": 26371
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 20000,
-              "options": [
-                "$MTY09",
-                "$MTY15"
-              ],
-              "value": 24773
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 22000,
-              "options": [
-                "$MTY09",
-                "$MTY15"
-              ],
-              "value": 23775
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 24000,
-              "options": [
-                "$MTY09",
-                "$MTY15"
-              ],
-              "value": 22775
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 10000,
-              "options": [
-                "$MTY09",
-                "$MTY15"
-              ],
-              "value": 23642
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 12000,
-              "options": [
-                "$MTY09",
-                "$MTY15"
-              ],
-              "value": 22902
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 15000,
-              "options": [
-                "$MTY09",
-                "$MTY15"
-              ],
-              "value": 21845
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 20000,
-              "options": [
-                "$MTY09",
-                "$MTY15"
-              ],
-              "value": 20146
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 22000,
-              "options": [
-                "$MTY09",
-                "$MTY15"
-              ],
-              "value": 19526
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 24000,
-              "options": [
-                "$MTY09",
-                "$MTY15"
-              ],
-              "value": 18907
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 10000,
-              "options": [
-                "$MTY09",
-                "$MTY15"
-              ],
-              "value": 20191
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 12000,
-              "options": [
-                "$MTY09",
-                "$MTY15"
-              ],
-              "value": 19394
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 15000,
-              "options": [
-                "$MTY09",
-                "$MTY15"
-              ],
-              "value": 18208
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 20000,
-              "options": [
-                "$MTY09",
-                "$MTY15"
-              ],
-              "value": 16385
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 22000,
-              "options": [
-                "$MTY09",
-                "$MTY15"
-              ],
-              "value": 15724
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 10000,
-              "options": [
-                "$MTY10",
-                "$MTY12"
-              ],
-              "value": 30648
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 12000,
-              "options": [
-                "$MTY10",
-                "$MTY12"
-              ],
-              "value": 30019
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 15000,
-              "options": [
-                "$MTY10",
-                "$MTY12"
-              ],
-              "value": 29075
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 20000,
-              "options": [
-                "$MTY10",
-                "$MTY12"
-              ],
-              "value": 27313
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 22000,
-              "options": [
-                "$MTY10",
-                "$MTY12"
-              ],
-              "value": 26211
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 24000,
-              "options": [
-                "$MTY10",
-                "$MTY12"
-              ],
-              "value": 25110
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 10000,
-              "options": [
-                "$MTY10",
-                "$MTY12"
-              ],
-              "value": 26172
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 12000,
-              "options": [
-                "$MTY10",
-                "$MTY12"
-              ],
-              "value": 25354
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 15000,
-              "options": [
-                "$MTY10",
-                "$MTY12"
-              ],
-              "value": 24185
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 20000,
-              "options": [
-                "$MTY10",
-                "$MTY12"
-              ],
-              "value": 22303
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 22000,
-              "options": [
-                "$MTY10",
-                "$MTY12"
-              ],
-              "value": 21617
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 24000,
-              "options": [
-                "$MTY10",
-                "$MTY12"
-              ],
-              "value": 20931
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 10000,
-              "options": [
-                "$MTY10",
-                "$MTY12"
-              ],
-              "value": 22396
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 12000,
-              "options": [
-                "$MTY10",
-                "$MTY12"
-              ],
-              "value": 21512
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 15000,
-              "options": [
-                "$MTY10",
-                "$MTY12"
-              ],
-              "value": 20195
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 20000,
-              "options": [
-                "$MTY10",
-                "$MTY12"
-              ],
-              "value": 18175
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 22000,
-              "options": [
-                "$MTY10",
-                "$MTY12"
-              ],
-              "value": 17441
-            }
-          ],
-          "uiSettings": {
-            "forms": {
-              "showLeaseFields": [
-                [
-                  "downPayment",
-                  "distance",
-                  "term"
-                ]
-              ]
-            },
-            "reviewDetails": {
-              "showLeaseSummaryFields": [
-                "downPayment",
-                "leaseTerm",
-                "leaseDistance",
-                "residualAmount"
-              ]
-            }
-          }
-        },
-        {
-          "market": "GB",
-          "id": "caab_pcp",
-          "description": "GB PCP CAAB",
-          "variant": [
-            "my",
-            "m3"
-          ],
-          "inventory": [
-            "new"
-          ],
-          "variables": {
-            "downPayment": 10000,
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.3,
-            "interestRate": 0,
-            "leaseTerm": 48,
-            "leaseDistance": 10000,
-            "localeSpecific": {
-              "purchaseFee": 0
-            }
-          },
-          "leaseTermsOffered": {
-            "leaseTerm": [
-              24,
-              36,
-              48
-            ],
-            "leaseDistance": [
-              10000,
-              12000,
-              15000,
-              20000,
-              25000,
-              30000
-            ]
-          },
-          "interestRateMatrix": [
-            {
-              "options": [
-                "$MDLY"
-              ],
-              "value": 7.9
-            }
-          ],
-          "residualRateMatrix": [
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 10000,
-              "value": 0.55
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 12000,
-              "value": 0.54
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 15000,
-              "value": 0.53
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 20000,
-              "value": 0.5
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 25000,
-              "value": 0.48
-            },
-            {
-              "leaseTerm": 24,
-              "leaseDistance": 30000,
-              "value": 0.45
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 10000,
-              "value": 0.51
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 12000,
-              "value": 0.5
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 15000,
-              "value": 0.48
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 20000,
-              "value": 0.44
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 25000,
-              "value": 0.41
-            },
-            {
-              "leaseTerm": 36,
-              "leaseDistance": 30000,
-              "value": 0.38
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 10000,
-              "value": 0.47
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 12000,
-              "value": 0.45
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 15000,
-              "value": 0.42
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 20000,
-              "value": 0.4
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 25000,
-              "value": 0.35
-            },
-            {
-              "leaseTerm": 48,
-              "leaseDistance": 30000,
-              "value": 0.31
-            }
-          ],
-          "uiSettings": {
-            "forms": {
-              "showLeaseFields": [
-                [
-                  "downPayment",
-                  "distance",
-                  "term"
-                ]
-              ]
-            },
-            "reviewDetails": {
-              "showLeaseSummaryFields": [
-                "downPayment",
-                "leaseTerm",
-                "leaseDistance",
-                "residualAmount"
-              ]
-            }
-          }
-        },
-        {
-          "market": "GB",
-          "id": "operational_lease",
-          "incomplete": true,
-          "variant": [
-            "m3",
-            "ms",
-            "mx",
-            "my"
-          ],
-          "inventory": [
-            "new"
-          ],
-          "variables": {
-            "leaseTerm": 48,
-            "leaseTerm__my": 36,
-            "leaseDistance": 10000
-          },
-          "uiSettings": {
-            "forms": {
-              "showLeaseFields": [
-                [
-                  "distance",
-                  "term"
-                ],
-                [
-                  "includeServiceFee"
-                ]
-              ],
-              "standardFeaturesList": true
-            },
-            "reviewDetails": {
-              "showLeaseSummaryFields": [
-                "downPayment",
-                "leaseTerm",
-                "leaseDistance"
-              ]
-            },
-            "pdf": {
-              "leaseFields": [
-                "downPayment",
-                "distance",
-                "term"
-              ]
-            }
-          }
-        }
-      ]
-    },
-    "Loan.my.my": {
-      "loan": [
-        {
-          "market": "GB",
-          "id": "hire_purchase",
-          "default": true,
-          "variant": [
-            "m3",
-            "my"
-          ],
-          "description": "In GB, loan is called Hire Purchase",
-          "inventory": [
-            "new"
-          ],
-          "variables": {
-            "downPayment": 10700,
-            "downPayments": {
-              "model": {
-                "my": 10200
-              }
-            },
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.8,
-            "interestRate": 0,
-            "loanTerm": 72,
-            "localeSpecific": {
-              "purchaseFee": 10,
-              "discountFactor": 0.89
-            }
-          },
-          "loanTermsOffered": {
-            "loanTerm": [
-              36,
-              48,
-              60,
-              72
-            ]
-          },
-          "interestRateMatrix": [
-            {
-              "options": [
-                "$MDLY"
-              ],
-              "value": 7.9
-            }
-          ],
-          "residualRateMatrix": [],
-          "uiSettings": {
-            "forms": {
-              "trimsWithBanner": []
-            }
-          }
-        },
-        {
-          "market": "GB",
-          "id": "tesla_loan",
-          "variant": [
-            "m3",
-            "my"
-          ],
-          "description": "In GB, loan is called Tesla Loan",
-          "inventory": [
-            "new"
-          ],
-          "variables": {
-            "downPayment": 9600,
-            "minimumDownPayment": 0,
-            "maximumDownPayment": 0.5,
-            "interestRate": 7.9,
-            "loanTerm": 72,
-            "localeSpecific": {
-              "bookingFee": 200,
-              "discountFactor": 0
-            }
-          },
-          "loanTermsOffered": {
-            "loanTerm": [
-              24,
-              36,
-              48,
-              60,
-              72
-            ]
-          },
-          "interestRateMatrix": [],
-          "residualRateMatrix": []
         }
       ]
     },
@@ -12581,6 +11052,566 @@
       "language": "en",
       "pricing_id": 33840,
       "source": "cache"
+    },
+    "financeProductsSource": "finCMS",
+    "Lease.my.my": {
+      "lease": [
+        {
+          "id": "contract_hire",
+          "market": "GB",
+          "productType": "lease",
+          "accountType": null,
+          "variant": [
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "leaseTerm": 48,
+            "downPayment": 4000,
+            "downPayments": {
+              "model": {
+                "m3": 4000,
+                "my": 6000
+              }
+            },
+            "interestRate": 7.9,
+            "leaseDistance": 10000,
+            "localeSpecific": {
+              "purchaseFee": 10,
+              "discountFactor": 0.89
+            },
+            "maximumDownPayment": 0.3,
+            "minimumDownPayment": 0
+          },
+          "disclaimers": {
+            "en": {
+              "default": "<p>Representative Example | monthly rental of {PAYMENT} | On-the-road cash price {CASH_PRICE} | Total down payment {TOTALDOWNPAYMENT} | Total amount payable {TOTAL_AMOUNT_PAYABLE} | Length of agreement {TERM} months | Mileage per annum {MILEAGE} | Excess mileage charge 16.5 ppm (plus VAT).<p>This representative example applies to new vehicles ordered to 30 September 2023.</p><p>Tesla Motors Limited acts as a credit broker and introduces customers to Tesla Financial Services Limited for Personal Contract Hire. Tesla Motors Limited is authorised and regulated by the Financial Conduct Authority for credit broking. Firm registration number 677768. Tesla Motors Limited registered office and postal address is 109 Devonshire Road, London, England, W4 2AN.</p><p>Tesla Financial Services Limited is authorised and regulated by the Financial Conduct Authority for consumer credit lending. Firm registration number 9533203. Tesla Financial Services Limited registered office and postal address is 109 Devonshire Road, London, England, W4 2AN.</p>"
+            }
+          },
+          "enabled": true,
+          "default": true,
+          "uiSettings": {
+            "pdf": {
+              "leaseFields": [
+                "downPayment",
+                "distance",
+                "term"
+              ]
+            },
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "downPayment",
+                  "distance",
+                  "term"
+                ]
+              ]
+            }
+          },
+          "inventoryFilters": {
+            "Odometer": {
+              "<=": 50
+            }
+          },
+          "leaseTermsOffered": {
+            "leaseTerm": [
+              36,
+              48
+            ],
+            "leaseDistance": [
+              10000,
+              12000,
+              15000
+            ]
+          },
+          "interestRateMatrix": [],
+          "residualRateMatrix": [
+            {
+              "value": 0.53,
+              "leaseTerm": 36,
+              "leaseDistance": 10000
+            },
+            {
+              "value": 0.51,
+              "leaseTerm": 36,
+              "leaseDistance": 12000
+            },
+            {
+              "value": 0.5,
+              "leaseTerm": 36,
+              "leaseDistance": 15000
+            },
+            {
+              "value": 0.49,
+              "leaseTerm": 48,
+              "leaseDistance": 10000
+            },
+            {
+              "value": 0.47,
+              "leaseTerm": 48,
+              "leaseDistance": 12000
+            },
+            {
+              "value": 0.44,
+              "leaseTerm": 48,
+              "leaseDistance": 15000
+            }
+          ]
+        },
+        {
+          "id": "contract_purchase",
+          "market": "GB",
+          "productType": "lease",
+          "accountType": null,
+          "variant": [
+            "my",
+            "m3"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "leaseTerm": 48,
+            "downPayment": 10000,
+            "interestRate": 0,
+            "leaseDistance": 10000,
+            "localeSpecific": {
+              "purchaseFee": 0
+            },
+            "maximumDownPayment": 0.3,
+            "minimumDownPayment": 0
+          },
+          "disclaimers": {
+            "en": {
+              "m3": "<p>Representative Example | {TERM} fixed monthly payments of {PAYMENT} | On-the-road cash price {CASH_PRICE} | Total down payment {TOTALDOWNPAYMENT} | Optional Final Payment {RESIDUAL_VALUE} | Length of agreement {TERM} months | Representative APR {RATE}% | Mileage per annum {MILEAGE} | Excess mileage charge 16 ppm (Plus VAT).</p><p>PCP rates valid for new orders placed until 31st August or as long as stocks lasts when taking delivery before or on September 30th 2023.</p><p>Tesla Motors Limited acts as a credit broker and introduces customers to CA Auto Finance for Personal Contract Purchase. Tesla Motors Limited is authorised and regulated by the Financial Conduct Authority for credit broking. Firm registration number 677768. Tesla Motors Limited registered office and postal address is 109 Devonshire Road, London, England, W4 2AN.</p>",
+              "default": "<p>Representative Example | {TERM} fixed monthly payments of {PAYMENT} | On-the-road cash price {CASH_PRICE} | Total down payment {TOTALDOWNPAYMENT} | Total amount of credit {FINANCED_AMOUNT} | Optional Final Payment {RESIDUAL_VALUE} | Interest charges {COST_CREDIT} | Fixed rate of interest per year {RATE}% | Length of agreement {TERM} months | Total amount payable {TOTAL_AMOUNT_PAYABLE} | Representative APR {RATE}% | Mileage per annum {MILEAGE} | Excess mileage charge 16 ppm (Plus VAT). <p>Tesla Motors Limited acts as a credit broker and introduces customers to CA Auto Finance for Personal Contract Purchase. Tesla Motors Limited is authorised and regulated by the Financial Conduct Authority for credit broking. Firm registration number 677768. Tesla Motors Limited registered office and postal address is 109 Devonshire Road, London, England, W4 2AN.</p>"
+            }
+          },
+          "enabled": true,
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "downPayment",
+                  "distance",
+                  "term"
+                ]
+              ]
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm",
+                "leaseDistance",
+                "residualAmount"
+              ]
+            }
+          },
+          "leaseTermsOffered": {
+            "leaseTerm": [
+              24,
+              36,
+              48
+            ],
+            "leaseDistance": [
+              10000,
+              12000,
+              15000,
+              20000,
+              25000,
+              30000
+            ]
+          },
+          "interestRateMatrix": [
+            {
+              "value": 4.9,
+              "options": [
+                "$MDLY"
+              ]
+            }
+          ],
+          "residualRateMatrix": [
+            {
+              "value": 0.55,
+              "leaseTerm": 24,
+              "leaseDistance": 10000
+            },
+            {
+              "value": 0.54,
+              "leaseTerm": 24,
+              "leaseDistance": 12000
+            },
+            {
+              "value": 0.53,
+              "leaseTerm": 24,
+              "leaseDistance": 15000
+            },
+            {
+              "value": 0.5,
+              "leaseTerm": 24,
+              "leaseDistance": 20000
+            },
+            {
+              "value": 0.48,
+              "leaseTerm": 24,
+              "leaseDistance": 25000
+            },
+            {
+              "value": 0.45,
+              "leaseTerm": 24,
+              "leaseDistance": 30000
+            },
+            {
+              "value": 0.51,
+              "leaseTerm": 36,
+              "leaseDistance": 10000
+            },
+            {
+              "value": 0.5,
+              "leaseTerm": 36,
+              "leaseDistance": 12000
+            },
+            {
+              "value": 0.48,
+              "leaseTerm": 36,
+              "leaseDistance": 15000
+            },
+            {
+              "value": 0.44,
+              "leaseTerm": 36,
+              "leaseDistance": 20000
+            },
+            {
+              "value": 0.41,
+              "leaseTerm": 36,
+              "leaseDistance": 25000
+            },
+            {
+              "value": 0.38,
+              "leaseTerm": 36,
+              "leaseDistance": 30000
+            },
+            {
+              "value": 0.47,
+              "leaseTerm": 48,
+              "leaseDistance": 10000
+            },
+            {
+              "value": 0.45,
+              "leaseTerm": 48,
+              "leaseDistance": 12000
+            },
+            {
+              "value": 0.42,
+              "leaseTerm": 48,
+              "leaseDistance": 15000
+            },
+            {
+              "value": 0.4,
+              "leaseTerm": 48,
+              "leaseDistance": 20000
+            },
+            {
+              "value": 0.35,
+              "leaseTerm": 48,
+              "leaseDistance": 25000
+            },
+            {
+              "value": 0.31,
+              "leaseTerm": 48,
+              "leaseDistance": 30000
+            }
+          ]
+        },
+        {
+          "id": "caab_pcp",
+          "market": "GB",
+          "productType": "lease",
+          "accountType": null,
+          "variant": [
+            "my",
+            "m3"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "leaseTerm": 48,
+            "downPayment": 10000,
+            "interestRate": 0,
+            "leaseDistance": 10000,
+            "localeSpecific": {
+              "purchaseFee": 0
+            },
+            "maximumDownPayment": 0.3,
+            "minimumDownPayment": 0
+          },
+          "disclaimers": {
+            "en": {
+              "m3": "<p>Representative Example | {TERM} fixed monthly payments of {PAYMENT} | On-the-road cash price {CASH_PRICE} | Total down payment {TOTALDOWNPAYMENT} | Optional Final Payment {RESIDUAL_VALUE} | Length of agreement {TERM} months | Representative APR {RATE}% | Mileage per annum {MILEAGE} | Excess mileage charge 16 ppm (Plus VAT).</p><p>PCP rates valid for new orders placed until 31st August or as long as stocks lasts when taking delivery before or on September 30th 2023.</p><p>Tesla Motors Limited acts as a credit broker and introduces customers to CA Auto Finance for Personal Contract Purchase. Tesla Motors Limited is authorised and regulated by the Financial Conduct Authority for credit broking. Firm registration number 677768. Tesla Motors Limited registered office and postal address is 109 Devonshire Road, London, England, W4 2AN.</p>",
+              "default": "<p>Representative Example | {TERM} fixed monthly payments of {PAYMENT} | On-the-road cash price {CASH_PRICE} | Total down payment {TOTALDOWNPAYMENT} | Total amount of credit {FINANCED_AMOUNT} | Optional Final Payment {RESIDUAL_VALUE} | Interest charges {COST_CREDIT} | Fixed rate of interest per year {RATE}% | Length of agreement {TERM} months | Total amount payable {TOTAL_AMOUNT_PAYABLE} | Representative APR {RATE}% | Mileage per annum {MILEAGE} | Excess mileage charge 16 ppm (Plus VAT). <p>Tesla Motors Limited acts as a credit broker and introduces customers to CA Auto Finance for Personal Contract Purchase. Tesla Motors Limited is authorised and regulated by the Financial Conduct Authority for credit broking. Firm registration number 677768. Tesla Motors Limited registered office and postal address is 109 Devonshire Road, London, England, W4 2AN.</p>"
+            }
+          },
+          "enabled": true,
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "downPayment",
+                  "distance",
+                  "term"
+                ]
+              ]
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm",
+                "leaseDistance",
+                "residualAmount"
+              ]
+            }
+          },
+          "leaseTermsOffered": {
+            "leaseTerm": [
+              24,
+              36,
+              48
+            ],
+            "leaseDistance": [
+              10000,
+              12000,
+              15000,
+              20000,
+              25000,
+              30000
+            ]
+          },
+          "interestRateMatrix": [
+            {
+              "value": 7.9,
+              "options": [
+                "$MDLY"
+              ]
+            }
+          ],
+          "residualRateMatrix": [
+            {
+              "value": 0.55,
+              "leaseTerm": 24,
+              "leaseDistance": 10000
+            },
+            {
+              "value": 0.54,
+              "leaseTerm": 24,
+              "leaseDistance": 12000
+            },
+            {
+              "value": 0.53,
+              "leaseTerm": 24,
+              "leaseDistance": 15000
+            },
+            {
+              "value": 0.5,
+              "leaseTerm": 24,
+              "leaseDistance": 20000
+            },
+            {
+              "value": 0.48,
+              "leaseTerm": 24,
+              "leaseDistance": 25000
+            },
+            {
+              "value": 0.45,
+              "leaseTerm": 24,
+              "leaseDistance": 30000
+            },
+            {
+              "value": 0.51,
+              "leaseTerm": 36,
+              "leaseDistance": 10000
+            },
+            {
+              "value": 0.5,
+              "leaseTerm": 36,
+              "leaseDistance": 12000
+            },
+            {
+              "value": 0.48,
+              "leaseTerm": 36,
+              "leaseDistance": 15000
+            },
+            {
+              "value": 0.44,
+              "leaseTerm": 36,
+              "leaseDistance": 20000
+            },
+            {
+              "value": 0.41,
+              "leaseTerm": 36,
+              "leaseDistance": 25000
+            },
+            {
+              "value": 0.38,
+              "leaseTerm": 36,
+              "leaseDistance": 30000
+            },
+            {
+              "value": 0.47,
+              "leaseTerm": 48,
+              "leaseDistance": 10000
+            },
+            {
+              "value": 0.45,
+              "leaseTerm": 48,
+              "leaseDistance": 12000
+            },
+            {
+              "value": 0.42,
+              "leaseTerm": 48,
+              "leaseDistance": 15000
+            },
+            {
+              "value": 0.4,
+              "leaseTerm": 48,
+              "leaseDistance": 20000
+            },
+            {
+              "value": 0.35,
+              "leaseTerm": 48,
+              "leaseDistance": 25000
+            },
+            {
+              "value": 0.31,
+              "leaseTerm": 48,
+              "leaseDistance": 30000
+            }
+          ]
+        },
+        {
+          "id": "operational_lease",
+          "market": "GB",
+          "productType": "lease",
+          "accountType": null,
+          "variant": [
+            "m3",
+            "ms",
+            "mx",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "leaseTerm": 48,
+            "leaseDistance": 10000,
+            "leaseTerm__my": 36
+          },
+          "disclaimers": {
+            "en": {
+              "m3": "<p>Contract Hire agreement for business users offered by ALD Automotive Limited (Oakwood Drive, Emersons Green, Bristol, BS16 7LB. Company Registration number 00987418). Figures shown are indicative only, based on 6 months advance rental and do not amount to an offer capable of acceptance. Available for large partnerships, limited liability partnerships and incorporated bodies only. Prices and details are subject to change without notice. All applications are subject to approval.</p><p>Rates valid for business users for Tesla Model 3 Long Range Rear-Wheel Drive and Model 3 Long Range All-Wheel Drive orders received between 21/07/2023 and 30/09/2023 and delivered before 30/09/2023, subject to availability, status and agreement.</p>",
+              "my": "<p>Contract Hire agreement for business users offered by ALD Automotive Limited (Oakwood Drive, Emersons Green, Bristol, BS16 7LB. Company Registration number 00987418). Figures shown are indicative only, based on 6 months advance rental and do not amount to an offer capable of acceptance. Available for large partnerships, limited liability partnerships and incorporated bodies only. Prices and details are subject to change without notice. All applications are subject to approval.</p><p>Rates valid for business users for Tesla Model Y Rear-Wheel Drive and Model Y Long Rage orders received between 21/07/2023 and 30/09/2023 and delivered before 30/09/2023, subject to availability, status and agreement.</p>",
+              "default": "<p>Contract Hire agreement for business users offered by ALD Automotive Limited (Oakwood Drive, Emersons Green, Bristol, BS16 7LB. Company Registration number 00987418). Figures shown are indicative only, based on 6 months advance rental and do not amount to an offer capable of acceptance. Available for large partnerships, limited liability partnerships and incorporated bodies only. Prices and details are subject to change without notice. All applications are subject to approval.</p>"
+            }
+          },
+          "enabled": true,
+          "incomplete": true,
+          "uiSettings": {
+            "pdf": {
+              "leaseFields": [
+                "downPayment",
+                "distance",
+                "term"
+              ]
+            },
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "distance",
+                  "term"
+                ],
+                [
+                  "includeServiceFee"
+                ]
+              ],
+              "standardFeaturesList": true
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm",
+                "leaseDistance"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "Loan.my.my": {
+      "loan": [
+        {
+          "id": "hire_purchase",
+          "market": "GB",
+          "productType": "loan",
+          "accountType": null,
+          "variant": [
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "loanTerm": 72,
+            "downPayment": 10700,
+            "downPayments": {
+              "model": {
+                "my": 10200
+              }
+            },
+            "interestRate": 0,
+            "localeSpecific": {
+              "purchaseFee": 10,
+              "discountFactor": 0.89
+            },
+            "maximumDownPayment": 0.8,
+            "minimumDownPayment": 0
+          },
+          "disclaimers": {
+            "en": {
+              "m3": "<p>Representative Example | {TERM} fixed monthly payments of {PAYMENT} | On-the-road cash price {CASH_PRICE} | Total down payment {DOWNPAYMENT} | Total amount of credit {FINANCED_AMOUNT} | Length of agreement {TERM} months | Representative APR {RATE}% |</p><p>HP rates valid for new orders placed until 31st August or as long as stocks lasts when taking delivery before or on 30th September 2023.</p><p>Tesla Motors Limited acts as a credit broker and introduces customers to CA Auto Finance for Hire Purchase. Tesla Motors Limited is authorised and regulated by the Financial Conduct Authority for credit broking. Firm registration number 677768. Tesla Motors Limited registered office and postal address is 109 Devonshire Road, London, England, W4 2AN.</p>",
+              "default": "<p>Representative Example | {TERM} fixed monthly payments of {PAYMENT} | On-the-road cash price {CASH_PRICE} | Total down payment {DOWNPAYMENT} | Total amount of credit {FINANCED_AMOUNT} | Final Payment {PAYMENT} | Option to Purchase Fee £10 | Interest charges {COST_CREDIT} | Fixed rate of interest per year {RATE}% | Length of agreement {TERM} months | Total amount payable {TOTAL_AMOUNT_PAYABLE} | Representative APR {RATE}%.</p><p> Tesla Motors Limited acts as a credit broker and introduces customers to CA Auto Finance for Hire Purchase. Tesla Motors Limited is authorised and regulated by the Financial Conduct Authority for credit broking. Firm registration number 677768. Tesla Motors Limited registered office and postal address is 109 Devonshire Road, London, England, W4 2AN.</p>"
+            }
+          },
+          "enabled": true,
+          "default": true,
+          "uiSettings": {
+            "forms": {
+              "trimsWithBanner": []
+            }
+          },
+          "loanTermsOffered": {
+            "loanTerm": [
+              36,
+              48,
+              60,
+              72
+            ]
+          },
+          "interestRateMatrix": [
+            {
+              "value": 7.9,
+              "options": [
+                "$MDLY"
+              ]
+            }
+          ],
+          "residualRateMatrix": []
+        }
+      ]
     }
   }
 }

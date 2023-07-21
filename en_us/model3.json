@@ -1400,7 +1400,8 @@
           "SUMMARY_PANEL_DELIVERY_INCENTIVE_CHANGE",
           "SUMMARY_PANEL_FINANCE_APR_CHANGE",
           "SUMMARY_PANEL_DISTANCE_CHANGE",
-          "TOGGLE_DYNAMIC_INCENTIVE"
+          "TOGGLE_DYNAMIC_INCENTIVE",
+          "UPDATE_REFERRAL"
         ],
         "showVehicleSubtotal": false,
         "hidePostfixOnUI": false,
@@ -1503,6 +1504,7 @@
         "optionalCompanyFields": [],
         "hideDeliveryStandardBlock": false,
         "showPurchasePriceOnFooter": false,
+        "showLegalConsentEditDesign": false,
         "showHomeChargingDisclaimer": true
       },
       "PrintPdf": {
@@ -1563,11 +1565,9 @@
             "fuel_efficiency_metric": null,
             "kwh_consumption_100": 25,
             "supercharger_kwh_price": 0.26,
-            "fuel_price": 3.497,
-            "kwh_price": 0.1547,
-            "electricity_last_updated": "2023-04-05",
-            "petrol_last_updated": "2023-04-05",
-            "last_updated": "2023-04-05",
+            "fuel_price": 3.527,
+            "kwh_price": 0.161,
+            "last_updated": "2023-07-07",
             "kwh_consumption": 0.25
           },
           "variant": [
@@ -1794,26 +1794,23 @@
         },
         {
           "description": [
-            "State Incentive for US mxf",
-            "State Incentive for US mxs",
-            "State Incentive for US mx",
-            "State Incentive for US ms"
+            "State Incentive for US New Jersey m3",
+            "State Incentive for US New Jersey my"
           ],
-          "regionCode": "CO",
+          "regionCode": "NJ",
           "incentiveType": "regional",
           "financeType": [
             "cash",
-            "loan"
+            "loan",
+            "lease"
           ],
           "period": "once",
-          "amount": 2000,
+          "amount": 4000,
+          "hasDisclaimer": true,
+          "hasConditions": true,
           "toggle_amount": null,
-          "long_name": "Colorado",
+          "long_name": "New Jersey",
           "variant": [
-            "mxf",
-            "mxs",
-            "mx",
-            "ms",
             "m3",
             "my"
           ],
@@ -1824,25 +1821,50 @@
         },
         {
           "description": [
-            "State Incentive for US mxf",
-            "State Incentive for US mxs",
-            "State Incentive for US mx",
-            "State Incentive for US ms"
+            "State Incentive for US Maryland m3",
+            "State Incentive for US Maryland my"
+          ],
+          "regionCode": "MD",
+          "incentiveType": "regional",
+          "financeType": [
+            "cash",
+            "lease",
+            "loan"
+          ],
+          "period": "once",
+          "amount": 3000,
+          "toggle_amount": null,
+          "hasDisclaimer": true,
+          "hasConditions": true,
+          "long_name": "Maryland",
+          "variant": [
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "market": "US"
+        },
+        {
+          "description": [
+            "State Incentive for US Colorado m3",
+            "State Incentive for US Colorado my"
           ],
           "regionCode": "CO",
           "incentiveType": "regional",
           "financeType": [
-            "lease"
+            "cash",
+            "lease",
+            "loan"
           ],
           "period": "once",
-          "amount": 1500,
+          "amount": 5000,
           "toggle_amount": null,
+          "hasDisclaimer": true,
+          "hasConditions": true,
           "long_name": "Colorado",
           "variant": [
-            "mxf",
-            "mxs",
-            "mx",
-            "ms",
             "m3",
             "my"
           ],
@@ -4842,33 +4864,124 @@
           "customerType": "CT_PRIVATE",
           "isDefault": false,
           "exVatMode": false,
-          "creditRatings": [
-            {
-              "creditRatingType": "EXCELLENT",
-              "creditRatingDescription": "Excellent (720+)",
-              "interestRate": 0.0589,
-              "isDefault": true
+          "creditRatings": {
+            "36": {
+              "creditRatings": [
+                {
+                  "creditRatingType": "EXCELLENT",
+                  "creditRatingDescription": "Excellent (720+)",
+                  "interestRate": 0.0589,
+                  "isDefault": true
+                },
+                {
+                  "creditRatingType": "VERY_GOOD",
+                  "creditRatingDescription": "Very Good (680-720)",
+                  "interestRate": 0.0819,
+                  "isDefault": false
+                },
+                {
+                  "creditRatingType": "GOOD",
+                  "creditRatingDescription": "Good (640-679)",
+                  "interestRate": 0.0919,
+                  "isDefault": false
+                },
+                {
+                  "creditRatingType": "FAIR",
+                  "creditRatingDescription": "Fair (<640)",
+                  "interestRate": 0.0999,
+                  "isDefault": false
+                }
+              ],
+              "creditBasedApr": 0.0589
             },
-            {
-              "creditRatingType": "VERY_GOOD",
-              "creditRatingDescription": "Very Good (680-720)",
-              "interestRate": 0.0819,
-              "isDefault": false
+            "48": {
+              "creditRatings": [
+                {
+                  "creditRatingType": "EXCELLENT",
+                  "creditRatingDescription": "Excellent (720+)",
+                  "interestRate": 0.0589,
+                  "isDefault": true
+                },
+                {
+                  "creditRatingType": "VERY_GOOD",
+                  "creditRatingDescription": "Very Good (680-720)",
+                  "interestRate": 0.0819,
+                  "isDefault": false
+                },
+                {
+                  "creditRatingType": "GOOD",
+                  "creditRatingDescription": "Good (640-679)",
+                  "interestRate": 0.0919,
+                  "isDefault": false
+                },
+                {
+                  "creditRatingType": "FAIR",
+                  "creditRatingDescription": "Fair (<640)",
+                  "interestRate": 0.0999,
+                  "isDefault": false
+                }
+              ],
+              "creditBasedApr": 0.0589
             },
-            {
-              "creditRatingType": "GOOD",
-              "creditRatingDescription": "Good (640-679)",
-              "interestRate": 0.0919,
-              "isDefault": false
+            "60": {
+              "creditRatings": [
+                {
+                  "creditRatingType": "EXCELLENT",
+                  "creditRatingDescription": "Excellent (720+)",
+                  "interestRate": 0.0589,
+                  "isDefault": true
+                },
+                {
+                  "creditRatingType": "VERY_GOOD",
+                  "creditRatingDescription": "Very Good (680-720)",
+                  "interestRate": 0.0819,
+                  "isDefault": false
+                },
+                {
+                  "creditRatingType": "GOOD",
+                  "creditRatingDescription": "Good (640-679)",
+                  "interestRate": 0.0919,
+                  "isDefault": false
+                },
+                {
+                  "creditRatingType": "FAIR",
+                  "creditRatingDescription": "Fair (<640)",
+                  "interestRate": 0.0999,
+                  "isDefault": false
+                }
+              ],
+              "creditBasedApr": 0.0589
             },
-            {
-              "creditRatingType": "FAIR",
-              "creditRatingDescription": "Fair (<640)",
-              "interestRate": 0.0999,
-              "isDefault": false
+            "72": {
+              "creditRatings": [
+                {
+                  "creditRatingType": "EXCELLENT",
+                  "creditRatingDescription": "Excellent (720+)",
+                  "interestRate": 0.0589,
+                  "isDefault": true
+                },
+                {
+                  "creditRatingType": "VERY_GOOD",
+                  "creditRatingDescription": "Very Good (680-720)",
+                  "interestRate": 0.0819,
+                  "isDefault": false
+                },
+                {
+                  "creditRatingType": "GOOD",
+                  "creditRatingDescription": "Good (640-679)",
+                  "interestRate": 0.0919,
+                  "isDefault": false
+                },
+                {
+                  "creditRatingType": "FAIR",
+                  "creditRatingDescription": "Fair (<640)",
+                  "interestRate": 0.0999,
+                  "isDefault": false
+                }
+              ],
+              "creditBasedApr": 0.0589
             }
-          ],
-          "creditBasedApr": 0.0589
+          }
         }
       }
     },
