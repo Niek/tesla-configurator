@@ -1348,7 +1348,8 @@
           "SUMMARY_PANEL_DOWNPAYMENT_CHANGE",
           "PRICE_ADD_DISCOUNT",
           "FINPLAT_INPUTS_CHANGED",
-          "SUMMARY_PANEL_INTEREST_RATE_TYPE_CHANGE"
+          "SUMMARY_PANEL_INTEREST_RATE_TYPE_CHANGE",
+          "PARSE_VEHICLE_UPGRADES"
         ],
         "actionsToUpdatePrices": [
           "SUMMARY_PANEL_DELIVERY_INCENTIVE_CHANGE",
@@ -1692,10 +1693,42 @@
             "lease"
           ],
           "period": "once",
-          "amount": 4000,
+          "amount": 0,
+          "toggle_amount": {
+            "if": {
+              "car_price": [
+                {
+                  "conditions": {
+                    "vehiclePrice": {
+                      "<": 45000
+                    }
+                  },
+                  "amount": 4000
+                },
+                {
+                  "conditions": {
+                    "vehiclePrice": {
+                      ">=": 45000,
+                      "<=": 55000
+                    }
+                  },
+                  "amount": 1500
+                }
+              ],
+              "date_range": {
+                "conditions": {
+                  "orderPlacedDate": [
+                    {
+                      "<": "2023-07-12"
+                    }
+                  ]
+                },
+                "amount": 0
+              }
+            }
+          },
           "hasDisclaimer": true,
           "hasConditions": true,
-          "toggle_amount": null,
           "long_name": "New Jersey",
           "variant": [
             "m3",
