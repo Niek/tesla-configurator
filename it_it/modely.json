@@ -962,6 +962,8 @@
         "showPurchasePriceIncentiveInModal": false,
         "limitProductByPrice": {},
         "includeReferralCreditInFinance": [],
+        "showIRAIncentiveToggle": false,
+        "showIRABusinessEligibility": false,
         "hideTaxesAndFeesExcluded": true,
         "showFinancingSteps": true
       },
@@ -1580,7 +1582,7 @@
             "if": {
               "car_price": {
                 "conditions": {
-                  "vehiclePrice": {
+                  "vehiclePriceWithoutDiscounts": {
                     "<=": 42700
                   },
                   "odometerMileage": {
@@ -1612,7 +1614,7 @@
             "if": {
               "car_price": {
                 "conditions": {
-                  "vehiclePrice": {
+                  "vehiclePriceWithoutDiscounts": {
                     "<=": 61000
                   },
                   "odometerMileage": {
@@ -1977,7 +1979,7 @@
       ]
     },
     "Lexicon.my": {
-      "effective_date": "2023-07-28T00:05:00.000Z",
+      "effective_date": "2023-08-03T17:42:00.000Z",
       "market": "IT",
       "product": "my",
       "factory": "GF00",
@@ -2154,7 +2156,7 @@
         "default_trim": "$MTY13"
       },
       "fees": {},
-      "name": "Marketing IT 2023.Jul.28 8211.9829.37642 [it]",
+      "name": "Marketing IT 2023.Aug.03 8366.9829.37642 [it]",
       "groups": [
         {
           "code": "MODEL",
@@ -11904,6 +11906,207 @@
         }
       },
       "enable_sku": true,
+      "migrations": [
+        {
+          "$PPMR": [
+            [
+              [
+                [
+                  "$PPMR"
+                ],
+                [
+                  "$MTY09",
+                  "$MTY12",
+                  "$MTY03",
+                  "$MTY04",
+                  "$MTY05",
+                  "$MTY07"
+                ]
+              ],
+              [
+                "$PR00"
+              ]
+            ]
+          ]
+        },
+        {
+          "$PMNG": [
+            [
+              [
+                [
+                  "$PMNG"
+                ],
+                [
+                  "$MTY09",
+                  "$MTY12",
+                  "$MTY03",
+                  "$MTY04",
+                  "$MTY05",
+                  "$MTY07"
+                ]
+              ],
+              [
+                "$PN00"
+              ]
+            ]
+          ]
+        },
+        {
+          "$MDLY": [
+            [
+              [
+                [
+                  "$MDLY"
+                ],
+                [
+                  "!$APBS"
+                ]
+              ],
+              [
+                "$APBS"
+              ]
+            ]
+          ],
+          "comments": "Set $APBS",
+          "effective_date": "2019-08-16"
+        },
+        {
+          "$WY18B": [
+            [
+              [
+                [
+                  "$WY18B"
+                ]
+              ],
+              [
+                "$WY19B"
+              ]
+            ]
+          ],
+          "comments": "Older orders with 18s must be changed to 19s",
+          "effective_date": "2020-01-25"
+        },
+        {
+          "$MTY02": [
+            [
+              [
+                [
+                  "$MTY02"
+                ]
+              ],
+              [
+                "$MTY03"
+              ]
+            ]
+          ],
+          "comments": "RWD needs to be changed to AWD",
+          "effective_date": "2020-01-25"
+        },
+        {
+          "$MTY03": [
+            [
+              [
+                [
+                  "$MTY03"
+                ]
+              ],
+              [
+                "$MTY07"
+              ]
+            ]
+          ],
+          "comments": "New LR AWD Trim Launch 7/8/2021"
+        },
+        {
+          "$MTY04": [
+            [
+              [
+                [
+                  "$MTY04"
+                ]
+              ],
+              [
+                "$MTY12"
+              ]
+            ]
+          ],
+          "comments": "New Performance Trim w/ New Battery"
+        },
+        {
+          "$MDLY": [
+            [
+              [
+                [
+                  "$MDLY"
+                ]
+              ],
+              [
+                "$SC04"
+              ]
+            ]
+          ]
+        },
+        {
+          "$INYPB": [
+            [
+              [
+                [
+                  "$INYPB"
+                ]
+              ],
+              [
+                "$INPB0"
+              ]
+            ]
+          ],
+          "comments": "New Bundle with FC02"
+        },
+        {
+          "$INYPW": [
+            [
+              [
+                [
+                  "$INYPW"
+                ]
+              ],
+              [
+                "$INPW0"
+              ]
+            ]
+          ],
+          "comments": "New Bundle with FC02"
+        },
+        {
+          "$MTY07": [
+            [
+              [
+                [
+                  "$MTY07"
+                ]
+              ],
+              [
+                "$MTY09"
+              ]
+            ]
+          ],
+          "comments": "New LR AWD Trim Launch 1/13/2022"
+        },
+        {
+          "$MTY05": [
+            [
+              [
+                [
+                  "$MTY05"
+                ]
+              ],
+              [
+                "$MTY12"
+              ]
+            ]
+          ],
+          "comments": "Performance Trim Launch"
+        }
+      ],
       "agent_version": 101,
       "extra_factories": [
         "GF03",
@@ -11922,7 +12125,7 @@
         "$SC04",
         "$INPB0"
       ],
-      "options_id": 8211,
+      "options_id": 8366,
       "warnings": [
         {
           "type": "MISSING_PRICE",
@@ -12388,7 +12591,7 @@
       "copy_id": 9829,
       "language": "it",
       "pricing_id": 37642,
-      "reference_id": 8211,
+      "reference_id": 8366,
       "source": "cache"
     },
     "financeProductsSource": "finCMS",
@@ -12426,7 +12629,7 @@
           },
           "disclaimers": {
             "it": {
-              "m3": "<p>Es. di leasing finanziario su {MODEL} - Valore fornitura {CASH_PRICE_WITHOUT_BONUS}: Anticipo {DOWNPAYMENT}, durata {TERM} mesi, {TERM_MINUS_ONE} canoni mensili di {PAYMENT}, (incluse spese incasso di € 0 / canone), salvo arrotondamento ultimo canone. Valore Riscatto {RESIDUAL_VALUE}. Importo Totale del Credito {FINANCED_AMOUNT}. Spese istruttoria € 0. Bollo {UPFRONT_FEE}. Spese invio rendiconto periodico digitale € 2 /anno. Interessi totali {INTEREST_CHARGES}. Importo Totale Dovuto {COST_CREDIT} (escluso anticipo e comprensivo dell’eventuale Valore di Riscatto). Solo in caso di restituzione del veicolo alla scadenza contrattualmente prevista, verrà addebitato un costo pari a € 0,25 / km ove il veicolo abbia superato il chilometraggio massimo di {MILEAGE} km. TAN fisso {RATE}% - TAEG {EFFECTIVE_RATE}%. Tutti gli importi sono comprensivi di IVA (ove prevista). Offerta CA Auto Bank soggetta ad approvazione. Documentazione precontrattuale sul sito CA Auto Bank (sez. Trasparenza). Messaggio pubblicitario con finalità promozionale. Iniziativa valida fino all'ultimo giorno del mese {LAST_DAY_OF_QUARTER}.</p><p>Le configurazioni Model 3 e Model Y che soddisfano i requisiti per usufruire del contributo regionale Lombardia vedranno sottratto l’incentivo dal prezzo di vendita solo una volta iniziato il processo di finanziamento nel portale del partner finanziario. Gli incentivi statali e regionali sono soggetto a disponibilità e/o cambiamenti senza preavviso. Nel caso in cui i fondi per l’erogazione dei contributi statali e regionali non siano più disponibili e/o nel caso in cui le modalità di applicazione dello stesso cambino, Tesla si riserva il diritto di modificare il prezzo iva inclusa.</p>\n<p>La campagna promozionale al TAN {RATE}% è valida solo per ordini vettura e richieste di finanziamento effettuate tra il 14 luglio ed il 24 di Agosto su veicoli Model 3 consegnate entro il 31 di Agosto. Offerta soggetta a disponibilità di vetture.</p>",
+              "m3": "<p>Es. di leasing finanziario su {MODEL} - Valore fornitura {CASH_PRICE_WITHOUT_BONUS}: Anticipo {DOWNPAYMENT}, durata {TERM} mesi, {TERM_MINUS_ONE} canoni mensili di {PAYMENT}, (incluse spese incasso di € 0 / canone), salvo arrotondamento ultimo canone. Valore Riscatto {RESIDUAL_VALUE}. Importo Totale del Credito {FINANCED_AMOUNT}. Spese istruttoria € 0. Bollo {UPFRONT_FEE}. Spese invio rendiconto periodico digitale € 2 /anno. Interessi totali {INTEREST_CHARGES}. Importo Totale Dovuto {COST_CREDIT} (escluso anticipo e comprensivo dell’eventuale Valore di Riscatto). Solo in caso di restituzione del veicolo alla scadenza contrattualmente prevista, verrà addebitato un costo pari a € 0,25 / km ove il veicolo abbia superato il chilometraggio massimo di {MILEAGE} km. TAN fisso {RATE}% - TAEG {EFFECTIVE_RATE}%. Tutti gli importi sono comprensivi di IVA (ove prevista). Offerta CA Auto Bank soggetta ad approvazione. Documentazione precontrattuale sul sito CA Auto Bank (sez. Trasparenza). Messaggio pubblicitario con finalità promozionale. Iniziativa valida fino all'ultimo giorno del mese {LAST_DAY_OF_QUARTER}.</p><p>Le configurazioni Model 3 e Model Y che soddisfano i requisiti per usufruire del contributo regionale Lombardia vedranno sottratto l’incentivo dal prezzo di vendita solo una volta iniziato il processo di finanziamento nel portale del partner finanziario. Gli incentivi statali e regionali sono soggetto a disponibilità e/o cambiamenti senza preavviso. Nel caso in cui i fondi per l’erogazione dei contributi statali e regionali non siano più disponibili e/o nel caso in cui le modalità di applicazione dello stesso cambino, Tesla si riserva il diritto di modificare il prezzo iva inclusa.</p>",
               "default": "<p>Es. di leasing finanziario su {MODEL} - Valore fornitura {CASH_PRICE_WITHOUT_BONUS}: Anticipo {DOWNPAYMENT}, durata {TERM} mesi, {TERM_MINUS_ONE} canoni mensili di {PAYMENT}, (incluse spese incasso di € 0 / canone), salvo arrotondamento ultimo canone. Valore Riscatto {RESIDUAL_VALUE}. Importo Totale del Credito {FINANCED_AMOUNT}. Spese istruttoria € 0. Bollo {UPFRONT_FEE}. Spese invio rendiconto periodico digitale € 2 /anno. Interessi totali {INTEREST_CHARGES}. Importo Totale Dovuto {COST_CREDIT} (escluso anticipo e comprensivo dell’eventuale Valore di Riscatto). Solo in caso di restituzione del veicolo alla scadenza contrattualmente prevista, verrà addebitato un costo pari a € 0,25 / km ove il veicolo abbia superato il chilometraggio massimo di {MILEAGE} km. TAN fisso {RATE}% - TAEG {EFFECTIVE_RATE}%. Tutti gli importi sono comprensivi di IVA (ove prevista). Offerta CA Auto Bank soggetta ad approvazione. Documentazione precontrattuale sul sito CA Auto Bank (sez. Trasparenza). Messaggio pubblicitario con finalità promozionale. Iniziativa valida fino all'ultimo giorno del mese {LAST_DAY_OF_QUARTER}.</p><p>Le configurazioni Model 3 e Model Y che soddisfano i requisiti per usufruire del contributo regionale Lombardia vedranno sottratto l’incentivo dal prezzo di vendita solo una volta iniziato il processo di finanziamento nel portale del partner finanziario. Gli incentivi statali e regionali sono soggetto a disponibilità e/o cambiamenti senza preavviso. Nel caso in cui i fondi per l’erogazione dei contributi statali e regionali non siano più disponibili e/o nel caso in cui le modalità di applicazione dello stesso cambino, Tesla si riserva il diritto di modificare il prezzo iva inclusa.</p>\n<p>La campagna promozionale al TAN {RATE}% è valida solo per ordini vettura e richieste di finanziamento effettuate tra il 14 luglio ed il 24 di Agosto su veicoli Model Y consegnate entro il 31 di Agosto. Offerta soggetta a disponibilità di vetture.</p>"
             }
           },
@@ -12473,7 +12676,7 @@
           },
           "interestRateMatrix": [
             {
-              "value": 2.99,
+              "value": 5.95,
               "options": [
                 "$MDL3"
               ]
@@ -12823,7 +13026,7 @@
           },
           "disclaimers": {
             "it": {
-              "m3": "<p>Es. di leasing finanziario su {MODEL} - Valore fornitura {CASH_PRICE_WITHOUT_BONUS}: anticipo {DOWNPAYMENT_WITHOUT_VAT}, durata {TERM} mesi, {TERM_MINUS_ONE} canoni mensili di {PAYMENT_WITHOUT_VAT}, (incluse spese incasso di 0 € / canone), salvo arrotondamento ultimo canone. Valore riscatto {RESIDUAL_VALUE}. Importo totale del credito {FINANCED_AMOUNT}. Spese istruttoria 0 €. Bollo {UPFRONT_FEE}. Spese invio rendiconto periodico digitale 2 € /anno. Interessi totali {INTEREST_CHARGES}. Importo totale dovuto {COST_CREDIT} (escluso anticipo e comprensivo dell’eventuale Valore di riscatto). Solo in caso di restituzione del veicolo alla scadenza contrattualmente prevista, verrà addebitato un costo pari a 0,25 € / km ove il veicolo abbia superato il chilometraggio massimo di {MILEAGE} km. TAN fisso {RATE}% - TAEG {EFFECTIVE_RATE}%. Tutti gli importi sono indicati al netto di IVA (ove prevista). Offerta riservata ai titolari di Partita IVA. L’offerta prevede un tasso agevolato per il Cliente ed è riservata a piccole e medie imprese (“PMI”), che stipulino un finanziamento e/o leasing finanziario per l’acquisto di autoveicoli con emissioni di CO2 inferiori a 50 g/km secondo il ciclo WLTP. Per maggiori dettagli: <a href=\"https://www.ca-autobank.it/banca-europea-per-gli-investimenti/\" rel=\"noopener noreferrer\" target=\"blank\">https://www.ca-autobank.it/banca-europea-per-gli-investimenti/</a>. Offerta CA Auto Bank soggetta ad approvazione. Documentazione precontrattuale sul sito CA Auto Bank (sez. Trasparenza). Messaggio pubblicitario con finalità promozionale. Iniziativa valida fino all\"ultimo giorno del mese {LAST_DAY_OF_QUARTER}.</p><p>La campagna promozionale al TAN {RATE}% è valida solo per ordini vettura e richieste di finanziamento effettuate tra il 14 luglio ed il 24 di Agosto su veicoli Model 3 consegnate entro il 31 di Agosto. Offerta soggetta a disponibilità di vetture.</p>",
+              "m3": "<p>Es. di leasing finanziario su {MODEL} - Valore fornitura {CASH_PRICE_WITHOUT_BONUS}: anticipo {DOWNPAYMENT_WITHOUT_VAT}, durata {TERM} mesi, {TERM_MINUS_ONE} canoni mensili di {PAYMENT_WITHOUT_VAT}, (incluse spese incasso di 0 € / canone), salvo arrotondamento ultimo canone. Valore riscatto {RESIDUAL_VALUE}. Importo totale del credito {FINANCED_AMOUNT}. Spese istruttoria 0 €. Bollo {UPFRONT_FEE}. Spese invio rendiconto periodico digitale 2 € /anno. Interessi totali {INTEREST_CHARGES}. Importo totale dovuto {COST_CREDIT} (escluso anticipo e comprensivo dell’eventuale Valore di riscatto). Solo in caso di restituzione del veicolo alla scadenza contrattualmente prevista, verrà addebitato un costo pari a 0,25 € / km ove il veicolo abbia superato il chilometraggio massimo di {MILEAGE} km. TAN fisso {RATE}% - TAEG {EFFECTIVE_RATE}%. Tutti gli importi sono indicati al netto di IVA (ove prevista). Offerta riservata ai titolari di Partita IVA. L’offerta prevede un tasso agevolato per il Cliente ed è riservata a piccole e medie imprese (“PMI”), che stipulino un finanziamento e/o leasing finanziario per l’acquisto di autoveicoli con emissioni di CO2 inferiori a 50 g/km secondo il ciclo WLTP. Per maggiori dettagli: <a href=\"https://www.ca-autobank.it/banca-europea-per-gli-investimenti/\" rel=\"noopener noreferrer\" target=\"blank\">https://www.ca-autobank.it/banca-europea-per-gli-investimenti/</a>. Offerta CA Auto Bank soggetta ad approvazione. Documentazione precontrattuale sul sito CA Auto Bank (sez. Trasparenza). Messaggio pubblicitario con finalità promozionale. Iniziativa valida fino all\"ultimo giorno del mese {LAST_DAY_OF_QUARTER}.</p>",
               "default": "<p>Es. di leasing finanziario su {MODEL} - Valore fornitura {CASH_PRICE_WITHOUT_BONUS}: anticipo {DOWNPAYMENT_WITHOUT_VAT}, durata {TERM} mesi, {TERM_MINUS_ONE} canoni mensili di {PAYMENT_WITHOUT_VAT}, (incluse spese incasso di 0 € / canone), salvo arrotondamento ultimo canone. Valore riscatto {RESIDUAL_VALUE}. Importo totale del credito {FINANCED_AMOUNT}. Spese istruttoria 0 €. Bollo {UPFRONT_FEE}. Spese invio rendiconto periodico digitale 2 € /anno. Interessi totali {INTEREST_CHARGES}. Importo totale dovuto {COST_CREDIT} (escluso anticipo e comprensivo dell’eventuale Valore di riscatto). Solo in caso di restituzione del veicolo alla scadenza contrattualmente prevista, verrà addebitato un costo pari a 0,25 € / km ove il veicolo abbia superato il chilometraggio massimo di {MILEAGE} km. TAN fisso {RATE}% - TAEG {EFFECTIVE_RATE}%. Tutti gli importi sono indicati al netto di IVA (ove prevista). Offerta riservata ai titolari di Partita IVA. L’offerta prevede un tasso agevolato per il Cliente ed è riservata a piccole e medie imprese (“PMI”), che stipulino un finanziamento e/o leasing finanziario per l’acquisto di autoveicoli con emissioni di CO2 inferiori a 50 g/km secondo il ciclo WLTP. Per maggiori dettagli: <a href=\"https://www.ca-autobank.it/banca-europea-per-gli-investimenti/\" rel=\"noopener noreferrer\" target=\"blank\">https://www.ca-autobank.it/banca-europea-per-gli-investimenti/</a>. Offerta CA Auto Bank soggetta ad approvazione. Documentazione precontrattuale sul sito CA Auto Bank (sez. Trasparenza). Messaggio pubblicitario con finalità promozionale. Iniziativa valida fino all\"ultimo giorno del mese {LAST_DAY_OF_QUARTER}.</p><p>La campagna promozionale al TAN {RATE}% è valida solo per ordini vettura e richieste di finanziamento effettuate tra il 14 luglio ed il 24 di Agosto su veicoli Model Y consegnate entro il 31 di Agosto. Offerta soggetta a disponibilità di vetture.</p>"
             }
           },
@@ -12870,7 +13073,7 @@
           },
           "interestRateMatrix": [
             {
-              "value": 2.99,
+              "value": 5.7,
               "options": [
                 "$MDL3"
               ]
@@ -13339,6 +13542,52 @@
               "delta": 0.12,
               "miniRate": 0.011,
               "totalTerm": 96,
+              "miniRateMatrix": [
+                {
+                  "value": 0.015,
+                  "options": [
+                    "$MDLS",
+                    "$MDLX"
+                  ],
+                  "loanTerm": 36
+                },
+                {
+                  "value": 0.013,
+                  "options": [
+                    "$MDLS",
+                    "$MDLX"
+                  ],
+                  "loanTerm": 48
+                },
+                {
+                  "value": 0.0135,
+                  "options": [
+                    "$MDL3"
+                  ],
+                  "loanTerm": 36
+                },
+                {
+                  "value": 0.011,
+                  "options": [
+                    "$MDL3"
+                  ],
+                  "loanTerm": 48
+                },
+                {
+                  "value": 0.014,
+                  "options": [
+                    "$MDLY"
+                  ],
+                  "loanTerm": 36
+                },
+                {
+                  "value": 0.012,
+                  "options": [
+                    "$MDLY"
+                  ],
+                  "loanTerm": 48
+                }
+              ],
               "taxStampAmount": 16,
               "initialCommission": 2
             },
@@ -13347,8 +13596,8 @@
           },
           "disclaimers": {
             "it": {
-              "m3": "<p>Esempio di finanziamento su {MODEL} - Prezzo dell'auto {CASH_PRICE_WITHOUT_BONUS}. Anticipo {DOWNPAYMENT} - durata {REGIONAL_REFINANCING_TOTAL_TERM} - prime {TERM} rate mensili di {PAYMENT} e successive {REGIONAL_REFINANCING_TERM} rate mensili di {REGIONAL_REFINANCING_PAYMENT} (incluse spese incasso di 0 € / rata), salvo arrotondamento ultima rata, oppure in caso di opzione uscita garantita {BORROWING_COST} da pagare al {TERM} mese. Importo totale del credito: {FINANCED_AMOUNT_INCL_FEES} (spese istruttoria: 0 €, bollo: {TAX_STAMP_AMT}). Spese invio rendiconto periodico digitale: {INITIAL_COMMISSION} / anno. Interessi totali {COST_CREDIT}. Importo totale dovuto (escluso anticipo) {TOTAL_AMOUNT_PAYABLE}. TAN fisso {RATE}%, TAEG {EFFECTIVE_RATE}%. CA AUTO Bank si riserva di valutare la sussistenza dei requisiti necessari per accedere all’offerta. Documentazione precontrattuale sul sito CA Auto Bank (Sez. Trasparenza). Messaggio Pubblicitario con finalità promozionale. Iniziativa valida fino all'ultimo giorno del mese {LAST_DAY_OF_QUARTER}.</p><p>Le configurazioni Model 3 e Model Y che soddisfano i requisiti per usufruire del contributo regionale Lombardia vedranno sottratto l’incentivo dal prezzo di vendita solo una volta iniziato il processo di finanziamento nel portale del partner finanziario. Gli incentivi statali e regionali sono soggetto a disponibilità e/o cambiamenti senza preavviso. Nel caso in cui i fondi per l’erogazione dei contributi statali e regionali non siano più disponibili e/o nel caso in cui le modalità di applicazione dello stesso cambino, Tesla si riserva il diritto di modificare il prezzo iva inclusa.</p><p>La campagna promozionale al TAN {RATE}% è valida solo per ordini vettura e richieste di finanziamento effettuate tra il 14 luglio ed il 24 di Agosto su veicoli Model 3  consegnate entro il 31 di Agosto. Offerta soggetta a disponibilità di vetture.</p>",
-              "my": "<p>Esempio di finanziamento su {MODEL} - Prezzo dell'auto {CASH_PRICE_WITHOUT_BONUS}. Anticipo {DOWNPAYMENT} - durata {REGIONAL_REFINANCING_TOTAL_TERM} - prime {TERM} rate mensili di {PAYMENT} e successive {REGIONAL_REFINANCING_TERM} rate mensili di {REGIONAL_REFINANCING_PAYMENT} (incluse spese incasso di 0 € / rata), salvo arrotondamento ultima rata, oppure in caso di opzione uscita garantita {BORROWING_COST} da pagare al {TERM} mese. Importo totale del credito: {FINANCED_AMOUNT_INCL_FEES} (spese istruttoria: 0 €, bollo: {TAX_STAMP_AMT}). Spese invio rendiconto periodico digitale: {INITIAL_COMMISSION} / anno. Interessi totali {COST_CREDIT}. Importo totale dovuto (escluso anticipo) {TOTAL_AMOUNT_PAYABLE}. TAN fisso {RATE}%, TAEG {EFFECTIVE_RATE}%. CA AUTO Bank si riserva di valutare la sussistenza dei requisiti necessari per accedere all’offerta. Documentazione precontrattuale sul sito CA Auto Bank (Sez. Trasparenza). Messaggio Pubblicitario con finalità promozionale. Iniziativa valida fino all'ultimo giorno del mese {LAST_DAY_OF_QUARTER}.</p><p>Le configurazioni Model 3 e Model Y che soddisfano i requisiti per usufruire del contributo regionale Lombardia vedranno sottratto l’incentivo dal prezzo di vendita solo una volta iniziato il processo di finanziamento nel portale del partner finanziario. Gli incentivi statali e regionali sono soggetto a disponibilità e/o cambiamenti senza preavviso. Nel caso in cui i fondi per l’erogazione dei contributi statali e regionali non siano più disponibili e/o nel caso in cui le modalità di applicazione dello stesso cambino, Tesla si riserva il diritto di modificare il prezzo iva inclusa.</p><p>La campagna promozionale al TAN {RATE}% è valida solo per ordini vettura e richieste di finanziamento effettuate tra il 14 luglio ed il 24 di Agosto su veicoli Model Y  consegnate entro il 31 di Agosto. Offerta soggetta a disponibilità di vetture.</p>",
+              "m3": "<p>Esempio di finanziamento su {MODEL} - Prezzo dell'auto {CASH_PRICE_WITHOUT_BONUS}. Anticipo {DOWNPAYMENT} - durata {REGIONAL_REFINANCING_TOTAL_TERM} - prime {TERM} rate mensili di {PAYMENT} e successive {REGIONAL_REFINANCING_TERM} rate mensili di {REGIONAL_REFINANCING_PAYMENT} (incluse spese incasso di 0 € / rata), salvo arrotondamento ultima rata, oppure in caso di opzione uscita garantita {BORROWING_COST} da pagare al {TERM} mese. Importo totale del credito: {FINANCED_AMOUNT_INCL_FEES} (spese istruttoria: 0 €, bollo: {TAX_STAMP_AMT}). Spese invio rendiconto periodico digitale: {INITIAL_COMMISSION} / anno. Interessi totali {COST_CREDIT}. Importo totale dovuto (escluso anticipo) {TOTAL_AMOUNT_PAYABLE}. TAN fisso {RATE}%, TAEG {EFFECTIVE_RATE}%. CA AUTO Bank si riserva di valutare la sussistenza dei requisiti necessari per accedere all’offerta. Documentazione precontrattuale sul sito CA Auto Bank (Sez. Trasparenza). Messaggio Pubblicitario con finalità promozionale. Iniziativa valida fino all'ultimo giorno del mese {LAST_DAY_OF_QUARTER}.</p><p>Le configurazioni Model 3 e Model Y che soddisfano i requisiti per usufruire del contributo regionale Lombardia vedranno sottratto l’incentivo dal prezzo di vendita solo una volta iniziato il processo di finanziamento nel portale del partner finanziario. Gli incentivi statali e regionali sono soggetto a disponibilità e/o cambiamenti senza preavviso. Nel caso in cui i fondi per l’erogazione dei contributi statali e regionali non siano più disponibili e/o nel caso in cui le modalità di applicazione dello stesso cambino, Tesla si riserva il diritto di modificare il prezzo iva inclusa.</p>",
+              "my": "<p>Esempio di finanziamento su {MODEL} - Prezzo dell'auto {CASH_PRICE_WITHOUT_BONUS}. Anticipo {DOWNPAYMENT} - durata {REGIONAL_REFINANCING_TOTAL_TERM} - prime {TERM} rate mensili di {PAYMENT} e successive {REGIONAL_REFINANCING_TERM} rate mensili di {REGIONAL_REFINANCING_PAYMENT} (incluse spese incasso di 0 € / rata), salvo arrotondamento ultima rata, oppure in caso di opzione uscita garantita {BORROWING_COST} da pagare al {TERM} mese. Importo totale del credito: {FINANCED_AMOUNT_INCL_FEES} (spese istruttoria: 0 €, bollo: {TAX_STAMP_AMT}). Spese invio rendiconto periodico digitale: {INITIAL_COMMISSION} / anno. Interessi totali {COST_CREDIT}. Importo totale dovuto (escluso anticipo) {TOTAL_AMOUNT_PAYABLE}. TAN fisso {RATE}%, TAEG {EFFECTIVE_RATE}%. CA AUTO Bank si riserva di valutare la sussistenza dei requisiti necessari per accedere all’offerta. Documentazione precontrattuale sul sito CA Auto Bank (Sez. Trasparenza). Messaggio Pubblicitario con finalità promozionale.</p><p>Le configurazioni Model 3 e Model Y che soddisfano i requisiti per usufruire del contributo regionale Lombardia vedranno sottratto l’incentivo dal prezzo di vendita solo una volta iniziato il processo di finanziamento nel portale del partner finanziario. Gli incentivi statali e regionali sono soggetto a disponibilità e/o cambiamenti senza preavviso. Nel caso in cui i fondi per l’erogazione dei contributi statali e regionali non siano più disponibili e/o nel caso in cui le modalità di applicazione dello stesso cambino, Tesla si riserva il diritto di modificare il prezzo iva inclusa.</p><p>La campagna promozionale al TAN {RATE}% è valida solo per ordini vettura e richieste di finanziamento effettuate tra il 14 luglio ed il 24 di Agosto su veicoli Model Y  consegnate entro il 31 di Agosto. Offerta soggetta a disponibilità di vetture.</p>",
               "default": "<p>Esempio di finanziamento su {MODEL} - Prezzo dell'auto {CASH_PRICE_WITHOUT_BONUS}. Anticipo {DOWNPAYMENT} - durata {REGIONAL_REFINANCING_TOTAL_TERM} - prime {TERM} rate mensili di {PAYMENT} e successive {REGIONAL_REFINANCING_TERM} rate mensili di {REGIONAL_REFINANCING_PAYMENT} (incluse spese incasso di 0 € / rata), salvo arrotondamento ultima rata, oppure in caso di opzione uscita garantita {BORROWING_COST} da pagare al {TERM} mese. Importo totale del credito: {FINANCED_AMOUNT_INCL_FEES} (spese istruttoria: 0 €, bollo: {TAX_STAMP_AMT}). Spese invio rendiconto periodico digitale: {INITIAL_COMMISSION} / anno. Interessi totali {COST_CREDIT}. Importo totale dovuto (escluso anticipo) {TOTAL_AMOUNT_PAYABLE}. TAN fisso {RATE}%, TAEG {EFFECTIVE_RATE}%. CA AUTO Bank si riserva di valutare la sussistenza dei requisiti necessari per accedere all’offerta. Documentazione precontrattuale sul sito CA Auto Bank (Sez. Trasparenza). Messaggio Pubblicitario con finalità promozionale. Iniziativa valida fino all'ultimo giorno del mese {LAST_DAY_OF_QUARTER}.</p>"
             }
           },
@@ -13365,12 +13614,6 @@
             ]
           },
           "interestRateMatrix": [
-            {
-              "value": 2.99,
-              "options": [
-                "$MDL3"
-              ]
-            },
             {
               "value": 3.99,
               "options": [
@@ -13407,6 +13650,52 @@
               "delta": 0.12,
               "miniRate": 0.011,
               "totalTerm": 96,
+              "miniRateMatrix": [
+                {
+                  "value": 0.015,
+                  "options": [
+                    "$MDLS",
+                    "$MDLX"
+                  ],
+                  "loanTerm": 36
+                },
+                {
+                  "value": 0.013,
+                  "options": [
+                    "$MDLS",
+                    "$MDLX"
+                  ],
+                  "loanTerm": 48
+                },
+                {
+                  "value": 0.0135,
+                  "options": [
+                    "$MDL3"
+                  ],
+                  "loanTerm": 36
+                },
+                {
+                  "value": 0.011,
+                  "options": [
+                    "$MDL3"
+                  ],
+                  "loanTerm": 48
+                },
+                {
+                  "value": 0.014,
+                  "options": [
+                    "$MDLY"
+                  ],
+                  "loanTerm": 36
+                },
+                {
+                  "value": 0.012,
+                  "options": [
+                    "$MDLY"
+                  ],
+                  "loanTerm": 48
+                }
+              ],
               "taxStampAmount": 16,
               "initialCommission": 2
             },
@@ -13415,8 +13704,8 @@
           },
           "disclaimers": {
             "it": {
-              "m3": "<p>Esempio di finanziamento su {MODEL} - Prezzo dell'auto {CASH_PRICE_WITHOUT_BONUS}. Anticipo {DOWNPAYMENT} - durata {REGIONAL_REFINANCING_TOTAL_TERM} - prime {TERM} rate mensili di {PAYMENT} e successive {REGIONAL_REFINANCING_TERM} rate mensili di {REGIONAL_REFINANCING_PAYMENT} (incluse spese incasso di 0 € / rata), salvo arrotondamento ultima rata, oppure in caso di opzione uscita garantita {BORROWING_COST} da pagare al {TERM} mese. Importo totale del credito: {FINANCED_AMOUNT_INCL_FEES} (spese istruttoria: 0 €, bollo: {TAX_STAMP_AMT}). Spese invio rendiconto periodico digitale: {INITIAL_COMMISSION} / anno. Interessi totali {COST_CREDIT}. Importo totale dovuto (escluso anticipo) {TOTAL_AMOUNT_PAYABLE}. TAN fisso {RATE}%, TAEG {EFFECTIVE_RATE}%. L’offerta prevede un tasso agevolato per il cliente ed è riservata a piccole e medie imprese (“PMI”), che stipulino un finanziamento e/o leasing finanziario per l’acquisto di autoveicoli con emissioni di CO2 inferiori a 50 g/km secondo il ciclo WLTP. Per maggiori dettagli: <a href=\"https://www.ca-autobank.it/banca-europea-per-gli-investimenti/\" rel=\"noopener noreferrer\" target=\"blank\">https://www.ca-autobank.it/banca-europea-per-gli-investimenti/</a>. CA AUTO Bank si riserva di valutare la sussistenza dei requisiti necessari per accedere all’offerta. Documentazione precontrattuale sul sito CA Auto Bank (Sez. Trasparenza). Messaggio Pubblicitario con finalità promozionale. Iniziativa valida fino all'ultimo giorno del mese {LAST_DAY_OF_QUARTER}.</p><p>La campagna promozionale al TAN {RATE}% è valida solo per ordini vettura e richieste di finanziamento effettuate tra il 14 luglio ed il 24 di Agosto su veicoli Model 3  consegnate entro il 31 di Agosto. Offerta soggetta a disponibilità di vetture.</p>",
-              "my": "<p>Esempio di finanziamento su {MODEL} - Prezzo dell'auto {CASH_PRICE_WITHOUT_BONUS}. Anticipo {DOWNPAYMENT} - durata {REGIONAL_REFINANCING_TOTAL_TERM} - prime {TERM} rate mensili di {PAYMENT} e successive {REGIONAL_REFINANCING_TERM} rate mensili di {REGIONAL_REFINANCING_PAYMENT} (incluse spese incasso di 0 € / rata), salvo arrotondamento ultima rata, oppure in caso di opzione uscita garantita {BORROWING_COST} da pagare al {TERM} mese. Importo totale del credito: {FINANCED_AMOUNT_INCL_FEES} (spese istruttoria: 0 €, bollo: {TAX_STAMP_AMT}). Spese invio rendiconto periodico digitale: {INITIAL_COMMISSION} / anno. Interessi totali {COST_CREDIT}. Importo totale dovuto (escluso anticipo) {TOTAL_AMOUNT_PAYABLE}. TAN fisso {RATE}%, TAEG {EFFECTIVE_RATE}%. L’offerta prevede un tasso agevolato per il cliente ed è riservata a piccole e medie imprese (“PMI”), che stipulino un finanziamento e/o leasing finanziario per l’acquisto di autoveicoli con emissioni di CO2 inferiori a 50 g/km secondo il ciclo WLTP. Per maggiori dettagli: <a href=\"https://www.ca-autobank.it/banca-europea-per-gli-investimenti/\" rel=\"noopener noreferrer\" target=\"blank\">https://www.ca-autobank.it/banca-europea-per-gli-investimenti/</a>. CA AUTO Bank si riserva di valutare la sussistenza dei requisiti necessari per accedere all’offerta. Documentazione precontrattuale sul sito CA Auto Bank (Sez. Trasparenza). Messaggio Pubblicitario con finalità promozionale. Iniziativa valida fino all'ultimo giorno del mese {LAST_DAY_OF_QUARTER}.</p><p>La campagna promozionale al TAN {RATE}% è valida solo per ordini vettura e richieste di finanziamento effettuate tra il 14 luglio ed il 24 di Agosto su veicoli Model Y consegnate entro il 31 di Agosto. Offerta soggetta a disponibilità di vetture.</p>",
+              "m3": "<p>Esempio di finanziamento su {MODEL} - Prezzo dell'auto {CASH_PRICE_WITHOUT_BONUS}. Anticipo {DOWNPAYMENT} - durata {REGIONAL_REFINANCING_TOTAL_TERM} - prime {TERM} rate mensili di {PAYMENT} e successive {REGIONAL_REFINANCING_TERM} rate mensili di {REGIONAL_REFINANCING_PAYMENT} (incluse spese incasso di 0 € / rata), salvo arrotondamento ultima rata, oppure in caso di opzione uscita garantita {BORROWING_COST} da pagare al {TERM} mese. Importo totale del credito: {FINANCED_AMOUNT_INCL_FEES} (spese istruttoria: 0 €, bollo: {TAX_STAMP_AMT}). Spese invio rendiconto periodico digitale: {INITIAL_COMMISSION} / anno. Interessi totali {COST_CREDIT}. Importo totale dovuto (escluso anticipo) {TOTAL_AMOUNT_PAYABLE}. TAN fisso {RATE}%, TAEG {EFFECTIVE_RATE}%. L’offerta prevede un tasso agevolato per il cliente ed è riservata a piccole e medie imprese (“PMI”), che stipulino un finanziamento e/o leasing finanziario per l’acquisto di autoveicoli con emissioni di CO2 inferiori a 50 g/km secondo il ciclo WLTP. Per maggiori dettagli: <a href=\"https://www.ca-autobank.it/banca-europea-per-gli-investimenti/\" rel=\"noopener noreferrer\" target=\"blank\">https://www.ca-autobank.it/banca-europea-per-gli-investimenti/</a>. CA AUTO Bank si riserva di valutare la sussistenza dei requisiti necessari per accedere all’offerta. Documentazione precontrattuale sul sito CA Auto Bank (Sez. Trasparenza). Messaggio Pubblicitario con finalità promozionale. Iniziativa valida fino all'ultimo giorno del mese {LAST_DAY_OF_QUARTER}.</p>",
+              "my": "<p>Esempio di finanziamento su {MODEL} - Prezzo dell'auto {CASH_PRICE_WITHOUT_BONUS}. Anticipo {DOWNPAYMENT} - durata {REGIONAL_REFINANCING_TOTAL_TERM} - prime {TERM} rate mensili di {PAYMENT} e successive {REGIONAL_REFINANCING_TERM} rate mensili di {REGIONAL_REFINANCING_PAYMENT} (incluse spese incasso di 0 € / rata), salvo arrotondamento ultima rata, oppure in caso di opzione uscita garantita {BORROWING_COST} da pagare al {TERM} mese. Importo totale del credito: {FINANCED_AMOUNT_INCL_FEES} (spese istruttoria: 0 €, bollo: {TAX_STAMP_AMT}). Spese invio rendiconto periodico digitale: {INITIAL_COMMISSION} / anno. Interessi totali {COST_CREDIT}. Importo totale dovuto (escluso anticipo) {TOTAL_AMOUNT_PAYABLE}. TAN fisso {RATE}%, TAEG {EFFECTIVE_RATE}%. L’offerta prevede un tasso agevolato per il cliente ed è riservata a piccole e medie imprese (“PMI”), che stipulino un finanziamento e/o leasing finanziario per l’acquisto di autoveicoli con emissioni di CO2 inferiori a 50 g/km secondo il ciclo WLTP. Per maggiori dettagli: <a href=\"https://www.ca-autobank.it/banca-europea-per-gli-investimenti/\" rel=\"noopener noreferrer\" target=\"blank\">https://www.ca-autobank.it/banca-europea-per-gli-investimenti/</a>. CA AUTO Bank si riserva di valutare la sussistenza dei requisiti necessari per accedere all’offerta. Documentazione precontrattuale sul sito CA Auto Bank (Sez. Trasparenza). Messaggio Pubblicitario con finalità promozionale.</p><p>La campagna promozionale al TAN {RATE}% è valida solo per ordini vettura e richieste di finanziamento effettuate tra il 14 luglio ed il 24 di Agosto su veicoli Model Y consegnate entro il 31 di Agosto. Offerta soggetta a disponibilità di vetture.</p>",
               "default": "<p>Esempio di finanziamento su {MODEL} - Prezzo dell'auto {CASH_PRICE_WITHOUT_BONUS}. Anticipo {DOWNPAYMENT} - durata {REGIONAL_REFINANCING_TOTAL_TERM} - prime {TERM} rate mensili di {PAYMENT} e successive {REGIONAL_REFINANCING_TERM} rate mensili di {REGIONAL_REFINANCING_PAYMENT} (incluse spese incasso di 0 € / rata), salvo arrotondamento ultima rata, oppure in caso di opzione uscita garantita {BORROWING_COST} da pagare al {TERM} mese. Importo totale del credito: {FINANCED_AMOUNT_INCL_FEES} (spese istruttoria: 0 €, bollo: {TAX_STAMP_AMT}). Spese invio rendiconto periodico digitale: {INITIAL_COMMISSION} / anno. Interessi totali {COST_CREDIT}. Importo totale dovuto (escluso anticipo) {TOTAL_AMOUNT_PAYABLE}. TAN fisso {RATE}%, TAEG {EFFECTIVE_RATE}%. L’offerta prevede un tasso agevolato per il cliente ed è riservata a piccole e medie imprese (“PMI”), che stipulino un finanziamento e/o leasing finanziario per l’acquisto di autoveicoli con emissioni di CO2 inferiori a 50 g/km secondo il ciclo WLTP. Per maggiori dettagli: <a href=\"https://www.ca-autobank.it/banca-europea-per-gli-investimenti/\" rel=\"noopener noreferrer\" target=\"blank\">https://www.ca-autobank.it/banca-europea-per-gli-investimenti/</a>. CA AUTO Bank si riserva di valutare la sussistenza dei requisiti necessari per accedere all’offerta. Documentazione precontrattuale sul sito CA Auto Bank (Sez. Trasparenza). Messaggio Pubblicitario con finalità promozionale. Iniziativa valida fino all'ultimo giorno del mese {LAST_DAY_OF_QUARTER}.</p>"
             }
           },
@@ -13433,12 +13722,6 @@
             ]
           },
           "interestRateMatrix": [
-            {
-              "value": 2.99,
-              "options": [
-                "$MDL3"
-              ]
-            },
             {
               "value": 3.99,
               "options": [
