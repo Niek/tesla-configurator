@@ -8,9 +8,9 @@
             "query": {
               "available_configurations": "m3:m3",
               "language": "nl",
-              "market": "BE",
+              "market": "NL",
               "app": "find-my-tesla",
-              "isTcoEnabled": false,
+              "isTcoEnabled": "1",
               "tags": "",
               "context": "",
               "version": "redesign",
@@ -31,9 +31,9 @@
             "query": {
               "available_configurations": "m3:m3",
               "language": "nl",
-              "market": "BE",
+              "market": "NL",
               "app": "find-my-tesla",
-              "isTcoEnabled": false,
+              "isTcoEnabled": "1",
               "tags": "",
               "context": "",
               "version": "redesign",
@@ -54,9 +54,9 @@
             "query": {
               "available_configurations": "m3:m3",
               "language": "nl",
-              "market": "BE",
+              "market": "NL",
               "app": "find-my-tesla",
-              "isTcoEnabled": false,
+              "isTcoEnabled": "1",
               "tags": "",
               "context": "",
               "version": "redesign",
@@ -77,9 +77,9 @@
             "query": {
               "available_configurations": "m3:m3",
               "language": "nl",
-              "market": "BE",
+              "market": "NL",
               "app": "find-my-tesla",
-              "isTcoEnabled": false,
+              "isTcoEnabled": "1",
               "tags": "",
               "context": "",
               "version": "redesign",
@@ -100,9 +100,9 @@
             "query": {
               "available_configurations": "m3:m3",
               "language": "nl",
-              "market": "BE",
+              "market": "NL",
               "app": "find-my-tesla",
-              "isTcoEnabled": false,
+              "isTcoEnabled": "1",
               "tags": "",
               "context": "",
               "version": "redesign",
@@ -123,9 +123,32 @@
             "query": {
               "available_configurations": "m3:m3",
               "language": "nl",
-              "market": "BE",
+              "market": "NL",
               "app": "find-my-tesla",
-              "isTcoEnabled": false,
+              "isTcoEnabled": "1",
+              "tags": "",
+              "context": "",
+              "version": "redesign",
+              "seekret": "",
+              "isFinplatEnabled": "0",
+              "isWechatMiniProgramEnv": "0",
+              "isWechatBrowserEnv": "0",
+              "isFeeSvcEnabled": "0",
+              "isFinCmsAPIEnabled": "1",
+              "model": "m3",
+              "variant": "m3"
+            }
+          }
+        ],
+        "TCC": [
+          {
+            "key": "TCC.m3.m3",
+            "query": {
+              "available_configurations": "m3:m3",
+              "language": "nl",
+              "market": "NL",
+              "app": "find-my-tesla",
+              "isTcoEnabled": "1",
               "tags": "",
               "context": "",
               "version": "redesign",
@@ -144,9 +167,9 @@
       "query": {
         "available_configurations": "m3:m3",
         "language": "nl",
-        "market": "BE",
+        "market": "NL",
         "app": "find-my-tesla",
-        "isTcoEnabled": false,
+        "isTcoEnabled": "1",
         "tags": "",
         "context": "",
         "version": "redesign",
@@ -193,8 +216,8 @@
         "isGetUserLocationEnabled": true,
         "showOrderAgreementShort": false,
         "showEarlyDelivery": false,
-        "showSavingsAmountDisclaimer": false,
-        "showMonthlySavingsInPurchasePriceDisclaimer": false,
+        "showSavingsAmountDisclaimer": true,
+        "showMonthlySavingsInPurchasePriceDisclaimer": true,
         "isRegistrationTypeEnabled": false,
         "isPickupLocationsEnabled": false,
         "isRequestCallbackLocationsEnabled": false,
@@ -862,8 +885,8 @@
         ],
         "activeTabs": [
           "finance_options",
-          "gas_savings",
-          "incentives"
+          "incentives_savings",
+          "emissions"
         ],
         "menuItems": [
           {
@@ -896,8 +919,11 @@
           }
         ],
         "hideDynamicIncentive": true,
-        "showMonthlyPaymentExVAT": true,
-        "hideAfterSavingsPrice": false,
+        "showMonthlyPaymentExVAT": [
+          "lease.operational_lease_commercial",
+          "lease.lease"
+        ],
+        "hideAfterSavingsPrice": true,
         "hideAfterSavingsModal": false,
         "showSavingsAmount": [],
         "showSavingAmountInModal": true,
@@ -939,8 +965,8 @@
         "feesPrecision": 2,
         "showOtherLoanTerms": false,
         "showOrderFee": false,
-        "showShortMonthlyAmount": false,
-        "showSavingsAmountInFooter": false,
+        "showShortMonthlyAmount": true,
+        "showSavingsAmountInFooter": true,
         "showPotentialSavings": false,
         "showGasSavingsCash": false,
         "sendTotalPrice": true,
@@ -953,19 +979,20 @@
             "type": "personal",
             "financeOptions": [
               "cash",
-              "linear_loan",
-              "balloon_loan"
+              "operational_lease",
+              "lease_private"
             ],
-            "defaultOption": "linear_loan"
+            "defaultOption": "lease_private"
           },
           {
             "type": "business",
             "financeOptions": [
               "cash",
-              "kbc_lease",
-              "operational_lease"
+              "operational_lease_commercial",
+              "lease",
+              "loan"
             ],
-            "defaultOption": "kbc_lease"
+            "defaultOption": "lease"
           }
         ],
         "driverType": "business",
@@ -1037,14 +1064,15 @@
         "showLoanFields": [
           [
             "loanDownPayment",
-            "term"
+            "term",
+            "residualAmount"
           ]
         ],
         "showLeaseFields": [
           [
             "downPayment",
-            "distance",
-            "term"
+            "term",
+            "residualAmountWithoutVat"
           ]
         ],
         "leaseReadOnlyFields": [],
@@ -1052,20 +1080,22 @@
         "loanFieldsFormat": null,
         "gasSavingsExampleParams": {
           "yearlyDistance": 20000,
-          "petrolSavingsPerYear": 2500,
-          "petrolSavings": 7700,
-          "timesLower": 3,
+          "petrolSavingsPerYear": 2800,
+          "petrolSavings": 10900,
+          "timesLower": 4,
           "fuelEconomy": 11.9,
-          "electricityPrice": 0.29,
-          "petrolPrice": 1.47
+          "electricityPrice": 0.2,
+          "petrolPrice": 1.68
         },
         "extraDisclaimers": [],
-        "disclaimerDateFormat": "DD/MM/YYYY",
+        "disclaimerDateFormat": "",
         "showIncentivesDisclaimers": true,
-        "extraLeaseDescriptions": [],
+        "extraLeaseDescriptions": [
+          "includeServiceFee"
+        ],
         "extraLoanDescriptions": [],
         "useResidualAmount": false,
-        "isResidualAmountEditable": false,
+        "isResidualAmountEditable": true,
         "showRegionalIncentiveDropDown": false,
         "showDescriptionWithoutIncentive": false,
         "showOtherLoanTerms": false,
@@ -1073,8 +1103,7 @@
         "showIncentivesRegion": [],
         "showCashDescriptions": false,
         "showEstSavingsLabel": false,
-        "showDeliveryState": false,
-        "disclaimerIntlDateFormat": {}
+        "showDeliveryState": false
       },
       "Payment": {
         "paymentFormValid": false,
@@ -1161,7 +1190,16 @@
         },
         "accountDetailsValid": false,
         "AccountDetail": {
-          "AccountType": "business"
+          "FirstName": "",
+          "LastName": "",
+          "Email": "",
+          "PhoneNumber": "",
+          "Password": "",
+          "AccountType": "business",
+          "CompanyName": "",
+          "VatId": "",
+          "PrivateVatId": "",
+          "CompanyNumber": ""
         },
         "isSaveDesignEnabled": false,
         "showLocalName": false,
@@ -1206,13 +1244,15 @@
           "zoom": 1
         },
         "showLeaseSummaryFields": [
-          "leaseTerm",
-          "leaseDistance",
+          "financedAmountExVAT",
           "downPayment",
-          "residualAmountYearsExVAT",
+          "leaseTerm",
+          "residualAmountExVAT",
           "vatExcluded"
         ],
-        "showLeaseSummaryDisclaimer": false,
+        "showLeaseSummaryDisclaimer": [
+          "lease.operational_lease"
+        ],
         "showSecondDepositDisclaimer": {
           "source": true,
           "target": true
@@ -1230,9 +1270,11 @@
         "optionalFields": [],
         "showZeroRegistrationTax": false,
         "showLoanSummaryFields": [
+          "financedAmount",
           "downPayment",
           "loanTerm",
-          "interestRate"
+          "residualAmount",
+          "vatExcluded"
         ],
         "showLoanSummaryDisclaimer": false,
         "showWithoutAdjustments": false,
@@ -1242,7 +1284,6 @@
         "showDisclaimerLink": true,
         "showTraderLicense": false,
         "disclaimerModalContent": [
-          "incentives",
           "gas_savings",
           "range_disclaimer",
           "tyre_regulation"
@@ -1313,12 +1354,12 @@
           "target": true
         },
         "showBeforeSavingsPriceLabel": true,
-        "showBeforeSavingsPriceFinancingLabel": true,
+        "showBeforeSavingsPriceFinancingLabel": false,
         "showPaymentModalTriggerBelowPrice": false,
         "showSavingsAmountTrigger": false,
         "checkEmailAvailability": true,
         "emailConfirmEnabled": true,
-        "hideApplyForFinancing": false,
+        "hideApplyForFinancing": true,
         "preOrderMode": false,
         "showLegalDataTable": false,
         "showSavingsDisclaimer": true,
@@ -1418,9 +1459,10 @@
         ],
         "actionsToUpdatePrices": [
           "SUMMARY_PANEL_INCLUDE_SERVICE_FEE_CHANGE",
+          "SUMMARY_PANEL_RESIDUAL_AMOUNT_CHANGE",
           "SUMMARY_PANEL_DISTANCE_CHANGE",
-          "SUMMARY_PANEL_FINANCE_DISTANCE_CHANGE",
-          "ACCOUNT_DETAILS_CHANGED"
+          "ACCOUNT_DETAILS_CHANGED",
+          "SET_FINANCE_MODAL_DRIVER_TYPE"
         ],
         "showVehicleSubtotal": true,
         "hidePostfixOnUI": false,
@@ -1530,6 +1572,7 @@
           "Vat"
         ],
         "extraIncentives": [
+          "recyclingFeeIncluded",
           "winterTireFee"
         ]
       },
@@ -1555,7 +1598,7 @@
         "set": []
       },
       "SummaryPanel": {
-        "selected_tab": "lease",
+        "selected_tab": "lease.lease",
         "tabs": [],
         "loanDistance": null,
         "leaseDistance": null,
@@ -1578,7 +1621,7 @@
       "incentives": [
         {
           "incentiveType": "fuel",
-          "description": "Fuel economy inputs for BE m3",
+          "description": "Fuel economy inputs for NL m3",
           "period": "fuel",
           "variables": {
             "months": 60,
@@ -1586,14 +1629,14 @@
             "distance_year": 20000,
             "fuel_efficiency_metric": 6.402,
             "kwh_consumption_100": 14.4,
-            "supercharger_kwh_price": 0.28,
-            "fuel_price": 1.708,
-            "kwh_price": 0.594,
+            "supercharger_kwh_price": 0.25,
+            "fuel_price": 1.823,
+            "kwh_price": 0.475,
             "last_updated": "2023-07-07",
             "kwh_consumption": 0.144
           },
           "variant": "m3",
-          "market": "BE"
+          "market": "NL"
         },
         {
           "incentiveType": "taxCredit",
@@ -1723,7 +1766,18 @@
             "new"
           ],
           "amount": 980,
-          "market": "BE"
+          "market": "NL"
+        },
+        {
+          "feeType": "recycling_fee",
+          "financeType": "any",
+          "description": "Recycling Fee",
+          "period": "once",
+          "inventory": [
+            "new"
+          ],
+          "amount": 22.5,
+          "market": "NL"
         },
         {
           "feeType": "winter_tire_fee",
@@ -1739,7 +1793,7 @@
           "inventory": [
             "new"
           ],
-          "amount": 9.44,
+          "amount": 6.8,
           "configuration": {
             "or": [
               "$W3WN8",
@@ -1774,7 +1828,7 @@
             ]
           },
           "taxable": true,
-          "market": "BE"
+          "market": "NL"
         },
         {
           "feeType": "vat_percent",
@@ -1788,7 +1842,7 @@
             "mx"
           ],
           "percent": 21,
-          "market": "BE"
+          "market": "NL"
         },
         {
           "feeType": "vat_percent",
@@ -1949,9 +2003,126 @@
         }
       ]
     },
+    "TCC.m3.m3": {
+      "tcc": [
+        {
+          "tccType": "bijtelling",
+          "financeType": "any",
+          "customerType": "business",
+          "description": "Bijtelling Calculation",
+          "variant": [
+            "m3"
+          ],
+          "variables": {
+            "months": 60
+          },
+          "rateBrackets": [
+            {
+              "thresholdMax": 30000,
+              "percentage": 0.16
+            },
+            {
+              "thresholdMin": 30000,
+              "percentage": 0.22
+            }
+          ],
+          "comparison": {
+            "rateBracket": 0.22,
+            "price": {
+              "default": 55857,
+              "$MT310": 59618,
+              "$MT315": 59618,
+              "$MT316": 59618,
+              "$MT321": 59618,
+              "$MT323": 59618,
+              "$MT328": 59618,
+              "$MT311": 81147,
+              "$MT317": 81147,
+              "$MT325": 81147,
+              "$MT340": 81147
+            }
+          },
+          "taxBracket": 0.495,
+          "availableIncomeBrackets": [
+            {
+              "percentage": 0.3707
+            },
+            {
+              "percentage": 0.495
+            }
+          ],
+          "market": "NL"
+        },
+        {
+          "tccType": "roadTax",
+          "financeType": "any",
+          "description": "Dutch road tax",
+          "variant": [
+            "m3"
+          ],
+          "variables": {
+            "months": 60
+          },
+          "monthlyAmount": 0,
+          "monthlyComparisonAmount": {
+            "default": 69,
+            "$MT310": 84,
+            "$MT315": 84,
+            "$MT316": 84,
+            "$MT321": 84,
+            "$MT323": 84,
+            "$MT328": 84,
+            "$MT311": 92,
+            "$MT317": 92,
+            "$MT325": 92,
+            "$MT340": 92
+          }
+        },
+        {
+          "tccType": "fuel",
+          "financeType": "any",
+          "description": "Dutch fuel costs",
+          "variant": [
+            "m3"
+          ],
+          "variables": {
+            "fuelEconomy": {
+              "default": 15.62,
+              "$MT310": 14.9,
+              "$MT315": 14.9,
+              "$MT316": 14.9,
+              "$MT321": 14.9,
+              "$MT323": 14.9,
+              "$MT328": 14.9,
+              "$MT311": 10,
+              "$MT317": 10,
+              "$MT325": 10,
+              "$MT340": 10
+            },
+            "energyUsage": {
+              "default": 14.4,
+              "$MT310": 14.7,
+              "$MT315": 14.7,
+              "$MT316": 14.7,
+              "$MT321": 14.7,
+              "$MT323": 14.7,
+              "$MT328": 14.7,
+              "$MT311": 16.5,
+              "$MT317": 16.5,
+              "$MT325": 16.5,
+              "$MT340": 16.5
+            },
+            "electricityCost": 0.475,
+            "petrolCost": 1.823,
+            "mileage": 20000,
+            "months": 60
+          }
+        }
+      ]
+    },
     "Lexicon.m3": {
       "effective_date": "2023-08-03T17:41:00.000Z",
-      "market": "BE",
+      "market": "NL",
       "product": "m3",
       "factory": "GF00",
       "sku": {
@@ -2123,7 +2294,7 @@
         "default_trim": "$MT322"
       },
       "fees": {},
-      "name": "Marketing BE 2023.Aug.03 8321.9851.35665 [nl]",
+      "name": "Marketing NL 2023.Aug.03 8337.9749.35663 [nl]",
       "groups": [
         {
           "code": "MODEL",
@@ -2686,6 +2857,7 @@
             "AUTOPILOT_PACKAGE",
             "WINTER_WHEELS_OPTIONS",
             "TOWING",
+            "PERF_FIRMWARE",
             "COLD_WEATHER"
           ],
           "context": "order_summary",
@@ -2873,7 +3045,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Selecteer uw velgen"
+              "content": "Velgen"
             },
             {
               "type": "certified_range_est",
@@ -2898,6 +3070,7 @@
               "type": "asset",
               "content": [
                 {
+                  "bkba": 1,
                   "type": "image-compositor",
                   "view": "STUD_RIMCLOSEUP"
                 }
@@ -3140,8 +3313,8 @@
           "groups": [],
           "options": [
             "$APBS",
-            "$APPB",
-            "$APF2"
+            "$APF2",
+            "$APPB"
           ],
           "required": false,
           "exclusive": false,
@@ -3161,7 +3334,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Selecteer interieur"
+              "content": "Interieur"
             },
             {
               "type": "view_features",
@@ -3308,7 +3481,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Selecteer interieur"
+              "content": "Interieur"
             }
           ],
           "description": "Upgrade uw interieur met extra voorzieningen en premium materialen.",
@@ -3343,7 +3516,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Selecteer spoiler"
+              "content": "Spoiler"
             }
           ],
           "groups": [],
@@ -3665,6 +3838,22 @@
                   }
                 }
               ]
+            },
+            {
+              "type": "energy_label",
+              "content": "Tesla-voertuigen hebben de classificatie A gekregen voor energieverbruik."
+            },
+            {
+              "type": "energy_label_link",
+              "content": "Meer informatie",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "SHOW_EMISSIONS_MODAL"
+                  }
+                }
+              ]
             }
           ],
           "extra_content": [
@@ -3978,19 +4167,6 @@
           "name": "Betaling"
         },
         {
-          "code": "MID_RANGE_TRIM",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$MT305"
-          ],
-          "required": false,
-          "exclusive": false,
-          "default_options": [
-            "$MT305"
-          ]
-        },
-        {
           "code": "WINTER_WHEELS",
           "name": "Winterbanden",
           "context": "configurator",
@@ -4057,10 +4233,8 @@
                         },
                         "selected_by": {
                           "or": [
-                            "$MT321",
                             "$MT323",
                             "$MT328",
-                            "$MT337",
                             "$MT322",
                             "$MT341"
                           ]
@@ -4266,9 +4440,7 @@
             "WHEELS",
             "INTERIOR",
             "AUTOPILOT",
-            "AUTOPILOT_OWNERSHIP",
             "AUTOPILOT_PACKAGE",
-            "PERF_FIRMWARE",
             "WINTER_WHEELS_OPTIONS",
             "TOWING",
             "COLD_WEATHER"
@@ -4280,37 +4452,6 @@
           "default_options": [],
           "name": "REVIEW_ORDER",
           "extra_copy": []
-        },
-        {
-          "code": "FEDERAL_TAX_CREDIT",
-          "groups": [],
-          "context": "configurator",
-          "options": [],
-          "required": false,
-          "exclusive": false,
-          "name": "federalTax",
-          "extra_copy": [
-            {
-              "type": "federalTax.subtitle",
-              "content": "Vooraf geconfigureerde voertuigen"
-            },
-            {
-              "type": "federalTax.description",
-              "content": "Prijsaanpassingen zijn geldig bij levering binnen zeven dagen na bestelling."
-            },
-            {
-              "type": "federalTax.link",
-              "content": "<a target='_blank' class='tds-link' href='/{LOCALE}/inventory/new/m3?redirect=no'>Controleer beschikbaarheid</a>"
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "federalTax.type",
-              "content": [
-                "coin-prominent--currency"
-              ]
-            }
-          ]
         },
         {
           "code": "OFF_MENU_ITEMS",
@@ -4326,6 +4467,45 @@
           "default_options": [],
           "name": "OFF_MENU_ITEMS",
           "extra_copy": []
+        },
+        {
+          "code": "FEDERAL_TAX_CREDIT",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "federalTax",
+          "extra_copy": [
+            {
+              "type": "federalTax.subtitle",
+              "content": "Tijdelijke aanbieding: 3,49% rente"
+            },
+            {
+              "type": "federalTax.description",
+              "content": "Geldig voor bestellingen die worden geleverd in augustus 2023. Vanaf 1 september bedraagt de rente weer 6,49%."
+            },
+            {
+              "type": "federalTax.link",
+              "content": "De algemene voorwaarden zijn van toepassing.",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "SHOW_FINANCE_MODAL"
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "federalTax.type",
+              "content": [
+                "coin-prominent--currency"
+              ]
+            }
+          ]
         },
         {
           "code": "INTERIOR",
@@ -4779,93 +4959,6 @@
             {
               "type": "aria_label",
               "content": "Inhoud Performance Upgrade"
-            }
-          ]
-        },
-        {
-          "code": "FSD_TRAFFIC_LIGHT_CARD",
-          "groups": [],
-          "context": "configurator",
-          "options": [
-            "$APF2"
-          ],
-          "required": false,
-          "exclusive": false,
-          "name": "Verkeerslicht- en stopbordherkenning",
-          "extra_copy": [
-            {
-              "type": "title",
-              "content": "Verkeerslicht- en stopbordherkenning"
-            },
-            {
-              "type": "panelName",
-              "content": "Full Self-Driving Capability"
-            },
-            {
-              "type": "description",
-              "content": "Traffic Light & Stop Sign Control is ontworpen om de auto te laten vertragen en stoppen voor zichtbare verkeerslichten of stopborden die worden gedetecteerd wanneer de Traffic-Aware Cruise Control of Autosteer is ingeschakeld."
-            },
-            {
-              "type": "add_options",
-              "content": "Pakket toevoegen",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "TRIGGER_CONFIGURATION_CHANGE",
-                    "option": {
-                      "set": [
-                        "$APF2"
-                      ]
-                    },
-                    "panelName": "FSD_TRAFFIC_LIGHT_CARD",
-                    "actionClass": [
-                      "tds-btn",
-                      "tds-btn--primary",
-                      "tds-btn--width-full",
-                      "tds-o-remove-margins"
-                    ],
-                    "interaction": "add-fsd-traffic-light"
-                  }
-                }
-              ]
-            },
-            {
-              "type": "remove_options",
-              "content": "Verwijderen",
-              "behavior": [
-                {
-                  "type": "ACTION",
-                  "content": {
-                    "type": "TRIGGER_CONFIGURATION_CHANGE",
-                    "option": {
-                      "set": [
-                        "$APF2"
-                      ]
-                    },
-                    "panelName": "FSD_TRAFFIC_LIGHT_CARD",
-                    "actionClass": [
-                      "tds-btn",
-                      "tds-btn--tertiary",
-                      "tds-btn--width-full",
-                      "tds-o-remove-margins"
-                    ],
-                    "interaction": "remove-fsd-traffic-light"
-                  }
-                }
-              ]
-            }
-          ],
-          "extra_content": [
-            {
-              "type": "asset",
-              "content": [
-                {
-                  "url": "MODEL3/UI/Traffic_Light_and_Stop_Sign.png",
-                  "type": "image",
-                  "ratio": "slice"
-                }
-              ]
             }
           ]
         },
@@ -5933,7 +6026,7 @@
             },
             {
               "type": "description",
-              "content": "Via de Tesla-app kunt u uw geparkeerde auto naar u toe laten rijden of hem in of uit een krap parkeervak laten rijden. Smart Summon navigeert door complexe parkeersituaties en houdt zich aan de rijstrookmarkeringen en stopborden, waarbij voetgangers en obstakels zoals verkeerskegels, vuilnisbakken en rondzwervende winkelwagentjes worden vermeden."
+              "content": "Via de Tesla-app kunt u uw geparkeerde auto naar u toe laten rijden of hem in of uit een krap parkeervak laten rijden. Smart Summon navigeert door complexe parkeersituaties en houdt zich aan de rijstrookmarkeringen en stopborden, waarbij voetgangers en obstakels zoals pionnen, vuilnisbakken en rondzwervende winkelwagentjes worden vermeden."
             },
             {
               "type": "add_options",
@@ -7170,7 +7263,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Smart Summon",
+          "name": "Summon",
           "extra_copy": [
             {
               "type": "title",
@@ -7182,7 +7275,7 @@
             },
             {
               "type": "description",
-              "content": "Via de Tesla-app kunt u uw geparkeerde auto naar u toe laten rijden of hem in of uit een krap parkeervak laten rijden. Smart Summon navigeert door complexe parkeersituaties en houdt zich aan de rijstrookmarkeringen en stopborden, waarbij voetgangers en obstakels zoals verkeerskegels, vuilnisbakken en rondzwervende winkelwagentjes worden vermeden."
+              "content": "Via de Tesla-app kunt u uw geparkeerde auto naar u toe laten rijden of hem in of uit een krap parkeervak laten rijden. Smart Summon navigeert door complexe parkeersituaties en houdt zich aan de rijstrookmarkeringen en stopborden, waarbij voetgangers en obstakels zoals pionnen, vuilnisbakken en rondzwervende winkelwagentjes worden vermeden."
             },
             {
               "type": "add_options",
@@ -7464,8 +7557,9 @@
               "content": [
                 {
                   "selected_by": {
-                    "and": [
-                      "$MT325"
+                    "or": [
+                      "$MT325",
+                      "$MT341"
                     ]
                   }
                 }
@@ -7559,11 +7653,10 @@
                 {
                   "selected_by": {
                     "or": [
-                      "$MT337",
-                      "$MT321",
+                      "$MT322",
                       "$MT323",
                       "$MT328",
-                      "$MT322"
+                      "$MT341"
                     ]
                   }
                 }
@@ -7858,6 +7951,87 @@
           "required": false,
           "exclusive": false,
           "default_options": []
+        },
+        {
+          "code": "EMISSIONS",
+          "groups": [],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Uitstoot",
+          "extra_copy": [
+            {
+              "type": "title[0]",
+              "content": "Aandrijving"
+            },
+            {
+              "type": "title[1]",
+              "content": "Vermogen"
+            },
+            {
+              "type": "title[2]",
+              "content": "Gewicht"
+            },
+            {
+              "type": "title[3]",
+              "content": "Verbruik"
+            },
+            {
+              "type": "title[4]",
+              "content": "CO<sub>2</sub> emissies"
+            },
+            {
+              "type": "title[5]",
+              "content": "CO<sub>2</sub>-efficiëntie"
+            },
+            {
+              "type": "electric",
+              "content": "Elektrisch"
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "title_path": "CustomGroups.EMISSIONS.title[0]",
+                  "content_path": {
+                    "value": "CustomGroups.EMISSIONS.electric"
+                  }
+                },
+                {
+                  "postfix": "kW",
+                  "title_path": "CustomGroups.EMISSIONS.title[1]",
+                  "content_path": {
+                    "value": "formattedSpecs.rawData.power"
+                  }
+                },
+                {
+                  "postfix": "kg",
+                  "title_path": "CustomGroups.EMISSIONS.title[2]",
+                  "content_path": {
+                    "value": "formattedSpecs.rawData.mass"
+                  }
+                },
+                {
+                  "postfix": "kWh / 100km",
+                  "title_path": "CustomGroups.EMISSIONS.title[3]",
+                  "content_path": {
+                    "value": "formattedSpecs.rawData.energy_consumption"
+                  }
+                },
+                {
+                  "content": "0 g CO<sub>2</sub>/km",
+                  "title_path": "CustomGroups.EMISSIONS.title[4]"
+                },
+                {
+                  "content": "A",
+                  "title_path": "CustomGroups.EMISSIONS.title[5]"
+                }
+              ]
+            }
+          ]
         }
       ],
       "options": {
@@ -8515,7 +8689,7 @@
               ]
             },
             {
-              "type": "add_fsd_package",
+              "type": "add_eap_package",
               "content": "Toevoegen",
               "behavior": [
                 {
@@ -8545,7 +8719,7 @@
               "content": "Optie geselecteerd"
             },
             {
-              "type": "remove_fsd_package",
+              "type": "remove_eap_package",
               "content": "Verwijderen",
               "behavior": [
                 {
@@ -8591,7 +8765,7 @@
                   "props": {
                     "fields": [
                       {
-                        "field": "add_fsd_package",
+                        "field": "add_eap_package",
                         "selected_by": {
                           "not": [
                             "$APPB"
@@ -8599,7 +8773,7 @@
                         }
                       },
                       {
-                        "field": "remove_fsd_package",
+                        "field": "remove_eap_package",
                         "selected_by": {
                           "and": [
                             "$APPB"
@@ -10524,11 +10698,11 @@
               ]
             }
           ],
-          "price": 1200,
+          "price": 0,
           "pricing": [
             {
               "type": "base",
-              "value": 1200,
+              "value": 0,
               "context": "EUR"
             }
           ]
@@ -11908,6 +12082,14 @@
               "content": "Speciaal audiosysteem met Immersive Sound"
             },
             {
+              "type": "interior_floor_mats",
+              "content": "Inbegrepen"
+            },
+            {
+              "type": "interior_heated_seats",
+              "content": "Voorstoelen"
+            },
+            {
               "type": "interior_heated_steering_wheel",
               "content": "-"
             }
@@ -11958,24 +12140,21 @@
                     "$MDL3"
                   ],
                   "optionPriceKey": "base_plus_trim",
-                  "condition_state": "and",
-                  "fees_standalone": [
-                    "fees.reg_and_doc_fee.total"
-                  ]
+                  "condition_state": "and"
                 }
               ]
             }
           ],
-          "price": 10000,
+          "price": 7000,
           "pricing": [
             {
               "type": "base",
-              "value": 10000,
+              "value": 7000,
               "context": "EUR"
             },
             {
               "type": "base_plus_trim",
-              "value": 44990,
+              "value": 41990,
               "context": "EUR"
             }
           ]
@@ -12327,24 +12506,21 @@
                     "$MDL3"
                   ],
                   "optionPriceKey": "base_plus_trim",
-                  "condition_state": "and",
-                  "fees_standalone": [
-                    "fees.reg_and_doc_fee.total"
-                  ]
+                  "condition_state": "and"
                 }
               ]
             }
           ],
-          "price": 16500,
+          "price": 13400,
           "pricing": [
             {
               "type": "base",
-              "value": 16500,
+              "value": 13400,
               "context": "EUR"
             },
             {
               "type": "base_plus_trim",
-              "value": 51490,
+              "value": 48390,
               "context": "EUR"
             }
           ]
@@ -12649,24 +12825,21 @@
                     "$MDL3"
                   ],
                   "optionPriceKey": "base_plus_trim",
-                  "condition_state": "and",
-                  "fees_standalone": [
-                    "fees.reg_and_doc_fee.total"
-                  ]
+                  "condition_state": "and"
                 }
               ]
             }
           ],
-          "price": 18000,
+          "price": 15000,
           "pricing": [
             {
               "type": "base",
-              "value": 18000,
+              "value": 15000,
               "context": "EUR"
             },
             {
               "type": "base_plus_trim",
-              "value": 52990,
+              "value": 49990,
               "context": "EUR"
             }
           ]
@@ -13427,11 +13600,11 @@
               ]
             }
           ],
-          "price": 5500,
+          "price": 5600,
           "pricing": [
             {
               "type": "base",
-              "value": 5500,
+              "value": 5600,
               "context": "EUR"
             }
           ]
@@ -13526,11 +13699,11 @@
               ]
             }
           ],
-          "price": 2050,
+          "price": 2150,
           "pricing": [
             {
               "type": "base",
-              "value": 2050,
+              "value": 2150,
               "context": "EUR"
             }
           ]
@@ -13740,11 +13913,11 @@
               ]
             }
           ],
-          "price": 4000,
+          "price": 4200,
           "pricing": [
             {
               "type": "base",
-              "value": 4000,
+              "value": 4200,
               "context": "EUR"
             }
           ]
@@ -13883,7 +14056,19 @@
                 "$MT304": {
                   "name": "Long Range All-Wheel Drive Performance",
                   "range": 530,
-                  "topspeed": 261,
+                  "topspeed": 233,
+                  "overrides": [
+                    {
+                      "content": {
+                        "topspeed": 261
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$SPT31"
+                        ]
+                      }
+                    }
+                  ],
                   "acceleration": 3.4
                 },
                 "$MT308": {
@@ -13921,7 +14106,19 @@
                 "$MT311": {
                   "name": "Long Range All-Wheel Drive Performance",
                   "range": 530,
-                  "topspeed": 261,
+                  "topspeed": 233,
+                  "overrides": [
+                    {
+                      "content": {
+                        "topspeed": 261
+                      },
+                      "selected_by": {
+                        "and": [
+                          "$SPT31"
+                        ]
+                      }
+                    }
+                  ],
                   "acceleration": 3.4
                 },
                 "$MT314": {
@@ -13994,10 +14191,13 @@
                   "range_units_override": "range_units_epa_link"
                 },
                 "$MT322": {
+                  "mass": 1.825,
                   "name": "Standard Range Plus Rear-Wheel Drive",
+                  "power": 208,
                   "range": 491,
                   "topspeed": 225,
                   "acceleration": 6.1,
+                  "energy_consumption": 14.4,
                   "range_units_override": "range_units_epa_link"
                 },
                 "$MT323": {
@@ -14022,15 +14222,20 @@
                   "range_units_override": "range_units_epa_link"
                 },
                 "$MT325": {
+                  "mass": 1.919,
                   "name": "Long Range All-Wheel Drive Performance",
+                  "power": 393,
                   "range": 547,
                   "postfix": "*",
                   "topspeed": 261,
                   "acceleration": 3.3,
+                  "energy_consumption": 16.5,
                   "range_units_override": "range_units_epa_link"
                 },
                 "$MT328": {
+                  "mass": 1.919,
                   "name": "Long Range All-Wheel Drive",
+                  "power": 366,
                   "range": 602,
                   "topspeed": 233,
                   "overrides": [
@@ -14048,6 +14253,7 @@
                     }
                   ],
                   "acceleration": 4.4,
+                  "energy_consumption": 14.7,
                   "range_units_override": "range_units_epa_link"
                 },
                 "$MT336": {
@@ -14072,11 +14278,14 @@
                   "range_units_override": "range_units_epa_link"
                 },
                 "$MT341": {
+                  "mass": 1735,
                   "name": "Long Range Rear-Wheel Drive",
+                  "power": 220,
                   "range": 620,
-                  "postfix": "*",
                   "topspeed": 233,
                   "acceleration": 5.9,
+                  "efficiency_class": "A+",
+                  "energy_consumption": 14.7,
                   "range_units_override": "range_units_epa_link"
                 }
               }
@@ -14088,11 +14297,11 @@
               "short_label": "sec"
             },
             "distance": {
-              "label": "kilometres",
+              "label": "kilometer",
               "short_label": "km"
             },
             "velocity": {
-              "label": "kilometres per hour",
+              "label": "kilometer per hour",
               "short_label": "km/h"
             }
           }
@@ -14114,48 +14323,6 @@
       "enable_sku": true,
       "migrations": [
         {
-          "$PMBL": [
-            [
-              [
-                [
-                  "$PMBL"
-                ]
-              ],
-              [
-                "!$PMBL"
-              ]
-            ]
-          ],
-          "$PMSS": [
-            [
-              [
-                [
-                  "$PMSS"
-                ]
-              ],
-              [
-                "!$PMSS"
-              ]
-            ]
-          ],
-          "comments": "Hide $PMBL/$PMSS",
-          "effective_date": "2018-09-14T02:40:00.000Z"
-        },
-        {
-          "$MDL3": [
-            [
-              [
-                [
-                  "$MDL3"
-                ]
-              ],
-              [
-                "$SC04"
-              ]
-            ]
-          ]
-        },
-        {
           "$W32P": [
             [
               [
@@ -14170,6 +14337,31 @@
           ],
           "comments": "introduce new performance gunpowder wheels",
           "effective_date": "2019-10-17T00:00:00.000Z"
+        },
+        {
+          "$MT308": [
+            [
+              [
+                [
+                  "$MT308"
+                ]
+              ],
+              [
+                "!$MT308"
+              ]
+            ],
+            [
+              [
+                [
+                  "$MT308"
+                ]
+              ],
+              [
+                "$MT320"
+              ]
+            ]
+          ],
+          "comments": "New SR+ Trim w/ MI02 & Battery"
         },
         {
           "$MT300": [
@@ -14516,45 +14708,6 @@
           "effective_date": "2020-10-14"
         },
         {
-          "$MDL3": [
-            [
-              [
-                [
-                  "$MDL3"
-                ]
-              ],
-              [
-                "$SC04"
-              ]
-            ]
-          ]
-        },
-        {
-          "$MT308": [
-            [
-              [
-                [
-                  "$MT308"
-                ]
-              ],
-              [
-                "!$MT308"
-              ]
-            ],
-            [
-              [
-                [
-                  "$MT308"
-                ]
-              ],
-              [
-                "$MT320"
-              ]
-            ]
-          ],
-          "comments": "New SR+ Trim w/ MI02 & Battery"
-        },
-        {
           "$MT320": [
             [
               [
@@ -14756,31 +14909,6 @@
           "comments": "New Perf Trim w / BT43 GF03 SOP 1/1/2022"
         },
         {
-          "$MT337": [
-            [
-              [
-                [
-                  "$MT337"
-                ]
-              ],
-              [
-                "!$MT337"
-              ]
-            ],
-            [
-              [
-                [
-                  "$MT337"
-                ]
-              ],
-              [
-                "$MT322"
-              ]
-            ]
-          ],
-          "comments": "New SR+ with BTFA Battery GF03 SOP 1/1/2022"
-        },
-        {
           "$MT321": [
             [
               [
@@ -14804,6 +14932,31 @@
             ]
           ],
           "comments": "New LR with BT43"
+        },
+        {
+          "$MT337": [
+            [
+              [
+                [
+                  "$MT337"
+                ]
+              ],
+              [
+                "!$MT337"
+              ]
+            ],
+            [
+              [
+                [
+                  "$MT337"
+                ]
+              ],
+              [
+                "$MT322"
+              ]
+            ]
+          ],
+          "comments": "New SR+ with BTFA Battery GF03 SOP 1/1/2022"
         },
         {
           "$MT323": [
@@ -14865,7 +15018,7 @@
         "$SC04",
         "$IBB1"
       ],
-      "options_id": 8321,
+      "options_id": 8337,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -14963,13 +15116,6 @@
               "msg": "Present in both Copy and Options lexicons"
             },
             {
-              "code": "MID_RANGE_TRIM",
-              "context": [
-                "configurator"
-              ],
-              "msg": "Present in only Options lexicons"
-            },
-            {
               "code": "WINTER_WHEELS_OPTIONS",
               "context": [
                 "configurator"
@@ -15007,14 +15153,14 @@
               "msg": "Present in both Copy and Options lexicons"
             },
             {
-              "code": "FEDERAL_TAX_CREDIT",
+              "code": "OFF_MENU_ITEMS",
               "context": [
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
             },
             {
-              "code": "OFF_MENU_ITEMS",
+              "code": "FEDERAL_TAX_CREDIT",
               "context": [
                 "configurator"
               ],
@@ -15085,13 +15231,6 @@
             },
             {
               "code": "FSD_FEATURES",
-              "context": [
-                "configurator"
-              ],
-              "msg": "Present in both Copy and Options lexicons"
-            },
-            {
-              "code": "FSD_TRAFFIC_LIGHT_CARD",
               "context": [
                 "configurator"
               ],
@@ -15376,6 +15515,13 @@
                 "configurator"
               ],
               "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "EMISSIONS",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
             }
           ]
         },
@@ -15385,99 +15531,87 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 9851,
+      "copy_id": 9749,
       "language": "nl",
-      "pricing_id": 35665,
-      "reference_id": 8321,
+      "pricing_id": 35663,
+      "reference_id": 8337,
       "source": "cache"
     },
     "financeProductsSource": "finCMS",
     "Lease.m3.m3": {
       "lease": [
         {
-          "id": "kbc_lease",
-          "market": "BE",
+          "id": "lease",
+          "market": "NL",
           "productType": "lease",
           "accountType": null,
           "variant": [
             "m3",
-            "my",
-            "ms",
-            "mx"
+            "my"
           ],
           "inventory": [
             "new"
           ],
           "variables": {
             "leaseTerm": 60,
-            "downPayment": 9550,
+            "downPayment": 11000,
             "downPayments": {
-              "trim": {
-                "$MT322": 9250,
-                "$MT325": 8850,
-                "$MT328": 9150,
-                "$MTY09": 9350,
-                "$MTY12": 9000,
-                "$MTY13": 9350
-              },
               "model": {
-                "ms": 0.2,
-                "mx": 0.2
+                "my": 10600
               }
             },
             "interestRate": 6.49,
             "leaseDistance": 20000,
+            "localeSpecific": {
+              "residualAmountOffset": 2500
+            },
+            "maximumDownPayment": 0.5,
             "minimumDownPayment": 0
           },
           "disclaimers": {
-            "fr": {
-              "m3": "<p>Offre valable du {DATE} au {FOLLOWING_FRIDAY} pour un contrat de renting financier avec option d’achat de {RESIDUAL_VALUE} sur une durée de {TERM} mois sur {TRIM}. Montant d'investissement: {CASH_PRICE}. Première mensualité majorée: {DOWNPAYMENT}, mensualités suivantes: {PAYMENT_WITHOUT_VAT}. Maximum {MILEAGE_TOTAL} kilomètres, en cas d'excès : 0,10 € par kilomètre.</p><p>Sauf mention contraire, tous les prix s'entendent TVA non comprise.</p><p>Cette offre prévoit un taux subventionné pour le client professionnel et est réservée aux petites et moyennes entreprises (&quot;PME&quot;) qui concluent un contrat de location financière pour l'achat de véhicules dont les émissions de CO2 sont inférieures à 50 g/km selon le cycle WLTP. Pour plus d'informations : www.ca-autobank.be/fr/banque-europeenne-dinvestissement/ <br/>CA Auto Bank se réserve le droit de juger si les conditions d'obtention de l'offre sont remplies.</p><p>Offre valable uniquement à des fins professionnelles. Sous réserve d'acceptation de votre dossier par CA Auto Bank, succursale belge de CA Auto Bank S.p.A., bailleur, ayant son siège social Corso Orbassano 367, 10137 Torino – Italie, et son siège en Belgique, 8-10 rue Jules Cockx à 1160 Bruxelles. RPM : Bruxelles. BCE : 0699.630.712 - IBAN : BE08 7360 4943 5813 - TVA : BE 699.630.712 - e-mail : teslafinancing.belux@ca-autobank.com. Annonceur : Tesla Belgium BV, Boomsesteenweg 8, 2630 Aartselaar, TVA BE0521.902.461, BE24570134585538, RPM Antwerpen. Informations environnementales [A.R. 19.03.04] : www.tesla.com.</p>",
-              "my": "<p>Offre valable du {DATE} au {FOLLOWING_FRIDAY} pour un contrat de renting financier avec option d’achat de {RESIDUAL_VALUE} sur une durée de {TERM} mois sur {TRIM}. Montant d'investissement : {CASH_PRICE}. Première mensualité majorée : {DOWNPAYMENT}, mensualités suivantes : {PAYMENT_WITHOUT_VAT}. Maximum {MILEAGE_TOTAL} kilomètres, en cas d'excès : 0,10 € par kilomètre.</p><p>Sauf mention contraire, tous les prix s'entendent TVA non comprise.</p><p>Cette offre prévoit un taux subventionné pour le client professionnel et est réservée aux petites et moyennes entreprises (&quot;PME&quot;) qui concluent un contrat de location financière pour l'achat de véhicules dont les émissions de CO2 sont inférieures à 50 g/km selon le cycle WLTP. Pour plus d'informations : www.ca-autobank.be/fr/banque-europeenne-dinvestissement/ <br />CA Auto Bank se réserve le droit de juger si les conditions d'obtention de l'offre sont remplies.</p><p>Offre valable uniquement pour des commandes effectuées entre {DATE} et {FOLLOWING_FRIDAY}, sous réserve de livraison jusqu'au 31 Août 2023 inclus.</p><p>Offre valable uniquement à des fins professionnelles. Sous réserve d'acceptation de votre dossier par CA Auto Bank, succursale belge de CA Auto Bank S.p.A., bailleur, ayant son siège social Corso Orbassano 367, 10137 Torino – Italie, et son siège en Belgique, 8-10 rue Jules Cockx à 1160 Bruxelles. RPM : Bruxelles. BCE : 0699.630.712 - IBAN : BE08 7360 4943 5813 - TVA : BE 699.630.712 - e-mail : teslafinancing.belux@ca-autobank.com. Annonceur : Tesla Belgium BV, Boomsesteenweg 8, 2630 Aartselaar, TVA BE0521.902.461, BE24570134585538, RPM Antwerpen. Informations environnementales [A.R. 19.03.04] : www.tesla.com.</p>",
-              "default": "<p>Offre valable du {DATE} au {LAST_DAY_OF_MONTH} pour un contrat de renting financier avec option d’achat de {RESIDUAL_VALUE} sur une durée de {TERM} mois sur {TRIM}. Montant d'investissement : {CASH_PRICE}. Première mensualité majorée : {DOWNPAYMENT}, mensualités suivantes : {PAYMENT_WITHOUT_VAT}. Maximum {MILEAGE_TOTAL} kilomètres, en cas d'excès : 0,10 € par kilomètre.</p><p>Sauf mention contraire, tous les prix s'entendent TVA non comprise.</p><p>Cette offre prévoit un taux subventionné pour le client professionnel et est réservée aux petites et moyennes entreprises (&quot;PME&quot;) qui concluent un contrat de location financière pour l'achat de véhicules dont les émissions de CO2 sont inférieures à 50 g/km selon le cycle WLTP. Pour plus d'informations : www.ca-autobank.be/fr/banque-europeenne-dinvestissement/ <br />CA Auto Bank se réserve le droit de juger si les conditions d'obtention de l'offre sont remplies.</p><p>Offre valable uniquement à des fins professionnelles. Sous réserve d'acceptation de votre dossier par CA Auto Bank, succursale belge de CA Auto Bank S.p.A., bailleur, ayant son siège social Corso Orbassano 367, 10137 Torino – Italie, et son siège en Belgique, 8-10 rue Jules Cockx à 1160 Bruxelles. RPM : Bruxelles. BCE : 0699.630.712 - IBAN : BE08 7360 4943 5813 - TVA : BE 699.630.712 - e-mail : teslafinancing.belux@ca-autobank.com. Annonceur : Tesla Belgium BV, Boomsesteenweg 8, 2630 Aartselaar, TVA BE0521.902.461, BE24570134585538, RPM Antwerpen. Informations environnementales [A.R. 19.03.04] : www.tesla.com.</p>"
-            },
             "nl": {
-              "m3": "<p>Aanbod geldig van {DATE} tot {FOLLOWING_FRIDAY} voor een contract in financiële renting met aankoopoptie van {RESIDUAL_VALUE} op een looptijd van {TERM} maanden op {TRIM}. Investeringsbedrag: {CASH_PRICE}. Eerste verhoogde maandaflossing: {DOWNPAYMENT}, volgende maandaflossingen: {PAYMENT_WITHOUT_VAT}. Maximum {MILEAGE_TOTAL} kilometer, in geval van overschrijding: 0,10 euro per kilometer.</p><p>Alle prijzen zijn exclusief BTW tenzij anders vermeld.</p><p>Dit aanbod voorziet een gesubsidieerd tarief voor de professionele klant en is voorbehouden aan kleinen middelgrote ondernemingen (&quot;kmo’s&quot;) die een financiële renting aangaan voor de aankoop van voertuigen met een CO2-uitstoot van minder dan 50 g/km volgens de WLTP-cyclus. Voor meer informatie: www.ca-autobank.be/europese-investeringsbank/ <br/>CA Auto Bank behoudt zich het recht te oordelen of aan de vereisten tot het verkrijgen van het aanbod is voldaan.</p><p>Aanbod voorbehouden voor professionele doeleinden. Onder voorbehoud van aanvaarding van uw dossier door CA Auto Bank, Belgisch bijkantoor van CA Auto Bank S.p.A., verhuurder, met als maatschappelijke zetel Corso Orbassano 367, 10137 Torino – Italië, en zetel in België, Jules Cockxstraat 8-10 te 1160 Brussel. RPR: Brussel - KBO: 0699.630.712 - IBAN: BE08 7360 4943 5813 – BTW: BE 699.630.712 – e-mail: teslafinancing.belux@ca-autobank.com. Adverteerder: Tesla Belgium BVBA, Boomsesteenweg 8, 2630 Aartselaar, BTW BE0521.902.461, BE24 5701 3458 5538, RPR Antwerpen. Milieu-informatie [K.B. 19.03.04]: www.tesla.com.</p>",
-              "my": "<p>Aanbod geldig van {DATE} tot {FOLLOWING_FRIDAY} voor een contract in financiële renting met aankoopoptie van {RESIDUAL_VALUE} op een looptijd van {TERM} maanden op {TRIM}. Investeringsbedrag: {CASH_PRICE}. Eerste verhoogde maandaflossing: {DOWNPAYMENT}, volgende maandaflossingen: {PAYMENT_WITHOUT_VAT}. Maximum {MILEAGE_TOTAL} kilometer, in geval van overschrijding: 0,10 euro per kilometer.</p><p>Alle prijzen zijn exclusief BTW tenzij anders vermeld.</p><p>Aanbod geldig voor bestellingen van {DATE} tot {FOLLOWING_FRIDAY} met levering tot en met 31 augustus 2023.</p><p>Dit aanbod voorziet een gesubsidieerd tarief voor de professionele klant en is voorbehouden aan kleine en middelgrote ondernemingen (&quot;kmo’s&quot;) die een financiële renting aangaan voor de aankoop van voertuigen met een CO2-uitstoot van minder dan 50 g/km volgens de WLTP-cyclus. Voor meer informatie: www.ca-autobank.be/europese-investeringsbank/ <br />CA Auto Bank behoudt zich het recht te oordelen of aan de vereisten tot het verkrijgen van het aanbod is voldaan.</p><p>Aanbod voorbehouden voor professionele doeleinden. Onder voorbehoud van aanvaarding van uw dossier door CA Auto Bank, Belgisch bijkantoor van CA Auto Bank S.p.A., verhuurder, met als maatschappelijke zetel Corso Orbassano 367, 10137 Torino – Italië, en zetel in België, Jules Cockxstraat 8-10 te 1160 Brussel. RPR: Brussel - KBO: 0699.630.712 - IBAN: BE08 7360 4943 5813 – BTW: BE 699.630.712 – e-mail: teslafinancing.belux@ca-autobank.com. Adverteerder: Tesla Belgium BVBA, Boomsesteenweg 8, 2630 Aartselaar, BTW BE0521.902.461, BE24 5701 3458 5538, RPR Antwerpen. Milieu-informatie [K.B. 19.03.04]: www.tesla.com.</p>",
-              "default": "<p>Aanbod geldig van {DATE} tot {LAST_DAY_OF_MONTH} voor een contract in financiële renting met aankoopoptie van {RESIDUAL_VALUE} op een looptijd van {TERM} maanden op {TRIM}. Investeringsbedrag: {CASH_PRICE}. Eerste verhoogde maandaflossing: {DOWNPAYMENT}, volgende maandaflossingen: {PAYMENT_WITHOUT_VAT}. Maximum {MILEAGE_TOTAL} kilometer, in geval van overschrijding: 0,10 euro per kilometer.</p><p>Alle prijzen zijn exclusief BTW tenzij anders vermeld.</p><p>Dit aanbod voorziet een gesubsidieerd tarief voor de professionele klant en is voorbehouden aan kleine en middelgrote ondernemingen (&quot;kmo’s&quot;) die een financiële renting aangaan voor de aankoop van voertuigen met een CO2-uitstoot van minder dan 50 g/km volgens de WLTP-cyclus. Voor meer informatie: www.ca-autobank.be/europese-investeringsbank/ <br />CA Auto Bank behoudt zich het recht te oordelen of aan de vereisten tot het verkrijgen van het aanbod is voldaan.</p><p>Aanbod voorbehouden voor professionele doeleinden. Onder voorbehoud van aanvaarding van uw dossier door CA Auto Bank, Belgisch bijkantoor van CA Auto Bank S.p.A., verhuurder, met als maatschappelijke zetel Corso Orbassano 367, 10137 Torino – Italië, en zetel in België, Jules Cockxstraat 8-10 te 1160 Brussel. RPR: Brussel - KBO: 0699.630.712 - IBAN: BE08 7360 4943 5813 – BTW: BE 699.630.712 – e-mail: teslafinancing.belux@ca-autobank.com. Adverteerder: Tesla Belgium BVBA, Boomsesteenweg 8, 2630 Aartselaar, BTW BE0521.902.461, BE24 5701 3458 5538, RPR Antwerpen. Milieu-informatie [K.B. 19.03.04]: www.tesla.com.</p>"
+              "my": "<p>{EXTRA_DISCLAIMER}</p><p>Deze indicatieve berekening is onder voorbehoud van klant- en kredietacceptatie door Findio voor auto. De berekening is gebaseerd op een jaarlijks rentepercentage van {RATE}%. De totale kosten van de financiering bedragen {COST_CREDIT}. Aan dit rekenvoorbeeld kunnen geen rechten worden ontleend.</p><p>Aanbod geldig voor bestellingen van {DATE} tot {FOLLOWING_FRIDAY} met levering tot en met 31 augustus 2023.</p><p>Alle bedragen zijn exclusief BTW. Algemene voorwaarden van Findio voor auto zijn van toepassing.</p>",
+              "default": "<p>{EXTRA_DISCLAIMER}</p><p>Deze indicatieve berekening is onder voorbehoud van klant- en kredietacceptatie door Findio voor auto. De berekening is gebaseerd op een jaarlijks rentepercentage van {RATE}%. De totale kosten van de financiering bedragen {COST_CREDIT}. Aan dit rekenvoorbeeld kunnen geen rechten worden ontleend.</p><p>Alle bedragen zijn exclusief BTW. Algemene voorwaarden van Findio voor auto zijn van toepassing.</p>"
             }
           },
           "enabled": true,
           "uiSettings": {
-            "pdf": {
-              "leaseFields": [
-                "downPayment",
-                "term"
-              ]
-            },
             "forms": {
               "showLeaseFields": [
                 [
                   "downPayment",
-                  "term"
+                  "term",
+                  "residualAmountWithoutVat"
                 ]
               ]
             },
             "reviewDetails": {
               "showLeaseSummaryFields": [
-                "leaseTerm",
+                "financedAmountExVAT",
                 "downPayment",
-                "interestRate",
-                "residualAmountYearsExVAT",
+                "leaseTerm",
+                "residualAmountExVAT",
                 "vatExcluded"
               ]
             }
           },
           "leaseTermsOffered": {
             "leaseTerm": [
+              12,
               24,
               36,
               48,
               60
+            ],
+            "leaseDistance": [
+              15000,
+              20000,
+              25000
             ]
           },
           "interestRateMatrix": [
             {
-              "value": 4.99,
+              "value": 3.49,
               "options": [
                 "$MDLY"
               ]
@@ -15485,15 +15619,127 @@
           ],
           "residualRateMatrix": [
             {
-              "value": 0.42
+              "value": 0.7,
+              "leaseTerm": 12
+            },
+            {
+              "value": 0.6,
+              "leaseTerm": 24
+            },
+            {
+              "value": 0.55,
+              "leaseTerm": 36
+            },
+            {
+              "value": 0.45,
+              "leaseTerm": 48
+            },
+            {
+              "value": 0.4,
+              "leaseTerm": 60
             }
           ]
         },
         {
-          "id": "operational_lease",
-          "market": "BE",
+          "id": "lease_private",
+          "market": "NL",
           "productType": "lease",
           "accountType": null,
+          "variant": [
+            "m3",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "leaseTerm": 60,
+            "downPayment": 11400,
+            "interestRate": 6.49,
+            "leaseDistance": 20000,
+            "localeSpecific": {
+              "residualAmountOffset": 2500
+            },
+            "maximumDownPayment": 0.5,
+            "minimumDownPayment": 0
+          },
+          "disclaimers": {
+            "nl": {
+              "my": "<p>Het jaarlijkse kostenpercentage {RATE}% is een prijsaanduiding voor het krediet. Hierin komen alle kosten van het krediet tot uitdrukking. De totale kosten van de financiering bedragen {COST_CREDIT}. Aan dit rekenvoorbeeld kunnen geen rechten worden ontleend. Deze indicatieve berekening is onder voorbehoud van klant- en kredietacceptatie door Findio voor auto. Alle bedragen zijn inclusief BTW. Algemene voorwaarden van Findio voor auto zijn van toepassing.</p><p>Aanbod geldig voor bestellingen van {DATE} tot {FOLLOWING_FRIDAY} met levering tot en met 31 augustus 2023.</p><p>Voordelen van een financiering via Findio:</p><ul><li>Volledig digitaal proces</li><li>Vast maandbedrag</li><li>Scherpe rente</li><li>Direct contact met Tesla</li></ul>",
+              "default": "<p>Het jaarlijkse kostenpercentage {RATE}% is een prijsaanduiding voor het krediet. Hierin komen alle kosten van het krediet tot uitdrukking. De totale kosten van de financiering bedragen {COST_CREDIT}. Aan dit rekenvoorbeeld kunnen geen rechten worden ontleend. Deze indicatieve berekening is onder voorbehoud van klant- en kredietacceptatie door Findio voor auto. Alle bedragen zijn inclusief BTW. Algemene voorwaarden van Findio voor auto zijn van toepassing.</p><p>Voordelen van een financiering via Findio:</p><ul><li>Volledig digitaal proces</li><li>Vast maandbedrag</li><li>Scherpe rente</li><li>Direct contact met Tesla</li></ul>"
+            }
+          },
+          "enabled": true,
+          "uiSettings": {
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "downPayment",
+                  "term",
+                  "residualAmount"
+                ]
+              ]
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "financedAmount",
+                "downPayment",
+                "leaseTerm",
+                "residualAmount",
+                "vatIncluded"
+              ]
+            }
+          },
+          "leaseTermsOffered": {
+            "leaseTerm": [
+              12,
+              24,
+              36,
+              48,
+              60
+            ],
+            "leaseDistance": [
+              15000,
+              20000,
+              25000
+            ]
+          },
+          "interestRateMatrix": [
+            {
+              "value": 3.49,
+              "options": [
+                "$MDLY"
+              ]
+            }
+          ],
+          "residualRateMatrix": [
+            {
+              "value": 0.7,
+              "leaseTerm": 12
+            },
+            {
+              "value": 0.6,
+              "leaseTerm": 24
+            },
+            {
+              "value": 0.55,
+              "leaseTerm": 36
+            },
+            {
+              "value": 0.45,
+              "leaseTerm": 48
+            },
+            {
+              "value": 0.4,
+              "leaseTerm": 60
+            }
+          ]
+        },
+        {
+          "id": "operational_lease_commercial",
+          "market": "NL",
+          "productType": "lease",
+          "accountType": "business",
           "variant": [
             "m3",
             "ms",
@@ -15505,22 +15751,19 @@
           ],
           "variables": {
             "leaseTerm": 60,
-            "leaseDistance": 20000
+            "leaseDistance": 10000
           },
           "disclaimers": {
-            "fr": {
-              "default": "<p>Un produit de location longue durée (36 à 60 mois, max 200.000 km) sans option d’achat, offert par Axus sa, Avenue du Bourget 42 à 1130 Bruxelles (FSMA 016860 A – BCE n° 0403.429.730). Offre réservé exclusivement aux clients professionnels en Belgique, sous condition d’approbation du dossier et après signature pour accord du contrat de location. Loyer sous réserve de modification en cas de changement du prix catalogue ou des taxes. Prix indicatif calculé sur base d'un conducteur âgé de plus de 30 ans. Prestations incluses : location du véhicule, maintenance, pneus été, assurance, provision risque propre, taxe de mise en circulation et taxe de circulation. Services soumis à conditions. E-mail: partnerships@axus.be Tel.: +32 (0)2 706 41 11</p>"
-            },
             "nl": {
-              "default": "<p>Betreft een Operationele Lease (verhuur op lange termijn: 36 tot 60 maanden, max. 200.000 km) zonder aankoopoptie, aangeboden door Axus nv, Bourgetlaan 42 te 1130 Brussel (FSMA 016860 A - KBO nr. 0403.429.730). Aanbod uitsluitend bestemd voor zakelijke klanten in België, onder voorbehoud van acceptatie van het dossier en ook van ondertekening van de huurovereenkomst. Huurprijs onder voorbehoud van wijziging in geval van veranderingen m.b.t. de catalogusprijs of van belastingen. Richtprijs berekend op basis van een bestuurder ouder dan 30 jaar. Inbegrepen diensten: huurprijs wagen, onderhoud, zomerbanden, verzekering, eigen schadeprovisie, belasting op inverkeerstelling en verkeersbelasting. Diensten onderworpen aan voorwaarden. E-mail: partnerships@axus.be Tel.: +32 (0)2 706 41 11</p>"
+              "default": "<p>Genoemde leaseprijzen zijn vanaf tarieven per maand, ex. btw, incl. ROB, houderschapsbelasting, verzekering, Eigen Risico €450,- (als de ‘additionele services’ check-box is geselecteerd, is het Eigen Risico €150,-) en POI via Axus Nederland B.V. (ALD Automotive) (als de ‘additionele services’ check-box is geselecteerd, is ‘vervangend vervoer na 24 uur’ ook inbegrepen).</p><p>Deze berekening is slechts een indicatie en onder voorbehoud van klant- en kredietacceptatie van Axus Nederland B.V. (ALD Automotive). Bekijk aanvullende informatie &amp; documenten onder zakelijke lease. <a href=\"https://www.aldautomotive.nl/zakelijk-leasen\" target=\"_blank\" rel=\"noopener noreferrer\">Lease auto zakelijk leasen | ALD Automotive</a>. Als u kiest voor operational lease, dan worden enkele van uw persoonsgegegevens gedeeld met ALD Automotive, die u een concreet offerte kan doen toekomen. Hoe ALD Automotive met uw persoonsgegevens omgaat kunt u nalezen in hun <a href=\"https://www.aldautomotive.nl/Portals/netherlands/adam/Content/yAntKm0JnESotNTjhU4GvQ/Free_Text/19127486-49_ALD_Automotive_privacyverklaring_zakelijk_NL-2.pdf\" target=\"_blank\" rel=\"noopener noreferrer\">privacy verklaring</a>.</p><p>Wijzigingen en fouten voorbehouden.</p><p>Wenst u een ander looptijd, jaarlijks kilometrage of andere services? Neem dan contact op Tesla.NL@aldautomotive.com of tel. +31 (0)20 658 73 80</p><p>*Het afgebeelde model kan afwijken van de werkelijke specificaties.</p>"
             }
           },
           "enabled": true,
+          "default": true,
           "incomplete": true,
           "uiSettings": {
             "pdf": {
               "leaseFields": [
-                "downPayment",
                 "distance",
                 "term"
               ]
@@ -15539,6 +15782,56 @@
             },
             "reviewDetails": {
               "showLeaseSummaryFields": [
+                "leaseTerm",
+                "leaseDistance"
+              ]
+            }
+          }
+        },
+        {
+          "id": "operational_lease",
+          "market": "NL",
+          "productType": "lease",
+          "accountType": "private",
+          "variant": [
+            "m3",
+            "ms",
+            "mx",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "leaseTerm": 60,
+            "leaseDistance": 10000
+          },
+          "disclaimers": {
+            "nl": {
+              "default": "<p>Als tijdens of na afloop van de leaseovereenkomst blijkt dat u (gemiddeld per jaar) meer of minder kilometers heeft gereden dan het overeengekomen aantal jaarkilometers, dan kan de leaseprijs worden aangepast aan de hand van de tabel op uw leaseovereenkomst. Raadpleeg de aanvullende voorwaarden voor meer informatie.</p><p>Private lease wordt onder de voorwaarden van het Keurmerk Private Lease aangeboden door ALD Automotive. Bekijk aanvullende <a href=\"https://www.aldautomotive.nl/private-lease/advies/informatie-en-voorwaarden\" target=\"_blank\">informatie &amp; documentatie</a> over Private Lease.</p><p><a href=\"https://www.keurmerkprivatelease.nl/\" target=\"_blank\"><span class=\"logo--keurmerk-private-lease\">Keurmerk Private Lease</span></a></p><p>Het product bevat alle componenten voorgeschreven door Keurmerk Private Lease. Kosten voor onder andere het wassen, energie en updates van eventueel navigatiesysteem zijn niet inbegrepen. Alle prijzen zijn inclusief BTW weergegeven. De definitieve offerte is altijd onder voorbehoud van een financiële en klant acceptatie door ALD Automotive en EDR Credit Services. Eventuele fiscale wijzigingen gedurende de looptijd worden (indien van toepassing) altijd doorbelast.</p><p>Volgens het Belastingplan 2020 wordt de korting op motorrijtuigenbelasting voor elektrische auto's en plug-in hybrides vanaf 1 januari 2025 afgebouwd; hierdoor kan het termijnbedrag stijgen gedurende de looptijd van uw leasecontract.</p><p>Wenst u een ander looptijd, jaarlijks kilometrage of andere services? Neem dan contact op Tesla.NL@aldautomotive.com of tel. +31 (0)20 658 73 80</p><p>*Het afgebeelde model kan afwijken van de werkelijke specificaties.</p>"
+            }
+          },
+          "enabled": true,
+          "default": true,
+          "incomplete": true,
+          "uiSettings": {
+            "pdf": {
+              "leaseFields": [
+                "distance",
+                "term"
+              ]
+            },
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "distance",
+                  "term"
+                ]
+              ],
+              "standardFeaturesList": false
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
                 "downPayment",
                 "leaseTerm",
                 "leaseDistance"
@@ -15549,135 +15842,7 @@
       ]
     },
     "Loan.m3.m3": {
-      "loan": [
-        {
-          "id": "linear_loan",
-          "market": "BE",
-          "productType": "loan",
-          "accountType": null,
-          "variant": [
-            "m3",
-            "my",
-            "ms",
-            "mx"
-          ],
-          "inventory": [
-            "new"
-          ],
-          "variables": {
-            "loanTerm": 96,
-            "downPayment": 0.2,
-            "downPayments": {
-              "model": {
-                "m3": 10150,
-                "my": 10000
-              }
-            },
-            "interestRate": 4.49,
-            "maximumFinancedAmount": 150000
-          },
-          "disclaimers": {
-            "fr": {
-              "default": "<p>Attention, emprunter de l’argent coûte aussi de l’argent.</p><p>Exemple représentatif : <span style='font-size: 14px;'><strong>Prêt à tempérament</strong></span>. Prix au comptant : 55.784,89 €. Acompte : 11.644,95 €. Montant à financer : 44.139,94 €. <span style='font-size: 14px;'><strong>TAEG</strong></span> (Taux Annuel Effectif Global) : <span style='font-size: 14px;'><strong>4,49%</strong></span>. Taux débiteur annuel <span style='font-size: 14px;'><strong>fixe</strong></span> : 4,49%. <span style='font-size: 14px;'><strong>Durée : 60 mois. 60 mensualités de 820,90 €</strong></span>. Montant total dû (par définition sans acompte) : 49.253,97 €. </p><p>Exemple illustratif : Prêt à tempérament. Prix au comptant : {CASH_PRICE}. Acompte : {DOWNPAYMENT}. Montant à financer : {FINANCED_AMOUNT}. TAEG (Taux Annuel Effectif Global) : {RATE}%. Taux débiteur annuel fixe : {RATE}%. Durée : {TERM} mois. {TERM} mensualités de {PAYMENT}. Montant total dû (par définition sans acompte) : {COST_CREDIT}. Offre valable du {DATE} au {LAST_DAY_OF_MONTH}.</p><p>Offre valable du {DATE} au {LAST_DAY_OF_MONTH}, réservée aux particuliers pour le financement de véhicules neufs. Acompte non obligatoire. Sous réserve d'acceptation de votre dossier par CA Auto Bank, succursale belge de CA Auto Bank S.p.A., prêteur, ayant son siège social Corso Orbassano 367, 10137 Torino – Italie, et son siège en Belgique, 8-10 rue Jules Cockx à 1160 Bruxelles. RPM : Bruxelles. BCE : 0699.630.712 - IBAN : BE08 7360 4943 5813 - TVA : BE 699.630.712 - e-mail : teslafinancing.belux@ca-autobank.com. Annonceur : Tesla Belgium BV, Boomsesteenweg 8, 2630 Aartselaar, TVA BE 0521.902.461, BE24 5701 3458 5538, RPM Antwerpen. Informations environnementales [A.R. 19.03.04]: www.tesla.com.</p>"
-            },
-            "nl": {
-              "default": "<p>Let op, geld lenen kost ook geld.</p><p>Representatief voorbeeld: <span style='font-size: 14px;'><strong>Lening op afbetaling</strong></span>. Contante prijs: € 55.784,89. Voorschot: € 11.644,95. Kredietbedrag: € 44.139,94. <span style='font-size: 14px;'><strong>JKP</strong></span> (Jaarlijks Kostenpercentage): <span style='font-size: 14px;'><strong>4,49%</strong></span>. <span style='font-size: 14px;'><strong>Vaste</strong></span> jaarlijkse debetrentevoet: 4,49%. <span style='font-size: 14px;'><strong>Duur: 60 maanden. 60 maandelijkse aflossingen van € 820,90</strong></span>. Totaal te betalen bedrag op afbetaling: € 49.253,97. </p><p>Illustratief voorbeeld: Lening op afbetaling. Contante prijs: {CASH_PRICE}. Voorschot: {DOWNPAYMENT}. Kredietbedrag:{FINANCED_AMOUNT}. JKP (Jaarlijks Kostenpercentage): {RATE}%. Vaste jaarlijkse debetrente: {RATE}%. Duur: {TERM} maanden. {TERM} aandelijkse aflossingen van {PAYMENT}. Totaal te betalen bedrag op afbetaling (per definitie zonder voorschot): {COST_CREDIT}. Aanbieding geldig van {DATE} t.e.m {LAST_DAY_OF_MONTH}.</p><p>Aanbieding geldig van {DATE} t.e.m {LAST_DAY_OF_MONTH}, voorbehouden aan particulieren voor de financiering van nieuwe voertuigen. Voorschot niet verplicht. Onder voorbehoud van aanvaarding van uw dossier door CA Auto Bank, Belgisch bijkantoor van CA Auto Bank S.p.A., kredietgever, met als maatschappelijke zetel Corso Orbassano 367, 10137 Torino - Italië en zetel in België Jules Cockxstraat 8-10 te 1160 Brussel. RPR: Brussel - KBO: 0699.630.712 – IBAN: BE08 7360 4943 5813 – BTW: BE 699.630.712 - e-mail: teslafinancing.belux@ca-autobank.com. Adverteerder: Tesla Belgium BV, Boomsesteenweg 8, 2630 Aartselaar, BTW BE0521.902.461, BE24 5701 3458 5538, RPR Antwerpen. Milieu-informatie [K.B. 19.03.04]: www.tesla.com.</p>"
-            }
-          },
-          "enabled": true,
-          "loanTermsOffered": {
-            "loanTerm": [
-              24,
-              36,
-              48,
-              60,
-              72,
-              84,
-              96
-            ]
-          }
-        },
-        {
-          "id": "balloon_loan",
-          "market": "BE",
-          "productType": "loan",
-          "accountType": null,
-          "variant": [
-            "m3",
-            "my"
-          ],
-          "inventory": [
-            "new"
-          ],
-          "variables": {
-            "loanTerm": 60,
-            "downPayment": 10000,
-            "downPayments": {
-              "trim": {
-                "$MT322": 7400,
-                "$MT325": 7250,
-                "$MT328": 7600,
-                "$MTY09": 7400,
-                "$MTY12": 7300,
-                "$MTY13": 7100
-              },
-              "model": {
-                "m3": 7500,
-                "my": 7650
-              }
-            },
-            "interestRate": 4.99,
-            "loanDistance": 15000,
-            "maximumDownPayment": 0.6,
-            "minimumDownPayment": 0
-          },
-          "disclaimers": {
-            "fr": {
-              "m3": "<p>Attention, emprunter de l’argent coûte aussi de l’argent.</p><p>Exemple représentatif: <span style='font-size: 14px;'><strong>Prêt à tempérament avec dernière mensualité majorée</strong></span>. Prix au comptant : 53.858,43 €. Acompte : 6.087,45 €. Montant à financer : 47.770,98 €. <span style='font-size: 14px;'><strong>TAEG</strong></span> (taux annuel effectif global): <span style='font-size: 14px;'><strong>6,49%</strong></span>. Taux d'emprunt annuel <span style='font-size: 14px;'><strong>fixe</strong></span> : 6,49%. <span style='font-size: 14px;'><strong>Durée: 60 mois. 59 mensualités de 500,42 €. Dernière mensualité majorée: 30.731,30 €</strong></span>. Montant total dû (par définition sans acompte) : 60.256,09 €. </p><p>Exemple illustratif: Prêt à tempérament avec dernière mensualité majorée. Prix au comptant: {CASH_PRICE}. Acompte: {DOWNPAYMENT}. Montant à financer: {FINANCED_AMOUNT}. TAEG (Taux Annuel Effectif Global): {RATE}%. Taux d'emprunt annuel fixe: {RATE}%. Durée: {TERM} mois. {TERM} remboursements mensuels de {PAYMENT}. Dernier remboursement mensuel majoré: {RESIDUAL_VALUE}. Montant total dû: {COST_CREDIT}. Offre valable du {DATE} au {LAST_DAY_OF_MONTH}.</p><p>Offre valable du {DATE} au {LAST_DAY_OF_MONTH}, réservée aux particuliers pour le financement de véhicules neufs. Acompte non obligatoire. Sous réserve d'acceptation de votre dossier par CA Auto Bank, succursale belge de CA Auto Bank S.p.A., prêteur, ayant son siège social Corso Orbassano 367, 10137 Torino – Italie, et son siège en Belgique, 8-10 rue Jules Cockx à 1160 Bruxelles. RPM : Bruxelles. BCE : 0699.630.712 – IBAN : BE08 7360 4943 5813 – TVA : BE 699.630.712 – e-mail : teslafinancing.belux@ca-autobank.com. Annonceur : Tesla Belgium BV, Boomsesteenweg 8, 2630 Aartselaar, TVA BE 0521.902.461, BE24 5701 3458 5538, RPM Antwerpen. Informations environnementales [A.R. 19.03.04] : www.tesla.com.</p>",
-              "default": "<p>Exemple représentatif: <span style='font-size: 14px;'><strong>Prêt à tempérament avec dernière mensualité majorée</strong></span>. Prix au comptant : 53.460,17 €. Acompte : 5.975,04 €. Montant à financer : 47.485,13 €. <span style='font-size: 14px;'><strong>TAEG</strong></span> (taux annuel effectif global): <span style='font-size: 14px;'><strong>4,99%</strong></span>. Taux d'emprunt annuel <span style='font-size: 14px;'><strong>fixe</strong></span> : 4,99%. <span style='font-size: 14px;'><strong>Durée: 60 mois. 59 mensualités de 451,09 €. Dernière mensualité majorée: 30.443,94 €</strong></span>. Montant total dû (par définition sans acompte) : 57.058,25 €. <span style='font-size: 14px;'><strong> Offre valable du {DATE} au {FOLLOWING_FRIDAY}.</strong></span></p><p>Exemple illustratif: Prêt à tempérament avec dernière mensualité majorée. Prix au comptant: {CASH_PRICE}. Acompte: {DOWNPAYMENT}. Montant à financer: {FINANCED_AMOUNT}. TAEG (Taux Annuel Effectif Global): {RATE}%. Taux d'emprunt annuel fixe: {RATE}%. Durée: {TERM} mois. {TERM} remboursements mensuels de {PAYMENT}. Dernier remboursement mensuel majoré: {RESIDUAL_VALUE}. Montant total dû: {COST_CREDIT}. Offre valable du {DATE} au {FOLLOWING_FRIDAY}.</p><p>Offre valable uniquement pour des commandes effectuées entre {DATE} et {FOLLOWING_FRIDAY}, sous réserve de livraison jusqu'au 31 Août 2023 inclus.</p><p>Offre réservée aux particuliers pour le financement de véhicules neufs. Acompte non obligatoire. Sous réserve d'acceptation de votre dossier par CA Auto Bank, succursale belge de CA Auto Bank S.p.A., prêteur, ayant son siège social Corso Orbassano 367, 10137 Torino – Italie, et son siège en Belgique, 8-10 rue Jules Cockx à 1160 Bruxelles. RPM : Bruxelles. BCE : 0699.630.712 – IBAN : BE08 7360 4943 5813 – TVA : BE 699.630.712 – e-mail : teslafinancing.belux@ca-autobank.com. Annonceur : Tesla Belgium BV, Boomsesteenweg 8, 2630 Aartselaar, TVA BE 0521.902.461, BE24 5701 3458 5538, RPM Antwerpen. Informations environnementales [A.R. 19.03.04] : www.tesla.com.</p>"
-            },
-            "nl": {
-              "m3": "<p>Let op, geld lenen kost ook geld.</p><p>Representatief voorbeeld: <span style='font-size: 14px;'><strong>Lening op afbetaling met laatste verhoogde maandelijkse aflossing</strong></span>. Contante prijs: € 53.858,43. Voorschot: € 6.087,45. Kredietbedrag: € 47.770,98. <span style='font-size: 14px;'><strong>JKP</strong></span> (Jaarlijks Kostenpercentage) van <span style='font-size: 14px;'><strong>6,49%</strong></span>. <span style='font-size: 14px;'><strong>Vaste</strong></span> jaarlijkse debetrentevoet: 6,49%. <span style='font-size: 14px;'><strong>Duur: 60 maanden. 59 maandelijkse aflossingen van € 500,42. Laatste verhoogde maandelijkse aflossing: € 30.731,30</strong></span>. Totaal te betalen bedrag op afbetaling (per definitie zonder voorschot): € 60.256,09. </p><p>llustratief voorbeeld: Lening op afbetaling met laatste verhoogde maandaflossing. Contante prijs: {CASH_PRICE}. Voorschot: {DOWNPAYMENT}. Kredietbedrag: {FINANCED_AMOUNT}. JKP (Jaarlijks Kostenpercentage): {RATE}%. Vaste jaarlijkse debetrente: {RATE}%. Duur: {TERM} maanden. {TERM} maandelijkse aflossingen van {PAYMENT}. Laatste verhoogde maandaflossing: {RESIDUAL_VALUE}. Totaal te betalen bedrag op afbetaling: {COST_CREDIT}. Aanbieding geldig van {DATE} t.e.m {LAST_DAY_OF_MONTH}.</p><p>Aanbod geldig van {DATE} t.e.m {LAST_DAY_OF_MONTH}, voorbehouden aan particulieren voor de financiering van nieuwe voertuigen, voorschot niet verplicht. Onder voorbehoud van aanvaarding van uw dossier door CA Auto Bank, Belgisch bijkantoor van CA Auto Bank S.p.A., kredietgever, met als maatschappelijke zetel Corso Orbassano 367, 10137 Torino – Italië, en zetel in België, Jules Cockxstraat 8-10 te 1160 Brussel. RPR: Brussel – KBO: 0699.630.712 – IBAN: BE08 7360 4943 5813 – BTW: BE 699.630.712 – e-mail: teslafinancing.belux@ca-autobank.com. Adverteerder: Tesla Belgium BVBA, Boomsesteenweg 8, 2630 Aartselaar, BTW BE0521.902.461, BE24 5701 3458 5538, RPR Antwerpen. Milieu-informatie [K.B. 19.03.04]: www.tesla.com.</p>",
-              "default": "<p>Representatief voorbeeld: <span style='font-size: 14px;'><strong>Lening op afbetaling met laatste verhoogde maandelijkse aflossing</strong></span>. Contante prijs: € 53.460,17. Voorschot: € 5.975,04. Kredietbedrag: € 47.485,13. <span style='font-size: 14px;'><strong>JKP</strong></span> (Jaarlijks Kostenpercentage) van <span style='font-size: 14px;'><strong>4,99%</strong></span>. <span style='font-size: 14px;'><strong>Vaste</strong></span> jaarlijkse debetrentevoet: 4,99%. <span style='font-size: 14px;'><strong>Duur: 60 maanden. 59 maandelijkse aflossingen van € 451,09. Laatste verhoogde maandelijkse aflossing: € 30.443,94</strong></span>. Totaal te betalen bedrag op afbetaling (per definitie zonder voorschot): € 57.058,25. <span style='font-size: 14px;'><strong> Aanbieding geldig van {DATE} t.e.m {FOLLOWING_FRIDAY}.</strong></span></p><p>llustratief voorbeeld: Lening op afbetaling met laatste verhoogde maandaflossing. Contante prijs: {CASH_PRICE}. Voorschot: {DOWNPAYMENT}. Kredietbedrag: {FINANCED_AMOUNT}. JKP (Jaarlijks Kostenpercentage): {RATE}%. Vaste jaarlijkse debetrente: {RATE}%. Duur: {TERM} maanden. {TERM} maandelijkse aflossingen van {PAYMENT}. Laatste verhoogde maandaflossing: {RESIDUAL_VALUE}. Totaal te betalen bedrag op afbetaling: {COST_CREDIT}. Aanbieding geldig van {DATE} t.e.m {FOLLOWING_FRIDAY}.</p><p>Aanbod geldig voor bestellingen van {DATE} tot {FOLLOWING_FRIDAY} met levering tot en met 31 augustus 2023.</p><p>Aanbieding voorbehouden aan particulieren voor de financiering van nieuwe voertuigen, voorschot niet verplicht. Onder voorbehoud van aanvaarding van uw dossier door CA Auto Bank, Belgisch bijkantoor van CA Auto Bank S.p.A., kredietgever, met als maatschappelijke zetel Corso Orbassano 367, 10137 Torino – Italië, en zetel in België, Jules Cockxstraat 8-10 te 1160 Brussel. RPR: Brussel – KBO: 0699.630.712 – IBAN: BE08 7360 4943 5813 – BTW: BE 699.630.712 – e-mail: teslafinancing.belux@ca-autobank.com. Adverteerder: Tesla Belgium BVBA, Boomsesteenweg 8, 2630 Aartselaar, BTW BE0521.902.461, BE24 5701 3458 5538, RPR Antwerpen. Milieu-informatie [K.B. 19.03.04]: www.tesla.com.</p>"
-            }
-          },
-          "enabled": true,
-          "loanTermsOffered": {
-            "loanTerm": [
-              24,
-              36,
-              48,
-              60
-            ]
-          },
-          "interestRateMatrix": [
-            {
-              "value": 6.49,
-              "options": [
-                "$MDL3"
-              ]
-            }
-          ],
-          "residualRateMatrix": [
-            {
-              "value": 0.58,
-              "loanTerm": 24
-            },
-            {
-              "value": 0.58,
-              "loanTerm": 36
-            },
-            {
-              "value": 0.58,
-              "loanTerm": 48
-            },
-            {
-              "value": 0.58,
-              "loanTerm": 60
-            }
-          ]
-        }
-      ]
+      "loan": []
     }
   }
 }
