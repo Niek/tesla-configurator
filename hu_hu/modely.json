@@ -7,8 +7,8 @@
             "key": "Lexicon.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "en",
-              "market": "AE",
+              "language": "hu",
+              "market": "HU",
               "app": "find-my-tesla",
               "isTcoEnabled": false,
               "tags": "",
@@ -30,8 +30,8 @@
             "key": "Incentives.my.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "en",
-              "market": "AE",
+              "language": "hu",
+              "market": "HU",
               "app": "find-my-tesla",
               "isTcoEnabled": false,
               "tags": "",
@@ -53,8 +53,8 @@
             "key": "Fees.my.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "en",
-              "market": "AE",
+              "language": "hu",
+              "market": "HU",
               "app": "find-my-tesla",
               "isTcoEnabled": false,
               "tags": "",
@@ -76,8 +76,8 @@
             "key": "Lease.my.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "en",
-              "market": "AE",
+              "language": "hu",
+              "market": "HU",
               "app": "find-my-tesla",
               "isTcoEnabled": false,
               "tags": "",
@@ -99,8 +99,8 @@
             "key": "InitialConfig.my.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "en",
-              "market": "AE",
+              "language": "hu",
+              "market": "HU",
               "app": "find-my-tesla",
               "isTcoEnabled": false,
               "tags": "",
@@ -122,8 +122,8 @@
             "key": "Loan.my.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "en",
-              "market": "AE",
+              "language": "hu",
+              "market": "HU",
               "app": "find-my-tesla",
               "isTcoEnabled": false,
               "tags": "",
@@ -143,8 +143,8 @@
       },
       "query": {
         "available_configurations": "my:my",
-        "language": "en",
-        "market": "AE",
+        "language": "hu",
+        "market": "HU",
         "app": "find-my-tesla",
         "isTcoEnabled": false,
         "tags": "",
@@ -180,7 +180,7 @@
         "showDeliveryDateInfo": true,
         "closeOpenModalsOnNavigation": true,
         "isLocationSelectorEnabled": false,
-        "isTerritorySelectionEnabled": true,
+        "isTerritorySelectionEnabled": false,
         "isRegionSelectionEnabled": false,
         "isRegistrationTypeSelectionEnabled": false,
         "showSavingsDisclaimerForTrims": false,
@@ -817,7 +817,8 @@
         ],
         "activeTabs": [
           "finance_options",
-          "gas_savings"
+          "gas_savings",
+          "incentives"
         ],
         "menuItems": [
           {
@@ -850,12 +851,14 @@
           }
         ],
         "hideDynamicIncentive": true,
-        "showMonthlyPaymentExVAT": false,
-        "hideAfterSavingsPrice": false,
+        "showMonthlyPaymentExVAT": [
+          "lease.lease"
+        ],
+        "hideAfterSavingsPrice": true,
         "hideAfterSavingsModal": false,
         "showSavingsAmount": [],
         "showSavingAmountInModal": true,
-        "showSavingAmtWithoutMinus": false,
+        "showSavingAmtWithoutMinus": true,
         "showAmountIncludingFees": true,
         "showAmountIncludingFeesSummary": false,
         "loanAfterSavingsLabel": "netPrice__after_savings",
@@ -866,8 +869,10 @@
         "showFormattedMonthlyPayment": false,
         "showPayment": true,
         "showRegionalTax": false,
-        "showRegionalTaxTypes": null,
-        "showApplyForFinancing": true,
+        "showRegionalTaxTypes": [
+          "governmentIncentive"
+        ],
+        "showApplyForFinancing": false,
         "financingPartners": [],
         "showGasSavingsDisclaimer": false,
         "defaultRegionCode": "other",
@@ -883,7 +888,7 @@
         "showMaxDownPaymentAmount": false,
         "showChargerDisclaimer": false,
         "includeTeslaInsurance": false,
-        "showOtherFeesinSummary": true,
+        "showOtherFeesinSummary": false,
         "showModalonFinanceSelector": false,
         "loanPaymentLabelMobile": "",
         "showOrderPageSummaryOtherFees": false,
@@ -894,7 +899,7 @@
         "showOtherLoanTerms": false,
         "showOrderFee": false,
         "showShortMonthlyAmount": false,
-        "showSavingsAmountInFooter": false,
+        "showSavingsAmountInFooter": true,
         "showPotentialSavings": false,
         "showGasSavingsCash": false,
         "sendTotalPrice": true,
@@ -902,12 +907,28 @@
         "isEstimatedPrice": false,
         "showTotalPaymentFooter": false,
         "showMonthlyPaymentQuote": false,
-        "showFinanceProductsByDriverType": [],
-        "driverType": null,
+        "showFinanceProductsByDriverType": [
+          {
+            "type": "personal",
+            "financeOptions": [
+              "cash"
+            ],
+            "defaultOption": "cash"
+          },
+          {
+            "type": "business",
+            "financeOptions": [
+              "cash",
+              "lease"
+            ],
+            "defaultOption": "lease"
+          }
+        ],
+        "driverType": "business",
         "leaseDescriptionwithModelCode": false,
         "taxesAndFeesExcludedIfApplicable": false,
         "showFooterFinanceLink": false,
-        "showRegistrationAboveSummary": true,
+        "showRegistrationAboveSummary": false,
         "showFinanceProductName": true,
         "showFooterEffectiveLoanRate": false,
         "showAsterixAtPriceEnd": false,
@@ -915,7 +936,7 @@
         "showRateInFooter": false,
         "showProvincialIncentives": false,
         "showDriveAwayPricewithIncentives": false,
-        "showNetMonthlyPayment": false,
+        "showNetMonthlyPayment": true,
         "hideRegistrationTypeToggle": false,
         "showSavingsColumn": false,
         "showIncentivesTotal": true,
@@ -938,15 +959,8 @@
         "includeTaxesAndFees": false,
         "showIRAIncentiveToggle": false,
         "showIRABusinessEligibility": false,
-        "hideTaxesAndFeesExcluded": true,
-        "hideApplyFinancingLink": [
-          "lease.linear_loan_dib"
-        ],
-        "applyForFinancing": {
-          "mode": "link",
-          "url": "https://www.emiratesnbd.com/en/campaign-form/tesla-model-y-auto-loan/"
-        },
-        "showFinancingSteps": true
+        "reversePricingOrder": true,
+        "hideTaxesAndFeesExcluded": true
       },
       "FindMyTesla": {
         "selected_view": "exterior",
@@ -976,16 +990,12 @@
       "Forms": {
         "selectedForm": "FinancingOptions",
         "showOtherLeaseTerms": false,
-        "showLoanFields": [
-          [
-            "loanDownPayment",
-            "term"
-          ]
-        ],
+        "showLoanFields": [],
         "showLeaseFields": [
           [
             "downPayment",
-            "term"
+            "term",
+            "interestRateType"
           ]
         ],
         "leaseReadOnlyFields": [],
@@ -993,12 +1003,12 @@
         "loanFieldsFormat": null,
         "gasSavingsExampleParams": {
           "yearlyDistance": 20000,
-          "petrolSavingsPerYear": 2600,
-          "petrolSavings": 8000,
-          "timesLower": 3,
+          "petrolSavingsPerYear": 486300,
+          "petrolSavings": 1803000,
+          "timesLower": 4,
           "fuelEconomy": 17.5,
-          "electricityPrice": 0.296,
-          "petrolPrice": 2.27
+          "electricityPrice": 37.46,
+          "petrolPrice": 425.5
         },
         "extraDisclaimers": [],
         "disclaimerDateFormat": "",
@@ -1048,7 +1058,7 @@
             "CompanyName": null,
             "VatId": null,
             "PickupLocation": 0,
-            "RegistrationType": "private",
+            "RegistrationType": "business",
             "PrivateVatId": null,
             "IsFromSavedProfile": false,
             "StateProvince": false
@@ -1071,7 +1081,7 @@
         "configs": {},
         "time": null,
         "encryptor": "Adyen",
-        "defaultEncryptor": "Stripe",
+        "defaultEncryptor": "Adyen",
         "hideAllBillingInfo": false,
         "splitPayment": [],
         "displayPaymentDisclaimer": true,
@@ -1083,7 +1093,7 @@
         "showOptinDisclaimer": "always_no_disclaimer",
         "billingAddressDetailsPayX": "full",
         "calculatePriceOnOrder": false,
-        "alwaysShowOrderDisclaimerAbove": true,
+        "alwaysShowOrderDisclaimerAbove": false,
         "hideWireTransferForPreOrder": true,
         "showFiscalCode": false,
         "displayBillingBeforeShipping": false
@@ -1118,7 +1128,7 @@
         "showLegalConsent": [],
         "showDeliveryDueDisclaimer": false,
         "showPrpLink": false,
-        "showVAT": false,
+        "showVAT": true,
         "assetView": "STUD_3QTR",
         "assetViewSource": [
           {
@@ -1155,14 +1165,11 @@
           "zoom": 1
         },
         "showLeaseSummaryFields": [
-          "leaseTerm",
           "downPayment",
-          "financedAmount",
-          "interestRate"
+          "leaseTerm",
+          "leaseDistance"
         ],
-        "showLeaseSummaryDisclaimer": [
-          "lease.linear_loan_dib"
-        ],
+        "showLeaseSummaryDisclaimer": false,
         "showSecondDepositDisclaimer": {
           "source": true,
           "target": true
@@ -1180,27 +1187,22 @@
         "optionalFields": [],
         "showZeroRegistrationTax": false,
         "showLoanSummaryFields": [
-          "loanTerm",
           "downPayment",
-          "costOfCredit",
+          "loanTerm",
           "interestRate"
         ],
         "showLoanSummaryDisclaimer": false,
         "showWithoutAdjustments": false,
         "hideFinanceSummary": false,
         "displayFinanceDisclaimerEverywhere": false,
-        "hideDestinationDocFee": false,
-        "showDisclaimerLink": false,
+        "hideDestinationDocFee": true,
+        "showDisclaimerLink": true,
         "showTraderLicense": false,
         "disclaimerModalContent": [
           "incentives",
           "gas_savings",
-          "lease_disclaimer_payment",
-          "loan_disclaimer",
-          "lease_disclaimer",
-          "wheel_disclaimer",
-          "performance_disclaimer",
-          "range_disclaimer"
+          "range_disclaimer",
+          "tyre_regulation"
         ],
         "demoInspections": [
           "standards"
@@ -1315,7 +1317,12 @@
         },
         "displayOrderRefundLongCopy": {
           "source": false,
-          "target": false
+          "selected_by": {
+            "and": [
+              "$MTS09"
+            ]
+          },
+          "target": true
         },
         "nonRefundPolicyDisclaimer": true,
         "showOrderRefundDisclaimer": true,
@@ -1368,9 +1375,9 @@
           "PARSE_VEHICLE_UPGRADES"
         ],
         "actionsToUpdatePrices": [
-          "ACCOUNT_DETAILS_CHANGED"
+          "SET_FINANCE_MODAL_DRIVER_TYPE"
         ],
-        "showVehicleSubtotal": true,
+        "showVehicleSubtotal": false,
         "hidePostfixOnUI": false,
         "hideSavingsAfterPurchaseDiscl": false,
         "activeRegistrationTypes": [
@@ -1464,7 +1471,7 @@
           "companyNumber"
         ],
         "disableCompanySearch": false,
-        "useCGSOrderAgreement": false,
+        "useCGSOrderAgreement": true,
         "useCGSCoe": false,
         "showOrderDisclaimerAboveLegalConsent": false,
         "showReferralZeroCreditDisclaimer": false,
@@ -1476,6 +1483,9 @@
         "extraBusinessFields": [
           "CompanyName",
           "Vat"
+        ],
+        "extraIncentives": [
+          "incentiveAllami"
         ]
       },
       "PrintPdf": {
@@ -1499,7 +1509,7 @@
         "set": []
       },
       "SummaryPanel": {
-        "selected_tab": "lease.linear_loan_dib",
+        "selected_tab": "lease",
         "tabs": [],
         "loanDistance": null,
         "leaseDistance": null,
@@ -1515,14 +1525,15 @@
         "userLeaseAmount": null,
         "DisclaimerTitlei18nKey": "Review.Gas_Savings",
         "region_code": "",
-        "showPricesWithForwardCalculatedVat": false
+        "showPricesWithForwardCalculatedVat": false,
+        "forceFinanceModal": true
       }
     },
     "Incentives.my.my": {
       "incentives": [
         {
           "incentiveType": "fuel",
-          "description": "Fuel economy inputs for AE my",
+          "description": "Fuel economy inputs for HU my",
           "period": "fuel",
           "variables": {
             "months": 60,
@@ -1530,13 +1541,14 @@
             "distance_year": 20000,
             "fuel_efficiency_metric": 7.63,
             "kwh_consumption_100": 16.9,
-            "fuel_price": 2.89,
-            "kwh_price": 0.293,
+            "supercharger_kwh_price": 0.25,
+            "fuel_price": 571,
+            "kwh_price": 39.32,
             "last_updated": "2023-07-07",
             "kwh_consumption": 0.169
           },
           "variant": "my",
-          "market": "AE"
+          "market": "HU"
         },
         {
           "incentiveType": "beforeDelivery",
@@ -1638,25 +1650,11 @@
             "ms",
             "mx"
           ],
-          "percent": 5,
-          "market": "AE"
-        },
-        {
-          "feeType": "reg_and_doc_fee",
-          "financeType": "any",
-          "description": "Registration and doc fee",
-          "period": "once",
-          "variant": [
-            "m3",
-            "my",
-            "ms",
-            "mx"
-          ],
           "inventory": [
             "new"
           ],
-          "amount": 3680,
-          "market": "AE"
+          "percent": 27,
+          "market": "HU"
         },
         {
           "feeType": "vat_percent",
@@ -1819,9 +1817,9 @@
     },
     "Lexicon.my": {
       "effective_date": "2023-08-18T00:08:00.000Z",
-      "market": "AE",
+      "market": "HU",
       "product": "my",
-      "factory": "GF00",
+      "factory": "GF03",
       "sku": {
         "trims": {
           "$MTY09": {
@@ -1836,6 +1834,9 @@
                   [
                     "$APF2",
                     "$APPB"
+                  ],
+                  [
+                    "$WWY00"
                   ],
                   [
                     "$TW01"
@@ -1888,6 +1889,9 @@
                   [
                     "$APF2",
                     "$APPB"
+                  ],
+                  [
+                    "$WWY00"
                   ],
                   [
                     "$TW01"
@@ -1943,6 +1947,9 @@
                     "$APPB"
                   ],
                   [
+                    "$WWY00"
+                  ],
+                  [
                     "$TW01"
                   ]
                 ],
@@ -1960,7 +1967,9 @@
                   [
                     "$PPSW",
                     "$PBSB",
+                    "$PMNG",
                     "$PPSB",
+                    "$PPMR",
                     "$PN00",
                     "$PR00"
                   ],
@@ -1986,7 +1995,7 @@
         "default_trim": "$MTY13"
       },
       "fees": {},
-      "name": "Marketing AE 2023.Aug.18 8554.9857.35669 [en]",
+      "name": "Marketing HU 2023.Aug.18 8533.9861.34916 [hu]",
       "groups": [
         {
           "code": "MODEL",
@@ -2022,12 +2031,12 @@
         },
         {
           "code": "DRIVE_MODE",
-          "name": "Drivetrain",
+          "name": "Hajtáslánc",
           "context": "default",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Select Your Car"
+              "content": "Válasszon autót"
             }
           ],
           "groups": [],
@@ -2043,7 +2052,7 @@
         },
         {
           "code": "INTERIOR",
-          "name": "Interior",
+          "name": "Belső tér",
           "context": "default",
           "extra_copy": [],
           "groups": [],
@@ -2076,16 +2085,16 @@
         },
         {
           "code": "PAINT",
-          "name": "Color",
+          "name": "Szín",
           "context": "default",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Paint"
+              "content": "Fényezés"
             },
             {
               "type": "section_title",
-              "content": "Exterior"
+              "content": "Külső"
             }
           ],
           "extra_content": [
@@ -2148,12 +2157,12 @@
         },
         {
           "code": "WHEELS",
-          "name": "Wheels",
+          "name": "Felnik",
           "context": "default",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Select Wheels"
+              "content": "Válasszon felnit"
             }
           ],
           "extra_content": [
@@ -2207,7 +2216,7 @@
         },
         {
           "code": "PREMIUM_PACKAGE",
-          "name": "Interior",
+          "name": "Belső tér",
           "context": "default",
           "groups": [],
           "options": [
@@ -2221,7 +2230,7 @@
         },
         {
           "code": "SPOILER",
-          "name": "Spoiler",
+          "name": "Légterelő",
           "context": "default",
           "groups": [],
           "options": [
@@ -2251,6 +2260,7 @@
           ],
           "required": false,
           "exclusive": false,
+          "discountable": true,
           "default_options": [
             "$SPTY1"
           ]
@@ -2288,13 +2298,14 @@
           ],
           "required": true,
           "exclusive": true,
+          "discountable": false,
           "default_options": [
             "$CPF0"
           ]
         },
         {
           "code": "TOWING",
-          "name": "Tow Hitch",
+          "name": "Vonóhorog",
           "context": "default",
           "groups": [],
           "options": [
@@ -2345,7 +2356,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Payment"
+          "name": "Fizetés"
         },
         {
           "code": "OPTIONS",
@@ -2368,7 +2379,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Options",
+          "name": "Opciók",
           "extra_content": [
             {
               "type": "gallery",
@@ -2415,11 +2426,11 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Select Your Car"
+              "content": "Válasszon autót"
             },
             {
               "type": "compare_title",
-              "content": "Compare"
+              "content": "Összehasonlítás"
             }
           ],
           "groups": [],
@@ -2441,7 +2452,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Seating Layout"
+              "content": "Üléselrendezés"
             }
           ],
           "extra_content": [
@@ -2479,16 +2490,16 @@
         },
         {
           "code": "PAINT",
-          "name": "Color",
+          "name": "Szín",
           "context": "configurator",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Paint"
+              "content": "Fényezés"
             },
             {
               "type": "disclaimer[0]",
-              "content": "Developed at Gigafactory Berlin.",
+              "content": "A Gigafactory Berlin gyárban fejlesztettük.",
               "behavior": [
                 {
                   "type": "CONTENT_SELECTED",
@@ -2505,7 +2516,7 @@
             },
             {
               "type": "disclaimer[1]",
-              "content": "Only available in Europe and the Middle East.",
+              "content": "Csak Európában és a Közel-Keleten érhető el.",
               "behavior": [
                 {
                   "type": "CONTENT_SELECTED",
@@ -2616,20 +2627,20 @@
         },
         {
           "code": "WHEELS",
-          "name": "Wheels",
+          "name": "Felnik",
           "context": "configurator",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Wheels"
+              "content": "Felnik"
             },
             {
               "type": "certified_range_est",
-              "content": "Est. range as configured: {VALUE} km"
+              "content": "Konfiguráció szerinti becsült hatótáv: {VALUE} km"
             },
             {
               "type": "certified_range",
-              "content": "Certified Range (WLTP): {VALUE} km"
+              "content": "Tanúsított hatótávolság (WLTP): {VALUE} km"
             }
           ],
           "extra_content": [
@@ -2705,6 +2716,9 @@
                     "field": "certified_disclaimer",
                     "classes": "tds-text--center"
                   }
+                },
+                {
+                  "type": "RootGroup"
                 }
               ]
             },
@@ -2795,11 +2809,11 @@
             },
             {
               "type": "video_list.default[1].title",
-              "content": "Auto Lane Change"
+              "content": "Automatikus sávváltás"
             },
             {
               "type": "video_list.default[2].title",
-              "content": "Autopark"
+              "content": "Automatikus parkolás"
             },
             {
               "type": "video_list.default[3].title",
@@ -2895,10 +2909,10 @@
         },
         {
           "code": "AUTOPILOT",
-          "name": "Autopilot Package",
+          "name": "Autopilot-csomag",
           "context": "configurator",
           "extra_copy": [],
-          "description": "Autopilot Package Description",
+          "description": "Az Autopilot csomag leírása",
           "extra_content": [],
           "groups": [],
           "options": [
@@ -2935,15 +2949,15 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Packages",
+          "name": "Csomagok",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Interior"
+              "content": "Belső tér"
             },
             {
               "type": "view_features",
-              "content": "Features",
+              "content": "Jellemzők",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -2962,7 +2976,7 @@
             },
             {
               "type": "view_link",
-              "content": "View Third Row",
+              "content": "Harmadik sor megtekintése",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -2980,7 +2994,7 @@
               ]
             }
           ],
-          "description": "Packages",
+          "description": "Csomagok",
           "extra_content": [
             {
               "type": "asset",
@@ -3099,9 +3113,9 @@
         },
         {
           "code": "PREMIUM_PACKAGE",
-          "name": "Interior",
+          "name": "Belső tér",
           "context": "configurator",
-          "long_name": "Premium Upgrades",
+          "long_name": "Prémium szintű extrák",
           "extra_copy": [],
           "extra_content": [
             {
@@ -3129,12 +3143,12 @@
         },
         {
           "code": "SPOILER",
-          "name": "Spoiler",
+          "name": "Légterelő",
           "context": "configurator",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Spoiler"
+              "content": "Légterelő"
             }
           ],
           "groups": [],
@@ -3157,7 +3171,7 @@
         },
         {
           "code": "SPORT_PACKAGE",
-          "name": "Performance Upgrade",
+          "name": "Performance-extrák",
           "context": "configurator",
           "extra_copy": [],
           "extra_content": [
@@ -3190,9 +3204,9 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Delivery timings",
+          "name": "Átadási időpontok",
           "extra_copy": [],
-          "description": "Delivery timings",
+          "description": "Átadási időpontok",
           "extra_content": [
             {
               "type": "delivery_time",
@@ -3200,10 +3214,34 @@
                 {
                   "selected_by": {
                     "and": [
-                      "$MTY07"
+                      "$MTY03"
                     ]
                   },
-                  "delivery_date_path": "OMS.lexicon.options.$MTY07.delivery_date"
+                  "delivery_date": "Átadás becsült dátuma: 2022 elejétől"
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY04"
+                    ]
+                  },
+                  "delivery_date": "Átadás becsült dátuma: 2022 elejétől"
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY02"
+                    ]
+                  },
+                  "delivery_date": "Átadás becsült dátuma: 2022 elejétől"
+                },
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY12"
+                    ]
+                  },
+                  "delivery_date": "Átadás becsült dátuma: 2022 elejétől"
                 }
               ]
             }
@@ -3230,27 +3268,27 @@
             },
             {
               "type": "sub_title",
-              "content": "Dual Motor All-Wheel Drive"
+              "content": "Kétmotoros összkerékhajtás"
             },
             {
               "type": "disclaimer_savingsPrice",
-              "content": "* Costs above include potential incentives and gas savings of {SAVING_PRICE}."
+              "content": "* A fenti árak tartalmazzák a(z) {SAVING_PRICE} összegű elérhető ösztönzőket és üzemanyag-megtakarítást."
             },
             {
               "type": "disclaimer_purchasePrice",
-              "content": "All prices are shown without potential incentives or gas savings of {SAVING_PRICE}."
+              "content": "Minden ár a(z) {SAVING_PRICE} összegű elérhető ösztönzők és üzemanyag-megtakarítás nélkül van feltüntetve."
             },
             {
               "type": "disclaimer_savingsPrice_CA",
-              "content": "* Prices shown include the {INCENTIVE_AMOUNT} {NAME_OF_INCENTIVE} and potential incentives and gas savings of {SAVING_PRICE}."
+              "content": "* A feltüntetett árak tartalmazzák a(z) {INCENTIVE_AMOUNT} összegű {NAME_OF_INCENTIVE} ösztönzőt, illetve a(z) {SAVING_PRICE} összegű elérhető egyéb ösztönzőket és üzemanyag-megtakarítást."
             },
             {
               "type": "disclaimer_purchasePrice_CA",
-              "content": "Prices shown without the {INCENTIVE_AMOUNT} {NAME_OF_INCENTIVE} and potential incentives and gas savings of {SAVING_PRICE}."
+              "content": "A feltüntetett árak nem tartalmazzák az {INCENTIVE_AMOUNT} összegű {NAME_OF_INCENTIVE} ösztönzőt, illetve a(z) {SAVING_PRICE} összegű elérhető egyéb ösztönzőket és üzemanyag-megtakarítást."
             },
             {
               "type": "disclaimer_learnMore",
-              "content": "Learn More",
+              "content": "További információ",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -3262,7 +3300,7 @@
             },
             {
               "type": "disclaimer_customIncentives",
-              "content": "Customize",
+              "content": "Testreszabás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -3278,7 +3316,7 @@
             },
             {
               "type": "compare_features",
-              "content": "Features",
+              "content": "Jellemzők",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -3346,19 +3384,19 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Battery & Drivetrain",
+          "name": "Akkumulátor és hajtáslánc",
           "extra_copy": [
             {
               "type": "group_disclaimer",
-              "content": "All cars have premium interior and sound"
+              "content": "Minden autó prémium belső térrel és audiorendszerrel rendelkezik"
             },
             {
               "type": "zero_to_road_limit_units",
-              "content": "0-100 km/h"
+              "content": "0–100 km/h"
             },
             {
               "type": "range_units",
-              "content": "Range (Est.)"
+              "content": "Hatótávolság (becsült)"
             },
             {
               "type": "epa",
@@ -3370,7 +3408,7 @@
             },
             {
               "type": "range_units_short",
-              "content": "mi"
+              "content": "mérföld"
             },
             {
               "type": "top_speed_units_short",
@@ -3378,11 +3416,11 @@
             },
             {
               "type": "range_units_epa",
-              "content": "Range (EPA est.)"
+              "content": "Hatótávolság (EPA-becslés)"
             },
             {
               "type": "top_speed_units",
-              "content": "Top Speed"
+              "content": "Végsebesség"
             },
             {
               "type": "name",
@@ -3390,7 +3428,7 @@
             },
             {
               "type": "disclaimer_production",
-              "content": "Standard range production is expected to begin early 2021.",
+              "content": "A Standard Range gyártása várhatóan 2021 elején kezdődik.",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -3408,14 +3446,14 @@
             },
             {
               "type": "range_info_title",
-              "content": "Range"
+              "content": "Hatótávolság"
             },
             {
               "type": "range_info_disclaimer",
-              "content": "The WLTP standard can be useful in comparing ranges among electric vehicles. Ranges listed as “estimate” or “est.”, like those under wheel and seating selections, if available, are estimations based on your chosen configuration.<br><br>Actual range may vary based on factors such as speed, weather conditions and elevation change."
+              "content": "A WLTP szabvány az elektromos járművek hatótávolságának összehasonlításában játszhat hasznos szerepet. A hatótávolságok becslésként vannak megadva. A kerék- és ülésválaszték (ha van ilyen) alatt felsorolt hatótávolságok az Ön által választott konfigurációhoz tartozó becslések.<br><br>A tényleges hatótávolság a sebességtől, az időjárási viszonyoktól, a szintkülönbségtől és más hasonló tényezőktől függően változhat."
             }
           ],
-          "description": "Battery and Drivetrain",
+          "description": "Akkumulátor és hajtáslánc",
           "extra_content": [
             {
               "type": "asset",
@@ -3549,7 +3587,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Payment"
+          "name": "Fizetés"
         },
         {
           "code": "INTERIOR",
@@ -3568,7 +3606,7 @@
         },
         {
           "code": "TOWING",
-          "name": "Tow Hitch",
+          "name": "Vonóhorog",
           "context": "configurator",
           "extra_content": [
             {
@@ -3637,8 +3675,8 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Configuration Gallery",
-          "description": "Configuration Gallery",
+          "name": "Konfigurációs galéria",
+          "description": "Konfigurációs galéria",
           "extra_content": [
             {
               "type": "asset[0]",
@@ -3777,8 +3815,8 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Full Self Driving Gallery",
-          "description": "Full Self Driving Gallery",
+          "name": "Teljes önvezetési galéria",
+          "description": "Teljes önvezetési galéria",
           "extra_content": [
             {
               "type": "asset[0]",
@@ -3922,11 +3960,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Standard Features",
+          "name": "Alapfelszereltség",
           "extra_copy": [
             {
               "type": "aria_label",
-              "content": "Compare Models"
+              "content": "Modellek összehasonlítása"
             }
           ]
         },
@@ -3937,11 +3975,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Sentry Mode",
+          "name": "Sentry mód",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Sentry Mode"
+              "content": "Sentry mód"
             },
             {
               "type": "eyebrow",
@@ -3949,7 +3987,7 @@
             },
             {
               "type": "description",
-              "content": "A unique layer of protection for Tesla vehicles continuously monitors the environment around the car when it’s left unattended. When enabled, Sentry Mode enters a “Standby” state, like many home alarm systems, which uses the car’s external cameras to help detect and protect against potential threats."
+              "content": "<p>A Sentry mód nevű exkluzív védelmi funkció folyamatosan figyeli a jármű környezetét, amikor felügyelet nélkül hagyja a Tesláját. Ha aktiválva van, a Sentry mód a jármű külső kameráinak élesítésével és használatával észleli az esetleges fenyegetéseket és segíti az azok elleni védekezést, az otthoni riasztórendszerekhez hasonlóan.</p><p>További információkért tekintse meg a <a href=\"https://www.tesla.com/ownersmanual/index-model-y.html\" target=\"_blank\">Használati útmutatót</a>.</p>"
             }
           ],
           "extra_content": [
@@ -3980,11 +4018,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Interior",
+          "name": "Belső tér",
           "extra_copy": [
             {
               "type": "aria_label",
-              "content": "Interior Features"
+              "content": "A belső tér jellemzői"
             }
           ]
         },
@@ -4001,11 +4039,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Performance Upgrade",
+          "name": "Performance-extrák",
           "extra_copy": [
             {
               "type": "aria_label",
-              "content": "Performance Upgrade Features"
+              "content": "A Performance változat jellemzői"
             }
           ]
         },
@@ -4018,23 +4056,23 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "20in Performance Wheels",
+          "name": "20\" Performance felnik",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Performance Upgrade"
+              "content": "Performance-extrák"
             },
             {
               "type": "panelName",
-              "content": "20” Performance Wheels"
+              "content": "20\" Performance felnik"
             },
             {
               "type": "description",
-              "content": "Exclusive gray wheels designed with lightweight, yet tough aluminum alloy for ultimate driving control both on and off the track."
+              "content": "A pehelykönnyű, mégis erős alumíniumötvözetből készült exkluzív, szürke felnik a lehető legjobb irányíthatóságot biztosítják a versenypályán és azon kívül is."
             },
             {
               "type": "add_options",
-              "content": "Add Package",
+              "content": "Csomag hozzáadása",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4057,7 +4095,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4110,23 +4148,23 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Performance Brakes",
+          "name": "Performance Fékek",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Performance Upgrade"
+              "content": "Performance-extrák"
             },
             {
               "type": "panelName",
-              "content": "Performance Brakes"
+              "content": "Performance Fékek"
             },
             {
               "type": "description",
-              "content": "Larger, stiffer calipers and lightweight two-piece discs for enhanced performance and thermal capacity."
+              "content": "A nagyobb, merevebb féknyergek és a könnyű, kétrészes tárcsák a nagyobb teljesítményt és hőkapacitást szolgálják."
             },
             {
               "type": "add_options",
-              "content": "Add Package",
+              "content": "Csomag hozzáadása",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4149,7 +4187,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4193,23 +4231,23 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Performance Pedals",
+          "name": "Performance Pedálok",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Performance Upgrade"
+              "content": "Performance-extrák"
             },
             {
               "type": "panelName",
-              "content": "Performance Pedals"
+              "content": "Performance Pedálok"
             },
             {
               "type": "description",
-              "content": "Designed with aluminum alloy for enhanced interior styling."
+              "content": "Alumíniumötvözettel tervezve a még tökélesebb belső tér érdekében."
             },
             {
               "type": "add_options",
-              "content": "Add Package",
+              "content": "Csomag hozzáadása",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4232,7 +4270,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4276,23 +4314,23 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Carbon Fiber Spolier",
+          "name": "Szénszálas légterelő",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Performance Upgrade"
+              "content": "Performance-extrák"
             },
             {
               "type": "panelName",
-              "content": "Carbon Fiber Spoiler"
+              "content": "Szénszálas légterelő"
             },
             {
               "type": "description",
-              "content": "For enhanced aerodynamics and improved stability at high speeds."
+              "content": "A még tökéletesebb aerodinamika és a nagy sebességnél is kitűnő stabilitás érdekében."
             },
             {
               "type": "add_options",
-              "content": "Add Package",
+              "content": "Csomag hozzáadása",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4315,7 +4353,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4382,23 +4420,23 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Track Mode",
+          "name": "Track mód",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Performance Upgrade"
+              "content": "Performance-extrák"
             },
             {
               "type": "panelName",
-              "content": "Track Mode"
+              "content": "Track mód"
             },
             {
               "type": "description",
-              "content": "Optimize on-track performance and handling with highly adaptive motor torque control, increased regenerative braking, increased powertrain cooling and enhanced cornering power."
+              "content": "Rendkívül alkalmazkodóképes motornyomaték-szabályozással, erősebb regeneratív fékezéssel, a hajtáslánc hatékonyabb hűtésével és jobb ívtartással optimalizálhatja a versenypályán nyújtott teljesítményt és irányíthatóságot."
             },
             {
               "type": "add_options",
-              "content": "Add Package",
+              "content": "Csomag hozzáadása",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4421,7 +4459,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4463,18 +4501,17 @@
             "FSD_NAVIGATE_CARD",
             "FSD_AUTOPARK_CARD",
             "FSD_SUMMON_CARD",
-            "FSD_TRAFFIC_LIGHT_CARD",
             "FSD_COMPUTER_CARD"
           ],
           "context": "configurator",
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Full Self-Driving",
+          "name": "Teljes önvezetés",
           "extra_copy": [
             {
               "type": "aria_label",
-              "content": "Performance Upgrade Features"
+              "content": "A Performance változat jellemzői"
             }
           ]
         },
@@ -4486,15 +4523,15 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Payment",
+          "name": "Fizetés",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Order Your Model Y"
+              "content": "Model Y megrendelése"
             },
             {
               "type": "goto_payment",
-              "content": "Continue to payment",
+              "content": "Tovább a fizetéshez",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4591,15 +4628,15 @@
             },
             {
               "type": "panelName",
-              "content": "Full Self-Driving Capability"
+              "content": "Teljes önvezető képesség"
             },
             {
               "type": "description",
-              "content": "Automatic driving from highway on-ramp to off-ramp includes automatic lane changes, Traffic-Aware Cruise Control with complete stopping and re-engagement, Autosteer, and overtaking slow cars in your lane."
+              "content": "Az autópálya-felhajtótól a lehajtóig tartó automatikus vezetés magában foglalja az automatikus sávváltást, a forgalomérzékelő sebességtartást megállással és újraindulással, az automatikus kormányzást, valamint a sávban lassan haladó járművek megelőzését."
             },
             {
               "type": "add_options",
-              "content": "Add Package",
+              "content": "Csomag hozzáadása",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4624,7 +4661,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4688,23 +4725,23 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Auto Lane Change",
+          "name": "Automatikus sávváltás",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Auto Lane Change"
+              "content": "Automatikus sávváltás"
             },
             {
               "type": "panelName",
-              "content": "Full Self-Driving Capability"
+              "content": "Teljes önvezető képesség"
             },
             {
               "type": "description",
-              "content": "While driving on the highway, Automatic Lane Change will position your car in the optimal lane to prepare for merges and exits while overtaking slow cars. Drivers are given clear insight to upcoming lane changes as well as customization to Auto Lane Change functionality."
+              "content": "Autópályán az automatikus sávváltási funkció a besoroláshoz, illetve a kihajtáshoz optimális sávba vezeti az autót, és eközben megelőzi a lassabb járműveket is. A vezető egyértelmű jelzést kap a várható sávváltásokról, és testre szabhatja az automatikus sávváltási funkciót."
             },
             {
               "type": "add_options",
-              "content": "Add Package",
+              "content": "Csomag hozzáadása",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4729,7 +4766,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4793,23 +4830,23 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Autopark",
+          "name": "Automatikus parkolás",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Autopark"
+              "content": "Automatikus parkolás"
             },
             {
               "type": "panelName",
-              "content": "Full Self-Driving Capability"
+              "content": "Teljes önvezető képesség"
             },
             {
               "type": "description",
-              "content": "Park with ease in both parallel and perpendicular parking spaces with a single button tap on the Center Display. Model Y will alert you to available parking spots by continuously monitoring the space around you."
+              "content": "Párhuzamos és merőleges helyeken is könnyedén parkolhat a középső képernyőn található gombra koppintva. A Model Y a környező teret folyamatosan figyelve értesíti a vezetőt a szabad parkolóhelyekről."
             },
             {
               "type": "add_options",
-              "content": "Add Package",
+              "content": "Csomag hozzáadása",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4834,7 +4871,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4906,15 +4943,15 @@
             },
             {
               "type": "panelName",
-              "content": "Full Self-Driving Capability"
+              "content": "Teljes önvezető képesség"
             },
             {
               "type": "description",
-              "content": "Activated by the Tesla App, your parked car will come find you and even park or unpark itself in tight spaces. Smart Summon navigates complex parking situations while abiding by lane markings and stop signs, avoiding pedestrians and obstacles like traffic cones, trash bins and rogue shopping carts."
+              "content": "A leparkolt autót a vezető a Tesla alkalmazás segítségével magához hívhatja, sőt az autó be- vagy ki is áll a szűk parkolóhelyeken. A Smart Summon funkció bonyolult parkolási helyzetekben is boldogul, figyelembe veszi a burkolati jeleket és a stoptáblákat, kikerüli a gyalogosokat és az olyan akadályokat, mint a terelőkúpok, a szemeteskukák, vagy az útban lévő bevásárlókocsik."
             },
             {
               "type": "add_options",
-              "content": "Add Package",
+              "content": "Csomag hozzáadása",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4939,7 +4976,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -5003,23 +5040,23 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Full Self-Driving Computer",
+          "name": "Teljes önvezető számítógép",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Full Self-Driving Computer"
+              "content": "Teljes önvezető számítógép"
             },
             {
               "type": "panelName",
-              "content": "Full Self-Driving Capability"
+              "content": "Teljes önvezető képesség"
             },
             {
               "type": "description",
-              "content": "Tesla-designed silicon optimized for computer vision enables detailed, onscreen environment visualization and eventual Full Self-Driving Capability through over-the-air software updates."
+              "content": "A Tesla által tervezett, számítógépes látáshoz optimalizált szilíciumchipek lehetővé teszik a környezet részletes megjelenítését a képernyőn, és a vezeték nélküli szoftverfrissítéseken keresztül a majdani végső teljes önvezető képességet."
             },
             {
               "type": "add_options",
-              "content": "Add Package",
+              "content": "Csomag hozzáadása",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -5044,7 +5081,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -5100,7 +5137,7 @@
             },
             {
               "type": "description",
-              "content": "Included with every Tesla, Autopilot enables your car to steer, accelerate and brake automatically for other vehicles and pedestrians within its lane. Advanced safety and convenience features are designed to assist you with the most burdensome parts of driving, alongside driver assistance features such as emergency braking, collision warning and blind-spot monitoring."
+              "content": "A minden Tesla felszereltségéhez hozzátartozó Autopilot képessé teszi az autót arra, hogy automatikusan kormányozzon, gyorsítson és fékezzen a sávon belül, a többi jármű és a gyalogosok figyelembevételével. A fejlett biztonsági és kényelmi funkciók úgy vannak megtervezve, hogy a vezetés legfárasztóbb részében nyújtsanak segítséget az olyan egyéb vezetéstámogatási funkciók mellett, mint a vészfékezés, az ütközésfigyelmeztetés és a holttérfigyelés."
             }
           ],
           "extra_content": [
@@ -5123,11 +5160,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Center Display",
+          "name": "Középső képernyő",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Center Display"
+              "content": "Középső képernyő"
             },
             {
               "type": "eyebrow",
@@ -5135,7 +5172,7 @@
             },
             {
               "type": "description",
-              "content": "Access everything on the expansive 15-inch touchscreen including high-definition side and rearview camera views, navigation, movies, music, games and more. Your surroundings are visualized in real time while you drive to display speed limit signs, upcoming traffic control signals, pedestrians, cyclists and hazards in a 360-degree surround view."
+              "content": "A hatalmas, 15\"-os érintőképernyőn mindent megtalál, amire szüksége lehet, beleértve az oldalsó és hátsó kamerák nagy felbontású nézeteit, a navigációt, a filmeket, zenét, játékokat és még sok mást. A rendszer valós időben vizualizálja az autó környezetét vezetés közben, az összes sebességkorlátozási és egyéb forgalmi jelzést, gyalogost, kerékpárost és veszélyforrást teljes 360 fokos látószögben megjelenítve a képernyőn."
             }
           ],
           "extra_content": [
@@ -5158,11 +5195,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Over-the-Air Updates",
+          "name": "Vezeték nélküli szoftverfrissítések",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Over-the-Air Updates"
+              "content": "Vezeték nélküli szoftverfrissítések"
             },
             {
               "type": "eyebrow",
@@ -5170,7 +5207,7 @@
             },
             {
               "type": "description",
-              "content": "Model Y gets better over time with frequent wireless software updates, bringing you new features, more entertainment, higher performance and range, increased comfort and even better safety. "
+              "content": "A Model Y folyamatosan fejlődik a rendszeres, vezeték nélküli szoftverfrissítéseknek köszönhetően, amelyek új funkciókat, még több szórakozást, megnövelt teljesítményt és hatótávolságot, nagyobb kényelmet és fokozottabb biztonságot kínálnak. "
             }
           ],
           "extra_content": [
@@ -5193,11 +5230,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Supercharger Access",
+          "name": "Elérhető Supercharger töltőpontok",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Easy Charging"
+              "content": "Egyszerű töltés"
             },
             {
               "type": "eyebrow",
@@ -5205,7 +5242,7 @@
             },
             {
               "type": "description",
-              "content": "Charge anywhere there is electricity. Most range used for daily driving can be topped off using the Mobile Connector Bundle and a household outlet, or upgrade to a Tesla Wall Connector for the best home charging experience. For long distance travel, Model Y adds up to 270 kilometres of range in just 15 minutes using Tesla’s Supercharger network, getting you back on the road, sooner."
+              "content": "Bárhol tölthető, ahol van áram. A napi utazások során megtehető távolság tovább növelhető a Mobil csatlakozó csomaggal és egy háztartási aljzattal, illetve ha vásárol egy Tesla Wall Connector falicsatlakozót, amely a legjobb választás az otthoni töltéshez. Hosszabb utakon a Model Y hatótávolsága 241 km-rel növelhető meg csupán 15 perc alatt a Tesla Supercharger töltőponthálózatának igénybe vételével, így hamarabb folytathatja az útját."
             }
           ],
           "extra_content": [
@@ -5228,11 +5265,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Tesla Mobile App",
+          "name": "Tesla mobilalkalmazás",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Tesla Mobile App"
+              "content": "Tesla mobilalkalmazás"
             },
             {
               "type": "eyebrow",
@@ -5240,7 +5277,7 @@
             },
             {
               "type": "description",
-              "content": "Remotely control and monitor your Tesla with Phone Key keyless driving, range & charging status, climate control, live GPS location and more. You can even schedule service and monitor your entire Tesla ecosystem, including power flow from Powerwall or from Solar Roof and Solar Panels."
+              "content": "A Tesla távvezérlését és távfelügyeletét lehetővé tévő Telefonkulcs funkcióval kulcs nélkül indíthatja el az autóját, nyomon követheti a hatótávolságot és a töltési állapotot, szabályozhatja a légkondicionálót, élő GPS-helymeghatározást végezhet, és további lehetőségek is a rendelkezésére állnak. Akár a szervizt is beütemezheti, és figyelni tudja a Tesla teljes ökoszisztémáját, beleértve a Powerwall, a Solar Roof és a napelemek teljesítményleadását is."
             }
           ],
           "extra_content": [
@@ -5263,11 +5300,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Glass Roof",
+          "name": "Panorámatető",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Glass Roof"
+              "content": "Panorámatető"
             },
             {
               "type": "eyebrow",
@@ -5275,7 +5312,7 @@
             },
             {
               "type": "description",
-              "content": "The expansive Glass Roof provides passengers with a brighter, more spacious experience and a seamless view of the sky. Infrared and ultraviolet light is effectively blocked before entering the cabin, reducing heat and glare even when the sun is directly overhead."
+              "content": "A hatalmas panorámatető világosabb, tágasabb hatást kelt az utasok számára, akadálytalan kilátással az égboltra. Az utastérbe belépő fényből hatékonyan kiszűri az infravörös és az ultraibolya fényt, így akkor is csökkenti a felmelegedést és a csillogást, ha a Nap éppen felülről süt."
             }
           ],
           "extra_content": [
@@ -5298,11 +5335,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Flexible Rear Seating",
+          "name": "Rugalmasan kialakítható hátsó ülőhelyek",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Flexible Seating"
+              "content": "Rugalmasan kialakítható ülőhelyek"
             },
             {
               "type": "eyebrow",
@@ -5310,7 +5347,7 @@
             },
             {
               "type": "description",
-              "content": "Each rear seat can independently fold for maximum versatility. The 2nd row automatically folds using the rear hatch controls, and rear passengers can adjust and recline their seatback for  added comfort."
+              "content": "A lehető legnagyobb sokoldalúság érdekében minden hátsó ülés egymástól függetlenül lehajtható. A második sor automatikusan lehajtható a hátsó ajtó vezérlőjének használatával, a hátsó utasok pedig beállíthatják és dönthetik az üléstámlát a nagyobb kényelem érdekében."
             }
           ],
           "extra_content": [
@@ -5333,11 +5370,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Wireless Charger",
+          "name": "Vezeték nélküli töltő",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Wireless Charger"
+              "content": "Vezeték nélküli töltő"
             },
             {
               "type": "eyebrow",
@@ -5345,7 +5382,7 @@
             },
             {
               "type": "description",
-              "content": "Easily charge two phones at once on a non-slip, contoured surface. The integrated center console offers deep storage space with two front and two rear USB-C charging ports and tiered storage under the armrest."
+              "content": "Könnyedén tölthet két telefont egyszerre egy csúszásmentes, erre megformázott felületen. Az integrált középkonzol egy mély tárolórekeszt, két elülső és két hátsó USB-C töltőportot, valamint egy, a kartámasz alatt elhelyezkedő többrészes tárolóhelyet kínál."
             }
           ],
           "extra_content": [
@@ -5368,11 +5405,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Vegan Interior",
+          "name": "Vegán belső tér",
           "extra_copy": [
             {
               "type": "title",
-              "content": "All Vegan Interior"
+              "content": "Teljesen vegán belső tér"
             },
             {
               "type": "eyebrow",
@@ -5380,7 +5417,7 @@
             },
             {
               "type": "description",
-              "content": "Softer than leather, yet far more durable and more stain-resistant, our custom-engineered seating material is fully vegan and significantly more sustainable than traditional seating materials, maximizing comfort and esthetics while maintaining our rigorous standards for durability and stain resistance."
+              "content": "A bőrnél is puhább, mégis sokkal tartósabb és folttaszítóbb, egyedi tervezésű üléshuzatunk teljesen vegán, és az ülések hagyományos alapanyagainál sokkal környezetkímélőbb, tehát úgy nyújtja a lehető legnagyobb kényelmet és legesztétikusabb megjelenést, hogy eleget tesz a tartósságra és folttaszítóságra vonatkozó szigorú szabványainknak is."
             }
           ],
           "extra_content": [
@@ -5403,11 +5440,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Advanced Climate Control",
+          "name": "Fejlett légkondicionálás",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Advanced Climate Controls"
+              "content": "Fejlett légkondicionálás"
             },
             {
               "type": "eyebrow",
@@ -5415,7 +5452,7 @@
             },
             {
               "type": "description",
-              "content": "Airflow and temperature are controlled entirely through the display, allowing precise direction without ever seeing or touching a physical vent. On hot days, Cabin Overheat Protection ensures interiors always stay cool, and our HEPA filtration system delivers the best possible cabin air quality. In cold weather, pre-conditioning automatically warms the cabin, prepares the car’s battery to maximize range and efficiency."
+              "content": "A légáramlás és a hőmérséklet teljes egészében a képernyőről szabályozható, így pontosan irányítható anélkül, hogy a szellőzőnyílásokra kellene néznie vagy hozzájuk kellene nyúlnia. Forró napokon az Utastér túlmelegedés elleni védelme biztosítja, hogy az autó belseje mindig hűvös maradjon, HEPA-szűrőrendszerünk pedig a lehető legjobb levegőminőséget garantálja. Hideg időben az előfűtő-/hűtő rendszer automatikusan felfűti az utasteret, előkészítve ezzel az autó akkumulátorát a maximális hatótávolság és hatékonyság érdekében."
             }
           ],
           "extra_content": [
@@ -5442,7 +5479,7 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Compare Model and Feature",
+          "name": "Modellek és funkciók összehasonlítása",
           "extra_copy": [],
           "extra_content": []
         },
@@ -5453,35 +5490,39 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Range and Performance",
+          "name": "Hatótávolság és teljesítmény",
           "extra_copy": [
             {
               "type": "Title",
-              "content": "Range and Performance"
+              "content": "Hatótávolság és teljesítmény"
             },
             {
               "type": "dynamic_grid_title[0]",
-              "content": "Acceleration 0-100 km/h"
+              "content": "Gyorsulás 0-ról 100 km/h‑ra"
             },
             {
               "type": "dynamic_grid_title[1]",
-              "content": "Range"
+              "content": "Hatótávolság"
             },
             {
               "type": "dynamic_grid_title[2]",
-              "content": "Top Speed"
+              "content": "Végsebesség"
             },
             {
               "type": "dynamic_grid_title[3]",
-              "content": "Drivetrain"
+              "content": "Hajtáslánc"
             },
             {
               "type": "feature_title",
-              "content": "Powerful Efficiency"
+              "content": "Erőteljes hatékonyság"
             },
             {
               "type": "feature_list.default[0]",
-              "content": "Tesla designed Model Y from the ground-up as an electric vehicle using system-level integration throughout. Each component, including batteries, motors and even exterior aerodynamics are optimized to benefit from one another and create one of the most efficient, yet unbelievably powerful vehicles ever built."
+              "content": "A Tesla már az alapoktól kezdve elektromos járműnek tervezte a Model Y-t, és a teljes folyamat során rendszerszintű integrációt alkalmazott. Minden összetevő – beleértve az akkumulátorokat, a motorokat, sőt még a külső aerodinamikát is – egymás előnyeinek kihasználására van optimalizálva, létrehozva ezzel minden idők egyik leghatékonyabb, mégis elképesztő erejű járművét."
+            },
+            {
+              "type": "feature_list.default[1]",
+              "content": "*Egy lábnyi kipörgési távolságot leszámítva."
             }
           ],
           "extra_content": [
@@ -5494,7 +5535,6 @@
                     "group": "TRIM",
                     "content": [
                       {
-                        "classes": "swap-rtl",
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[0]",
                         "content_path": {
                           "label": "name",
@@ -5503,7 +5543,6 @@
                         }
                       },
                       {
-                        "classes": "swap-rtl",
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[1]",
                         "content_path": {
                           "label": "name",
@@ -5511,7 +5550,6 @@
                         }
                       },
                       {
-                        "classes": "swap-rtl",
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[2]",
                         "content_path": {
                           "label": "name",
@@ -5519,7 +5557,6 @@
                         }
                       },
                       {
-                        "classes": "swap-rtl",
                         "title_path": "CustomGroups.RANGE_AND_PERFORMANCE.dynamic_grid_title[3]",
                         "content_path": {
                           "label": "name",
@@ -5555,47 +5592,47 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Interiors section",
+          "name": "Belső tér",
           "extra_copy": [
             {
               "type": "Title",
-              "content": "Interior & Convenience"
+              "content": "Belső tér és kényelem"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Music and media over Bluetooth®"
+              "content": "Zene és multimédia Bluetooth®-on keresztül"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Premium audio with 13 speakers, 1 subwoofer, 2 amps and immersive sound"
+              "content": "Prémium audiorendszer 13 hangszóróval, 1 mélynyomóval, 2 erősítővel és magával ragadó hangzással"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Independently folding 2nd row seats"
+              "content": "Függetlenül lehajtható ülések a második sorban"
             },
             {
               "type": "feature_list.default[0].items[3]",
-              "content": "Heated seats for all 5 seats with individual controls"
+              "content": "Mind az 5 ülés fűtött és külön állítható"
             },
             {
               "type": "feature_list.default[0].items[6]",
-              "content": "Auto dimming, power folding, heated side mirrors"
+              "content": "Automatikusan sötétedő, elektromosan állítható, fűtött külső tükrök"
             },
             {
               "type": "feature_list.default[0].items[5]",
-              "content": "Tinted glass roof with ultraviolet and infrared protection"
+              "content": "Színezett panorámatető ultraibolya- és infravörös-védelemmel"
             },
             {
               "type": "feature_list.default[0].items[7]",
-              "content": "Custom driver profiles"
+              "content": "Egyéni vezetői profilok"
             },
             {
               "type": "feature_list.default[0].items[8]",
-              "content": "Wireless phone charging in center console"
+              "content": "Vezeték nélküli telefontöltés a középkonzolon"
             },
             {
               "type": "feature_list.default[0].items[9]",
-              "content": "1.9m³ of cargo space including a secure front trunk"
+              "content": "1,9 m³-es csomagtér egy biztonságos első csomagtartóval együtt"
             }
           ],
           "extra_content": [
@@ -5620,51 +5657,51 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Safety",
+          "name": "Biztonság",
           "extra_copy": [
             {
               "type": "Title",
-              "content": "Safety"
+              "content": "Biztonság"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Blind spot monitoring"
+              "content": "Holttérfigyelés"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Automatic emergency braking"
+              "content": "Automatikus vészfékezés"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Front collision warning"
+              "content": "Elülső ütközésfigyelmeztetés"
             },
             {
               "type": "feature_list.default[0].items[3]",
-              "content": "Side collision warning"
+              "content": "Oldalsó ütközésfigyelmeztetés"
             },
             {
               "type": "feature_list.default[0].items[4]",
-              "content": "Emergency lane departure avoidance and correction"
+              "content": "Sávelhagyás vészhelyzeti megelőzése és korrigálása"
             },
             {
               "type": "feature_list.default[0].items[5]",
-              "content": "Obstacle aware acceleration"
+              "content": "Akadályfelismerő gyorsítás"
             },
             {
               "type": "feature_list.default[0].items[6]",
-              "content": "LED daytime running lights"
+              "content": "LED-es nappali menetfény"
             },
             {
               "type": "feature_list.default[0].items[7]",
-              "content": "Sentry Mode"
+              "content": "Sentry mód"
             },
             {
               "type": "feature_list.default[0].items[8]",
-              "content": "Cabin Overheat Protection"
+              "content": "Utastér túlmelegedés elleni védelme"
             },
             {
               "type": "feature_list.default[0].items[9]",
-              "content": "In-app vehicle location monitoring"
+              "content": "Jármű helyének alkalmazáson belüli figyelése"
             }
           ],
           "extra_content": [
@@ -5689,27 +5726,27 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Safety",
+          "name": "Biztonság",
           "extra_copy": [
             {
               "type": "Title",
-              "content": "Premium Connectivity"
+              "content": "Prémium Kapcsolat"
             },
             {
               "type": "feature_list.default[0].title",
-              "content": "Model Y includes Navigation standard and a 30 day Premium Connectivity trial enabling:"
+              "content": "Minden Model Y-nak alapfelszereltsége a navigáció, valamint a Prémium Kapcsolat szolgáltatás 30 napos próbaverziója, amellyel:"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Live Traffic Visualization"
+              "content": "Élő forgalommegjelenítés"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Satellite-View Maps"
+              "content": "Műholdas térképek"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Video Streaming, allowing access to content from Netflix, Youtube, Twitch, and more"
+              "content": "Videóstreamelés, amellyel sok más mellett Netflix-, Youtube- és Twitch-tartalmak is hozzáférhetők"
             },
             {
               "type": "feature_list.default[0].items[3]",
@@ -5717,11 +5754,11 @@
             },
             {
               "type": "feature_list.default[0].items[4]",
-              "content": "Music Streaming"
+              "content": "Zenestreamelés"
             },
             {
               "type": "feature_list.default[0].items[4]",
-              "content": "Internet Browser"
+              "content": "Internetböngésző"
             }
           ],
           "extra_content": [
@@ -5746,67 +5783,67 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Interior Features",
+          "name": "A belső tér jellemzői",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Interior Features"
+              "content": "A belső tér jellemzői"
             },
             {
               "type": "feature_list.default[0].main_title",
-              "content": "Audio and Media"
+              "content": "Hang és multimédia"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Premium audio – 13 speakers, 1 subwoofer, 2 amps, and immersive sound"
+              "content": "Prémium audiorendszer – 13 hangszóró, 1 mélynyomó, 2 erősítő és magával ragadó hangzás"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Music and media over Bluetooth®"
+              "content": "Zene és multimédia Bluetooth®-on keresztül"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "USB-A port in the glovebox with a 128GB portable storage device included"
+              "content": "USB-A aljzat a kesztyűtartóban, amelyhez 128 GB-os hordozható adattároló eszköz is tartozik"
             },
             {
               "type": "feature_list.default[1].main_title",
-              "content": "Comfort"
+              "content": "Komfort"
             },
             {
               "type": "feature_list.default[1].items[0]",
-              "content": "Power adjustable front seats"
+              "content": "Elektromosan állítható első ülések"
             },
             {
               "type": "feature_list.default[1].items[1]",
-              "content": "Heated front and rear seats"
+              "content": "Fűtött első és hátsó ülések"
             },
             {
               "type": "feature_list.default[1].items[2]",
-              "content": "HEPA air filtration system"
+              "content": "HEPA-légszűrőrendszer"
             },
             {
               "type": "feature_list.default[1].items[3]",
-              "content": "Tinted glass roof with ultraviolet and infrared protection"
+              "content": "Színezett panorámatető ultraibolya- és infravörös-védelemmel"
             },
             {
               "type": "feature_list.default[1].items[4]",
-              "content": "Independent flat-fold rear seats"
+              "content": "Egymástól függetlenül síkba hajtható hátsó ülések"
             },
             {
               "type": "feature_list.default[1].items[5]",
-              "content": "Interior floor mats"
+              "content": "Belső szőnyegek"
             },
             {
               "type": "feature_list.default[2].main_title",
-              "content": "Convenience"
+              "content": "Kényelem"
             },
             {
               "type": "feature_list.default[2].items[1]",
-              "content": "Power folding, auto-dimming, heated side mirrors"
+              "content": "Elektromosan behajtható, automatikusan sötétedő, fűtött külső tükrök"
             },
             {
               "type": "feature_list.default[2].items[0]",
-              "content": "LED fog lamps",
+              "content": "LED-es ködlámpák",
               "behavior": [
                 {
                   "type": "CONTENT_SELECTED",
@@ -5823,15 +5860,15 @@
             },
             {
               "type": "feature_list.default[2].items[3]",
-              "content": "Custom driver profiles"
+              "content": "Egyéni vezetői profilok"
             },
             {
               "type": "feature_list.default[2].items[2]",
-              "content": "Center console with storage, 4 USB-C ports and wireless charging for 2 smartphones"
+              "content": "Tárolóhellyel és 4 USB-C-aljzattal rendelkező, 2 okostelefon vezeték nélküli töltésére alkalmas középkonzol"
             },
             {
               "type": "Title",
-              "content": "Interior & Convenience"
+              "content": "Belső tér és kényelem"
             }
           ],
           "extra_content": [
@@ -5866,11 +5903,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Up to Seven Seats",
+          "name": "Akár hét ülés",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Up to Seven Seats"
+              "content": "Akár hét ülés"
             },
             {
               "type": "eyebrow",
@@ -5878,7 +5915,7 @@
             },
             {
               "type": "description",
-              "content": "Model Y provides maximum versatility – able to carry 7 passengers and their cargo. Each rear seat folds flat independently, creating flexible storage for skis, furniture, luggage and more. The liftgate opens to a low trunk floor that makes loading and unloading easy and quick."
+              "content": "A Model Y a maximális sokoldalúságot kínálja – 7 utas és azok csomagjainak szállítására alkalmas. Minden hátsó ülés külön lehajtható síkba, így a csomagtér rugalmasan kialakítható sílécek, bútorok, bőröndök vagy bármi más szállításához. A hátsó csomagtérajtó alacsony padlóra nyílik, ezzel egyszerűvé teszi és meggyorsítja a be- és kirakodást."
             }
           ],
           "extra_content": [
@@ -5924,7 +5961,7 @@
             },
             {
               "type": "sub_title",
-              "content": "Rear-Wheel Drive"
+              "content": "Hátsókerék-hajtás"
             }
           ],
           "extra_content": [
@@ -5970,11 +6007,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Expansive Storage",
+          "name": "Tágas csomagtér",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Expansive Storage"
+              "content": "Tágas csomagtér"
             },
             {
               "type": "eyebrow",
@@ -5982,7 +6019,7 @@
             },
             {
               "type": "description",
-              "content": "Model Y features 2158 liters of cargo space accessible through both the front trunk and the automatically opening and closing rear trunk. Taking advantage of the space traditionally occupied by bulky engines, gas tanks and transmissions, the design of Model Y enables disproportionately large amounts of storage for a car its size, while bolstering occupant safety through a more spacious, reinforced body and chassis."
+              "content": "A Model Y 2158 literes csomagtere az első csomagtartóból, valamint az automatikusan nyíló és záródó hátsó csomagtartóból áll. Kihasználva azt a teret, amelyet általában a testes motor, az üzemanyagtartály és a váltó foglal el, a Model Y kialakítása az autó méretéhez viszonyítva aránytalanul nagy csomagteret biztosít, a tágasabb, megerősített karosszéria és az alváz pedig még nagyobb biztonságot nyújt az utasoknak."
             }
           ],
           "extra_content": [
@@ -5990,7 +6027,7 @@
               "type": "asset",
               "content": [
                 {
-                  "url": "MODELY/UI/CN-Y_StdFeat_Storage.jpeg",
+                  "url": "MODELY/UI/Y_StdFeat_Storage.jpg",
                   "type": "image",
                   "ratio": "slice"
                 }
@@ -6014,7 +6051,7 @@
           "extra_copy": [
             {
               "type": "aria_label",
-              "content": "Enhanced Autopilot Features"
+              "content": "Enhanced Autopilot-funkciók"
             }
           ]
         },
@@ -6039,11 +6076,11 @@
             },
             {
               "type": "description",
-              "content": "Automatic driving from highway on-ramp to off-ramp includes automatic lane changes, Traffic-Aware Cruise Control with complete stopping and re-engagement, Autosteer, and overtaking slow cars in your lane."
+              "content": "Az autópálya-felhajtótól a lehajtóig tartó automatikus vezetés magában foglalja az automatikus sávváltást, a forgalomérzékelő sebességtartást megállással és újraindulással, az automatikus kormányzást, valamint a sávban lassan haladó járművek megelőzését."
             },
             {
               "type": "add_options",
-              "content": "Add Package",
+              "content": "Csomag hozzáadása",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6068,7 +6105,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6132,11 +6169,11 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Auto Lane Change",
+          "name": "Automatikus sávváltás",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Auto Lane Change"
+              "content": "Automatikus sávváltás"
             },
             {
               "type": "panelName",
@@ -6144,11 +6181,11 @@
             },
             {
               "type": "description",
-              "content": "While driving on the highway, Automatic Lane Change will position your car in the optimal lane to prepare for merges and exits while overtaking slow cars. Drivers are given clear insight to upcoming lane changes as well as customization to Auto Lane Change functionality."
+              "content": "Autópályán az automatikus sávváltási funkció a besoroláshoz, illetve a kihajtáshoz optimális sávba vezeti az autót, és eközben megelőzi a lassabb járműveket is. A vezető egyértelmű jelzést kap a várható sávváltásokról, és testre szabhatja az automatikus sávváltási funkciót."
             },
             {
               "type": "add_options",
-              "content": "Add Package",
+              "content": "Csomag hozzáadása",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6173,7 +6210,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6237,11 +6274,11 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Autopark",
+          "name": "Automatikus parkolás",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Autopark"
+              "content": "Automatikus parkolás"
             },
             {
               "type": "panelName",
@@ -6249,11 +6286,11 @@
             },
             {
               "type": "description",
-              "content": "Park with ease in both parallel and perpendicular parking spaces with a single button tap on the Center Display. Model Y will alert you to available parking spots by continuously monitoring the space around you."
+              "content": "Párhuzamos és merőleges helyeken is könnyedén parkolhat a középső képernyőn található gombra koppintva. A Model Y a környező teret folyamatosan figyelve értesíti a vezetőt a szabad parkolóhelyekről."
             },
             {
               "type": "add_options",
-              "content": "Add Package",
+              "content": "Csomag hozzáadása",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6278,7 +6315,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6354,11 +6391,11 @@
             },
             {
               "type": "description",
-              "content": "Activated by the Tesla App, your parked car will come find you and even park or unpark itself in tight spaces. Smart Summon navigates complex parking situations while abiding by lane markings and stop signs, avoiding pedestrians and obstacles like traffic cones, trash bins and rogue shopping carts."
+              "content": "A leparkolt autót a vezető a Tesla alkalmazás segítségével magához hívhatja, sőt az autó be- vagy ki is áll a szűk parkolóhelyeken. A Smart Summon funkció bonyolult parkolási helyzetekben is boldogul, figyelembe veszi a burkolati jeleket és a stoptáblákat, kikerüli a gyalogosokat és az olyan akadályokat, mint a terelőkúpok, a szemeteskukák, vagy az útban lévő bevásárlókocsik."
             },
             {
               "type": "add_options",
-              "content": "Add Package",
+              "content": "Csomag hozzáadása",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6383,7 +6420,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6439,31 +6476,201 @@
           ]
         },
         {
-          "code": "FSD_TRAFFIC_LIGHT_CARD",
+          "code": "WINTER_WHEELS_OPTIONS",
           "groups": [],
           "context": "configurator",
           "options": [
-            "$APF2"
+            "$WWY00"
           ],
           "required": false,
           "exclusive": false,
-          "name": "Traffic Light and Stop Sign Control",
+          "default_options": [],
+          "name": "Téli felnik",
+          "extra_copy": [
+            {
+              "type": "name",
+              "content": "Téli felnik"
+            },
+            {
+              "type": "feature_description",
+              "content": "Ha téli gumiabroncsokat és felniket vásárol, havas és jeges körülmények között is optimális marad a vezethetőség."
+            },
+            {
+              "type": "add_component",
+              "content": "Válasszon garnitúrát",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY09"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn",
+                      "tds-btn--primary",
+                      "tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "remove_component",
+              "content": "Eltávolítás",
+              "behavior": [
+                {
+                  "type": "ACTION",
+                  "content": {
+                    "type": "UPDATE_CONFIG_BY_RULES",
+                    "rules": [
+                      {
+                        "option": {
+                          "set": [
+                            "$WWY00"
+                          ]
+                        },
+                        "selected_by": {
+                          "and": [
+                            "$MTY09"
+                          ]
+                        }
+                      }
+                    ],
+                    "actionClass": [
+                      "tds-btn tds-btn--secondary tds-btn--small"
+                    ]
+                  }
+                }
+              ]
+            },
+            {
+              "type": "view_features",
+              "content": "jellemzők",
+              "behavior": [
+                {
+                  "type": "CONTAINER",
+                  "content": {
+                    "tag": "button",
+                    "props": {
+                      "data-should-open": "WINTER_WHEELS_FEATURES"
+                    },
+                    "classNames": [
+                      "tds-btn tds-btn--tertiary",
+                      "tds-btn--small "
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "components",
+              "content": [
+                {
+                  "type": "Title",
+                  "props": {
+                    "classes": "tds-text--h5 tds-text--center",
+                    "component": "h3"
+                  }
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "feature_description",
+                        "classes": "tds-text--center"
+                      },
+                      {
+                        "field": "add_component",
+                        "component": "button"
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                },
+                {
+                  "type": "SubOptionComponent",
+                  "props": {
+                    "fields": [
+                      {
+                        "field": "SelectedPrice"
+                      },
+                      {
+                        "field": "remove_component",
+                        "component": "button"
+                      },
+                      {
+                        "field": "view_features",
+                        "props": {
+                          "modal": "WINTER_WHEELS_FEATURES"
+                        }
+                      }
+                    ]
+                  },
+                  "classes": "tds-flex tds-flex--justify-center"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "code": "WINTER_WHEELS_FEATURES",
+          "groups": [
+            "19_IN_WINTER_WHEEL_FEATURES_CARD"
+          ],
+          "context": "configurator",
+          "options": [],
+          "required": false,
+          "exclusive": false,
+          "name": "Téli felnik jellemzői",
+          "extra_copy": [
+            {
+              "type": "aria_label",
+              "content": "Modellek összehasonlítása"
+            }
+          ]
+        },
+        {
+          "code": "19_IN_WINTER_WHEEL_FEATURES_CARD",
+          "groups": [],
+          "context": "configurator",
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [],
+          "name": "19\" Pirelli téli gumiabroncskészlet",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Traffic Light and Stop Sign Control"
+              "content": "19\" Pirelli téli gumiabroncskészlet"
             },
             {
-              "type": "panelName",
-              "content": "Full Self-Driving Capability"
+              "type": "eyebrow",
+              "content": "Alapfelszereltség"
             },
             {
               "type": "description",
-              "content": "Traffic Light and Stop Sign Control is designed to slowdown and stop for visible traffic lights or stop signs that are detected when Traffic-Aware Cruise Control or Autosteer is engaged."
+              "content": "A Pirelli Sottozero 3 téli abroncsokat az alacsony gördülési ellenállás mellett a havas úton is jó tapadás jellemzi. Ez a készlet négy 19\" Sport felnit tartalmaz, felszerelt abroncsokkal."
             },
             {
               "type": "add_options",
-              "content": "Add Package",
+              "content": "Hozzáadás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6471,24 +6678,22 @@
                     "type": "TRIGGER_CONFIGURATION_CHANGE",
                     "option": {
                       "set": [
-                        "$APF2"
+                        "$WWY00"
                       ]
                     },
-                    "panelName": "FSD_TRAFFIC_LIGHT_CARD",
                     "actionClass": [
                       "tds-btn",
                       "tds-btn--primary",
                       "tds-btn--width-full",
                       "tds-o-remove-margins"
-                    ],
-                    "interaction": "add-fsd-traffic-light"
+                    ]
                   }
                 }
               ]
             },
             {
               "type": "remove_options",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6496,17 +6701,15 @@
                     "type": "TRIGGER_CONFIGURATION_CHANGE",
                     "option": {
                       "set": [
-                        "$APF2"
+                        "$WWY00"
                       ]
                     },
-                    "panelName": "FSD_TRAFFIC_LIGHT_CARD",
                     "actionClass": [
                       "tds-btn",
                       "tds-btn--tertiary",
                       "tds-btn--width-full",
                       "tds-o-remove-margins"
-                    ],
-                    "interaction": "remove-fsd-traffic-light"
+                    ]
                   }
                 }
               ]
@@ -6515,15 +6718,39 @@
           "extra_content": [
             {
               "type": "asset",
+              "content": {
+                "url": "MODELY/UI/option-wheels-19-pirelli.jpeg",
+                "type": "image",
+                "ratio": "slice"
+              }
+            },
+            {
+              "type": "hidden",
               "content": [
                 {
-                  "url": "MODEL3/UI/Traffic_Light_and_Stop_Sign.png",
-                  "type": "image",
-                  "ratio": "slice"
+                  "selected_by": {
+                    "and": [
+                      "$MTY12"
+                    ]
+                  }
                 }
               ]
             }
           ]
+        },
+        {
+          "code": "WINTER_WHEELS",
+          "name": "Téli felnik",
+          "context": "configurator",
+          "extra_copy": [],
+          "extra_content": [],
+          "groups": [],
+          "options": [
+            "$WWY00"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": []
         },
         {
           "code": "BASIC_AP_FEATURES",
@@ -6534,11 +6761,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Basic Autopilot Features",
+          "name": "Alapvető Autopilot-funkciók",
           "extra_copy": [
             {
               "type": "aria_label",
-              "content": "Feature Cards"
+              "content": "Funkciókártyák"
             }
           ]
         },
@@ -6549,15 +6776,15 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Connectivity",
+          "name": "Kapcsolat",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Connectivity"
+              "content": "Kapcsolat"
             },
             {
               "type": "table.row[0].column[0]",
-              "content": "Package Features"
+              "content": "Csomag funkciói"
             },
             {
               "type": "table.row[0].column[1]",
@@ -6565,11 +6792,11 @@
             },
             {
               "type": "table.row[0].column[2]",
-              "content": "Premium<sup>2</sup>"
+              "content": "Prémium<sup>2</sup>"
             },
             {
               "type": "table.row[1].column[0]",
-              "content": "Navigation"
+              "content": "Navigáció"
             },
             {
               "type": "table.row[1].column[1].tickmark",
@@ -6581,7 +6808,7 @@
             },
             {
               "type": "table.row[2].column[0]",
-              "content": "Live Traffic Visualization"
+              "content": "Élő forgalommegjelenítés"
             },
             {
               "type": "table.row[2].column[1].xmark",
@@ -6593,7 +6820,7 @@
             },
             {
               "type": "table.row[3].column[0]",
-              "content": "Satellite-View Maps"
+              "content": "Műholdas térképek"
             },
             {
               "type": "table.row[3].column[1].xmark",
@@ -6605,7 +6832,7 @@
             },
             {
               "type": "table.row[4].column[0]",
-              "content": "Video Streaming<sup>*</sup>"
+              "content": "Online videó lejátszás<sup>*</sup>"
             },
             {
               "type": "table.row[4].column[1].xmark",
@@ -6629,7 +6856,7 @@
             },
             {
               "type": "table.row[6].column[0]",
-              "content": "Music Streaming<sup>*</sup>"
+              "content": "Online zene lejátszás<sup>*</sup>"
             },
             {
               "type": "table.row[6].column[1].xmark",
@@ -6641,7 +6868,7 @@
             },
             {
               "type": "table.row[7].column[0]",
-              "content": "Internet Browser<sup>*</sup>"
+              "content": "Internetböngésző<sup>*</sup>"
             },
             {
               "type": "table.row[7].column[1].xmark",
@@ -6653,27 +6880,27 @@
             },
             {
               "type": "description",
-              "content": "Features subject to change and may vary based on hardware configuration. New features that become available after delivery may be subject to additional charges."
+              "content": "A funkciók módosulhatnak, és a hardverkonfigurációtól függően eltérőek lehetnek. Az átadás után elérhetővé váló új funkciókra további díjak vonatkozhatnak."
             },
             {
               "type": "description1",
-              "content": "* Available on Wi-Fi only with Standard Connectivity"
+              "content": "*Normál Kapcsolat esetén csak Wi-Fi-n keresztül"
             },
             {
               "type": "description2",
-              "content": "1. Standard connectivity is included, at no additional cost, for 8 years following the new vehicle’s original delivery. Certain high data usage vehicle features require at least Standard Connectivity, including maps, navigation and voice commands."
+              "content": "1. Az új jármű eredeti átadásától számított 8 évig a Normál Kapcsolatot felár nélkül biztosítjuk. A jármű egyes, nagy adatforgalmat igénylő funkcióihoz legalább Normál kapcsolat szükséges, ideértve a térképeket, a navigációt és a hangutasításokat."
             },
             {
               "type": "description3",
-              "content": "2. Premium Connectivity is complimentary for 30 days, then available as a subscription"
+              "content": "2. A Prémium Kapcsolat 30 napig ingyenes, ezt követően pedig előfizetés formájában érhető el"
             },
             {
               "type": "inventory-description2",
-              "content": "1. Standard connectivity is included, at no additional cost, until {sc-duration}. Certain high data usage vehicle features require at least Standard Connectivity, including maps, navigation and voice commands."
+              "content": "1. A Normál Kapcsolatot felár nélkül biztosítjuk {sc-duration} időtartamra. A jármű egyes, nagy adatforgalmat igénylő funkcióihoz legalább Normál kapcsolat szükséges, ideértve a térképeket, a navigációt és a hangutasításokat."
             },
             {
               "type": "inventory-description3",
-              "content": "2. Premium Connectivity is complimentary for 30 days, then available as a subscription."
+              "content": "2. A Prémium Kapcsolat 30 napig ingyenes, ezt követően pedig előfizetés formájában érhető el."
             }
           ],
           "extra_content": [
@@ -6754,7 +6981,7 @@
             },
             {
               "type": "sub_title",
-              "content": "Rear-Wheel Drive"
+              "content": "Hátsókerék-hajtás"
             }
           ],
           "extra_content": [
@@ -6787,15 +7014,15 @@
           "extra_copy": [
             {
               "type": "federalTax.subtitle",
-              "content": "Pre-Configured Vehicles"
+              "content": "Előre konfigurált járművek"
             },
             {
               "type": "federalTax.description",
-              "content": "Pricing adjustments valid when taking delivery within seven days of order."
+              "content": "Az ármódosítások a megrendeléstől számított hét napon belül történő átvétel esetén érvényesek."
             },
             {
               "type": "federalTax.link",
-              "content": "<a target='_blank' class='tds-link' href='/{LOCALE}/inventory/new/my?redirect=no'>Check Availability</a>"
+              "content": "<a target='_blank' class='tds-link' href='/{LOCALE}/inventory/new/my?redirect=no'>Rendelkezésre állás ellenőrzése</a>"
             }
           ],
           "extra_content": [
@@ -6842,7 +7069,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             },
             {
               "type": "description",
@@ -6850,23 +7077,23 @@
             },
             {
               "type": "feature_list.default.items[0]",
-              "content": "Enables your car to steer, accelerate and brake automatically for other vehicles and pedestrians within its lane."
+              "content": "Képessé teszi az autót arra, hogy automatikusan kormányozzon, gyorsítson és fékezzen a sávon belül a többi jármű és a gyalogosok figyelembevételével."
             },
             {
               "type": "selectLabel",
-              "content": "Select Option"
+              "content": "Opció kiválasztása"
             },
             {
               "type": "deselectLabel",
-              "content": "Option Selected"
+              "content": "Opció kiválasztva"
             },
             {
               "type": "disclaimer",
-              "content": "The currently enabled features require active driver supervision and do not make the vehicle autonomous. The activation and use of these features are dependent on achieving reliability far in excess of human drivers as demonstrated by billions of miles of experience, as well as regulatory approval, which may take longer in some jurisdictions. As these self-driving features evolve, your car will be continuously upgraded through over-the-air software updates."
+              "content": "A jelenleg engedélyezett funkciók a vezető aktív felügyeletét igénylik, és nem teszik lehetővé az autó önálló működését. E funkciók aktiválásának és használatának előfeltétele az emberi vezetőket magasan túlszárnyaló megbízhatóság elérése, amelyet több milliárd megtett kilométer tapasztalatai igazolnak, valamint a jogi engedélyezés, amely egyes joghatóságok esetében több időt vehet igénybe. Ezeknek az önvezető képességeknek a fejlődésével párhuzamosan az autó is folyamatosan fejlődik a vezeték nélküli szoftverfrissítések által."
             },
             {
               "type": "compare_features",
-              "content": "Feature Details",
+              "content": "Funkció leírása",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -6938,17 +7165,17 @@
             {
               "type": "base",
               "value": 0,
-              "context": "AED"
+              "context": "HUF"
             },
             {
               "type": "upgrade",
-              "value": 12000,
-              "context": "AED"
+              "value": 1150000,
+              "context": "HUF"
             },
             {
               "type": "trial",
               "value": 4000,
-              "context": "AED"
+              "context": "HUF"
             }
           ]
         },
@@ -6987,33 +7214,33 @@
               "target": "$APF2"
             }
           ],
-          "name": "Full Self-Driving Capability",
-          "description": "Full Self-Driving Capability",
-          "long_name": "Full Self-Driving Capability",
+          "name": "Teljes önvezető képesség",
+          "description": "Teljes önvezető képesség",
+          "long_name": "Teljes önvezető képesség",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "All functionality of Basic Autopilot and Enhanced Autopilot"
+              "content": "A Basic Autopilot és az Enhanced Autopilot összes funkciója"
+            },
+            {
+              "type": "feature_list.default[0].items[1]",
+              "content": "Jelzőlámpák és stoptáblák kezelése"
             },
             {
               "type": "feature_list.default[1].items[0]",
-              "content": "Traffic Light and Stop Sign Control"
-            },
-            {
-              "type": "feature_list.default[1].items[1]",
-              "content": "Automatic driving on city streets"
+              "content": "Automatikus kormányzás városi utcákon"
             },
             {
               "type": "disclaimer",
-              "content": "The currently enabled features require active driver supervision and do not make the vehicle autonomous. Some features require turn signals and are limited in range. The activation and use of these features are dependent on achieving reliability far in excess of human drivers as demonstrated by billions of miles of experience, as well as regulatory approval, which may take longer in some jurisdictions. As these self-driving features evolve, your car will be continuously upgraded through over-the-air software updates."
+              "content": "A jelenleg engedélyezett funkciók a vezető aktív felügyeletét igénylik, és nem teszik lehetővé az autó önálló működését. Egyes funkciók irányjelzéseket igényelnek, és a hatótávolságuk korlátozott. E funkciók aktiválásának és használatának előfeltétele az emberi sofőrökét magasan túlszárnyaló megbízhatóság elérése, amelyet több milliárd megtett kilométer tapasztalatai igazolnak, valamint a jogi engedélyezés, amely egyes joghatóságok esetében több időt vehet igénybe. Ezeknek az önvezető képességeknek a fejlődésével párhuzamosan az autó is folyamatosan fejlődik a vezeték nélküli szoftverfrissítések által."
             },
             {
               "type": "fsd_features",
-              "content": "Feature Details",
+              "content": "Jellemzők",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -7032,11 +7259,11 @@
             },
             {
               "type": "feature_list.default[1].title",
-              "content": "Upcoming:"
+              "content": "Közelgő:"
             },
             {
               "type": "add_fsd_package",
-              "content": "Add",
+              "content": "Hozzáadás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -7058,15 +7285,15 @@
             },
             {
               "type": "selectLabel",
-              "content": "Select Option"
+              "content": "Opció kiválasztása"
             },
             {
               "type": "deselectLabel",
-              "content": "Option Selected"
+              "content": "Opció kiválasztva"
             },
             {
               "type": "remove_fsd_package",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -7083,26 +7310,6 @@
                       "tds-btn--small"
                     ]
                   }
-                }
-              ]
-            },
-            {
-              "type": "#owner_xp:::upgrade.disclaimerOnImage",
-              "content": "Autopilot Required",
-              "behavior": [
-                {
-                  "type": "DISPLAY_CONDITION",
-                  "content": "NO_AUTOPILOT"
-                }
-              ]
-            },
-            {
-              "type": "#owner_xp:::upgrade.text",
-              "content": "Autopilot is a pre-requite for Full Self-Driving Capability and will be added to your cart for an additional price",
-              "behavior": [
-                {
-                  "type": "DISPLAY_CONDITION",
-                  "content": "NO_AUTOPILOT"
                 }
               ]
             }
@@ -7164,22 +7371,22 @@
               ]
             }
           ],
-          "price": 28100,
+          "price": 2860000,
           "pricing": [
             {
               "type": "base",
-              "value": 28100,
-              "context": "AED"
+              "value": 2860000,
+              "context": "HUF"
             },
             {
               "type": "upgrade",
-              "value": 28100,
-              "context": "AED",
+              "value": 2860000,
+              "context": "HUF",
               "set_rules": [
                 {
                   "action": "set",
                   "target": "$APF2",
-                  "target_value": 14100,
+                  "target_value": 1430000,
                   "condition_code": "$APPB",
                   "condition_state": "set",
                   "target_property": "price"
@@ -7188,8 +7395,8 @@
             },
             {
               "type": "trial",
-              "value": 8000,
-              "context": "AED"
+              "value": 2860000,
+              "context": "HUF"
             }
           ]
         },
@@ -7233,35 +7440,35 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Auto Lane Change"
-            },
-            {
-              "type": "feature_list.default[1].title",
-              "content": "Upcoming:"
-            },
-            {
-              "type": "feature_list.default[1].items[0]",
               "content": "Navigate on Autopilot"
             },
             {
-              "type": "feature_list.default[1].items[1]",
-              "content": "Autopark"
+              "type": "feature_list.default[0].items[1]",
+              "content": "Automatikus sávváltás"
             },
             {
-              "type": "feature_list.default[1].items[2]",
+              "type": "feature_list.default[1].main_title",
+              "content": "Közelgő:"
+            },
+            {
+              "type": "feature_list.default[1].items[0]",
+              "content": "Automatikus parkolás"
+            },
+            {
+              "type": "feature_list.default[1].items[1]",
               "content": "Summon"
             },
             {
-              "type": "feature_list.default[1].items[3]",
+              "type": "feature_list.default[1].items[2]",
               "content": "Smart Summon"
             },
             {
               "type": "fsd_features",
-              "content": "Feature Details",
+              "content": "Jellemzők",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -7280,7 +7487,7 @@
             },
             {
               "type": "add_fsd_package",
-              "content": "Add",
+              "content": "Hozzáadás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -7302,15 +7509,15 @@
             },
             {
               "type": "selectLabel",
-              "content": "Select Option"
+              "content": "Opció kiválasztása"
             },
             {
               "type": "deselectLabel",
-              "content": "Option Selected"
+              "content": "Opció kiválasztva"
             },
             {
               "type": "remove_fsd_package",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -7382,22 +7589,22 @@
               ]
             }
           ],
-          "price": 14100,
+          "price": 1430000,
           "pricing": [
             {
               "type": "base",
-              "value": 14100,
-              "context": "AED"
+              "value": 1430000,
+              "context": "HUF"
             },
             {
               "type": "upgrade",
-              "value": 14100,
-              "context": "AED"
+              "value": 1430000,
+              "context": "HUF"
             },
             {
               "type": "trial",
-              "value": 4000,
-              "context": "AED"
+              "value": 1430000,
+              "context": "HUF"
             }
           ]
         },
@@ -7445,17 +7652,17 @@
               "condition_state": "set"
             }
           ],
-          "name": "Performance Brakes",
-          "description": "Performance Brakes",
-          "long_name": "Performance Brakes",
+          "name": "Performance Fékek",
+          "description": "Performance Fékek",
+          "long_name": "Performance Fékek",
           "extra_copy": [
             {
               "type": "description",
-              "content": "Larger, stiffer calipers and lightweight two-piece discs for enhanced performance and thermal capacity"
+              "content": "Nagyobb, merevebb féknyergek és könnyű, kétrészes tárcsák a nagyobb teljesítmény és hőkapacitás érdekében"
             },
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             }
           ],
           "extra_content": [
@@ -7475,6 +7682,14 @@
                   "type": "image"
                 }
               ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "HUF"
             }
           ]
         },
@@ -7502,17 +7717,17 @@
               "condition_state": "unset"
             }
           ],
-          "name": "Standard Connectivity",
-          "description": "Standard Connectivity",
-          "long_name": "Standard Connectivity",
+          "name": "Normál Kapcsolat",
+          "description": "Normál Kapcsolat",
+          "long_name": "Normál Kapcsolat",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             },
             {
               "type": "long_name",
-              "content": "30-Day Premium Connectivity Trial",
+              "content": "30 nap Prémium Kapcsolat-próbaidőszak",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -7533,12 +7748,12 @@
             {
               "type": "base",
               "value": 0,
-              "context": "AED"
+              "context": "HUF"
             },
             {
               "type": "1_month",
               "value": 0,
-              "context": "AED"
+              "context": "HUF"
             }
           ]
         },
@@ -7576,17 +7791,17 @@
               "target": "$CPF0"
             }
           ],
-          "name": "Premium Connectivity",
-          "description": "Premium Connectivity",
-          "long_name": "Premium Connectivity",
+          "name": "Prémium Kapcsolat",
+          "description": "Prémium Kapcsolat",
+          "long_name": "Prémium Kapcsolat",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             },
             {
               "type": "long_name",
-              "content": "30-Day Premium Connectivity Trial"
+              "content": "30 nap Prémium Kapcsolat-próbaidőszak"
             }
           ],
           "extra_content": [],
@@ -7595,12 +7810,12 @@
             {
               "type": "base",
               "value": 0,
-              "context": "AED"
+              "context": "HUF"
             },
             {
               "type": "1_month",
-              "value": 29,
-              "context": "AED"
+              "value": 9.99,
+              "context": "HUF"
             }
           ]
         },
@@ -7652,9 +7867,9 @@
               "condition_state": "unset"
             }
           ],
-          "name": "Rear-Wheel Drive",
-          "description": "Rear-Wheel Drive",
-          "long_name": "Rear-Wheel Drive",
+          "name": "Hátsókerék-hajtás",
+          "description": "Hátsókerék-hajtás",
+          "long_name": "Hátsókerék-hajtás",
           "extra_copy": [
             {
               "type": "price_indicator",
@@ -7734,13 +7949,13 @@
               "target": "$DV2W"
             }
           ],
-          "name": "Dual Motor All-Wheel Drive",
-          "description": "Dual Motor All-Wheel Drive",
-          "long_name": "Dual Motor All-Wheel Drive",
+          "name": "Kétmotoros összkerékhajtás",
+          "description": "Kétmotoros összkerékhajtás",
+          "long_name": "Kétmotoros összkerékhajtás",
           "extra_copy": [
             {
               "type": "disclaimer[0]",
-              "content": "Notify me",
+              "content": "Értesítést kérek",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -7758,7 +7973,7 @@
             },
             {
               "type": "disclaimer[1]",
-              "content": " when all-wheel drive and standard battery options becomes available.",
+              "content": " ha választható lesz az összkerékhajtás és a standard akkumulátor.",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -7770,11 +7985,11 @@
             },
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             },
             {
               "type": "disclaimer_details",
-              "content": "Our motors are efficient and frictionless with only one moving part for minimal maintenance and maximum durability. Model Y has two of these independent motors for improved redundancy and, unlike traditional all-wheel drive systems, they digitally control torque to the front and rear wheels for far better handling and traction control."
+              "content": "Hatékony és súrlódás nélküli motorjaink mindegyike egyetlen mozgó alkatrészt tartalmaz, így minimális karbantartást igényel, és a lehető legtartósabb. A Model Y a nagyobb redundancia érdekében két ilyen független motorral rendelkezik, amelyek a hagyományos összkerékhajtási rendszerektől eltérően digitálisan szabályozzák az első és hátsó kerekekre jutó nyomatékot a sokkal precízebb irányíthatóság és a tapadás megfelelő szabályozása érdekében."
             }
           ],
           "extra_content": [
@@ -7806,6 +8021,14 @@
                 }
               ]
             }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "HUF"
+            }
           ]
         },
         "$FM3U": {
@@ -7835,34 +8058,20 @@
               "target": "$FM3U"
             }
           ],
-          "name": "Acceleration Boost",
-          "description": "Acceleration Boost",
-          "long_name": "Acceleration Boost",
-          "extra_copy": [
-            {
-              "type": "description",
-              "content": "Improve your 0-100 km/h acceleration from 5.0 seconds to 4.4 seconds."
-            },
-            {
-              "type": "feature_list.default[0].iconList[0]",
-              "content": "From 0-60 mph"
-            },
-            {
-              "type": "feature_list.default[0].iconList[1]",
-              "content": "From 0-60 mph"
-            }
-          ],
-          "price": 8000,
+          "name": "Gyorsulásfokozás",
+          "description": "Gyorsulásfokozás",
+          "long_name": "Gyorsulásfokozás",
+          "price": 0,
           "pricing": [
             {
               "type": "base",
-              "value": 8000,
-              "context": "AED"
+              "value": 0,
+              "context": "HUF"
             },
             {
               "type": "upgrade",
-              "value": 8000,
-              "context": "AED"
+              "value": 700000,
+              "context": "HUF"
             }
           ]
         },
@@ -7885,16 +8094,16 @@
             }
           ],
           "name": "Model Y",
-          "description": "Deliveries are beginning in the US based on date of order and options selected.",
+          "description": "Az átadások az USA-ban a megrendelés dátumától és a választott opcióktól függően kezdődnek el.",
           "long_name": "Model Y",
           "extra_copy": [
             {
               "type": "learn_more",
-              "content": "Learn More about Model Y deliveries"
+              "content": "További információ a Model Y átadásáról"
             },
             {
               "type": "faq",
-              "content": "Model Y FAQs",
+              "content": "Model Y GYIK",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -7907,18 +8116,6 @@
                   }
                 }
               ]
-            },
-            {
-              "type": "product_description",
-              "content": "Model Y Reservation"
-            },
-            {
-              "type": "product_description_used",
-              "content": "Model Y Used Reservation"
-            },
-            {
-              "type": "product_description_return",
-              "content": "Model Y Return Reservation"
             }
           ],
           "extra_content": [
@@ -7932,22 +8129,37 @@
               ]
             }
           ],
-          "price": 149990,
+          "price": 14999000,
           "pricing": [
             {
               "type": "base",
-              "value": 149990,
-              "context": "AED"
+              "value": 14999000,
+              "context": "HUF"
+            },
+            {
+              "type": "reservation_deposit",
+              "value": 1000,
+              "context": "HUF"
             },
             {
               "type": "order_fee",
               "value": 0,
-              "context": "AED"
+              "context": "HUF"
+            },
+            {
+              "type": "order_payment",
+              "value": 0,
+              "context": "HUF"
+            },
+            {
+              "type": "non_refundable_order_payment_used",
+              "value": 0,
+              "context": "HUF"
             },
             {
               "type": "non_refundable_order_payment",
-              "value": 5000,
-              "context": "AED"
+              "value": 85000,
+              "context": "HUF"
             }
           ]
         },
@@ -7990,11 +8202,11 @@
           ],
           "name": "Solid Black",
           "description": "Solid Black",
-          "long_name": "Solid Black Paint",
+          "long_name": "Solid Black fényezés",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             }
           ],
           "extra_content": [
@@ -8016,12 +8228,12 @@
               ]
             }
           ],
-          "price": 4500,
+          "price": 460000,
           "pricing": [
             {
               "type": "base",
-              "value": 4500,
-              "context": "AED"
+              "value": 460000,
+              "context": "HUF"
             }
           ]
         },
@@ -8069,18 +8281,18 @@
               "condition_state": "set"
             }
           ],
-          "name": "Performance Pedals",
-          "description": "Performance Pedals",
-          "long_name": "Performance Pedals",
-          "long_description": "Performance Pedals",
+          "name": "Performance Pedálok",
+          "description": "Performance Pedálok",
+          "long_name": "Performance Pedálok",
+          "long_description": "Performance Pedálok",
           "extra_copy": [
             {
               "type": "description",
-              "content": "Designed with aluminum alloy for enhanced interior styling"
+              "content": "Alumíniumötvözettel tervezve a még tökélesebb belső tér érdekében"
             },
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             }
           ],
           "extra_content": [
@@ -8100,6 +8312,14 @@
                   "view": "STUD_DRIVER"
                 }
               ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "HUF"
             }
           ]
         },
@@ -8149,11 +8369,11 @@
           ],
           "name": "Quicksilver",
           "description": "Quicksilver",
-          "long_name": "Quicksilver Paint",
+          "long_name": "Quicksilver fényezés",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             }
           ],
           "extra_content": [
@@ -8175,12 +8395,12 @@
               ]
             }
           ],
-          "price": 11000,
+          "price": 1220000,
           "pricing": [
             {
               "type": "base",
-              "value": 11000,
-              "context": "AED"
+              "value": 1220000,
+              "context": "HUF"
             }
           ]
         },
@@ -8223,11 +8443,11 @@
           ],
           "name": "Deep Blue Metallic",
           "description": "Deep Blue Metallic",
-          "long_name": "Deep Blue Metallic Paint",
+          "long_name": "Deep Blue Metallic fényezés",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             }
           ],
           "extra_content": [
@@ -8249,12 +8469,12 @@
               ]
             }
           ],
-          "price": 6000,
+          "price": 640000,
           "pricing": [
             {
               "type": "base",
-              "value": 6000,
-              "context": "AED"
+              "value": 640000,
+              "context": "HUF"
             }
           ]
         },
@@ -8298,11 +8518,11 @@
           ],
           "name": "Pearl White Multi-Coat",
           "description": "Pearl White",
-          "long_name": "Pearl White Paint",
+          "long_name": "Pearl White fényezés",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             }
           ],
           "extra_content": [
@@ -8329,7 +8549,7 @@
             {
               "type": "base",
               "value": 0,
-              "context": "AED"
+              "context": "HUF"
             }
           ]
         },
@@ -8379,11 +8599,11 @@
           ],
           "name": "Midnight Cherry Red",
           "description": "Midnight Cherry Red",
-          "long_name": "Midnight Cherry Red Paint",
+          "long_name": "Midnight Cherry Red fényezés",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             }
           ],
           "extra_content": [
@@ -8405,12 +8625,12 @@
               ]
             }
           ],
-          "price": 12000,
+          "price": 1300000,
           "pricing": [
             {
               "type": "base",
-              "value": 12000,
-              "context": "AED"
+              "value": 1300000,
+              "context": "HUF"
             }
           ]
         },
@@ -8435,13 +8655,21 @@
               "target": "$SC04"
             }
           ],
-          "name": "Supercharger Network Access + Pay-as-you-go",
-          "description": "Supercharger Network Access + Pay-as-you-go",
-          "long_name": "Supercharger Network Access + Pay-as-you-go",
+          "name": "Hozzáférés a Supercharger töltőponthálózathoz + használatalapú fizetés",
+          "description": "Hozzáférés a Supercharger töltőponthálózathoz + használatalapú fizetés",
+          "long_name": "Hozzáférés a Supercharger töltőponthálózathoz + használatalapú fizetés",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "optional"
+              "content": "választható"
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "HUF"
             }
           ]
         },
@@ -8505,30 +8733,30 @@
               ]
             }
           ],
-          "name": "Carbon Fiber Spoiler",
-          "description": "Carbon Fiber Spoiler",
-          "long_name": "Carbon Fiber Spoiler",
-          "long_description": "Carbon Fiber Spoiler",
+          "name": "Szénszálas légterelő",
+          "description": "Szénszálas légterelő",
+          "long_name": "Szénszálas légterelő",
+          "long_description": "Szénszálas légterelő",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             },
             {
               "type": "disclaimer",
-              "content": "Carbon fiber spoiler and Dual Motor badge available for installation after your delivery"
+              "content": "A szénszálas légterelő és a Dual Motor-embléma az átadás után építhető be."
             },
             {
               "type": "selectLabel",
-              "content": "Select Option"
+              "content": "Opció kiválasztása"
             },
             {
               "type": "deselectLabel",
-              "content": "Option Selected"
+              "content": "Opció kiválasztva"
             },
             {
               "type": "description",
-              "content": "For enhanced aerodynamics and improved stability at high speeds"
+              "content": "A még tökéletesebb aerodinamika és a nagy sebességnél is kitűnő stabilitás érdekében"
             }
           ],
           "extra_content": [
@@ -8571,6 +8799,14 @@
                 }
               ]
             }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "HUF"
+            }
           ]
         },
         "$TW01": {
@@ -8590,26 +8826,26 @@
               "target": "$TW01"
             }
           ],
-          "name": "Tow Hitch",
-          "description": "Tow Hitch",
-          "long_name": "Tow Hitch",
-          "long_description": "Tow Hitch",
+          "name": "Vonóhorog",
+          "description": "Vonóhorog",
+          "long_name": "Vonóhorog",
+          "long_description": "Vonóhorog",
           "extra_copy": [
             {
               "type": "selectLabel",
-              "content": "Select Option"
+              "content": "Opció kiválasztása"
             },
             {
               "type": "deselectLabel",
-              "content": "Option Selected"
+              "content": "Opció kiválasztva"
             },
             {
               "type": "description",
-              "content": "High strength, Class II steel tow bar capable of towing up to 1,600 kg"
+              "content": "Nagy szilárdságú, Class II acél vonóhorog. Legfeljebb 1600 kg vontatására alkalmas"
             },
             {
               "type": "add_tow_hitch",
-              "content": "Add",
+              "content": "Hozzáadás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -8631,7 +8867,7 @@
             },
             {
               "type": "remove_tow_hitch",
-              "content": "Remove",
+              "content": "Eltávolítás",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -8698,12 +8934,12 @@
               ]
             }
           ],
-          "price": 5000,
+          "price": 515000,
           "pricing": [
             {
               "type": "base",
-              "value": 5000,
-              "context": "AED"
+              "value": 515000,
+              "context": "HUF"
             }
           ]
         },
@@ -8750,53 +8986,53 @@
               ]
             }
           ],
-          "name": "All Black Premium Interior",
-          "description": "All Black Premium Interior",
-          "long_name": "All Black Premium Interior",
+          "name": "Teljesen fekete Prémium belső tér",
+          "description": "Teljesen fekete Prémium belső tér",
+          "long_name": "Teljesen fekete Prémium belső tér",
           "extra_copy": [
             {
               "type": "name",
-              "content": "All Black"
+              "content": "Teljesen fekete"
             },
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             },
             {
               "type": "spec_description",
-              "content": "Black leather interior"
+              "content": "Fekete bőr belső tér"
             },
             {
               "type": "feature_list.default[0].main_title",
-              "content": "Includes:"
+              "content": "A következőket tartalmazza:"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "12-way power adjustable front and rear heated seats"
+              "content": "Elektromosan, 12 irányban állítható első és hátsó fűtött ülések"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Independently folding 2nd row seats"
+              "content": "Függetlenül lehajtható ülések a második sorban"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Premium audio – 13 speakers, 1 subwoofer, 2 amps, and immersive sound"
+              "content": "Prémium audiorendszer – 13 hangszóró, 1 mélynyomó, 2 erősítő és magával ragadó hangzás"
             },
             {
               "type": "feature_list.default[1].items[0].main_title",
-              "content": "Premium Connectivity (1 year included):"
+              "content": "Prémium Kapcsolat (1 év a vételárba beszámítva):"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[0]",
-              "content": "Satellite maps with live traffic visualization"
+              "content": "Műholdas térképek élő forgalommegjelenítéssel"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[1]",
-              "content": "In-car internet streaming music and media"
+              "content": "Az autó streamingfunkciójával lejátszható internetes zene és multimédia"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[2]",
-              "content": "Video streaming"
+              "content": "Videóstreamelés"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[3]",
@@ -8804,31 +9040,31 @@
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[4]",
-              "content": "Internet browser"
+              "content": "Internetböngésző"
             },
             {
               "type": "feature_list.default[2].items[0]",
-              "content": "Music and media over Bluetooth®"
+              "content": "Zene és multimédia Bluetooth®-on keresztül"
             },
             {
               "type": "feature_list.default[2].items[2]",
-              "content": "Tinted glass roof with ultraviolet and infrared protection"
+              "content": "Színezett panorámatető ultraibolya- és infravörös-védelemmel"
             },
             {
               "type": "feature_list.default[2].items[3]",
-              "content": "Power folding, auto-dimming, heated side mirrors"
+              "content": "Elektromosan behajtható, automatikusan sötétedő, fűtött külső tükrök"
             },
             {
               "type": "feature_list.default[2].items[4]",
-              "content": "Custom driver profiles"
+              "content": "Egyéni vezetői profilok"
             },
             {
               "type": "feature_list.default[2].items[5]",
-              "content": "Center console with storage, 4 USB ports and docking for 2 smartphones"
+              "content": "Tárhellyel, 4 USB-aljzattal és 2 okostelefondokkal rendelkező középkonzol"
             },
             {
               "type": "view_details_collapsed",
-              "content": "Show Details",
+              "content": "Részletek megjelenítése",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -8849,7 +9085,7 @@
             },
             {
               "type": "view_details_expanded",
-              "content": "Hide Details",
+              "content": "Részletek elrejtése",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -8904,7 +9140,7 @@
             {
               "type": "base",
               "value": 0,
-              "context": "AED"
+              "context": "HUF"
             }
           ]
         },
@@ -8950,21 +9186,21 @@
               ]
             }
           ],
-          "name": "Black and White Premium Interior",
-          "description": "Black and White Premium Interior",
-          "long_name": "Black and White Premium Interior",
+          "name": "Fekete-fehér Prémium belső tér",
+          "description": "Fekete-fehér Prémium belső tér",
+          "long_name": "Fekete-fehér Prémium belső tér",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Black and White"
+              "content": "Fekete-fehér"
             },
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             },
             {
               "type": "recommended_NA_NA",
-              "content": "Recommended",
+              "content": "Ajánlott",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -8982,43 +9218,43 @@
             },
             {
               "type": "recommended_NA_content",
-              "content": "Black and White interior includes our most premium materials, maximizing comfort and aesthetics while maintaining our rigorous standards for durability and stain resistance."
+              "content": "A fekete-fehér belső tér a legkiválóbb anyagokat vonultatja fel, és úgy nyújtja a lehető legnagyobb kényelmet és a legesztétikusabb megjelenést, hogy eleget tesz a tartósságra és folttaszítóságra vonatkozó szigorú szabványainknak is."
             },
             {
               "type": "spec_description",
-              "content": "White leather interior"
+              "content": "Fehér bőr belső tér"
             },
             {
               "type": "feature_list.default[0].main_title",
-              "content": "Includes:"
+              "content": "A következőket tartalmazza:"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "12-way power adjustable front and rear heated seats"
+              "content": "Elektromosan, 12 irányban állítható első és hátsó fűtött ülések"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Independently folding 2nd row seats"
+              "content": "Függetlenül lehajtható ülések a második sorban"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Premium audio – 13 speakers, 1 subwoofer, 2 amps, and immersive sound"
+              "content": "Prémium audiorendszer – 13 hangszóró, 1 mélynyomó, 2 erősítő és magával ragadó hangzás"
             },
             {
               "type": "feature_list.default[1].items[0].main_title",
-              "content": "Premium Connectivity (1 year included):"
+              "content": "Prémium Kapcsolat (1 év a vételárba beszámítva):"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[0]",
-              "content": "Satellite maps with live traffic visualization"
+              "content": "Műholdas térképek élő forgalommegjelenítéssel"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[1]",
-              "content": "In-car internet streaming music and media"
+              "content": "Az autó streamingfunkciójával lejátszható internetes zene és multimédia"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[2]",
-              "content": "Video streaming"
+              "content": "Videóstreamelés"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[3]",
@@ -9026,31 +9262,31 @@
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[4]",
-              "content": "Internet browser"
+              "content": "Internetböngésző"
             },
             {
               "type": "feature_list.default[2].items[0]",
-              "content": "Music and media over Bluetooth®"
+              "content": "Zene és multimédia Bluetooth®-on keresztül"
             },
             {
               "type": "feature_list.default[2].items[2]",
-              "content": "Tinted glass roof with ultraviolet and infrared protection"
+              "content": "Színezett panorámatető ultraibolya- és infravörös-védelemmel"
             },
             {
               "type": "feature_list.default[2].items[3]",
-              "content": "Power folding, auto-dimming, heated side mirrors"
+              "content": "Elektromosan behajtható, automatikusan sötétedő, fűtött külső tükrök"
             },
             {
               "type": "feature_list.default[2].items[4]",
-              "content": "Custom driver profiles"
+              "content": "Egyéni vezetői profilok"
             },
             {
               "type": "feature_list.default[2].items[5]",
-              "content": "Center console with storage, 4 USB ports and docking for 2 smartphones"
+              "content": "Tárhellyel, 4 USB-aljzattal és 2 okostelefondokkal rendelkező középkonzol"
             },
             {
               "type": "view_details_collapsed",
-              "content": "Show Details",
+              "content": "Részletek megjelenítése",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -9071,7 +9307,7 @@
             },
             {
               "type": "view_details_expanded",
-              "content": "Hide Details",
+              "content": "Részletek elrejtése",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -9129,12 +9365,12 @@
               ]
             }
           ],
-          "price": 4500,
+          "price": 458000,
           "pricing": [
             {
               "type": "base",
-              "value": 4500,
-              "context": "AED"
+              "value": 458000,
+              "context": "HUF"
             }
           ]
         },
@@ -9156,10 +9392,6 @@
                 ]
               },
               {
-                "action": "unset",
-                "target": "$TW01"
-              },
-              {
                 "action": "set",
                 "target": "$PR00",
                 "condition_code": "$PPMR",
@@ -9170,6 +9402,10 @@
                 "target": "$PN00",
                 "condition_code": "$PMNG",
                 "condition_state": "set"
+              },
+              {
+                "action": "unset",
+                "target": "$TW01"
               }
             ]
           },
@@ -9203,10 +9439,6 @@
               ]
             },
             {
-              "action": "unset",
-              "target": "$TW01"
-            },
-            {
               "action": "set",
               "target": "$PR00",
               "condition_code": "$PPMR",
@@ -9217,6 +9449,10 @@
               "target": "$PN00",
               "condition_code": "$PMNG",
               "condition_state": "set"
+            },
+            {
+              "action": "unset",
+              "target": "$TW01"
             }
           ],
           "unset_rules": [
@@ -9237,9 +9473,9 @@
               ]
             }
           ],
-          "name": "Long Range All-Wheel Drive",
+          "name": "Long Range összkerékhajtás",
           "description": "Model Y Long Range AWD",
-          "long_name": "Model Y Long Range Dual Motor All-Wheel Drive",
+          "long_name": "Model Y Long Range kétmotoros összkerékhajtás",
           "long_description": "Model Y Long Range AWD",
           "extra_copy": [
             {
@@ -9248,19 +9484,15 @@
             },
             {
               "type": "disclaimer_details",
-              "content": "Tesla All-Wheel Drive has two independent motors for improved redundancy, each with only one moving part for minimal maintenance and maximum durability. Unlike traditional all-wheel drive systems, they digitally control torque to the front and rear wheels for far better handling and traction control."
+              "content": "A Tesla összkerékhajtása a nagyobb redundancia érdekében két független motorral rendelkezik, melyek mindegyike egyetlen mozgó alkatrészt tartalmaz, így minimális karbantartást igényel, és a lehető legtartósabb. A hagyományos összkerékhajtási rendszerektől eltérően ezek a motorok digitálisan szabályozzák az első és hátsó kerekekre jutó nyomatékot a sokkal precízebb irányíthatóság és a tapadás megfelelő szabályozása érdekében."
             },
             {
               "type": "long_name",
-              "content": "Model Y Long Range Dual Motor All-Wheel Drive"
-            },
-            {
-              "type": "delivery_date",
-              "content": "Est. Delivery: Early 2022"
+              "content": "Model Y Long Range kétmotoros összkerékhajtás"
             },
             {
               "type": "drive_mode",
-              "content": "Dual Motor All-Wheel Drive"
+              "content": "Kétmotoros összkerékhajtás"
             }
           ],
           "extra_content": [
@@ -9309,17 +9541,17 @@
               ]
             }
           ],
-          "price": 74000,
+          "price": 8095900,
           "pricing": [
             {
               "type": "base",
-              "value": 74000,
-              "context": "AED"
+              "value": 8095900,
+              "context": "HUF"
             },
             {
               "type": "base_plus_trim",
-              "value": 223990,
-              "context": "AED"
+              "value": 23094900,
+              "context": "HUF"
             }
           ]
         },
@@ -9458,26 +9690,26 @@
               ]
             }
           ],
-          "name": "Performance All-Wheel Drive",
+          "name": "Performance összkerékhajtás",
           "description": "Model Y Performance AWD",
-          "long_name": "Model Y Long Range All-Wheel Drive Performance",
+          "long_name": "Model Y Performance kétmotoros összkerékhajtás",
           "long_description": "Model Y Performance AWD",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Performance"
+              "content": "Model Y Performance"
             },
             {
               "type": "price_indicator",
-              "content": "Optional"
+              "content": "Választható"
             },
             {
               "type": "compare_matrix.block[0].label",
-              "content": "Acceleration"
+              "content": "Gyorsulás"
             },
             {
               "type": "compare_matrix.block[0].content",
-              "content": "3.5s 0-100 km/h"
+              "content": "3,5 s 0–100 km/h"
             },
             {
               "type": "compare_matrix.block[1].label",
@@ -9485,19 +9717,19 @@
             },
             {
               "type": "compare_matrix.block[1].content",
-              "content": "Dual Motor All-wheel Drive"
+              "content": "Kétmotoros összkerékhajtás"
             },
             {
               "type": "disclaimer_details",
-              "content": "Tesla All-Wheel Drive has two independent motors for improved redundancy, each with only one moving part for minimal maintenance and maximum durability. Unlike traditional all-wheel drive systems, they digitally control torque to the front and rear wheels for far better handling and traction control."
+              "content": "A Tesla összkerékhajtása a nagyobb redundancia érdekében két független motorral rendelkezik, melyek mindegyike egyetlen mozgó alkatrészt tartalmaz, így minimális karbantartást igényel, és a lehető legtartósabb. A hagyományos összkerékhajtási rendszerektől eltérően ezek a motorok digitálisan szabályozzák az első és hátsó kerekekre jutó nyomatékot a sokkal precízebb irányíthatóság és a tapadás megfelelő szabályozása érdekében."
             },
             {
               "type": "long_name",
-              "content": "Model Y Performance Dual Motor All-Wheel Drive"
+              "content": "Model Y Performance kétmotoros összkerékhajtás"
             },
             {
               "type": "drive_mode",
-              "content": "Dual Motor All-Wheel Drive"
+              "content": "Kétmotoros összkerékhajtás"
             }
           ],
           "extra_content": [
@@ -9557,17 +9789,17 @@
               ]
             }
           ],
-          "price": 86000,
+          "price": 9970900,
           "pricing": [
             {
               "type": "base",
-              "value": 86000,
-              "context": "AED"
+              "value": 9970900,
+              "context": "HUF"
             },
             {
               "type": "base_plus_trim",
-              "value": 235990,
-              "context": "AED"
+              "value": 24969900,
+              "context": "HUF"
             }
           ]
         },
@@ -9701,10 +9933,10 @@
               ]
             }
           ],
-          "name": "Model Y Rear-Wheel Drive",
-          "description": "Model Y Rear-Wheel Drive",
-          "long_name": "Model Y Rear-Wheel Drive",
-          "long_description": "Model Y Rear-Wheel Drive",
+          "name": "Model Y hátsókerék-hajtás",
+          "description": "Model Y hátsókerék-hajtás",
+          "long_name": "Model Y hátsókerék-hajtás",
+          "long_description": "Model Y hátsókerék-hajtás",
           "extra_copy": [
             {
               "type": "name",
@@ -9712,11 +9944,11 @@
             },
             {
               "type": "long_name",
-              "content": "Model Y Rear-Wheel Drive"
+              "content": "Model Y hátsókerék-hajtás"
             },
             {
               "type": "drive_mode",
-              "content": "Rear-Wheel Drive"
+              "content": "Hátsókerék-hajtás"
             }
           ],
           "extra_content": [
@@ -9741,17 +9973,17 @@
               ]
             }
           ],
-          "price": 44000,
+          "price": 5095900,
           "pricing": [
             {
               "type": "base",
-              "value": 44000,
-              "context": "AED"
+              "value": 5095900,
+              "context": "HUF"
             },
             {
               "type": "base_plus_trim",
-              "value": 193990,
-              "context": "AED"
+              "value": 20094900,
+              "context": "HUF"
             }
           ]
         },
@@ -9777,21 +10009,21 @@
               "target": "$PRMY1"
             }
           ],
-          "name": "Premium Interior",
-          "description": "<p>Upgrade your interior with additional features and premium materials.</p><ul><li><span>Premium heated seating and cabin materials throughout, including open pore wood décor, glass roof and four USB ports</span></li><li><span>12-way power adjustable front seats, steering column and side mirrors, with custom driver profiles</span></li><li><span>Premium audio system with more power, tweeters, surround speakers and subwoofer</span></li></ul>",
-          "long_name": "Premium Interior",
+          "name": "Prémium belső tér",
+          "description": "<p>Az utastér további funkciókkal és prémium minőségű anyagokkal egészíthető ki.</p><ul><li><span>Prémium szintű ülésfűtés és anyagok az utastérben, natúr fa dekorelemekkel, panorámatetővel és négy USB-aljzattal</span></li><li><span>12 irányban, elektromosan állítható első ülések, kormányoszlop és külső tükrök, valamint egyéni vezetői profilok</span></li><li><span>Még nagyobb teljesítményű prémium audiorendszer magassugárzókkal, térhangszórókkal és mélynyomóval</span></li></ul>",
+          "long_name": "Prémium belső tér",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Premium"
+              "content": "Prémium"
             },
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             },
             {
               "type": "short_description",
-              "content": "Our premium package adds upgraded features throughout Model Y"
+              "content": "Prémium csomagunk a Model Y egészében magasabb színvonalat kínál"
             }
           ],
           "extra_content": [
@@ -9802,6 +10034,14 @@
                   "type": "block"
                 }
               ]
+            }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "HUF"
             }
           ]
         },
@@ -9909,50 +10149,50 @@
               ]
             }
           ],
-          "name": "Performance Upgrade",
-          "description": "Performance Upgrade",
-          "long_name": "Performance Upgrade",
-          "long_description": "Performance Upgrade",
+          "name": "Performance-extrák",
+          "description": "Performance-extrák",
+          "long_name": "Performance-extrák",
+          "long_description": "Performance-extrák",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             },
             {
               "type": "selectLabel",
-              "content": "Add Performance Upgrade"
+              "content": "Performance-extra hozzáadása"
             },
             {
               "type": "deselectLabel",
-              "content": "Performance Upgrade Added"
+              "content": "Performance-extra hozzáadva"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Top Speed: up to 250 km/h"
+              "content": "Végsebesség: akár 250 km/h"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "21’’ Überturbine Wheels"
+              "content": "21\" Überturbine felnik"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Performance Brakes"
+              "content": "Performance Fékek"
             },
             {
               "type": "feature_list.default[0].items[3]",
-              "content": "Lowered suspension"
+              "content": "Alacsonyabb felfüggesztés"
             },
             {
               "type": "feature_list.default[0].items[4]",
-              "content": "Aluminum alloy pedals"
+              "content": "Alumíniumötvözetből készült pedálok"
             },
             {
               "type": "feature_list.default[0].items[5]",
-              "content": "Carbon fiber spoiler"
+              "content": "Szénszálas légterelő"
             },
             {
               "type": "performance_upgrade_features",
-              "content": "Learn More",
+              "content": "További információ",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -10001,6 +10241,14 @@
                 }
               ]
             }
+          ],
+          "price": 0,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 0,
+              "context": "HUF"
+            }
           ]
         },
         "$STY5S": {
@@ -10027,13 +10275,13 @@
               "condition_state": "unset"
             }
           ],
-          "name": "Five Seat Interior",
-          "description": "Five Seat Interior",
-          "long_name": "Five Seat Interior",
+          "name": "Ötüléses belső tér",
+          "description": "Ötüléses belső tér",
+          "long_name": "Ötüléses belső tér",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             },
             {
               "type": "short_name",
@@ -10041,15 +10289,15 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Second row with adjustable seatbacks"
+              "content": "Második sor állítható üléstámlákkal"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Fold-flat second row for maximum cargo storage"
+              "content": "Síkba lehajtható második sor a maximális csomagtér érdekében"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Electronic fold-flat releases in trunk"
+              "content": "Elektronikus üléslehajtás-kioldók a csomagtartóban"
             }
           ],
           "extra_content": [
@@ -10067,7 +10315,7 @@
             {
               "type": "base",
               "value": 0,
-              "context": "AED"
+              "context": "HUF"
             }
           ]
         },
@@ -10093,9 +10341,9 @@
               "target": "$STY5S"
             }
           ],
-          "name": "Seven Seat Interior",
-          "description": "Seven Seat Interior",
-          "long_name": "Seven Seat Interior",
+          "name": "Hétüléses belső tér",
+          "description": "Hétüléses belső tér",
+          "long_name": "Hétüléses belső tér",
           "extra_copy": [
             {
               "type": "short_name",
@@ -10103,27 +10351,27 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Third row seating for two"
+              "content": "Ülőhely a harmadik sorban két személynek"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Easy Entry into third row"
+              "content": "Egyszerű beszállás a harmadik sorba"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Third row USB-C charging"
+              "content": "Harmadik sori USB-C töltés"
             },
             {
               "type": "feature_list.default[0].items[3]",
-              "content": "Sliding second row with adjustable seatbacks"
+              "content": "Elcsúsztatható második sor állítható üléstámlákkal"
             },
             {
               "type": "feature_list.default[0].items[4]",
-              "content": "Fold-flat second and third rows for maximum cargo storage"
+              "content": "Síkba lehajtható második és harmadik sor a maximális csomagtér érdekében"
             },
             {
               "type": "feature_list.default[0].items[5]",
-              "content": "Electronic fold-flat releases in trunk"
+              "content": "Elektronikus üléslehajtás-kioldók a csomagtartóban"
             }
           ],
           "extra_content": [
@@ -10145,6 +10393,14 @@
                   "condition_state": "and"
                 }
               ]
+            }
+          ],
+          "price": 3000,
+          "pricing": [
+            {
+              "type": "base",
+              "value": 3000,
+              "context": "HUF"
             }
           ]
         },
@@ -10185,15 +10441,64 @@
               "target": "$WWY00"
             }
           ],
-          "name": "19\" Pirelli Winter Tire Set",
-          "description": "19\" Pirelli Winter Tire Set",
-          "long_name": "19\" Pirelli Winter Tire Set",
+          "name": "19\" Pirelli téli gumiabroncskészlet",
+          "description": "A Pirelli Sottozero 3 téli abroncsokat az alacsony gördülési ellenállás mellett a havas úton is jó tapadás jellemzi. Ez a készlet négy 19\" Sport felnit tartalmaz, felszerelt abroncsokkal.",
+          "long_name": "19\" Pirelli téli gumiabroncsok Sport felnikkel",
+          "extra_copy": [
+            {
+              "type": "short_description",
+              "content": "A Pirelli Sottozero 3 téli abroncsokat az alacsony gördülési ellenállás mellett a havas úton is jó tapadás jellemzi. Ez a készlet négy 19\" Sport felnit tartalmaz, felszerelt abroncsokkal."
+            }
+          ],
+          "extra_content": [
+            {
+              "type": "shape",
+              "content": [
+                {
+                  "type": "circular"
+                }
+              ]
+            },
+            {
+              "type": "disabled",
+              "content": [
+                {
+                  "content": true,
+                  "configuration": [
+                    "WWY00"
+                  ],
+                  "condition_state": "and"
+                }
+              ]
+            },
+            {
+              "type": "asset",
+              "content": [
+                {
+                  "url": "MODEL3/UI/Sottozero-Selector@3x.png",
+                  "type": "image"
+                }
+              ]
+            },
+            {
+              "type": "hidden",
+              "content": [
+                {
+                  "selected_by": {
+                    "and": [
+                      "$MTY12"
+                    ]
+                  }
+                }
+              ]
+            }
+          ],
           "price": 0,
           "pricing": [
             {
               "type": "base",
               "value": 0,
-              "context": "AED"
+              "context": "HUF"
             }
           ]
         },
@@ -10244,13 +10549,13 @@
               ]
             }
           ],
-          "name": "19’’ Gemini Wheels",
-          "description": "19’’ Gemini Wheels",
-          "long_name": "19’’ Gemini Wheels",
+          "name": "19\" Gemini felnik",
+          "description": "19\" Gemini felnik",
+          "long_name": "19\" Gemini felnik",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             }
           ],
           "extra_content": [
@@ -10288,7 +10593,7 @@
             {
               "type": "base",
               "value": 0,
-              "context": "AED"
+              "context": "HUF"
             }
           ]
         },
@@ -10336,14 +10641,14 @@
               "condition_state": "unset"
             }
           ],
-          "name": "20’’ Induction Wheels",
-          "description": "20’’ Induction Wheels",
-          "long_name": "20’’ Induction Wheels",
-          "long_description": "20’’ Induction Wheels",
+          "name": "20\" Induction felnik",
+          "description": "20\" Induction felnik",
+          "long_name": "20\" Induction felnik",
+          "long_description": "20\" Induction felnik",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             }
           ],
           "extra_content": [
@@ -10376,12 +10681,30 @@
               ]
             }
           ],
-          "price": 8500,
+          "price": 878000,
           "pricing": [
             {
               "type": "base",
-              "value": 8500,
-              "context": "AED"
+              "value": 878000,
+              "context": "HUF",
+              "set_rules": [
+                {
+                  "action": "set",
+                  "target": "$WY20P",
+                  "target_value": 0,
+                  "condition_code": "$MTY04",
+                  "condition_state": "set",
+                  "target_property": "price"
+                },
+                {
+                  "action": "set",
+                  "target": "$WY20P",
+                  "target_value": 0,
+                  "condition_code": "$MTY05",
+                  "condition_state": "set",
+                  "target_property": "price"
+                }
+              ]
             }
           ]
         },
@@ -10428,14 +10751,14 @@
               "condition_state": "unset"
             }
           ],
-          "name": "21’’ Überturbine Wheels",
-          "description": "21’’ Überturbine Wheels",
-          "long_name": "21’’ Überturbine Wheels",
-          "long_description": "21’’ Überturbine Wheels",
+          "name": "21\" Überturbine felnik",
+          "description": "21\" Überturbine felnik",
+          "long_name": "21\" Überturbine felnik",
+          "long_description": "21\" Überturbine felnik",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Included"
+              "content": "Alapfelszereltség"
             }
           ],
           "extra_content": [
@@ -10484,7 +10807,7 @@
             {
               "type": "base",
               "value": 0,
-              "context": "AED"
+              "context": "HUF"
             }
           ]
         }
@@ -10544,40 +10867,40 @@
                 },
                 "unit_definitions": {
                   "seconds": {
-                    "label": "seconds",
+                    "label": "másodperc",
                     "short_label": "s"
                   },
                   "per-month": {
-                    "label": " /mo",
-                    "short_label": " /mo"
+                    "label": " /hó",
+                    "short_label": " /hó"
                   },
                   "kilometers": {
-                    "label": "kilometers",
+                    "label": "kilométer",
                     "short_label": "km"
                   },
                   "range_units": {
-                    "label": "Range"
+                    "label": "Hatótávolság"
                   },
                   "range_units_epa": {
-                    "label": "Range (WLTP est.)"
+                    "label": "Hatótávolság (WLTP)"
                   },
                   "range_units_est": {
-                    "label": "Range (WLTP est.)"
+                    "label": "Hatótávolság (WLTP-becslés)"
                   },
                   "top_speed_units": {
-                    "label": "Top Speed",
+                    "label": "Végsebesség",
                     "short_label": "km/h"
                   },
                   "zero_to_road_limit": {
-                    "label": "0-100 km/h",
-                    "short_label": "0-100 km/h"
+                    "label": "0–100 km/h",
+                    "short_label": "0–100 km/h"
                   },
                   "kilometers-per-hour": {
-                    "label": "kilometers per hour",
+                    "label": "kilométer per óra",
                     "short_label": "km/h"
                   },
                   "range_units_epa_link": {
-                    "label": "Range",
+                    "label": "Hatótávolság",
                     "content": "(WLTP)",
                     "behavior": [
                       {
@@ -10589,8 +10912,8 @@
                     ]
                   },
                   "range_units_est_link": {
-                    "label": "Range",
-                    "content": "(WLTP est.)",
+                    "label": "Hatótávolság",
+                    "content": "(WLTP -becslés)",
                     "behavior": [
                       {
                         "type": "ACTION",
@@ -10775,16 +11098,16 @@
             }
           }
         },
-        "currency_code": "AED",
-        "currency_symbol": "AED",
+        "currency_code": "HUF",
+        "currency_symbol": "Ft",
         "pricing": {
           "context_mapping": {
-            "default": "AED"
+            "default": "HUF"
           },
           "context_currency_mapping": {
             "default": {
-              "currency_code": "AED",
-              "currency_symbol": "AED"
+              "currency_code": "HUF",
+              "currency_symbol": "Ft"
             }
           }
         }
@@ -10993,7 +11316,6 @@
       ],
       "agent_version": 101,
       "extra_factories": [
-        "GF03",
         "GF05"
       ],
       "base_configuration": [
@@ -11009,11 +11331,15 @@
         "$SC04",
         "$INPB0"
       ],
-      "options_id": 8554,
+      "options_id": 8533,
       "warnings": [
         {
           "type": "MISSING_PRICE",
           "message": "The discountable group's, option '$MTY03' is not defined in the pricing lexicon."
+        },
+        {
+          "type": "MISSING_PRICE",
+          "message": "The discountable group's, option '$MTY04' is not defined in the pricing lexicon."
         },
         {
           "type": "MISSING_PRICE",
@@ -11022,10 +11348,6 @@
         {
           "type": "MISSING_PRICE",
           "message": "The discountable group's, option '$INYPW' is not defined in the pricing lexicon."
-        },
-        {
-          "type": "MISSING_PRICE",
-          "message": "The discountable group's, option '$INPB1' is not defined in the pricing lexicon."
         },
         {
           "type": "MISSING_PRICE",
@@ -11407,7 +11729,21 @@
               "msg": "Present in both Copy and Options lexicons"
             },
             {
-              "code": "FSD_TRAFFIC_LIGHT_CARD",
+              "code": "WINTER_WHEELS_OPTIONS",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "WINTER_WHEELS_FEATURES",
+              "context": [
+                "configurator"
+              ],
+              "msg": "Present in both Copy and Options lexicons"
+            },
+            {
+              "code": "19_IN_WINTER_WHEEL_FEATURES_CARD",
               "context": [
                 "configurator"
               ],
@@ -11456,84 +11792,51 @@
         }
       ],
       "extra_content": [],
-      "copy_id": 9857,
-      "language": "en",
-      "pricing_id": 35669,
-      "reference_id": 8554,
+      "copy_id": 9861,
+      "language": "hu",
+      "pricing_id": 34916,
+      "reference_id": 8533,
       "source": "cache"
     },
     "financeProductsSource": "finCMS",
     "Lease.my.my": {
       "lease": [
         {
-          "id": "linear_loan",
-          "market": "AE",
+          "id": null,
+          "market": "HU",
           "productType": "lease",
           "accountType": null,
           "variant": [
-            "m3",
-            "my",
             "ms",
-            "mx"
+            "mx",
+            "m3",
+            "my"
           ],
           "inventory": [
             "new"
           ],
           "variables": {
-            "leaseTerm": 60,
-            "downPayment": 0.2,
-            "interestRate": 2.49,
-            "localeSpecific": {
-              "purchaseProtectRate": 0.01,
-              "purchaseProtectMinimum": 1000,
-              "effectiveRateMultiplier": 1.888
-            },
-            "ignoreTermForGas": true,
-            "maximumDownPayment": 0.8,
-            "minimumDownPayment": 0.2
+            "m3Bubor": 15.125,
+            "leaseTerm": 48,
+            "downPayment": 0.5,
+            "interestRate": 11.6,
+            "termFeeExVat": 0,
+            "leaseDistance": 20000,
+            "interestRateVar": 2.5,
+            "establishmentFee": 0,
+            "interestRateType": "fixed",
+            "interestRateTypes": [
+              "fixed",
+              "variable"
+            ],
+            "maximumDownPayment": 0.5,
+            "minimumDownPayment": 0.1,
+            "downPaymentExVatMode": true,
+            "collateralRegistrationFee": 7000
           },
           "disclaimers": {
-            "ar": []
-          },
-          "enabled": true,
-          "leaseTermsOffered": {
-            "leaseTerm": [
-              36,
-              48,
-              60
-            ]
-          },
-          "interestRateMatrix": [],
-          "residualRateMatrix": []
-        },
-        {
-          "id": "linear_loan_dib",
-          "market": "AE",
-          "productType": "lease",
-          "accountType": null,
-          "variant": [
-            "m3",
-            "my",
-            "ms",
-            "mx"
-          ],
-          "inventory": [
-            "new"
-          ],
-          "variables": {
-            "leaseTerm": 60,
-            "downPayment": 0.2,
-            "interestRate": 1.89,
-            "localeSpecific": {
-              "upfrontFeeRate": 0.0105
-            },
-            "ignoreTermForGas": true,
-            "maximumDownPayment": 0.8,
-            "minimumDownPayment": 0.2
-          },
-          "disclaimers": {
-            "ar": {
-              "default": "<p>{TERM} شهراً، {DOWNPAYMENT} درهم إماراتي دفعة مقدمة، تمويل مرابحة بمبلغ {FINANCED_AMOUNT} درهم إماراتي بمعدل ربح قدره {RATE}% في السنة ، شامل رسوم دراسة الجدوى و المستندات البالغة {UPFRONT_FEE} درهم إماراتي</p><p>لإتمام عملية الشراء، يجب الالتزام بإرشادات بنك دبي الإسلامي والإجراءات المتبعة لديه. إن الغرض من الطلب ودفع رسوم الطلب هو لتهيئة السيارة. يخضع البيع الفعلي للسيارة بموجب التمويل الإسلامي للشروط والأحكام ذات الصلة لشريك التمويل الإسلامي.</p><p>تم تصميم هذه الآلة الحاسبة لإعطائك مؤشرا ويجب استخدامها كتوجيه فقط. لا ينبغي اعتبار أي نتيجة من استخدام الآلة الحاسبة طلبا للتمويل أو عرضا لتمويل السيارات. الآلة الحاسبة لا تأخذ في الاعتبار ظروفك الشخصية. جميع معدلات الربح المعروضة هي توجيهية فقط. قد تختلف عمليات السداد بناء على ظروفك. يمكن تطبيق افتراضات أخرى.  يوفر بنك دبي الإسلامي تمويلًا متوافقًا مع الشريعة الإسلامية لذلك تخضع جميع الخدمات والتمويل والطلبات لسياسات البنك والشروط والأحكام المعمول بها من وقت لآخر.</p><p>*يطبق على المتعاملين ذوي الرواتب 50,000 درهم واكثر.</p>"
+            "hu": {
+              "default": "<p>Nyílt végű pénzügyi lízing konstrukció. A gépjármű nettó vételára {VEHICLE_PRICE_WITHOUT_VAT}, önerő nettó összege {DOWNPAYMENT}, futamidő {TERM} hónap. Szerződéskötési díj nincs, havi kezelési költség nincs. HBNY bejegyzés díja: 7000 HUF. Ügyleti kamatláb {RATE}%. Nettó havi lízingdíj {PAYMENT_WITHOUT_VAT}. A futamidő végi nettó maradványérték összege {RESIDUAL_VALUE}. A finanszírozást a Raiffeisen Corporate Lízing Zrt. (1133 Budapest, Váci út 116-118.) nyújtja.</p><p><i>A mellékelt kalkuláció tájékoztató jellegű, ajánlati kötöttséget és kötelezettségvállalást nem jelent Társaságunk részére. A finanszírozás pontos feltételei az Ön vállalkozása gazdálkodási adatainak és a finanszírozás tárgyát képező eszköz(ök) vizsgálata után kerülnek véglegesítésre.</i></p>"
             }
           },
           "enabled": true,
@@ -11542,8 +11845,160 @@
               36,
               48,
               60
+            ],
+            "leaseDistance": [
+              10000,
+              15000,
+              20000,
+              25000,
+              30000,
+              35000,
+              40000
             ]
-          }
+          },
+          "interestRateMatrix": [],
+          "residualRateMatrix": [
+            {
+              "value": 0.3,
+              "leaseTerm": 24,
+              "leaseDistance": 10000
+            },
+            {
+              "value": 0.3,
+              "leaseTerm": 24,
+              "leaseDistance": 15000
+            },
+            {
+              "value": 0.3,
+              "leaseTerm": 24,
+              "leaseDistance": 20000
+            },
+            {
+              "value": 0.25,
+              "leaseTerm": 24,
+              "leaseDistance": 25000
+            },
+            {
+              "value": 0.25,
+              "leaseTerm": 24,
+              "leaseDistance": 30000
+            },
+            {
+              "value": 0.25,
+              "leaseTerm": 24,
+              "leaseDistance": 35000
+            },
+            {
+              "value": 0.25,
+              "leaseTerm": 24,
+              "leaseDistance": 40000
+            },
+            {
+              "value": 0.25,
+              "leaseTerm": 36,
+              "leaseDistance": 10000
+            },
+            {
+              "value": 0.25,
+              "leaseTerm": 36,
+              "leaseDistance": 15000
+            },
+            {
+              "value": 0.25,
+              "leaseTerm": 36,
+              "leaseDistance": 20000
+            },
+            {
+              "value": 0.2,
+              "leaseTerm": 36,
+              "leaseDistance": 25000
+            },
+            {
+              "value": 0.2,
+              "leaseTerm": 36,
+              "leaseDistance": 30000
+            },
+            {
+              "value": 0.2,
+              "leaseTerm": 36,
+              "leaseDistance": 35000
+            },
+            {
+              "value": 0.2,
+              "leaseTerm": 36,
+              "leaseDistance": 40000
+            },
+            {
+              "value": 0.2,
+              "leaseTerm": 48,
+              "leaseDistance": 10000
+            },
+            {
+              "value": 0.2,
+              "leaseTerm": 48,
+              "leaseDistance": 15000
+            },
+            {
+              "value": 0.2,
+              "leaseTerm": 48,
+              "leaseDistance": 20000
+            },
+            {
+              "value": 0.15,
+              "leaseTerm": 48,
+              "leaseDistance": 25000
+            },
+            {
+              "value": 0.15,
+              "leaseTerm": 48,
+              "leaseDistance": 30000
+            },
+            {
+              "value": 0.15,
+              "leaseTerm": 48,
+              "leaseDistance": 35000
+            },
+            {
+              "value": 0.15,
+              "leaseTerm": 48,
+              "leaseDistance": 40000
+            },
+            {
+              "value": 0.15,
+              "leaseTerm": 60,
+              "leaseDistance": 10000
+            },
+            {
+              "value": 0.15,
+              "leaseTerm": 60,
+              "leaseDistance": 15000
+            },
+            {
+              "value": 0.15,
+              "leaseTerm": 60,
+              "leaseDistance": 20000
+            },
+            {
+              "value": 0.1,
+              "leaseTerm": 60,
+              "leaseDistance": 25000
+            },
+            {
+              "value": 0.1,
+              "leaseTerm": 60,
+              "leaseDistance": 30000
+            },
+            {
+              "value": 0.1,
+              "leaseTerm": 60,
+              "leaseDistance": 35000
+            },
+            {
+              "value": 0.1,
+              "leaseTerm": 60,
+              "leaseDistance": 40000
+            }
+          ]
         }
       ]
     },
