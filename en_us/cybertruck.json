@@ -7,8 +7,8 @@
             "key": "Lexicon.ct",
             "query": {
               "available_configurations": "ct:ct",
-              "language": "es",
-              "market": "MX",
+              "language": "en",
+              "market": "US",
               "app": "find-my-tesla",
               "isTcoEnabled": false,
               "tags": "",
@@ -29,8 +29,8 @@
             "key": "InitialConfig.ct.ct",
             "query": {
               "available_configurations": "ct:ct",
-              "language": "es",
-              "market": "MX",
+              "language": "en",
+              "market": "US",
               "app": "find-my-tesla",
               "isTcoEnabled": false,
               "tags": "",
@@ -49,8 +49,8 @@
       },
       "query": {
         "available_configurations": "ct:ct",
-        "language": "es",
-        "market": "MX",
+        "language": "en",
+        "market": "US",
         "app": "find-my-tesla",
         "isTcoEnabled": false,
         "tags": "",
@@ -89,7 +89,7 @@
         "isRegionSelectionEnabled": false,
         "isRegistrationTypeSelectionEnabled": false,
         "showSavingsDisclaimerForTrims": true,
-        "hideEstimatedDeliveryOrderPage": false,
+        "hideEstimatedDeliveryOrderPage": true,
         "bannerModalTrigger": null,
         "pricePostfix": "",
         "isEnergyLeadSectionEnabled": false,
@@ -394,12 +394,15 @@
       },
       "FinancingOptions": {
         "sidebarOpen": false,
-        "selectedForm": "gas_savings",
+        "selectedForm": "finance_options",
         "activeFinanceTypes": [
-          "cash"
+          "cash",
+          "loan"
         ],
         "activeTabs": [
-          "gas_savings"
+          "finance_options",
+          "gas_savings",
+          "incentives"
         ],
         "menuItems": [
           {
@@ -431,7 +434,7 @@
             "i18nLabel": "FinancingOptions.tabLabels.emissions"
           }
         ],
-        "hideDynamicIncentive": true,
+        "hideDynamicIncentive": false,
         "showMonthlyPaymentExVAT": false,
         "hideAfterSavingsPrice": false,
         "hideAfterSavingsModal": false,
@@ -451,7 +454,7 @@
         "showRegionalTaxTypes": null,
         "showApplyForFinancing": false,
         "financingPartners": [],
-        "showGasSavingsDisclaimer": false,
+        "showGasSavingsDisclaimer": true,
         "defaultRegionCode": "other",
         "hideGasSavingsInputField": false,
         "includeFeesinBatteryCalculation": false,
@@ -490,7 +493,7 @@
         "taxesAndFeesExcludedIfApplicable": false,
         "showFooterFinanceLink": false,
         "showRegistrationAboveSummary": false,
-        "showFinanceProductName": true,
+        "showFinanceProductName": false,
         "showFooterEffectiveLoanRate": false,
         "showAsterixAtPriceEnd": false,
         "disclaimerSectionAboveOrderButton": "ORDER_DISCLAIMER_SECTION",
@@ -500,25 +503,27 @@
         "showNetMonthlyPayment": false,
         "hideRegistrationTypeToggle": false,
         "showSavingsColumn": false,
-        "showIncentivesTotal": true,
+        "showIncentivesTotal": false,
         "showFuelMonthlySavings": false,
-        "financeSelectionDislaimer": null,
+        "financeSelectionDislaimer": "FinancingOptions.selection__disclaimer",
         "showAmountIncludingFeesInModal": false,
         "hideFinanceOnPrintPdf": false,
         "coeBidAmount": 0,
         "showCoEBidInput": false,
-        "showDeliveryZipCode": false,
+        "showDeliveryZipCode": true,
         "hideFinanceProduct": {
           "trim": [],
           "financeType": []
         },
-        "showIncentivesBreakdown": false,
+        "showIncentivesBreakdown": true,
         "showVehiclePriceWithoutSavings": false,
         "showPurchasePriceIncentiveInModal": false,
         "limitProductByPrice": {},
-        "includeReferralCreditInFinance": [],
+        "includeReferralCreditInFinance": [
+          "finplat"
+        ],
         "includeTaxesAndFees": false,
-        "showIRAIncentiveToggle": false,
+        "showIRAIncentiveToggle": true,
         "showIRABusinessEligibility": false
       },
       "FindMyTesla": {
@@ -561,6 +566,7 @@
         ],
         "showLeaseFields": [
           [
+            "downPayment",
             "distance"
           ],
           [
@@ -579,14 +585,17 @@
         "extraLoanDescriptions": [],
         "useResidualAmount": false,
         "isResidualAmountEditable": false,
-        "showRegionalIncentiveDropDown": false,
-        "showDescriptionWithoutIncentive": false,
+        "showRegionalIncentiveDropDown": true,
+        "showDescriptionWithoutIncentive": true,
         "showOtherLoanTerms": false,
-        "showIncentivesPerRegion": false,
-        "showIncentivesRegion": [],
+        "showIncentivesPerRegion": true,
+        "showIncentivesRegion": [
+          "VT"
+        ],
         "showCashDescriptions": false,
         "showEstSavingsLabel": false,
-        "showDeliveryState": false
+        "showDeliveryState": false,
+        "pricingDetailsVisible": true
       },
       "Payment": {
         "paymentFormValid": false,
@@ -643,7 +652,7 @@
         "configs": {},
         "time": null,
         "encryptor": "Adyen",
-        "defaultEncryptor": "Stripe",
+        "defaultEncryptor": "Adyen",
         "hideAllBillingInfo": false,
         "splitPayment": [],
         "displayPaymentDisclaimer": false,
@@ -690,7 +699,7 @@
         "showLegalConsent": [],
         "showDeliveryDueDisclaimer": false,
         "showPrpLink": false,
-        "showVAT": true,
+        "showVAT": false,
         "assetView": "STUD_3QTR",
         "assetViewSource": [
           {
@@ -725,6 +734,7 @@
           "url": "CYBERTRUCK/NVRP_m.png"
         },
         "showLeaseSummaryFields": [
+          "downPayment",
           "leaseTerm",
           "leaseDistance"
         ],
@@ -758,14 +768,15 @@
         "showDisclaimerLink": false,
         "showTraderLicense": false,
         "disclaimerModalContent": [
-          "incentives",
-          "gas_savings",
-          "lease_disclaimer_payment",
-          "loan_disclaimer",
-          "lease_disclaimer",
-          "wheel_disclaimer",
           "performance_disclaimer",
-          "range_disclaimer"
+          "incentives",
+          "supercharging",
+          "gas_savings",
+          "range_disclaimer",
+          "returns",
+          "lease_disclaimer",
+          "loan_disclaimer",
+          "wheel_disclaimer"
         ],
         "demoInspections": [
           "standards"
@@ -859,7 +870,7 @@
           "source": "",
           "target": ""
         },
-        "leaseDisclaimerOnPaymenti18nKey": "FinancingOptions.lease__disclaimer",
+        "leaseDisclaimerOnPaymenti18nKey": "FinancingOptions.lease__disclaimer__Payment",
         "showPricesDetail": true,
         "summaryRegionalFees": false,
         "showIncentivesSectionTitle": false,
@@ -905,8 +916,8 @@
         "showPaymentDisclaimers": true,
         "showFoundersDisclaimers": false,
         "showPurchasePrice": false,
-        "showAccountDetailDisclaimer": false,
-        "USLegalDisclaimer": false,
+        "showAccountDetailDisclaimer": true,
+        "USLegalDisclaimer": true,
         "formErrors": {},
         "showAccountType": true,
         "isPickupLocationValid": false,
@@ -933,8 +944,12 @@
           "PARSE_VEHICLE_UPGRADES"
         ],
         "actionsToUpdatePrices": [
+          "SUMMARY_PANEL_DELIVERY_INCENTIVE_CHANGE",
           "SUMMARY_PANEL_FINANCE_APR_CHANGE",
-          "SUMMARY_PANEL_DISTANCE_CHANGE"
+          "SUMMARY_PANEL_DISTANCE_CHANGE",
+          "TOGGLE_DYNAMIC_INCENTIVE",
+          "UPDATE_REFERRAL",
+          "SET_TAXES_AND_FEES"
         ],
         "showVehicleSubtotal": false,
         "hidePostfixOnUI": false,
@@ -957,8 +972,8 @@
         "showNonTransferrable": true,
         "hideVehicleTypeLabel": false,
         "hideIncentivesOrderPage": false,
-        "showAvailableInState": false,
-        "showElectronicPayment": false,
+        "showAvailableInState": true,
+        "showElectronicPayment": true,
         "showEvSubsidyDisclaimer": false,
         "showVehicleConfigurationPrice": false,
         "showDemoVehicleBlock": true,
@@ -966,7 +981,7 @@
         "includeOrderFeeInVehicleTotal": true,
         "showLeaseDisclaimer": false,
         "useUsedInventoryDisclaimerCopy": false,
-        "inventoryZipCode": false,
+        "inventoryZipCode": true,
         "cosmeticStandards": [
           "exterior",
           "interior",
@@ -1085,8 +1100,9 @@
       }
     },
     "Lexicon.ct": {
+      "id": 8505,
       "effective_date": "2023-08-03T17:45:00.000Z",
-      "market": "MX",
+      "market": "US",
       "product": "ct",
       "factory": "GF00",
       "sku": {
@@ -1102,11 +1118,11 @@
                   "$MTP04",
                   "$DV2W",
                   "$CYBR",
+                  "$APBS",
                   "$IDD",
                   "$PDD",
                   "$WDD",
-                  "$SC04",
-                  "$APBS"
+                  "$SC04"
                 ],
                 "combinations": []
               }
@@ -1117,7 +1133,7 @@
         "default_trim": "$MTP04"
       },
       "fees": {},
-      "name": "Marketing MX 2023.Aug.03 8489.8543.32586 [es]",
+      "name": "Marketing US 2023.Aug.03 8505.8515.32557",
       "groups": [
         {
           "code": "MODEL",
@@ -1131,6 +1147,21 @@
           "exclusive": true,
           "default_options": [
             "$CYBR"
+          ]
+        },
+        {
+          "code": "AUTOPILOT",
+          "name": "Autopilot",
+          "context": "default",
+          "groups": [],
+          "options": [
+            "$APBS",
+            "$APF2"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [
+            "$APBS"
           ]
         },
         {
@@ -1149,7 +1180,7 @@
         },
         {
           "code": "DRIVE_MODE",
-          "name": "Modo de conducción",
+          "name": "Drive Mode",
           "context": "default",
           "extra_copy": [],
           "groups": [],
@@ -1194,7 +1225,7 @@
         },
         {
           "code": "WHEELS",
-          "name": "Rines",
+          "name": "Wheels",
           "context": "default",
           "groups": [],
           "options": [
@@ -1221,21 +1252,6 @@
           ]
         },
         {
-          "code": "AUTOPILOT",
-          "name": "Autopilot",
-          "context": "default",
-          "groups": [],
-          "options": [
-            "$APBS",
-            "$APF2"
-          ],
-          "required": false,
-          "exclusive": false,
-          "default_options": [
-            "$APBS"
-          ]
-        },
-        {
           "code": "CORE",
           "groups": [],
           "context": "order_summary",
@@ -1248,7 +1264,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Pago"
+          "name": "Payment"
         },
         {
           "code": "OPTIONS",
@@ -1259,7 +1275,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Opciones"
+          "name": "Options"
         },
         {
           "code": "REVIEW_ORDER",
@@ -1287,7 +1303,7 @@
             },
             {
               "type": "order_disclaimer",
-              "content": "Completamente reembolsable."
+              "content": "Fully refundable."
             }
           ],
           "extra_content": [
@@ -1315,6 +1331,21 @@
           "default_options": []
         },
         {
+          "code": "AUTOPILOT",
+          "name": "Autopilot",
+          "context": "configurator",
+          "extra_content": [],
+          "groups": [],
+          "options": [
+            "$APF2"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": [
+            "$APF2"
+          ]
+        },
+        {
           "code": "BATTERY_AND_DRIVE",
           "groups": [
             "TRIM"
@@ -1324,18 +1355,18 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Batería y tren motriz",
+          "name": "Battery & Drivetrain",
           "extra_copy": [
             {
-              "type": "order_disclaimer",
-              "content": "Podrá completar su configuración a medida que se acerque la producción."
+              "type": "name",
+              "content": "Order Cybertruck"
             },
             {
-              "type": "name",
-              "content": "Ordené Cybertruck"
+              "type": "order_disclaimer",
+              "content": "You will be able to complete your configuration as production nears."
             }
           ],
-          "description": "Batería y tren motriz",
+          "description": "Battery and Drivetrain",
           "extra_content": [
             {
               "type": "components",
@@ -1375,9 +1406,9 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Cronogramas de entrega",
+          "name": "Delivery timings",
           "extra_copy": [],
-          "description": "Cronogramas de entrega"
+          "description": "Delivery timings"
         },
         {
           "code": "CORE_CONFIGURATOR",
@@ -1391,22 +1422,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Pago"
-        },
-        {
-          "code": "AUTOPILOT",
-          "name": "Autopilot",
-          "context": "configurator",
-          "extra_content": [],
-          "groups": [],
-          "options": [
-            "$APF2"
-          ],
-          "required": false,
-          "exclusive": false,
-          "default_options": [
-            "$APF2"
-          ]
+          "name": "Payment"
         },
         {
           "code": "EXTERIOR_GALLERY",
@@ -1416,8 +1432,8 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Galería de configuración",
-          "description": "Galería de configuración",
+          "name": "Configuration Gallery",
+          "description": "Configuration Gallery",
           "extra_content": [
             {
               "type": "asset[0]",
@@ -1450,9 +1466,9 @@
               "target": "$IDD"
             }
           ],
-          "name": "Configuración interior predeterminada",
-          "description": "Configuración interior predeterminada",
-          "long_name": "Configuración interior predeterminada",
+          "name": "Default Interior Configuration",
+          "description": "Default Interior Configuration",
+          "long_name": "Default Interior Configuration",
           "extra_copy": [],
           "extra_content": [
             {
@@ -1492,13 +1508,13 @@
               "target": "$PDD"
             }
           ],
-          "name": "Configuración de pintura predeterminada",
-          "description": "Configuración de pintura predeterminada",
-          "long_name": "Configuración de pintura predeterminada",
+          "name": "Default Paint Configuration",
+          "description": "Default Paint Configuration",
+          "long_name": "Default Paint Configuration",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Incluido"
+              "content": "Included"
             }
           ]
         },
@@ -1520,14 +1536,14 @@
               "target": "$WDD"
             }
           ],
-          "name": "Configuración de rueda predeterminada",
-          "description": "Configuración de rueda predeterminada",
-          "long_name": "Configuración de rueda predeterminada",
-          "long_description": "Configuración de rueda predeterminada",
+          "name": "Default Wheel Configuration",
+          "description": "Default Wheel Configuration",
+          "long_name": "Default Wheel Configuration",
+          "long_description": "Default Wheel Configuration",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Incluido"
+              "content": "Included"
             }
           ],
           "extra_content": [
@@ -1567,13 +1583,13 @@
               "target": "$APBS"
             }
           ],
-          "name": "Piloto automático base",
-          "description": "Piloto automático base",
-          "long_name": "Piloto automático base",
+          "name": "Base Autopilot",
+          "description": "Base Autopilot",
+          "long_name": "Base Autopilot",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Incluida"
+              "content": "included"
             }
           ],
           "extra_content": [
@@ -1589,6 +1605,7 @@
         },
         "$APF2": {
           "code": "$APF2",
+          "user_defined_rules": {},
           "set_rules": [
             {
               "action": "set",
@@ -1601,9 +1618,9 @@
               "target": "$APF2"
             }
           ],
-          "name": "Capacidad de conducción autónoma total",
-          "description": "Capacidad de conducción autónoma total",
-          "long_name": "Capacidad de conducción autónoma total",
+          "name": "Full Self-Driving Capability",
+          "description": "Full Self-Driving Capability",
+          "long_name": "Full Self-Driving Capability",
           "extra_copy": [
             {
               "type": "name",
@@ -1615,7 +1632,7 @@
             },
             {
               "type": "disclaimer[0]",
-              "content": "Si agrega ahora la conducción autónoma total, conservará el precio conforme incremente en el futuro.",
+              "content": "Selecting Full Self-Driving today will secure your price as it increases in the future.",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -1631,12 +1648,8 @@
               ]
             },
             {
-              "type": "selectLabel",
-              "content": "Conducción autónoma total"
-            },
-            {
               "type": "disclaimer[1]",
-              "content": "Más información",
+              "content": "Learn more",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -1660,11 +1673,15 @@
             },
             {
               "type": "recommended_content",
-              "content": "Las funciones disponibles actualmente requieren de una supervisión activa del conductor y no hacen que el vehículo sea autónomo. La activación y uso de estas funciones dependerá de que se logre una confiabilidad que supere por mucho la de los conductores humanos y que se demuestre con miles de millones de kilómetros de experiencia, así como de aprobaciones regulatorias, lo que podría tardar más en algunas jurisdicciones. A medida que estas capacidades de conducción autónoma vayan evolucionando, su auto se irá actualizando de forma continua e inalámbrica."
+              "content": "The currently enabled features require active driver supervision and do not make the vehicle autonomous. The activation and use of these features are dependent on achieving reliability far in excess of human drivers as demonstrated by billions of miles of experience, as well as regulatory approval, which may take longer in some jurisdictions. As these self-driving features evolve, your car will be continuously upgraded through over-the-air software updates."
+            },
+            {
+              "type": "selectLabel",
+              "content": "Full Self-Driving"
             },
             {
               "type": "deselectLabel",
-              "content": "Se agregó la conducción autónoma total"
+              "content": "Full Self-Driving Added"
             }
           ],
           "extra_content": [
@@ -1677,21 +1694,21 @@
               ]
             }
           ],
-          "price": 177200,
+          "price": 10000,
           "pricing": [
             {
               "type": "base",
-              "value": 177200,
+              "value": 10000,
               "context": "default"
             },
             {
               "type": "upgrade",
-              "value": 177200,
+              "value": 10000,
               "context": "default"
             },
             {
               "type": "trial",
-              "value": 177200,
+              "value": 10000,
               "context": "default"
             }
           ]
@@ -1722,7 +1739,7 @@
           "pricing": [
             {
               "type": "order_payment",
-              "value": 2000,
+              "value": 100,
               "context": "default"
             },
             {
@@ -1772,9 +1789,9 @@
               "condition_state": "unset"
             }
           ],
-          "name": "Tracción trasera",
-          "description": "Tracción trasera",
-          "long_name": "Tracción trasera",
+          "name": "Rear-Wheel Drive",
+          "description": "Rear-Wheel Drive",
+          "long_name": "Rear-Wheel Drive",
           "extra_copy": [],
           "extra_content": [
             {
@@ -1835,9 +1852,9 @@
               "target": "$DV2W"
             }
           ],
-          "name": "Motor dual con tracción en todas las ruedas",
-          "description": "Motor dual con tracción en todas las ruedas",
-          "long_name": "Motor dual con tracción en todas las ruedas",
+          "name": "Dual Motor All-Wheel Drive",
+          "description": "Dual Motor All-Wheel Drive",
+          "long_name": "Dual Motor All-Wheel Drive",
           "extra_copy": [],
           "extra_content": [
             {
@@ -1868,13 +1885,13 @@
               "target": "$SC04"
             }
           ],
-          "name": "Acceso a la Red de Superchargers + Pago-por-uso",
-          "description": "Acceso a la Red de Superchargers + Pago-por-uso",
-          "long_name": "Acceso a la Red de Superchargers + Pago-por-uso",
+          "name": "Supercharger Network Access + Pay-as-you-go",
+          "description": "Supercharger Network Access + Pay-as-you-go",
+          "long_name": "Supercharger Network Access + Pay-as-you-go",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "ppcional"
+              "content": "optional"
             }
           ]
         },
@@ -1947,7 +1964,7 @@
         }
       },
       "metadata": {
-        "vat": true,
+        "vat": false,
         "post_mfg_mutations": {
           "$APBS": {
             "type": "remote",
@@ -1989,42 +2006,34 @@
                 },
                 "unit_definitions": {
                   "miles": {
-                    "label": "millas",
+                    "label": "miles",
                     "short_label": "mi"
                   },
                   "seconds": {
-                    "label": "segundos",
-                    "short_label": "segundo"
-                  },
-                  "kilometers": {
-                    "label": "kilómetros",
-                    "short_label": "km"
+                    "label": "seconds",
+                    "short_label": "sec"
                   },
                   "range_units": {
-                    "label": "Autonomía"
+                    "label": "Range"
                   },
                   "miles-per-hour": {
-                    "label": "millas por hora",
+                    "label": "miles per hour",
                     "short_label": "mph"
                   },
                   "range_units_epa": {
-                    "label": "Autonomía (norma de EPA)"
+                    "label": "Range (EPA est.)"
                   },
                   "top_speed_units": {
-                    "label": "Velocidad máxima",
-                    "short_label": "km/h"
+                    "label": "Top Speed",
+                    "short_label": "mph"
                   },
                   "towing_capacity": {
-                    "label": "Capacidad de remolque",
+                    "label": "Towing capacity",
                     "short_label": "lbs"
                   },
                   "zero_to_road_limit": {
                     "label": "0-60 mph",
                     "short_label": "0-60 mph"
-                  },
-                  "kilometers-per-hour": {
-                    "label": "kilómetros por hora",
-                    "short_label": "km/h"
                   }
                 }
               },
@@ -2033,9 +2042,6 @@
                   "name": "Single Motor RWD",
                   "range": "250+",
                   "acceleration": "<6.5",
-                  "name_localized": {
-                    "es": "Tracción trasera con un solo motor"
-                  },
                   "towing_capacity": "7,500+",
                   "range_units_override": "range_units_epa"
                 },
@@ -2043,9 +2049,6 @@
                   "name": "Dual Motor AWD",
                   "range": "300+",
                   "acceleration": "<4.5",
-                  "name_localized": {
-                    "es": "Tracción en las cuatro ruedas con doble motor"
-                  },
                   "towing_capacity": "10,000+",
                   "range_units_override": "range_units_epa"
                 },
@@ -2053,9 +2056,6 @@
                   "name": "Tri Motor AWD",
                   "range": "500+",
                   "acceleration": "<2.9",
-                  "name_localized": {
-                    "es": "Tracción en las cuatro ruedas trimotor"
-                  },
                   "towing_capacity": "14,000+",
                   "range_units_override": "range_units_epa"
                 }
@@ -2077,7 +2077,7 @@
             }
           }
         },
-        "currency_code": "MXN",
+        "currency_code": "USD",
         "currency_symbol": "$"
       },
       "enable_sku": true,
@@ -2089,13 +2089,13 @@
         "$MTP04",
         "$DV2W",
         "$CYBR",
+        "$APBS",
         "$IDD",
         "$PDD",
         "$WDD",
-        "$SC04",
-        "$APBS"
+        "$SC04"
       ],
-      "options_id": 8489,
+      "options_id": 8505,
       "warnings": [
         {
           "type": "ELIGIBLE_GROUPS_TO_MOVE",
@@ -2157,10 +2157,9 @@
           "message": "'Fees' should be moved to Copy lexicon from Options."
         }
       ],
-      "copy_id": 8543,
-      "language": "es",
-      "pricing_id": 32586,
-      "reference_id": 8489,
+      "copy_id": 8515,
+      "language": "en",
+      "pricing_id": 32557,
       "source": "cache"
     }
   }

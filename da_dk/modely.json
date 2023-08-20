@@ -7,8 +7,8 @@
             "key": "Lexicon.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "cs",
-              "market": "CZ",
+              "language": "da",
+              "market": "DK",
               "app": "find-my-tesla",
               "isTcoEnabled": false,
               "tags": "",
@@ -30,8 +30,8 @@
             "key": "Incentives.my.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "cs",
-              "market": "CZ",
+              "language": "da",
+              "market": "DK",
               "app": "find-my-tesla",
               "isTcoEnabled": false,
               "tags": "",
@@ -53,8 +53,8 @@
             "key": "Fees.my.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "cs",
-              "market": "CZ",
+              "language": "da",
+              "market": "DK",
               "app": "find-my-tesla",
               "isTcoEnabled": false,
               "tags": "",
@@ -76,8 +76,8 @@
             "key": "Lease.my.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "cs",
-              "market": "CZ",
+              "language": "da",
+              "market": "DK",
               "app": "find-my-tesla",
               "isTcoEnabled": false,
               "tags": "",
@@ -99,8 +99,8 @@
             "key": "InitialConfig.my.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "cs",
-              "market": "CZ",
+              "language": "da",
+              "market": "DK",
               "app": "find-my-tesla",
               "isTcoEnabled": false,
               "tags": "",
@@ -122,8 +122,8 @@
             "key": "Loan.my.my",
             "query": {
               "available_configurations": "my:my",
-              "language": "cs",
-              "market": "CZ",
+              "language": "da",
+              "market": "DK",
               "app": "find-my-tesla",
               "isTcoEnabled": false,
               "tags": "",
@@ -143,8 +143,8 @@
       },
       "query": {
         "available_configurations": "my:my",
-        "language": "cs",
-        "market": "CZ",
+        "language": "da",
+        "market": "DK",
         "app": "find-my-tesla",
         "isTcoEnabled": false,
         "tags": "",
@@ -851,8 +851,10 @@
           }
         ],
         "hideDynamicIncentive": true,
-        "showMonthlyPaymentExVAT": false,
-        "hideAfterSavingsPrice": false,
+        "showMonthlyPaymentExVAT": [
+          "lease.operational_lease_commercial"
+        ],
+        "hideAfterSavingsPrice": true,
         "hideAfterSavingsModal": false,
         "showSavingsAmount": [],
         "showSavingAmountInModal": true,
@@ -903,8 +905,27 @@
         "isEstimatedPrice": false,
         "showTotalPaymentFooter": false,
         "showMonthlyPaymentQuote": false,
-        "showFinanceProductsByDriverType": [],
-        "driverType": null,
+        "showFinanceProductsByDriverType": [
+          {
+            "type": "personal",
+            "financeOptions": [
+              "cash",
+              "operational_lease",
+              "dnb_loan"
+            ],
+            "defaultOption": "cash"
+          },
+          {
+            "type": "business",
+            "financeOptions": [
+              "cash",
+              "operational_lease_commercial",
+              "dnb_business_loan"
+            ],
+            "defaultOption": "cash"
+          }
+        ],
+        "driverType": "personal",
         "leaseDescriptionwithModelCode": false,
         "taxesAndFeesExcludedIfApplicable": false,
         "showFooterFinanceLink": false,
@@ -972,24 +993,29 @@
         "showOtherLeaseTerms": false,
         "showLoanFields": [
           [
-            "loanDownPayment",
-            "term"
+            "loanDownPaymentDrop",
+            "term",
+            "financedAmount"
           ]
         ],
         "showLeaseFields": [],
         "leaseReadOnlyFields": [],
-        "loanReadOnlyFields": [],
+        "loanReadOnlyFields": [
+          "downPayment"
+        ],
         "loanFieldsFormat": null,
         "gasSavingsExampleParams": {
           "yearlyDistance": 20000,
-          "petrolSavingsPerYear": 30200,
-          "petrolSavings": 64800,
+          "petrolSavingsPerYear": 12000,
+          "petrolSavings": 24300,
           "timesLower": 2,
           "fuelEconomy": 17.5,
-          "electricityPrice": 5.131,
-          "petrolPrice": 26.4
+          "electricityPrice": 2.116,
+          "petrolPrice": 10.465
         },
-        "extraDisclaimers": [],
+        "extraDisclaimers": [
+          "price_disclaimer"
+        ],
         "disclaimerDateFormat": "",
         "showIncentivesDisclaimers": false,
         "extraLeaseDescriptions": [],
@@ -1003,7 +1029,8 @@
         "showIncentivesRegion": [],
         "showCashDescriptions": false,
         "showEstSavingsLabel": false,
-        "showDeliveryState": false
+        "showDeliveryState": false,
+        "pricingDetailsVisible": true
       },
       "Payment": {
         "paymentFormValid": false,
@@ -1148,7 +1175,10 @@
           "leaseTerm",
           "leaseDistance"
         ],
-        "showLeaseSummaryDisclaimer": false,
+        "showLeaseSummaryDisclaimer": [
+          "lease.dnb_loan",
+          "lease.dnb_business_loan"
+        ],
         "showSecondDepositDisclaimer": {
           "source": true,
           "target": true
@@ -1166,9 +1196,14 @@
         "optionalFields": [],
         "showZeroRegistrationTax": false,
         "showLoanSummaryFields": [
-          "downPayment",
           "loanTerm",
-          "interestRate"
+          "effectiveRate",
+          "downPayment",
+          "financedAmountInclFees",
+          "interestRate",
+          "loanRate",
+          "costOfCredit",
+          "totalAmtPaid"
         ],
         "showLoanSummaryDisclaimer": false,
         "showWithoutAdjustments": false,
@@ -1178,6 +1213,9 @@
         "showDisclaimerLink": true,
         "showTraderLicense": false,
         "disclaimerModalContent": [
+          "incentives",
+          "gas_savings",
+          "range_disclaimer",
           "tyre_regulation"
         ],
         "demoInspections": [
@@ -1351,6 +1389,8 @@
           "PARSE_VEHICLE_UPGRADES"
         ],
         "actionsToUpdatePrices": [
+          "SUMMARY_PANEL_INCLUDE_SERVICE_FEE_CHANGE",
+          "SUMMARY_PANEL_DISTANCE_CHANGE",
           "ACCOUNT_DETAILS_CHANGED"
         ],
         "showVehicleSubtotal": true,
@@ -1459,6 +1499,9 @@
         "extraBusinessFields": [
           "CompanyName",
           "Vat"
+        ],
+        "extraIncentives": [
+          "registrationTax"
         ]
       },
       "PrintPdf": {
@@ -1506,7 +1549,7 @@
       "incentives": [
         {
           "incentiveType": "fuel",
-          "description": "Fuel economy inputs for CZ my",
+          "description": "Fuel economy inputs for DK my",
           "period": "fuel",
           "variables": {
             "months": 60,
@@ -1514,14 +1557,14 @@
             "distance_year": 20000,
             "fuel_efficiency_metric": 7.63,
             "kwh_consumption_100": 16.9,
-            "supercharger_kwh_price": 0,
-            "fuel_price": 37.25,
-            "kwh_price": 9.913,
+            "supercharger_kwh_price": 2.9,
+            "fuel_price": 14.165,
+            "kwh_price": 4.278,
             "last_updated": "2023-07-07",
             "kwh_consumption": 0.169
           },
           "variant": "my",
-          "market": "CZ"
+          "market": "DK"
         },
         {
           "incentiveType": "beforeDelivery",
@@ -1613,6 +1656,35 @@
     "Fees.my.my": {
       "fees": [
         {
+          "feeType": "registration",
+          "financeType": "any",
+          "description": "Registration Fee - Model 3, S, X, Y",
+          "period": "once",
+          "variant": [
+            "ms",
+            "m3",
+            "mx",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "tax_level_1_ceiling": 210600,
+          "tax_level_1_constant": 121380,
+          "tax_level_2_constant": 1.5,
+          "tax_level_3_constant": 16950,
+          "pre_tax_deductions": 40500,
+          "registration_tax_phase_in_percent": 0.4,
+          "post_tax_deductions": {
+            "default": 22600
+          },
+          "post_tax_deductions_2": {
+            "default": 165000
+          },
+          "tax_exemption": 0,
+          "market": "DK"
+        },
+        {
           "feeType": "reg_and_doc_fee",
           "financeType": "any",
           "description": "Registration and doc fee",
@@ -1626,8 +1698,66 @@
           "inventory": [
             "new"
           ],
-          "amount": 25500,
-          "market": "CZ"
+          "amount": 4280,
+          "market": "DK"
+        },
+        {
+          "feeType": "insurance",
+          "financeType": "loan",
+          "description": "Insurance for Loan",
+          "period": "included",
+          "variant": [
+            "m3",
+            "my",
+            "ms",
+            "mx"
+          ],
+          "amount": 950,
+          "market": "DK"
+        },
+        {
+          "feeType": "government_fee",
+          "financeType": "loan",
+          "description": "Government fee for Loan",
+          "period": "included",
+          "variant": [
+            "m3",
+            "my",
+            "ms",
+            "mx"
+          ],
+          "amount": 1660,
+          "percentage_1": 1.5,
+          "percentage_2": 68,
+          "market": "DK"
+        },
+        {
+          "feeType": "start_fee",
+          "financeType": "loan",
+          "description": "Start fee for Loan",
+          "period": "included",
+          "variant": [
+            "m3",
+            "my",
+            "ms",
+            "mx"
+          ],
+          "amount": 2995,
+          "market": "DK"
+        },
+        {
+          "feeType": "monthly_fee",
+          "financeType": "loan",
+          "description": "Monthly fee for Loan",
+          "period": "included",
+          "variant": [
+            "m3",
+            "my",
+            "ms",
+            "mx"
+          ],
+          "amount": 45,
+          "market": "DK"
         },
         {
           "feeType": "vat_percent",
@@ -1640,8 +1770,8 @@
             "ms",
             "mx"
           ],
-          "percent": 21,
-          "market": "CZ"
+          "percent": 25,
+          "market": "DK"
         },
         {
           "feeType": "vat_percent",
@@ -1804,7 +1934,7 @@
     },
     "Lexicon.my": {
       "effective_date": "2023-08-18T00:08:00.000Z",
-      "market": "CZ",
+      "market": "DK",
       "product": "my",
       "factory": "GF03",
       "sku": {
@@ -1816,7 +1946,11 @@
             },
             "configurator": [
               {
-                "included": [],
+                "included": [
+                  [
+                    "$TW01"
+                  ]
+                ],
                 "optional": [
                   [
                     "$APF2",
@@ -1824,9 +1958,6 @@
                   ],
                   [
                     "$WWY00"
-                  ],
-                  [
-                    "$TW01"
                   ]
                 ],
                 "upgradable": [],
@@ -1871,7 +2002,11 @@
             },
             "configurator": [
               {
-                "included": [],
+                "included": [
+                  [
+                    "$TW01"
+                  ]
+                ],
                 "optional": [
                   [
                     "$APF2",
@@ -1879,9 +2014,6 @@
                   ],
                   [
                     "$WWY03"
-                  ],
-                  [
-                    "$TW01"
                   ]
                 ],
                 "upgradable": [],
@@ -1927,7 +2059,11 @@
             },
             "configurator": [
               {
-                "included": [],
+                "included": [
+                  [
+                    "$TW01"
+                  ]
+                ],
                 "optional": [
                   [
                     "$APF2",
@@ -1935,9 +2071,6 @@
                   ],
                   [
                     "$WWY00"
-                  ],
-                  [
-                    "$TW01"
                   ]
                 ],
                 "upgradable": [],
@@ -1982,7 +2115,7 @@
         "default_trim": "$MTY13"
       },
       "fees": {},
-      "name": "Marketing CZ 2023.Aug.18 8540.9858.34908 [cs]",
+      "name": "Marketing DK 2023.Aug.18 8539.9856.34912 [da]",
       "groups": [
         {
           "code": "MODEL",
@@ -2018,12 +2151,12 @@
         },
         {
           "code": "DRIVE_MODE",
-          "name": "Hnací ústrojí",
+          "name": "Drivlinje",
           "context": "default",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Vyberte si svůj vůz"
+              "content": "Vælg din bil"
             }
           ],
           "groups": [],
@@ -2039,7 +2172,7 @@
         },
         {
           "code": "INTERIOR",
-          "name": "Interiér",
+          "name": "Interiør",
           "context": "default",
           "extra_copy": [],
           "groups": [],
@@ -2072,7 +2205,7 @@
         },
         {
           "code": "PAINT",
-          "name": "Barva",
+          "name": "Farve",
           "context": "default",
           "extra_copy": [
             {
@@ -2081,7 +2214,7 @@
             },
             {
               "type": "section_title",
-              "content": "Exteriér"
+              "content": "Eksteriør"
             }
           ],
           "extra_content": [
@@ -2144,12 +2277,12 @@
         },
         {
           "code": "WHEELS",
-          "name": "Kola",
+          "name": "Fælge",
           "context": "default",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Vyberte si kola"
+              "content": "Vælg fælge"
             }
           ],
           "extra_content": [
@@ -2203,7 +2336,7 @@
         },
         {
           "code": "PREMIUM_PACKAGE",
-          "name": "Interiér",
+          "name": "Interiør",
           "context": "default",
           "groups": [],
           "options": [
@@ -2292,7 +2425,7 @@
         },
         {
           "code": "TOWING",
-          "name": "Tažné zařízení",
+          "name": "Anhængertræk",
           "context": "default",
           "groups": [],
           "options": [
@@ -2344,7 +2477,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Platba"
+          "name": "Betaling"
         },
         {
           "code": "OPTIONS",
@@ -2368,7 +2501,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Doplňkové vybavení",
+          "name": "Udstyr og priser",
           "extra_content": [
             {
               "type": "gallery",
@@ -2397,7 +2530,7 @@
             "AUTOPILOT_PACKAGE",
             "AUTOPILOT_FIRMWARE",
             "TOWING",
-            "WINTER_WHEELS_OPTIONS",
+            "WINTER_WHEELS",
             "PERF_FIRMWARE"
           ],
           "context": "order_summary",
@@ -2415,11 +2548,11 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Vyberte si svůj vůz"
+              "content": "Vælg din bil"
             },
             {
               "type": "compare_title",
-              "content": "Porovnat"
+              "content": "Sammenlign"
             }
           ],
           "groups": [],
@@ -2441,7 +2574,7 @@
           "extra_copy": [
             {
               "type": "name",
-              "content": "Uspořádání sedadel"
+              "content": "Sædelayout"
             }
           ],
           "extra_content": [
@@ -2479,7 +2612,7 @@
         },
         {
           "code": "PAINT",
-          "name": "Barva",
+          "name": "Farve",
           "context": "configurator",
           "extra_copy": [
             {
@@ -2488,7 +2621,7 @@
             },
             {
               "type": "disclaimer[0]",
-              "content": "Vyvinuto v továrně Gigafactory Berlin.",
+              "content": "Udviklet på Gigafactory Berlin.",
               "behavior": [
                 {
                   "type": "CONTENT_SELECTED",
@@ -2505,7 +2638,7 @@
             },
             {
               "type": "disclaimer[1]",
-              "content": "K dispozici pouze v Evropě a na Středním východě.",
+              "content": "Kun tilgængelig i Europa og i Mellemøsten.",
               "behavior": [
                 {
                   "type": "CONTENT_SELECTED",
@@ -2616,20 +2749,20 @@
         },
         {
           "code": "WHEELS",
-          "name": "Kola",
+          "name": "Fælge",
           "context": "configurator",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Kola"
+              "content": "Fælge"
             },
             {
               "type": "certified_range_est",
-              "content": "Odhad. dojezd podle konfigurace: {VALUE} km"
+              "content": "Est. rækkevidde som konfigureret: {VALUE} km"
             },
             {
               "type": "certified_range",
-              "content": "Certifikovaný dojezd (WLTP): {VALUE} km"
+              "content": "Certificeret rækkevidde (WLTP): {VALUE} km"
             }
           ],
           "extra_content": [
@@ -2796,15 +2929,15 @@
           "extra_copy": [
             {
               "type": "video_list.default[0].title",
-              "content": "Autopilot podle navigace"
+              "content": "Navigate on Autopilot"
             },
             {
               "type": "video_list.default[1].title",
-              "content": "Automatická změna jízdního pruhu"
+              "content": " Automatisk vognbaneskift"
             },
             {
               "type": "video_list.default[2].title",
-              "content": "Automatické parkování"
+              "content": "Autopark"
             },
             {
               "type": "video_list.default[3].title",
@@ -2900,10 +3033,10 @@
         },
         {
           "code": "AUTOPILOT",
-          "name": "Paket systému Autopilot",
+          "name": "Autopilot-pakke",
           "context": "configurator",
           "extra_copy": [],
-          "description": "Popis balíčku Autopilot",
+          "description": "Beskrivelse af Autopilot-pakke",
           "extra_content": [],
           "groups": [],
           "options": [
@@ -2940,15 +3073,15 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Pakety",
+          "name": "Pakker",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Interiér"
+              "content": "Interiør"
             },
             {
               "type": "view_features",
-              "content": "Funkce",
+              "content": "Funktioner",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -2967,7 +3100,7 @@
             },
             {
               "type": "view_link",
-              "content": "Zobrazit třetí řádek",
+              "content": "Se tredje række",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -2985,7 +3118,7 @@
               ]
             }
           ],
-          "description": "Pakety",
+          "description": "Pakker",
           "extra_content": [
             {
               "type": "asset",
@@ -3104,9 +3237,9 @@
         },
         {
           "code": "PREMIUM_PACKAGE",
-          "name": "Interiér",
+          "name": "Interiør",
           "context": "configurator",
-          "long_name": "Prémiové doplňky",
+          "long_name": "Premium opgraderinger",
           "extra_copy": [],
           "extra_content": [
             {
@@ -3162,7 +3295,7 @@
         },
         {
           "code": "SPORT_PACKAGE",
-          "name": "Doplňková výbava Performance",
+          "name": "Performance-opgradering",
           "context": "configurator",
           "extra_copy": [],
           "extra_content": [
@@ -3195,9 +3328,9 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Harmonogram dodání",
+          "name": "Leveringstider",
           "extra_copy": [],
-          "description": "Harmonogram dodání",
+          "description": "Leveringstider",
           "extra_content": [
             {
               "type": "delivery_time",
@@ -3208,7 +3341,7 @@
                       "$MTY03"
                     ]
                   },
-                  "delivery_date": "Odhad dodání: Počátkem roku 2022"
+                  "delivery_date": "Anslået leveringstidspunkt: I starten af 2022"
                 },
                 {
                   "selected_by": {
@@ -3216,7 +3349,7 @@
                       "$MTY04"
                     ]
                   },
-                  "delivery_date": "Odhad dodání: Počátkem roku 2022"
+                  "delivery_date": "Anslået leveringstidspunkt: I starten af 2022"
                 },
                 {
                   "selected_by": {
@@ -3224,7 +3357,7 @@
                       "$MTY02"
                     ]
                   },
-                  "delivery_date": "Odhad dodání: Počátkem roku 2022"
+                  "delivery_date": "Anslået leveringstidspunkt: I starten af 2022"
                 },
                 {
                   "selected_by": {
@@ -3232,7 +3365,7 @@
                       "$MTY12"
                     ]
                   },
-                  "delivery_date": "Odhad dodání: Počátkem roku 2022"
+                  "delivery_date": "Anslået leveringstidspunkt: I starten af 2022"
                 }
               ]
             }
@@ -3259,27 +3392,27 @@
             },
             {
               "type": "sub_title",
-              "content": "Pohon všech kol Dual Motor"
+              "content": "Dual Motor firehjulstræk"
             },
             {
               "type": "disclaimer_savingsPrice",
-              "content": "* Uvedené náklady zahrnují potenciální pobídky a úsporu paliva ve výši {SAVING_PRICE}."
+              "content": "* Omkostningerne ovenfor inkluderer potentielle incitamenter og brændstofbesparelser på {SAVING_PRICE}."
             },
             {
               "type": "disclaimer_purchasePrice",
-              "content": "* Všechny ceny jsou uvedeny bez potenciálních pobídek a úspory paliva ve výši {SAVING_PRICE}."
+              "content": "Alle priser vises uden potentielle incitamenter eller brændstofbesparelser på {SAVING_PRICE}."
             },
             {
               "type": "disclaimer_savingsPrice_CA",
-              "content": "* Zobrazené ceny zahrnují pobídku {NAME_OF_INCENTIVE} ve výši {INCENTIVE_AMOUNT} a další potenciální pobídky a úsporu paliva ve výši {SAVING_PRICE}."
+              "content": "* De viste priser inkluderer {INCENTIVE_AMOUNT} {NAME_OF_INCENTIVE} og potentielle incitamenter og brændstofbesparelser på {SAVING_PRICE}."
             },
             {
               "type": "disclaimer_purchasePrice_CA",
-              "content": "* Zobrazené ceny jsou bez pobídky {NAME_OF_INCENTIVE} ve výši {INCENTIVE_AMOUNT} a dalších potenciálních pobídek a úspory paliva ve výši {SAVING_PRICE}."
+              "content": "Priser vist uden {INCENTIVE_AMOUNT} {NAME_OF_INCENTIVE} og potentielle incitamenter og brændstofbesparelser på {SAVING_PRICE}."
             },
             {
               "type": "disclaimer_learnMore",
-              "content": "Zjistit více",
+              "content": "Lær mere",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -3291,7 +3424,7 @@
             },
             {
               "type": "disclaimer_customIncentives",
-              "content": "Přizpůsobit",
+              "content": "Design din egen",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -3307,7 +3440,7 @@
             },
             {
               "type": "compare_features",
-              "content": "Funkce",
+              "content": "Funktioner",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -3375,19 +3508,19 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Akumulátor a hnací ústrojí",
+          "name": "Batteri og drivlinje",
           "extra_copy": [
             {
               "type": "group_disclaimer",
-              "content": "Všechny vozy mají prémiový interiér a zvuk"
+              "content": "Alle biler har Premium interiør og lyd"
             },
             {
               "type": "zero_to_road_limit_units",
-              "content": "0–100 km/h"
+              "content": "0-100 km/t"
             },
             {
               "type": "range_units",
-              "content": "Dojezd (odhad.)"
+              "content": "Rækkevidde (est.)"
             },
             {
               "type": "epa",
@@ -3399,27 +3532,27 @@
             },
             {
               "type": "range_units_short",
-              "content": "míle"
+              "content": "min"
             },
             {
               "type": "top_speed_units_short",
-              "content": "km/h"
+              "content": "km/t"
             },
             {
               "type": "range_units_epa",
-              "content": "Dojezd (EPA odhad.)"
+              "content": "Rækkevidde (EPA estimat)"
             },
             {
               "type": "top_speed_units",
-              "content": "Maximální rychlost"
+              "content": "Tophastighed"
             },
             {
               "type": "name",
-              "content": "Model Y"
+              "content": "Model Y"
             },
             {
               "type": "disclaimer_production",
-              "content": "Standardní sériová výroba by měla začít na začátku roku 2021.",
+              "content": "Produktionen af Standard Range-modellerne forventes at begynde i starten af 2021.",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -3437,14 +3570,14 @@
             },
             {
               "type": "range_info_title",
-              "content": "Dojezd"
+              "content": "Rækkevidde"
             },
             {
               "type": "range_info_disclaimer",
-              "content": "Norma WLTP může být užitečná ke srovnání dojezdu různých elektrických vozidel. Dojezdy uvedené jako „odhad“ nebo „odhad.“, jako jsou ty pod výběrem kol a sedadel (pokud jsou k dispozici), jsou odhady založené na zvolené konfiguraci.<br><br>Skutečný dojezd se může lišit v závislosti na faktorech, jako jsou rychlost, povětrnostní podmínky a změna nadmořské výšky."
+              "content": "WLTP-standarden kan være nyttig, når man sammenligner elektriske køretøjers rækkevidde. Rækkevidder anført som \"estimat\" eller \"estimeret\", som f.eks. de rækkevidder der er anført under valg af hjul og antal siddepladser, hvis tilgængelige, er estimater baseret på din valgte konfiguration.<br><br>Den faktiske rækkevidde kan variere afhængigt af faktorer som f.eks. hastighed, vejrforhold og højdeforskelle."
             }
           ],
-          "description": "Baterie a hnací ústrojí",
+          "description": "Batteri og drivlinje",
           "extra_content": [
             {
               "type": "asset",
@@ -3578,7 +3711,7 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Platba"
+          "name": "Betaling"
         },
         {
           "code": "INTERIOR",
@@ -3597,7 +3730,7 @@
         },
         {
           "code": "TOWING",
-          "name": "Tažné zařízení",
+          "name": "Anhængertræk",
           "context": "configurator",
           "extra_content": [
             {
@@ -3666,8 +3799,8 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Galerie konfigurace",
-          "description": "Galerie konfigurace",
+          "name": "Konfigurationsgalleri",
+          "description": "Konfigurationsgalleri",
           "extra_content": [
             {
               "type": "asset[0]",
@@ -3806,8 +3939,8 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Galerie plně autonomního řízení",
-          "description": "Galerie plně autonomního řízení",
+          "name": "Fuldt selvkørende galleri",
+          "description": "Fuldt selvkørende galleri",
           "extra_content": [
             {
               "type": "asset[0]",
@@ -3925,7 +4058,6 @@
             "BATTERY_AND_DRIVE",
             "PAINT",
             "WHEELS",
-            "WINTER_WHEELS_OPTIONS",
             "TOWING",
             "PACKAGES",
             "AUTOPILOT",
@@ -3952,11 +4084,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Standardní výbava",
+          "name": "Standard funktioner",
           "extra_copy": [
             {
               "type": "aria_label",
-              "content": "Porovnat modely"
+              "content": "Sammenlign modeller"
             }
           ]
         },
@@ -3979,7 +4111,7 @@
             },
             {
               "type": "description",
-              "content": "<p>Exkluzivní bezpečnostní funkce Sentry Mode nepřetržitě monitoruje okolí vozu Tesla, když jej ponecháte bez dozoru. Když ji zapnete, aktivuje funkce Sentry Mode externí kamery vozidla a použije je k detekci potenciálních hrozeb a ochraně před nimi, podobně jako to dělají domácí alarmy.</p><p>Další informace najdete v <a href=\"https://www.tesla.com/ownersmanual/index-model-y.html\" target=\"_blank\">návodu k obsluze</a>.</p>"
+              "content": "<p>En eksklusiv beskyttelsesfunktion kaldet Sentry-tilstand overvåger køretøjets omgivelser, når du efterlader din Tesla uden opsyn. Når Sentry-tilstand er aktiveret, aktiveres og anvendes køretøjets eksterne kameraer for at registrere trusler og hjælpe med til at beskytte dit køretøj mod potentielle trusler på samme måde som alarmsystemer til dit hjem.</p><p>Se <a href=\"https://www.tesla.com/ownersmanual/index-model-y.html\" target=\"_blank\">Manualen</a> for yderligere oplysninger.</p>"
             }
           ],
           "extra_content": [
@@ -4010,11 +4142,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Interiér",
+          "name": "Interiør",
           "extra_copy": [
             {
               "type": "aria_label",
-              "content": "Interiérové prvky"
+              "content": "Indvendige funktioner"
             }
           ]
         },
@@ -4031,11 +4163,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Doplňková výbava Performance",
+          "name": "Performance-opgradering",
           "extra_copy": [
             {
               "type": "aria_label",
-              "content": "Doplňková výbava Performance"
+              "content": "Performance-opgraderinger"
             }
           ]
         },
@@ -4048,23 +4180,23 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "20’’ Performance kola",
+          "name": "20\" Performance-fælge",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Doplňková výbava Performance"
+              "content": "Performance-opgradering"
             },
             {
               "type": "panelName",
-              "content": "20’’ Performance kola"
+              "content": "20\" Performance-fælge"
             },
             {
               "type": "description",
-              "content": "Exkluzivní šedá kola navržená s lehkou, ale odolnou hliníkovou slitinou pro dokonalou kontrolu jízdy na cestě i mimo ni."
+              "content": "Eksklusive grå fælge designet med let, men stærk aluminiumslegering til ultimativt greb både på og uden for banen."
             },
             {
               "type": "add_options",
-              "content": "Přidat balíček",
+              "content": "Tilføj pakke",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4087,7 +4219,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4140,23 +4272,23 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Brzdy Performance",
+          "name": "Performance-bremser",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Doplňková výbava Performance"
+              "content": "Performance-opgradering"
             },
             {
               "type": "panelName",
-              "content": "Brzdy Performance"
+              "content": "Performance-bremser"
             },
             {
               "type": "description",
-              "content": "Větší, pevnější třmeny a lehké dvoudílné kotouče pro lepší výkon a tepelnou kapacitu."
+              "content": "Større og stivere kalibre og letvægts todelte skiver for forbedret ydeevne og varmekapacitet."
             },
             {
               "type": "add_options",
-              "content": "Přidat balíček",
+              "content": "Tilføj pakke",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4179,7 +4311,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4223,23 +4355,23 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Performance Pedál",
+          "name": "Performance-pedal",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Doplňková výbava Performance"
+              "content": "Performance-opgradering"
             },
             {
               "type": "panelName",
-              "content": "Performance Pedál"
+              "content": "Performance-pedal"
             },
             {
               "type": "description",
-              "content": "Vyrobeno z hliníkové slitiny pro kultivovanější styl interiéru."
+              "content": "Designet med aluminium for mere sporty indvendig styling."
             },
             {
               "type": "add_options",
-              "content": "Přidat balíček",
+              "content": "Tilføj pakke",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4262,7 +4394,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4306,23 +4438,23 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Spoiler z uhlíkových vláken",
+          "name": "Spoiler af kulfiber",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Doplňková výbava Performance"
+              "content": "Performance-opgradering"
             },
             {
               "type": "panelName",
-              "content": "Spoiler z uhlíkových vláken"
+              "content": "Kulfiberspoiler"
             },
             {
               "type": "description",
-              "content": "Pro lepší aerodynamiku a větší stabilitu při vysokých rychlostech."
+              "content": "Til forbedret aerodynamik og forbedret stabilitet ved høje hastigheder."
             },
             {
               "type": "add_options",
-              "content": "Přidat balíček",
+              "content": "Tilføj pakke",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4345,7 +4477,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4416,7 +4548,7 @@
           "extra_copy": [
             {
               "type": "title",
-              "content": "Doplňková výbava Performance"
+              "content": "Performance-opgradering"
             },
             {
               "type": "panelName",
@@ -4424,11 +4556,11 @@
             },
             {
               "type": "description",
-              "content": "Optimalizujte výkon a ovladatelnost na vozovce pomocí vysoce adaptivního řízení točivého momentu motoru, lepšího regenerativního brzdění, lepšího chlazení pohonného ústrojí a kvalitnějšího zatáčení."
+              "content": "Optimer ydeevne og køreegenskaber på banen med høj adaptiv momentregulering, øget regenerativ bremsning, øget drivlinjekøling og forbedrede egenskaber i sving."
             },
             {
               "type": "add_options",
-              "content": "Přidat balíček",
+              "content": "Tilføj pakke",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4451,7 +4583,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4499,11 +4631,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Plně autonomní řízení",
+          "name": "Fuldt selvkørende",
           "extra_copy": [
             {
               "type": "aria_label",
-              "content": "Doplňková výbava Performance"
+              "content": "Performance-opgraderinger"
             }
           ]
         },
@@ -4515,15 +4647,15 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Platba",
+          "name": "Betaling",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Objednejte si svůj Model Y"
+              "content": "Bestil din Model Y"
             },
             {
               "type": "goto_payment",
-              "content": "Pokračovat k platbě",
+              "content": "Fortsæt til betaling",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4532,9 +4664,8 @@
                     "type": "NAVIGATION_SELECT_KEY",
                     "classNames": [
                       "tds-btn",
-                      "tds-btn--width-full",
-                      "tds-btn--secondary",
-                      "tds-btn--large"
+                      "tds-btn--primary",
+                      "tds-btn--width-full"
                     ]
                   }
                 }
@@ -4613,23 +4744,23 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Autopilot podle navigace",
+          "name": "Navigate on Autopilot",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Autopilot podle navigace"
+              "content": "Navigate on Autopilot"
             },
             {
               "type": "panelName",
-              "content": "Schopnost plně autonomního řízení"
+              "content": "Fuldt selvkørende egenskaber"
             },
             {
               "type": "description",
-              "content": "Automatické řízení po dálnici od nájezdu ke sjezdu zahrnuje automatické změny jízdního pruhu, adaptivní tempomat s možností kompletního zastavení a opětovného rozjezdu, Autosteer a předjíždění pomalých vozů ve vašem jízdním pruhu."
+              "content": "Automatisk kørsel fra motorvejstilkørsel til frakørsel inkluderer automatiske vognbaneskift, Adaptiv fartpilot til fuldt stop og igangsætning, Autostyring og overhaling af langsomme biler i din vognbane."
             },
             {
               "type": "add_options",
-              "content": "Přidat balíček",
+              "content": "Tilføj pakke",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4654,7 +4785,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4718,23 +4849,23 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Automatická změna jízdního pruhu",
+          "name": " Automatisk vognbaneskift",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Automatická změna jízdního pruhu"
+              "content": " Automatisk vognbaneskift"
             },
             {
               "type": "panelName",
-              "content": "Schopnost plně autonomního řízení"
+              "content": "Fuldt selvkørende egenskaber"
             },
             {
               "type": "description",
-              "content": "Při jízdě po dálnici funkce Automatická změna jízdního pruhu navede váš vůz do optimálního jízdního pruhu pro sjíždění či napojování a zároveň dokáže předjíždět pomalejší vozidla. Řidič má jasný přehled o chystaných změnách jízdních pruhů a funkci Automatické změny jízdního pruhu si může upravit dle svých preferencí."
+              "content": "Mens du kører på motorvejen, vil Automatisk vognbaneskift placere din bil i den optimale bane for at forberede sig på sammenfletninger og afkørsler, mens du overhaler langsomme biler. Førere får tydelig indsigt i kommende vognbaneskift samt mulighed for tilpasning af Automatisk vognbaneskift-funktionalitet."
             },
             {
               "type": "add_options",
-              "content": "Přidat balíček",
+              "content": "Tilføj pakke",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4759,7 +4890,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4823,23 +4954,23 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Automatické parkování",
+          "name": "Autopark",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Automatické parkování"
+              "content": "Autopark"
             },
             {
               "type": "panelName",
-              "content": "Schopnost plně autonomního řízení"
+              "content": "Fuldt selvkørende egenskaber"
             },
             {
               "type": "description",
-              "content": "Parkujte jednoduše na podélných i příčných parkovacích místech díky jedinému klepnutí na tlačítko na středovém displeji. Model Y vás upozorní na dostupná parkovací místa průběžným monitorováním prostoru kolem vás."
+              "content": "Parker let på både parallelle og vinkelrette parkeringspladser med et enkelt tryk på midterdisplayet. Model Y informerer dig om tilgængelige parkeringspladser ved løbende at overvåge pladserne omkring dig."
             },
             {
               "type": "add_options",
-              "content": "Přidat balíček",
+              "content": "Tilføj pakke",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4864,7 +4995,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4936,15 +5067,15 @@
             },
             {
               "type": "panelName",
-              "content": "Schopnost plně autonomního řízení"
+              "content": "Fuldt selvkørende egenskaber"
             },
             {
               "type": "description",
-              "content": "Váš zaparkovaný vůz, aktivovaný prostřednictvím aplikace Tesla, si vás najde, a dokonce zaparkuje ve stísněných prostorech a sám z nich vyjede. Funkce Smart Summon zvládá složité parkovací situace při dodržování vyznačených pruhů a dopravních značek Stůj, dej přednost v jízdě a vyhýbá se chodcům i překážkám, jako jsou dopravní kužely, odpadkové koše a odložené nákupní vozíky."
+              "content": "Med aktivering via Tesla-appen vil din parkerede bil kunne finde dig og endda parkere sig selv og køre væk fra parkeringspladser, hvor det kniber med pladsen. Smart Summon navigerer i komplekse parkeringssituationer, mens funktionen overholder kørebanemarkeringer og stopskilte, undgår fodgængere og forhindringer som f.eks. trafikkegler, skraldespande og indkøbsvogne."
             },
             {
               "type": "add_options",
-              "content": "Přidat balíček",
+              "content": "Tilføj pakke",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -4969,7 +5100,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -5033,23 +5164,23 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Počítač plně autonomního řízení",
+          "name": "Fuldt selvkørende-computer",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Počítač plně autonomního řízení"
+              "content": "Fuldt selvkørende-computer"
             },
             {
               "type": "panelName",
-              "content": "Schopnost plně autonomního řízení"
+              "content": "Fuldt selvkørende egenskaber"
             },
             {
               "type": "description",
-              "content": "Společností Tesla navržený křemíkový čip optimalizovaný pro počítačovou vizi umožňuje detailní vizualizaci prostředí na obrazovce a případnou schopnost plně autonomního řízení prostřednictvím bezdrátové aktualizace softwaru na dálku."
+              "content": "Tesla-designede processorer optimeret til computersyn muliggør detaljeret visualisering af miljøet på skærmen og fremtidige fuldt selvkørende egenskaber gennem over-the-air softwareopdateringer."
             },
             {
               "type": "add_options",
-              "content": "Přidat balíček",
+              "content": "Tilføj pakke",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -5074,7 +5205,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -5118,11 +5249,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Základní systém Autopilot",
+          "name": "Basis Autopilot",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Základní systém Autopilot"
+              "content": "Basis Autopilot"
             },
             {
               "type": "eyebrow",
@@ -5130,7 +5261,7 @@
             },
             {
               "type": "description",
-              "content": "Systém Autopilot, který je ve standardní výbavě všech vozů Tesla, umožňuje vašemu vozu automaticky udržovat směr, zrychlovat nebo brzdit s ohledem na další vozidla a chodce ve vašem pruhu. Vyspělé bezpečnostní a praktické funkce vám pomohou s nejúnavnějšími aspekty řízení. K dispozici máte také asistenční funkce, jako jsou nouzové brzdění, varování před kolizí a monitorování mrtvého úhlu."
+              "content": "Autopilot, som er inkluderet i alle Teslaer, gør din bil i stand til at styre, accelerere og bremse automatisk for andre køretøjer og fodgængere i sin vognbane. Avancerede sikkerheds- og komfortfunktioner er designet til at hjælpe dig med de mest belastende dele af kørslen, herunder nødbremsning, kollisionsadvarsler og overvågning af blinde vinkler."
             }
           ],
           "extra_content": [
@@ -5153,11 +5284,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Středový displej",
+          "name": "Midterdisplay",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Středový displej"
+              "content": "Midterdisplay"
             },
             {
               "type": "eyebrow",
@@ -5165,7 +5296,7 @@
             },
             {
               "type": "description",
-              "content": "Na velkorysé 15palcové dotykové obrazovce máte přehled o všem: nabízí pohledy z postranních i zadních kamer, navigaci, filmy, hudbu, hry a další možnosti. Okolní prostředí se během jízdy vizualizuje na obrazovce v reálném čase. Uvidíte tak značky rychlostních omezení, světla blížících se semaforů, chodce, cyklisty a nebezpečí v rozsahu celých 360 stupňů."
+              "content": "Få adgang til alt på den store 15-tommers touchskærm, inklusive side- og bakkameraer i høj opløsning, navigation, film, musik, spil og meget mere. Dine omgivelser visualiseres i realtid, mens du kører og viser hastighedsbegrænsninger, kommende trafiksignaler, fodgængere, cyklister og potentelle farer i en 360-graders surroundvisning."
             }
           ],
           "extra_content": [
@@ -5188,11 +5319,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Bezdrátové aktualizace",
+          "name": "Over-the-Air opdateringer",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Bezdrátové aktualizace"
+              "content": "Over-the-Air opdateringer"
             },
             {
               "type": "eyebrow",
@@ -5200,7 +5331,7 @@
             },
             {
               "type": "description",
-              "content": "Model Y průběžně vylepšujeme častými bezdrátovými softwarovými aktualizacemi, které vám přinášejí nové funkce, více zábavy, lepší výkon a delší dojezd, větší pohodlí a ještě vyšší bezpečnost. "
+              "content": "Model Y bliver bedre over tid med hyppige over-the-air softwareopdateringer, der giver dig nye funktioner, mere underholdning, bedre ydeevne og rækkevidde, øget komfort og endnu mere sikkerhed. "
             }
           ],
           "extra_content": [
@@ -5223,11 +5354,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Přístup k nabíječkám Supercharger",
+          "name": "Adgang til supercharger",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Snadné nabíjení"
+              "content": "Nem opladning"
             },
             {
               "type": "eyebrow",
@@ -5235,7 +5366,7 @@
             },
             {
               "type": "description",
-              "content": "Nabíjet můžete kdekoli, kde je elektřina. Energii na dojezd při každodenních jízdách lze většinou dobít pomocí balíčku s mobilní nabíječkou a domácí zásuvky. Nejpohodlnější nabíjení doma vám zajistí upgrade na nástěnnou nabíječku Tesla Wall Connector. Při cestování na dlouhé vzdálenosti dokáže Model Y na nabíjecí stanici Tesla Supercharger za pouhých 15 minut prodloužit dojezd až o 241 kilometrů, takže můžete být za chvilku zase na cestě."
+              "content": "Oplad hvor som helst der er strøm. Det daglige kørselsbehov kan suppleres med det mobile ladekabel og et husholdningsstik, eller du kan opgradere til en Tesla Wall Connector for den bedste opladningsoplevelse hjemme. På langdistanceture tilføjer Model Y op til 241 kilometer rækkevidde på kun 15 minutter ved hjælp af Teslas Supercharger-netværk, så du kommer hurtigt tilbage på vejen."
             }
           ],
           "extra_content": [
@@ -5258,11 +5389,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Mobilní aplikace Tesla",
+          "name": "Tesla mobil-app",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Mobilní aplikace Tesla"
+              "content": "Tesla mobil-app"
             },
             {
               "type": "eyebrow",
@@ -5270,7 +5401,7 @@
             },
             {
               "type": "description",
-              "content": "Ovládejte a sledujte na dálku svůj vůz Tesla pomocí bezklíčového řízení Phone Key, informacích o dojezdu a nabíjení, nastavení klimatizace, aktuální GPS polohy a dalších informací. Můžete si dokonce naplánovat servis a sledovat celý svůj ekosystém Tesla, včetně přísunu energie ze systému Powerwall nebo ze Solar Roof a solárních panelů."
+              "content": "Fjernstyr og overvåg din Tesla med nøglefri kørsel med telefonnøgle, rækkevidde- og opladningsstatus, klimaanlæg, live GPS-placering og mere. Du kan endda planlægge service og overvåge hele dit Tesla-økosystem, inklusive strøm fra Powerwall eller fra Solar Roof og Solar-paneler."
             }
           ],
           "extra_content": [
@@ -5293,11 +5424,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Prosklená střecha",
+          "name": "Glastag",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Prosklená střecha"
+              "content": "Glastag"
             },
             {
               "type": "eyebrow",
@@ -5305,7 +5436,7 @@
             },
             {
               "type": "description",
-              "content": "Velká prosklená střecha poskytuje cestujícím více světla, pocit většího prostoru a úchvatný výhled na oblohu. Infračervené i ultrafialové paprsky jsou před proniknutím do kabiny účinně blokovány, což snižuje žár i oslnění i v době, kdy je slunce přímo v nadhlavníku."
+              "content": "Det store glastag giver passagererne en lysere og mere rummelig oplevelse og en uhindret udsigt til himlen. Infrarødt lys og UV-lys blokeres effektivt, inden det kommer ind i kabinen, hvilket reducerer varme og blænding, selv når solen er direkte over hovedet."
             }
           ],
           "extra_content": [
@@ -5328,11 +5459,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Flexibilní zadní sedadlo",
+          "name": "Fleksibelt bagsæde",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Flexibilní sezení"
+              "content": "Fleksible sæder"
             },
             {
               "type": "eyebrow",
@@ -5340,7 +5471,7 @@
             },
             {
               "type": "description",
-              "content": "Každé zadní sedadlo lze pro maximální všestrannost samostatně sklopit. Druhá řada se automaticky sklopí pomocí ovládacích prvků zadních výklopných dveří a cestující na zadních sedadlech si mohou pro pohodlné cestování nastavovat a sklápět opěradla."
+              "content": "Hvert bagsæde kan nedfældes uafhængigt for at opnå maksimal alsidighed. 2. række kan nedfældes automatisk fra knapperne ved bagagerummet, og bagpassagererne kan justere og læne deres ryglæn tilbage for ekstra komfort."
             }
           ],
           "extra_content": [
@@ -5363,11 +5494,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Bezdrátová nabíječka",
+          "name": "Trådløs oplader",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Bezdrátová nabíječka"
+              "content": "Trådløs oplader"
             },
             {
               "type": "eyebrow",
@@ -5375,7 +5506,7 @@
             },
             {
               "type": "description",
-              "content": "Na protiskluzovém tvarovaném povrchu snadno nabijete dva telefony najednou. Integrovaná středová konzola nabízí hluboký úložný prostor. Je vybavena dvěma nabíjecími porty USB-C vpředu a dvěma vzadu a víceúrovňovou úložnou schránkou pod loketní opěrkou."
+              "content": "Oplad nemt to telefoner på én gang på en skridsikker overflade. Den integrerede midterkonsol har dyb opbevaringsplads med to USB-C-opladningsporte foran og to ved bagsæderne samt opdelt opbevaringsplads under armlænet."
             }
           ],
           "extra_content": [
@@ -5398,11 +5529,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Veganský interiér",
+          "name": "Vegansk interiør",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Stoprocentně veganský interiér"
+              "content": "Fuldt vegansk interiør"
             },
             {
               "type": "eyebrow",
@@ -5410,7 +5541,7 @@
             },
             {
               "type": "description",
-              "content": "Námi navržený materiál čalounění je měkčí než kůže, a při tom výrazně trvanlivější a odolnější vůči skvrnám. Je stoprocentně veganský a v porovnání s tradičními materiály čalounění podstatně šetrnější k životnímu prostředí. Vyhoví těm nejvyšším estetickým nárokům a poskytne vám mimořádné pohodlí a zároveň splňuje naše přísné standardy na trvanlivost a odolnost vůči skvrnám."
+              "content": "Det er blødere end læder, men alligevel langt mere holdbart og mere pletbestandigt. Vores specialdesignede sædemateriale er fuldt vegansk og betydeligt mere bæredygtigt end traditionelle sædematerialer, hvilket maksimerer komfort og æstetik og samtidig opretholder vores strenge standarder for holdbarhed og pletbestandighed."
             }
           ],
           "extra_content": [
@@ -5433,11 +5564,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Vyspělá klimatizace",
+          "name": "Avanceret klimaanlæg",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Vyspělá klimatizace"
+              "content": "Avanceret betjening af klimaanlæg"
             },
             {
               "type": "eyebrow",
@@ -5445,7 +5576,7 @@
             },
             {
               "type": "description",
-              "content": "Proudění vzduchu a teplota se ovládají pouze přes displej, což umožňuje přesné nasměrování bez sahání na samotný ventilátor. Během horkých dnů zajišťuje ochrana proti přehřátí kabiny v interiéru vždy chladné prostředí a náš filtrační systém HEPA zajišťuje nejlepší možnou kvalitu vzduchu v kabině. Za chladného počasí funkce přípravy před jízdou automaticky ohřívá kabinu vozu a připravuje akumulátor na maximální dojezd a účinnost."
+              "content": "Luftstrøm og temperatur styres udelukkende gennem displayet, hvilket giver mulighed for præcis placering af luftstrømmen, uden at du nogensinde behøver at se eller røre ved et fysisk luftudtag. På varme dage sørger kabineoverophedningsbeskyttelsen for at kabinen altid forbliver kølig, og vores HEPA-filtreringssystem leverer den bedst mulige luftkvalitet i kabinen. I koldt vejr opvarmer klimaanlægget automatisk kabinen og klargør bilens batteri med henblik på maksimal rækkevidde og effektivitet."
             }
           ],
           "extra_content": [
@@ -5472,7 +5603,7 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Porovnat modely a funkce",
+          "name": "Sammenlign model og funktion",
           "extra_copy": [],
           "extra_content": []
         },
@@ -5483,39 +5614,39 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Dojezd a výkon",
+          "name": "Rækkevidde og ydeevne",
           "extra_copy": [
             {
               "type": "Title",
-              "content": "Dojezd a výkon"
+              "content": "Rækkevidde og ydeevne"
             },
             {
               "type": "dynamic_grid_title[0]",
-              "content": "Zrychlení 0–100 km/h"
+              "content": "Acceleration 0-100 km/t"
             },
             {
               "type": "dynamic_grid_title[1]",
-              "content": "Dojezd"
+              "content": "Rækkevidde"
             },
             {
               "type": "dynamic_grid_title[2]",
-              "content": "Maximální rychlost"
+              "content": "Tophastighed"
             },
             {
               "type": "dynamic_grid_title[3]",
-              "content": "Hnací ústrojí"
+              "content": "Drivlinje"
             },
             {
               "type": "feature_title",
-              "content": "Mimořádná efektivita"
+              "content": "Høj effektivitet"
             },
             {
               "type": "feature_list.default[0]",
-              "content": "Společnost Tesla navrhla vůz Model Y od základu jako elektrický a v celém systému využívá principy integrace. Všechny součásti, ať už jde o baterii, motor, nebo aerodynamický exteriér, jsou optimalizovány tak, aby se navzájem podporovaly a vytvářely jedno z nejúspornějších, ale zároveň nejvýkonnějších vozidel všech dob."
+              "content": "Tesla designede Model Y fra bunden som en elbil ved hjælp af systemniveauintegration overalt. Hver komponent, inklusive batterier, motorer og endda udvendig aerodynamik, er optimeret til at drage fordel af hinanden og skabe en af de mest effektive, men alligevel utrolig stærke biler, der nogensinde er bygget."
             },
             {
               "type": "feature_list.default[1]",
-              "content": "*Nezahrnuje rollout."
+              "content": "*Med 1 ft rollout fratrukket."
             }
           ],
           "extra_content": [
@@ -5585,47 +5716,47 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Sekce interiérů",
+          "name": "Interiør",
           "extra_copy": [
             {
               "type": "Title",
-              "content": "Interiér a praktické funkce"
+              "content": "Interiør og bekvemmelighed"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Hudba a média přes Bluetooth®"
+              "content": "Musik og medier via Bluetooth®"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Prémiový audiosystém – 13 reproduktorů, 1 subwoofer, 2 zesilovače a podmanivý zvuk"
+              "content": "Premium audio med 13 højttalere, 1 subwoofer, 2 forstærkere og intens lyd"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Nezávisle sklopná sedadla 2. řady"
+              "content": "Sæder på 2. sæderække, der kan nedfældes uafhængigt af hinanden"
             },
             {
               "type": "feature_list.default[0].items[3]",
-              "content": "Vyhřívaná sedadla pro všech 5 sedadel s individuálním ovládáním"
+              "content": "5 opvarmede sæder med individuel betjening"
             },
             {
               "type": "feature_list.default[0].items[6]",
-              "content": "Elektricky sklopná, vyhřívaná vnější zpětná zrcátka se samostmívací funkcí"
+              "content": "Automatisk dæmpning af lys, eldrevne og opvarmede sidespejl"
             },
             {
               "type": "feature_list.default[0].items[5]",
-              "content": "Tónovaná prosklená střecha s ochranou proti ultrafialovému a infračervenému záření"
+              "content": "Tonet glastag med beskyttelse mod ultraviolette og infrarøde stråler"
             },
             {
               "type": "feature_list.default[0].items[7]",
-              "content": "Vlastní profily řidičů"
+              "content": "Brugerdefinerede førerprofiler"
             },
             {
               "type": "feature_list.default[0].items[8]",
-              "content": "Bezdrátové nabíjení telefonu ve středové konzole"
+              "content": "Trådløs opladning af mobiltelefon i midterkonsollen"
             },
             {
               "type": "feature_list.default[0].items[9]",
-              "content": "1,9 m³ nákladového prostoru včetně bezpečného předního kufru"
+              "content": "1,9m³ opbevaringsplads inklusive et afsikret bagagerum foran"
             }
           ],
           "extra_content": [
@@ -5650,39 +5781,39 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Bezpečnost",
+          "name": "Sikkerhed",
           "extra_copy": [
             {
               "type": "Title",
-              "content": "Bezpečnost"
+              "content": "Sikkerhed"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Monitorování mrtvého úhlu"
+              "content": "Overvågning af blinde vinkler"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Automatické nouzové brzdění"
+              "content": "Automatisk nødbremsning"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Výstraha před čelním nárazem"
+              "content": "Frontkollisionsadvarsel"
             },
             {
               "type": "feature_list.default[0].items[3]",
-              "content": "Výstraha před bočním kolizí"
+              "content": "Advarsel om sidekollision"
             },
             {
               "type": "feature_list.default[0].items[4]",
-              "content": "Nouzová prevence opuštění pruhu a korekce"
+              "content": "Undgåelse og korrigering af vognbaneskift i nødsituationer"
             },
             {
               "type": "feature_list.default[0].items[5]",
-              "content": "Akcelerace s ohledem na okolí"
+              "content": "Forhindringsbevidst acceleration"
             },
             {
               "type": "feature_list.default[0].items[6]",
-              "content": "LED světla pro denní svícení"
+              "content": "LED positionslys"
             },
             {
               "type": "feature_list.default[0].items[7]",
@@ -5690,11 +5821,11 @@
             },
             {
               "type": "feature_list.default[0].items[8]",
-              "content": "Ochrana proti přehřátí kabiny"
+              "content": "Cabin Overheat Protection"
             },
             {
               "type": "feature_list.default[0].items[9]",
-              "content": "Monitorování polohy vozidla přes aplikaci"
+              "content": "Overvågning af køretøjets placering i appen"
             }
           ],
           "extra_content": [
@@ -5719,27 +5850,27 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Bezpečnost",
+          "name": "Sikkerhed",
           "extra_copy": [
             {
               "type": "Title",
-              "content": "Prémiová konektivita"
+              "content": "Premium Connectivity"
             },
             {
               "type": "feature_list.default[0].title",
-              "content": "Model Y zahrnuje standardní navigaci a zkušební verzi prémiové konektivity na 30 dní, která umožňuje:"
+              "content": "Model Y inkluderer navigation som standard og en 30 dages prøveperiode på Premium Connectivity, der muliggør:"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Živá vizualizace dopravy"
+              "content": "Live trafikvisualisering"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Satelitní mapy"
+              "content": "Kort med satellitvisning"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Streamování videí s přístupem k obsahu na platformách Netflix, Youtube, Twitch a dalších"
+              "content": "Videostreaming, adgang til indhold fra Netflix, Youtube, Twitch m.fl."
             },
             {
               "type": "feature_list.default[0].items[3]",
@@ -5747,11 +5878,11 @@
             },
             {
               "type": "feature_list.default[0].items[4]",
-              "content": "Streamování hudby"
+              "content": "Streaming af musik"
             },
             {
               "type": "feature_list.default[0].items[4]",
-              "content": "Internetový prohlížeč"
+              "content": "Internetbrowser"
             }
           ],
           "extra_content": [
@@ -5776,27 +5907,27 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Interiérové prvky",
+          "name": "Indvendige funktioner",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Interiérové prvky"
+              "content": "Indvendige funktioner"
             },
             {
               "type": "feature_list.default[0].main_title",
-              "content": "Zvuk a média"
+              "content": "Lyd og medier"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Prémiový audiosystém – 13 reproduktorů, 1 subwoofer, 2 zesilovače a podmanivý zvuk"
+              "content": "Premium audio – 13 højttalere, 1 subwoofer, 2 forstærkere og intens lyd"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Hudba a média přes Bluetooth®"
+              "content": "Musik og medier via Bluetooth®"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "USB-A port včetně přenosného paměťového zařízení 128 GB v přihrádce spolujezdce"
+              "content": "USB-A-port i handskerummet med en bærbar lagerenhed på 128 GB inkluderet"
             },
             {
               "type": "feature_list.default[1].main_title",
@@ -5804,39 +5935,39 @@
             },
             {
               "type": "feature_list.default[1].items[0]",
-              "content": "Elektricky nastavitelná přední sedadla"
+              "content": "Elektrisk justerbare forsæder"
             },
             {
               "type": "feature_list.default[1].items[1]",
-              "content": "Vyhřívaná přední a zadní sedadla"
+              "content": "Opvarmede for- og bagsæder"
             },
             {
               "type": "feature_list.default[1].items[2]",
-              "content": "Systém filtrace vzduchu HEPA"
+              "content": "HEPA-filtersystem"
             },
             {
               "type": "feature_list.default[1].items[3]",
-              "content": "Tónovaná prosklená střecha s ochranou proti ultrafialovému a infračervenému záření"
+              "content": "Tonet glastag med beskyttelse mod ultraviolette og infrarøde stråler"
             },
             {
               "type": "feature_list.default[1].items[4]",
-              "content": "Nezávislá zadní sedadla, která lze sklopit"
+              "content": "Bagsæder, der kan nedfældes fladt uafhængigt"
             },
             {
               "type": "feature_list.default[1].items[5]",
-              "content": "Podlahové koberečky do interiéru"
+              "content": "Gulvmåtter"
             },
             {
               "type": "feature_list.default[2].main_title",
-              "content": "Praktičnost"
+              "content": "Bekvemmelighed"
             },
             {
               "type": "feature_list.default[2].items[1]",
-              "content": "Elektricky sklopná, vyhřívaná vnější zpětná zrcátka se samostmívací funkcí"
+              "content": "Elektrisk sammenklappelige, opvarmede sidespejle med automatisk nedblænding"
             },
             {
               "type": "feature_list.default[2].items[0]",
-              "content": "Mlhová světla LED",
+              "content": "LED-tågelygter",
               "behavior": [
                 {
                   "type": "CONTENT_SELECTED",
@@ -5853,15 +5984,15 @@
             },
             {
               "type": "feature_list.default[2].items[3]",
-              "content": "Vlastní profily řidičů"
+              "content": "Brugerdefinerede førerprofiler"
             },
             {
               "type": "feature_list.default[2].items[2]",
-              "content": "Středová konzola s přihrádkou, 4 USB-C porty a bezdrátovým nabíjením pro 2 chytré telefony"
+              "content": "Midterkonsol med opbevaringsplads, 4 USB-porte og plads til trådløs opladning af 2 smartphones"
             },
             {
               "type": "Title",
-              "content": "Interiér a praktické funkce"
+              "content": "Interiør og bekvemmelighed"
             }
           ],
           "extra_content": [
@@ -5896,11 +6027,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Až sedm sedadel",
+          "name": "Op til syv sæder",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Až sedm sedadel"
+              "content": "Op til syv sæder"
             },
             {
               "type": "eyebrow",
@@ -5908,7 +6039,7 @@
             },
             {
               "type": "description",
-              "content": "Model Y poskytuje maximální všestrannost – schopnost přepravit 7 cestujících a jejich náklad. Každé zadní sedadlo se dá samostatně zcela sklopit a vytvořit tak flexibilní úložný prostor pro lyže, nábytek, zavazadla a další věci. Dveře zavazadlového prostoru se otevírají do nízké podlahy zavazadlového prostoru, což usnadňuje a urychluje nakládání a vykládání."
+              "content": "Model Y giver maksimal alsidighed – kan rumme 7 passagerer og deres bagage. Alle bagsæder kan nedfældes uafhængigt af hinanden, det giver fleksibel opbevaring til ski, møbler, bagage og meget mere. Bagklappen åbner op til et bagagerum med lavt gulv, der gør det nemt og hurtigt at få bagagen ind og ud."
             }
           ],
           "extra_content": [
@@ -5954,7 +6085,7 @@
             },
             {
               "type": "sub_title",
-              "content": "Pohon zadních kol"
+              "content": "Baghjulstræk"
             }
           ],
           "extra_content": [
@@ -6000,11 +6131,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Velké úložiště",
+          "name": "Rummelig opbevaringsplads",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Velké úložiště"
+              "content": "Rummelig opbevaringsplads"
             },
             {
               "type": "eyebrow",
@@ -6012,7 +6143,7 @@
             },
             {
               "type": "description",
-              "content": "Model Y disponuje celkem 2 158 litry nákladového prostoru, a to v předním zavazadlovém prostoru a v zadním zavazadlovém prostoru s automatickým otevíráním a zavíráním. Díky využití prostoru, který bývá tradičně obsazen objemným motorem, palivovou nádrží a převodovkou, nabízí konstrukce vozů Model Y podstatně větší úložný prostor, než je u vozidel této velikosti obvyklé. Vyztužená karoserie a podvozek navíc zvyšují bezpečnost cestujících."
+              "content": "Model Y har 2158 liter opbevaringsplads, der er tilgængelig både via det forreste bagagerum og det bageste bagagerum med automatisk åbning og lukning. Ved at udnytte det rum, der traditionelt er optaget af store motorer, brændstoftanke og transmissioner, giver designet af Model Y mulighed for en uforholdsmæssigt stor lagerplads i en bil af denne størrelse, samtidig med at den yder sikkerhed for brugeren gennem et mere rummeligt samt forstærket karrosseri og chassis."
             }
           ],
           "extra_content": [
@@ -6044,7 +6175,7 @@
           "extra_copy": [
             {
               "type": "aria_label",
-              "content": "Funkce systému Enhanced Autopilot"
+              "content": "Enhanced Autopilot funktioner"
             }
           ]
         },
@@ -6057,11 +6188,11 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Autopilot podle navigace",
+          "name": "Navigate on Autopilot",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Autopilot podle navigace"
+              "content": "Navigate on Autopilot"
             },
             {
               "type": "panelName",
@@ -6069,11 +6200,11 @@
             },
             {
               "type": "description",
-              "content": "Automatické řízení po dálnici od nájezdu ke sjezdu zahrnuje automatické změny jízdního pruhu, adaptivní tempomat s možností kompletního zastavení a opětovného rozjezdu, Autosteer a předjíždění pomalých vozů ve vašem jízdním pruhu."
+              "content": "Automatisk kørsel fra motorvejstilkørsel til frakørsel inkluderer automatiske vognbaneskift, Adaptiv fartpilot til fuldt stop og igangsætning, Autostyring og overhaling af langsomme biler i din vognbane."
             },
             {
               "type": "add_options",
-              "content": "Přidat balíček",
+              "content": "Tilføj pakke",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6098,7 +6229,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6162,11 +6293,11 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Automatická změna jízdního pruhu",
+          "name": " Automatisk vognbaneskift",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Automatická změna jízdního pruhu"
+              "content": " Automatisk vognbaneskift"
             },
             {
               "type": "panelName",
@@ -6174,11 +6305,11 @@
             },
             {
               "type": "description",
-              "content": "Při jízdě po dálnici funkce Automatická změna jízdního pruhu navede váš vůz do optimálního jízdního pruhu pro sjíždění či napojování a zároveň dokáže předjíždět pomalejší vozidla. Řidič má jasný přehled o chystaných změnách jízdních pruhů a funkci Automatické změny jízdního pruhu si může upravit dle svých preferencí."
+              "content": "Mens du kører på motorvejen, vil Automatisk vognbaneskift placere din bil i den optimale bane for at forberede sig på sammenfletninger og afkørsler, mens du overhaler langsomme biler. Førere får tydelig indsigt i kommende vognbaneskift samt mulighed for tilpasning af Automatisk vognbaneskift-funktionalitet."
             },
             {
               "type": "add_options",
-              "content": "Přidat balíček",
+              "content": "Tilføj pakke",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6203,7 +6334,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6267,11 +6398,11 @@
           ],
           "required": false,
           "exclusive": false,
-          "name": "Automatické parkování",
+          "name": "Autopark",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Automatické parkování"
+              "content": "Autopark"
             },
             {
               "type": "panelName",
@@ -6279,11 +6410,11 @@
             },
             {
               "type": "description",
-              "content": "Parkujte jednoduše na podélných i příčných parkovacích místech díky jedinému klepnutí na tlačítko na středovém displeji. Model Y vás upozorní na dostupná parkovací místa průběžným monitorováním prostoru kolem vás."
+              "content": "Parker let på både parallelle og vinkelrette parkeringspladser med et enkelt tryk på midterdisplayet. Model Y informerer dig om tilgængelige parkeringspladser ved løbende at overvåge pladserne omkring dig."
             },
             {
               "type": "add_options",
-              "content": "Přidat balíček",
+              "content": "Tilføj pakke",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6308,7 +6439,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6384,11 +6515,11 @@
             },
             {
               "type": "description",
-              "content": "Váš zaparkovaný vůz, aktivovaný prostřednictvím aplikace Tesla, si vás najde, a dokonce zaparkuje ve stísněných prostorech a sám z nich vyjede. Funkce Smart Summon zvládá složité parkovací situace při dodržování vyznačených pruhů a dopravních značek Stůj, dej přednost v jízdě a vyhýbá se chodcům i překážkám, jako jsou dopravní kužely, odpadkové koše a odložené nákupní vozíky."
+              "content": "Med aktivering via Tesla-appen vil din parkerede bil kunne finde dig og endda parkere sig selv og køre væk fra parkeringspladser, hvor det kniber med pladsen. Smart Summon navigerer i komplekse parkeringssituationer, mens funktionen overholder kørebanemarkeringer og stopskilte, undgår fodgængere og forhindringer som f.eks. trafikkegler, skraldespande og indkøbsvogne."
             },
             {
               "type": "add_options",
-              "content": "Přidat balíček",
+              "content": "Tilføj pakke",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6413,7 +6544,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6469,21 +6600,6 @@
           ]
         },
         {
-          "code": "WINTER_WHEELS",
-          "name": "Zimní kola",
-          "context": "configurator",
-          "extra_copy": [],
-          "extra_content": [],
-          "groups": [],
-          "options": [
-            "$WWY00",
-            "$WWY03"
-          ],
-          "required": false,
-          "exclusive": false,
-          "default_options": []
-        },
-        {
           "code": "WINTER_WHEELS_OPTIONS",
           "groups": [],
           "context": "configurator",
@@ -6494,19 +6610,19 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Zimní kola",
+          "name": "Vinterhjul",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Zimní kola"
+              "content": "Vinterhjul"
             },
             {
               "type": "feature_description",
-              "content": "Přidejte sadu zimních pneumatik a kol pro optimální jízdu na sněhu a ledu"
+              "content": "Tilføj et sæt vinterdæk og hjul for optimal kørsel i sne og iskolde forhold"
             },
             {
               "type": "add_component",
-              "content": "Vybrat sadu",
+              "content": "Vælg sæt",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6550,7 +6666,7 @@
             },
             {
               "type": "remove_component",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6566,7 +6682,7 @@
             },
             {
               "type": "view_features",
-              "content": "vlastnosti",
+              "content": "Funktioner",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -6590,10 +6706,18 @@
               "type": "components",
               "content": [
                 {
+                  "hide": "inventory",
                   "type": "Title",
                   "props": {
                     "classes": "tds-text--h5 tds-text--center",
                     "component": "h3"
+                  }
+                },
+                {
+                  "show": "inventory",
+                  "type": "Title",
+                  "props": {
+                    "component": "h2"
                   }
                 },
                 {
@@ -6674,11 +6798,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Vlastnosti zimních kol",
+          "name": "Egenskaber vinterhjul",
           "extra_copy": [
             {
               "type": "aria_label",
-              "content": "Porovnat modely"
+              "content": "Sammenlign modeller"
             }
           ]
         },
@@ -6692,23 +6816,23 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Sada 19\" zimních pneumatik Pirelli",
+          "name": "19\" Pirelli vinterhjul",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Sada 19\" zimních pneumatik Pirelli"
+              "content": "19\" Pirelli vinterhjul"
             },
             {
               "type": "eyebrow",
-              "content": "v ceně"
+              "content": "Inkluderet"
             },
             {
               "type": "description",
-              "content": "Zimní pneumatiky Pirelli Sottozero 3 nabízejí nízký valivý odpor a vysokou přilnavost na zasněžených silnicích. Tato sada obsahuje čtyři 19\" kola Sport s nasazenými pneumatikami."
+              "content": "Pirelli Sottozero 3 vinterdæk kombinerer lav rullemodstand med godt vejgreb på snedækkede veje. Dette sæt indeholder fire 19\" Sport-fælge med dæk monteret."
             },
             {
               "type": "add_options",
-              "content": "Přidat",
+              "content": "Tilføj",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6731,7 +6855,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6777,6 +6901,21 @@
           ]
         },
         {
+          "code": "WINTER_WHEELS",
+          "name": "Vinterhjul",
+          "context": "configurator",
+          "extra_copy": [],
+          "extra_content": [],
+          "groups": [],
+          "options": [
+            "$WWY00",
+            "$WWY03"
+          ],
+          "required": false,
+          "exclusive": false,
+          "default_options": []
+        },
+        {
           "code": "BASIC_AP_FEATURES",
           "groups": [
             "AUTOPILOT_CARD"
@@ -6785,11 +6924,11 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Základní funkce systému Autopilot",
+          "name": "Basic Autopilot-funktioner",
           "extra_copy": [
             {
               "type": "aria_label",
-              "content": "Karty funkcí"
+              "content": "Produktkort"
             }
           ]
         },
@@ -6803,23 +6942,23 @@
           "required": false,
           "exclusive": false,
           "default_options": [],
-          "name": "Sada 21\" zimních pneumatik Pirelli",
+          "name": "21\" Pirelli vinterhjul",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Sada 21\" zimních pneumatik Pirelli"
+              "content": "21\" Pirelli vinterhjul"
             },
             {
               "type": "eyebrow",
-              "content": "v ceně"
+              "content": "Inkluderet"
             },
             {
               "type": "description",
-              "content": "Zimní pneumatiky Pirelli Sottozero 3 kombinují nízký valivý odpor a vysokou přilnavost na zasněžených silnicích. Tato sada obsahuje čtyři 21\" kola Performance s nasazenými pneumatikami."
+              "content": "Pirelli Sottozero 3 vinterdæk kombinerer lav rullemodstand med godt vejgreb på snedækkede veje. Dette sæt indeholder fire 21\" Performance-fælge med dæk monteret."
             },
             {
               "type": "add_options",
-              "content": "Přidat",
+              "content": "Tilføj",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6842,7 +6981,7 @@
             },
             {
               "type": "remove_options",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -6895,27 +7034,27 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "Konektivita",
+          "name": "Connectivity",
           "extra_copy": [
             {
               "type": "title",
-              "content": "Konektivita"
+              "content": "Connectivity"
             },
             {
               "type": "table.row[0].column[0]",
-              "content": "Funkce v balíčku"
+              "content": "Inkluderede funktioner"
             },
             {
               "type": "table.row[0].column[1]",
-              "content": "Standardní<sup>1</sup>"
+              "content": "Standard<sup>1</sup>"
             },
             {
               "type": "table.row[0].column[2]",
-              "content": "Prémiový<sup>2</sup>"
+              "content": "Premium<sup>2</sup>"
             },
             {
               "type": "table.row[1].column[0]",
-              "content": "Navigace"
+              "content": "Navigation"
             },
             {
               "type": "table.row[1].column[1].tickmark",
@@ -6927,7 +7066,7 @@
             },
             {
               "type": "table.row[2].column[0]",
-              "content": "Živá vizualizace dopravy"
+              "content": "Live trafikvisualisering"
             },
             {
               "type": "table.row[2].column[1].xmark",
@@ -6939,7 +7078,7 @@
             },
             {
               "type": "table.row[3].column[0]",
-              "content": "Satelitní mapy"
+              "content": "Kort med satellitvisning"
             },
             {
               "type": "table.row[3].column[1].xmark",
@@ -6951,7 +7090,7 @@
             },
             {
               "type": "table.row[4].column[0]",
-              "content": "Streamování videí<sup>*</sup>"
+              "content": "Streaming af video<sup>*</sup>"
             },
             {
               "type": "table.row[4].column[1].xmark",
@@ -6975,7 +7114,7 @@
             },
             {
               "type": "table.row[6].column[0]",
-              "content": "Streamování hudby<sup>*</sup>"
+              "content": "Streaming af musik<sup>*</sup>"
             },
             {
               "type": "table.row[6].column[1].xmark",
@@ -6987,7 +7126,7 @@
             },
             {
               "type": "table.row[7].column[0]",
-              "content": "Internetový prohlížeč<sup>*</sup>"
+              "content": "Internetbrowser<sup>*</sup>"
             },
             {
               "type": "table.row[7].column[1].xmark",
@@ -6999,27 +7138,27 @@
             },
             {
               "type": "description",
-              "content": "Funkce se mohou měnit a mohou se lišit v závislosti na konfiguraci hardwaru. Nové funkce, které budou k dispozici po dodání, mohou být dodatečně zpoplatněny."
+              "content": "Funktioner kan ændres, og kan variere afhængigt af hardwarekonfigurationen. Nye funktioner, der bliver tilgængelige efter levering, kan være pålagt yderligere gebyrer."
             },
             {
               "type": "description1",
-              "content": "*K dispozici pouze prostřednictvím Wi-Fi se standardním připojením"
+              "content": "*Kun tilgængelig via Wi-Fi med Standard Connectivity"
             },
             {
               "type": "description2",
-              "content": "1. Standardní konektivita je bezplatně zahrnuta po dobu 8 let od dodání nového vozu. Některé funkce vozidla, které více využívají data, vyžadují alespoň standardní konektivitu. Patří k nim mapy, navigace a hlasové příkazy."
+              "content": "1. Standard Connectivity er inkluderet uden yderligere omkostninger i 8 år fra det nye køretøjs oprindelige levering. Visse køretøjsfunktioner med højt dataforbrug kræver som minimum Standard Connectivity, herunder kort, navigation og stemmekommandoer."
             },
             {
               "type": "description3",
-              "content": "2. Prémiová konektivita je k dispozici bezplatně po dobu 30 dnů, poté je dostupná formou předplatného."
+              "content": "2. Premium Connectivity er gratis i 30 dage og er derefter tilgængeligt som abonnement"
             },
             {
               "type": "inventory-description2",
-              "content": "1. Standardní konektivita je bezplatně zahrnuta až do {sc-duration}. Některé funkce vozidla, které více využívají data, vyžadují alespoň standardní konektivitu. Patří k nim mapy, navigace a hlasové příkazy."
+              "content": "1. Standard Connectivity er inkluderet uden yderligere omkostninger indtil {sc-duration}. Visse køretøjsfunktioner med højt dataforbrug kræver som minimum Standard Connectivity, herunder kort, navigation og stemmekommandoer."
             },
             {
               "type": "inventory-description3",
-              "content": "2. Prémiová konektivita je bezplatná po dobu 30 dnů, poté je k dispozici formou předplatného."
+              "content": "2. Premium Connectivity er gratis i 30 dage og er derefter tilgængeligt som abonnement."
             }
           ],
           "extra_content": [
@@ -7100,7 +7239,7 @@
             },
             {
               "type": "sub_title",
-              "content": "Pohon zadních kol"
+              "content": "Baghjulstræk"
             }
           ],
           "extra_content": [
@@ -7129,19 +7268,19 @@
           "options": [],
           "required": false,
           "exclusive": false,
-          "name": "federální daň",
+          "name": "statsskat",
           "extra_copy": [
             {
               "type": "federalTax.subtitle",
-              "content": "Předem nakonfigurovaná vozidla"
+              "content": "Forudkonfigurerede køretøjer"
             },
             {
               "type": "federalTax.description",
-              "content": "Úpravy ceny jsou platné při dodání do sedmi dnů od objednání."
+              "content": "Prisjusteringer er gyldige ved levering inden for syv dage efter bestilling."
             },
             {
               "type": "federalTax.link",
-              "content": "<a target='_blank' class='tds-link' href='/{LOCALE}/inventory/new/my?redirect=no'>Ověřit dostupnost</a>"
+              "content": "<a target='_blank' class='tds-link' href='/{LOCALE}/inventory/new/my?redirect=no'>Tjek tilgængelighed</a>"
             }
           ],
           "extra_content": [
@@ -7188,7 +7327,7 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             },
             {
               "type": "description",
@@ -7196,23 +7335,23 @@
             },
             {
               "type": "feature_list.default.items[0]",
-              "content": "Umožňuje vašemu vozu automaticky udržovat směr, zrychlovat a brzdit s ohledem na další vozidla a chodce ve vašem pruhu."
+              "content": "Gør det muligt for din bil at styre, accelerere og bremse automatisk for andre køretøjer og fodgængere på dens bane."
             },
             {
               "type": "selectLabel",
-              "content": "Vyberte doplňkové vybavení"
+              "content": "Afkryds felt"
             },
             {
               "type": "deselectLabel",
-              "content": "Doplňkové vybavení vybráno"
+              "content": "Mulighed valgt"
             },
             {
               "type": "disclaimer",
-              "content": "Aktuálně dostupné funkce vyžadují aktivní dohled řidiče a neumožňují autonomní řízení vozidla. Aktivace a využití těchto funkcí závisí na dosažení spolehlivosti výrazně překonávající schopnosti řidiče-člověka, ověřené miliardami kilometrů testů, a rovněž na schválení regulačními orgány, což může v některých jurisdikcích trvat déle. Jak se budou tyto funkce autonomního řízení vyvíjet, vaše vozidlo bude průběžně modernizováno prostřednictvím bezdrátových aktualizací softwaru."
+              "content": "De aktuelt aktiverede funktioner kræver aktiv overvågning fra førerens side og gør ikke køretøjet autonomt. Aktiveringen af og den fremtidige brug af disse funktioner afhænger af opnåelsen af en pålidelighed, der langt overstiger menneskelige førere med tusindvis af kilometers erfaring samt godkendelse fra de relevante myndigheder, hvilket kan tage lang tid i visse jurisdiktioner. I takt med at disse selvkørende funktioner udvikler sig, vil din bil blive opgraderet løbende gennem over-the-air-softwareopdateringer."
             },
             {
               "type": "compare_features",
-              "content": "Detaily funkce",
+              "content": "Funktionsdetaljer",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -7298,17 +7437,17 @@
             {
               "type": "base",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             },
             {
               "type": "upgrade",
-              "value": 85000,
-              "context": "CZK"
+              "value": 25100,
+              "context": "DKK"
             },
             {
               "type": "trial",
               "value": 4000,
-              "context": "CZK"
+              "context": "DKK"
             }
           ]
         },
@@ -7347,33 +7486,33 @@
               "target": "$APF2"
             }
           ],
-          "name": "Schopnost plně autonomního řízení",
-          "description": "Schopnost plně autonomního řízení",
-          "long_name": "Schopnost plně autonomního řízení",
+          "name": "Fuldt selvkørende egenskaber",
+          "description": "Fuldt selvkørende egenskaber",
+          "long_name": "Fuldt selvkørende egenskaber",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Všechny funkce Základního Autopilota a Enhanced Autopilota"
+              "content": "Alle funktioner fra Basis Autopilot og Enhanced Autopilot"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Zastavení před červeným světlem na semaforu a dopravními značkami Stůj, dej přednost v jízdě"
+              "content": "Trafiklys- og stopskiltkontrol"
             },
             {
               "type": "feature_list.default[1].items[0]",
-              "content": "Automatické řízení v ulicích měst"
+              "content": "Autostyring i byen"
             },
             {
               "type": "disclaimer",
-              "content": "Aktuálně dostupné funkce vyžadují aktivní dohled řidiče a neumožňují autonomní řízení vozidla. Některé prvky vyžadují potvrzení blinkrem a jsou vzdálenostně omezeny. Aktivace a využití těchto funkcí závisí na dosažení spolehlivosti výrazně překonávající schopnosti řidiče-člověka, ověřené miliardami kilometrů testů, a rovněž na schválení regulačními orgány, což může v některých jurisdikcích trvat déle. Jak se budou tyto funkce autonomního řízení vyvíjet, vaše vozidlo bude průběžně modernizováno prostřednictvím bezdrátových aktualizací softwaru."
+              "content": "De aktuelt aktiverede funktioner kræver aktiv overvågning fra førerens side og gør ikke køretøjet autonomt. Visse funktioner kræver brug af blinklys og andre er afstandsbegrænsede. Aktiveringen af og den fremtidige brug af disse funktioner afhænger af opnåelsen af en pålidelighed, der langt overstiger menneskelige førere med tusindvis af kilometers erfaring samt godkendelse fra de relevante myndigheder, hvilket kan tage lang tid i visse jurisdiktioner. I takt med at disse selvkørende funktioner udvikler sig, vil din bil blive opgraderet løbende gennem over-the-air-softwareopdateringer."
             },
             {
               "type": "fsd_features",
-              "content": "Detaily funkce",
+              "content": "Funktionsdetaljer",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -7392,11 +7531,11 @@
             },
             {
               "type": "feature_list.default[1].title",
-              "content": "Budoucí:"
+              "content": "Kommende:"
             },
             {
               "type": "add_fsd_package",
-              "content": "Přidat",
+              "content": "Tilføj",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -7418,15 +7557,15 @@
             },
             {
               "type": "selectLabel",
-              "content": "Vyberte doplňkové vybavení"
+              "content": "Afkryds felt"
             },
             {
               "type": "deselectLabel",
-              "content": "Doplňkové vybavení vybráno"
+              "content": "Mulighed valgt"
             },
             {
               "type": "remove_fsd_package",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -7448,7 +7587,7 @@
             },
             {
               "type": "#owner_xp:::upgrade.disclaimerOnImage",
-              "content": "Je vyžadován systém Autopilot",
+              "content": "Autopilot er påkrævet",
               "behavior": [
                 {
                   "type": "DISPLAY_CONDITION",
@@ -7460,7 +7599,7 @@
             },
             {
               "type": "#owner_xp:::upgrade.text",
-              "content": "Systém Autopilot je nezbytným předpokladem pro schopnost plně autonomního řízení a bude vám za příplatek přidán do košíku",
+              "content": "Autopilot er en forudsætning for Fuldt selvkørende egenskaber, og funktionen vil blive tilføjet til din kurv for en merpris",
               "behavior": [
                 {
                   "type": "DISPLAY_CONDITION",
@@ -7472,7 +7611,7 @@
             },
             {
               "type": "#owner_xp:::upgrade.disclaimerOnImage[0]",
-              "content": "Je vyžadován systém Autopilot",
+              "content": "Autopilot er påkrævet",
               "behavior": [
                 {
                   "type": "DISPLAY_CONDITION",
@@ -7485,7 +7624,7 @@
             },
             {
               "type": "#owner_xp:::upgrade.text[0]",
-              "content": "Systém Autopilot je nezbytným předpokladem pro schopnost plně autonomního řízení a bude vám za příplatek přidán do košíku",
+              "content": "Autopilot er en forudsætning for Fuldt selvkørende egenskaber, og funktionen vil blive tilføjet til din kurv for en merpris",
               "behavior": [
                 {
                   "type": "DISPLAY_CONDITION",
@@ -7498,7 +7637,7 @@
             },
             {
               "type": "#owner_xp:::upgrade.disclaimerOnImage[1]",
-              "content": "Je nutné zakoupit systém Autopilot",
+              "content": "Køb af Autopilot er påkrævet",
               "behavior": [
                 {
                   "type": "DISPLAY_CONDITION",
@@ -7511,7 +7650,7 @@
             },
             {
               "type": "#owner_xp:::upgrade.text[1]",
-              "content": "Systém Autopilot je nezbytným předpokladem pro schopnost plně autonomního řízení. Jakmile systém Autopilot zakoupíte, budete mít nárok pořídit pro svůj vůz předplatné schopnosti plně autonomního řízení.",
+              "content": "Autopilot er en forudsætning for Fuldt selvkørende egenskaber. Når du har købt Autopilot, er dit køretøj kvalificeret til abonnementet på Fuldt selvkørende egenskaber.",
               "behavior": [
                 {
                   "type": "DISPLAY_CONDITION",
@@ -7524,7 +7663,7 @@
             },
             {
               "type": "#owner_xp:::upgrade.ctaText[1]",
-              "content": "KOUPIT SYSTÉM AUTOPILOT",
+              "content": "KØB AUTOPILOT",
               "behavior": [
                 {
                   "type": "DISPLAY_CONDITION",
@@ -7536,7 +7675,7 @@
             },
             {
               "type": "#owner_xp:::upgrade.disclaimerOnImage[2]",
-              "content": "Je nutný upgrade hardwaru",
+              "content": "Opgradering af hardware er påkrævet",
               "behavior": [
                 {
                   "type": "DISPLAY_CONDITION",
@@ -7549,7 +7688,7 @@
             },
             {
               "type": "#owner_xp:::upgrade.text[2]",
-              "content": "Je vyžadována instalace počítače pro plně autonomní řízení v ceně ##cost## Po dokončení instalace budete mít nárok na předplatné.",
+              "content": "En fuldt selvkørende computerinstallation til ##cost## er påkrævet. Når installationen er færdig, er du berettiget til at abonnere.",
               "behavior": [
                 {
                   "type": "DISPLAY_CONDITION",
@@ -7564,7 +7703,7 @@
             },
             {
               "type": "#owner_xp:::upgrade.ctaText[2]",
-              "content": "NAPLÁNOVAT INSTALACI",
+              "content": "PLANLÆG INSTALLATION",
               "behavior": [
                 {
                   "type": "DISPLAY_CONDITION",
@@ -7576,7 +7715,7 @@
             },
             {
               "type": "#owner_xp:::subscription_agreement",
-              "content": "Když provedete ##ACTION##, bude vám každý měsíc automaticky stržena příslušná částka pomocí uložené platební metody. Další informace najdete ve ##termsAndConditions##.\n\nPředplatné schopnosti plně autonomního řízení lze kdykoli zrušit, peníze se však nevracejí. Další informace najdete ve ##cancellationPolicy##.\n\nV případě potřeby se daň vypočítává podle adresy uvedené při zadávání objednávky.Současné funkce plně autonomního řízení vyžadují aktivní dohled řidiče a neumožňují autonomní řízení vozidla. Budoucí využití těchto funkcí bez jakéhokoli dohledu závisí na dosažení spolehlivosti výrazně překonávající schopnosti řidiče-člověka, ověřené miliardami kilometrů testů, a rovněž na schválení regulačními orgány, což může v některých jurisdikcích trvat déle.",
+              "content": "Når du ##ACTION##, vil beløbet blive hævet automatisk hver måned via din gemte betalingsmetode. Besøg siden ##termsAndConditions## for at lære mere.\n\nAbonnementet på Fuldt selvkørende funktion kan opsiges når som helst, men det kan ikke refunderes. Besøg siden ##cancellationPolicy## for at lære mere.\n\nEventuel moms beregnes på baggrund af den adresse, der oplyses i forbindelse med bestillingen.\n\nDe aktuelle Fuldt selvkørende funktioner kræver aktiv overvågning fra førerens side og gør ikke køretøjet autonomt. Fremtidig brug af disse funktioner uden overvågning afhænger af opnåelsen af en pålidelighed, der langt overstiger menneskelige førere med milliarder af kilometers erfaring samt godkendelse fra de relevante myndigheder, hvilket kan tage lang tid i visse jurisdiktioner.",
               "behavior": [
                 {
                   "type": "DISPLAY_CONDITION",
@@ -7588,7 +7727,7 @@
             },
             {
               "type": "#owner_xp:::terms_and_conditions",
-              "content": "Smluvní podmínky",
+              "content": "Vilkår og betingelser",
               "behavior": [
                 {
                   "hash": "#full-self-driving-capability-subscription-agreement",
@@ -7602,7 +7741,7 @@
             },
             {
               "type": "#owner_xp:::cancellation_policy",
-              "content": "storno podmínkách",
+              "content": "Annulleringspolitik",
               "behavior": [
                 {
                   "hash": "#cancellations",
@@ -7686,22 +7825,22 @@
               ]
             }
           ],
-          "price": 200000,
+          "price": 58300,
           "pricing": [
             {
               "type": "base",
-              "value": 200000,
-              "context": "CZK"
+              "value": 58300,
+              "context": "DKK"
             },
             {
               "type": "upgrade",
-              "value": 200000,
-              "context": "CZK",
+              "value": 58300,
+              "context": "DKK",
               "set_rules": [
                 {
                   "action": "set",
                   "target": "$APF2",
-                  "target_value": 100000,
+                  "target_value": 29100,
                   "condition_code": "$APPB",
                   "condition_state": "set",
                   "target_property": "price"
@@ -7710,8 +7849,8 @@
             },
             {
               "type": "trial",
-              "value": 200000,
-              "context": "CZK"
+              "value": 58300,
+              "context": "DKK"
             }
           ]
         },
@@ -7755,23 +7894,23 @@
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Autopilot podle navigace"
+              "content": "Navigate on Autopilot"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Automatická změna jízdního pruhu"
+              "content": " Automatisk vognbaneskift"
             },
             {
               "type": "feature_list.default[1].main_title",
-              "content": "Budoucí:"
+              "content": "Kommende:"
             },
             {
               "type": "feature_list.default[1].items[0]",
-              "content": "Automatické parkování"
+              "content": "Autopark"
             },
             {
               "type": "feature_list.default[1].items[1]",
@@ -7783,7 +7922,7 @@
             },
             {
               "type": "fsd_features",
-              "content": "Detaily funkce",
+              "content": "Funktionsdetaljer",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -7802,7 +7941,7 @@
             },
             {
               "type": "add_fsd_package",
-              "content": "Přidat",
+              "content": "Tilføj",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -7824,15 +7963,15 @@
             },
             {
               "type": "selectLabel",
-              "content": "Vyberte doplňkové vybavení"
+              "content": "Afkryds felt"
             },
             {
               "type": "deselectLabel",
-              "content": "Doplňkové vybavení vybráno"
+              "content": "Mulighed valgt"
             },
             {
               "type": "remove_fsd_package",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -7854,7 +7993,7 @@
             },
             {
               "type": "upgrade.disclaimerOnImage",
-              "content": "Je vyžadován systém Autopilot",
+              "content": "Autopilot er påkrævet",
               "behavior": [
                 {
                   "type": "DISPLAY_CONDITION",
@@ -7866,7 +8005,7 @@
             },
             {
               "type": "upgrade.text",
-              "content": "Systém Autopilot je nezbytným předpokladem pro Pokročilý Autopilot a bude přidán do vašeho košíku za příplatek",
+              "content": "Autopilot er en forudsætning for Enhanced Autopilot og vil blive tilføjet til din indkøbsvogn for en merpris",
               "behavior": [
                 {
                   "type": "DISPLAY_CONDITION",
@@ -7942,22 +8081,22 @@
               ]
             }
           ],
-          "price": 100000,
+          "price": 29200,
           "pricing": [
             {
               "type": "base",
-              "value": 100000,
-              "context": "CZK"
+              "value": 29200,
+              "context": "DKK"
             },
             {
               "type": "upgrade",
-              "value": 100000,
-              "context": "CZK"
+              "value": 29200,
+              "context": "DKK"
             },
             {
               "type": "trial",
-              "value": 100000,
-              "context": "CZK"
+              "value": 29800,
+              "context": "DKK"
             }
           ]
         },
@@ -8005,17 +8144,17 @@
               "condition_state": "set"
             }
           ],
-          "name": "Brzdy Performance",
-          "description": "Brzdy Performance",
-          "long_name": "Brzdy Performance",
+          "name": "Performance-bremser",
+          "description": "Performance-bremser",
+          "long_name": "Performance-bremser",
           "extra_copy": [
             {
               "type": "description",
-              "content": "Větší, pevnější třmeny a lehké dvoudílné kotouče pro lepší výkon a tepelnou kapacitu"
+              "content": "Større og stivere kalibre og letvægts todelte skiver for forbedret ydeevne og varmekapacitet"
             },
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             }
           ],
           "extra_content": [
@@ -8042,7 +8181,7 @@
             {
               "type": "base",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             }
           ]
         },
@@ -8070,17 +8209,17 @@
               "condition_state": "unset"
             }
           ],
-          "name": "Standardní konektivita",
-          "description": "Standardní konektivita",
-          "long_name": "Standardní konektivita",
+          "name": "Standard tilslutning",
+          "description": "Standard tilslutning",
+          "long_name": "Standard tilslutning",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             },
             {
               "type": "long_name",
-              "content": "Zkušební verze prémiové konektivity na 30 dní",
+              "content": "30-dages prøveperiode på Premium Connectivity",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -8101,12 +8240,12 @@
             {
               "type": "base",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             },
             {
               "type": "1_month",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             }
           ]
         },
@@ -8144,17 +8283,17 @@
               "target": "$CPF0"
             }
           ],
-          "name": "Prémiová konektivita",
-          "description": "Prémiová konektivita",
-          "long_name": "Prémiová konektivita",
+          "name": "Premium Connectivity",
+          "description": "Premium Connectivity",
+          "long_name": "Premium Connectivity",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             },
             {
               "type": "long_name",
-              "content": "Zkušební verze prémiové konektivity na 1 rok",
+              "content": "1 års prøveperiode på Premium Connectivity",
               "behavior": [
                 {
                   "type": "REPLACE_CONTENT",
@@ -8171,23 +8310,23 @@
             },
             {
               "type": "premium_connectivity_trail_sr",
-              "content": "Zkušební verze prémiové konektivity na 30 dní"
+              "content": "30-dages prøveperiode på Premium Connectivity"
             },
             {
               "type": "premium_connectivity_copy_sr",
-              "content": "Prémiová konektivita, 30 dní zdarma"
+              "content": "Premium Connectivity, 30 dage gratis"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Živá vizualizace dopravy"
+              "content": "Live trafikvisualisering"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Hudba"
+              "content": "Musik"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Streamování videí"
+              "content": "Streaming af video"
             },
             {
               "type": "feature_list.default[0].items[3]",
@@ -8195,19 +8334,19 @@
             },
             {
               "type": "feature_list.default[0].items[4]",
-              "content": "a další"
+              "content": "og meget mere"
             },
             {
               "type": "table_header.default[0].items[0]",
-              "content": "Balíčky konektivity"
+              "content": "Connectivity-pakker"
             },
             {
               "type": "table_header.default[0].items[1]",
-              "content": "Standardní"
+              "content": "Standard"
             },
             {
               "type": "table_header.default[0].items[2]",
-              "content": "Prémiový"
+              "content": "Premium"
             },
             {
               "type": "table_subheader.default[0].items[0]",
@@ -8215,7 +8354,7 @@
             },
             {
               "type": "table_subheader.default[0].items[1]",
-              "content": "v ceně"
+              "content": "Inkluderet"
             },
             {
               "type": "table_subheader.default[0].items[2]",
@@ -8223,11 +8362,11 @@
             },
             {
               "type": "table_caption",
-              "content": "*K dispozici pouze prostřednictvím Wi-Fi se standardním připojením"
+              "content": "*Kun tilgængelig via Wi-Fi med Standard Connectivity"
             },
             {
               "type": "table_column.default[0].items[0]",
-              "content": "Navigace",
+              "content": "Navigation",
               "behavior": [
                 true,
                 true
@@ -8235,7 +8374,7 @@
             },
             {
               "type": "table_column.default[0].items[1]",
-              "content": "Živá vizualizace dopravy",
+              "content": "Live trafikvisualisering",
               "behavior": [
                 false,
                 true
@@ -8243,7 +8382,7 @@
             },
             {
               "type": "table_column.default[0].items[2]",
-              "content": "Satelitní mapy",
+              "content": "Kort med satellitvisning",
               "behavior": [
                 false,
                 true
@@ -8251,7 +8390,7 @@
             },
             {
               "type": "table_column.default[0].items[3]",
-              "content": "Streamování videí*",
+              "content": "Streaming af video*",
               "behavior": [
                 false,
                 true
@@ -8267,7 +8406,7 @@
             },
             {
               "type": "table_column.default[0].items[5]",
-              "content": "Streamování hudby*",
+              "content": "Streaming af musik*",
               "behavior": [
                 false,
                 true
@@ -8275,7 +8414,7 @@
             },
             {
               "type": "table_column.default[0].items[6]",
-              "content": "Internetový prohlížeč*",
+              "content": "Internetbrowser*",
               "behavior": [
                 false,
                 true
@@ -8283,11 +8422,11 @@
             },
             {
               "type": "subscription_agreement",
-              "content": "Když provedete ##ACTION##, bude vám každý měsíc automaticky stržena příslušná částka pomocí uložené platební metody. Další informace najdete ve ##termsAndConditions##.\n\nPředplatné prémiové konektivity lze kdykoli zrušit, peníze se však nevracejí. Další informace najdete ve ##cancellationPolicy##.\n\nV případě potřeby se podle adresy uvedené při zadávání objednávky vypočítá daň."
+              "content": "Når du ##ACTION##, vil beløbet blive hævet automatisk hver måned via din gemte betalingsmetode. Besøg siden ##termsAndConditions## for at lære mere.\n\nAbonnementet på Premium Connectivity kan annulleres når som helst, men det kan ikke refunderes. Besøg siden ##cancellationPolicy## for at lære mere.\n\nEventuelle afgifter beregnes på baggrund af den adresse, der oplyses i forbindelse med bestillingen."
             },
             {
               "type": "terms_and_conditions",
-              "content": "Smluvní podmínky",
+              "content": "Vilkår og betingelser",
               "behavior": [
                 {
                   "hash": "#premium-connectivity-subscription-agreement",
@@ -8301,7 +8440,7 @@
             },
             {
               "type": "cancellation_policy",
-              "content": "storno podmínkách",
+              "content": "Annulleringspolitik",
               "behavior": [
                 {
                   "hash": "#cancel-between-cycles",
@@ -8335,12 +8474,12 @@
             {
               "type": "base",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             },
             {
               "type": "1_month",
-              "value": 199,
-              "context": "CZK"
+              "value": 99,
+              "context": "DKK"
             }
           ]
         },
@@ -8392,13 +8531,13 @@
               "condition_state": "unset"
             }
           ],
-          "name": "Pohon zadních kol",
-          "description": "Pohon zadních kol",
-          "long_name": "Pohon zadních kol",
+          "name": "Baghjulstræk",
+          "description": "Baghjulstræk",
+          "long_name": "Baghjulstræk",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "Standardní"
+              "content": "Standard"
             }
           ],
           "extra_content": [
@@ -8474,13 +8613,13 @@
               "target": "$DV2W"
             }
           ],
-          "name": "Pohon všech kol Dual Motor",
-          "description": "Pohon všech kol Dual Motor",
-          "long_name": "Pohon všech kol Dual Motor",
+          "name": "Dual Motor firehjulstræk",
+          "description": "Dual Motor firehjulstræk",
+          "long_name": "Dual Motor firehjulstræk",
           "extra_copy": [
             {
               "type": "disclaimer[0]",
-              "content": "Upozorněte mě",
+              "content": "Informer mig",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -8498,7 +8637,7 @@
             },
             {
               "type": "disclaimer[1]",
-              "content": " až bude k dispozici pohon všech kol a standardní akumulátor.",
+              "content": " når det bliver muligt at vælge firehjulstræk og standardbatteri.",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -8510,11 +8649,11 @@
             },
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             },
             {
               "type": "disclaimer_details",
-              "content": "Naše motory jsou účinné a bez tření s jedinou pohyblivou částí pro minimální údržbu a maximální životnost. Model Y má dva z těchto nezávislých motorů pro lepší redundanci a na rozdíl od tradičních systémů pohonu všech kol tyto dva motory digitálně regulují točivý moment dodávaný na přední a zadní kola za účelem zajištění lepší ovladatelnosti a kontroly trakce."
+              "content": "Vores motorer er effektive og friktionsfrie med kun én bevægelig del for minimal vedligeholdelse og maksimal holdbarhed. Model Y har to af disse uafhængige motorer til forbedret redundans, og i modsætning til traditionelle firehjulstræksystemer styrer de digitalt drejningsmomentet til for- og baghjulene for langt bedre køreegenskaber og vejgreb."
             }
           ],
           "extra_content": [
@@ -8552,7 +8691,7 @@
             {
               "type": "base",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             }
           ]
         },
@@ -8585,31 +8724,17 @@
           "name": "Acceleration Boost",
           "description": "Acceleration Boost",
           "long_name": "Acceleration Boost",
-          "extra_copy": [
-            {
-              "type": "description",
-              "content": "Vylepšené zrychlení z 0 na 100 km/h: z 4,4 s na 3,9 s."
-            },
-            {
-              "type": "feature_list.default[0].iconList[0]",
-              "content": "Z 0 na 100 km/h"
-            },
-            {
-              "type": "feature_list.default[0].iconList[1]",
-              "content": "Z 0 na 100 km/h"
-            }
-          ],
-          "price": 46400,
+          "price": 13600,
           "pricing": [
             {
               "type": "base",
-              "value": 46400,
-              "context": "CZK"
+              "value": 13600,
+              "context": "DKK"
             },
             {
               "type": "upgrade",
-              "value": 46400,
-              "context": "CZK"
+              "value": 13600,
+              "context": "DKK"
             }
           ]
         },
@@ -8631,17 +8756,17 @@
               "target": "$MDLY"
             }
           ],
-          "name": "Model Y",
-          "description": "Dodávky budou zahájeny v USA na základě data objednávky a zvolených doplňků.",
-          "long_name": "Model Y",
+          "name": "Model Y",
+          "description": "Leveringer vil blive påbegyndt i USA baseret på ordredato og evt. tilvalg.",
+          "long_name": "Model Y",
           "extra_copy": [
             {
               "type": "learn_more",
-              "content": "Další informace o dodávkách vozu Model Y"
+              "content": "Læs mere om levering af Model Y"
             },
             {
               "type": "faq",
-              "content": "Nejčastější dotazy na Model Y",
+              "content": "Ofte stillede spørgsmål om Model Y",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -8657,15 +8782,15 @@
             },
             {
               "type": "product_description",
-              "content": "Rezervace vozu Model Y"
+              "content": "Model Y-reservation"
             },
             {
               "type": "product_description_used",
-              "content": "Rezervace vozu Model Y - Used"
+              "content": "Model Y-reservation - Used"
             },
             {
               "type": "product_description_return",
-              "content": "Rezervace vozu Model Y - Return"
+              "content": "Model Y-reservation - Return"
             }
           ],
           "extra_content": [
@@ -8679,37 +8804,37 @@
               ]
             }
           ],
-          "price": 999990,
+          "price": 324990,
           "pricing": [
             {
               "type": "base",
-              "value": 999990,
-              "context": "CZK"
+              "value": 324990,
+              "context": "DKK"
             },
             {
               "type": "reservation_deposit",
               "value": 1000,
-              "context": "CZK"
+              "context": "DKK"
             },
             {
               "type": "order_fee",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             },
             {
               "type": "order_payment",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             },
             {
               "type": "non_refundable_order_payment_used",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             },
             {
               "type": "non_refundable_order_payment",
-              "value": 6000,
-              "context": "CZK"
+              "value": 2000,
+              "context": "DKK"
             }
           ]
         },
@@ -8752,11 +8877,11 @@
           ],
           "name": "Solid Black",
           "description": "Solid Black",
-          "long_name": "Lak Solid Black",
+          "long_name": "Solid Black lak",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             }
           ],
           "extra_content": [
@@ -8778,12 +8903,12 @@
               ]
             }
           ],
-          "price": 32000,
+          "price": 9500,
           "pricing": [
             {
               "type": "base",
-              "value": 32000,
-              "context": "CZK"
+              "value": 9500,
+              "context": "DKK"
             }
           ]
         },
@@ -8831,18 +8956,18 @@
               "condition_state": "set"
             }
           ],
-          "name": "Performance Pedál",
-          "description": "Performance Pedál",
-          "long_name": "Performance Pedál",
-          "long_description": "Performance Pedál",
+          "name": "Performance-pedal",
+          "description": "Performance-pedal",
+          "long_name": "Performance-pedal",
+          "long_description": "Performance-pedal",
           "extra_copy": [
             {
               "type": "description",
-              "content": "Vyrobeno z hliníkové slitiny pro kultivovanější styl interiéru"
+              "content": "Designet med aluminiumslegering for mere sporty indvendig styling"
             },
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             }
           ],
           "extra_content": [
@@ -8869,7 +8994,7 @@
             {
               "type": "base",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             }
           ]
         },
@@ -8919,11 +9044,11 @@
           ],
           "name": "Quicksilver",
           "description": "Quicksilver",
-          "long_name": "Lak Quicksilver",
+          "long_name": "Quicksilver lak",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "V ceně"
+              "content": "Inkluderet"
             }
           ],
           "extra_content": [
@@ -8945,12 +9070,12 @@
               ]
             }
           ],
-          "price": 80000,
+          "price": 23500,
           "pricing": [
             {
               "type": "base",
-              "value": 80000,
-              "context": "CZK"
+              "value": 23500,
+              "context": "DKK"
             }
           ]
         },
@@ -8993,11 +9118,11 @@
           ],
           "name": "Deep Blue Metallic",
           "description": "Deep Blue Metallic",
-          "long_name": "Lak Deep Blue Metallic",
+          "long_name": "Deep Blue Metallic lak",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             }
           ],
           "extra_content": [
@@ -9019,12 +9144,12 @@
               ]
             }
           ],
-          "price": 43300,
+          "price": 12500,
           "pricing": [
             {
               "type": "base",
-              "value": 43300,
-              "context": "CZK"
+              "value": 12500,
+              "context": "DKK"
             }
           ]
         },
@@ -9068,11 +9193,11 @@
           ],
           "name": "Pearl White Multi-Coat",
           "description": "Pearl White",
-          "long_name": "Lak Pearl White",
+          "long_name": "Pearl White lakering",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             }
           ],
           "extra_content": [
@@ -9099,7 +9224,7 @@
             {
               "type": "base",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             }
           ]
         },
@@ -9149,11 +9274,11 @@
           ],
           "name": "Midnight Cherry Red",
           "description": "Midnight Cherry Red",
-          "long_name": "Lak Midnight Cherry Red",
+          "long_name": "Midnight Cherry Red lak",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "V ceně"
+              "content": "Inkluderet"
             }
           ],
           "extra_content": [
@@ -9175,12 +9300,12 @@
               ]
             }
           ],
-          "price": 85300,
+          "price": 25500,
           "pricing": [
             {
               "type": "base",
-              "value": 85300,
-              "context": "CZK"
+              "value": 25500,
+              "context": "DKK"
             }
           ]
         },
@@ -9205,13 +9330,13 @@
               "target": "$SC04"
             }
           ],
-          "name": "Přístup do sítě Supercharger + průběžné platby",
-          "description": "Přístup do sítě Supercharger + průběžné platby",
-          "long_name": "Přístup do sítě Supercharger + průběžné platby",
+          "name": "Adgang til Supercharging-netværk + Pay-As-You-Go",
+          "description": "Adgang til Supercharging-netværk + Pay-As-You-Go",
+          "long_name": "Adgang til Supercharging-netværk + Pay-As-You-Go",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "volitelné"
+              "content": "valgfri"
             }
           ],
           "price": 0,
@@ -9219,7 +9344,7 @@
             {
               "type": "base",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             }
           ]
         },
@@ -9283,30 +9408,30 @@
               ]
             }
           ],
-          "name": "Spoiler z uhlíkových vláken",
-          "description": "Spoiler z uhlíkových vláken",
-          "long_name": "Spoiler z uhlíkových vláken",
-          "long_description": "Spoiler z uhlíkových vláken",
+          "name": "Kulfiberspoiler",
+          "description": "Kulfiberspoiler",
+          "long_name": "Kulfiberspoiler",
+          "long_description": "Kulfiberspoiler",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             },
             {
               "type": "disclaimer",
-              "content": "Spoiler z uhlíkových vláken a znak Dual Motor jsou k dispozici k instalaci po dodání vozu"
+              "content": "Kulfiberspoiler og Dual Motor-emblem kan fås til montering efter levering"
             },
             {
               "type": "selectLabel",
-              "content": "Vyberte doplňkové vybavení"
+              "content": "Afkryds felt"
             },
             {
               "type": "deselectLabel",
-              "content": "Doplňkové vybavení vybráno"
+              "content": "Mulighed valgt"
             },
             {
               "type": "description",
-              "content": "Pro lepší aerodynamiku a větší stabilitu při vysokých rychlostech"
+              "content": "Til forbedret aerodynamik og forbedret stabilitet ved høje hastigheder"
             }
           ],
           "extra_content": [
@@ -9355,7 +9480,7 @@
             {
               "type": "base",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             }
           ]
         },
@@ -9376,26 +9501,30 @@
               "target": "$TW01"
             }
           ],
-          "name": "Tažné zařízení",
-          "description": "Tažné zařízení",
-          "long_name": "Tažné zařízení",
-          "long_description": "Tažné zařízení",
+          "name": "Anhængertræk",
+          "description": "Anhængertræk",
+          "long_name": "Anhængertræk",
+          "long_description": "Anhængertræk",
           "extra_copy": [
             {
+              "type": "price_indicator",
+              "content": "Inkluderet"
+            },
+            {
               "type": "selectLabel",
-              "content": "Vyberte doplňkové vybavení"
+              "content": "Afkryds felt"
             },
             {
               "type": "deselectLabel",
-              "content": "Doplňkové vybavení vybráno"
+              "content": "Mulighed valgt"
             },
             {
               "type": "description",
-              "content": "Vysokopevnostní tažné zařízení II. třídy, zatížení tažného zařízení až 1 600 kg"
+              "content": "Anhængertræk, klasse II i højstyrkestål med trækevne op til 1.600 kg"
             },
             {
               "type": "add_tow_hitch",
-              "content": "Přidat",
+              "content": "Tilføj",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -9417,7 +9546,7 @@
             },
             {
               "type": "remove_tow_hitch",
-              "content": "Odebrat",
+              "content": "Fjern",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -9459,37 +9588,21 @@
                   }
                 },
                 {
-                  "type": "ActionTarget",
+                  "type": "Copy",
                   "props": {
-                    "fields": [
-                      {
-                        "field": "add_tow_hitch",
-                        "selected_by": {
-                          "not": [
-                            "$TW01"
-                          ]
-                        }
-                      },
-                      {
-                        "field": "remove_tow_hitch",
-                        "selected_by": {
-                          "and": [
-                            "$TW01"
-                          ]
-                        }
-                      }
-                    ]
+                    "field": "after_purchase",
+                    "classes": "tds--vertical_padding tds-text--center tds-text--500"
                   }
                 }
               ]
             }
           ],
-          "price": 36000,
+          "price": 0,
           "pricing": [
             {
               "type": "base",
-              "value": 36000,
-              "context": "CZK"
+              "value": 0,
+              "context": "DKK"
             }
           ]
         },
@@ -9536,53 +9649,53 @@
               ]
             }
           ],
-          "name": "Interiér All Black prémiový",
-          "description": "Interiér All Black prémiový",
-          "long_name": "Interiér All Black prémiový",
+          "name": "Sort Premium-interiør",
+          "description": "Sort Premium-interiør",
+          "long_name": "Sort Premium-interiør",
           "extra_copy": [
             {
               "type": "name",
-              "content": "All Black"
+              "content": "Helt sort"
             },
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             },
             {
               "type": "spec_description",
-              "content": "Kožený interiér Black"
+              "content": "Sort læderindtræk"
             },
             {
               "type": "feature_list.default[0].main_title",
-              "content": "Zahrnuje:"
+              "content": "Omfatter:"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Elektricky ovládaná přední a zadní vyhřívaná sedadla nastavitelná ve 12 směrech"
+              "content": "12-vejs elektrisk justerbare forsæder og opvarmede sæder i hele kabinen"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Nezávisle sklopná sedadla 2. řady"
+              "content": "Sæder på 2. sæderække, der kan nedfældes uafhængigt af hinanden"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Prémiový audiosystém – 13 reproduktorů, 1 subwoofer, 2 zesilovače a podmanivý zvuk"
+              "content": "Premium audio – 13 højttalere, 1 subwoofer, 2 forstærkere og intens lyd"
             },
             {
               "type": "feature_list.default[1].items[0].main_title",
-              "content": "Prémiová konektivita (zahrnutý 1 rok):"
+              "content": "Premium Connectivity (1 år inkluderet):"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[0]",
-              "content": "Satelitní mapy s živou vizualizací dopravy"
+              "content": "Satellitkort med live trafikvisualisering"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[1]",
-              "content": "Streamování hudby a médií prostřednictvím internetu ve vozidle"
+              "content": "Internetstreaming i bilen af musik og medier"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[2]",
-              "content": "Streamování videí"
+              "content": "Streaming af video"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[3]",
@@ -9590,31 +9703,31 @@
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[4]",
-              "content": "Internetový prohlížeč"
+              "content": "Internetbrowser"
             },
             {
               "type": "feature_list.default[2].items[0]",
-              "content": "Hudba a média přes Bluetooth®"
+              "content": "Musik og medier via Bluetooth®"
             },
             {
               "type": "feature_list.default[2].items[2]",
-              "content": "Tónovaná prosklená střecha s ochranou proti ultrafialovému a infračervenému záření"
+              "content": "Tonet glastag med beskyttelse mod ultraviolette og infrarøde stråler"
             },
             {
               "type": "feature_list.default[2].items[3]",
-              "content": "Elektricky sklopná, vyhřívaná vnější zpětná zrcátka se samostmívací funkcí"
+              "content": "Elektrisk sammenklappelige, opvarmede sidespejle med automatisk nedblænding"
             },
             {
               "type": "feature_list.default[2].items[4]",
-              "content": "Vlastní profily řidičů"
+              "content": "Brugerdefinerede førerprofiler"
             },
             {
               "type": "feature_list.default[2].items[5]",
-              "content": "Středová konzole s přihrádkou, 4 USB porty a dokovací stanicí pro 2 chytré telefony"
+              "content": "Midterkonsol med opbevaringsplads, 4 USB-porte og plads til docking af to smartphones"
             },
             {
               "type": "view_details_collapsed",
-              "content": "Zobrazit podrobnosti",
+              "content": "Vis detaljer",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -9635,7 +9748,7 @@
             },
             {
               "type": "view_details_expanded",
-              "content": "Skrýt podrobnosti",
+              "content": "Skjul detaljer",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -9690,7 +9803,7 @@
             {
               "type": "base",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             }
           ]
         },
@@ -9736,21 +9849,21 @@
               ]
             }
           ],
-          "name": "Interiér Black and White prémiový",
-          "description": "Interiér Black and White prémiový",
-          "long_name": "Interiér Black and White prémiový",
+          "name": "Sort og hvidt Premium-interiør",
+          "description": "Sort og hvidt Premium-interiør",
+          "long_name": "Sort og hvidt Premium-interiør",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Black and White"
+              "content": "Sort og hvidt"
             },
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             },
             {
               "type": "recommended_NA_NA",
-              "content": "Doporučeno",
+              "content": "Anbefalet",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -9768,43 +9881,43 @@
             },
             {
               "type": "recommended_NA_content",
-              "content": "Interiér Black and White využívá naše nejluxusnější materiály a přináší maximální komfort a dokonalé estetické pojení, přičemž splňuje naše přísné standardy na trvanlivost a odolnost proti skvrnám."
+              "content": "Sort og hvidt interiør er udført i premium-materialer, som maksimerer komforten og æstetikken samtidig med, at de opretholder vores strenge standarder for holdbarhed og modstandsdygtighed over for pletter."
             },
             {
               "type": "spec_description",
-              "content": "Čalounění interiéru kůží v odstínu White"
+              "content": "Hvidt læderindtræk"
             },
             {
               "type": "feature_list.default[0].main_title",
-              "content": "Zahrnuje:"
+              "content": "Omfatter:"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Elektricky ovládaná přední a zadní vyhřívaná sedadla nastavitelná ve 12 směrech"
+              "content": "12-vejs elektrisk justerbare forsæder og opvarmede sæder i hele kabinen"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Nezávisle sklopná sedadla 2. řady"
+              "content": "Sæder på 2. sæderække, der kan nedfældes uafhængigt af hinanden"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Prémiový audiosystém – 13 reproduktorů, 1 subwoofer, 2 zesilovače a podmanivý zvuk"
+              "content": "Premium audio – 13 højttalere, 1 subwoofer, 2 forstærkere og intens lyd"
             },
             {
               "type": "feature_list.default[1].items[0].main_title",
-              "content": "Prémiová konektivita (zahrnutý 1 rok):"
+              "content": "Premium Connectivity (1 år inkluderet):"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[0]",
-              "content": "Satelitní mapy s živou vizualizací dopravy"
+              "content": "Satellitkort med live trafikvisualisering"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[1]",
-              "content": "Streamování hudby a médií prostřednictvím internetu ve vozidle"
+              "content": "Internetstreaming i bilen af musik og medier"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[2]",
-              "content": "Streamování videí"
+              "content": "Streaming af video"
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[3]",
@@ -9812,31 +9925,31 @@
             },
             {
               "type": "feature_list.default[1].items[0].sub_items[4]",
-              "content": "Internetový prohlížeč"
+              "content": "Internetbrowser"
             },
             {
               "type": "feature_list.default[2].items[0]",
-              "content": "Hudba a média přes Bluetooth®"
+              "content": "Musik og medier via Bluetooth®"
             },
             {
               "type": "feature_list.default[2].items[2]",
-              "content": "Tónovaná prosklená střecha s ochranou proti ultrafialovému a infračervenému záření"
+              "content": "Tonet glastag med beskyttelse mod ultraviolette og infrarøde stråler"
             },
             {
               "type": "feature_list.default[2].items[3]",
-              "content": "Elektricky sklopná, vyhřívaná vnější zpětná zrcátka se samostmívací funkcí"
+              "content": "Elektrisk sammenklappelige, opvarmede sidespejle med automatisk nedblænding"
             },
             {
               "type": "feature_list.default[2].items[4]",
-              "content": "Vlastní profily řidičů"
+              "content": "Brugerdefinerede førerprofiler"
             },
             {
               "type": "feature_list.default[2].items[5]",
-              "content": "Středová konzole s přihrádkou, 4 USB porty a dokovací stanicí pro 2 chytré telefony"
+              "content": "Midterkonsol med opbevaringsplads, 4 USB-porte og plads til docking af to smartphones"
             },
             {
               "type": "view_details_collapsed",
-              "content": "Zobrazit podrobnosti",
+              "content": "Vis detaljer",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -9857,7 +9970,7 @@
             },
             {
               "type": "view_details_expanded",
-              "content": "Skrýt podrobnosti",
+              "content": "Skjul detaljer",
               "behavior": [
                 {
                   "type": "ACTION",
@@ -9915,12 +10028,12 @@
               ]
             }
           ],
-          "price": 32000,
+          "price": 9500,
           "pricing": [
             {
               "type": "base",
-              "value": 32000,
-              "context": "CZK"
+              "value": 9500,
+              "context": "DKK"
             }
           ]
         },
@@ -9943,6 +10056,10 @@
               },
               {
                 "action": "set",
+                "target": "$TW01"
+              },
+              {
+                "action": "set",
                 "target": "$PR00",
                 "condition_code": "$PPMR",
                 "condition_state": "set"
@@ -9952,10 +10069,6 @@
                 "target": "$PN00",
                 "condition_code": "$PMNG",
                 "condition_state": "set"
-              },
-              {
-                "action": "unset",
-                "target": "$TW01"
               }
             ]
           },
@@ -9990,6 +10103,10 @@
             },
             {
               "action": "set",
+              "target": "$TW01"
+            },
+            {
+              "action": "set",
               "target": "$PR00",
               "condition_code": "$PPMR",
               "condition_state": "set"
@@ -9999,10 +10116,6 @@
               "target": "$PN00",
               "condition_code": "$PMNG",
               "condition_state": "set"
-            },
-            {
-              "action": "unset",
-              "target": "$TW01"
             }
           ],
           "unset_rules": [
@@ -10023,26 +10136,26 @@
               ]
             }
           ],
-          "name": "Long Range s pohonem všech kol",
-          "description": "Model Y Long Range AWD",
-          "long_name": "Model Y Long Range s pohonem všech kol Dual Motor",
-          "long_description": "Model Y Long Range AWD",
+          "name": "Long Range firehjulstræk",
+          "description": "Model Y Long Range AWD",
+          "long_name": "Model Y Long Range Dual Motor firehjulstræk",
+          "long_description": "Model Y Long Range AWD",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Model Y Long Range"
+              "content": "Model Y Long Range"
             },
             {
               "type": "disclaimer_details",
-              "content": "Systém pohonu všech kol Tesla využívá dva nezávislé elektromotory k zajištění optimálního výkonu. Každý má pouze jednu pohyblivou část, čímž se omezuje potřeba údržby a maximalizuje životnost. Na rozdíl od tradičních systémů pohonu všech kol tyto dva motory digitálně regulují točivý moment dodávaný na přední a zadní kola za účelem zajištění lepší ovladatelnosti a kontroly trakce."
+              "content": "Tesla firehjulstræk har to uafhængige motorer til forbedret redundans, hver med kun én bevægelig del for minimal vedligeholdelse og maksimal holdbarhed. I modsætning til traditionelle firehjulstræksystemer styrer de digitalt drejningsmomentet til for- og baghjul for bedre håndtering og vejgreb."
             },
             {
               "type": "long_name",
-              "content": "Model Y Long Range s pohonem všech kol Dual Motor"
+              "content": "Model Y Long Range Dual Motor firehjulstræk"
             },
             {
               "type": "drive_mode",
-              "content": "Pohon všech kol Dual Motor"
+              "content": "Dual Motor firehjulstræk"
             }
           ],
           "extra_content": [
@@ -10086,22 +10199,45 @@
                     "$MDLY"
                   ],
                   "optionPriceKey": "base_plus_trim",
-                  "condition_state": "and"
+                  "condition_state": "and",
+                  "fees_standalone": [
+                    "total.once"
+                  ]
                 }
               ]
             }
           ],
-          "price": 355500,
+          "price": 102220,
           "pricing": [
             {
               "type": "base",
-              "value": 355500,
-              "context": "CZK"
+              "value": 102220,
+              "context": "DKK",
+              "set_rules": [
+                {
+                  "action": "set",
+                  "target": "$MTY09",
+                  "target_value": 111720,
+                  "condition_code": "$TW01",
+                  "condition_state": "set",
+                  "target_property": "price"
+                }
+              ]
             },
             {
               "type": "base_plus_trim",
-              "value": 1355490,
-              "context": "CZK"
+              "value": 427210,
+              "context": "DKK",
+              "set_rules": [
+                {
+                  "action": "set",
+                  "target": "$MTY09",
+                  "target_value": 436710,
+                  "condition_code": "$TW01",
+                  "condition_state": "set",
+                  "target_property": "price"
+                }
+              ]
             }
           ]
         },
@@ -10127,7 +10263,7 @@
                 ]
               },
               {
-                "action": "unset",
+                "action": "set",
                 "target": "$TW01"
               },
               {
@@ -10193,7 +10329,7 @@
               ]
             },
             {
-              "action": "unset",
+              "action": "set",
               "target": "$TW01"
             },
             {
@@ -10240,46 +10376,46 @@
               ]
             }
           ],
-          "name": "Performance s pohonem všech kol",
-          "description": "Model Y Performance AWD",
-          "long_name": "Model Y Performance s pohonem všech kol Dual Motor",
-          "long_description": "Model Y Performance AWD",
+          "name": "Performance firehjulstræk",
+          "description": "Model Y Performance AWD",
+          "long_name": "Model Y Performance Dual Motor firehjulstræk",
+          "long_description": "Model Y Performance AWD",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Model Y Performance"
+              "content": "Model Y Performance"
             },
             {
               "type": "price_indicator",
-              "content": "Volitelné"
+              "content": "Valgfri"
             },
             {
               "type": "compare_matrix.block[0].label",
-              "content": "Akcelerace"
+              "content": "Acceleration"
             },
             {
               "type": "compare_matrix.block[0].content",
-              "content": "0–100 km/h za 3,5 s."
+              "content": "0-100 km/t på 3,5 sek."
             },
             {
               "type": "compare_matrix.block[1].label",
-              "content": "Pohon"
+              "content": "Kørsel"
             },
             {
               "type": "compare_matrix.block[1].content",
-              "content": "Pohon všech kol Dual Motor"
+              "content": "Dual Motor firehjulstræk"
             },
             {
               "type": "disclaimer_details",
-              "content": "Systém pohonu všech kol Tesla využívá dva nezávislé elektromotory k zajištění optimálního výkonu. Každý má pouze jednu pohyblivou část, čímž se omezuje potřeba údržby a maximalizuje životnost. Na rozdíl od tradičních systémů pohonu všech kol tyto dva motory digitálně regulují točivý moment dodávaný na přední a zadní kola za účelem zajištění lepší ovladatelnosti a kontroly trakce."
+              "content": "Tesla firehjulstræk har to uafhængige motorer til forbedret redundans, hver med kun én bevægelig del for minimal vedligeholdelse og maksimal holdbarhed. I modsætning til traditionelle firehjulstræksystemer styrer de digitalt drejningsmomentet til for- og baghjul for bedre håndtering og vejgreb."
             },
             {
               "type": "long_name",
-              "content": "Model Y Performance s pohonem všech kol Dual Motor"
+              "content": "Model Y Performance Dual Motor firehjulstræk"
             },
             {
               "type": "drive_mode",
-              "content": "Pohon všech kol Dual Motor"
+              "content": "Dual Motor firehjulstræk"
             }
           ],
           "extra_content": [
@@ -10334,22 +10470,45 @@
                     "$MDLY"
                   ],
                   "optionPriceKey": "base_plus_trim",
-                  "condition_state": "and"
+                  "condition_state": "and",
+                  "fees_standalone": [
+                    "total.once"
+                  ]
                 }
               ]
             }
           ],
-          "price": 456000,
+          "price": 116500,
           "pricing": [
             {
               "type": "base",
-              "value": 456000,
-              "context": "CZK"
+              "value": 116500,
+              "context": "DKK",
+              "set_rules": [
+                {
+                  "action": "set",
+                  "target": "$MTY12",
+                  "target_value": 126000,
+                  "condition_code": "$TW01",
+                  "condition_state": "set",
+                  "target_property": "price"
+                }
+              ]
             },
             {
               "type": "base_plus_trim",
-              "value": 1455990,
-              "context": "CZK"
+              "value": 441490,
+              "context": "DKK",
+              "set_rules": [
+                {
+                  "action": "set",
+                  "target": "$MTY12",
+                  "target_value": 450990,
+                  "condition_code": "$TW01",
+                  "condition_state": "set",
+                  "target_property": "price"
+                }
+              ]
             }
           ]
         },
@@ -10388,10 +10547,6 @@
                   "$PR00",
                   "$PN00"
                 ]
-              },
-              {
-                "action": "unset",
-                "target": "$TW01"
               }
             ],
             "unset_rules": [
@@ -10451,10 +10606,6 @@
                 "$PR00",
                 "$PN00"
               ]
-            },
-            {
-              "action": "unset",
-              "target": "$TW01"
             }
           ],
           "unset_rules": [
@@ -10483,10 +10634,10 @@
               ]
             }
           ],
-          "name": "Model Y s pohonem zadních kol",
-          "description": "Model Y s pohonem zadních kol",
-          "long_name": "Model Y s pohonem zadních kol",
-          "long_description": "Model Y s pohonem zadních kol",
+          "name": "Model Y baghjulstræk",
+          "description": "Model Y baghjulstræk",
+          "long_name": "Model Y baghjulstræk",
+          "long_description": "Model Y baghjulstræk",
           "extra_copy": [
             {
               "type": "name",
@@ -10494,11 +10645,11 @@
             },
             {
               "type": "long_name",
-              "content": "Model Y s pohonem zadních kol"
+              "content": "Model Y baghjulstræk"
             },
             {
               "type": "drive_mode",
-              "content": "Pohon zadních kol"
+              "content": "Baghjulstræk"
             }
           ],
           "extra_content": [
@@ -10518,22 +10669,45 @@
                     "$MDLY"
                   ],
                   "optionPriceKey": "base_plus_trim",
-                  "condition_state": "and"
+                  "condition_state": "and",
+                  "fees_standalone": [
+                    "total.once"
+                  ]
                 }
               ]
             }
           ],
-          "price": 165500,
+          "price": 43720,
           "pricing": [
             {
               "type": "base",
-              "value": 165500,
-              "context": "CZK"
+              "value": 43720,
+              "context": "DKK",
+              "set_rules": [
+                {
+                  "action": "set",
+                  "target": "$MTY13",
+                  "target_value": 53220,
+                  "condition_code": "$TW01",
+                  "condition_state": "set",
+                  "target_property": "price"
+                }
+              ]
             },
             {
               "type": "base_plus_trim",
-              "value": 1165490,
-              "context": "CZK"
+              "value": 368710,
+              "context": "DKK",
+              "set_rules": [
+                {
+                  "action": "set",
+                  "target": "$MTY13",
+                  "target_value": 378210,
+                  "condition_code": "$TW01",
+                  "condition_state": "set",
+                  "target_property": "price"
+                }
+              ]
             }
           ]
         },
@@ -10559,21 +10733,21 @@
               "target": "$PRMY1"
             }
           ],
-          "name": "Prémiový interiér",
-          "description": "<p>Vylepšete svůj interiér doplňkovými prvky a prémiovými materiály.</p><ul><li><span>Prémiové materiály na vyhřívaných sedadlech a v interiéru, včetně dekoru ze dřeva s výraznou texturou, prosklené střechy a čtyř portů USB</span></li><li><span>12polohová elektricky nastavitelná přední sedadla, sloupek řízení a vnější zrcátka, s vlastními profily řidičů</span></li><li><span>Prémiový audiosystém s vyšším výkonem, výškovými reproduktory, prostorovými reproduktory a subwooferem</span></li></ul>",
-          "long_name": "Prémiový interiér",
+          "name": "Premium-interiør",
+          "description": "<p>Opgrader dit interiør med ekstrafunktioner og premium-materialer.</p><ul><li><span>Premium opvarmede sæder og kabinematerialer inkl. træ-interiør, glastag og fire USB-porte</span></li><li><span>12-vejs automatisk justerbare forsæder, rat og sidespejle, alle med tilpassede førerprofiler</span></li><li><span>Premium lydsystem med mere kraft, diskanter, surround-højtalere og subwoofer</span></li></ul>",
+          "long_name": "Premium-interiør",
           "extra_copy": [
             {
               "type": "name",
-              "content": "Prémiový"
+              "content": "Premium"
             },
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             },
             {
               "type": "short_description",
-              "content": "Náš paket prémiových doplňků obohatí Model Y řadou vylepšených funkcí"
+              "content": "Vores premium-pakke tilføjer opgraderede funktioner til Model Y"
             }
           ],
           "extra_content": [
@@ -10591,7 +10765,7 @@
             {
               "type": "base",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             }
           ]
         },
@@ -10699,50 +10873,50 @@
               ]
             }
           ],
-          "name": "Doplňková výbava Performance",
-          "description": "Doplňková výbava Performance",
-          "long_name": "Doplňková výbava Performance",
-          "long_description": "Doplňková výbava Performance",
+          "name": "Performance-opgradering",
+          "description": "Performance-opgradering",
+          "long_name": "Performance-opgradering",
+          "long_description": "Performance-opgradering",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             },
             {
               "type": "selectLabel",
-              "content": "Přidat doplňkovou výbavu Performance"
+              "content": "Tilføj Performance-opgradering"
             },
             {
               "type": "deselectLabel",
-              "content": "Doplňková výbava Performance přidána"
+              "content": "Performance-opgradering tilføjet"
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Maximální rychlost: až 250 km/h"
+              "content": "Tophastighed: op til 250 km/t"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "21’’ Überturbine kola"
+              "content": "21'' Überturbine-fælge"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Brzdy Performance"
+              "content": "Performance-bremser"
             },
             {
               "type": "feature_list.default[0].items[3]",
-              "content": "Snížený podvozek "
+              "content": "Sænket affjedring"
             },
             {
               "type": "feature_list.default[0].items[4]",
-              "content": "Pedály z hliníkové slitiny"
+              "content": "Aluminiumslegerede pedaler"
             },
             {
               "type": "feature_list.default[0].items[5]",
-              "content": "Spoiler z uhlíkových vláken"
+              "content": "Kulfiberspoiler"
             },
             {
               "type": "performance_upgrade_features",
-              "content": "Zjistit více",
+              "content": "Lær mere",
               "behavior": [
                 {
                   "type": "CONTAINER",
@@ -10797,7 +10971,7 @@
             {
               "type": "base",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             }
           ]
         },
@@ -10825,13 +10999,13 @@
               "condition_state": "unset"
             }
           ],
-          "name": "Interiér s pěti sedadly",
-          "description": "Interiér s pěti sedadly",
-          "long_name": "Interiér s pěti sedadly",
+          "name": "Femsæders interiør",
+          "description": "Femsæders interiør",
+          "long_name": "Femsæders interiør",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             },
             {
               "type": "short_name",
@@ -10839,15 +11013,15 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Druhá řada s nastavitelnými opěradly"
+              "content": "Anden række med justerbare ryglæn"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Sklopná druhá řada pro maximální úložný prostor"
+              "content": "Nedfældelig anden række for maksimal opbevaring af bagage"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Elektronické odblokování sklopných sedadel v zavazadlovém prostoru"
+              "content": "Elektroniske udløsere i bagagerummet til at nedfælde sæder fladt"
             }
           ],
           "extra_content": [
@@ -10865,7 +11039,7 @@
             {
               "type": "base",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             }
           ]
         },
@@ -10891,9 +11065,9 @@
               "target": "$STY5S"
             }
           ],
-          "name": "Interiér se sedmi sedadly",
-          "description": "Interiér se sedmi sedadly",
-          "long_name": "Interiér se sedmi sedadly",
+          "name": "Syvsæders interiør",
+          "description": "Syvsæders interiør",
+          "long_name": "Syvsæders interiør",
           "extra_copy": [
             {
               "type": "short_name",
@@ -10901,27 +11075,27 @@
             },
             {
               "type": "feature_list.default[0].items[0]",
-              "content": "Třetí řada sedadel pro dva"
+              "content": "Sæder på tredje række til to"
             },
             {
               "type": "feature_list.default[0].items[1]",
-              "content": "Snadný vstup do třetí řady"
+              "content": "Nem adgang til tredje række"
             },
             {
               "type": "feature_list.default[0].items[2]",
-              "content": "Nabíjení USB-C ve třetí řadě"
+              "content": "Tredje række USB-C-opladning"
             },
             {
               "type": "feature_list.default[0].items[3]",
-              "content": "Posuvná druhá řada s nastavitelnými opěradly"
+              "content": "Glidende anden række med justerbare ryglæn"
             },
             {
               "type": "feature_list.default[0].items[4]",
-              "content": "Sklopná druhá a třetí řada pro maximální úložný prostor"
+              "content": "Nedfæld anden og tredje række fladt for maksimal opbevaring af bagage"
             },
             {
               "type": "feature_list.default[0].items[5]",
-              "content": "Elektronické odblokování sklopných sedadel v zavazadlovém prostoru"
+              "content": "Elektroniske udløsere i bagagerummet til at nedfælde sæder fladt"
             }
           ],
           "extra_content": [
@@ -10950,7 +11124,7 @@
             {
               "type": "base",
               "value": 3000,
-              "context": "CZK"
+              "context": "DKK"
             }
           ]
         },
@@ -10999,13 +11173,13 @@
               "target": "$WWY00"
             }
           ],
-          "name": "Sada 19\" zimních pneumatik Pirelli",
-          "description": "Zimní pneumatiky Pirelli Sottozero 3 nabízejí nízký valivý odpor a vysokou přilnavost na zasněžených silnicích. Tato sada obsahuje čtyři 19\" kola Sport s nasazenými pneumatikami.",
-          "long_name": "19\" zimní pneumatiky Pirelli s koly Sport",
+          "name": "19\" Pirelli vinterhjul",
+          "description": "Pirelli Sottozero 3 vinterdæk kombinerer lav rullemodstand med godt vejgreb på snedækkede veje. Dette sæt indeholder fire 19\" Sport-fælge med dæk monteret.",
+          "long_name": "19\" Pirelli vinterdæk med Sport-fælge",
           "extra_copy": [
             {
               "type": "short_description",
-              "content": "Zimní pneumatiky Pirelli Sottozero 3 nabízejí nízký valivý odpor a vysokou přilnavost na zasněžených silnicích. Tato sada obsahuje čtyři 19\" kola Sport s nasazenými pneumatikami."
+              "content": "Pirelli Sottozero 3 vinterdæk kombinerer lav rullemodstand med godt vejgreb på snedækkede veje. Dette sæt indeholder fire 19\" Sport-fælge med dæk monteret."
             }
           ],
           "extra_content": [
@@ -11051,12 +11225,12 @@
               ]
             }
           ],
-          "price": 60880,
+          "price": 18590,
           "pricing": [
             {
               "type": "base",
-              "value": 60880,
-              "context": "CZK"
+              "value": 18590,
+              "context": "DKK"
             }
           ]
         },
@@ -11109,13 +11283,13 @@
               "target": "$WWY03"
             }
           ],
-          "name": "Sada 21\" zimních pneumatik Pirelli",
-          "description": "Zimní pneumatiky Pirelli Sottozero 3 kombinují nízký valivý odpor a vysokou přilnavost na zasněžených silnicích. Tato sada obsahuje čtyři 21\" kola Performance s nasazenými pneumatikami.",
-          "long_name": "Sada 21\" zimních pneumatik Pirelli",
+          "name": "21\" Pirelli vinterhjul",
+          "description": "Pirelli Sottozero 3 vinterdæk kombinerer lav rullemodstand med godt vejgreb på snedækkede veje. Dette sæt indeholder fire 21\" Performance-fælge med dæk monteret.",
+          "long_name": "21\" Pirelli vinterhjul",
           "extra_copy": [
             {
               "type": "short_description",
-              "content": "Zimní pneumatiky Pirelli Sottozero 3 nabízejí nízký valivý odpor a vysokou přilnavost na zasněžených silnicích. Tato sada obsahuje čtyři 19\" kola Sport s nasazenými pneumatikami."
+              "content": "Pirelli Sottozero 3 vinterdæk kombinerer lav rullemodstand med godt vejgreb på snedækkede veje. Dette sæt indeholder fire 19\" Sport-fælge med dæk monteret."
             }
           ],
           "extra_content": [
@@ -11162,12 +11336,12 @@
               ]
             }
           ],
-          "price": 105000,
+          "price": 29900,
           "pricing": [
             {
               "type": "base",
-              "value": 105000,
-              "context": "CZK"
+              "value": 29900,
+              "context": "DKK"
             }
           ]
         },
@@ -11218,13 +11392,13 @@
               ]
             }
           ],
-          "name": "19\" Gemini kola",
-          "description": "19\" Gemini kola",
-          "long_name": "19\" Gemini kola",
+          "name": "19'' Gemini-fælge",
+          "description": "19'' Gemini-fælge",
+          "long_name": "19'' Gemini-fælge",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             }
           ],
           "extra_content": [
@@ -11262,7 +11436,7 @@
             {
               "type": "base",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             }
           ]
         },
@@ -11310,14 +11484,14 @@
               "condition_state": "unset"
             }
           ],
-          "name": "20\" Induction kola",
-          "description": "20\" Induction kola",
-          "long_name": "20\" Induction kola",
-          "long_description": "20\" Induction kola",
+          "name": "20\" Induction-fælge",
+          "description": "20\" Induction-fælge",
+          "long_name": "20\" Induction-fælge",
+          "long_description": "20\" Induction-fælge",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             }
           ],
           "extra_content": [
@@ -11350,12 +11524,12 @@
               ]
             }
           ],
-          "price": 59600,
+          "price": 17500,
           "pricing": [
             {
               "type": "base",
-              "value": 59600,
-              "context": "CZK",
+              "value": 17500,
+              "context": "DKK",
               "set_rules": [
                 {
                   "action": "set",
@@ -11420,14 +11594,14 @@
               "condition_state": "unset"
             }
           ],
-          "name": "21’’ Überturbine kola",
-          "description": "21’’ Überturbine kola",
-          "long_name": "21’’ Überturbine kola",
-          "long_description": "21’’ Überturbine kola",
+          "name": "21'' Überturbine-fælge",
+          "description": "21'' Überturbine-fælge",
+          "long_name": "21'' Überturbine-fælge",
+          "long_description": "21'' Überturbine-fælge",
           "extra_copy": [
             {
               "type": "price_indicator",
-              "content": "v ceně"
+              "content": "Inkluderet"
             }
           ],
           "extra_content": [
@@ -11476,7 +11650,7 @@
             {
               "type": "base",
               "value": 0,
-              "context": "CZK"
+              "context": "DKK"
             }
           ]
         }
@@ -11536,40 +11710,40 @@
                 },
                 "unit_definitions": {
                   "seconds": {
-                    "label": "sekundy",
+                    "label": "sekunder",
                     "short_label": "s"
                   },
                   "per-month": {
-                    "label": "/měsíc",
-                    "short_label": "/měs"
+                    "label": " /md.",
+                    "short_label": " /md."
                   },
                   "kilometers": {
-                    "label": "kilometrů",
+                    "label": "kilometer",
                     "short_label": "km"
                   },
                   "range_units": {
-                    "label": "Dojezd"
+                    "label": "Rækkevidde"
                   },
                   "range_units_epa": {
-                    "label": "Dojezd (WLTP)"
+                    "label": "Rækkevidde (WLTP)"
                   },
                   "range_units_est": {
-                    "label": "Dojezd (WLTP, odhad)"
+                    "label": "Rækkevidde <br>(anslået af WLTP)"
                   },
                   "top_speed_units": {
-                    "label": "Maximální rychlost",
-                    "short_label": "km/h"
+                    "label": "Tophastighed",
+                    "short_label": "km/t"
                   },
                   "zero_to_road_limit": {
-                    "label": "0–100 km/h",
-                    "short_label": "0–100 km/h"
+                    "label": "0-100 km/t",
+                    "short_label": "0-100 km/t"
                   },
                   "kilometers-per-hour": {
-                    "label": "kilometrů za hodinu",
-                    "short_label": "km/h"
+                    "label": "kilometer i timen",
+                    "short_label": "km/t"
                   },
                   "range_units_epa_link": {
-                    "label": "Dojezd",
+                    "label": "Rækkevidde",
                     "content": "(WLTP)",
                     "behavior": [
                       {
@@ -11581,8 +11755,8 @@
                     ]
                   },
                   "range_units_est_link": {
-                    "label": "Dojezd",
-                    "content": "(WLTP, odhad)",
+                    "label": "Rækkevidde",
+                    "content": "(anslået af WLTP)",
                     "behavior": [
                       {
                         "type": "ACTION",
@@ -11767,16 +11941,16 @@
             }
           }
         },
-        "currency_code": "CZK",
-        "currency_symbol": "Kč",
+        "currency_code": "DKK",
+        "currency_symbol": "kr.",
         "pricing": {
           "context_mapping": {
-            "default": "CZK"
+            "default": "DKK"
           },
           "context_currency_mapping": {
             "default": {
-              "currency_code": "CZK",
-              "currency_symbol": "Kč"
+              "currency_code": "DKK",
+              "currency_symbol": "kr."
             }
           }
         }
@@ -11998,25 +12172,14 @@
         "$PPSW",
         "$WY19B",
         "$SC04",
-        "$INPB0"
+        "$INPB0",
+        "$TW01"
       ],
-      "options_id": 8540,
+      "options_id": 8539,
       "warnings": [
         {
           "type": "MISSING_PRICE",
-          "message": "The discountable group's, option '$MTY03' is not defined in the pricing lexicon."
-        },
-        {
-          "type": "MISSING_PRICE",
-          "message": "The discountable group's, option '$MTY04' is not defined in the pricing lexicon."
-        },
-        {
-          "type": "MISSING_PRICE",
           "message": "The discountable group's, option '$INYPB' is not defined in the pricing lexicon."
-        },
-        {
-          "type": "MISSING_PRICE",
-          "message": "The discountable group's, option '$INYPW' is not defined in the pricing lexicon."
         },
         {
           "type": "MISSING_PRICE",
@@ -12471,49 +12634,132 @@
           "message": "'Fees' should be moved to Copy lexicon from Options."
         }
       ],
-      "extra_content": [
-        {
-          "type": "$BAT07",
-          "content": {
-            "code": "$BAT07",
-            "content": "",
-            "plan_name": "Long Range, Performance Battery Warranty",
-            "coverage_age": 96,
-            "coverage_start_date": "",
-            "new_warranty_remainder": true,
-            "coverage_odometer_miles": 120000,
-            "coverage_odometer_kilometers": 192000
-          }
-        },
-        {
-          "type": "$RD04",
-          "content": {
-            "code": "$RD04",
-            "content": "",
-            "plan_name": "Pre-Owned Extended Roadside Assistance",
-            "coverage_age": 24,
-            "new_warranty_remainder": true,
-            "coverage_odometer_miles": 100000,
-            "coverage_odometer_kilometers": 160000
-          }
-        }
-      ],
-      "copy_id": 9858,
-      "language": "cs",
-      "pricing_id": 34908,
-      "reference_id": 8540,
+      "extra_content": [],
+      "copy_id": 9856,
+      "language": "da",
+      "pricing_id": 34912,
+      "reference_id": 8539,
       "source": "cache"
     },
     "financeProductsSource": "finCMS",
     "Lease.my.my": {
-      "lease": []
-    },
-    "Loan.my.my": {
-      "loan": [
+      "lease": [
         {
-          "id": null,
-          "market": "CZ",
-          "productType": "loan",
+          "id": "operational_lease",
+          "market": "DK",
+          "productType": "lease",
+          "accountType": "private",
+          "variant": [
+            "m3",
+            "ms",
+            "mx",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "leaseTerm": 36,
+            "leaseDistance": 15000
+          },
+          "disclaimers": {
+            "da": {
+              "default": "<p>Privatleasing af {SELECTED_TRIM_LONG_NAME} gennem ALD. Månedlig ydelse af {PAYMENT_WITHOUT_VAT}, Førstegangsydelse {DOWNPAYMENT}, totale omkostninger i perioden {TOTAL_AMOUNT_PAYABLE}. Kontraktens varighed er {TERM} måneder, årlig kilometer {MILEAGE} km. Priser er inkl. service- &amp; vedligeholdelsesaftale, eksklusiv dæk, grøn ejerafgift, obligatorisk kaskoforsikring og obligatorisk afleveringsgebyr på 600 kr. Positiv kreditvurdering samt betaling via betalingsservice forudsættes.</p>"
+            }
+          },
+          "enabled": true,
+          "default": true,
+          "incomplete": true,
+          "uiSettings": {
+            "pdf": {
+              "leaseFields": [
+                "downPayment",
+                "distance",
+                "term"
+              ]
+            },
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "distance",
+                  "term"
+                ],
+                [
+                  "includeServiceFee"
+                ]
+              ],
+              "standardFeaturesList": true,
+              "additionalFeaturesList": false
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm",
+                "leaseDistance"
+              ]
+            }
+          }
+        },
+        {
+          "id": "operational_lease_commercial",
+          "market": "DK",
+          "productType": "lease",
+          "accountType": "business",
+          "variant": [
+            "m3",
+            "ms",
+            "mx",
+            "my"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "leaseTerm": 36,
+            "leaseDistance": 15000
+          },
+          "disclaimers": {
+            "da": {
+              "default": "<p>Operationel leasing af {SELECTED_TRIM_LONG_NAME} gennem ALD. Månedlig ydelse af {PAYMENT_WITHOUT_VAT}, Førstegangsydelse {DOWNPAYMENT}, totale omkostninger i perioden {TOTAL_AMOUNT_PAYABLE}. Kontraktens varighed er {TERM} måneder, årlig kilometer {MILEAGE}. Priser er inkl. service- &amp; vedligeholdelsesaftale, eksklusiv dæk, obligatorisk kaskoforsikring og grøn ejerafgift. Positiv kreditvurdering samt betaling via betalingsservice forudsættes. Alle priser er eksklusiv moms.</p>"
+            }
+          },
+          "enabled": true,
+          "default": true,
+          "incomplete": true,
+          "uiSettings": {
+            "pdf": {
+              "leaseFields": [
+                "downPayment",
+                "distance",
+                "term"
+              ]
+            },
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "distance",
+                  "term"
+                ],
+                [
+                  "includeServiceFee"
+                ]
+              ],
+              "standardFeaturesList": true,
+              "additionalFeaturesList": false
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm",
+                "leaseDistance"
+              ]
+            }
+          }
+        },
+        {
+          "id": "dnb_loan",
+          "market": "DK",
+          "productType": "lease",
           "accountType": null,
           "variant": [
             "m3",
@@ -12522,32 +12768,141 @@
             "mx"
           ],
           "inventory": [
-            "new",
-            "used"
+            "new"
           ],
           "variables": {
-            "loanTerm": 60,
-            "downPayment": 0.2,
-            "interestRate": 7.69,
-            "maximumDownPayment": 1,
-            "minimumDownPayment": 0.1
+            "leaseTerm": 96,
+            "interestRate": 5.15,
+            "localeSpecific": {
+              "insuranceFee": 950,
+              "collectionFee": 30,
+              "titleRetention": 750,
+              "establishmentFee": 2500,
+              "fixedRegistrationFee": 1750,
+              "registrationFeePercentage": 1.5
+            },
+            "downPaymentPercent": 0.2,
+            "downPaymentPercentMatrix": [
+              0.2,
+              0.35,
+              0.45,
+              0.6
+            ]
           },
           "disclaimers": {
-            "cs": {
-              "default": "Upozorňujeme, že výše uvedený výpočet je pouze informativní a není závazný. Výpočet zároveň nepředstavuje návrh na uzavření a/nebo změnu a/nebo zrušení smlouvy, ani přijetí takového návrhu. Smlouvy a jejich případné změny uzavírá Raiffeisen - Leasing, s.r.o. pouze v písemné formě, a to po schválení podmínek financování ze strany Raiffeisen - Leasing, s.r.o. Raiffeisen - Leasing, s.r.o. si vyhrazuje právo změnit parametry tohoto výpočtu v závislosti na jeho obchodních a provozních potřebách a vývoji trhu. Výpočet platí pouze pro podnikatele a právnické osoby. Pokud máte zájem o financování pro spotřebitele, kontaktujte přímo Raiffeisen - Leasing, s.r.o. Všechny ceny jsou uvedeny včetně {VAT_PERCENT} DPH."
+            "da": {
+              "default": "<p><strong>Kontantpris:</strong> {CASH_PRICE}.<br/><br/><strong>Finansiering via DNB Finans:</strong><br/>{TERM} månedlige rater á {PAYMENT}.<br/>Fast Debitorrente {RATE}%.<br/>ÅOP {EFFECTIVE_RATE}%.<br/>Udbetaling {DOWNPAYMENT}.<br/>Samlet kreditbeløb (ekskl. oprettelsesomkostninger) {FINANCED_AMOUNT}. Løbetid {TERM} mdr. Samlede kreditomkostninger {INTEREST_CHARGES}. Samlet beløb der skal betales tilbage {COST_CREDIT}. Kaskoforsikring er påkrævet. Positiv kreditgodkendelse forudsættes. Der er 14 dages fortrydelsesret på lånet. Der tages forbehold for trykfejl, afgifts- og prisændringer.</p>"
             }
           },
           "enabled": true,
-          "loanTermsOffered": {
-            "loanTerm": [
+          "uiSettings": {
+            "pdf": {
+              "leaseFields": [
+                "downPayment",
+                "term"
+              ]
+            },
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "downPaymentPercent",
+                  "term"
+                ]
+              ]
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm"
+              ]
+            }
+          },
+          "leaseTermsOffered": {
+            "leaseTerm": [
+              12,
+              24,
+              36,
+              48,
+              60,
+              72,
+              84,
+              96
+            ]
+          }
+        },
+        {
+          "id": "dnb_business_loan",
+          "market": "DK",
+          "productType": "lease",
+          "accountType": null,
+          "variant": [
+            "m3",
+            "my",
+            "ms",
+            "mx"
+          ],
+          "inventory": [
+            "new"
+          ],
+          "variables": {
+            "leaseTerm": 36,
+            "interestRate": 5.15,
+            "localeSpecific": {
+              "insuranceFee": 950,
+              "collectionFee": 30,
+              "titleRetention": 750,
+              "establishmentFee": 2500,
+              "fixedRegistrationFee": 1750,
+              "registrationFeePercentage": 1.5
+            },
+            "downPaymentPercent": 0.2,
+            "downPaymentPercentMatrix": [
+              0.2,
+              0.35,
+              0.45,
+              0.6
+            ]
+          },
+          "disclaimers": {
+            "da": {
+              "default": "<p><strong>Kontantpris:</strong> {CASH_PRICE}.<br/><br/><strong>Finansiering via DNB Finans:</strong><br/>{TERM} månedlige rater á {PAYMENT}.<br/>Fast Debitorrente {RATE}%.<br/>ÅOP {EFFECTIVE_RATE}%.<br/>Udbetaling {DOWNPAYMENT}.<br/>Samlet kreditbeløb (ekskl. oprettelsesomkostninger) {FINANCED_AMOUNT}. Løbetid {TERM} mdr. Samlede kreditomkostninger {INTEREST_CHARGES}. Samlet beløb der skal betales tilbage {COST_CREDIT}. Kaskoforsikring er påkrævet. Positiv kreditgodkendelse forudsættes. Der tages forbehold for trykfejl, afgifts- og prisændringer.</p>"
+            }
+          },
+          "enabled": true,
+          "uiSettings": {
+            "pdf": {
+              "leaseFields": [
+                "downPayment",
+                "term"
+              ]
+            },
+            "forms": {
+              "showLeaseFields": [
+                [
+                  "downPaymentPercent",
+                  "term"
+                ]
+              ]
+            },
+            "reviewDetails": {
+              "showLeaseSummaryFields": [
+                "downPayment",
+                "leaseTerm"
+              ]
+            }
+          },
+          "leaseTermsOffered": {
+            "leaseTerm": [
               36,
               48,
               60
             ]
-          },
-          "interestRateMatrix": []
+          }
         }
       ]
+    },
+    "Loan.my.my": {
+      "loan": []
     }
   }
 }
